@@ -1,0 +1,50 @@
+// define the proto language version
+syntax = "proto2";
+// optimize for speed
+option optimize_for = SPEED;
+
+// OSI - Open Simulation Interface
+package osi;
+
+/**
+ * The conditions of the environment.
+ */
+message EnvironmentalConditions
+{
+    // The ambient illumination of the environment.
+    optional AmbientIllumination ambient_illumination = 1;
+
+    // The time of day.
+    optional TimeOfDay time_of_day = 2;
+
+    // Definition of ambient illumination states.
+    enum AmbientIllumination
+    {
+        // Ambient illumination is unknown (must not be used in ground truth).
+        AMBIENT_ILLUMINATION_UNKNOWN = 0;
+        // Other (unspecified but known) ambient illumination.
+        AMBIENT_ILLUMINATION_OTHER = 1;
+        // Ambient illumination index is "bright".
+        // E.g. daytime with sunshine.
+        AMBIENT_ILLUMINATION_BRIGHT = 2;
+        // Ambient illumination index is "medium".
+        // E.g. daytime with overcast sky.
+        AMBIENT_ILLUMINATION_MEDIUM = 3;
+        // Ambient illumination index is "low".
+        // E.g. during twilight (dawn/dusk) or in a tunnel.
+        AMBIENT_ILLUMINATION_LOW = 4;
+        // Ambient illumination index is "dark".
+        // E.g. night time, no sunlight.
+        AMBIENT_ILLUMINATION_DARK = 5;
+    }
+
+    /**
+     * The time of day at the location of the vehicle.
+     */
+    message TimeOfDay
+    {
+        // The number of seconds that have passed since midnight local time.
+        // Used for determining the current state of the circadian rhythm of a driver.
+        optional uint32 seconds_from_midnight = 1;
+    }
+}

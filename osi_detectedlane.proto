@@ -1,0 +1,28 @@
+// define the proto language version
+syntax = "proto2";
+// optimize for speed
+option optimize_for = SPEED;
+
+// imports
+import "osi_common.proto";
+import "osi_lane.proto";
+
+// OSI - Open Simulation Interface
+package osi;
+
+/**
+ * A lane segment as detected by the sensor.
+ */
+message DetectedLane
+{
+    // The id of the original lane in the ground truth.
+    // Multiple entries if the detected lane is a merge of multiple lanes in ground truth (as lane segment definitions
+    // may vary between sensor and ground truth).
+    repeated Identifier ground_truth_id = 1;
+
+    // The detected lane.
+    optional Lane lane = 2;
+
+    // Estimated probability that this lane really exists. Range [0,1].
+    optional double existence_probability = 3;
+}

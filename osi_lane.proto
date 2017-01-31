@@ -1,0 +1,229 @@
+// define the proto language version
+syntax = "proto2";
+// optimize for speed
+option optimize_for = SPEED;
+
+// imports
+import "osi_common.proto";
+
+// OSI - Open Simulation Interface
+package osi;
+
+/**
+ * A lane in the road network.
+ * A lane is part of a road and mainly characterized by its center line. It also knows about any adjacent lanes,
+ * antecessor and successor lanes. The following image will be referred to by later comments. We'll use the lane
+ * with id 3 as reference if not mentioned otherwise.
+ * \image html highway_exit.png
+ * For lane a to be the antecessor of lane b, the last point of a's center line has to be identical to the first point
+ * of b's center line (although both points might lie outside the simulated region, the relationship remains). Any lane
+ * starts or ends at such a split/merge point. No lane can ever keep its id after such a split point, i.e. lane 4 has to
+ * change its id after lane 6 splits off of lane 4, thus in the example it becomes a new lane with id 7.
+ */
+message Lane
+{
+    // The (global) id of the lane.
+    // Example: 3 (see reference picture)
+    optional Identifier id = 1;
+
+    // The type of the lane.
+    // Example: Lane::Type::NORMAL (see reference picture)
+    optional Type type = 2;
+
+    // The lane's center line.
+    // This is the line, that a typical vehicle is supposed to follow. Thus, if the road narrows (e.g. construction
+    // site) this line is supposed to describe the trajectory that the vehicle should follow.
+    // The intended direction of travel on the lane is given by the direction defined by the sequence of points forming
+    // the center line.
+    //
+    // \attention The points might be set at arbitrary distances, but must not be further appart than 5m. When the
+    // points are pairwise linearly connected, the lateral distance to the real ideal line (as used by the simulation
+    // environment internally) must not exceed 5cm. As shown in the following image.
+    // \image html line_approximation_error.png
+    //
+    // Example: The yellow dotted line right of the blue 3.
+    repeated Vector3d center_line = 3;
+
+    // The boundary of the lane.
+    // The lane boundaries describe the lane markings or other boundaries delimiting the lane as well as free lines that
+    // might be used e.g. in construction sites. The lane markings do not have to be parallel to the center_line, but
+    // they are the basis for calculating the width of the lane at any given distance.
+    // Example: The double solid line above the 3, and the dashed line below the 3. (see reference picture)
+    // There might also be additional free lanes.
+    repeated LaneBoundary lane_boundary = 4;
+
+    // The lane's left adjacent lanes (w.r.t. intended driving direction).
+    // Example: The lane id 2.
+    repeated Identifier left_adjacent_lane_id = 5;
+
+    // The lane's right adjacent lanes (w.r.t. intended driving direction).
+    // Example: The lane ids 4 and 7.
+    repeated Identifier right_adjacent_lane_id = 6;
+
+    // The lane's antecessors (lanes that end in the same point that this lane's center line starts from).
+    // There might be multiple antecessors i.e. in road crossings. Antecessors might also come from a different Road.
+    // Example: Considering lane 6, its antecessor is the lane with id 4.
+    repeated Identifier antecessor_lane_id = 7;
+
+    // The lane's successors (lanes that start in the same point that this lane's center line ends in).
+    // There might be multiple successors i.e. in road crossings or highway exits.  Successors might also come from a
+    // different Road.
+    // Example: Considering lane 4, its successors are the lanes with id 6 and 7.
+    repeated Identifier successor_lane_id = 8;
+
+    // A lane framing describes the surrounding of the lane segment.
+    optional LaneFraming lane_framing = 9;
+
+    // Definition of available lane types.
+    enum Type
+    {
+        // Lane of unknown type. Value must not be used in ground truth!
+        TYPE_UNKNOWN = 0;
+        // Any other type of lane
+        TYPE_OTHER = 1;
+        // A normal lane.
+        // E.g. lanes with ids 1, 2, 3, 4 and 7 of the highway_exit image.
+        TYPE_NORMAL = 2;
+        // A stop/emergency lane on highways/freeways.
+        // E.g. lane with id 5 of the highway_exit image.
+        TYPE_EMERGENCY = 3;
+        // A freeway/highway entry lane.
+        TYPE_ENTRANCE = 4;
+        // A freeway/highway exit lane.
+        // E.g. lane with id 6 of the highway_exit image.
+        TYPE_EXIT = 5;
+        // A car pooling lane.
+        TYPE_HIGH_OCCUPANCY_VEHICLE = 6;
+        // A road area / lane reserved for parking.
+        TYPE_PARKING = 7;
+    }
+
+    // Definition of available lane framing types.
+    enum LaneFraming
+    {
+        // Lane of unknown framing. Value must not be used in ground truth!
+        LANE_FRAMING_UNKNOWN = 0;
+        // Other (unspecified but known) lane framing.
+        LANE_FRAMING_OTHER = 1;
+        // The lane is not framed.
+        LANE_FRAMING_OPEN = 2;
+        // The lane segment is inside of a tunnel.
+        LANE_FRAMING_TUNNEL = 3;
+        // The lane segment is on a bridge.
+        LANE_FRAMING_BRIDGE = 4;
+    }
+}
+
+/**
+ * A lane boundary defining the border of a lane.
+ * The left and right lane boundary define the width of the lane borders. Additionally, free markings can be defined,
+ * e.g. in construction sites. Free markings across multiple lanes may be defined multiple times by all affected
+ * lanes.
+ */
+message LaneBoundary
+{
+    // The list of individual points defining the location of the lane boundary.
+    // Since a BoundaryPoint is part of a sequence only the position attribute has to be set for each instance. All
+    // other values will be reused from the previous BoundaryPoint in the sequence or set to default values if there is
+    // none or it was never set. For dashed lines, one BoundaryPoint has to be at the start and another at the end of
+    // each dashed line segment.
+    //
+    // \attention For BoundaryPoints the same rules apply as for Lane::center_line regarding maximum distance and
+    // approximation error.
+    repeated BoundaryPoint boundary_line = 1;
+
+    // The location of the lane boundary within the lane.
+    optional BoundaryLocation location = 2;
+
+    // The type of the lane boundary.
+    optional Type type = 3;
+
+    // The color of the lane boundary in case of lane markings.
+    optional Color color = 4;
+
+    // The location of the lane boundary within the lane.
+    enum BoundaryLocation
+    {
+        // The location of the boundary is unknown. Value must not be used in ground truth.
+        BOUNDARY_LOCATION_UNKNOWN = 0;
+        // Other (unspecified but known) boundary location.
+        BOUNDARY_LOCATION_OTHER = 1;
+        // A left lane boundary.
+        BOUNDARY_LOCATION_LEFT = 2;
+        // A right lane boundary.
+        BOUNDARY_LOCATION_RIGHT = 3;
+        // A free lane boundary.
+        BOUNDARY_LOCATION_FREE = 4;
+    }
+
+    // The lane boundary type.
+    // There are no double lines, e.g. solid solid or dashed solid, as each lane will define its own side of the lane
+    // boundary.
+    enum Type
+    {
+        // The type of lane boundary is unknown. Value must not be used in ground truth.
+        TYPE_UNKNOWN = 0;
+        // Unspecified but known type of lane boundary.
+        // Consider proposing an additional type if using TYPE_OTHER.
+        TYPE_OTHER = 1;
+        // An invisible lane boundary (e.g. unmarked part of a dashed line).
+        TYPE_NO_LINE = 2;
+        // A solid line at the lane boundary.
+        TYPE_SOLID_LINE = 3;
+        // A dashed line at the lane boundary.
+        TYPE_DASHED_LINE = 4;
+        // A lane boundary consisting of Botts' dots.
+        TYPE_BOTTS_DOTS = 5;
+        // A lane boundary formed by the road's edge.
+        // The road edge is the end of the (paved) road surface.
+        TYPE_ROAD_EDGE = 6;
+        // A lane boundary formed by a snow edge that may be on the road surface.
+        TYPE_SNOW_EDGE = 7;
+        // A guard rail.
+        TYPE_GUARD_RAIL = 8;
+        // A curb.
+        TYPE_CURB = 9;
+        // A structure (e.g. building or tunnel wall).
+        TYPE_STRUCTURE = 10;
+    }
+
+    // The color of the lane boundary in case of a lane markings.
+    // Lane markings that change their color must be represented by individual Lane segments.
+    enum Color
+    {
+        // Color of Marking is unknown. Value must not be used in ground truth.
+        COLOR_UNKNOWN = 0;
+        // Other (unspecified but known) color.
+        COLOR_OTHER = 1;
+        // Marking without color, used to represent logical boundaries without physical markings.
+        // Value may be used in ground truth only.
+        COLOR_NONE = 2;
+        // Marking with white color.
+        COLOR_WHITE = 3;
+        // Marking with yellow / orange-yellow color.
+        COLOR_YELLOW = 4;
+        // Marking with red color
+        COLOR_RED = 5;
+        // Marking with blue color.
+        COLOR_BLUE = 6;
+        // Marking with green color;
+        COLOR_GREEN = 7;
+    }
+}
+
+/**
+ * One point of a lane boundary.
+ */
+message BoundaryPoint
+{
+    // The position of the BoundaryPoint.
+    optional Vector3d position = 1;
+
+    // The overall width of the lane boundary at the position of the BoundaryPoint.
+    // Used for lines forming lane markings.
+    optional double boundary_width = 2;
+
+    // The overall height of the lane boundary at the position of the BoundaryPoint.
+    // Used for guard rails, curbstone, or similar
+    optional double boundary_height = 3;
+}
