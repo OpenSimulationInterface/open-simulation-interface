@@ -1,0 +1,71 @@
+// define the proto language version
+syntax = "proto2";
+// optimize for speed
+option optimize_for = SPEED;
+
+// imports
+import "osi_object.proto";
+import "osi_lowleveldata.proto";
+
+// OSI - Open Simulation Interface
+package osi;
+
+/**
+ * Internal data and state flags for the sensor model, set and used during modification of the interface data.
+ * Content of all ModelInternal* messages may be cleared at the end of the sensor model processing chain and not sent
+ * with the final output of the sensor model. Receiving components must not expect values in ModelInternal* messages to
+ * be set. In particular, the message structures defined in this file must not be used by receiving components outside
+ * of the sensor model to read required input data.
+ */
+message ModelInternal
+{
+    // Low level data interface, for use by models performing statistical generation of such "low level data" before
+    // object hypothesis and tracking from object ground truth.
+    // Low Level data should be transferred to receiving components by means of a separate data stream. Therefore they
+    // are not part the top level SensorData message, as they are used only internally by some models.
+    optional LowLevelData low_level_data = 1;
+
+    // Latency, time offset that should have been elapsed before the data is transmitted to the receiving component.
+    // Unit [ms].
+    optional double latency = 2;
+}
+
+/**
+ * Additional internal data and state flags for SensorDataObjects.
+ */
+message ModelInternalObject
+{
+    // Specifies whether this vehicle is seen by the sensor; set by the field-of-view calculation.
+    optional bool is_seen = 1 [default = true];
+
+    // The type of the original object in the ground truth.
+    optional ObjectType ground_truth_type = 2;
+
+    // Ground truth vehicle type for object of ground_truth_type Vehicle, should not be set otherwise.
+    optional Vehicle.Type vehicle_type = 3;
+
+    // Ground truth object type for object of ground_truth_type MovingObject, should not be set otherwise.
+    optional MovingObject.Type moving_object_type = 4;
+
+    // Ground truth object type for object of ground_truth_type StationaryObject, should not be set otherwise.
+    optional StationaryObject.Type stationary_object_type = 5;
+
+    // Definition of object types in ground truth (see osi_object for definitions).
+    enum ObjectType
+    {
+        // Object is a ghost object and does not exist in ground truth.
+        OBJECT_TYPE_GHOST = 0;
+        // Other (unspecified but known) type of object.
+        OBJECT_TYPE_OTHER = 1;
+        // Object of type Vehicle.
+        OBJECT_TYPE_VEHICLE = 2;
+        // Object of type MovingObject.
+        OBJECT_TYPE_MOVING = 3;
+        // Object of type StationaryObject.
+        OBJECT_TYPE_STATIONARY = 4;
+        // Object of type TrafficSign.
+        OBJECT_TYPE_TRAFFIC_SIGN = 5;
+        // Object of type TrafficLight.
+        OBJECT_TYPE_TRAFFIC_LIGHT = 6;
+    }
+}

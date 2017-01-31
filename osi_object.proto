@@ -1,0 +1,215 @@
+// define the proto language version
+syntax = "proto2";
+// optimize for speed
+option optimize_for = SPEED;
+
+// imports
+import "osi_common.proto";
+
+// OSI - Open Simulation Interface
+package osi;
+
+/**
+ * A vehicle.
+ * This is basically a BaseObject with additional attributes, such as type and lights.
+ *
+ * Note that, if this vehicle is a simulated ego vehicle (i.e. ego_vehicle is set to true), relative_ego_origin has
+ * to be set, defining the offset from the ego vehicle's bounding box center to the center of the vehicle's rear axis.
+ * This defines the origin of the ego vehicle's rear axis coordinate system and allows calculation of quantities
+ * relative to this reference frame. The origin of the rear axis coordinate system in world coordinates is calculated
+ * as (base.position + relative_ego_origin) for the ego vehicle.
+ * For all vehicles, including ego vehicles, the position given in base.position points to the center of the vehicle's
+ * bounding box.
+ */
+message Vehicle
+{
+    // The id of the vehicle.
+    optional Identifier id = 1;
+
+    // The base parameters of the vehicle.
+    optional BaseMoving base = 2;
+
+    // The type of the vehicle.
+    optional Type type = 3;
+
+    // The light state of the vehicle.
+    optional LightState light_state = 4;
+
+    // Flag defining whether the vehicle is a simulated ego vehicle: True for ego vehicle(s), false for other vehicles.
+    // See the description above!
+    optional bool ego_vehicle = 5;
+
+    // The position of the vehicle's reference point.
+    // See the description above!
+    // Field need not be set (or should be zero) if ego_vehicle is set to false.
+    optional Vector3d relative_ego_origin = 6;
+
+    // The ids of the lanes that this vehicle is assigned to.
+    // Might be multiple if the vehicle is switching lanes or moving from one lane into another following lane.
+    repeated Identifier assigned_lane = 7;
+
+    // Flag defining whether the vehicle has an attached trailer.
+    optional bool has_trailer = 8;
+
+    // Id of the attached trailer.
+    // Field need not be set if has_Trailer is set to false.
+    optional Identifier trailer_id = 9;
+
+    // The id of the driver of the (ego) vehicle.
+    // Field need not be set if ego_vehicle is set to false.
+    optional Identifier driver = 10;
+
+    // Definition of vehicle types.
+    enum Type
+    {
+        // Type of vehicle is unknown (must not be used in ground truth).
+        TYPE_UNKNOWN = 0;
+        // Other (unspecified but known) type of vehicle.
+        TYPE_OTHER = 1;
+        // Vehicle is a normal car.
+        TYPE_CAR = 2;
+        // Vehicle is a truck, bus, or large van.
+        TYPE_TRUCK = 3;
+        // Vehicle is a motorbike or moped.
+        TYPE_MOTOR_BIKE = 4;
+        // Vehicle is a bicycle (without motor).
+        TYPE_BICYCLE = 5;
+        // Vehicle is a trailer (possibly attached to another vehicle).
+        TYPE_TRAILER = 6;
+    }
+
+    /**
+     * The state of the lights of a vehicle.
+     */
+    message LightState
+    {
+        // State of the objects indicators.
+        optional IndicatorState indicator_state = 1;
+
+        // State of the front fog light.
+        optional GenericLightState front_fog_light = 2;
+
+        // State of the rear fog light.
+        optional GenericLightState rear_fog_light = 3;
+
+        // State of the head lights.
+        optional GenericLightState head_light = 4;
+
+        // State of the high beam.
+        optional GenericLightState high_beam = 5;
+
+        // State of the reversing light.
+        optional GenericLightState reversing_light = 6;
+
+        // State of the brake lights.
+        optional BrakeLightState brake_light_state = 7;
+
+        // State of the (rear) license plate illumination
+        optional GenericLightState license_plate_illumination_rear = 8;
+
+        // Definition of indicator states.
+        enum IndicatorState
+        {
+             // Indicator state is unknown (must not be used in ground truth).
+             INDICATOR_STATE_UNKNOWN = 0;
+             // Other (unspecified but known) state of indicator.
+             INDICATOR_STATE_OTHER = 1;
+             // Indicators are off.
+             INDICATOR_STATE_OFF = 2;
+             // Left indicator is on.
+             INDICATOR_STATE_LEFT = 3;
+             // Right indicator is on.
+             INDICATOR_STATE_RIGHT = 4;
+             // Hazard/warning light, i.e. both indicators, are on.
+             INDICATOR_STATE_WARNING = 5;
+        }
+
+        // Definition of generic light states for light that may be on or off.
+        enum GenericLightState
+        {
+             // Light state is unknown (must not be used in ground truth).
+             GENERIC_LIGHT_STATE_UNKNOWN = 0;
+             // Other (unspecified but known) state of ligth.
+             GENERIC_LIGHT_STATE_OTHER = 1;
+             // Light is off.
+             GENERIC_LIGHT_STATE_OFF = 2;
+             // Light is on.
+             GENERIC_LIGHT_STATE_ON = 3;
+        }
+
+        // Definition of brake light states.
+        enum BrakeLightState
+        {
+             // Brake light state is unknown (must not be used in ground truth).
+             BRAKE_LIGHT_STATE = 0;
+             // Other (unspecified but known) state of brake light.
+             BRAKE_LIGHT_OTHER = 1;
+             // Brake lights are off.
+             BRAKE_LIGHT_OFF = 2;
+             // Brake lights are on with normal intensity.
+             BRAKE_LIGHT_NORMAL = 3;
+             // Brake lights are on with extra bright intensity (indicating stronger braking).
+             BRAKE_LIGHT_STRONG = 4;
+        }
+    }
+}
+
+/**
+ * A simulated object that is neither a vehicle, traffic sign or traffic light.
+ */
+message MovingObject
+{
+    // The id of the object.
+    optional Identifier id = 1;
+
+    // The base parameters of the vehicle.
+    optional BaseMoving base = 2;
+
+    // The type of the object.
+    optional Type type = 3;
+
+    // Definition of object types.
+    enum Type {
+        // Type of the object is unknown (must not be used in ground truth).
+        TYPE_UNKNOWN = 0;
+        // Other (unspecified but known) type of moving object.
+        TYPE_OTHER = 1;
+        // Object is a pedestrian.
+        TYPE_PEDESTRIAN = 2;
+        // Object is an animal.
+        TYPE_ANIMAL = 3;
+    }
+}
+
+/**
+ * A simulated object that is neither a vehicle, traffic sign or traffic light.
+ */
+message StationaryObject
+{
+    // The id of the object.
+    optional Identifier id = 1;
+
+    // The base parameters of the vehicle.
+    optional BaseStationary base = 2;
+
+    // The type of the object.
+    optional Type type = 3;
+
+    // Definition of object types.
+    enum Type {
+        // Type of the object is unknown (must not be used in ground truth).
+        TYPE_UNKNOWN = 0;
+        // Other (unspecified but known) type of object.
+        TYPE_OTHER = 1;
+        // Object is a bridge.
+        TYPE_BRIDGE = 2;
+        // Object is a building.
+        TYPE_BUILDING = 3;
+        // Object is a pylon.
+        TYPE_PYLON = 4;
+        // Object is a reflector post.
+        TYPE_REFLECTOR_POST = 5;
+        // Object is a delineator (e.g. at a construction site).
+        TYPE_DELINEATOR = 6;
+    }
+}

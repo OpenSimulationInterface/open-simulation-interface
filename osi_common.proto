@@ -1,0 +1,174 @@
+// define the proto language version
+syntax = "proto2";
+// optimize for speed
+option optimize_for = SPEED;
+
+// OSI - Open Simulation Interface
+package osi;
+
+/**
+ * The interface version number.
+ */
+message InterfaceVersion
+{
+    // The field containing the version number. Should be left on default, not to be modified by sender.
+    // Increments will happen as part of changes to the whole interface.
+    optional uint32 version_number = 1 [default = 17];
+}
+
+/**
+ * A cartesian 3D vector for positions, velocities or accelerations.
+ * Units are [m] for positions, [m/s] for velocities and [m/s^2] for accelerations.
+ */
+message Vector3d
+{
+    // The x coordinate
+    optional double x = 1;
+
+    // The y coordinate
+    optional double y = 2;
+
+    // The z coordinate
+    optional double z = 3;
+}
+
+/**
+ * A timestamp.
+ * Names and types of fields chosen in accordance with google/protobuf/timestamp.proto to allow a possible switch
+ * in the future. Definition of zero point in time differs and does not use Unix epoch.
+ */
+message Timestamp
+{
+    // The number of seconds since start of the simulation / system / vehicle. Unit: [s].
+    optional int64 seconds = 1;
+
+    // The number of nanoseconds since the start of the last second. Unit: [ns].
+    optional int32 nanos = 2;
+}
+
+/**
+ * A 3D dimension, e.g. parameters of a 3D bounding box.
+ * Units are all [m].
+ */
+message Dimension3d
+{
+    // The width of the bounding box.
+    optional double width = 1;
+
+    // The length of the bounding box.
+    optional double length = 2;
+
+    //The height of the bounding box.
+    optional double height = 3;
+}
+
+/**
+ * A 3D orientation, orientation rate or orientation acceleration.
+ * Units are [rad] for orientation, [rad/s] for rates and [rad/s^2] for accelerations. The preferred angular range is
+ * (-pi, pi]. See http://planning.cs.uiuc.edu/node102.html for a definition of the rotational order. The rotations are
+ * to be performed roll first, then the pitch, and finally the yaw. Rotations are defined in the reference coordinate
+ * frame around z (=yaw), y (=pitch) and x (=roll), not in the body frame of the object. Rotations with positive angles
+ * are performed counter-clockwise.
+ *
+ * Roll/Pitch are 0 if objects xy-plane corresponds it's parent xy-plane.
+ * Yaw is 0 if the x axis is parallel to the x axis of it's parent coordinate system.
+ */
+message Orientation3d
+{
+    // The roll angle/rate/acceleration.
+    optional double roll = 1;
+
+    // The pitch angle/rate/acceleration.
+    optional double pitch = 2;
+
+    // The yaw angle/rate/acceleration.
+    optional double yaw = 3;
+}
+
+/**
+ * A common identifier.
+ * Has to be unique among all simulated items at any given time.
+ * For ground truth, the identifier of an item (object, lane, sign, etc.) must remain stable over its lifetime.
+ * Identifier values might be only be reused if the available address space is exhausted and the specific values have
+ * not been in use for several timesteps.
+ * Sensor specific tracking ids have no restrictions and should behave according to the sensor specifications.
+ */
+message Identifier
+{
+    // The identifier's value.
+    optional uint64 value = 1;
+}
+
+/**
+ * Specifies the mounting position of a sensor. Details are specified in each instance where MountingPosition is used.
+ */
+message MountingPosition
+{
+    // Offset position relative to specified reference coordinate system.
+    optional Vector3d position = 1;
+
+    // Orientation offset relative to specified reference coordinate system.
+    optional Orientation3d orientation = 2;
+}
+
+/**
+ * A polar representation for a point / vector in 3D space used for low level representations of radar detections.
+ * Units are [m] for radial distance and [rad] for azimuth and elevation angles.
+ * If azimuth and elevation are zero, the referenced point is directly in front / vector is pointing
+ * directly in the central viewing direction of the sensor.
+ */
+message Polar3d
+{
+    // The radial distance.
+    optional double distance = 1;
+
+    // The azimuth (horizontal) angle.
+    optional double azimuth = 2;
+
+    // The elevation (vertical) angle.
+    optional double elevation = 3;
+}
+
+/**
+ * The base attributes of object or similar that is stationary.
+ * This includes the StationaryObject, TrafficSign, TrafficLight, RoadMarking messages.
+ */
+message BaseStationary
+{
+    // The 3D dimension of the landmark (bounding box):
+    optional Dimension3d dimension = 1;
+
+    // The reference point for position and rotation (orientation): center (x, y, z) of bounding box.
+    optional Vector3d position = 2;
+
+    // The relative orientation of the landmark w.r.t its parent frame.
+    optional Orientation3d orientation = 3;
+}
+
+/**
+ * The base attributes of each object that is moving.
+ * This includes the MovingObject messages.
+ */
+message BaseMoving
+{
+    // The 3D dimension of the object (bounding box):
+    optional Dimension3d dimension = 1;
+
+    // The reference point for position and rotation (orientation): center (x, y, z) of bounding box.
+    optional Vector3d position = 2;
+
+    // The relative orientation of the object w.r.t its parent frame.
+    optional Orientation3d orientation = 3;
+
+    // The relative velocity of the object w.r.t. its parent frame and parent velocity.
+    // Obviously, the velocity becomes global/absolute if the parent frame does not move.
+    optional Vector3d velocity = 4;
+
+    // The relative acceleration of the object w.r.t. its parent frame and parent acceleration.
+    // Obviously, the acceleration becomes global/absolute if the parent frame is not accelerating.
+    optional Vector3d acceleration = 5;
+
+    // The relative orientation rate of the object w.r.t. its parent frame and parent orientation rate.
+    // Obviously, the orientation rate becomes global/absolute if the parent frame is not rotating.
+    optional Orientation3d orientation_rate = 6;
+}

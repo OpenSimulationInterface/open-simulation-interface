@@ -1,0 +1,23 @@
+// define the proto language version
+syntax = "proto2";
+// optimize for speed
+option optimize_for = SPEED;
+
+// imports
+import "osi_common.proto";
+import "osi_occupant.proto";
+
+// OSI - Open Simulation Interface
+package osi;
+
+/**
+ * A vehicle occupant as detected and perceived by an interior sensor.
+ */
+message DetectedOccupant
+{
+    // The detected vehicle occupant
+    optional Occupant occupant = 1;
+
+    // The id of the original vehicle occupant in the ground truth.
+    optional Identifier ground_truth_occupant_id = 2;
+}
