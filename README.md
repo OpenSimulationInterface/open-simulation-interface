@@ -16,6 +16,21 @@ existing fields should be set, unless not setting a field carries a specific mea
 comment.
 
 
+Compatibility
+--------------
+Defintion: FAITHFULLY "All recorded data is correctly interpreted by the interface"
+
+Forward compatibility:
+Definition: "An older verison of code can be used to read new files"
+Data recorded with a higher minor or patch version of a major version can be read with code using the same major version but lower minor and patch version.
+Newly added fields are ignored. All patch versions of the same major and minor version is FAITHFULLY forward compatible.
+
+Backward compatibility:
+Definition: "A newer version of code can be used to read old files"
+All files which have been recorded in the past with a specicific major version are FAITHFULLY valid with all combinations of
+higher minor and patch versions of the same major version.
+
+
 Fault injection: how-to
 ------------------------
 Injection of pre-defined sensor errors should be handled by a specialized "fault injector" component that acts like a
@@ -31,3 +46,24 @@ Specific errors should be handled as follows:
 Versioning
 ----------
 The version number is defined in InterfaceVersion::version_number in osi_common.proto as the field's default value.
+
+Major:
+A change of the major version results in an incompatibility of code and recorded proto messages.
+- An existing field with a number changes its meaning 
+  optional double field = 1; -> repeated double field = 1;
+  Changing the definition of units of a field
+- Deleting a field  and reusing the field number
+- Changing the technology
+  ProtoBuffer -> FlatBuffer
+
+Minor:
+A change of the minor version indicates remaining compatibility to previously recorded files. The code on the other hand needs fixing.
+- Renaming of a field without changing the field number
+- Changing the names of messages
+- Adding a new field in a message without changing the numbering of other fields
+
+Patch:
+The compatibility of both recorded files and code remains.
+- File or folder structure which does not affect including the code in other projects
+- Changing or adding comments
+- Clarification of text passages explaining the message content
