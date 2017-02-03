@@ -18,8 +18,11 @@ package osi;
  * This defines the origin of the ego vehicle's rear axis coordinate system and allows calculation of quantities
  * relative to this reference frame. The origin of the rear axis coordinate system in world coordinates is calculated
  * as (base.position + relative_ego_origin) for the ego vehicle.
+ * TODO(FSoyka) Does that work if the ego is rotated?
  * For all vehicles, including ego vehicles, the position given in base.position points to the center of the vehicle's
  * bounding box.
+ * TODO(FSoyka) Why use the middle of the bounding box for everything else but the ego (mid-rear axle)? Why not use mid 
+ * rear axle everywhere? 
  */
 message Vehicle
 {
@@ -42,6 +45,8 @@ message Vehicle
     // The position of the vehicle's reference point.
     // See the description above!
     // Field need not be set (or should be zero) if ego_vehicle is set to false.
+    // TODO(FSoyka) We need to know the difference between the bounding box center and the mid rear axle in every car for
+    // coordinate transformations. Therefore this field could become offset_bbox_hind_axis
     optional Vector3d relative_ego_origin = 6;
 
     // The ids of the lanes that this vehicle is assigned to.
@@ -58,7 +63,35 @@ message Vehicle
     // The id of the driver of the (ego) vehicle.
     // Field need not be set if ego_vehicle is set to false.
     optional Identifier driver = 10;
+    
+    // Holds additional ego vehicle information
+    optional AdditionalEgoInfo additional_ego_info = 11;
 
+    // AdditionalEgoInfo
+    message AdditionalEgoInfo
+    {
+	    // The steering wheel angle in radians.
+	    optional double steering_wheel_angle = 1;
+	
+	    // The break pedal position between 0 and 1.
+	    optional double break_pedal_position = 2;
+
+	    // The accelerator pedal position between 0 and 1.
+	    optional double accelerator_pedal_position = 3;
+
+	    // The transmission lever position.
+	    optional int32 transmission_lever = 4;
+	
+	    // The engine RPM.
+	    optional double engine_rpm = 5;
+
+	    // The RPMs of the wheels (order of the wheels front left to back left, front righ to back right) 
+	    repeated double wheel_rpms = 6;
+
+	    // The angles of the wheels (order of the wheels front left to back left, front righ to back right) 
+	    repeated double wheel_angles = 7;
+    }
+    
     // Definition of vehicle types.
     enum Type
     {
@@ -76,6 +109,82 @@ message Vehicle
         TYPE_BICYCLE = 5;
         // Vehicle is a trailer (possibly attached to another vehicle).
         TYPE_TRAILER = 6;
+
+		// TODO(FSoyka) A more elaborate object type definition. Sortable in super and sub classes via 
+		// hex encoding (supported by Protobuf?). Need to discuss if we want this.
+		OBJECT_CLASS_GENERAL                               = 0x01000000;
+		
+		OBJECT_CLASS_VEHICLE                               = 0x01010000;
+		
+		OBJECT_CLASS_VEHICLE_CAR                           = 0x01010100;
+		
+		OBJECT_CLASS_VEHICLE_CAR_LIMOUSINE                 = 0x01010101;
+		OBJECT_CLASS_VEHICLE_CAR_COUPE                     = 0x01010102;
+		OBJECT_CLASS_VEHICLE_CAR_ROADSTER                  = 0x01010104;
+		OBJECT_CLASS_VEHICLE_CAR_STATION_WAGON             = 0x01010108;
+		OBJECT_CLASS_VEHICLE_CAR_EXTENDED                  = 0x01010110;
+		OBJECT_CLASS_VEHICLE_CAR_SPECIAL                   = 0x01010120;
+		
+		OBJECT_CLASS_VEHICLE_TRUCK                         = 0x01010200;
+		
+		OBJECT_CLASS_VEHICLE_TRUCK_TRUCK                   = 0x01010201;
+		OBJECT_CLASS_VEHICLE_TRUCK_TRACTOR                 = 0x01010202;
+		
+		OBJECT_CLASS_VEHICLE_VAN                           = 0x01010400;
+		
+		OBJECT_CLASS_VEHICLE_VAN_LIGHT                     = 0x01010401;
+		OBJECT_CLASS_VEHICLE_VAN_MID                       = 0x01010402;
+		OBJECT_CLASS_VEHICLE_VAN_HEAVY                     = 0x01010404;
+		
+		OBJECT_CLASS_VEHICLE_TRAILER                       = 0x01010800;
+		
+		OBJECT_CLASS_VEHICLE_TRAILER_VEH                   = 0x01010801;
+		OBJECT_CLASS_VEHICLE_TRAILER_TRAVEL                = 0x01010802;
+		OBJECT_CLASS_VEHICLE_TRAILER_BOAT                  = 0x01010804;
+		OBJECT_CLASS_VEHICLE_TRAILER_HORSE                 = 0x01010808;
+		OBJECT_CLASS_VEHICLE_TRAILER_TRUCK_SEMI            = 0x01010810;
+		OBJECT_CLASS_VEHICLE_TRAILER_TRUCK_FULL            = 0x01010820;
+		
+		OBJECT_CLASS_VEHICLE_BUS                           = 0x01011000;
+		
+		OBJECT_CLASS_VEHICLE_BUS_URBAN_TRANSPORT           = 0x01011001;
+		OBJECT_CLASS_VEHICLE_BUS_OVERLAND_TRANSPORT        = 0x01011002;
+		OBJECT_CLASS_VEHICLE_BUS_DOUBLE_DECK               = 0x01011004;
+		
+		OBJECT_CLASS_VEHICLE_BICYCLE                       = 0x01012000;
+		
+		OBJECT_CLASS_VEHICLE_BICYCLE_MOTORBIKE             = 0x01012001;
+		OBJECT_CLASS_VEHICLE_BICYCLE_BIKE                  = 0x01012002;
+		OBJECT_CLASS_VEHICLE_BICYCLE_SCOOTER               = 0x01012004;
+		
+		OBJECT_CLASS_VEHICLE_SPECIAL                       = 0x01014000;
+		
+		OBJECT_CLASS_VEHICLE_SPECIAL_AGRICULTURE           = 0x01014001;
+		OBJECT_CLASS_VEHICLE_SPECIAL_CONSTRUCTION          = 0x01014002;
+		
+		OBJECT_CLASS_PERSON                                = 0x01020000;
+		OBJECT_CLASS_PERSON_PEDESTRIAN                     = 0x01020100;
+		
+		OBJECT_CLASS_PERSON_PEDESTRIAN_ADULT               = 0x01020101;
+		OBJECT_CLASS_PERSON_PEDESTRIAN_TEEN                = 0x01020102;
+		OBJECT_CLASS_PERSON_PEDESTRIAN_CHILD               = 0x01020104;
+		OBJECT_CLASS_PERSON_PEDESTRIAN_INFANT              = 0x01020108;
+		OBJECT_CLASS_PERSON_PEDESTRIAN_GROUP               = 0x01020110;
+		
+		OBJECT_CLASS_PERSON_WHEELCHAIR                     = 0x01020200;
+		OBJECT_CLASS_PERSON_BABY_BUGGY                     = 0x01020400;
+		
+		OBJECT_CLASS_ANIMAL                                = 0x01040000;
+		
+		OBJECT_CLASS_ANIMAL_SMALL                          = 0x01040100;
+		OBJECT_CLASS_ANIMAL_LARGE                          = 0x01040200;
+		
+		OBJECT_CLASS_OBSTACLE                              = 0x01080000;
+		
+		OBJECT_CLASS_OBSTACLE_BOX                          = 0x01080100;
+		OBJECT_CLASS_OBSTACLE_POLE                         = 0x01080200;
+		OBJECT_CLASS_OBSTACLE_BARRIER                      = 0x01080400;
+		OBJECT_CLASS_OBSTACLE_WALL                         = 0x01080800;        
     }
 
     /**

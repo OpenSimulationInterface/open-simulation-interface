@@ -22,6 +22,7 @@ message SensorDataSeries
  * List of SensorData interface copies, one for each sensor in the vehicle.
  * Can be used to bundle output of multiple sensors in one transmission.
  */
+// TODO(FSoyka) This is the same data structure as above but with a different use case. Can they not be combined into one? 
 message SensorDataList
 {
     // List of sensor data for multiple sensors at a specific timestep.
