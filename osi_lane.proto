@@ -14,7 +14,7 @@ package osi;
  * A lane is part of a road and mainly characterized by its center line. It also knows about any adjacent lanes,
  * antecessor and successor lanes. The following image will be referred to by later comments. We'll use the lane
  * with id 3 as reference if not mentioned otherwise.
- * \image html highway_exit.png
+ * \image html highway_exit.png TODO(FSoyka) Where is the image?
  * For lane a to be the antecessor of lane b, the last point of a's center line has to be identical to the first point
  * of b's center line (although both points might lie outside the simulated region, the relationship remains). Any lane
  * starts or ends at such a split/merge point. No lane can ever keep its id after such a split point, i.e. lane 4 has to

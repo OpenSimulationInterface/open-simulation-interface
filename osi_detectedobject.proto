@@ -96,6 +96,7 @@ message DetectedObject
     /**
      * Probabilities for the classification of the object as perceived by the sensor.
      */
+    // TODO(FSoyka) These probabilities should be linked to the class type definitions in osi_object.proto 
     message ClassProbability
     {
         // Probability that the object has unknown type. Range [0,1].

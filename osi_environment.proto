@@ -16,6 +16,38 @@ message EnvironmentalConditions
 
     // The time of day.
     optional TimeOfDay time_of_day = 2;
+    
+    // Fog intensity between 0 and 1
+    optional double fog_intensity = 3;
+
+    // Atmospheric pressure in atm
+    optional double atmospheric_pressure = 4;
+    
+    // Temperature in degrees celsius
+    optional double temperature = 5;
+
+    // Precipitation
+    optional Precipitation precipitation = 6;
+
+    // Definition of precipitation states.
+    enum Precipitation
+    {
+        // Light intensity rain
+        PRECIPITATION_RAIN_LITTLE = 0;
+
+        // Medium intensity rain
+        PRECIPITATION_RAIN_MEDIUM = 1;
+
+        // High intensity rain
+        PRECIPITATION_RAIN_HIGH = 2;
+
+        // Snow
+        PRECIPITATION_SNOW = 3;
+
+        // Snow rain
+        PRECIPITATION_SNOW_RAIN = 4;
+    }
+
 
     // Definition of ambient illumination states.
     enum AmbientIllumination
