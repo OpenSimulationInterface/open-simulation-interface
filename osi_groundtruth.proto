@@ -1,10 +1,7 @@
-// define the proto language version
 syntax = "proto2";
 
-// optimize for speed
 option optimize_for = SPEED;
 
-// imports
 import "osi_common.proto";
 import "osi_environment.proto";
 import "osi_landmark.proto";
@@ -12,7 +9,6 @@ import "osi_lane.proto";
 import "osi_object.proto";
 import "osi_occupant.proto";
 
-// OSI - Open Simulation Interface
 package osi;
 
 /**
