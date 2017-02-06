@@ -6,6 +6,8 @@ option optimize_for = SPEED;
 // OSI - Open Simulation Interface
 package osi;
 
+// TODO(FSoyka)Possible code duplicate with LowLevelData? 
+
 /**
  * Message encapsulates all data for detected objects that is specific to radar sensors.
  */

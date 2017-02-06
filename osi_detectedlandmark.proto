@@ -20,6 +20,8 @@ message DetectedTrafficSign
     optional Identifier ground_truth_id = 1;
 
     // A list of candidates for this traffic sign as estimated by the sensor.
+    // TODO(FSoyka) I find it not intuitive that the BaseStationary parameters are hidden in here. 
+	// This results in a duplication of the estimated positions for each candidate. 
     repeated CandidateSign candidate_sign = 2;
 
     // A list of candidates for (a) possible supplementary sign(s) as estimated by the sensor.

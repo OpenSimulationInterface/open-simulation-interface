@@ -32,6 +32,60 @@ message Vector3d
 
     // The z coordinate
     optional double z = 3;
+    
+    // TODO(FSoyka) I saw that you define reference frames in many places in the interface. From experience I would say that 
+    // it is very valuable to know explicitly for each coordinate in which frame it is defined. All frames should be documented 
+    // in the Wiki as well.
+    
+    // The reference frame in which the vector is defined.
+    optional ReferenceFrame reference_frame = 4;
+    
+    // Definition of reference frame.
+    enum ReferenceFrame
+    {
+		// TODO(FSoyka) Why do enums start at zero but other fields at 1? Is this a protobuf definition?
+        // The reference frame in which the data is originaly received from the simulation.
+        REFERENCE_FRAME_SIMULATION = 0;
+        // The car reference frame: middle of rear axle, x pointing forward, y to the left and z pointing up. 
+        REFERENCE_FRAME_CAR = 1;
+        // The reference frame of the sensor: mounting position of the sensor, x pointing forward, y to the left and z pointing up.
+        REFERENCE_FRAME_SENSOR = 2;
+        // Reference point is the middle of the bounding box of the target object. 
+        // TODO(FSoyka): Taken from osi_detectedobject.proto What is the orientation? 
+        REFERENCE_FRAME_BBOX = 3;
+    }    
+}
+
+/**
+ * A cartesian 2D vector for positions, velocities or accelerations.
+ * Units are [m] for positions, [m/s] for velocities and [m/s^2] for accelerations.
+ */
+// TODO(FSoyka) If we go for Vector2d in addition to Vector3d it would be nice to centralize the ReferenceFrame enum in order to
+// avoid duplication
+message Vector2d
+{
+    // The x coordinate
+    optional double x = 1;
+
+    // The y coordinate
+    optional double y = 2;
+    
+    // The reference frame in which the vector is defined.
+    optional ReferenceFrame reference_frame = 3;
+    
+    // Definition of reference frame.
+    enum ReferenceFrame
+    {
+        // The reference frame in which the data is originaly received from the simulation.
+        REFERENCE_FRAME_SIMULATION = 0;
+        // The car reference frame: middle of rear axle, x pointing forward, y to the left and z pointing up. 
+        REFERENCE_FRAME_CAR = 1;
+        // The reference frame of the sensor: mounting position of the sensor, x pointing forward, y to the left and z pointing up.
+        REFERENCE_FRAME_SENSOR = 2;
+        // Reference point is the middle of the bounding box of the target object. 
+        // TODO(FSoyka): Taken from osi_detectedobject.proto What is the orientation? 
+        REFERENCE_FRAME_BBOX = 3;
+    }    
 }
 
 /**
@@ -52,6 +106,7 @@ message Timestamp
  * A 3D dimension, e.g. parameters of a 3D bounding box.
  * Units are all [m].
  */
+// TODO(FSoyka) Can we have an additional polygon base? We could implement it as a list of Vector2d or as Vector3d with z=0
 message Dimension3d
 {
     // The width of the bounding box.
@@ -60,8 +115,13 @@ message Dimension3d
     // The length of the bounding box.
     optional double length = 2;
 
-    //The height of the bounding box.
+    // The height of the bounding box.
     optional double height = 3;
+
+    /** The two dimensional contour of the object. Ignoring the height, this allows for more contours than rectangles 
+     *  which is important for occluded objects.
+     */
+    repeated Vector2d base_polygon = 4;
 }
 
 /**
@@ -85,6 +145,8 @@ message Orientation3d
 
     // The yaw angle/rate/acceleration.
     optional double yaw = 3;
+    
+    // TODO(FSoyka) Reference frame definition?
 }
 
 /**
@@ -129,6 +191,8 @@ message Polar3d
 
     // The elevation (vertical) angle.
     optional double elevation = 3;
+    
+    // TODO(FSoyka) Reference frame definition?
 }
 
 /**

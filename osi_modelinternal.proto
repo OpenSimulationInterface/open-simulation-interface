@@ -23,6 +23,7 @@ message ModelInternal
     // object hypothesis and tracking from object ground truth.
     // Low Level data should be transferred to receiving components by means of a separate data stream. Therefore they
     // are not part the top level SensorData message, as they are used only internally by some models.
+    // TODO(FSoyka) I don't understand why fields like Lidar point clouds or radar reflections are low level and not transmitted as potential sensor outputs?
     optional LowLevelData low_level_data = 1;
 
     // Latency, time offset that should have been elapsed before the data is transmitted to the receiving component.
