@@ -21,13 +21,13 @@ Compatibility
 Defintion: FAITHFULLY "All recorded data is correctly interpreted by the interface"
 
 Forward compatibility:
-Definition: "An older verison of code can be used to read new files"
-Data recorded with a higher minor or patch version of a major version can be read with code using the same major version but lower minor and patch version.
-Newly added fields are ignored. All patch versions of the same major and minor version is FAITHFULLY forward compatible.
+Definition: "An older version of the code can be used to read new files"
+Data recorded with a higher minor or patch version can be interpreted by code built using the same major version of the interface but lower minor and/or patch version.
+In this case, additional fields of a newer minor version are silently ignored. All patch versions of the same major and minor version are FAITHFULLY forward compatible.
 
 Backward compatibility:
 Definition: "A newer version of code can be used to read old files"
-All files which have been recorded in the past with a specicific major version are FAITHFULLY valid with all combinations of
+All files that have been recorded in the past with a specific major version are FAITHFULLY valid with all combinations of
 higher minor and patch versions of the same major version.
 
 
@@ -36,9 +36,9 @@ Fault injection: how-to
 Injection of pre-defined sensor errors should be handled by a specialized "fault injector" component that acts like a
 sensor model component, i.e. it takes a SensorData message as input and returns a modified SensorData message as output.
 Specific errors should be handled as follows:
--- Ghost objects / false positive: An additional SensorDataObject is added to the list of objects in SensorData.object
+- Ghost objects / false positive: An additional SensorDataObject is added to the list of objects in SensorData.object
       with SensorDataObject.model_internal_object.ground_truth_type set to kTypeGhost.
--- False negative: The object is marked as not seen by the sensor by setting the property
+- False negative: The object is marked as not seen by the sensor by setting the property
       SensorDataObject.model_internal_object.is_seen to false. The implementation of field-of-view calculation modules
       should respect this flag and never reset an object marked as not-seen to seen.
 
