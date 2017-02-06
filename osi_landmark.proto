@@ -1,5 +1,6 @@
 // define the proto language version
 syntax = "proto2";
+
 // optimize for speed
 option optimize_for = SPEED;
 
@@ -24,8 +25,7 @@ message TrafficSign
     optional Type type = 3;
 
     // Additional value associated with the traffic sign, e.g. value of the speed limit.
-    // Field need not be set if traffic sign type does not require it.
-    // Speed (limits) should be given in km/h.
+    // Field need not be set if traffic sign type does not require it. Speed (limits) should be given in km/h.
     optional double value = 4;
 
     // Variability
@@ -320,9 +320,7 @@ message TrafficLight
 
     /**
      * Definition of light state for traffic lights.
-     *
-     * This containes the logical information about the
-     * traffic light and NOT a description of individual light bulbs.
+     * This containes the logical information about the traffic light and NOT a description of individual light bulbs.
      */
     message LightState
     {

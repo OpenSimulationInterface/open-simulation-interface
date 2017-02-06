@@ -1,5 +1,6 @@
 // define the proto language version
 syntax = "proto2";
+
 // optimize for speed
 option optimize_for = SPEED;
 
@@ -11,11 +12,11 @@ package osi;
  */
 message InterfaceVersion
 {
-    // The field containing the version number. Should be left on default, not to be modified by sender.
-    // Increments will happen as part of changes to the whole interface.
+    // The field containing the version number. Should be left on default, not to be modified by sender. Increments will
+    // happen as part of changes to the whole interface.
     optional uint32 major = 1 [default = 2];
-	optional uint32 minor = 2 [default = 0];
-	optional uint32 patch = 3 [default = 0];
+    optional uint32 minor = 2 [default = 0];
+    optional uint32 patch = 3 [default = 0];
 }
 
 /**
@@ -36,8 +37,8 @@ message Vector3d
 
 /**
  * A timestamp.
- * Names and types of fields chosen in accordance with google/protobuf/timestamp.proto to allow a possible switch
- * in the future. Definition of zero point in time differs and does not use Unix epoch.
+ * Names and types of fields chosen in accordance with google/protobuf/timestamp.proto to allow a possible switch in the
+ * future. Definition of zero point in time differs and does not use Unix epoch.
  */
 message Timestamp
 {
@@ -89,11 +90,10 @@ message Orientation3d
 
 /**
  * A common identifier.
- * Has to be unique among all simulated items at any given time.
- * For ground truth, the identifier of an item (object, lane, sign, etc.) must remain stable over its lifetime.
- * Identifier values might be only be reused if the available address space is exhausted and the specific values have
- * not been in use for several timesteps.
- * Sensor specific tracking ids have no restrictions and should behave according to the sensor specifications.
+ * Has to be unique among all simulated items at any given time. For ground truth, the identifier of an item (object,
+ * lane, sign, etc.) must remain stable over its lifetime. Identifier values might be only be reused if the available
+ * address space is exhausted and the specific values have not been in use for several timesteps. Sensor specific
+ * tracking ids have no restrictions and should behave according to the sensor specifications.
  */
 message Identifier
 {
@@ -115,9 +115,8 @@ message MountingPosition
 
 /**
  * A polar representation for a point / vector in 3D space used for low level representations of radar detections.
- * Units are [m] for radial distance and [rad] for azimuth and elevation angles.
- * If azimuth and elevation are zero, the referenced point is directly in front / vector is pointing
- * directly in the central viewing direction of the sensor.
+ * Units are [m] for radial distance and [rad] for azimuth and elevation angles. If azimuth and elevation are zero, the
+ * referenced point is directly in front / vector is pointing directly in the central viewing direction of the sensor.
  */
 message Polar3d
 {

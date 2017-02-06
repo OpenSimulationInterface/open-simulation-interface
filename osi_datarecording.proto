@@ -1,5 +1,6 @@
 // define the proto language version
 syntax = "proto2";
+
 // optimize for speed
 option optimize_for = SPEED;
 

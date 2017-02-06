@@ -1,5 +1,6 @@
 // define the proto language version
 syntax = "proto2";
+
 // optimize for speed
 option optimize_for = SPEED;
 
@@ -11,10 +12,13 @@ package osi;
 
 /**
  * A lane in the road network.
+ *
  * A lane is part of a road and mainly characterized by its center line. It also knows about any adjacent lanes,
- * antecessor and successor lanes. The following image will be referred to by later comments. We'll use the lane
- * with id 3 as reference if not mentioned otherwise.
+ * antecessor and successor lanes. The following image will be referred to by later comments. We'll use the lane with id
+ * 3 as reference if not mentioned otherwise.
+ *
  * \image html highway_exit.png
+ *
  * For lane a to be the antecessor of lane b, the last point of a's center line has to be identical to the first point
  * of b's center line (although both points might lie outside the simulated region, the relationship remains). Any lane
  * starts or ends at such a split/merge point. No lane can ever keep its id after such a split point, i.e. lane 4 has to
@@ -31,25 +35,28 @@ message Lane
     optional Type type = 2;
 
     // The lane's center line.
+    //
     // This is the line, that a typical vehicle is supposed to follow. Thus, if the road narrows (e.g. construction
-    // site) this line is supposed to describe the trajectory that the vehicle should follow.
-    // The intended direction of travel on the lane is given by the direction defined by the sequence of points forming
-    // the center line.
+    // site) this line is supposed to describe the trajectory that the vehicle should follow. The intended direction of
+    // travel on the lane is given by the direction defined by the sequence of points forming the center line.
     //
     // \attention The points might be set at arbitrary distances, but must not be further appart than 5m. When the
     // points are pairwise linearly connected, the lateral distance to the real ideal line (as used by the simulation
     // environment internally) must not exceed 5cm. As shown in the following image.
+    //
     // \image html line_approximation_error.png
     //
     // Example: The yellow dotted line right of the blue 3.
     repeated Vector3d center_line = 3;
 
     // The boundary of the lane.
+    //
     // The lane boundaries describe the lane markings or other boundaries delimiting the lane as well as free lines that
     // might be used e.g. in construction sites. The lane markings do not have to be parallel to the center_line, but
     // they are the basis for calculating the width of the lane at any given distance.
-    // Example: The double solid line above the 3, and the dashed line below the 3. (see reference picture)
-    // There might also be additional free lanes.
+    //
+    // Example: The double solid line above the 3, and the dashed line below the 3. (see reference picture) There might
+    // also be additional free lanes.
     repeated LaneBoundary lane_boundary = 4;
 
     // The lane's left adjacent lanes (w.r.t. intended driving direction).
@@ -123,6 +130,7 @@ message Lane
 message LaneBoundary
 {
     // The list of individual points defining the location of the lane boundary.
+    //
     // Since a BoundaryPoint is part of a sequence only the position attribute has to be set for each instance. All
     // other values will be reused from the previous BoundaryPoint in the sequence or set to default values if there is
     // none or it was never set. For dashed lines, one BoundaryPoint has to be at the start and another at the end of

@@ -1,5 +1,6 @@
 // define the proto language version
 syntax = "proto2";
+
 // optimize for speed
 option optimize_for = SPEED;
 
@@ -11,10 +12,10 @@ package osi;
 
 /**
  * Interface for low level sensor data, in contrast to high level data after object hypothesis and tracking.
+ *
  * All information regarding the environment is given with respect to the sensor coordinate system specified in
- * LowLevelData::mounting_position.
- * When simulating multiple sensors, each sensor has an individual copy of LowLevelData in its own reference frame. This
- * allows an independent treatment of the sensors.
+ * LowLevelData::mounting_position. When simulating multiple sensors, each sensor has an individual copy of LowLevelData
+ * in its own reference frame. This allows an independent treatment of the sensors.
  */
  message LowLevelData
  {
@@ -25,8 +26,8 @@ package osi;
      // course of a simulation run. Recommended zero time is the starting time of the simulation.
      optional Timestamp timestamp = 2;
 
-     // Mounting position of the sensor (origin and orientation of the sensor coordinate system);
-     // given relative to the middle of the rear axis of the host vehicle.
+     // Mounting position of the sensor (origin and orientation of the sensor coordinate system); given relative to the
+     // middle of the rear axis of the host vehicle.
      optional MountingPosition mounting_position = 3;
 
      // Lidar point cloud.
