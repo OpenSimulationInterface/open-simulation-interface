@@ -1,25 +1,21 @@
-// define the proto language version
 syntax = "proto2";
-// optimize for speed
+
 option optimize_for = SPEED;
 
-// imports
 import "osi_common.proto";
 
-// OSI - Open Simulation Interface
 package osi;
 
 /**
  * A vehicle.
- * This is basically a BaseObject with additional attributes, such as type and lights.
  *
- * Note that, if this vehicle is a simulated ego vehicle (i.e. ego_vehicle is set to true), relative_ego_origin has
- * to be set, defining the offset from the ego vehicle's bounding box center to the center of the vehicle's rear axis.
- * This defines the origin of the ego vehicle's rear axis coordinate system and allows calculation of quantities
- * relative to this reference frame. The origin of the rear axis coordinate system in world coordinates is calculated
- * as (base.position + relative_ego_origin) for the ego vehicle.
- * For all vehicles, including ego vehicles, the position given in base.position points to the center of the vehicle's
- * bounding box.
+ * This is basically a BaseObject with additional attributes, such as type and lights. Note that, if this vehicle is a
+ * simulated ego vehicle (i.e. ego_vehicle is set to true), relative_ego_origin has to be set, defining the offset from
+ * the ego vehicle's bounding box center to the center of the vehicle's rear axis. This defines the origin of the ego
+ * vehicle's rear axis coordinate system and allows calculation of quantities relative to this reference frame. The
+ * origin of the rear axis coordinate system in world coordinates is calculated as (base.position + relative_ego_origin)
+ * for the ego vehicle. For all vehicles, including ego vehicles, the position given in base.position points to the
+ * center of the vehicle's bounding box.
  */
 message Vehicle
 {

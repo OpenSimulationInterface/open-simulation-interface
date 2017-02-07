@@ -1,9 +1,7 @@
-// define the proto language version
 syntax = "proto2";
-// optimize for speed
+
 option optimize_for = SPEED;
 
-// OSI - Open Simulation Interface
 package osi;
 
 /**
