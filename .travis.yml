@@ -21,7 +21,7 @@ install:
         export PATH=${DEPS_DIR}/cmake/bin:${PATH}
 
     # Install a recent version of the Protobuf Compiler
-     - |
+    - |
         mkdir -p protoc-3.2.0-linux-x86_64 && cd protoc-3.2.0-linux-x86_64
         wget https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
         unzip protoc-3.2.0-linux-x86_64.zip
