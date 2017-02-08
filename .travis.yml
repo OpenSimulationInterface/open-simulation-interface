@@ -1,6 +1,7 @@
 # Source: https://github.com/boostorg/hana/blob/master/.travis.yml
 
 language: cpp
+sudo: true
 compiler:
     - clang
     - gcc
@@ -8,6 +9,10 @@ addons:
     apt:
         sources:
             - ubuntu-toolchain-r-test
+cache:
+    directories:
+        - ${TRAVIS_BUILD_DIR}/deps/cmake
+        - ${TRAVIS_BUILD_DIR}/deps/protobuf
 install:
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
     - mkdir -p "${DEPS_DIR}" && cd "${DEPS_DIR}"
