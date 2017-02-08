@@ -7,7 +7,7 @@ addons:
         sources:
             - ubuntu-toolchain-r-test
         packages:
-            - cmake-3.7
+            - cmake
 script:
     - mkdir build
     - cd build
