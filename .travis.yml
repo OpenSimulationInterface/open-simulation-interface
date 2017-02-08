@@ -1,0 +1,21 @@
+# Enable C++ support
+language: cpp
+
+# Compiler selection
+compiler:
+    - clang
+    - gcc
+
+# Travis CI build machines are based on Ubuntu 12.04 LTS 64 bit
+# Because CMake v3.7 is required to build the project,
+# we have to update the machine
+before_install:
+- sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+- sudo apt-get update -qq
+
+# Build steps
+script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make
