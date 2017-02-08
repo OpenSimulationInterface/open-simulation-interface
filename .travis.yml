@@ -4,6 +4,8 @@ compiler:
     - gcc
 addons:
     apt:
+        sources:
+            - ubuntu-toolchain-r-test
         packages:
             - cmake-3.7
 script:
