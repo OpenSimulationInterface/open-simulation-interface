@@ -5,7 +5,7 @@ compiler:
 addons:
     apt:
         packages:
-            - cmake
+            - cmake-3.7
 script:
     - mkdir build
     - cd build
