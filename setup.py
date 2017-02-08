@@ -44,12 +44,12 @@ class GenerateProtobuf(install):
 
 try:
     os.mkdir(package_path)
-except FileExistsError:
+except Exception:
     pass
 
 try:
     open(os.path.join(package_path, '__init__.py'), 'a').close()
-except FileExistsError:
+except Exception:
     pass
 
 setup(name='open-simulation-interface',
