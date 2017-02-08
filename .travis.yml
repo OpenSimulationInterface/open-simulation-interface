@@ -1,3 +1,5 @@
+# Source: https://github.com/boostorg/hana/blob/master/.travis.yml
+
 language: cpp
 compiler:
     - clang
@@ -10,11 +12,13 @@ install:
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
     - mkdir -p "${DEPS_DIR}" && cd "${DEPS_DIR}"
 
-    # Install a recent version of CMake (source: https://github.com/boostorg/hana/blob/master/.travis.yml)
+    # Install a recent version of CMake
     - |
         CMAKE_URL="https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz"
         mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
         export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+before_script:
+    - cd "${TRAVIS_BUILD_DIR}"
 script:
     - mkdir build
     - cd build
