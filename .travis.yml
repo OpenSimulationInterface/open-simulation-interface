@@ -26,14 +26,14 @@ install:
     # Install a recent version of CMake
     - |
         CMAKE_URL="https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz"
-        mkdir cmake
+        mkdir -p cmake
         travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
         export PATH=${DEPS_DIR}/cmake/bin:${PATH}
 
     # Install a recent version of the Protobuf
     - |
         PROTOBUF_URL="https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz"
-        mkdir protobuf
+        mkdir -p protobuf
         travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf
         cd protobuf
         ./configure --prefix=/usr
@@ -46,7 +46,7 @@ before_script:
 
 # Run the build script.
 script:
-    - mkdir build
+    - mkdir -p build
     - cd build
     - cmake ..
     - cmake --build .
