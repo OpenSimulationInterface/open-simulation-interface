@@ -31,6 +31,8 @@ target_include_directories(${PROJECT_NAME}
         ${PROTOBUF_INCLUDE_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
+target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
+
 
 add_library(${PROJECT_NAME}_pic STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
 target_include_directories(${PROJECT_NAME}_pic
@@ -38,5 +40,7 @@ target_include_directories(${PROJECT_NAME}_pic
         ${PROTOBUF_INCLUDE_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
+target_link_libraries(${PROJECT_NAME}_pic PUBLIC ${PROTOBUF_LIBRARY})
+
 
 set_property(TARGET ${PROJECT_NAME}_pic PROPERTY POSITION_INDEPENDENT_CODE ON)
