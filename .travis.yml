@@ -6,9 +6,8 @@ sudo: required
 # Use C++ build environment.
 language: cpp
 
-# Creates a matrix build job to build the product with the different compilers.
+# Protobuf requires g++ (see https://github.com/google/protobuf/blob/master/src/README.md)
 compiler:
-    - clang
     - gcc
 
 # Cache dependencies to speed up the build.
