@@ -3,9 +3,13 @@ language: cpp
 compiler:
     - clang
     - gcc
-before_install:
-    - sudo apt-get -qq update
-    - sudo apt-get install -y cmake protobuf
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        package:
+            - cmake
+            - protobuf
 script:
     - mkdir build
     - cd build
