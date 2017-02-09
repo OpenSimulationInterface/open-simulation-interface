@@ -1,6 +1,8 @@
 Open Simulation Interface (OSI)
 ===============================
 
+![Travis Build Status](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface.svg?branch=master)
+
 General description
 -------------------
 https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/
