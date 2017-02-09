@@ -25,13 +25,18 @@ set(OSI_PROTO_FILES
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
 
-include_directories(${PROTOBUF_INCLUDE_DIRS})
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
 add_library(${PROJECT_NAME} STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
-target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+        ${PROTOBUF_INCLUDE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
 
 add_library(${PROJECT_NAME}_pic STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
-target_link_libraries(${PROJECT_NAME}_pic PUBLIC ${PROTOBUF_LIBRARY})
+target_include_directories(${PROJECT_NAME}_pic
+    PUBLIC
+        ${PROTOBUF_INCLUDE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
 
 set_property(TARGET ${PROJECT_NAME}_pic PROPERTY POSITION_INDEPENDENT_CODE ON)
