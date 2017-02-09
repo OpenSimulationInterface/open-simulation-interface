@@ -1,5 +1,7 @@
-dist: trusty
+# Source: https://github.com/boostorg/hana/blob/master/.travis.yml
+
 language: cpp
+sudo: true
 compiler:
     - clang
     - gcc
@@ -7,9 +9,32 @@ addons:
     apt:
         sources:
             - ubuntu-toolchain-r-test
-        package:
-            - cmake
-            - protobuf
+cache:
+    directories:
+        - ${TRAVIS_BUILD_DIR}/deps/cmake
+        - ${TRAVIS_BUILD_DIR}/deps/protobuf
+install:
+    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+    - mkdir -p "${DEPS_DIR}" && cd "${DEPS_DIR}"
+
+    # Install a recent version of CMake
+    - |
+        CMAKE_URL="https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz"
+        mkdir cmake
+        travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
+        export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+
+    # Install a recent version of the Protobuf
+    - |
+        PROTOBUF_URL="https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz"
+        mkdir protobuf
+        travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf
+        cd protobuf
+        ./configure --prefix=/usr
+        make
+        make install
+before_script:
+    - cd "${TRAVIS_BUILD_DIR}"
 script:
     - mkdir build
     - cd build
