@@ -1,22 +1,29 @@
 # Source: https://github.com/boostorg/hana/blob/master/.travis.yml
 
+# Sudo is required for installing recent versions of dependencies.
+sudo: required
+
+# Use C++ build environment.
 language: cpp
-sudo: true
+
+# Creates a matrix build job to build the product with the different compilers.
 compiler:
     - clang
     - gcc
-addons:
-    apt:
-        sources:
-            - ubuntu-toolchain-r-test
+
+# Cache dependencies to speed up the build.
 cache:
     directories:
         - ${TRAVIS_BUILD_DIR}/deps/cmake
         - ${TRAVIS_BUILD_DIR}/deps/protobuf
-install:
-    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
-    - mkdir -p "${DEPS_DIR}" && cd "${DEPS_DIR}"
 
+# Handle dependencies in separate directory.
+before_install:
+    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+    - mkdir -p "${DEPS_DIR}"
+    - cd "${DEPS_DIR}"
+
+install:
     # Install a recent version of CMake
     - |
         CMAKE_URL="https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz"
@@ -32,9 +39,13 @@ install:
         cd protobuf
         ./configure --prefix=/usr
         make
-        make install
+        sudo make install
+
+# Change directory back to default build directory.
 before_script:
     - cd "${TRAVIS_BUILD_DIR}"
+
+# Run the build script.
 script:
     - mkdir build
     - cd build
