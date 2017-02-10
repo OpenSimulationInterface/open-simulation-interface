@@ -1,13 +1,46 @@
 cmake_minimum_required(VERSION 3.7)
-project(open-simulation-interface)
+
+project(open_simulation_interface)
+
 find_package(Protobuf 2.6.1 REQUIRED)
-file(GLOB OSI_PROTO_FILES osi_*.proto)
-PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER ${OSI_PROTO_FILES})
-add_library(open_simulation_interface STATIC ${PROTO_SRC} ${PROTO_HEADER})
-target_include_directories(open_simulation_interface PUBLIC ${PROTOBUF_INCLUDE_DIR})
-target_link_libraries(open_simulation_interface PUBLIC ${PROTOBUF_LIBRARY})
-add_library(open_simulation_interface_pic STATIC ${PROTO_SRC} ${PROTO_HEADER})
-set_property(TARGET open_simulation_interface_pic PROPERTY POSITION_INDEPENDENT_CODE ON)
-target_include_directories(open_simulation_interface_pic PUBLIC ${PROTOBUF_INCLUDE_DIR})
-target_link_libraries(open_simulation_interface_pic PUBLIC ${PROTOBUF_LIBRARY})
-set (OSI_PROTOBUF_INCLUDE_PATH ${CMAKE_CURRENT_BINARY_DIR} CACHE INTERNAL "[OSI] Path to generated protobuf files for the open simulation interface.")
+
+set(OSI_PROTO_FILES
+    osi_common.proto
+    osi_datarecording.proto
+    osi_detectedlandmark.proto
+    osi_detectedlane.proto
+    osi_detectedobject.proto
+    osi_detectedoccupant.proto
+    osi_environment.proto
+    osi_groundtruth.proto
+    osi_landmark.proto
+    osi_lane.proto
+    osi_lowleveldata.proto
+    osi_modelinternal.proto
+    osi_object.proto
+    osi_occupant.proto
+    osi_sensordata.proto
+    osi_sensorspecific.proto
+)
+
+protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
+
+add_library(${PROJECT_NAME} STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+        ${PROTOBUF_INCLUDE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
+
+
+add_library(${PROJECT_NAME}_pic STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
+target_include_directories(${PROJECT_NAME}_pic
+    PUBLIC
+        ${PROTOBUF_INCLUDE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
+target_link_libraries(${PROJECT_NAME}_pic PUBLIC ${PROTOBUF_LIBRARY})
+
+
+set_property(TARGET ${PROJECT_NAME}_pic PROPERTY POSITION_INDEPENDENT_CODE ON)
