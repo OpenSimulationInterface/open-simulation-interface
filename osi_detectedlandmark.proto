@@ -7,191 +7,191 @@ import "osi_landmark.proto";
 
 package osi;
 
-/**
- * A traffic sign in the environment as detected by the sensor.
- */
+///
+/// A traffic sign in the environment as detected by the sensor.
+///
 message DetectedTrafficSign
 {
-    // The id of the original traffic sign in the ground truth.
-    // In case of a ghost sign (no corresponding ground truth), this field should be unset.
+    /// The id of the original traffic sign in the ground truth.
+    /// In case of a ghost sign (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 1;
 
-    // A list of candidates for this traffic sign as estimated by the sensor.
+    /// A list of candidates for this traffic sign as estimated by the sensor.
     repeated CandidateSign candidate_sign = 2;
 
-    // A list of candidates for (a) possible supplementary sign(s) as estimated by the sensor.
+    /// A list of candidates for (a) possible supplementary sign(s) as estimated by the sensor.
     repeated CandidateSupplementarySign candidate_supplementary_sign = 3;
 
-    // The detected geometry of the traffic sign.
+    /// The detected geometry of the traffic sign.
     optional Geometry geometry = 4;
 
-    // The estimated probability that this traffic sign really exists. Range [0,1].
+    /// The estimated probability that this traffic sign really exists. Range [0,1].
     optional double existence_probability = 5;
 
-    // The measurement state of the traffic sign.
+    /// The measurement state of the traffic sign.
     optional MeasurementState measurement_state = 6;
 
-    // The standard deviation of the base parameters of the detected traffic sign.
+    /// The standard deviation of the base parameters of the detected traffic sign.
     optional BaseStationary standard_deviation = 7;
 
-    // Links to the corresponding lanes.
+    /// Links to the corresponding lanes.
     repeated RelevantLane relevant_lane = 8;
 
-    // Definition of traffic sign geometries.
+    /// Definition of traffic sign geometries.
     enum Geometry
     {
-        // Geometry of the traffic sign is unknown.
+        /// Geometry of the traffic sign is unknown.
         GEOMETRY_UNKNOWN = 0;
-        // Geometry of the traffic sign is unspecified (but known).
+        /// Geometry of the traffic sign is unspecified (but known).
         GEOMETRY_OTHER = 1;
-        // Traffic sign has a triangular geometry.
+        /// Traffic sign has a triangular geometry.
         GEOMETRY_TRIANGLE = 2;
-        // Traffic sign has a circular geometry.
+        /// Traffic sign has a circular geometry.
         GEOMETRY_CIRCLE = 3;
-        // Traffic sign has a square geometry.
+        /// Traffic sign has a square geometry.
         GEOMETRY_SQUARE = 4;
     }
 
-    // Definition of measurement states.
+    /// Definition of measurement states.
     enum MeasurementState
     {
-        // Measurement state is unknown.
+        /// Measurement state is unknown.
         MEASUREMENT_STATE_UNKNOWN = 0;
-        // Measurement state is unspecified (but known, i.e. value is not part of this enum list).
+        /// Measurement state is unspecified (but known, i.e. value is not part of this enum list).
         MEASUREMENT_STATE_OTHER = 1;
-        // Traffic sign has been measured by the sensor in the current timestep.
+        /// Traffic sign has been measured by the sensor in the current timestep.
         MEASUREMENT_STATE_MEASURED = 2;
-        // Traffic sign has not been measured by the sensor in the current timestep. Values provided by tracking only.
+        /// Traffic sign has not been measured by the sensor in the current timestep. Values provided by tracking only.
         MEASUREMENT_STATE_PREDICTED = 3;
     }
 }
 
-/**
- * A candidate for a detected traffic sign as estimated by the sensor.
- */
+///
+/// A candidate for a detected traffic sign as estimated by the sensor.
+///
 message CandidateSign
 {
-    // The definition of the candidate's properties.
-    // The sign.id values of all CandidateSigns within one DetectedTrafficSign correspond to the tracking id and must
-    // be identical.
+    /// The definition of the candidate's properties.
+    /// The sign.id values of all CandidateSigns within one DetectedTrafficSign correspond to the tracking id and must
+    /// be identical.
     optional TrafficSign sign = 1;
 
-    // The estimated probability that this candidate is the true value. Range [0,1].
-    // The sum of all candidate_probabilities must be one.
+    /// The estimated probability that this candidate is the true value. Range [0,1].
+    /// The sum of all candidate_probabilities must be one.
     optional double candidate_probability = 2;
 }
 
-/**
- * A candidate for (a) detected supplementary sign(s) as estimated by the sensor.
- */
+///
+/// A candidate for (a) detected supplementary sign(s) as estimated by the sensor.
+///
 message CandidateSupplementarySign
 {
-    // The definition of one of more supplementary signs that together define this candidate.
+    /// The definition of one of more supplementary signs that together define this candidate.
     repeated SupplementarySign sign = 1;
 
-    // The estimated probability that this candidate is the true value. Range [0,1].
-    // The sum of all candidate_probabilities must be one.
+    /// The estimated probability that this candidate is the true value. Range [0,1].
+    /// The sum of all candidate_probabilities must be one.
     optional double candidate_probability = 2;
 }
 
-/**
- * A traffic light in the environment as detected by the sensor.
- */
+///
+/// A traffic light in the environment as detected by the sensor.
+///
 message DetectedTrafficLight
 {
-    // The id of the original traffic light in the ground truth.
-    // In case of a ghost detection (no corresponding ground truth), this field should be unset.
+    /// The id of the original traffic light in the ground truth.
+    /// In case of a ghost detection (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 1;
 
-    // Description of the detected traffic light.
+    /// Description of the detected traffic light.
     optional TrafficLight traffic_light = 2;
 
-    // Determines for which directions the traffic light applies.
+    /// Determines for which directions the traffic light applies.
     repeated RelevantDirection relevant_direction = 3;
 
-    // Links to the corresponding lanes.
+    /// Links to the corresponding lanes.
     repeated RelevantLane relevant_lane = 4;
 
-    // Existence probability. Range [0,1].
+    /// Existence probability. Range [0,1].
     optional double existence_probability = 5;
 
-    // The standard deviation of the base parameters of the detected traffic light.
+    /// The standard deviation of the base parameters of the detected traffic light.
     optional BaseStationary standard_deviation = 6;
 
-    /**
-     * Further specifies the relevant directions of the traffic light.
-     */
+    ///
+    /// Further specifies the relevant directions of the traffic light.
+    ///
     message RelevantDirection
     {
-        // The direction the traffic light corresponds to.
+        /// The direction the traffic light corresponds to.
         optional Direction direction = 1;
 
-        // Relevance probability. Range [0,1].
+        /// Relevance probability. Range [0,1].
         optional double relevance_probability = 2;
 
-        // Specifies the different directions.
+        /// Specifies the different directions.
         enum Direction
         {
-            // Direction is unknown (must not be used in ground truth).
+            /// Direction is unknown (must not be used in ground truth).
             DIRECTION_UNKNOWN = 0;
-            // Other (unspecified but known) direction.
+            /// Other (unspecified but known) direction.
             DIRECTION_OTHER = 1;
-            // Direction is straight.
+            /// Direction is straight.
             DIRECTION_STRAIGHT = 2;
-            // Direction is left.
+            /// Direction is left.
             DIRECTION_LEFT = 3;
-            // Direction is right.
+            /// Direction is right.
             DIRECTION_RIGHT = 4;
         }
     }
 }
 
-/**
- * Further specifies the relevant lane of a detected object.
- */
+///
+/// Further specifies the relevant lane of a detected object.
+///
 message RelevantLane
 {
-    // Tracking id of the lane segment.
+    /// Tracking id of the lane segment.
     optional Identifier lane_id = 1;
 
-    // Relevance probability. Range [0,1].
+    /// Relevance probability. Range [0,1].
     optional double relevance_probability = 2;
 }
 
-/**
- * A road marking in the environment as detected by the sensor.
- */
+///
+/// A road marking in the environment as detected by the sensor.
+///
 message DetectedRoadMarking
 {
-    // Tracking id of the road marking.
+    /// Tracking id of the road marking.
     optional Identifier tracking_id = 1;
 
-    // The id of the original road marking in the ground truth.
-    // In case of a ghost detection (no corresponding ground truth), this field should be unset.
+    /// The id of the original road marking in the ground truth.
+    /// In case of a ghost detection (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 2;
 
-    // A list of candidates for this road marking as estimated by the sensor.
+    /// A list of candidates for this road marking as estimated by the sensor.
     repeated CandidateRoadMarking candidate_road_marking = 3;
 
-    // Existence probability. Range [0,1].
+    /// Existence probability. Range [0,1].
     optional double existence_probability = 4;
 
-    // Links to the corresponding lanes.
+    /// Links to the corresponding lanes.
     repeated RelevantLane relevant_lane = 5;
 
-    // The standard deviation of the base parameters of the detected road marking.
+    /// The standard deviation of the base parameters of the detected road marking.
     optional BaseStationary standard_deviation = 6;
 }
 
-/**
- * A candidate for a detected road marking as estimated by the sensor.
- */
+///
+/// A candidate for a detected road marking as estimated by the sensor.
+///
 message CandidateRoadMarking
 {
-    // The description of the road marking.
+    /// The description of the road marking.
     optional RoadMarking road_marking = 1;
 
-    // The estimated probability that this candidate is the true value. Range [0,1].
-    // The sum of all candidate_probabilities must be one.
+    /// The estimated probability that this candidate is the true value. Range [0,1].
+    /// The sum of all candidate_probabilities must be one.
     optional double candidate_probability = 2;
 }

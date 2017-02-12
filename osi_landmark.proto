@@ -6,432 +6,432 @@ import "osi_common.proto";
 
 package osi;
 
-/**
- * A traffic sign.
- */
+///
+/// A traffic sign.
+///
 message TrafficSign
 {
-    // The id of the traffic sign.
+    /// The id of the traffic sign.
     optional Identifier id = 1;
 
-    // The base parameters of the traffic sign.
+    /// The base parameters of the traffic sign.
     optional BaseStationary base = 2;
 
-    // The type of the traffic sign.
+    /// The type of the traffic sign.
     optional Type type = 3;
 
-    // Additional value associated with the traffic sign, e.g. value of the speed limit.
-    // Field need not be set if traffic sign type does not require it. Speed (limits) should be given in km/h.
+    /// Additional value associated with the traffic sign, e.g. value of the speed limit.
+    /// Field need not be set if traffic sign type does not require it. Speed (limits) should be given in km/h.
     optional double value = 4;
 
-    // Variability
+    /// Variability
     optional Variability variability = 5;
 
-    // Additional, supplementary signs, e.g. time limit, modifying the traffic sign.
+    /// Additional, supplementary signs, e.g. time limit, modifying the traffic sign.
     repeated SupplementarySign supplementary_sign = 6;
 
-    // The ids of the lanes that the traffic sign is assigned to.
-    // Might be multiple if the traffic sign is valid for multiple lanes.
+    /// The ids of the lanes that the traffic sign is assigned to.
+    /// Might be multiple if the traffic sign is valid for multiple lanes.
     repeated Identifier assigned_lane = 7;
 
-    // Definition of traffic sign types.
-    // Numbers given according to German StVO. For an overview see
-    // http://www.dvr.de/multimedia/downloads/verkehrszeichen.htm (Images)
-    // https://www.gesetze-im-internet.de/stvo_2013/anlage_1.html (Allgemeine und Besondere Gefahrenzeichen)
-    // https://www.gesetze-im-internet.de/stvo_2013/anlage_2.html (Vorschriftzeichen)
-    // https://www.gesetze-im-internet.de/stvo_2013/anlage_3.html (Richtzeichen)
-    // https://www.gesetze-im-internet.de/stvo_2013/anlage_4.html (Verkehrseinrichtungen)
+    /// Definition of traffic sign types.
+    /// Numbers given according to German StVO. For an overview see
+    /// http:///www.dvr.de/multimedia/downloads/verkehrszeichen.htm (Images)
+    /// https:///www.gesetze-im-internet.de/stvo_2013/anlage_1.html (Allgemeine und Besondere Gefahrenzeichen)
+    /// https:///www.gesetze-im-internet.de/stvo_2013/anlage_2.html (Vorschriftzeichen)
+    /// https:///www.gesetze-im-internet.de/stvo_2013/anlage_3.html (Richtzeichen)
+    /// https:///www.gesetze-im-internet.de/stvo_2013/anlage_4.html (Verkehrseinrichtungen)
     enum Type
     {
-        // Type of traffic sign is unknown (must not be used in ground truth).
+        /// Type of traffic sign is unknown (must not be used in ground truth).
         TYPE_UNKNOWN = 0;
-        // Other (unspecified but known) type of traffic sign.
+        /// Other (unspecified but known) type of traffic sign.
         TYPE_OTHER = 1;
-        // Start of speed limit (StVO 274).
+        /// Start of speed limit (StVO 274).
         TYPE_SPEED_LIMIT_BEGIN = 2;
-        // End of speed limit (StVO 278).
+        /// End of speed limit (StVO 278).
         TYPE_SPEED_LIMIT_END = 3;
-        // Town entrance (StVO 310).
+        /// Town entrance (StVO 310).
         TYPE_TOWN_BEGIN = 4;
-        // Town exit (StVO 311).
+        /// Town exit (StVO 311).
         TYPE_TOWN_END = 5;
-        // Start of zone with speed limit 30 (StVO 274.1).
+        /// Start of zone with speed limit 30 (StVO 274.1).
         TYPE_ZONE_30_BEGIN = 6;
-        // End of zone with speed limit 30 (StVO 274.2).
+        /// End of zone with speed limit 30 (StVO 274.2).
         TYPE_ZONE_30_END = 7;
-        // Mandatory minimum speed (StVO 275).
+        /// Mandatory minimum speed (StVO 275).
         TYPE_MINIMUM_SPEED = 8;
-        // Start of area with calmed / reduced traffic (verkehrsberuhigter Bereich - StVO 325.1).
+        /// Start of area with calmed / reduced traffic (verkehrsberuhigter Bereich - StVO 325.1).
         TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN = 9;
-        // End of area with calmed / reduced traffic (verkehrsberuhigter Bereich - StVO 325.2).
+        /// End of area with calmed / reduced traffic (verkehrsberuhigter Bereich - StVO 325.2).
         TYPE_TRAFFIC_CALMED_DISTRICT_END = 10;
-        // Start of area without traffic to reduce harmful air pollution (StVO 270.1).
+        /// Start of area without traffic to reduce harmful air pollution (StVO 270.1).
         TYPE_ENVIRONMENTAL_ZONE_BEGIN = 11;
-        // End of area without traffic to reduce harmful air pollution (StVO 270.2).
+        /// End of area without traffic to reduce harmful air pollution (StVO 270.2).
         TYPE_ENVIRONMENTAL_ZONE_END = 12;
-        // Start of overtaking ban (StVO 276).
+        /// Start of overtaking ban (StVO 276).
         TYPE_OVERTAKING_BAN_BEGIN = 13;
-        // End of overtaking ban (StVO 280).
+        /// End of overtaking ban (StVO 280).
         TYPE_OVERTAKING_BAN_END = 14;
-        // Start of overtaking ban for trucks (StVO 277).
+        /// Start of overtaking ban for trucks (StVO 277).
         TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN = 15;
-        // End of overtaking ban for trucks (StVO 281).
+        /// End of overtaking ban for trucks (StVO 281).
         TYPE_OVERTAKING_BAN_FOR_TRUCKS_END = 16;
-        // End of all speed and overtaking restrictions (StVO 282).
+        /// End of all speed and overtaking restrictions (StVO 282).
         TYPE_ALL_RESTRICTIONS_END = 17;
-        // Begin of priority road with right of way (StVO 306).
+        /// Begin of priority road with right of way (StVO 306).
         TYPE_RIGHT_OF_WAY_BEGIN = 18;
-        // End of priority road with right of way (StVO 307).
+        /// End of priority road with right of way (StVO 307).
         TYPE_RIGHT_OF_WAY_END = 19;
-        // Right of way at the next intersection (StVO 301).
+        /// Right of way at the next intersection (StVO 301).
         TYPE_RIGHT_OF_WAY_NEXT_INTERSECTION = 20;
-        // Begin of no parking zone (StVO 290.1).
+        /// Begin of no parking zone (StVO 290.1).
         TYPE_NO_PARKING_ZONE_BEGIN = 21;
-        // End of no parking zone (StVO 290.2).
+        /// End of no parking zone (StVO 290.2).
         TYPE_NO_PARKING_ZONE_END = 22;
-        // No parking sign (StVO 286).
+        /// No parking sign (StVO 286).
         TYPE_NO_PARKING = 23;
-        // No stopping sign (StVO 283).
+        /// No stopping sign (StVO 283).
         TYPE_NO_STOPPING = 24;
-        // Give way sign (StVO 205).
+        /// Give way sign (StVO 205).
         TYPE_GIVE_WAY = 25;
-        // Stop sign (StVO 206).
+        /// Stop sign (StVO 206).
         TYPE_STOP = 26;
-        // Danger sign (StVO 101).
+        /// Danger sign (StVO 101).
         TYPE_DANGER_SPOT = 27;
-        // Road works sign (StVO 123)
+        /// Road works sign (StVO 123)
         TYPE_ROAD_WORKS = 28;
-        // Roundabout (StVO 215).
+        /// Roundabout (StVO 215).
         TYPE_ROUNDABOUT = 29;
-        // Traffic light ahead sign (StVO 131).
+        /// Traffic light ahead sign (StVO 131).
         TYPE_ATTENTION_TRAFFIC_LIGHT = 30;
-        // Pedestrian crossing (StVO 350).
+        /// Pedestrian crossing (StVO 350).
         TYPE_PEDESTRIAN_CROSSING_INFO = 31;
-        // Minimum safety distance for trucks (StVO 273).
+        /// Minimum safety distance for trucks (StVO 273).
         TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 32;
-        // Entry not allowed (StVO 267).
+        /// Entry not allowed (StVO 267).
         TYPE_DO_NOT_ENTER = 33;
-        // Entry prohibited for all vehicle types (StVO 250).
+        /// Entry prohibited for all vehicle types (StVO 250).
         TYPE_PROHIBITED_FOR_ALL = 34;
-        // Entry prohibited for all motor vehicles (StVO 251).
+        /// Entry prohibited for all motor vehicles (StVO 251).
         TYPE_PROHIBITED_FOR_MOTOR_VEHICLES  = 35;
-        // Entry prohibited for trucks (StVO 253).
+        /// Entry prohibited for trucks (StVO 253).
         TYPE_PROHIBITED_FOR_TRUCKS  = 36;
-        // Entry prohibited for bicycles (StVO 254).
+        /// Entry prohibited for bicycles (StVO 254).
         TYPE_PROHIBITED_FOR_BICYCLES  = 37;
-        // Entry prohibited for motor bikes (StVO 255).
+        /// Entry prohibited for motor bikes (StVO 255).
         TYPE_PROHIBITED_FOR_MOTOR_BIKES  = 38;
-        // Entry prohibited for pedestrians (StVO 259).
+        /// Entry prohibited for pedestrians (StVO 259).
         TYPE_PROHIBITED_FOR_PEDESTRIANS  = 39;
-        // Entry prohibited for all motor vehicles and bikes (StVO 260).
+        /// Entry prohibited for all motor vehicles and bikes (StVO 260).
         TYPE_PROHIBITED_FOR_MOTOR_VEHICLES_BIKES  = 40;
-        // Begin of highway (StVO 330.1).
+        /// Begin of highway (StVO 330.1).
         TYPE_HIGHWAY_BEGIN = 41;
-        // End of highway (StVO 330.2).
+        /// End of highway (StVO 330.2).
         TYPE_HIGHWAY_END = 42;
-        // Highway exit sign (StVO 333).
+        /// Highway exit sign (StVO 333).
         TYPE_HIGHWAY_EXIT = 43;
-        // Pole indicating highways exit in 100m (StVO 450).
+        /// Pole indicating highways exit in 100m (StVO 450).
         TYPE_POLE_EXIT_100M = 44;
-        // Pole indicating highways exit in 200m (StVO 450).
+        /// Pole indicating highways exit in 200m (StVO 450).
         TYPE_POLE_EXIT_200M = 45;
-        // Pole indicating highways exit in 300m (StVO 450).
+        /// Pole indicating highways exit in 300m (StVO 450).
         TYPE_POLE_EXIT_300M = 46;
-        // Pole for warning and guiding purposes (red/white stripes - StVO 605).
+        /// Pole for warning and guiding purposes (red/white stripes - StVO 605).
         TYPE_POLE_WARNING = 47;
-        // Begin of expressway for motor vehicles (StVO 331.1).
+        /// Begin of expressway for motor vehicles (StVO 331.1).
         TYPE_EXPRESSWAY_BEGIN = 48;
-        // End of expressways for motor vehicles (StVO 331.2).
+        /// End of expressways for motor vehicles (StVO 331.2).
         TYPE_EXPRESSWAY_END = 49;
-        // Parking space (StVO 314).
+        /// Parking space (StVO 314).
         TYPE_CAR_PARKING = 50;
     }
 
-    //
+    ///
     enum Variability
     {
-        // Variability type of sign is unknown. Value must not be used in ground truth.
+        /// Variability type of sign is unknown. Value must not be used in ground truth.
         VARIABILITY_UNKNOWN = 0;
-        // Other (unspecified but known) variability.
+        /// Other (unspecified but known) variability.
         VARIABILITY_OTHER = 1;
-        // Fixed sign, i.e. always present.
+        /// Fixed sign, i.e. always present.
         VARIABILITY_FIXED = 2;
-        // Temporary or variable sign, e.g. on a sign bridge.
+        /// Temporary or variable sign, e.g. on a sign bridge.
         VARIABILITY_VARIABLE = 3;
     }
 }
 
-/**
- * Additional, supplementary sign modifying a parent traffic sign.
- */
+///
+/// Additional, supplementary sign modifying a parent traffic sign.
+///
 message SupplementarySign
 {
-    // Type of the supplementary sign.
+    /// Type of the supplementary sign.
     optional Type type = 1;
 
-    // Optional first value defining additional properties, e.g. length, mass, or starting time in time range.
+    /// Optional first value defining additional properties, e.g. length, mass, or starting time in time range.
     optional double value_1 = 2;
 
-    // Optional second value defining additional properties, e.g. end time in time range.
+    /// Optional second value defining additional properties, e.g. end time in time range.
     optional double value_2 = 3;
 
-    // Definition of supplementary sign types.
-    // See TrafficSign.Type for further information.
+    /// Definition of supplementary sign types.
+    /// See TrafficSign.Type for further information.
     enum Type
     {
-        // Type of supplementary sign is unknown. Value must not be used in ground truth.
+        /// Type of supplementary sign is unknown. Value must not be used in ground truth.
         TYPE_UNKNOWN = 0;
-        // Other (unspecified but known) type of supplementary sign.
+        /// Other (unspecified but known) type of supplementary sign.
         TYPE_OTHER = 1;
-        // There is no supplementary sign. Value must not be used in ground truth.
+        /// There is no supplementary sign. Value must not be used in ground truth.
         TYPE_NO_SIGN = 2;
-        // Traffic sign is valid for a certain distance (given by value_1 in meter).
+        /// Traffic sign is valid for a certain distance (given by value_1 in meter).
         TYPE_VALID_FOR_DISTANCE = 3;
-        // Distance to the start of validity of the traffic sign (given by value_1 in meter).
+        /// Distance to the start of validity of the traffic sign (given by value_1 in meter).
         TYPE_VALID_IN_DISTANCE = 4;
-        // Time range for validity of traffic sign (starting from value_1 and ending with value_2, both defining
-        // time of day in minutes from midnight).
+        /// Time range for validity of traffic sign (starting from value_1 and ending with value_2, both defining
+        /// time of day in minutes from midnight).
         TPYE_TIME_RANGE = 5;
-        // Restriction of the validity of the traffic sign depending on the vehicle's weight (more than value_1 in
-        // kilogram).
+        /// Restriction of the validity of the traffic sign depending on the vehicle's weight (more than value_1 in
+        /// kilogram).
         TYPE_WEIGHT = 6;
-        // Restriction of the validity of the traffic sign to wet / rainy conditions.
+        /// Restriction of the validity of the traffic sign to wet / rainy conditions.
         TYPE_RAIN = 7;
-        // Restriction of the validity of the traffic sign to foggy conditions.
+        /// Restriction of the validity of the traffic sign to foggy conditions.
         TYPE_FOG = 8;
-        // Restriction of the validity of the traffic sign to snowy / icy conditions.
+        /// Restriction of the validity of the traffic sign to snowy / icy conditions.
         TYPE_SNOW = 9;
-        // Combined restriction of the validity of the traffic sign to rainy or snowy conditions denoted by a single
-        // supplementary sign (instead of two signs of TYPE_WET and TYPE_SNOW respectively).
+        /// Combined restriction of the validity of the traffic sign to rainy or snowy conditions denoted by a single
+        /// supplementary sign (instead of two signs of TYPE_WET and TYPE_SNOW respectively).
         TYPE_SNOW_RAIN = 10;
-        //
+        ///
         TYPE_LEFT_ARROW = 11;
-        //
+        ///
         TYPE_RIGHT_ARROW = 12;
-        //
+        ///
         TYPE_LEFT_BEND_ARROW = 13;
-        //
+        ///
         TYPE_RIGHT_BEND_ARROW = 14;
-        //
+        ///
         TYPE_TRUCK = 15;
-        //
+        ///
         TYPE_TRACTORS_MAY_BE_PASSED = 16;
-        //
+        ///
         TYPE_HAZARDOUS = 17;
-        //
+        ///
         TYPE_TRAILER = 18;
-        //
+        ///
         TYPE_NIGHT = 19;
-        //
+        ///
         TYPE_ZONE = 20;
-        //
+        ///
         TYPE_STOP_4_WAY = 21;
-        //
+        ///
         TYPE_MOTORCYCLE = 22;
-        //
+        ///
         TYPE_MOTORCYCLE_ALLOWED = 23;
-        //
+        ///
         TYPE_CAR = 24;
-        //
+        ///
         TYPE_STOP_IN = 25;
     }
 }
 
-/**
- * A traffic light.
- */
+///
+/// A traffic light.
+///
 message TrafficLight
 {
-    // The id of the traffic light.
+    /// The id of the traffic light.
     optional Identifier id = 1;
 
-    // The base parameters of the traffic light.
+    /// The base parameters of the traffic light.
     optional BaseStationary base = 2;
 
-    // The type of the traffic light.
+    /// The type of the traffic light.
     optional Type type = 3;
 
-    // The shape of the traffic light.
+    /// The shape of the traffic light.
     optional Shape shape = 4;
 
-    // The state of the traffic light.
+    /// The state of the traffic light.
     optional LightState light_state = 5;
 
-    // Presence of a green arrow sign for right turns on the traffic light.
+    /// Presence of a green arrow sign for right turns on the traffic light.
     optional GreenArrowPresence green_arrow = 6;
 
-    // The ids of the lanes that the traffic light is assigned to.
-    // Might be multiple if the traffic light is valid for multiple lanes.
+    /// The ids of the lanes that the traffic light is assigned to.
+    /// Might be multiple if the traffic light is valid for multiple lanes.
     repeated Identifier assigned_lane = 7;
 
-    // Definition of traffic light types.
+    /// Definition of traffic light types.
     enum Type
     {
-        // Unknown type of traffic light. Value must not be used in ground truth.
+        /// Unknown type of traffic light. Value must not be used in ground truth.
         TYPE_UNKNOWN = 0;
-        // Other (unspecified but known) type of traffic light.
+        /// Other (unspecified but known) type of traffic light.
         TYPE_OTHER = 1;
-        // Normal traffic light for motor vehicle traffic.
+        /// Normal traffic light for motor vehicle traffic.
         TYPE_NORMAL = 2;
-        // Light for pedestrian traffic.
+        /// Light for pedestrian traffic.
         TYPE_PEDESTRIAN = 3;
-        // Light for bicycle traffic.
+        /// Light for bicycle traffic.
         TYPE_BICYCLE = 4;
     }
 
-    // Definition of traffic light shapes.
+    /// Definition of traffic light shapes.
     enum Shape
     {
-        // Unknown shape of traffic light. Value must not be used in ground truth.
+        /// Unknown shape of traffic light. Value must not be used in ground truth.
         SHAPE_UNKNOWN = 0;
-        // Other (unspecified but known) shape of traffic light.
+        /// Other (unspecified but known) shape of traffic light.
         SHAPE_OTHER = 1;
-        // This is a normal traffic light without specification of direction.
+        /// This is a normal traffic light without specification of direction.
         SHAPE_CIRCULAR = 2;
-        // This traffic light applies to the lane straight ahead.
+        /// This traffic light applies to the lane straight ahead.
         SHAPE_ARROW_STRAIGHT = 3;
-        // This traffic light applies to left turns.
+        /// This traffic light applies to left turns.
         SHAPE_ARROW_LEFT = 4;
-        // This traffic light applies to diagonal left turns.
+        /// This traffic light applies to diagonal left turns.
         SHAPE_ARROW_DIAG_LEFT = 5;
-        // This traffic light applies to a lane allowing to drive straight ahead or to turn left.
+        /// This traffic light applies to a lane allowing to drive straight ahead or to turn left.
         SHAPE_ARROW_STRAIGHT_LEFT = 6;
-        // This traffic light applies to right turns.
+        /// This traffic light applies to right turns.
         SHAPE_ARROW_RIGHT = 7;
-        // This traffic light applies to diagonal right turns.
+        /// This traffic light applies to diagonal right turns.
         SHAPE_ARROW_DIAG_RIGHT = 8;
-        // This traffic light applies to a lane allowing to drive straight ahead or to turn right.
+        /// This traffic light applies to a lane allowing to drive straight ahead or to turn right.
         SHAPE_ARROW_STRAIGHT_RIGHT = 9;
-        // This traffic light applies to a lane allowing to turn left or right.
+        /// This traffic light applies to a lane allowing to turn left or right.
         SHAPE_ARROW_LEFT_RIGHT = 10;
-        // This traffic light indicates that the assigned lane is open for driving.
+        /// This traffic light indicates that the assigned lane is open for driving.
         SHAPE_ARROW_DOWN = 11;
-        // This traffic light indicates a necessary lane change to the left ahead.
+        /// This traffic light indicates a necessary lane change to the left ahead.
         SHAPE_ARROW_DOWN_LEFT = 12;
-        // This traffic light indicates a necessary lane change to the right ahead.
+        /// This traffic light indicates a necessary lane change to the right ahead.
         SHAPE_ARROW_DOWN_RIGHT = 13;
-        // This traffic light indicates that the assigned lane is not open for driving.
+        /// This traffic light indicates that the assigned lane is not open for driving.
         SHAPE_ARROW_CROSS = 14;
     }
 
-    /**
-     * Definition of light state for traffic lights.
-     * This containes the logical information about the traffic light and NOT a description of individual light bulbs.
-     */
+    ///
+    /// Definition of light state for traffic lights.
+    /// This containes the logical information about the traffic light and NOT a description of individual light bulbs.
+    ///
     message LightState
     {
-        // The color of the traffic light.
+        /// The color of the traffic light.
         optional Color color = 1;
 
-        // The operating mode of the traffic light.
+        /// The operating mode of the traffic light.
         optional Mode mode = 2;
 
-        // Definition of colors for traffic lights.
+        /// Definition of colors for traffic lights.
         enum Color
         {
-            // Color is unknown. Value must not be used in ground truth.
+            /// Color is unknown. Value must not be used in ground truth.
             COLOR_UNKNOWN = 0;
-            // Other (unspecified but known) color.
+            /// Other (unspecified but known) color.
             COLOR_OTHER = 1;
-            // Traffic light is off / not active. In this case mode must also be set to MODE_OFF.
+            /// Traffic light is off / not active. In this case mode must also be set to MODE_OFF.
             COLOR_OFF = 2;
-            // Red light is on.
+            /// Red light is on.
             COLOR_RED = 3;
-            // Red and yellow light are on at the same time.
+            /// Red and yellow light are on at the same time.
             COLOR_RED_YELLOW = 4;
-            // Yellow light is on.
+            /// Yellow light is on.
             COLOR_YELLOW = 5;
-            // Green light is on.
+            /// Green light is on.
             COLOR_GREEN = 6;
         }
 
-        // Definition of light modes for traffic lights.
+        /// Definition of light modes for traffic lights.
         enum Mode
         {
-            // Mode is unknown. Value must not be used in ground truth.
+            /// Mode is unknown. Value must not be used in ground truth.
             MODE_UNKNOWN = 0;
-            // Other (unspecified but known) mode.
+            /// Other (unspecified but known) mode.
             MODE_OTHER = 1;
-            // Traffic light is off / not active. In this case color must also be set to COLOR_OFF.
+            /// Traffic light is off / not active. In this case color must also be set to COLOR_OFF.
             MODE_OFF = 2;
-            // Light is on normally.
+            /// Light is on normally.
             MODE_CONSTANT = 3;
-            // Light is blinking.
+            /// Light is blinking.
             MODE_BLINKING = 4;
         }
     }
 
-    // Definition of states for the presence of a green arrow sign for right turns.
+    /// Definition of states for the presence of a green arrow sign for right turns.
     enum GreenArrowPresence
     {
-        // Presence of green arrow sign is unknown (must not be used in ground truth).
+        /// Presence of green arrow sign is unknown (must not be used in ground truth).
         GREEN_ARROW_UNKNOWN = 0;
-        // Other (unspecified but known) green arrow sign.
+        /// Other (unspecified but known) green arrow sign.
         GREEN_ARROW_OTHER = 1;
-        // No green arrow sign present.
+        /// No green arrow sign present.
         GREEN_ARROW_NOT_PRESENT = 2;
-        // Green arrow sign present.
+        /// Green arrow sign present.
         GREEN_ARROW_PRESENT = 3;
     }
 }
 
-/**
- * A road surface marking.
- * Lane Markings are excluded and defined as LaneBoundaries as part of the Lanes.
- */
+///
+/// A road surface marking.
+/// Lane Markings are excluded and defined as LaneBoundaries as part of the Lanes.
+///
 message RoadMarking
 {
-    // The id of the road marking.
+    /// The id of the road marking.
     optional Identifier id = 1;
 
-    // The base parameters of the road marking.
+    /// The base parameters of the road marking.
     optional BaseStationary base = 2;
 
-    // The type of the road marking.
+    /// The type of the road marking.
     optional Type type = 3;
 
-    // The color of the road marking.
+    /// The color of the road marking.
     optional Color color = 4;
 
-    // Additional value associated with the road marking, e.g. value of the speed limit.
-    // Field need not be set if road marking type does not require it.
+    /// Additional value associated with the road marking, e.g. value of the speed limit.
+    /// Field need not be set if road marking type does not require it.
     optional double value = 5;
 
-    // The id(s) of the lane(s) that the road marking is assigned to.
-    // Might be multiple if the road marking goes across multiple lanes.
+    /// The id(s) of the lane(s) that the road marking is assigned to.
+    /// Might be multiple if the road marking goes across multiple lanes.
     repeated Identifier assigned_lane = 6;
 
-    // Definition of road marking types.
+    /// Definition of road marking types.
     enum Type
     {
-        // Type of road marking is unknown. Value must not be used in ground truth.
+        /// Type of road marking is unknown. Value must not be used in ground truth.
         TYPE_UNKNOWN = 0;
-        // Other (unspecified but known) type of road marking.
+        /// Other (unspecified but known) type of road marking.
         TYPE_OTHER = 1;
-        // A stop line.
+        /// A stop line.
         TYPE_STOP_LINE = 2;
-        // A speed limit sign painted on the road surface.
+        /// A speed limit sign painted on the road surface.
         TYPE_SPEED_LIMIT = 3;
-        // A straight arrow painted on the road surface indicating a lane to drive straight.
+        /// A straight arrow painted on the road surface indicating a lane to drive straight.
         TYPE_STRAIGHT_ARROW = 4;
-        // A straight arrow painted on the road surface indicating a lane to turn right.
+        /// A straight arrow painted on the road surface indicating a lane to turn right.
         TYPE_RIGHT_TURN_ARROW = 5;
-        // A straight arrow painted on the road surface indicating a lane to turn left.
+        /// A straight arrow painted on the road surface indicating a lane to turn left.
         TYPE_LEFT_TURN_ARROW = 6;
     }
 
-    // Definition of road marking colors
+    /// Definition of road marking colors
     enum Color
     {
-        // Color of road marking is unknown. Value must not be used in ground truth.
+        /// Color of road marking is unknown. Value must not be used in ground truth.
         COLOR_UNKNOWN = 0;
-        // Marking with another (unspecified but known) color.
+        /// Marking with another (unspecified but known) color.
         COLOR_OTHER = 1;
-        // Marking with white color.
+        /// Marking with white color.
         COLOR_WHITE = 2;
-        // Marking with yellow / orange-yellow color.
+        /// Marking with yellow / orange-yellow color.
         COLOR_YELLOW = 3;
-        // Marking with blue color.
+        /// Marking with blue color.
         COLOR_BLUE = 5;
     }
 }
