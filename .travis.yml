@@ -26,18 +26,13 @@ install:
     # Install a recent version of CMake
     - |
         CMAKE_URL="https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz"
-        mkdir -p cmake
-        travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
+        if [ ! -f ${DEPS_DIR}/cmake/bin/cmake ] ; then mkdir -p cmake ; travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake ; fi
         export PATH=${DEPS_DIR}/cmake/bin:${PATH}
 
     # Install a recent version of the Protobuf
     - |
         PROTOBUF_URL="https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz"
-        mkdir -p protobuf
-        travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf
-        cd protobuf
-        ./configure --prefix=/usr
-        make
+        if [ ! -f ${DEPS_DIR}/protobuf/src/.libs/protoc ] ; then mkdir -p protobuf ; travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf ; cd protobuf ; ./configure --prefix=/usr ; make ; else cd protobuf ; fi
         sudo make install
 
 # Change directory back to default build directory.
