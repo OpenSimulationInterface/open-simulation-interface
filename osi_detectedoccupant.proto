@@ -7,14 +7,14 @@ import "osi_occupant.proto";
 
 package osi;
 
-/**
- * A vehicle occupant as detected and perceived by an interior sensor.
- */
+///
+/// A vehicle occupant as detected and perceived by an interior sensor.
+///
 message DetectedOccupant
 {
-    // The detected vehicle occupant
+    /// The detected vehicle occupant
     optional Occupant occupant = 1;
 
-    // The id of the original vehicle occupant in the ground truth.
+    /// The id of the original vehicle occupant in the ground truth.
     optional Identifier ground_truth_occupant_id = 2;
 }

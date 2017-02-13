@@ -12,14 +12,14 @@ import "osi_modelinternal.proto";
 
 package osi;
 
-/**
- * The virtual sensor information derived from osi::groundtruth and potentially processed by sensor-models.
- *
- * The virtual sensor information is supposed to imitate the output of a real sensor. All information regarding the
- * environment is given with respect to the sensor coordinate system specified in SensorData::mounting_position.When
- * simulating multiple sensors, each sensor has an individual copy of the SensorData interface. This allows an
- * independent treatment of the sensors.
- */
+///
+/// The virtual sensor information derived from osi::groundtruth and potentially processed by sensor-models.
+///
+/// The virtual sensor information is supposed to imitate the output of a real sensor. All information regarding the
+/// environment is given with respect to the sensor coordinate system specified in SensorData::mounting_position.When
+/// simulating multiple sensors, each sensor has an individual copy of the SensorData interface. This allows an
+/// independent treatment of the sensors.
+///
 message SensorData
 {
     // The id of the sensor.
@@ -65,10 +65,10 @@ message SensorData
     optional ModelInternal model_internal = 12;
 }
 
-/**
- * Ground truth data with respect to two different reference frames (global and sensor) for use in the sensor model's
- * data processing and comparison of sensor and ground truth data.
- */
+///
+/// Ground truth data with respect to two different reference frames (global and sensor) for use in the sensor model's
+/// data processing and comparison of sensor and ground truth data.
+///
 message SensorDataGroundTruth
 {
     // Ground truth w.r.t. global coordinate system (copy of GroundTruth message),
