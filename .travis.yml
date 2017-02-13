@@ -50,3 +50,6 @@ script:
     - cd build
     - cmake ..
     - cmake --build .
+    - cd ..
+    - python setup.py build
+    - python setup.py sdist
