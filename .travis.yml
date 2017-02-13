@@ -29,8 +29,9 @@ install:
     # Install a recent version of the Protobuf
     - |
         PROTOBUF_URL="https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz"
-        if [ ! -f ${DEPS_DIR}/protobuf/src/.libs/protoc ] ; then mkdir -p protobuf ; travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf ; cd protobuf ; ./configure --prefix=/usr/local ; make ; else cd protobuf ; fi
+        if [ ! -f ${DEPS_DIR}/protobuf/src/.libs/protoc ] ; then mkdir -p protobuf ; travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf ; cd protobuf ; ./configure --prefix=${DEPS_DIR}/protobuf/install ; make ; else cd protobuf ; fi
         make install
+        export PATH=${DEPS_DIR}/protobuf/install/bin:${PATH}
 
 # Change directory back to default build directory.
 before_script:
