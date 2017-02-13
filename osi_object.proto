@@ -137,15 +137,15 @@ message Vehicle
         enum BrakeLightState
         {
              /// Brake light state is unknown (must not be used in ground truth).
-             BRAKE_LIGHT_STATE = 0;
+             BRAKE_LIGHT_STATE_UNKNOWN = 0;
              /// Other (unspecified but known) state of brake light.
-             BRAKE_LIGHT_OTHER = 1;
+             BRAKE_LIGHT_STATE_OTHER = 1;
              /// Brake lights are off.
-             BRAKE_LIGHT_OFF = 2;
+             BRAKE_LIGHT_STATE_OFF = 2;
              /// Brake lights are on with normal intensity.
-             BRAKE_LIGHT_NORMAL = 3;
+             BRAKE_LIGHT_STATE_NORMAL = 3;
              /// Brake lights are on with extra bright intensity (indicating stronger braking).
-             BRAKE_LIGHT_STRONG = 4;
+             BRAKE_LIGHT_STATE_STRONG = 4;
         }
     }
 }
