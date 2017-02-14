@@ -40,7 +40,7 @@ before_script:
 script:
     - mkdir -p build
     - cd build
-    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
+    - cmake -D CMAKE_PREFIX_PATH=${DEPS_DIR}/protobuf/install:${PATH} ..
     - cmake --build .
     - cd ..
     - python setup.py build
