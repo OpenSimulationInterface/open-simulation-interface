@@ -187,5 +187,5 @@ message BaseMoving
     optional Orientation3d orientation_rate = 6;
     
     /// The two dimensional (flat) contour of the object. 
-    repeated Vector2d base_polygon = 4;    
+    repeated Vector2d base_polygon = 7;    
 }
