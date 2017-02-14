@@ -1,8 +1,5 @@
 # Source: https://github.com/boostorg/hana/blob/master/.travis.yml
 
-# Sudo is required for installing recent versions of dependencies.
-sudo: required
-
 # Use C++ build environment.
 language: cpp
 
@@ -32,8 +29,8 @@ install:
     # Install a recent version of the Protobuf
     - |
         PROTOBUF_URL="https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz"
-        if [ ! -f ${DEPS_DIR}/protobuf/src/.libs/protoc ] ; then mkdir -p protobuf ; travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf ; cd protobuf ; ./configure --prefix=/usr ; make ; else cd protobuf ; fi
-        sudo make install
+        if [ ! -f ${DEPS_DIR}/protobuf/install/bin/protoc ] ; then mkdir -p protobuf ; travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf ; cd protobuf ; ./configure --prefix=${DEPS_DIR}/protobuf/install ; make ; make install ; fi
+        export PATH=${DEPS_DIR}/protobuf/install/bin:${PATH}
 
 # Change directory back to default build directory.
 before_script:
@@ -43,7 +40,7 @@ before_script:
 script:
     - mkdir -p build
     - cd build
-    - cmake ..
+    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
     - cmake --build .
     - cd ..
     - python setup.py build
