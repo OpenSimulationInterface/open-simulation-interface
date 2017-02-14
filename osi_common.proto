@@ -154,6 +154,9 @@ message BaseStationary
 
     /// The relative orientation of the landmark w.r.t its parent frame.
     optional Orientation3d orientation = 3;
+    
+    /// The two dimensional (flat) contour of the object. 
+    repeated Vector2d base_polygon = 4;
 }
 
 ///
@@ -182,4 +185,7 @@ message BaseMoving
     /// The relative orientation rate of the object w.r.t. its parent frame and parent orientation rate.
     /// Obviously, the orientation rate becomes global/absolute if the parent frame is not rotating.
     optional Orientation3d orientation_rate = 6;
+    
+    /// The two dimensional (flat) contour of the object. 
+    repeated Vector2d base_polygon = 4;    
 }
