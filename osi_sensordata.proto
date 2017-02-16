@@ -43,6 +43,7 @@ message SensorData
     // y-direction: lateral direction & positive to the left when looking orientated as a driver;
     // z-direction: perpendicular to x and z right hand system (up).
     // See https://en.wikipedia.org/wiki/Axes_conventions#/media/File:RPY_angles_of_cars.png
+    // Note that this field is usually static during the simulation.
     optional MountingPosition mounting_position = 5;
 
     // The list of objects detected by the sensor as perceived by the sensor.
