@@ -55,22 +55,26 @@ message Lane
     /// also be additional free lanes.
     repeated LaneBoundary lane_boundary = 4;
 
-    /// The lane's left adjacent lanes (w.r.t. intended driving direction).
-    /// Example: The lane id 2.
+    /// List of ids of all lane segments that are directy adjacent to the lane on the left side (w.r.t. intended driving
+    /// direction). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent
+    /// segments if there is a split/merge point in the adjacent lane.
+    /// Example: The lane id 2 is the only left adjacent lane for lane id 3 in the reference picture.
     repeated Identifier left_adjacent_lane_id = 5;
 
-    /// The lane's right adjacent lanes (w.r.t. intended driving direction).
-    /// Example: The lane ids 4 and 7.
+    /// List of ids of all lane segments that are directy adjacent to the lane on the right side (w.r.t. intended driving
+    /// direction). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent
+    /// segments if there is a split/merge point in the adjacent lane.
+    /// Example: The lane ids 4 and 7 are the right adjacent lane segments for lane id 3 in the reference picture due to
+    /// the lane split. Lane id 6 is not a right adjacent lane to lane id 3 as they are separated by lane id 7.
     repeated Identifier right_adjacent_lane_id = 6;
 
     /// The lane's antecessors (lanes that end in the same point that this lane's center line starts from).
-    /// There might be multiple antecessors i.e. in road crossings. Antecessors might also come from a different Road.
+    /// There might be multiple antecessors e.g. in road crossings or on lane merges.
     /// Example: Considering lane 6, its antecessor is the lane with id 4.
     repeated Identifier antecessor_lane_id = 7;
 
     /// The lane's successors (lanes that start in the same point that this lane's center line ends in).
-    /// There might be multiple successors i.e. in road crossings or highway exits.  Successors might also come from a
-    /// different Road.
+    /// There might be multiple successors e.g. in road crossings, highway exits, or lane splits.
     /// Example: Considering lane 4, its successors are the lanes with id 6 and 7.
     repeated Identifier successor_lane_id = 8;
 
