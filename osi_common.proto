@@ -13,7 +13,7 @@ message InterfaceVersion
     /// happen as part of changes to the whole interface.
     optional uint32 major = 1 [default = 2];
     optional uint32 minor = 2 [default = 0];
-    optional uint32 patch = 3 [default = 0];
+    optional uint32 patch = 3 [default = 1];
 }
 
 ///
