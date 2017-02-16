@@ -37,8 +37,12 @@ message SensorData
     // The id of the ego vehicle in the ground_truth data.
     optional Identifier ego_vehicle_id = 4;
 
-    // The mounting position of the sensor (origin and orientation of the sensor coordinate system); given relative
-    // to the middle of the rear axis of the host vehicle.
+    // The mounting position of the sensor (origin and orientation of the sensor coordinate system);
+    // given in vehicle coordinates: origin is Vehicle::reference_point; the orientation is the equal to the orientation of the vehicle.
+    // x-direction: longitudinal direction & positive in driving direction;
+    // y-direction: lateral direction & positive to the left when looking orientated as a driver;
+    // z-direction: perpendicular to x and z right hand system (up).
+    // See https://en.wikipedia.org/wiki/Axes_conventions#/media/File:RPY_angles_of_cars.png
     optional MountingPosition mounting_position = 5;
 
     // The list of objects detected by the sensor as perceived by the sensor.
