@@ -155,7 +155,12 @@ message BaseStationary
     /// The relative orientation of the landmark w.r.t its parent frame.
     optional Orientation3d orientation = 3;
     
-    /// The two dimensional (flat) contour of the object. 
+    /// The two dimensional (flat) contour of the object. E.g. the projection of the contour onto the street.
+    /// The polygon is closed by connecting the last with the first point. Therefore these two points are 
+    /// different and there are at least three points.
+    /// The polygon is defined counter-clockwise.
+    /// For ground truth data the polygon is defined in two dimensional world coordiantes.
+    /// For sensor data the polygon is defined in two dimensional sensor coordinates.
     repeated Vector2d base_polygon = 4;
 }
 
@@ -186,6 +191,11 @@ message BaseMoving
     /// Obviously, the orientation rate becomes global/absolute if the parent frame is not rotating.
     optional Orientation3d orientation_rate = 6;
     
-    /// The two dimensional (flat) contour of the object. 
+    /// The two dimensional (flat) contour of the object. E.g. the projection of the contour onto the street.
+    /// The polygon is closed by connecting the last with the first point. Therefore these two points are 
+    /// different and there are at least three points.
+    /// The polygon is defined counter-clockwise.
+    /// For ground truth data the polygon is defined in two dimensional world coordiantes.
+    /// For sensor data the polygon is defined in two dimensional sensor coordinates.
     repeated Vector2d base_polygon = 7;    
 }
