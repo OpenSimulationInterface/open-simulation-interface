@@ -13,9 +13,9 @@ package osi;
 /// simulated ego vehicle (i.e. ego_vehicle is set to true), relative_ego_origin has to be set, defining the offset from
 /// the ego vehicle's bounding box center to the center of the vehicle's rear axis. This defines the origin of the ego
 /// vehicle's rear axis coordinate system and allows calculation of quantities relative to this reference frame. The
-/// origin of the rear axis coordinate system in world coordinates is calculated as (base.position + relative_ego_origin)
-/// for the ego vehicle. For all vehicles, including ego vehicles, the position given in base.position points to the
-/// center of the vehicle's bounding box.
+/// origin of the rear axis coordinate system in world coordinates is calculated as: base.position + R * relative_ego_origin
+/// for the ego vehicle (R rotates from vehicle to world frame). For all vehicles, including ego vehicles, the position given 
+/// in base.position points to the center of the vehicle's bounding box.
 ///
 message Vehicle
 {
