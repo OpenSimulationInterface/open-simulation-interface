@@ -55,10 +55,10 @@ message Vehicle
     /// Field need not be set if ego_vehicle is set to false.
     optional Identifier driver = 10;
     
-    /// The vector pointing from the bounding box center point (base.position) to the middle of the rear axle.
+    /// The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) of the rear axle.
     optional Vector3d bbcenter_to_rear = 11;
 
-	/// The vector pointing from the bounding box center point (base.position) to the middle of the front axle.    
+	/// The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) of the front axle.    
 	optional Vector3d bbcenter_to_front = 12;
     
 
