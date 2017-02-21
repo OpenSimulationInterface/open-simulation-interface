@@ -15,10 +15,10 @@ message EnvironmentalConditions
     /// The time of day.
     optional TimeOfDay time_of_day = 2;
     
-    /// Atmospheric pressure in Pascal
+    /// Atmospheric pressure in Pascal at z=0.0 in world frame
     optional double atmospheric_pressure = 3;
 
-    /// Temperature in Kelvin
+    /// Temperature in Kelvin at z=0.0 in world frame
     optional double temperature = 4;
 
     /// Precipitation
