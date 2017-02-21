@@ -162,7 +162,8 @@ message BaseStationary
     /// Usage as sensor data:
     /// The polygon describes the visible part of the object's contour.
     /// General definitions:
-    /// The polygon is defined in the local object frame: x pointing forward and y to the left.      
+    /// The polygon is defined in the local object frame: x pointing forward and y to the left.
+    /// The origin is the center of the bounding box.
     /// As ground truth, the polygon is closed by connecting the last with the first point. Therefore  
     /// these two points are different and there are at least three points.
     /// As sensor data, the polygon is open.
@@ -204,7 +205,8 @@ message BaseMoving
     /// Usage as sensor data:
     /// The polygon describes the visible part of the object's contour.
     /// General definitions:
-    /// The polygon is defined in the local object frame: x pointing forward and y to the left.      
+    /// The polygon is defined in the local object frame: x pointing forward and y to the left.
+    /// The origin is the center of the bounding box.
     /// As ground truth, the polygon is closed by connecting the last with the first point. Therefore  
     /// these two points are different and there are at least three points.
     /// As sensor data, the polygon is open.
