@@ -18,7 +18,7 @@ message EnvironmentalConditions
     /// Atmospheric pressure in Pascal
     optional double atmospheric_pressure = 3;
 
-    /// Temperature in degrees Kelvin
+    /// Temperature in Kelvin
     optional double temperature = 4;
 
     /// Precipitation
@@ -28,7 +28,7 @@ message EnvironmentalConditions
     enum Precipitation
     {
         /// Light intensity rain, when the precipitation rate is < 2.5 mm per hour
-        PRECIPITATION_RAIN_LITTLE = 0;
+        PRECIPITATION_RAIN_LIGHT = 0;
   
         /// Medium intensity rain, when the precipitation rate is between 2.5 mm and 10 mm per hour
         PRECIPITATION_RAIN_MEDIUM = 1;
