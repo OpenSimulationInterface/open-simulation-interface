@@ -9,11 +9,8 @@ package osi;
 ///
 /// A vehicle.
 ///
-/// This is basically a BaseObject with additional attributes, such as type and lights. Note that, if this vehicle is a
-/// simulated ego vehicle (i.e. ego_vehicle is set to true), relative_ego_origin has to be set, defining the offset from
-/// the ego vehicle's bounding box center to the center of the vehicle's rear axis. This defines the origin of the ego
-/// vehicle's rear axis coordinate system and allows calculation of quantities relative to this reference frame. The
-/// origin of the rear axis coordinate system in world coordinates is calculated as: base.position + R * relative_ego_origin
+/// This is basically a BaseObject with additional attributes, such as type and lights. 
+/// The origin of the rear (front) axis coordinate system in world coordinates is calculated as: base.position + R * bbcenter_to_rear (front)
 /// for the ego vehicle (R rotates from vehicle to world frame). For all vehicles, including ego vehicles, the position given 
 /// in base.position points to the center of the vehicle's bounding box.
 ///
@@ -35,10 +32,9 @@ message Vehicle
     /// See the description above!
     optional bool ego_vehicle = 5;
 
-    /// The position of the vehicle's reference point.
-    /// See the description above!
-    /// Field need not be set (or should be zero) if ego_vehicle is set to false.
-    optional Vector3d relative_ego_origin = 6;
+    /// The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) 
+    /// of the rear axle under neutral load conditions. In object coordinates.
+    optional Vector3d bbcenter_to_rear = 6;
 
     /// The ids of the lanes that this vehicle is assigned to.
     /// Might be multiple if the vehicle is switching lanes or moving from one lane into another following lane.
@@ -55,13 +51,9 @@ message Vehicle
     /// Field need not be set if ego_vehicle is set to false.
     optional Identifier driver = 10;
     
-    /// The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) 
-    /// of the rear axle under neutral load conditions.
-    optional Vector3d bbcenter_to_rear = 11;
-
 	/// The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) 
-	/// of the front axle under neutral load conditions.    		
-	optional Vector3d bbcenter_to_front = 12;
+	/// of the front axle under neutral load conditions. In object coordinates.    		
+	optional Vector3d bbcenter_to_front = 11;
     
 
     /// Definition of vehicle types.
