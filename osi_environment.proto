@@ -21,22 +21,22 @@ message EnvironmentalConditions
     /// Temperature in degrees Kelvin
     optional double temperature = 4;
 
-	/// Precipitation
+    /// Precipitation
     optional Precipitation precipitation = 5;
     
-	/// Definition of precipitation states. See https://en.wikipedia.org/wiki/Rain#Measurement
+    /// Definition of precipitation states. See https://en.wikipedia.org/wiki/Rain#Measurement
     enum Precipitation
     {
-        // Light intensity rain, when the precipitation rate is < 2.5 mm per hour
+        /// Light intensity rain, when the precipitation rate is < 2.5 mm per hour
         PRECIPITATION_RAIN_LITTLE = 0;
   
-        // Medium intensity rain, when the precipitation rate is between 2.5 mm and 10 mm per hour
+        /// Medium intensity rain, when the precipitation rate is between 2.5 mm and 10 mm per hour
         PRECIPITATION_RAIN_MEDIUM = 1;
   
-        // High intensity rain, when the precipitation rate is between 10 mm and 50 mm per hour
+        /// High intensity rain, when the precipitation rate is between 10 mm and 50 mm per hour
         PRECIPITATION_RAIN_HIGH = 2;
   
-        // Violent intensity rain, when the precipitation rate is > 50 mm per hour
+        /// Violent intensity rain, when the precipitation rate is > 50 mm per hour
         PRECIPITATION_RAIN_VIOLENT = 3;  
     }        
 
