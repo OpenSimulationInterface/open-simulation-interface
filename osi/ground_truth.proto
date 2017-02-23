@@ -11,59 +11,59 @@ import "occupant.proto";
 
 package osi;
 
-/**
- * The ground truth information from the simulation environment.
- *
- * This ground truth information is supposed to describe the whole simulated environment around any simulated vehicle.
- * For each simulated ego vehicle (might only be one, but could also be multiple) define an area around the vehicle
- * which is greater than the combined field of views (FOV) of all sensors obstructed in the vehicle. The ground truth
- * data is supposed to describe the convex hull of all such areas w.r.t. a global simulation coordinate system.
- *
- * The simulation coordinate system might change during the simulation if and only if, all coordinates w.r.t. this
- * coordinate system are also changed.
- *
- * The data has to be sent at a rate defined by the receiving partner. When sending, values with default values might be
- * left default in order to improve performance.
- *
- * To provide a complete interface, all fields of all messages have to be set, unless specifically stated in the field's
- * definition that the field may remain unset.
- *
- * In enums (e.g. types) the unknown (first / default) value is not allowed to be used in the ground truth interface.
- */
+///
+/// The ground truth information from the simulation environment.
+///
+/// This ground truth information is supposed to describe the whole simulated environment around any simulated vehicle.
+/// For each simulated ego vehicle (might only be one, but could also be multiple) define an area around the vehicle
+/// which is greater than the combined field of views (FOV) of all sensors obstructed in the vehicle. The ground truth
+/// data is supposed to describe the convex hull of all such areas w.r.t. a global simulation coordinate system.
+///
+/// The simulation coordinate system might change during the simulation if and only if, all coordinates w.r.t. this
+/// coordinate system are also changed.
+///
+/// The data has to be sent at a rate defined by the receiving partner. When sending, values with default values might be
+/// left default in order to improve performance.
+///
+/// To provide a complete interface, all fields of all messages have to be set, unless specifically stated in the field's
+/// definition that the field may remain unset.
+///
+/// In enums (e.g. types) the unknown (first / default) value is not allowed to be used in the ground truth interface.
+///
 message GroundTruth
 {
-    // The interface version used by the sender (simulation environment).
+    /// The interface version used by the sender (simulation environment).
     optional InterfaceVersion version = 1;
 
-    // The data timestamp of the simulation environment. Zero time is arbitrary but must be identical for all messages.
-    // Zero time does not need to coincide with the unix epoch. Recommended is the starting time point of the
-    // simulation.
+    /// The data timestamp of the simulation environment. Zero time is arbitrary but must be identical for all messages.
+    /// Zero time does not need to coincide with the unix epoch. Recommended is the starting time point of the
+    /// simulation.
     optional Timestamp timestamp = 2;
 
-    // A list of vehicles.
+    /// A list of vehicles.
     repeated Vehicle vehicle = 3;
 
-    // A list of moving objects (excluding vehicles).
+    /// A list of moving objects (excluding vehicles).
     repeated MovingObject moving_object = 4;
 
-    // A list of stationary objects.
+    /// A list of stationary objects.
     repeated StationaryObject stationary_object = 5;
 
-    // A list of traffic signs.
+    /// A list of traffic signs.
     repeated TrafficSign traffic_sign = 6;
 
-    // A list of traffic lights.
+    /// A list of traffic lights.
     repeated TrafficLight traffic_light = 7;
 
-    // A list of road surface markings. Lane Markings are excluded and defined as LaneBoundaries as part of the Lanes.
+    /// A list of road surface markings. Lane Markings are excluded and defined as LaneBoundaries as part of the Lanes.
     repeated RoadMarking road_marking = 8;
 
-    // A list of lanes forming a road network.
+    /// A list of lanes forming a road network.
     repeated Lane lane = 9;
 
-    // A list of passengers in the (ego) vehicle(s).
+    /// A list of passengers in the (ego) vehicle(s).
     repeated Occupant occupant = 10;
 
-    // Conditions of the environment.
+    /// Conditions of the environment.
     optional EnvironmentalConditions environmental_conditions = 11;
 }

@@ -1,7 +1,7 @@
 Open Simulation Interface (OSI)
 ===============================
 
-![Travis Build Status](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface.svg?branch=master)
+[![Travis Build Status](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface.svg?branch=master)](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface)
 
 General description
 -------------------
@@ -69,3 +69,10 @@ The compatibility of both recorded files and code remains.
 - File or folder structure which does not affect including the code in other projects
 - Changing or adding comments
 - Clarification of text passages explaining the message content
+
+Packaging
+---------
+
+A specification to package sensor models using OSI as (extended)
+Functional Mock-up Units (FMUs) for use in simulation environments
+is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging).
