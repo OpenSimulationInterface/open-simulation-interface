@@ -66,6 +66,9 @@ message LidarPoint
 
     /// Duration of the echo pulse (above system noise cut-off threshold). Unit: [ns].
     optional double echo_pulse_duration = 6;
+    
+    // Layer id starting from zero for the bottom layer of the point cloud.
+    optional uint32 layer = 7;
 
     /// Definition of reflection types.
     enum ReflectionType
