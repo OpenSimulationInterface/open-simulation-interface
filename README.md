@@ -76,3 +76,42 @@ Packaging
 A specification to package sensor models using OSI as (extended)
 Functional Mock-up Units (FMUs) for use in simulation environments
 is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging).
+
+Building
+--------
+
+CMake
+*****
+
+Install protobufs version 2.6.1, clone this repository and create a
+build sub-directory, then cd into it.
+Set `CMAKE_INSTALL_PREFIX` to a directory where the OSI library and
+headers should be installed. The cmake script creates a sub directory
+*lib* for the library and *include/osi* for the headers.
+
+On windows generate a Visual Studio solution file suitable for your
+version and set the `CMAKE_INSTALL_PREFIX`, for example:
+```cmd
+cmake -G "Visual Studio 14 2015" -DCMAKE_INSTALL_PREFIX=C:/Libraries/open_simulation_interface ..
+```
+Then open the
+
+```sh
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
+make
+sudo make install
+```
+
+Python
+******
+For installation execute the setup.py script.
+```
+python setup.py install
+```
+
+Usage
+```python
+>>> from osi import common_pb2
+>>> common_pb2.InterfaceVersion().major
+2
+```

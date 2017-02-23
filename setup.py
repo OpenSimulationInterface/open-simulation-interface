@@ -33,22 +33,22 @@ class GenerateProtobuf(install):
         return protoc
 
     osi_files = (
-        'osi/common.proto',
-        'osi/detected_landmark.proto',
-        'osi/detected_lane.proto',
-        'osi/detected_object.proto',
-        'osi/detected_occupant.proto',
-        'osi/environment.proto',
-        'osi/ground_truth.proto',
-        'osi/landmark.proto',
-        'osi/lane.proto',
-        'osi/low_level_data.proto',
-        'osi/model_internal.proto',
-        'osi/object.proto',
-        'osi/occupant.proto',
-        'osi/sensor_data_for_recording.proto',
-        'osi/sensor_data.proto',
-        'osi/sensor_specific_object_data.proto')
+        'common.proto',
+        'detected_landmark.proto',
+        'detected_lane.proto',
+        'detected_object.proto',
+        'detected_occupant.proto',
+        'environment.proto',
+        'ground_truth.proto',
+        'landmark.proto',
+        'lane.proto',
+        'low_level_data.proto',
+        'model_internal.proto',
+        'object.proto',
+        'occupant.proto',
+        'sensor_data_for_recording.proto',
+        'sensor_data.proto',
+        'sensor_specific_object_data.proto')
 
     """ Generate Protobuf Messages """
 

@@ -1,26 +1,25 @@
 cmake_minimum_required(VERSION 3.7)
 
 project(open_simulation_interface)
-
 find_package(Protobuf 2.6.1 REQUIRED)
 
 set(OSI_PROTO_FILES
-    osi/common.proto
-    osi/detected_landmark.proto
-    osi/detected_lane.proto
-    osi/detected_object.proto
-    osi/detected_occupant.proto
-    osi/environment.proto
-    osi/ground_truth.proto
-    osi/landmark.proto
-    osi/lane.proto
-    osi/low_level_data.proto
-    osi/model_internal.proto
-    osi/object.proto
-    osi/occupant.proto
-    osi/sensor_data_for_recording.proto
-    osi/sensor_data.proto
-    osi/sensor_specific_object_data.proto
+    common.proto
+    detected_landmark.proto
+    detected_lane.proto
+    detected_object.proto
+    detected_occupant.proto
+    environment.proto
+    ground_truth.proto
+    landmark.proto
+    lane.proto
+    low_level_data.proto
+    model_internal.proto
+    object.proto
+    occupant.proto
+    sensor_data_for_recording.proto
+    sensor_data.proto
+    sensor_specific_object_data.proto
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
@@ -41,3 +40,10 @@ target_include_directories(${PROJECT_NAME}_pic
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(${PROJECT_NAME}_pic PUBLIC ${PROTOBUF_LIBRARY})
+
+install(TARGETS ${PROJECT_NAME}
+	DESTINATION "lib"
+)
+install(FILES ${PROTO_HEADERS}
+	DESTINATION "include/osi"
+)
