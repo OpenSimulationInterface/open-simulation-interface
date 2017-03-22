@@ -76,3 +76,81 @@ Packaging
 A specification to package sensor models using OSI as (extended)
 Functional Mock-up Units (FMUs) for use in simulation environments
 is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging).
+
+Building
+--------
+If you run into any problems following these steps, please visit our [wiki page](https://github.com/OpenSimulationInterface/open-simulation-interface/wiki/Building-and-installation).
+### Cpp
+#### Building and installation
+- Install cmake (v3.7 or higher required)
+- Install protobufs version 2.6.1
+- Clone this repository and create a build sub-directory, then cd into it.
+##### On windows:
+- Generate a Visual Studio solution file suitable for your version and set the `CMAKE_INSTALL_PREFIX` to a directory where the OSI library and headers should be installed.
+```cmd
+cmake .. [-G <generator>] [-DCMAKE_INSTALL_PREFIX=<osi-install-directory>]
+```
+Example using Visual Studio 12 2013 and C:/Libraries/open_simulation_interface as an install directory:
+```cmd
+cmake .. -G "Visual Studio 12 2013" -DCMAKE_INSTALL_PREFIX=C:/Libraries/open_simulation_interface
+```
+- Now you can build and install OSI using the following commands:
+```cmd 
+cmake --build . 
+cmake --build . --target install
+```
+As an alternative way you can use Visual Studio to build and install OSI.
+
+##### On POSIX systems:
+```sh
+cd osi-source-code/build
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
+make
+sudo make install
+```
+
+#### Usage:
+```c++
+#include <iostream>
+#include "osi/common.pb.h"
+
+int main(int argc, char *argv[]){
+	osi::InterfaceVersion i;
+	std::cout << "OSI version " << i.major() << "."
+	    << i.minor() << "." << i.patch() << std::endl;
+	return 0;
+}
+```
+
+```Cmake
+cmake_minimum_required(VERSION 3.7)
+
+project(your-project)
+find_package(open_simulation_interface 2.1.1 REQUIRED)
+
+include_directories(include ${OPEN_SIMULATION_INTERFACE_INCLUDE_DIRS})
+
+add_executable(${PROJECT_NAME} test_osi.cpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${OPEN_SIMULATION_INTERFACE_LIBRARIES})
+
+```
+
+- Then use the same path in your project by setting `open_simulation_interface_DIR`. e.g.
+```cmd
+cd your-project/build
+cmake -Dopen_simulation_interface_DIR=C:/Libraries/open_simulation_interface ..
+```
+
+### Python
+For installation execute the setup.py script.
+```
+cd osi-source-code/build
+python setup.py install
+```
+
+#### Usage
+```python
+>>> from osi import common_pb2
+>>> common_pb2.InterfaceVersion().major
+2
+```

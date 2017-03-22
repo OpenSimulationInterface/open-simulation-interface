@@ -2,10 +2,10 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_common.proto";
-import "osi_modelinternal.proto";
-import "osi_object.proto";
-import "osi_sensorspecific.proto";
+import "common.proto";
+import "model_internal.proto";
+import "object.proto";
+import "sensor_specific_object_data.proto";
 
 package osi;
 

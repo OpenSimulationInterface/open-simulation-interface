@@ -1,5 +1,5 @@
-build/
-dist/
+build
+dist
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
@@ -8,7 +8,6 @@ cmake_install.cmake
 install_manifest.txt
 CTestTestfile.cmake
 # setup.py:
-build
-*.egg-info
 osi
+*.egg-info
 .project

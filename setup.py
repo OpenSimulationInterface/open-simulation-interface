@@ -33,22 +33,22 @@ class GenerateProtobuf(install):
         return protoc
 
     osi_files = (
-        'osi_common.proto',
-        'osi_datarecording.proto',
-        'osi_detectedlandmark.proto',
-        'osi_detectedobject.proto',
-        'osi_detectedoccupant.proto',
-        'osi_detectedlane.proto',
-        'osi_environment.proto',
-        'osi_groundtruth.proto',
-        'osi_landmark.proto',
-        'osi_lowleveldata.proto',
-        'osi_modelinternal.proto',
-        'osi_object.proto',
-        'osi_occupant.proto',
-        'osi_lane.proto',
-        'osi_sensordata.proto',
-        'osi_sensorspecific.proto')
+        'common.proto',
+        'detected_landmark.proto',
+        'detected_lane.proto',
+        'detected_object.proto',
+        'detected_occupant.proto',
+        'environment.proto',
+        'ground_truth.proto',
+        'landmark.proto',
+        'lane.proto',
+        'low_level_data.proto',
+        'model_internal.proto',
+        'object.proto',
+        'occupant.proto',
+        'sensor_data_for_recording.proto',
+        'sensor_data.proto',
+        'sensor_specific_object_data.proto')
 
     """ Generate Protobuf Messages """
 
@@ -74,7 +74,7 @@ except Exception:
 
 setup(
     name='open-simulation-interface',
-    version='2.0.0',
+    version='2.0.1',
     description='A generic interface for the environmental perception of'
     'automated driving functions in virtual scenarios.',
     author='Carlo van Driesten, Timo Hanke, Nils Hirsenkorn,'
