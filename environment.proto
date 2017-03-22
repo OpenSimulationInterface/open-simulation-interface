@@ -14,6 +14,31 @@ message EnvironmentalConditions
 
     /// The time of day.
     optional TimeOfDay time_of_day = 2;
+    
+    /// Atmospheric pressure in Pascal at z=0.0 in world frame
+    optional double atmospheric_pressure = 3;
+
+    /// Temperature in Kelvin at z=0.0 in world frame
+    optional double temperature = 4;
+
+    /// Precipitation
+    optional Precipitation precipitation = 5;
+    
+    /// Definition of precipitation states. See https://en.wikipedia.org/wiki/Rain#Measurement
+    enum Precipitation
+    {
+        /// Light intensity rain, when the precipitation rate is < 2.5 mm per hour
+        PRECIPITATION_RAIN_LIGHT = 0;
+  
+        /// Medium intensity rain, when the precipitation rate is between 2.5 mm and 10 mm per hour
+        PRECIPITATION_RAIN_MEDIUM = 1;
+  
+        /// High intensity rain, when the precipitation rate is between 10 mm and 50 mm per hour
+        PRECIPITATION_RAIN_HIGH = 2;
+  
+        /// Violent intensity rain, when the precipitation rate is > 50 mm per hour
+        PRECIPITATION_RAIN_VIOLENT = 3;  
+    }        
 
     /// Definition of ambient illumination states.
     enum AmbientIllumination

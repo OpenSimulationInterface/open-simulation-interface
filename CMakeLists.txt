@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.7)
 
 project(open_simulation_interface)
-set(OPEN_SIMULATION_INTERFACE_VERSION 2.0.1s)
+set(OPEN_SIMULATION_INTERFACE_VERSION 2.1.1s)
 
 # Offer the user the choice of overriding the installation directories
 set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
