@@ -25,22 +25,38 @@ set(OSI_PROTO_FILES
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
 
-add_library(${PROJECT_NAME} STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
-target_include_directories(${PROJECT_NAME}
+add_library(${PROJECT_NAME}_static STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
+target_include_directories(${PROJECT_NAME}_static
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
-target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
+target_link_libraries(${PROJECT_NAME}_static PUBLIC ${PROTOBUF_LIBRARY})
 
 
-add_library(${PROJECT_NAME}_pic STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
+add_library(${PROJECT_NAME}_obj OBJECT ${PROTO_SRCS} ${PROTO_HEADERS})
+target_include_directories(${PROJECT_NAME}_obj
+    PUBLIC
+        ${PROTOBUF_INCLUDE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
+set_property(TARGET ${PROJECT_NAME}_obj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+
+add_library(${PROJECT_NAME}_pic STATIC $<TARGET_OBJECTS:${PROJECT_NAME}_obj>)
 target_include_directories(${PROJECT_NAME}_pic
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(${PROJECT_NAME}_pic PUBLIC ${PROTOBUF_LIBRARY})
-
-
 set_property(TARGET ${PROJECT_NAME}_pic PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+
+add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:${PROJECT_NAME}_obj>)
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+        ${PROTOBUF_INCLUDE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
