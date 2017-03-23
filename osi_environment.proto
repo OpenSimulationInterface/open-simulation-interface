@@ -27,17 +27,18 @@ message EnvironmentalConditions
     /// Definition of precipitation states. See https://en.wikipedia.org/wiki/Rain#Measurement
     enum Precipitation
     {
+        /// Rain intensity is unknown (must not be used in ground truth).
+        PRECIPITATION_RAIN_UNKNOWN = 0;
+        /// Other (unspecified but known) rain intensity
+        PRECIPITATION_RAIN_OTHER = 1;
         /// Light intensity rain, when the precipitation rate is < 2.5 mm per hour
-        PRECIPITATION_RAIN_LIGHT = 0;
-  
+        PRECIPITATION_RAIN_LIGHT = 2;  
         /// Medium intensity rain, when the precipitation rate is between 2.5 mm and 10 mm per hour
-        PRECIPITATION_RAIN_MEDIUM = 1;
-  
+        PRECIPITATION_RAIN_MEDIUM = 3;
         /// High intensity rain, when the precipitation rate is between 10 mm and 50 mm per hour
-        PRECIPITATION_RAIN_HIGH = 2;
-  
+        PRECIPITATION_RAIN_HIGH = 4;
         /// Violent intensity rain, when the precipitation rate is > 50 mm per hour
-        PRECIPITATION_RAIN_VIOLENT = 3;  
+        PRECIPITATION_RAIN_VIOLENT = 5;  
     }        
 
     /// Definition of ambient illumination states.
