@@ -1,13 +1,15 @@
+# directories:
 build
 dist
-CMakeCache.txt
 CMakeFiles
 CMakeScripts
-Makefile
-cmake_install.cmake
-install_manifest.txt
-CTestTestfile.cmake
-# setup.py:
 osi
+
+# files:
+CMakeCache.txt
+install_manifest.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
 *.egg-info
 .project
