@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.7)
 
+# set name and version of the project 
 project(open_simulation_interface)
+set(VERSION_MAJOR 2)
+set(VERSION_MINOR 1)
+set(VERSION_PATCH 1)
 
 find_package(Protobuf 2.6.1 REQUIRED)
 
@@ -60,3 +64,18 @@ target_include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
+
+
+# add a target to generate API documentation with Doxygen
+FIND_PACKAGE(Doxygen)
+
+IF (DOXYGEN_FOUND)
+	set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen-config.cmake.in)
+    set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+
+    configure_file(${doxyfile_in} ${doxyfile} @ONLY)
+
+	ADD_CUSTOM_TARGET(api_doc ALL 
+					COMMAND ${DOXYGEN_EXECUTABLE} ${doxyfile}
+					WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+ENDIF (DOXYGEN_FOUND)

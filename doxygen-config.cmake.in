@@ -1,0 +1,14 @@
+#set the name and version of the project according to the configuration in CMakeLists.txt
+PROJECT_NAME           = "@CMAKE_PROJECT_NAME@"
+PROJECT_NUMBER         = @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@
+
+#Set input and output directories 
+INPUT                  = "@CMAKE_CURRENT_SOURCE_DIR@"
+OUTPUT_DIRECTORY       = "@CMAKE_CURRENT_SOURCE_DIR@/doc"
+
+# There is no standard configuration for .proto files documentation.
+# A Doxygen filter for .proto files has to be added under the directory doc/.
+JAVADOC_AUTOBRIEF      = YES
+EXTENSION_MAPPING      = proto=C
+FILE_PATTERNS          = *.proto
+INPUT_FILTER           = "python @CMAKE_CURRENT_SOURCE_DIR@/doc/proto2cpp/proto2cpp.py"
