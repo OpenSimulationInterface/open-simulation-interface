@@ -11,4 +11,4 @@ OUTPUT_DIRECTORY       = "@CMAKE_CURRENT_SOURCE_DIR@/doc"
 JAVADOC_AUTOBRIEF      = YES
 EXTENSION_MAPPING      = proto=C
 FILE_PATTERNS          = *.proto
-INPUT_FILTER           = "python @CMAKE_CURRENT_SOURCE_DIR@/doc/proto2cpp/proto2cpp.py"
+INPUT_FILTER           = "python @FILTER_PROTO2CPP_PY_PATH@/proto2cpp.py"

@@ -76,3 +76,15 @@ Packaging
 A specification to package sensor models using OSI as (extended)
 Functional Mock-up Units (FMUs) for use in simulation environments
 is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging).
+
+Documentation
+-------------
+
+In order to generate the doxygen documentation for OSI, please follow the following steps: 
+1. Install Doxygen and set an environmental variable 'Doxygen' with the path to the binary file.
+2. Download and unzip the [zip file containing the filter proto2cpp.py](https://sourceforge.net/projects/proto2cpp/files/latest/download ).
+3. From the cmd navigate to the build directory and run: 
+```cmd
+cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
+```
+4. The build process will then generate the doxygen documentation under the directory doc.

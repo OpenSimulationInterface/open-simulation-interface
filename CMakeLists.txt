@@ -67,15 +67,31 @@ target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
 
 
 # add a target to generate API documentation with Doxygen
+# Dependencies: Doxygen and proto2cpp.py
 FIND_PACKAGE(Doxygen)
+set(FILTER_PROTO2CPP_PY_PATH CACHE PATH "directory to the filter proto2cpp.py")
 
-IF (DOXYGEN_FOUND)
-	set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen-config.cmake.in)
-    set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+if(NOT DOXYGEN_FOUND)
 
-    configure_file(${doxyfile_in} ${doxyfile} @ONLY)
+    message(WARNING  "Doxygen could not be found.")
 
-	ADD_CUSTOM_TARGET(api_doc ALL 
-					COMMAND ${DOXYGEN_EXECUTABLE} ${doxyfile}
-					WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-ENDIF (DOXYGEN_FOUND)
+else()
+	
+	if(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
+	
+	message(WARNING  "${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py could not be found.")
+
+	else()
+	
+		set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen-config.cmake.in)
+		set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+
+		configure_file(${doxyfile_in} ${doxyfile} @ONLY)
+
+		ADD_CUSTOM_TARGET(api_doc ALL 
+		COMMAND ${DOXYGEN_EXECUTABLE} ${doxyfile}
+		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+	
+	endif(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
+	
+endif(NOT DOXYGEN_FOUND)
