@@ -23,26 +23,59 @@ message EnvironmentalConditions
 
     /// Precipitation
     optional Precipitation precipitation = 5;
+
+    /// Fog
+    optional Fog fog = 6;
     
-    /// Definition of precipitation states.
-    /// See GLICKMAN, Todd S.; ZENK, Walter. Glossary of meteorology. American Meteorological Society, 2000. and JEBSON, S. Fact sheet number 3: Water in the Atmosphere. 2007.
+    /// Definition of precipitation states
+    /// Quote: PAULAT, Marcus, et al. A gridded dataset of hourly precipitation in Germany: Its construction, climatology and application. Meteorologische Zeitschrift, 2008, 17. Jg., Nr. 6, S. 719-732.
     enum Precipitation
     {
-        /// Rain intensity is unknown (must not be used in ground truth).
-        PRECIPITATION_RAIN_UNKNOWN = 0;
-        /// Other (unspecified but known) rain intensity
-        PRECIPITATION_RAIN_OTHER = 1;
-        /// No rain, when the precipitation rate is < 0.25 mm per hour
-        PRECIPITATION_RAIN_NONE = 2;
-        /// Light intensity rain, when the precipitation rate is between 0.25 mm and 2.5 mm per hour
-        PRECIPITATION_RAIN_LIGHT = 3;  
-        /// Medium intensity rain, when the precipitation rate is between 2.5 mm and 7.6 mm per hour
-        PRECIPITATION_RAIN_MEDIUM = 4;
-        /// High intensity rain, when the precipitation rate is between 7.6 mm and 50 mm per hour
-        PRECIPITATION_RAIN_HIGH = 5;
-        /// Violent intensity rain, when the precipitation rate is > 50 mm per hour
-        PRECIPITATION_RAIN_VIOLENT = 6;  
-    }       
+        /// Intensity of precipitation is unknown (must not be used in ground truth).
+        PRECIPITATION_UNKNOWN = 0;
+        /// Other (unspecified but known) intensity of precipitation
+        PRECIPITATION_OTHER = 1;
+        /// No precipitation, when the precipitation rate is between 0 and 0.1 mm per hour
+        PRECIPITATION_NONE = 2;
+        /// Very light intensity of precipitation, when the precipitation rate is between 0.1 and 0.5 mm per hour
+        PRECIPITATION_VERY_LIGHT = 3;
+        /// Light intensity of precipitation, when the precipitation rate is between 0.5 and 1.9 mm per hour
+        PRECIPITATION_LIGHT = 4;
+        /// Moderate intensity of precipitation, when the precipitation rate is between 1.9 and 8.1 mm per hour
+        PRECIPITATION_MODERATE = 5;
+        /// Heavy intensity of precipitation, when the precipitation rate is between 8.1 and 34 mm per hour
+        PRECIPITATION_HEAVY = 6;
+        /// Very heavy intensity of precipitation, when the precipitation rate is between 34 and 149 mm per hour
+        PRECIPITATION_VERY_HEAVY = 7;
+        /// Extreme intensity of precipitation, when the precipitation rate is > 149 mm per hour
+        PRECIPITATION_EXTREME = 8;
+    }
+
+    /// Definition of fog states by visibility
+    /// Quote: SHEPARD, Frank D. Reduced visibility due to fog on the highway. Transportation Research Board, 1996. (International classification of visibility)
+    enum Fog
+    {
+        /// Visibility is unknown (must not be used in ground truth)
+        FOG_UNKOWN = 0;
+        /// Other (unspecified but known) fog intensity
+        FOG_OTHER = 1;
+        /// Excellent visibility, when visibility > 40,000 m
+        FOG_EXCELLENT_VISIBILITY = 2;
+        /// Good visibility, when visibility is between 10,000 and 40,000 m
+        FOG_GOOD_VISIBILITY = 3;
+        /// Moderate visibility, when visibility is between 4000 and 10,000 m
+        FOG_MODERATE_VISIBILITY = 4;
+        /// Poor visibility, when visibility is between 2000 and 4000 m
+        FOG_POOR_VISIBILITY = 5;
+        /// Mist, when visibility is between 1000 and 2000 m
+        FOG_MIST = 6;
+        /// Fog, when visibility is between 200 and 1000 m
+        FOG_LIGHT = 7;
+        /// Thick fog, when visibility is between 40 and 200 m
+        FOG_THICK = 8;
+        /// Dense fog, when visibility < 40 m
+        FOG_DENSE = 9;
+    }
 
     /// Definition of ambient illumination states.
     enum AmbientIllumination

@@ -74,7 +74,7 @@ except Exception:
 
 setup(
     name='open-simulation-interface',
-    version='2.0.0',
+    version='2.2.0',
     description='A generic interface for the environmental perception of'
     'automated driving functions in virtual scenarios.',
     author='Carlo van Driesten, Timo Hanke, Nils Hirsenkorn,'
