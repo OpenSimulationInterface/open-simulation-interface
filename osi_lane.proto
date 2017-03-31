@@ -44,7 +44,6 @@ message Lane
     //
     // \image html line_approximation_error.png "Approximation error as green line."
     //
-
     repeated Vector3d center_line = 3;
 
     // The boundary of the lane.
@@ -85,41 +84,64 @@ message Lane
     optional LaneFraming lane_framing = 9;
 
     // Definition of available lane types.
+	//
     enum Type
     {
         // Lane of unknown type (must not be used in ground truth).
+		//
         TYPE_UNKNOWN = 0;
+		
         // Any other type of lane
+		//
         TYPE_OTHER = 1;
+		
         // A normal lane.
         // E.g. lanes with ids 1, 2, 3, 4 and 7 of the highway_exit image.
         TYPE_NORMAL = 2;
+		
         // A stop/emergency lane on highways/freeways.
         // E.g. lane with id 5 of the highway_exit image.
         TYPE_EMERGENCY = 3;
+		
         // A freeway/highway entry lane.
+		//
         TYPE_ENTRANCE = 4;
+		
         // A freeway/highway exit lane.
         // E.g. lane with id 6 of the highway_exit image.
         TYPE_EXIT = 5;
+		
         // A car pooling lane.
+		//
         TYPE_HIGH_OCCUPANCY_VEHICLE = 6;
+		
         // A road area / lane reserved for parking.
+		//
         TYPE_PARKING = 7;
     }
 
     // Definition of available lane framing types.
+	//
     enum LaneFraming
     {
         // Lane of unknown framing (must not be used in ground truth).
+		//
         LANE_FRAMING_UNKNOWN = 0;
+		
         // Other (unspecified but known) lane framing.
+		//
         LANE_FRAMING_OTHER = 1;
+		
         // The lane is not framed.
+		//
         LANE_FRAMING_OPEN = 2;
+		
         // The lane segment is inside of a tunnel.
+		//
         LANE_FRAMING_TUNNEL = 3;
+		
         // The lane segment is on a bridge.
+		//
         LANE_FRAMING_BRIDGE = 4;
     }
 }
@@ -161,52 +183,70 @@ message LaneBoundary
     enum BoundaryLocation
     {
         // The location of the boundary is unknown. Value must not be used in ground truth.
+		//
         BOUNDARY_LOCATION_UNKNOWN = 0;
+		
         // Other (unspecified but known) boundary location.
+		//
         BOUNDARY_LOCATION_OTHER = 1;
+		
         // A left lane boundary.
+		//
         BOUNDARY_LOCATION_LEFT = 2;
+		
         // A right lane boundary.
+		//
         BOUNDARY_LOCATION_RIGHT = 3;
+		
         // A free lane boundary.
+		//
         BOUNDARY_LOCATION_FREE = 4;
     }
 
     // The lane boundary type.
-    // There are no double lines, e.g. solid solid or dashed solid, as each lane will define its own side of the lane
-    // boundary.
+    // There are no double lines, e.g. solid solid or dashed solid, as each lane will define its own side of the lane boundary.
     enum Type
     {
         // The type of lane boundary is unknown. Value must not be used in ground truth.
 		//
         TYPE_UNKNOWN = 0;
+		
         // Unspecified but known type of lane boundary.
         // Consider proposing an additional type if using TYPE_OTHER.
         TYPE_OTHER = 1;
+		
         // An invisible lane boundary (e.g. unmarked part of a dashed line).
 		//
         TYPE_NO_LINE = 2;
+		
         // A solid line at the lane boundary.
 		//
         TYPE_SOLID_LINE = 3;
+		
         // A dashed line at the lane boundary.
 		//
         TYPE_DASHED_LINE = 4;
+		
         // A lane boundary consisting of Botts' dots.
 		//
         TYPE_BOTTS_DOTS = 5;
+		
         // A lane boundary formed by the road's edge.
         // The road edge is the end of the (paved) road surface.
         TYPE_ROAD_EDGE = 6;
+		
         // A lane boundary formed by a snow edge that may be on the road surface.
 		//
         TYPE_SNOW_EDGE = 7;
+		
         // A guard rail.
 		//
         TYPE_GUARD_RAIL = 8;
+		
         // A curb.
 		//
         TYPE_CURB = 9;
+		
         // A structure (e.g. building or tunnel wall).
 		//
         TYPE_STRUCTURE = 10;
@@ -219,24 +259,31 @@ message LaneBoundary
         // Color of Marking is unknown. Value must not be used in ground truth.
 		//
         COLOR_UNKNOWN = 0;
+		
         // Other (unspecified but known) color.
 		//
         COLOR_OTHER = 1;
+		
         // Marking without color, used to represent logical boundaries without physical markings.
         // Value may be used in ground truth only.
         COLOR_NONE = 2;
+		
         // Marking with white color.
 		//
         COLOR_WHITE = 3;
+		
         // Marking with yellow / orange-yellow color.
 		//
         COLOR_YELLOW = 4;
+		
         // Marking with red color
 		//
         COLOR_RED = 5;
+		
         // Marking with blue color.
 		//
         COLOR_BLUE = 6;
+		
         // Marking with green color;
 		//
         COLOR_GREEN = 7;

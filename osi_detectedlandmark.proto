@@ -48,18 +48,22 @@ message DetectedTrafficSign
 	//	
     enum Geometry
     {
-        // Geometry of the traffic sign is unknown.
+        // Geometry of the traffic sign is unknown (must not be used in ground truth).
 		//	
 		GEOMETRY_UNKNOWN = 0;
+		
         // Geometry of the traffic sign is unspecified (but known).
 		//	
         GEOMETRY_OTHER = 1;
+		
         // Traffic sign has a triangular geometry.
 		//	
         GEOMETRY_TRIANGLE = 2;
+		
         // Traffic sign has a circular geometry.
 		//	
         GEOMETRY_CIRCLE = 3;
+		
         // Traffic sign has a square geometry.
 		//	
         GEOMETRY_SQUARE = 4;
@@ -69,15 +73,18 @@ message DetectedTrafficSign
 	//
     enum MeasurementState
     {
-        // Measurement state is unknown.
+        // Measurement state is unknown (must not be used in ground truth).
 		//
         MEASUREMENT_STATE_UNKNOWN = 0;
+		
         // Measurement state is unspecified (but known, i.e. value is not part of this enum list).
 		//
         MEASUREMENT_STATE_OTHER = 1;
+		
         // Traffic sign has been measured by the sensor in the current timestep.
 		//
         MEASUREMENT_STATE_MEASURED = 2;
+		
         // Traffic sign has not been measured by the sensor in the current timestep. Values provided by tracking only.
 		//
         MEASUREMENT_STATE_PREDICTED = 3;

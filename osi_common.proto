@@ -4,15 +4,24 @@ option optimize_for = SPEED;
 
 package osi;
 
-
+//
 // \brief The interface version number.
-
+//
+// The field containing the version number. Should be left on default, not to be modified by sender.
+// Increments will happen as part of changes to the whole interface.
+//
 message InterfaceVersion
 {
-    // The field containing the version number. Should be left on default, not to be modified by sender. Increments will
-    // happen as part of changes to the whole interface.
+	// Major version number.
+	//
     optional uint32 major = 1 [default = 2];
+	
+	// Minor version number.
+	//
     optional uint32 minor = 2 [default = 1];
+	
+	// Patch version number.
+	//
     optional uint32 patch = 3 [default = 1];
 }
 
@@ -23,15 +32,15 @@ message InterfaceVersion
 //
 message Vector3d
 {
-    // The x coordinate
+    // The x coordinate.
 	//
     optional double x = 1;
 
-    // The y coordinate
+    // The y coordinate.
 	//
     optional double y = 2;
 
-    // The z coordinate
+    // The z coordinate.
 	//
     optional double z = 3;
 }
@@ -43,11 +52,11 @@ message Vector3d
 //
 message Vector2d
 {
-    // The x coordinate
+    // The x coordinate.
 	//
     optional double x = 1;
 
-    // The y coordinate
+    // The y coordinate.
 	//
     optional double y = 2;
 }
@@ -79,12 +88,12 @@ message Dimension3d
     // The width of the bounding box.
 	//
     optional double width = 1;
-
+	
     // The length of the bounding box.
 	//
     optional double length = 2;
-
-    //The height of the bounding box.
+	
+    // The height of the bounding box.
 	//
     optional double height = 3;
 }
@@ -116,11 +125,11 @@ message Orientation3d
     // The roll angle/rate/acceleration.
 	//
     optional double roll = 1;
-
+	
     // The pitch angle/rate/acceleration.
 	//
     optional double pitch = 2;
-
+	
     // The yaw angle/rate/acceleration.
 	//
     optional double yaw = 3;
@@ -220,7 +229,7 @@ message BaseStationary
 //
 message BaseMoving
 {
-    // The 3D dimension of the object (bounding box):
+    // The 3D dimension of the object (bounding box).
 	//
     optional Dimension3d dimension = 1;
 

@@ -57,18 +57,23 @@ message EnvironmentalConditions
         // Ambient illumination is unknown (must not be used in ground truth).
 		//
         AMBIENT_ILLUMINATION_UNKNOWN = 0;
+		
         // Other (unspecified but known) ambient illumination.
 		//
         AMBIENT_ILLUMINATION_OTHER = 1;
+		
         // Ambient illumination index is "bright".
         // E.g. daytime with sunshine.
         AMBIENT_ILLUMINATION_BRIGHT = 2;
+		
         // Ambient illumination index is "medium".
         // E.g. daytime with overcast sky.
         AMBIENT_ILLUMINATION_MEDIUM = 3;
+		
         // Ambient illumination index is "low".
         // E.g. during twilight (dawn/dusk) or in a tunnel.
         AMBIENT_ILLUMINATION_LOW = 4;
+		
         // Ambient illumination index is "dark".
         // E.g. night time, no sunlight.
         AMBIENT_ILLUMINATION_DARK = 5;

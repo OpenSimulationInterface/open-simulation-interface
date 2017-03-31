@@ -27,9 +27,11 @@ package osi;
      optional MountingPosition mounting_position = 3;
 
      // Lidar point cloud.
+	 //
      optional LidarPointCloud lidar_point_cloud = 4;
 
      // Radar Reflection list.
+	 //
      optional RadarReflectionList radar_reflection_list = 5;
 }
 
@@ -81,18 +83,31 @@ message LidarPoint
     enum ReflectionType
     {
         // Reflection type is unknown (must not be used in ground truth).
+		//
         REFLECTION_TYPE_UNKNOWN = 0;
+		
         // Other (unspecified but known) type of reflection.
+		//
         REFLECTION_TYPE_OTHER = 1;
+		
         // Invalid scan point, not to be used for object tracking, of unspecified type (none of the other types applies).
+		//
         REFLECTION_TYPE_INVALID = 2;
+		
         // Reflection from dynamic object.
+		//
         REFLECTION_TYPE_DYNAMIC_OBJECT = 3;
+		
         // Reflection from static object.
+		//
         REFLECTION_TYPE_STATIC_OBJECT = 4;
+		
         // Reflection from ground.
+		//
         REFLECTION_TYPE_GROUND = 5;
+		
         // Reflection from road marking.
+		//
         REFLECTION_TYPE_ROAD_MARKING = 6;
     }
 }
@@ -109,7 +124,7 @@ message RadarReflectionList
 
 //
 // \brief A radar reflection
-
+//
 message RadarReflection
 {
     // The id of the radar reflection.

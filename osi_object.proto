@@ -64,22 +64,36 @@ message Vehicle
     
 
     // Definition of vehicle types.
+	//
     enum Type
     {
-        // Type of vehicle is unknown (must not be used in ground truth)
+        // Type of vehicle is unknown (must not be used in ground truth).
+	    //
         TYPE_UNKNOWN = 0;
+		
         // Other (unspecified but known) type of vehicle.
+		//
         TYPE_OTHER = 1;
+		
         // Vehicle is a normal car.
-	TYPE_CAR = 2;
+		//
+	    TYPE_CAR = 2;
+		
         // Vehicle is a truck, bus, or large van.
-	TYPE_TRUCK = 3;
+		//
+	    TYPE_TRUCK = 3;
+		
         // Vehicle is a motorbike or moped.
-	TYPE_MOTOR_BIKE = 4;
+		//
+	    TYPE_MOTOR_BIKE = 4;
+		
         // Vehicle is a bicycle (without motor).
-	TYPE_BICYCLE = 5;
+		//
+	    TYPE_BICYCLE = 5;
+		
         // Vehicle is a trailer (possibly attached to another vehicle).
-	TYPE_TRAILER = 6;
+		//
+	    TYPE_TRAILER = 6;
     }
 
     //
@@ -89,82 +103,109 @@ message Vehicle
     {
         // State of the object's indicators.
         //
-	optional IndicatorState indicator_state = 1;
+	    optional IndicatorState indicator_state = 1;
 
         // State of the front fog light.
-	//
+	    //
         optional GenericLightState front_fog_light = 2;
 
         // State of the rear fog light.
-	//
+	    //
         optional GenericLightState rear_fog_light = 3;
 
         // State of the head lights.
-	//
+	    //
         optional GenericLightState head_light = 4;
 
         // State of the high beam.
-	//
+	    //
         optional GenericLightState high_beam = 5;
 
         // State of the reversing light.
-	//
+	    //
         optional GenericLightState reversing_light = 6;
 
         // State of the brake lights.
-	//
+	    //
         optional BrakeLightState brake_light_state = 7;
 
         // State of the (rear) license plate illumination
-	//
+	    //
         optional GenericLightState license_plate_illumination_rear = 8;
 
         // Definition of indicator states.
         //
-	enum IndicatorState
-        { 	
-             // Indicator state is unknown (must not be used in ground truth)
-             INDICATOR_STATE_UNKNOWN = 0;
-             // Other (unspecified but known) state of indicator.
-	     INDICATOR_STATE_OTHER = 1;
-             // Indicators are off.
-	     INDICATOR_STATE_OFF = 2;
-             // Left indicator is on.
-	     INDICATOR_STATE_LEFT = 3;
-             // Right indicator is on.
-	     INDICATOR_STATE_RIGHT = 4;
-             // Hazard/warning light, i.e. both indicators, are on.
-	     INDICATOR_STATE_WARNING = 5;
+	    enum IndicatorState
+	    {
+		    // Indicator state is unknown (must not be used in ground truth).
+		    //
+            INDICATOR_STATE_UNKNOWN = 0;
+		
+            // Other (unspecified but known) state of indicator.
+		    //
+	        INDICATOR_STATE_OTHER = 1;
+		
+            // Indicators are off.
+			//
+	        INDICATOR_STATE_OFF = 2;
+			
+            // Left indicator is on.
+			//
+	        INDICATOR_STATE_LEFT = 3;
+			
+            // Right indicator is on.
+			//
+	        INDICATOR_STATE_RIGHT = 4;
+			
+            // Hazard/warning light, i.e. both indicators, are on.
+			//
+	        INDICATOR_STATE_WARNING = 5;
         }
 
         // Definition of generic light states for light that may be on or off.
         //
-	enum GenericLightState
+	    enum GenericLightState
         {
-             // Light state is unknown (must not be used in ground truth)
-	     GENERIC_LIGHT_STATE_UNKNOWN = 0;
-             // Other (unspecified but known) state of light.
-	     GENERIC_LIGHT_STATE_OTHER = 1;
-             // Light is off.
- 	     GENERIC_LIGHT_STATE_OFF = 2;
-             // Light is on.
-	     GENERIC_LIGHT_STATE_ON = 3;
+            // Light state is unknown (must not be used in ground truth).
+			//
+	        GENERIC_LIGHT_STATE_UNKNOWN = 0;
+			
+            // Other (unspecified but known) state of light.
+			//
+	        GENERIC_LIGHT_STATE_OTHER = 1;
+			
+            // Light is off.
+			//
+ 	        GENERIC_LIGHT_STATE_OFF = 2;
+			
+            // Light is on.
+			//
+	        GENERIC_LIGHT_STATE_ON = 3;
         }
 
         // Definition of brake light states.
-	//
+	    //
         enum BrakeLightState
         {
-             // Brake light state is unknown (must not be used in ground truth)
-             BRAKE_LIGHT_STATE_UNKNOWN = 0;
-             // Other (unspecified but known) state of brake light.
-             BRAKE_LIGHT_STATE_OTHER = 1;
-             // Brake lights are off.
-             BRAKE_LIGHT_STATE_OFF = 2;
-             // Brake lights are on with normal intensity.
-	     BRAKE_LIGHT_STATE_NORMAL = 3;
-             // Brake lights are on with extra bright intensity (indicating stronger braking).
-	     BRAKE_LIGHT_STATE_STRONG = 4;
+            // Brake light state is unknown (must not be used in ground truth).
+			//
+            BRAKE_LIGHT_STATE_UNKNOWN = 0;
+			 
+            // Other (unspecified but known) state of brake light.
+			//
+            BRAKE_LIGHT_STATE_OTHER = 1;
+			 
+            // Brake lights are off.
+			//
+            BRAKE_LIGHT_STATE_OFF = 2;
+			
+            // Brake lights are on with normal intensity.
+			//
+	        BRAKE_LIGHT_STATE_NORMAL = 3;
+			
+            // Brake lights are on with extra bright intensity (indicating stronger braking).
+			//
+	        BRAKE_LIGHT_STATE_STRONG = 4;
         }
     }
 }
@@ -190,13 +231,20 @@ message MovingObject
     //
     enum Type {
         // Type of the object is unknown (must not be used in ground truth).
+		//
         TYPE_UNKNOWN = 0;
+		
         // Other (unspecified but known) type of moving object.
-	TYPE_OTHER = 1;
+		//
+	    TYPE_OTHER = 1;
+		
         // Object is a pedestrian.
-	TYPE_PEDESTRIAN = 2;
+		//
+	    TYPE_PEDESTRIAN = 2;
+		
         // Object is an animal.
-	TYPE_ANIMAL = 3;
+		//
+	    TYPE_ANIMAL = 3;
     }
 }
 
@@ -219,20 +267,34 @@ message StationaryObject
 
     // Definition of object types.
     //
-    enum Type {
-        // Type of the object is unknown (must not be used in ground truth)
+    enum Type
+	{
+        // Type of the object is unknown (must not be used in ground truth).
+		//
         TYPE_UNKNOWN = 0;
+		
         // Other (unspecified but known) type of object.
+		//
         TYPE_OTHER = 1;
+		
         // Object is a bridge.
+		//
         TYPE_BRIDGE = 2;
+		
         // Object is a building.
+		//
         TYPE_BUILDING = 3;
+		
         // Object is a pylon.
+		//
         TYPE_PYLON = 4;
+		
         // Object is a reflector post.
+		//
         TYPE_REFLECTOR_POST = 5;
+		
         // Object is a delineator (e.g. at a construction site).
+		//
         TYPE_DELINEATOR = 6;
     }
 }
