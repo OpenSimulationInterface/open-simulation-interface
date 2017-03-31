@@ -6,7 +6,7 @@ Open Simulation Interface (OSI)
 
 General description
 -------------------
-[TUM Department of Electrical and Computer Engineering] (https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)
+[TUM Department of Electrical and Computer Engineering](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)
 
 
 Global remarks
