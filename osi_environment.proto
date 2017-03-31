@@ -28,6 +28,7 @@ message EnvironmentalConditions
     optional Fog fog = 6;
     
     /// Definition of precipitation states
+    /// I = Intensity of precipitation in mm per hour
     /// Quote: PAULAT, Marcus, et al. A gridded dataset of hourly precipitation in Germany: Its construction, climatology and application. Meteorologische Zeitschrift, 2008, 17. Jg., Nr. 6, S. 719-732.
     enum Precipitation
     {
@@ -35,45 +36,46 @@ message EnvironmentalConditions
         PRECIPITATION_UNKNOWN = 0;
         /// Other (unspecified but known) intensity of precipitation
         PRECIPITATION_OTHER = 1;
-        /// No precipitation, when the precipitation rate is between 0 and 0.1 mm per hour
+        /// No precipitation, when I = [0 ; 0.1[
         PRECIPITATION_NONE = 2;
-        /// Very light intensity of precipitation, when the precipitation rate is between 0.1 and 0.5 mm per hour
+        /// Very light intensity of precipitation, when I = [0.1 ;0.5[
         PRECIPITATION_VERY_LIGHT = 3;
-        /// Light intensity of precipitation, when the precipitation rate is between 0.5 and 1.9 mm per hour
+        /// Light intensity of precipitation, when I = [0.5 ;1.9[
         PRECIPITATION_LIGHT = 4;
-        /// Moderate intensity of precipitation, when the precipitation rate is between 1.9 and 8.1 mm per hour
+        /// Moderate intensity of precipitation, when I = [1.9 ; 8.1[
         PRECIPITATION_MODERATE = 5;
-        /// Heavy intensity of precipitation, when the precipitation rate is between 8.1 and 34 mm per hour
+        /// Heavy intensity of precipitation, when I = [8.1 ; 34[
         PRECIPITATION_HEAVY = 6;
-        /// Very heavy intensity of precipitation, when the precipitation rate is between 34 and 149 mm per hour
+        /// Very heavy intensity of precipitation, when I = [34 ;149[
         PRECIPITATION_VERY_HEAVY = 7;
-        /// Extreme intensity of precipitation, when the precipitation rate is > 149 mm per hour
+        /// Extreme intensity of precipitation, when I = [149 ; infinity[
         PRECIPITATION_EXTREME = 8;
     }
 
     /// Definition of fog states by visibility
-    /// Quote: SHEPARD, Frank D. Reduced visibility due to fog on the highway. Transportation Research Board, 1996. (International classification of visibility)
+    /// V = Visibility in meters is the greatest distance at which a black object of suitable dimensions may be seen and recognized against the horizon, sky, or in the case of night observation, could be seen and recognized if the general illumination were raised to the normal daylight level. (Meteorological Office 1969)
+    /// Quote: SHEPARD, Frank D. Reduced visibility due to fog on the highway. Transportation Research Board, 1996.
     enum Fog
     {
         /// Visibility is unknown (must not be used in ground truth)
         FOG_UNKOWN = 0;
         /// Other (unspecified but known) fog intensity
         FOG_OTHER = 1;
-        /// Excellent visibility, when visibility > 40,000 m
+        /// Excellent visibility, when V = [40,000 ; infinity[
         FOG_EXCELLENT_VISIBILITY = 2;
-        /// Good visibility, when visibility is between 10,000 and 40,000 m
+        /// Good visibility, when V = [10,000 ; 40,000[
         FOG_GOOD_VISIBILITY = 3;
-        /// Moderate visibility, when visibility is between 4000 and 10,000 m
+        /// Moderate visibility, when V = [4000 ; 10,000[
         FOG_MODERATE_VISIBILITY = 4;
-        /// Poor visibility, when visibility is between 2000 and 4000 m
+        /// Poor visibility, when V = [2000 ; 4000[
         FOG_POOR_VISIBILITY = 5;
-        /// Mist, when visibility is between 1000 and 2000 m
+        /// Mist, when V = [1000 ; 2000[
         FOG_MIST = 6;
-        /// Fog, when visibility is between 200 and 1000 m
+        /// Fog, when V = [200 ; 1000[
         FOG_LIGHT = 7;
-        /// Thick fog, when visibility is between 40 and 200 m
+        /// Thick fog, when V = [40 ; 200[
         FOG_THICK = 8;
-        /// Dense fog, when visibility < 40 m
+        /// Dense fog, when V = [0 ; 40[
         FOG_DENSE = 9;
     }
 
