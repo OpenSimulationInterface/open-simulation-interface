@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.7)
 # set name and version of the project 
 project(open_simulation_interface)
 set(VERSION_MAJOR 2)
-set(VERSION_MINOR 2)
+set(VERSION_MINOR 1)
 set(VERSION_PATCH 1)
 
 
