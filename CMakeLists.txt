@@ -3,8 +3,9 @@ cmake_minimum_required(VERSION 3.7)
 # set name and version of the project 
 project(open_simulation_interface)
 set(VERSION_MAJOR 2)
-set(VERSION_MINOR 1)
+set(VERSION_MINOR 2)
 set(VERSION_PATCH 1)
+
 
 find_package(Protobuf 2.6.1 REQUIRED)
 
@@ -83,7 +84,7 @@ else()
 
 	else()
 	
-		set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen-config.cmake.in)
+		set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen_config.cmake.in)
 		set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
 		configure_file(${doxyfile_in} ${doxyfile} @ONLY)

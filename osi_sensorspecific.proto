@@ -4,26 +4,26 @@ option optimize_for = SPEED;
 
 package osi;
 
-///
-/// Message encapsulates all data for detected objects that is specific to radar sensors.
-///
+//
+// \brief Message encapsulates all data for detected objects that is specific to radar sensors.
+//
 message RadarSpecificObjectData
 {
     // The radar cross section (RCS) of the detected object. Unit: [dB sqm].
     optional double rcs = 1;
 }
 
-///
-/// Message encapsulates all data for detected objects that is specific to lidar sensors.
-///
+//
+// \brief Message encapsulates all data for detected objects that is specific to lidar sensors.
+//
 message LidarSpecificObjectData
 {
     // currently no fields.
 }
 
-///
-/// Message encapsulates all data for detected objects that is specific to camera sensors.
-///
+//
+// \brief Message encapsulates all data for detected objects that is specific to camera sensors.
+//
 message CameraSpecificObjectData
 {
     // currently no fields.
