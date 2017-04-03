@@ -2,6 +2,7 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_version.proto";
 import "osi_common.proto";
 import "osi_environment.proto";
 import "osi_landmark.proto";

@@ -1,15 +1,22 @@
 cmake_minimum_required(VERSION 3.7)
 
-# set name and version of the project 
 project(open_simulation_interface)
-set(VERSION_MAJOR 2)
-set(VERSION_MINOR 1)
-set(VERSION_PATCH 1)
 
+# read the version number from the file "VERSION" 
+file(STRINGS "VERSION" VERSION_CONTENTS)
+foreach(LINE ${VERSION_CONTENTS})
+  string(REGEX REPLACE " |\t" "" LINE ${LINE})
+  string(REGEX MATCH "^[^=]+" VERSION_NAME ${LINE})
+  string(REPLACE "${VERSION_NAME}=" "" VERSION_VALUE ${LINE})
+  set(${VERSION_NAME} "${VERSION_VALUE}")
+endforeach()
+
+configure_file(osi_version.proto.in ${CMAKE_CURRENT_SOURCE_DIR}/osi_version.proto)
 
 find_package(Protobuf 2.6.1 REQUIRED)
 
 set(OSI_PROTO_FILES
+	osi_version.proto
     osi_common.proto
     osi_datarecording.proto
     osi_detectedlandmark.proto
