@@ -88,7 +88,7 @@ Documentation
 
 In order to generate the doxygen documentation for OSI, please follow the following steps: 
 1. Install [Doxygen](http://www.stack.nl/~dimitri/doxygen/download.html), set an environmental variable 'doxygen' with the path to the binary file and add it to PATH `<old-path>;%doxygen%`.
-2. Download and unzip the [zip file containing the filter proto2cpp.py](https://sourceforge.net/p/proto2cpp/wiki/Home/ ).
+2. Clone the [git repository containing the filter proto2cpp.py](https://github.com/vgteam/vg.git). The filter can then be found under vg/contrib/proto2cpp.
 3. Install [graphviz-2.38](http://www.graphviz.org/Download_windows.php ), set an environmental variable 'graphviz' with the path to the binary file and add it to PATH `<old-path>;%graphviz%`.
 4. From the cmd navigate to the build directory and run: 
 ```cmd
