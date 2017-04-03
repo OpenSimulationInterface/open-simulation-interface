@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.7)
 
+# set name and version of the project 
 project(open_simulation_interface)
+set(VERSION_MAJOR 2)
+set(VERSION_MINOR 1)
+set(VERSION_PATCH 1)
+
 
 find_package(Protobuf 2.6.1 REQUIRED)
 
@@ -60,3 +65,34 @@ target_include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
+
+
+# add a target to generate API documentation with Doxygen
+# Dependencies: Doxygen and proto2cpp.py
+FIND_PACKAGE(Doxygen)
+set(FILTER_PROTO2CPP_PY_PATH CACHE PATH "directory to the filter proto2cpp.py")
+
+if(NOT DOXYGEN_FOUND)
+
+    message(WARNING  "Doxygen could not be found.")
+
+else()
+	
+	if(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
+	
+	message(WARNING  "${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py could not be found.")
+
+	else()
+	
+		set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen_config.cmake.in)
+		set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+
+		configure_file(${doxyfile_in} ${doxyfile} @ONLY)
+
+		ADD_CUSTOM_TARGET(api_doc ALL 
+		COMMAND ${DOXYGEN_EXECUTABLE} ${doxyfile}
+		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+	
+	endif(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
+	
+endif(NOT DOXYGEN_FOUND)

@@ -3,9 +3,10 @@ Open Simulation Interface (OSI)
 
 [![Travis Build Status](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface.svg?branch=master)](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface)
 
+
 General description
 -------------------
-https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/
+[TUM Department of Electrical and Computer Engineering](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)
 
 
 Global remarks
@@ -38,13 +39,16 @@ Fault injection: how-to
 Injection of pre-defined sensor errors should be handled by a specialized "fault injector" component that acts like a
 sensor model component, i.e. it takes a SensorData message as input and returns a modified SensorData message as output.
 Specific errors should be handled as follows:
-- Ghost objects / false positive: An additional SensorDataObject is added to the list of objects in SensorData.object
-      with SensorDataObject.model_internal_object.ground_truth_type set to kTypeGhost.
-- False negative: The object is marked as not seen by the sensor by setting the property
-      SensorDataObject.model_internal_object.is_seen to false. The implementation of field-of-view calculation modules
-      should respect this flag and never reset an object marked as not-seen to seen.
+- Ghost objects / false positive:
+    An additional SensorDataObject is added to the list of objects in SensorData.object
+	with SensorDataObject.model_internal_object.ground_truth_type set to kTypeGhost.
+- False negative:
+    The object is marked as not seen by the sensor by setting the property 
+	SensorDataObject.model_internal_object.is_seen to false. The implementation 
+	of field-of-view calculation modules should respect this flag and never reset 
+	an object marked as not-seen to seen.
 
-	  
+
 Versioning
 ----------
 The version number is defined in InterfaceVersion::version_number in osi_common.proto as the field's default value.
@@ -70,9 +74,24 @@ The compatibility of both recorded files and code remains.
 - Changing or adding comments
 - Clarification of text passages explaining the message content
 
+
 Packaging
 ---------
 
 A specification to package sensor models using OSI as (extended)
 Functional Mock-up Units (FMUs) for use in simulation environments
 is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging).
+
+
+Documentation
+-------------
+
+In order to generate the doxygen documentation for OSI, please follow the following steps: 
+1. Install [Doxygen](http://www.stack.nl/~dimitri/doxygen/download.html), set an environmental variable 'doxygen' with the path to the binary file and add it to the PATH variable: `PATH += %doxygen%`.
+2. Download the [vg-1.5.0.zip](https://github.com/vgteam/vg/releases/tag/v1.5.0). Unpack and copy the content of folder /vg-1.5.0/contrib/proto2cpp to your desired `<path-to-proto2cpp.py>`
+3. Install [graphviz-2.38](http://www.graphviz.org/Download_windows.php ), set an environmental variable 'graphviz' with the path to the binary file and add it to the PATH variable: `PATH += %graphviz%`.
+4. From the cmd navigate to the build directory and run: 
+```cmd
+cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
+```
+5. The build process will then generate the doxygen documentation under the directory doc.
