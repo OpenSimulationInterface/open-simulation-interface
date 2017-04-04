@@ -43,6 +43,6 @@ script:
     - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
     - cmake --build .
     - cd ..
+    - python test_cases.py
     - python setup.py build
     - python setup.py sdist
-    - python test_cases.py
