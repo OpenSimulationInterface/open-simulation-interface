@@ -14,12 +14,12 @@ from shutil import copyfile
 copyfile('VERSION', 'version.py')
 from version import *
 with open("osi_version.proto.in", "rt") as fin:
-	with open("osi_version.proto", "wt") as fout:
-		for line in fin:
-			lineConfigured = line.replace('@VERSION_MAJOR@',str(VERSION_MAJOR))
-			lineConfigured = lineConfigured.replace('@VERSION_MINOR@',str(VERSION_MINOR))
-			lineConfigured = lineConfigured.replace('@VERSION_PATCH@',str(VERSION_PATCH))
-			fout.write(lineConfigured)
+    with open("osi_version.proto", "wt") as fout:
+        for line in fin:
+            lineConfigured = line.replace('@VERSION_MAJOR@',str(VERSION_MAJOR))
+            lineConfigured = lineConfigured.replace('@VERSION_MINOR@',str(VERSION_MINOR))
+            lineConfigured = lineConfigured.replace('@VERSION_PATCH@',str(VERSION_PATCH))
+            fout.write(lineConfigured)
 
 package_name = 'osi'
 package_path = os.path.join(os.getcwd(), package_name)
@@ -44,7 +44,7 @@ class GenerateProtobuf(install):
         return protoc
 
     osi_files = (
-		'osi_version.proto',
+        'osi_version.proto',
         'osi_common.proto',
         'osi_datarecording.proto',
         'osi_detectedlandmark.proto',

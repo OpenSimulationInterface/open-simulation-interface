@@ -18,10 +18,10 @@ message DetectedLane
     repeated Identifier ground_truth_id = 1;
 
     // The detected lane.
-	//
+    //
     optional Lane lane = 2;
 
     // Estimated probability that this lane really exists. Range [0,1].
-	//
+    //
     optional double existence_probability = 3;
 }

@@ -12,7 +12,7 @@ package osi;
 message SensorDataSeries
 {
     // List of sensor data messages for subsequent timesteps.
-	//
+    //
     repeated SensorData sensor_data = 1;
 }
 
@@ -25,7 +25,7 @@ message SensorDataList
 {
     // List of sensor data for multiple sensors at a specific timestep.
     //
-	repeated SensorData sensor = 1;
+    repeated SensorData sensor = 1;
 }
 
 //
@@ -35,5 +35,5 @@ message SensorDataSeriesList
 {
     // List of sensor data for multiple sensors at subsequent timesteps.
     //
-	repeated SensorDataSeries sensor = 1;
+    repeated SensorDataSeries sensor = 1;
 }

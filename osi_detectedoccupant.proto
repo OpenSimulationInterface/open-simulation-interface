@@ -13,10 +13,10 @@ package osi;
 message DetectedOccupant
 {
     // The detected vehicle occupant
-	//
+    //
     optional Occupant occupant = 1;
 
     // The id of the original vehicle occupant in the ground truth.
-	//
+    //
     optional Identifier ground_truth_occupant_id = 2;
 }

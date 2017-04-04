@@ -16,7 +16,7 @@ message DetectedObject
 {
     // Specific id of the object as assigned by the sensor internally. Need not match with ground_truth_id.
     //
-	optional Identifier tracking_id = 1;
+    optional Identifier tracking_id = 1;
 
     // The id of the original object in the ground truth list of vehicles / objects / ..
     // Multiple entries if detected object is a merge of multiple ground truth objects.
@@ -74,45 +74,45 @@ message DetectedObject
         // within the bounding volume unknown to the sensor. If this value is set, the center of the bounding box should
         // be used as reference point by convention, unless the specific use case requires otherwise.
         REFERENCE_POINT_UNKNOWN = 0;
-		
+        
         // Other (unspecified but known) reference point.
-		//
+        //
         REFERENCE_POINT_OTHER = 1;
-		
+        
         // Center of the bounding box.
-		//
+        //
         REFERENCE_POINT_CENTER = 2;
-		
+        
         // Middle-Left of the bounding box.
-		//
+        //
         REFERENCE_POINT_MIDDLE_LEFT = 3;
-		
+        
         // Middle-Right of the bounding box.
-		//
+        //
         REFERENCE_POINT_MIDDLE_RIGHT = 4;
-		
+        
         // Rear-Middle of the bounding box.
-		//
+        //
         REFERENCE_POINT_REAR_MIDDLE = 5;
-		
+        
         // Rear-Left of the bounding box.
-		//
+        //
         REFERENCE_POINT_REAR_LEFT = 6;
-		
+        
         // Rear-Right of the bounding box.
-		//
+        //
         REFERENCE_POINT_REAR_RIGHT = 7;
-		
+        
         // Front-Middle of the bounding box.
-		//
+        //
         REFERENCE_POINT_FRONT_MIDDLE = 8;
-		
+        
         // Front-Left of the bounding box.
-		//
+        //
         REFERENCE_POINT_FRONT_LEFT = 9;
-		
+        
         // Front-Right of the bounding box.
-		//
+        //
         REFERENCE_POINT_FRONT_RIGHT = 10;
     }
 
@@ -122,31 +122,31 @@ message DetectedObject
     message ClassProbability
     {
         // Probability that the object has unknown type. Range [0,1].
-		//
+        //
         optional double prob_unknown = 1;
-		
+        
         // Probability that the object is a car. Range [0,1].
-		//
+        //
         optional double prob_car = 2;
-		
+        
         // Probability that the object is a truck. Range [0,1].
-		//
+        //
         optional double prob_truck = 3;
-		
+        
         // Probability that the object is a motorbike. Range [0,1].
-		//
+        //
         optional double prob_motorbike = 4;
-		
+        
         // Probability that the object is a bicycle. Range [0,1].
-		//
+        //
         optional double prob_bicycle = 5;
-		
+        
         // Probability that the object is a pedestrian. Range [0,1].
-		//
+        //
         optional double prob_pedestrian = 6;
-		
+        
         // Probability that the object is a stationary object. Range [0,1].
-		//
+        //
         optional double prob_stationary = 7;
     }
 }

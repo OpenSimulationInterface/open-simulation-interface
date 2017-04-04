@@ -12,15 +12,15 @@ package osi;
 //
 message InterfaceVersion
 {
-	// Major version number.
-	//
+    // Major version number.
+    //
     optional uint32 major = 1 [default = @VERSION_MAJOR@];
-	
-	// Minor version number.
-	//
+    
+    // Minor version number.
+    //
     optional uint32 minor = 2 [default = @VERSION_MINOR@];
-	
-	// Patch version number.
-	//
+    
+    // Patch version number.
+    //
     optional uint32 patch = 3 [default = @VERSION_PATCH@];
 }
