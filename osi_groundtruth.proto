@@ -2,6 +2,7 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_version.proto";
 import "osi_common.proto";
 import "osi_environment.proto";
 import "osi_landmark.proto";
@@ -34,7 +35,7 @@ message GroundTruth
 {
     // The interface version used by the sender (simulation environment).
     //
-	optional InterfaceVersion version = 1;
+    optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. Zero time is arbitrary but must be identical for all messages.
     // Zero time does not need to coincide with the unix epoch. Recommended is the starting time point of the

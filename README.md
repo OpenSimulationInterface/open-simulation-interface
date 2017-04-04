@@ -41,12 +41,12 @@ sensor model component, i.e. it takes a SensorData message as input and returns 
 Specific errors should be handled as follows:
 - Ghost objects / false positive:
     An additional SensorDataObject is added to the list of objects in SensorData.object
-	with SensorDataObject.model_internal_object.ground_truth_type set to kTypeGhost.
+    with SensorDataObject.model_internal_object.ground_truth_type set to kTypeGhost.
 - False negative:
     The object is marked as not seen by the sensor by setting the property 
-	SensorDataObject.model_internal_object.is_seen to false. The implementation 
-	of field-of-view calculation modules should respect this flag and never reset 
-	an object marked as not-seen to seen.
+    SensorDataObject.model_internal_object.is_seen to false. The implementation 
+    of field-of-view calculation modules should respect this flag and never reset 
+    an object marked as not-seen to seen.
 
 
 Versioning

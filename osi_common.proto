@@ -4,26 +4,6 @@ option optimize_for = SPEED;
 
 package osi;
 
-//
-// \brief The interface version number.
-//
-// The field containing the version number. Should be left on default, not to be modified by sender.
-// Increments will happen as part of changes to the whole interface.
-//
-message InterfaceVersion
-{
-	// Major version number.
-	//
-    optional uint32 major = 1 [default = 2];
-	
-	// Minor version number.
-	//
-    optional uint32 minor = 2 [default = 1];
-	
-	// Patch version number.
-	//
-    optional uint32 patch = 3 [default = 1];
-}
 
 //
 // \brief A cartesian 3D vector for positions, velocities or accelerations.
@@ -33,31 +13,31 @@ message InterfaceVersion
 message Vector3d
 {
     // The x coordinate.
-	//
+    //
     optional double x = 1;
 
     // The y coordinate.
-	//
+    //
     optional double y = 2;
 
     // The z coordinate.
-	//
+    //
     optional double z = 3;
 }
 
 //
-//  \brief A cartesian 2D vector for positions, velocities or accelerations.
+// \brief A cartesian 2D vector for positions, velocities or accelerations.
 // 
 // Units are [m] for positions, [m/s] for velocities and [m/s^2] for accelerations.
 //
 message Vector2d
 {
     // The x coordinate.
-	//
+    //
     optional double x = 1;
 
     // The y coordinate.
-	//
+    //
     optional double y = 2;
 }
 
@@ -70,11 +50,11 @@ message Vector2d
 message Timestamp
 {
     // The number of seconds since start of the simulation / system / vehicle. Unit: [s].
-	//
+    //
     optional int64 seconds = 1;
 
     // The number of nanoseconds since the start of the last second. Unit: [ns].
-	//
+    //
     optional int32 nanos = 2;
 }
 
@@ -86,15 +66,15 @@ message Timestamp
 message Dimension3d
 {
     // The width of the bounding box.
-	//
+    //
     optional double width = 1;
-	
+    
     // The length of the bounding box.
-	//
+    //
     optional double length = 2;
-	
+    
     // The height of the bounding box.
-	//
+    //
     optional double height = 3;
 }
 
@@ -123,15 +103,15 @@ message Dimension3d
 message Orientation3d
 {
     // The roll angle/rate/acceleration.
-	//
+    //
     optional double roll = 1;
-	
+    
     // The pitch angle/rate/acceleration.
-	//
+    //
     optional double pitch = 2;
-	
+    
     // The yaw angle/rate/acceleration.
-	//
+    //
     optional double yaw = 3;
 }
 
@@ -146,7 +126,7 @@ message Orientation3d
 message Identifier
 {
     // The identifier's value.
-	//
+    //
     optional uint64 value = 1;
 }
 
@@ -158,11 +138,11 @@ message Identifier
 message MountingPosition
 {
     // Offset position relative to specified reference coordinate system.
-	//
+    //
     optional Vector3d position = 1;
 
     // Orientation offset relative to specified reference coordinate system.
-	//
+    //
     optional Orientation3d orientation = 2;
 }
 
@@ -175,15 +155,15 @@ message MountingPosition
 message Polar3d
 {
     // The radial distance.
-	//
+    //
     optional double distance = 1;
 
     // The azimuth (horizontal) angle.
-	//
+    //
     optional double azimuth = 2;
 
     // The elevation (vertical) angle.
-	//
+    //
     optional double elevation = 3;
 }
 
@@ -195,15 +175,15 @@ message Polar3d
 message BaseStationary
 {
     // The 3D dimension of the landmark (bounding box):
-	//
+    //
     optional Dimension3d dimension = 1;
 
     // The reference point for position and rotation (orientation): center (x, y, z) of bounding box.
-	//
+    //
     optional Vector3d position = 2;
 
     // The relative orientation of the landmark w.r.t its parent frame.
-	//
+    //
     optional Orientation3d orientation = 3;
     
     // Usage as ground truth:
@@ -230,29 +210,27 @@ message BaseStationary
 message BaseMoving
 {
     // The 3D dimension of the object (bounding box).
-	//
+    //
     optional Dimension3d dimension = 1;
 
     // The reference point for position and rotation (orientation): center (x, y, z) of bounding box.
-	//
+    //
     optional Vector3d position = 2;
 
     // The relative orientation of the object w.r.t its parent frame.
+    //
     optional Orientation3d orientation = 3;
 
     // The relative velocity of the object w.r.t. its parent frame and parent velocity.
     // Obviously, the velocity becomes global/absolute if the parent frame does not move.
-	//
     optional Vector3d velocity = 4;
 
     // The relative acceleration of the object w.r.t. its parent frame and parent acceleration.
     // Obviously, the acceleration becomes global/absolute if the parent frame is not accelerating.
-	//
     optional Vector3d acceleration = 5;
 
     // The relative orientation rate of the object w.r.t. its parent frame and parent orientation rate.
     // Obviously, the orientation rate becomes global/absolute if the parent frame is not rotating.
-	//
     optional Orientation3d orientation_rate = 6;
     
     // Usage as ground truth:
