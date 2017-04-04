@@ -45,3 +45,4 @@ script:
     - cd ..
     - python setup.py build
     - python setup.py sdist
+    - python test_cases.py
