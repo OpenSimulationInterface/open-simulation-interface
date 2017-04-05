@@ -14,5 +14,5 @@ for file in glob("*.*"):
 
                 # Test case 2 is checking if there are more than the two allowed '/'
                 if line.find("///") != -1:
-                    print(file + " in line " + str(i) + ": not permitted use of '/' ")
+                    print(file + " in line " + str(i) + ": not permitted use of '///' ")
 
