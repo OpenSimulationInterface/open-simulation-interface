@@ -4,109 +4,126 @@ option optimize_for = SPEED;
 
 package osi;
 
-///
-/// The conditions of the environment.
-///
+//
+// \brief The conditions of the environment.
+//
+
 message EnvironmentalConditions
 {
-    /// The ambient illumination of the environment.
+    // The ambient illumination of the environment.
+    //
     optional AmbientIllumination ambient_illumination = 1;
 
-    /// The time of day.
+    // The time of day.
+    //
     optional TimeOfDay time_of_day = 2;
     
-    /// Atmospheric pressure in Pascal at z=0.0 in world frame
+    // Atmospheric pressure in Pascal at z=0.0 in world frame.
+    //
     optional double atmospheric_pressure = 3;
 
-    /// Temperature in Kelvin at z=0.0 in world frame
+    // Temperature in Kelvin at z=0.0 in world frame.
+    //
     optional double temperature = 4;
 
-    /// Precipitation
+    // Precipitation
+    //
     optional Precipitation precipitation = 5;
 
-    /// Fog
+    // Fog
+    //
     optional Fog fog = 6;
     
-    /// Definition of precipitation states
-    /// I = Intensity of precipitation in mm per hour
-    /// Quote: PAULAT, Marcus, et al. A gridded dataset of hourly precipitation in Germany: Its construction, climatology and application. Meteorologische Zeitschrift, 2008, 17. Jg., Nr. 6, S. 719-732.
+    // Definition of precipitation states according to [1].
+    // (I = Intensity of precipitation in mm per hour)
+    //
+    // \par References: 
+    // [1] PAULAT, Marcus, et al. A gridded dataset of hourly precipitation in Germany: Its construction, climatology and application.
+    // Meteorologische Zeitschrift, 2008, 17. Jg. Nr. 6, S. 719-732.
     enum Precipitation
     {
-        /// Intensity of precipitation is unknown (must not be used in ground truth).
+        // Intensity of precipitation is unknown (must not be used in ground truth).
         PRECIPITATION_UNKNOWN = 0;
-        /// Other (unspecified but known) intensity of precipitation
+        // Other (unspecified but known) intensity of precipitation
         PRECIPITATION_OTHER = 1;
-        /// No precipitation, when I = [0 ; 0.1[
+        // No precipitation, when I = [0 ; 0.1[
         PRECIPITATION_NONE = 2;
-        /// Very light intensity of precipitation, when I = [0.1 ;0.5[
+        // Very light intensity of precipitation, when I = [0.1 ;0.5[
         PRECIPITATION_VERY_LIGHT = 3;
-        /// Light intensity of precipitation, when I = [0.5 ;1.9[
+        // Light intensity of precipitation, when I = [0.5 ;1.9[
         PRECIPITATION_LIGHT = 4;
-        /// Moderate intensity of precipitation, when I = [1.9 ; 8.1[
+        // Moderate intensity of precipitation, when I = [1.9 ; 8.1[
         PRECIPITATION_MODERATE = 5;
-        /// Heavy intensity of precipitation, when I = [8.1 ; 34[
+        // Heavy intensity of precipitation, when I = [8.1 ; 34[
         PRECIPITATION_HEAVY = 6;
-        /// Very heavy intensity of precipitation, when I = [34 ;149[
+        // Very heavy intensity of precipitation, when I = [34 ;149[
         PRECIPITATION_VERY_HEAVY = 7;
-        /// Extreme intensity of precipitation, when I = [149 ; infinity[
+        // Extreme intensity of precipitation, when I = [149 ; infinity[
         PRECIPITATION_EXTREME = 8;
     }
 
-    /// Definition of fog states by visibility
-    /// V = Visibility in meters is the greatest distance at which a black object of suitable dimensions may be seen and recognized against the horizon, sky, or in the case of night observation, could be seen and recognized if the general illumination were raised to the normal daylight level. (Meteorological Office 1969)
-    /// Quote: SHEPARD, Frank D. Reduced visibility due to fog on the highway. Transportation Research Board, 1996.
+    // Definition of fog states according to [2] the bandwith of thick and dense fog was adjusted to fit the german StVo regarding rear fog lights [3].
+    // (V = Visibility in meters) 
+    //
+    // Visability is defined as the lenght of the atmosphere over which a beam of light travels before its luminous flux is reduced to 5% of its original value (definition used by the Meteorological Office [4]). 
+    // This is approximately equivalent to visibility measured by the contrast of a distant object against its background.
+    //
+    // \par References: 
+    // [2] SHEPARD, Frank D. Reduced visibility due to fog on the highway. Transportation Research Board, 1996.
+    // [3] [StVO § 17 chapter 3](https://www.stvo.de/strassenverkehrsordnung/101-17-beleuchtung) 
+    // [4] [Homepage of the Meteorological Office](http://www.metoffice.gov.uk/guide/weather/observations-guide/how-we-measure-visibility)
     enum Fog
     {
-        /// Visibility is unknown (must not be used in ground truth)
+        // Visibility is unknown (must not be used in ground truth)
         FOG_UNKOWN = 0;
-        /// Other (unspecified but known) fog intensity
+        // Other (unspecified but known) fog intensity
         FOG_OTHER = 1;
-        /// Excellent visibility, when V = [40,000 ; infinity[
+        // Excellent visibility, when V = [40,000 ; infinity[
         FOG_EXCELLENT_VISIBILITY = 2;
-        /// Good visibility, when V = [10,000 ; 40,000[
+        // Good visibility, when V = [10,000 ; 40,000[
         FOG_GOOD_VISIBILITY = 3;
-        /// Moderate visibility, when V = [4000 ; 10,000[
+        // Moderate visibility, when V = [4000 ; 10,000[
         FOG_MODERATE_VISIBILITY = 4;
-        /// Poor visibility, when V = [2000 ; 4000[
+        // Poor visibility, when V = [2000 ; 4000[
         FOG_POOR_VISIBILITY = 5;
-        /// Mist, when V = [1000 ; 2000[
+        // Mist, when V = [1000 ; 2000[
         FOG_MIST = 6;
-        /// Fog, when V = [200 ; 1000[
+        // Fog, when V = [200 ; 1000[
         FOG_LIGHT = 7;
-        /// Thick fog, when V = [40 ; 200[
+        // Thick fog, when V = [50 ; 200[
         FOG_THICK = 8;
-        /// Dense fog, when V = [0 ; 40[
+        // Dense fog, when V = [0 ; 50[ (allowed to use rear fog light)
         FOG_DENSE = 9;
     }
 
-    /// Definition of ambient illumination states.
+    // Definition of ambient illumination states.
     enum AmbientIllumination
     {
-        /// Ambient illumination is unknown (must not be used in ground truth).
+        // Ambient illumination is unknown (must not be used in ground truth).
         AMBIENT_ILLUMINATION_UNKNOWN = 0;
-        /// Other (unspecified but known) ambient illumination.
+        // Other (unspecified but known) ambient illumination.
         AMBIENT_ILLUMINATION_OTHER = 1;
-        /// Ambient illumination index is "bright".
-        /// E.g. daytime with sunshine.
+        // Ambient illumination index is "bright".
+        // E.g. daytime with sunshine.
         AMBIENT_ILLUMINATION_BRIGHT = 2;
-        /// Ambient illumination index is "medium".
-        /// E.g. daytime with overcast sky.
+        // Ambient illumination index is "medium".
+        // E.g. daytime with overcast sky.
         AMBIENT_ILLUMINATION_MEDIUM = 3;
-        /// Ambient illumination index is "low".
-        /// E.g. during twilight (dawn/dusk) or in a tunnel.
+        // Ambient illumination index is "low".
+        // E.g. during twilight (dawn/dusk) or in a tunnel.
         AMBIENT_ILLUMINATION_LOW = 4;
-        /// Ambient illumination index is "dark".
-        /// E.g. night time, no sunlight.
+        // Ambient illumination index is "dark".
+        // E.g. night time, no sunlight.
         AMBIENT_ILLUMINATION_DARK = 5;
     }
 
-    ///
-    /// The time of day at the location of the vehicle.
-    ///
+    //
+    // \brief The time of day at the location of the vehicle.
+    //
     message TimeOfDay
     {
-        /// The number of seconds that have passed since midnight local time.
-        /// Used for determining the current state of the circadian rhythm of a driver.
+        // The number of seconds that have passed since midnight local time.
+        // Used for determining the current state of the circadian rhythm of a driver.
         optional uint32 seconds_from_midnight = 1;
     }
 }
