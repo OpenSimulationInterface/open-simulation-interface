@@ -6,30 +6,34 @@ import "osi_sensordata.proto";
 
 package osi;
 
-///
-/// (Time) Series of SensorData messages that may be used for data recording or internal buffering by some sensor models.
-///
+//
+// \brief (Time) Series of SensorData messages that may be used for data recording or internal buffering by some sensor models.
+//
 message SensorDataSeries
 {
-    /// List of sensor data messages for subsequent timesteps.
+    // List of sensor data messages for subsequent timesteps.
+    //
     repeated SensorData sensor_data = 1;
 }
 
-///
-/// List of SensorData interface copies, one for each sensor in the vehicle.
-/// Can be used to bundle output of multiple sensors in one transmission.
-///
+//
+// \brief List of SensorData interface copies, one for each sensor in the vehicle.
+// 
+// Can be used to bundle output of multiple sensors in one transmission.
+//
 message SensorDataList
 {
-    /// List of sensor data for multiple sensors at a specific timestep.
+    // List of sensor data for multiple sensors at a specific timestep.
+    //
     repeated SensorData sensor = 1;
 }
 
-///
-/// List of sensors where each element contains a time series of SensorData messages.
-///
+//
+// \brief List of sensors where each element contains a time series of SensorData messages.
+//
 message SensorDataSeriesList
 {
-    /// List of sensor data for multiple sensors at subsequent timesteps.
+    // List of sensor data for multiple sensors at subsequent timesteps.
+    //
     repeated SensorDataSeries sensor = 1;
 }

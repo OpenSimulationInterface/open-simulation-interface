@@ -7,7 +7,6 @@ package osi;
 //
 // \brief The conditions of the environment.
 //
-
 message EnvironmentalConditions
 {
     // The ambient illumination of the environment.
@@ -22,7 +21,7 @@ message EnvironmentalConditions
     //
     optional double atmospheric_pressure = 3;
 
-    // Temperature in Kelvin at z=0.0 in world frame.
+    // Temperature in Kelvin at z=0.0 in world frame
     //
     optional double temperature = 4;
 
@@ -70,7 +69,7 @@ message EnvironmentalConditions
     //
     // \par References: 
     // [2] SHEPARD, Frank D. Reduced visibility due to fog on the highway. Transportation Research Board, 1996.
-    // [3] [StVO ง 17 chapter 3](https://www.stvo.de/strassenverkehrsordnung/101-17-beleuchtung) 
+    // [3] [StVO ยง17 chapter 3](https://www.stvo.de/strassenverkehrsordnung/101-17-beleuchtung) 
     // [4] [Homepage of the Meteorological Office](http://www.metoffice.gov.uk/guide/weather/observations-guide/how-we-measure-visibility)
     enum Fog
     {
@@ -112,6 +111,7 @@ message EnvironmentalConditions
         // Ambient illumination index is "low".
         // E.g. during twilight (dawn/dusk) or in a tunnel.
         AMBIENT_ILLUMINATION_LOW = 4;
+
         // Ambient illumination index is "dark".
         // E.g. night time, no sunlight.
         AMBIENT_ILLUMINATION_DARK = 5;

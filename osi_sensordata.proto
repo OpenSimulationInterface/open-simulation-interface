@@ -12,17 +12,18 @@ import "osi_modelinternal.proto";
 
 package osi;
 
-///
-/// The virtual sensor information derived from osi::groundtruth and potentially processed by sensor-models.
-///
-/// The virtual sensor information is supposed to imitate the output of a real sensor. All information regarding the
-/// environment is given with respect to the sensor coordinate system specified in SensorData::mounting_position.When
-/// simulating multiple sensors, each sensor has an individual copy of the SensorData interface. This allows an
-/// independent treatment of the sensors.
-///
+//
+// \brief The virtual sensor information derived from GroundTruth and potentially processed by sensor-models.
+//
+// The virtual sensor information is supposed to imitate the output of a real sensor. All information regarding the
+// environment is given with respect to the sensor coordinate system specified in \c SensorData::mounting_position. 
+// When simulating multiple sensors, each sensor has an individual copy of the SensorData interface. This allows an
+// independent treatment of the sensors.
+//
 message SensorData
-{
+{  
     // The id of the sensor.
+    //
     optional Identifier id = 1;
 
     // The data timestamp of the sensor data. Zero time is arbitrary but must be identical for all messages.
@@ -33,25 +34,32 @@ message SensorData
     // Should be used as constant; use this if you require fields that do not exist in osi_sensordata or for the purpose
     // of matching sensor output against ground truth data.
     optional SensorDataGroundTruth ground_truth = 3;
-
+    
     // The id of the ego vehicle in the ground_truth data.
+    //    
     optional Identifier ego_vehicle_id = 4;
 
-    // The mounting position of the sensor (origin and orientation of the sensor coordinate system);
-    // given in vehicle coordinates: origin is Vehicle::reference_point; the orientation is equal to the orientation of the vehicle.
-    // x-direction: longitudinal direction & positive in driving direction;
-    // y-direction: lateral direction & positive to the left when looking orientated as a driver;
-    // z-direction: perpendicular to x and z right hand system (up).
-    // See https://en.wikipedia.org/wiki/Axes_conventions#/media/File:RPY_angles_of_cars.png
-    // Note that this field is usually static during the simulation.
+    // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
+    //
+    // given in vehicle coordinates: origin is \c Vehicle::reference_point; the orientation is equal to the orientation of the vehicle.
+    //
+    // \arg \b x-direction: longitudinal direction & positive in driving direction
+    // \arg \b y-direction: lateral direction & positive to the left when looking orientated as a driver
+    // \arg \b z-direction: perpendicular to x and z right hand system (up)
+    //
+    // See https://en.wikipedia.org/wiki/Axes_conventions#/media/File:RPY_angles_of_cars.png 
+    // \note This field is usually static during the simulation.
     optional MountingPosition mounting_position = 5;
 
     // The list of objects detected by the sensor as perceived by the sensor.
+    //
     repeated DetectedObject object = 6;
 
     // The list of traffic signs detected by the sensor
+    //
     repeated DetectedTrafficSign traffic_sign = 7;
-
+    
+    //
     // The list of traffic lights detected by the sensor
     repeated DetectedTrafficLight traffic_light = 8;
 
@@ -59,31 +67,39 @@ message SensorData
     // This excludes lane boundary marking as these are included in DetectedLane.
     repeated DetectedRoadMarking road_marking = 9;
 
+    //
     // The list of lane detected by the sensor
     repeated DetectedLane lane = 10;
 
+    //
     // The list of occupants of the ego vehicle
     repeated DetectedOccupant occupant = 11;
 
-    // Additional internal data and state flags required and used by the sensor-models, should not be used by
-    // subscribers to SensorData data. Generally this field should be cleared after internal processing.
+    // Additional internal data and state flags required and used by the sensor-models.
+    // \note Should not be used by subscribers to SensorData data. 
+    // Generally this field should be cleared after internal processing.
     optional ModelInternal model_internal = 12;
 }
 
-///
-/// Ground truth data with respect to two different reference frames (global and sensor) for use in the sensor model's
-/// data processing and comparison of sensor and ground truth data.
-///
+//
+// \brief Ground truth data with respect to two different reference frames (global and sensor).
+// 
+// Use in the sensor model's data processing and comparison of sensor and ground truth data.
+//
 message SensorDataGroundTruth
 {
     // Ground truth w.r.t. global coordinate system (copy of GroundTruth message),
-    // should be used as constant in the sensor models,
-    // needed for setting fields in the SensorData that are not covered by the model
+    //
+    // needed for setting fields in the SensorData that are not covered by the model.
+    // \note should be used as constant in the sensor models.
+    // 
     optional GroundTruth global_ground_truth = 1;
 
-    // Ground truth w.r.t. the sensor coordinate system;
-    // this is equal to the version of the SensorData interface that is used as input by the sensor model before
-    // any processing take splace aside from the coordinate transformation from global to sensor reference frame,
+    // Ground truth w.r.t. the sensor coordinate system.
+    //
+    // Is equal to the version of the SensorData interface that is used as input by the sensor model before
+    // any processing takes place aside from the coordinate transformation from global to sensor reference frame.
+    //
     // SensorData.ground_truth is not set in this instance to avoid the resulting infinite loop.
     optional SensorData sensor_ground_truth = 2;
 }

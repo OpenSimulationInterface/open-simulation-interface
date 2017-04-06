@@ -1,0 +1,26 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+package osi;
+
+//
+// \brief The interface version number.
+//
+// The field containing the version number. Should be left on default, not to be modified by sender.
+// Increments will happen as part of changes to the whole interface.
+//
+message InterfaceVersion
+{
+    // Major version number.
+    //
+    optional uint32 major = 1 [default = @VERSION_MAJOR@];
+    
+    // Minor version number.
+    //
+    optional uint32 minor = 2 [default = @VERSION_MINOR@];
+    
+    // Patch version number.
+    //
+    optional uint32 patch = 3 [default = @VERSION_PATCH@];
+}
