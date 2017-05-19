@@ -3,6 +3,7 @@ build/
 dist/
 doc/html
 doc/latex
+osi/
 
 # Specific extensions
 *.egg-info
@@ -17,7 +18,6 @@ Makefile
 build
 cmake_install.cmake
 install_manifest.txt
-osi
 osi_version.proto
 version.py
 
@@ -25,3 +25,7 @@ version.py
 *.cproject
 *.project
 .settings/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
