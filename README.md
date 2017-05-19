@@ -86,6 +86,8 @@ is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-
 Documentation
 -------------
 
+Detailed information about installation and usage of OSI can be found in the [Wiki](https://github.com/OpenSimulationInterface/open-simulation-interface).
+
 In order to generate the doxygen documentation for OSI, please follow the following steps: 
 1. Install [Doxygen](http://www.stack.nl/~dimitri/doxygen/download.html), set an environmental variable 'doxygen' with the path to the binary file and add it to the PATH variable: `PATH += %doxygen%`.
 2. Download the [vg-1.5.0.zip](https://github.com/vgteam/vg/releases/tag/v1.5.0). Unpack and copy the content of folder /vg-1.5.0/contrib/proto2cpp to your desired `<path-to-proto2cpp.py>`
