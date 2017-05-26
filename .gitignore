@@ -1,18 +1,31 @@
+# Subfolders
 build/
 dist/
+doc/html
+doc/latex
+osi/
+
+# Specific extensions
+*.egg-info
+.project
+
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
+CTestTestfile.cmake
 Makefile
+
+build
 cmake_install.cmake
 install_manifest.txt
-CTestTestfile.cmake
-# setup.py:
-build
-*.egg-info
-osi
-.project
-doc/html
-doc/latex
 osi_version.proto
 version.py
+
+# Eclipse-specific files, if any
+*.cproject
+*.project
+.settings/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
