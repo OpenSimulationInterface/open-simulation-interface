@@ -65,13 +65,13 @@ message Timestamp
 //
 message Dimension3d
 {
-    // The width of the bounding box.
-    //
-    optional double width = 1;
-    
     // The length of the bounding box.
     //
-    optional double length = 2;
+    optional double length = 1;
+    
+    // The width of the bounding box.
+    //
+    optional double width = 2;
     
     // The height of the bounding box.
     //
