@@ -131,9 +131,9 @@ message RadarReflection
     //
     optional Identifier id = 1;
 
-    // The position vector of the radar reflection, given in polar coordinates.
+    // The position vector of the radar reflection, given in spherical coordinates.
     //
-    optional Polar3d position = 2;
+    optional Spherical3d position = 2;
 
     // The radar cross section (RCS) of the radar reflection. 
     // Unit: [dB sqm].

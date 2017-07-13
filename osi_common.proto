@@ -147,12 +147,12 @@ message MountingPosition
 }
 
 //
-// \brief A polar representation for a point / vector in 3D space used for low level representations of radar detections.
+// \brief A spherical representation for a point / vector in 3D space used for low level representations of radar detections.
 // 
 // Units are [m] for radial distance and [rad] for azimuth and elevation angles. If azimuth and elevation are zero, the
 // referenced point is directly in front / vector is pointing directly in the central viewing direction of the sensor.
 //
-message Polar3d
+message Spherical3d
 {
     // The radial distance.
     //
