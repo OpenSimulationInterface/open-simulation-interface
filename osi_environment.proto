@@ -110,27 +110,51 @@ message EnvironmentalConditions
     }
 
     // Definition of ambient illumination states.
+    //Ambient light is any light in the vehicle's environment not emitted by the vehicle 
+    //itself. It can include sun/moon light, light from other cars, street lights, etc.
+    //http://www.mediacollege.com/lighting/ambient/
+    //https://en.wikipedia.org/wiki/Available_light
     //
+    //Lux is the SI unit of luminance or illumination of a one metre square area, which is 
+    //equal to one lumen per square meter. 1lx = 1lm/m²
+    //The lumen (symbol: lm) is the SI derived unit of luminous flux, a measure of the total
+    //quantity of visible light emitted by a source. 
+    //The lumen is defined in relation to the candela as 1lm=1cd.sr
+    //https://physics.nist.gov/cuu/Units/units.html
+    //https://en.wikipedia.org/wiki/Lux
     enum AmbientIllumination
     {
         // Ambient illumination is unknown (must not be used in ground truth).
-        //
-        AMBIENT_ILLUMINATION_UNKNOWN = 0;
+	//
+	AMBIENT_ILLUMINATION_UNKNOWN = 0;
         // Other (unspecified but known) ambient illumination.
         //
         AMBIENT_ILLUMINATION_OTHER = 1;
-        // Ambient illumination index is "bright".
-        // E.g. daytime with sunshine.
-        AMBIENT_ILLUMINATION_BRIGHT = 2;
-        // Ambient illumination index is "medium".
-        // E.g. daytime with overcast sky.
-        AMBIENT_ILLUMINATION_MEDIUM = 3;
-        // Ambient illumination index is "low".
-        // E.g. during twilight (dawn/dusk) or in a tunnel.
-        AMBIENT_ILLUMINATION_LOW = 4;
-        // Ambient illumination index is "dark".
-        // E.g. night time, no sunlight.
-        AMBIENT_ILLUMINATION_DARK = 5;
+        // Illumination between [0.001, 0.01[ Lux is Level 1.
+        // E.g. Night with no artificial light.
+        AMBIENT_ILLUMINATION_LEVEL1 = 2;
+        // Illumination between [0.01, 1[ Lux is Level 2.
+        // E.g. Night full moon / Deep twilight.
+        AMBIENT_ILLUMINATION_LEVEL2 = 3;
+        // Illumination between [1, 3[ Lux is Level 3.
+        // E.g. Deep to average twilight / Minimum lighting on local low pedestrian conflict roads.
+        AMBIENT_ILLUMINATION_LEVEL3 = 4;
+        // Illumination between [3, 10[ Lux is Level 4.
+        // E.g. Average to full twilight / Minimum lighting on collector roads /
+        // Minimum lighting on major and expressway roads with low to average pedestrian conflict.
+        AMBIENT_ILLUMINATION_LEVEL4 = 5;
+        // Illumination between [10, 20[ Lux is Level 5.
+        // E.g. Minimum lighting on major and expressway roads with high pedestrian conflict.
+        AMBIENT_ILLUMINATION_LEVEL5 = 6;
+        // Illumination between [20, 1000[ Lux is Level 6.
+        // E.g. Roads with more lighting / Dark or overcast day.
+        AMBIENT_ILLUMINATION_LEVEL6 = 7;
+        // Illumination between [1000, 10000[ Lux is Level 7.
+        // E.g. Average to full daylight.
+        AMBIENT_ILLUMINATION_LEVEL7 = 8;
+        // Illumination between [10000, 120000[ Lux is Level 8.
+        // E.g. Full daylight to intense sunlight.
+        AMBIENT_ILLUMINATION_LEVEL8 = 9;
     }
 
     //
