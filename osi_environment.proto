@@ -125,8 +125,8 @@ message EnvironmentalConditions
     enum AmbientIllumination
     {
         // Ambient illumination is unknown (must not be used in ground truth).
-	//
-	AMBIENT_ILLUMINATION_UNKNOWN = 0;
+        //
+        AMBIENT_ILLUMINATION_UNKNOWN = 0;
         // Other (unspecified but known) ambient illumination.
         //
         AMBIENT_ILLUMINATION_OTHER = 1;
