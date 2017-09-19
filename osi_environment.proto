@@ -111,18 +111,16 @@ message EnvironmentalConditions
 
     // Definition of ambient illumination states.
     // Ambient light is any light in the vehicle's environment not emitted by the vehicle 
-    // itself [5][6]. It can include sun/moon light, light from other cars, street lights, etc.
+    // itself [5]. It can include sun/moon light, light from other cars, street lights, etc.
     // 
     // Lux is the SI unit of luminance or illumination of a one metre square area, which is 
-    // equal to one lumen per square meter[7][8]. 1lx = 1lm/m²
+    // equal to one lumen per square meter[6]. 1lx = 1lm/m²
     // The lumen (symbol: lm) is the SI derived unit of luminous flux, a measure of the total
     // quantity of visible light emitted by a source. The lumen is defined in relation to the candela as 1lm=1cd.sr
     //
     // \par References:
-    // [5] http://www.mediacollege.com/lighting/ambient/
-    // [6] https://en.wikipedia.org/wiki/Available_light 
-    // [7] https://physics.nist.gov/cuu/Units/units.html 
-    // [8] https://en.wikipedia.org/wiki/Lux
+    // [5] http://www.mediacollege.com/lighting/ambient/ 
+    // [6] https://physics.nist.gov/cuu/Units/units.html 
     enum AmbientIllumination
     {
         // Ambient illumination is unknown (must not be used in ground truth).
