@@ -118,8 +118,14 @@ message EnvironmentalConditions
     // The lumen (symbol: lm) is the SI derived unit of luminous flux, a measure of the total
     // quantity of visible light emitted by a source. The lumen is defined in relation to the candela as 1lm=1cd.sr
     //
-    // \par Reference:
+    //Categorization is done based on natural day/night time illuminance levels [6] and standards for required lighting levels on roads [6, 7, 8, 9]. 
+    //
+    // \par References:
     // [5] [The NIST Reference on Constants, Units, and Uncertainty](https://physics.nist.gov/cuu/Units/units.html)
+    // [6] [National Optical Astronomy Observatory](https://www.noao.edu/education/QLTkit/ACTIVITY_Documents/Safety/LightLevels_outdoor+indoor.pdf)
+    // [7] [Standards for required street lighting in the USA](http://www.wsdot.wa.gov/research/reports/fullreports/847.1.pdf)
+    // [8] [Canadian IES-RP-8 standards for road lighting - municipality of Saint-Gédéon-de-. Beauce](http://sslnet.ca/wp-content/uploads/2011/10/LTE-RT-2011-0076-Anglais.pdf)
+    // [9] [European standards for road lighting](http://courtneystrong.com/wp-content/uploads/2017/07/css-sl1-class-and-quality-of-street-lighting.pdf)
     enum AmbientIllumination
     {
         // Ambient illumination is unknown (must not be used in ground truth).
@@ -144,15 +150,18 @@ message EnvironmentalConditions
         // Illumination between [10, 20[ Lux is Level 5.
         // E.g. Minimum lighting on major and expressway roads with high pedestrian conflict.
         AMBIENT_ILLUMINATION_LEVEL5 = 6;
-        // Illumination between [20, 1000[ Lux is Level 6.
-        // E.g. Roads with more lighting / Dark or overcast day.
+        // Illumination between [20, 400[ Lux is Level 6.
+        // E.g. Roads with more lighting / Very dark overcast day to sunrise or sunset on a clear day.
         AMBIENT_ILLUMINATION_LEVEL6 = 7;
-        // Illumination between [1000, 10000[ Lux is Level 7.
-        // E.g. Average to full daylight.
+        // Illumination between [400, 1000[ Lux is Level 7.
+        // E.g. Sunrise or sunset on a clear day / Overcast day .
         AMBIENT_ILLUMINATION_LEVEL7 = 8;
-        // Illumination between [10000, 120000[ Lux is Level 8.
-        // E.g. Full daylight to intense sunlight.
+        // Illumination between [1000, 10000[ Lux is Level 8.
+        // E.g. Average to full daylight.
         AMBIENT_ILLUMINATION_LEVEL8 = 9;
+        // Illumination between [10000, 120000[ Lux is Level 9.
+        // E.g. Full daylight to intense sunlight.
+        AMBIENT_ILLUMINATION_LEVEL9 = 10;
     }
 
     //
