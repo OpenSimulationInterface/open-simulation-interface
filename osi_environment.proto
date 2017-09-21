@@ -109,14 +109,14 @@ message EnvironmentalConditions
         FOG_DENSE = 9;
     }
 
-    // Definition of ambient illumination states.
+    // Definition of ambient illumination states:
     // Ambient light is any light in the vehicle's environment not emitted by the vehicle 
     // itself. It can include sun/moon light, light from other cars, street lights, etc.
     // 
     // Lux is the SI unit of luminance or illumination of a one metre square area, which is 
-    // equal to one lumen per square meter[5]. 1lx = 1lm/m²
+    // equal to one lumen per square meter 1lx = 1lm/m² [5].
     // The lumen (symbol: lm) is the SI derived unit of luminous flux, a measure of the total
-    // quantity of visible light emitted by a source. The lumen is defined in relation to the candela as 1lm=1cd.sr
+    // quantity of visible light emitted by a source. The lumen is defined in relation to the candela (cd) as 1lm=1cd.sr where sr denotes steradian, the  unit of solid angle used in 3D geometry analogous to the radian. 
     //
     //Categorization is done based on natural day/night time illuminance levels [6] and standards for required lighting levels on roads [6, 7, 8, 9]. 
     //
