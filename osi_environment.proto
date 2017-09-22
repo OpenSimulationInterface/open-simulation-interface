@@ -134,7 +134,7 @@ message EnvironmentalConditions
         // Other (unspecified but known) ambient illumination.
         //
         AMBIENT_ILLUMINATION_OTHER = 1;
-        // Illumination between [0.001, 0.01[ Lux is Level 1.
+        // Illumination between ]0.001, 0.01[ Lux is Level 1.
         // E.g. Night with no artificial light.
         AMBIENT_ILLUMINATION_LEVEL1 = 2;
         // Illumination between [0.01, 1[ Lux is Level 2.
