@@ -77,4 +77,17 @@ message GroundTruth
     // Conditions of the environment.
     //
     optional EnvironmentalConditions environmental_conditions = 11;
+
+    // The real start timestamp of the customized sceniro for simulation. If not set, the simulation start time is 0.
+    //
+    repeated Timestamp simulation_start_time = 12;
+
+    // The real end timestamp of the customized sceniro for simulation. If not set, the simulation lasts infinite.
+    //
+    repeated Timestamp simulation_end_time = 13;
+
+    // The flag to validate the current GroundTruth for simulation.
+    //
+    optional bool valid_scenario_flag = 14;
+
 }
