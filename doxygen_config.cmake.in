@@ -18,4 +18,4 @@ EXTENSION_MAPPING      = proto=C
 FILE_PATTERNS          = *.proto
 INPUT_FILTER           = "python @FILTER_PROTO2CPP_PY_PATH@/proto2cpp.py"
 HAVE_DOT               = YES
-            
+HIDE_UNDOC_RELATIONS   = NO
