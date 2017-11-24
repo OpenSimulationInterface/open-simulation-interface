@@ -9,6 +9,7 @@ import "osi_detectedobject.proto";
 import "osi_detectedoccupant.proto";
 import "osi_groundtruth.proto";
 import "osi_modelinternal.proto";
+import "osi_object.proto";
 
 package osi;
 
@@ -79,6 +80,9 @@ message SensorData
     // \note Should not be used by subscribers to SensorData data. 
     // Generally this field should be cleared after internal processing.
     optional ModelInternal model_internal = 12;
+    
+    // Redundent Ego Vehicle for fast accessing in SensorData
+    optional Vehicle ego_vehicle = 13;
 }
 
 //

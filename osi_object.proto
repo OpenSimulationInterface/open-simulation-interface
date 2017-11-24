@@ -62,6 +62,10 @@ message Vehicle
     // of the front axle under neutral load conditions. In object coordinates.
     optional Vector3d bbcenter_to_front = 11;
     
+    // The flag indicates that if the vehicle is moving. In SensorData, if the vehicle has the same velocity as the ego vehicle, it is hard to 
+    // decide if the vehicle is moving or not. Also, the flag can be used to indicate a vehicle in parking mode. Currently, the vehicle is inherited 
+    // from BaseMoving, and a parked vehicle techincally should be BaseStationary, but it is impossible to switch at the moment.
+    optional bool is_moving = 12;
 
     // Definition of vehicle types.
     //
