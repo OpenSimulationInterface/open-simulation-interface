@@ -14,13 +14,13 @@ message InterfaceVersion
 {
     // Major version number.
     //
-    optional uint32 major = 1 [default = @VERSION_MAJOR@];
+    optional uint32 version_major = 1 [default = @VERSION_MAJOR@];
     
     // Minor version number.
     //
-    optional uint32 minor = 2 [default = @VERSION_MINOR@];
+    optional uint32 version_minor = 2 [default = @VERSION_MINOR@];
     
     // Patch version number.
     //
-    optional uint32 patch = 3 [default = @VERSION_PATCH@];
+    optional uint32 version_patch = 3 [default = @VERSION_PATCH@];
 }
