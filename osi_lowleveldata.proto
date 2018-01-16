@@ -14,25 +14,69 @@ package osi;
 //
  message LowLevelData
  {
-     // The id of the sensor.
+     // Lidar detection list for multiple lidar sensors.
      //
-     optional Identifier id = 1;
+     repeated DetectionLidarList detection_lidar_list = 4;
 
-     // The data timestamp of the simulation environment. Start time (zero) is arbitrary, but must remain fixed over the
-     // course of a simulation run. Recommended zero time is the starting time of the simulation.
-     optional Timestamp timestamp = 2;
-
-     // Mounting position of the sensor (origin and orientation of the sensor coordinate system); 
-     // given relative to the middle of the rear axis of the host vehicle.
-     optional MountingPosition mounting_position = 3;
-
-     // Lidar detection list.
+     // Radar detection list for multiple lidar sensors.
      //
-     optional DetectionLidarList detection_lidar_list = 4;
+     repeated DetectionRadarList detection_radar_list = 5;
+}
 
-     // Radar detection list.
-     //
-     optional DetectionRadarList detection_radar_list = 5;
+//
+// \brief The header attributes of each detection.
+//
+message DetectionHeader
+{
+   // Version number of detecion list messages.
+   // 
+   optional uint64 version = 1;
+    
+   // Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time. 
+   //
+   optional Timestamp timestamp = 2;
+    
+   // Continuous up counter to identify the cycle.
+   //
+   optional uint32 cylcle_counter = 3;
+
+   // Mounting position of the sensor (origin and orientation of the sensor coordinate system);
+   // given relative to the middle of the rear axis of the host vehicle.
+   // The detections are given in the detection coordinate system. 
+   // The x-axis must be the angle bisector of the horizontal field of view in a right handed coordinate system. The x-y plane represents the horizontal field of view 
+   // and the x-z plane the vertical field of view. It is a polar coordinate system for the horizontal field of view with distance and azimuth angle and a Cartesian 
+   // representation for the vertical field of view with a z_bottom and a height. 
+   //
+   // The origin of the detection coordinate system is the sensor mounting pose in the ego coordinate system. The ego coordinate system is at the center of the rear axis 
+   // (from the top view as well as from the side view) in the static case. The origin represents the current mounting pose to the best knowledge of the sensor. It 
+   // includes the estimated 6-D pose estimation given by the calibration. The uncertainty of this estimation is given with the corresponding 6-D standard deviation. The 
+   // estimation of the current origin does not include effects due to short-time dynamics, such as pitch angles from braking, but includes long-time calibration values, 
+   // such as pitch angles from luggage in the trunk.
+   optional MountingPosition mounting_position = 4;
+
+   // Uncertainty of the mounting pose calibration should be included in the interface (x, y, z, yaw). Uncertainties of pitch and roll are integrated into the uncertainties 
+   // of border attributes such as the distance root mean square error and the bottom point root mean square error.
+   optional MountingPosition mounting_position_rmse = 5;
+
+   // Data Qualifier expresses whether the content of this event can be used or not.
+   //
+   optional DataQualifier data_qualifier = 6;
+
+   // \brief Data qualifier communicates the overall availability of the interface.
+   enum DataQualifier
+   {
+       // Data is available.
+       //
+       DATA_AVAILABLE = 0;
+       
+       // Reduced data is available.
+       //
+       DATA_AVAILABLE_REDUCED = 1;
+      
+       // Data is not available.
+       //
+       DATA_NOT_AVAILABLE = 2;
+   }
 }
 
 //
@@ -43,6 +87,10 @@ message DetectionLidarList
     // List of lidar detections.
     //
     repeated DetectionLidar detection = 1;
+    
+   // Header attributes of lidar detection.
+   //
+   optional DetectionHeader header = 2;
 }
 
 //
@@ -120,6 +168,10 @@ message DetectionRadarList
     // List of radar detections constituting the radar detection list.
     //
     repeated DetectionRadar detection = 1;
+    
+   // Header attributes of radar detection.
+   //
+   optional DetectionHeader header = 2;
 }
 
 //
