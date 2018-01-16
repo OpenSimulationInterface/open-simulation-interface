@@ -26,29 +26,29 @@ package osi;
      // given relative to the middle of the rear axis of the host vehicle.
      optional MountingPosition mounting_position = 3;
 
-     // Lidar point cloud.
+     // Lidar detection list.
      //
-     optional LidarPointCloud lidar_point_cloud = 4;
+     optional DetectionLidarList detection_lidar_list = 4;
 
-     // Radar Reflection list.
+     // Radar detection list.
      //
-     optional RadarReflectionList radar_reflection_list = 5;
+     optional DetectionRadarList detection_radar_list = 5;
 }
 
 //
-// \brief A generic lidar point cloud.
+// \brief A list of lidar detection.
 //
-message LidarPointCloud
+message DetectionLidarList
 {
-    // List of points constituting the point cloud.
+    // List of lidar detections.
     //
-    repeated LidarPoint point = 1;
+    repeated DetectionLidar detection = 1;
 }
 
 //
 // \brief A point in a lidar point cloud.
 //
-message LidarPoint
+message DetectionLidar
 {
     // Position of the point.
     //
@@ -113,19 +113,19 @@ message LidarPoint
 }
 
 //
-// \brief A list of radar reflections.
+// \brief A list of radar detections.
 //
-message RadarReflectionList
+message DetectionRadarList
 {
-    // List of radar reflections constituting the radar reflection list.
+    // List of radar detections constituting the radar detection list.
     //
-    repeated RadarReflection reflection = 1;
+    repeated DetectionRadar detection = 1;
 }
 
 //
-// \brief A radar reflection
+// \brief A radar detection.
 //
-message RadarReflection
+message DetectionRadar
 {
     // The id of the radar reflection.
     //
