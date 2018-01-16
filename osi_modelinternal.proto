@@ -2,7 +2,7 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_lowleveldata.proto";
+import "osi_featuredata.proto";
 import "osi_object.proto";
 
 package osi;
@@ -22,7 +22,7 @@ message ModelInternal
     //
     // Low Level data should be transferred to receiving components by means of a separate data stream. Therefore they
     // are not part the top level SensorData message, as they are used only internally by some models.
-    optional LowLevelData low_level_data = 1;
+    optional FeatureData feature_data = 1;
 
     // Latency, time offset that should have been elapsed before the data is transmitted to the receiving component.
     // Unit [ms].

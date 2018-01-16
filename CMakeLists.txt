@@ -43,7 +43,7 @@ set(OSI_PROTO_FILES
     osi_groundtruth.proto
     osi_landmark.proto
     osi_lane.proto
-    osi_lowleveldata.proto
+    osi_featuredata.proto
     osi_modelinternal.proto
     osi_object.proto
     osi_occupant.proto
