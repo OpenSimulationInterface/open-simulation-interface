@@ -16,11 +16,11 @@ package osi;
  {
      // Lidar detection list for multiple lidar sensors.
      //
-     repeated DetectionLidarList detection_lidar_list = 4;
+     repeated DetectionLidarList detection_lidar_list = 1;
 
      // Radar detection list for multiple lidar sensors.
      //
-     repeated DetectionRadarList detection_radar_list = 5;
+     repeated DetectionRadarList detection_radar_list = 2;
 }
 
 //
@@ -94,70 +94,101 @@ message DetectionLidarList
 }
 
 //
-// \brief A point in a lidar point cloud.
+// \brief A point or vertical line in a lidar point cloud.
 //
 message DetectionLidar
 {
-    // Position of the point.
-    //
-    optional Vector3d position = 1;
+   // Existence probability of the detection not based on history.
+   //
+   // \note Field need not be set if false_positive_rate and false_negative_rate is defined.
+   optional double existence_probability = 1;
+      
+   // False positive rate.
+   //
+   // \note Field need not be set if existence_probability is defined.
+   optional double false_positive_rate = 2;
+   
+   // False negative rate.
+   //
+   // \note Field need not be set if existence_probability is defined.
+   optional double false_negative_rate = 3;
+   
+   // Object ID of the object to which this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
+   //
+   optional Identifier object_id = 4;
+   
+   // Measured position of the detection, given in spherical coordinates in sensor coordinate system.
+   //
+   optional Spherical3d position = 5;
 
-    // Intensity of echo received by sensor associated with the point. 
-    // Unit: [W].
-    optional double intensity = 2;
+   // Root mean square error of the measured position of the detection.
+   //
+   optional Spherical3d position_rmse = 6;
 
-    // Estimated type of target that caused the reflection.
-    //
-    optional ReflectionType reflection_type = 3;
+   // Height field is required if multiple scan points are vertically clustered. Only vertical clustering allowed (z-Axis).
+   // 
+   optional double height = 7;
+   
+   // Root mean square error of the object height.
+   // 
+   optional double height_rmse = 8;
 
-    // The id of the (dynamic) object that caused the reflection (only set for corresponding ReflectionType, unset in other cases).
-    //
-    optional Identifier reflection_object_id = 4;
+   // Intensity or equivalent value of the detection's echo
+   // Unit: [%].
+   optional double intensity = 9;
 
-    // Echo number of the LidarPoint associated with a specific transmitted laser pulse. 
-    // The echo number is 0 if the LidarPoint results from the closest reflection, 1 for the second closest, etc.
-    optional uint32 echo = 5;
+   // The free space probability in the range [0.0, 1.0] from the origin up to this detection, as given by the distance.
+   // 
+   optional double free_space_probability = 10;
 
-    // Duration of the echo pulse (above system noise cut-off threshold). 
-    // Unit: [ns].
-    optional double echo_pulse_duration = 6;
+   // Attributes of the detection.
+   // 
+   optional Classification classification = 11;
+   
+   // Definition of lidar detection classifications.
+   // 
+   enum Classification
+   {
+      // detection is unknown (must not be used in ground truth).
+      //
+      UNKNOWN = 0;
+        
+      // Other (unspecified but known) lidar detection.
+      //
+      OTHER = 1;
+        
+      // Invalid detection, not to be used for object tracking, of unspecified type (none of the other types applies).
+      //
+      INVALID = 2;
     
-    // Layer id starting from zero for the bottom layer of the point cloud.
-    //
-    optional uint32 layer = 7;
-
-    // Definition of reflection types.
-    //
-    enum ReflectionType
-    {
-        // Reflection type is unknown (must not be used in ground truth).
-        //
-        REFLECTION_TYPE_UNKNOWN = 0;
-        
-        // Other (unspecified but known) type of reflection.
-        //
-        REFLECTION_TYPE_OTHER = 1;
-        
-        // Invalid scan point, not to be used for object tracking, of unspecified type (none of the other types applies).
-        //
-        REFLECTION_TYPE_INVALID = 2;
-        
-        // Reflection from dynamic object.
-        //
-        REFLECTION_TYPE_DYNAMIC_OBJECT = 3;
-        
-        // Reflection from static object.
-        //
-        REFLECTION_TYPE_STATIC_OBJECT = 4;
-        
-        // Reflection from ground.
-        //
-        REFLECTION_TYPE_GROUND = 5;
-        
-        // Reflection from road marking.
-        //
-        REFLECTION_TYPE_ROAD_MARKING = 6;
-    }
+      // Noise.
+      //
+      NOISE = 3;
+      
+      // Spray.
+      //
+      SPRAY = 4;
+      
+      // Rain.
+      //
+      RAIN = 5;
+      
+      // Fog.
+      //
+      FOG = 6;
+      
+      // Underdrivable.
+      //
+      UNDERDRIVABLE = 7;
+      
+      // Ground.
+      //
+      GROUND = 8;
+      
+      // Sign gantry.
+      //
+      SIGN_GANTRY = 9;
+   }
 }
 
 //
@@ -179,21 +210,55 @@ message DetectionRadarList
 //
 message DetectionRadar
 {
-    // The id of the radar reflection.
-    //
-    optional Identifier id = 1;
+   // Existence probability of the detection, using e.g. SNR and RCS, not based on history.
+   //
+   // \note Field need not be set if false_positive_rate and false_negative_rate is defined.
+   optional double existence_probability = 1;
+      
+   // False positive rate.
+   //
+   // \note Field need not be set if existence_probability is defined.
+   optional double false_positive_rate = 2;
+   
+   // False negative rate.
+   //
+   // \note Field need not be set if existence_probability is defined.
+   optional double false_negative_rate = 3;
+   
+   // Object ID of the object to which this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
+   // 
+   optional Identifier object_id = 4;
+   
+   // Measured position of the detection, given in spherical coordinates in sensor coordinate system.
+   //
+   optional Spherical3d position = 5;
 
-    // The position vector of the radar reflection, given in spherical coordinates.
-    //
-    optional Spherical3d position = 2;
+   // Root mean square error of the measured position of the detection.
+   // 
+   optional Spherical3d position_rmse = 6;
+   
+   // Absolute radial (in direction to the sensor) velocity of the detection.
+   // 
+   optional double radial_velocity = 7;
+   
+   // Root mean square error of the object measured radial velocity.
+   // 
+   optional double radial_velocity_rmse = 8;
 
-    // The radar cross section (RCS) of the radar reflection. 
-    // Unit: [dB sqm].
-    optional double rcs = 3;
+   // The radar cross section (RCS) of the radar detection.
+   // Unit: [dB m^2].
+   optional double rcs = 9;
 
-    // Radial speed of the radar reflection.
-    // 
-    // \attention Not be confused with the velocity vector! This is the absolute value of the radial component of the velocity
-    // vector as can be measured directly using the Doppler effect.
-    optional double speed = 4;
+   // The signal to noise ratio (SNR) of the radar detection.
+   // Unit: [dB m^2].
+   optional double snr = 10;
+
+   // Describes the possibility if more than one object has led to this detection.
+   // 
+   optional double point_target_probability = 11;
+
+   // Ambiguity Information: 
+   // Each ambiguous measurement generates one Ambiguity ID. Ambiguity is shown by the identical Ambiguity ID. 
+   // Unambiguous measurements has Amiguity ID := 0.
+   optional Identifier ambiguity_id = 12;
 }
