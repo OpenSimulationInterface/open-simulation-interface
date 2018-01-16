@@ -70,13 +70,17 @@ message GroundTruth
     //
     repeated Lane lane = 9;
 
+    // A list of lane boundaries from lanes.
+    //
+    repeated LaneBoundary lane_boundary = 10;
+
     // A list of passengers in the (ego) vehicle(s).
     //
-    repeated Occupant occupant = 10;
+    repeated Occupant occupant = 11;
 
     // Conditions of the environment.
     //
-    optional EnvironmentalConditions environmental_conditions = 11;
+    optional EnvironmentalConditions environmental_conditions = 12;
 
     // The country code in 3 digit numeric format: ISO Code 3166/1 [1,2]. 
     // e.g. Germany = 276, USA = 840
@@ -84,5 +88,5 @@ message GroundTruth
     // \par References: 
     // [1] [ISO 3166/1 Country codes] (https://www.iso.org/obp/ui/) 
     // [2] [ISO 3166/1 Wikipedia] (https://en.wikipedia.org/wiki/ISO_3166-1) 
-    optional uint32 country_code = 12;
+    optional uint32 country_code = 13;
 }

@@ -599,7 +599,7 @@ message TrafficLight
     optional GreenArrowPresence green_arrow = 6;
 
     // The ids of the lanes that the traffic light is assigned to.
-    // Might be multiple if the traffic light is valid for multiple lanes.
+    // Might be multiple if the traffic light is valid for multiple driving lanes.
     repeated Identifier assigned_lane = 7;
 
     // Definition of traffic light types.
@@ -819,6 +819,11 @@ message RoadMarking
     // Might be multiple if the road marking goes across multiple lanes.
     repeated Identifier assigned_lane = 6;
 
+    // Intersection orientation of the road marking.
+    //
+    // \note Defined for \c Lane::type = TYPE_INTERSECTION, otherwise zero vector
+    optional Vector3d roadmarking_orientation = 7;
+
     // Definition of road marking types.
     //
     enum Type
@@ -927,14 +932,17 @@ message RoadMarking
         // Marking with blue color.
         //
         COLOR_BLUE = 5;
-        
+
         // Marking with red color.
+        //
         COLOR_RED = 6;
-        
+
         // Marking with green color.
+        //
         COLOR_GREEN = 7;
-        
+
         // Marking with violet color.
+        //
         COLOR_VIOLET = 8;
     }
 }
