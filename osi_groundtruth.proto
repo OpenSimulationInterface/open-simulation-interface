@@ -77,4 +77,12 @@ message GroundTruth
     // Conditions of the environment.
     //
     optional EnvironmentalConditions environmental_conditions = 11;
+
+    // The country code in 3 digit numeric format: ISO Code 3166/1 [1,2]. 
+    // e.g. Germany = 276, USA = 840
+    //
+    // \par References: 
+    // [1] [ISO 3166/1 Country codes] (https://www.iso.org/obp/ui/) 
+    // [2] [ISO 3166/1 Wikipedia] (https://en.wikipedia.org/wiki/ISO_3166-1) 
+    optional uint32 country_code = 12;
 }
