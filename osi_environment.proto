@@ -12,24 +12,30 @@ message EnvironmentalConditions
     // The ambient illumination of the environment.
     //
     optional AmbientIllumination ambient_illumination = 1;
+	
     // The time of day.
     //
     optional TimeOfDay time_of_day = 2;  
-    // Atmospheric pressure in Pascal at z=0.0 in world frame.
+	
+    // Atmospheric pressure in Pascal [Pa] at z=0.0 in world frame (about 101325 [Pa]).
     //
     optional double atmospheric_pressure = 3;
-    // Temperature in Kelvin at z=0.0 in world frame.
+	
+    // Temperature in Kelvin [K] at z=0.0 in world frame.
     //
     optional double temperature = 4;
+	
     // Precipitation.
     //
     optional Precipitation precipitation = 5;
+	
     // Fog.
     //
     optional Fog fog = 6;
     
     // Definition of precipitation states according to [1].
-    // (I = Intensity of precipitation in mm per hour)
+    // (I = Intensity of precipitation in mm per hour [mm/h])
+	// Todo: no SI-Units
     //
     // \par References: 
     // [1] PAULAT, Marcus, et al. A gridded dataset of hourly precipitation in Germany: Its construction, climatology and application.
@@ -39,34 +45,42 @@ message EnvironmentalConditions
         // Intensity of precipitation is unknown (must not be used in ground truth).
         //
         PRECIPITATION_UNKNOWN = 0;
+		
         // Other (unspecified but known) intensity of precipitation.
         //
         PRECIPITATION_OTHER = 1;
-        // No precipitation, when I = [0,0.1[
+		
+        // No precipitation, when I = [0,0.1[ [mm/h]
         //
         PRECIPITATION_NONE = 2;
-        // Very light intensity of precipitation, when I = [0.1,0.5[
+		
+        // Very light intensity of precipitation, when I = [0.1,0.5[ [mm/h]
         //
         PRECIPITATION_VERY_LIGHT = 3;
-        // Light intensity of precipitation, when I = [0.5,1.9[
+		
+        // Light intensity of precipitation, when I = [0.5,1.9[ [mm/h]
         //
         PRECIPITATION_LIGHT = 4;
-        // Moderate intensity of precipitation, when I = [1.9,8.1[
+		
+        // Moderate intensity of precipitation, when I = [1.9,8.1[ [mm/h]
         //
         PRECIPITATION_MODERATE = 5;
-        // Heavy intensity of precipitation, when I = [8.1,34[
+		
+        // Heavy intensity of precipitation, when I = [8.1,34[ [mm/h]
         //
         PRECIPITATION_HEAVY = 6;
-        // Very heavy intensity of precipitation, when I = [34,149[
+		
+        // Very heavy intensity of precipitation, when I = [34,149[ [mm/h]
         //
         PRECIPITATION_VERY_HEAVY = 7;
-        // Extreme intensity of precipitation, when I = [149,infinity[
+		
+        // Extreme intensity of precipitation, when I = [149,infinity[ [mm/h]
         //
         PRECIPITATION_EXTREME = 8;
     }
 
     // Definition of fog states according to [2] the bandwith of thick and dense fog was adjusted to fit the German StVo regarding rear fog lights [3].
-    // (V = Visibility in meters) 
+    // (V = Visibility in meters [m]) 
     //
     // Visability is defined as the lenght of the atmosphere over which a beam of light travels before its luminous flux is reduced to 5% of its original value (definition used by the Meteorological Office [4]). 
     // This is approximately equivalent to visibility measured by the contrast of a distant object against its background.
@@ -80,31 +94,40 @@ message EnvironmentalConditions
         // Visibility is unknown (must not be used in ground truth).
         //
         FOG_UNKOWN = 0;
+		
         // Other (unspecified but known) fog intensity.
         //
         FOG_OTHER = 1;
-        // Excellent visibility, when V = [40000,infinity[
+		
+        // Excellent visibility, when V = [40000,infinity[ [m]
         //
         FOG_EXCELLENT_VISIBILITY = 2;
-        // Good visibility, when V = [10000,40000[
+		
+        // Good visibility, when V = [10000,40000[ [m]
         //
         FOG_GOOD_VISIBILITY = 3;
-        // Moderate visibility, when V = [4000,10000[
+		
+        // Moderate visibility, when V = [4000,10000[ [m]
         //
         FOG_MODERATE_VISIBILITY = 4;
-        // Poor visibility, when V = [2000,4000[
+		
+        // Poor visibility, when V = [2000,4000[ [m]
         //
         FOG_POOR_VISIBILITY = 5;
-        // Mist, when V = [1000,2000[
+		
+        // Mist, when V = [1000,2000[ [m]
         //
         FOG_MIST = 6;
-        // Fog, when V = [200,1000[
+		
+        // Fog, when V = [200,1000[ [m]
         //
         FOG_LIGHT = 7;
-        // Thick fog, when V = [50,200[
+		
+        // Thick fog, when V = [50,200[ [m]
         //
         FOG_THICK = 8;
-        // Dense fog, when V = [0,50[ 
+		
+        // Dense fog, when V = [0,50[ [m]
         // (allowed to use rear fog light according to [3])
         FOG_DENSE = 9;
     }
@@ -113,10 +136,10 @@ message EnvironmentalConditions
     // Ambient light is any light in the vehicle's environment not emitted by the vehicle 
     // itself. It can include sun/moon light, light from other cars, street lights, etc.
     // 
-    // Lux is the SI unit of luminance or illumination of a one metre square area, which is 
-    // equal to one lumen per square meter 1lx = 1lm/m² [5].
-    // The lumen (symbol: lm) is the SI derived unit of luminous flux, a measure of the total
-    // quantity of visible light emitted by a source. The lumen is defined in relation to the candela (cd) as 1lm=1cd.sr where sr denotes steradian, the  unit of solid angle used in 3D geometry analogous to the radian. 
+    // Lux [lx] is the SI unit of luminance or illumination of a one metre square area, which is 
+    // equal to one lumen per square meter 1 [lx] = 1 [lm/m^2] [5].
+    // The lumen [lm] is the SI derived unit of luminous flux, a measure of the total
+    // quantity of visible light emitted by a source. The lumen is defined in relation to the candela [cd] as 1 [lm] =1 [cd sr] where [sr] denotes steradian, the unit of solid angle used in 3D geometry analogous to the radian. 
     //
     //Categorization is done based on natural day/night time illuminance levels [6] and standards for required lighting levels on roads [6, 7, 8, 9]. 
     //
@@ -131,35 +154,45 @@ message EnvironmentalConditions
         // Ambient illumination is unknown (must not be used in ground truth).
         //
         AMBIENT_ILLUMINATION_UNKNOWN = 0;
+		
         // Other (unspecified but known) ambient illumination.
         //
         AMBIENT_ILLUMINATION_OTHER = 1;
-        // Illumination between ]0.001, 0.01[ Lux is Level 1.
+		
+        // Level 1 illumination between ]0.001, 0.01[ [lx]
         // E.g. Night with no artificial light.
         AMBIENT_ILLUMINATION_LEVEL1 = 2;
-        // Illumination between [0.01, 1[ Lux is Level 2.
+		
+        // Level 2 illumination between [0.01, 1[ [lx]
         // E.g. Night full moon / Deep twilight.
         AMBIENT_ILLUMINATION_LEVEL2 = 3;
-        // Illumination between [1, 3[ Lux is Level 3.
+		
+        // Level 3 illumination between [1, 3[ [lx]
         // E.g. Deep to average twilight / Minimum lighting on local low pedestrian conflict roads.
         AMBIENT_ILLUMINATION_LEVEL3 = 4;
-        // Illumination between [3, 10[ Lux is Level 4.
+		
+        // Level 4 illumination between [3, 10[ [lx]
         // E.g. Average to full twilight / Minimum lighting on collector roads /
         // Minimum lighting on major and expressway roads with low to average pedestrian conflict.
         AMBIENT_ILLUMINATION_LEVEL4 = 5;
-        // Illumination between [10, 20[ Lux is Level 5.
+		
+        // Level 5 illumination between [10, 20[ [lx]
         // E.g. Minimum lighting on major and expressway roads with high pedestrian conflict.
         AMBIENT_ILLUMINATION_LEVEL5 = 6;
-        // Illumination between [20, 400[ Lux is Level 6.
+		
+        // Level 6 illumination between [20, 400[ [lx]
         // E.g. Roads with more lighting / Very dark overcast day to sunrise or sunset on a clear day.
         AMBIENT_ILLUMINATION_LEVEL6 = 7;
-        // Illumination between [400, 1000[ Lux is Level 7.
-        // E.g. Sunrise or sunset on a clear day / Overcast day .
+		
+        // Level 7 illumination between [400, 1000[ [lx]
+        // E.g. Sunrise or sunset on a clear day / Overcast day.
         AMBIENT_ILLUMINATION_LEVEL7 = 8;
-        // Illumination between [1000, 10000[ Lux is Level 8.
+		
+        // Level 8 illumination between [1000, 10000[ [lx]
         // E.g. Average to full daylight.
         AMBIENT_ILLUMINATION_LEVEL8 = 9;
-        // Illumination between [10000, 120000[ Lux is Level 9.
+		
+        // Level 9 illumination between [10000, 120000[ [lx]
         // E.g. Full daylight to intense sunlight.
         AMBIENT_ILLUMINATION_LEVEL9 = 10;
     }
@@ -169,8 +202,10 @@ message EnvironmentalConditions
     //
     message TimeOfDay
     {
-        // The number of seconds that have passed since midnight local time.
+        // The number of seconds [s] that have passed since midnight local time.
         // Used for determining the current state of the circadian rhythm of a driver.
+		//
+		// Todo: On time change day und Zeitzonen
         optional uint32 seconds_from_midnight = 1;
     }
 }
