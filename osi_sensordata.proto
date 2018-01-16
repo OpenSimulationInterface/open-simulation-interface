@@ -81,6 +81,18 @@ message SensorData
     // \note Should not be used by subscribers to SensorData data. 
     // Generally this field should be cleared after internal processing.
     optional ModelInternal model_internal = 12;
+
+    // The root mean square error of the mounting position.
+    //
+    optional MountingPosition mounting_position_rmse = 13;
+
+    // The list of road marking detected by the sensor.
+    // This excludes lane boundary marking as these are included in DetectedLane.
+    repeated DetectedLaneBoundary lane_boundary = 14;
+
+    // The id of the ego lane in the DetectedLane data, relative to the sensor.
+    // 
+    optional Identifier ego_lane_id = 15;
 }
 
 //
