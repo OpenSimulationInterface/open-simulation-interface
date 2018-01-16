@@ -64,6 +64,12 @@ message Vehicle
     // of the front axle under neutral load conditions. In object coordinates.
     optional Vector3d bbcenter_to_front = 11;
     
+    // Static minimal distance in [m] of underbody plane to ground
+    // surface plane (i.e. disregarding driving dynamic effects or road
+    // surface effects) under neutral load conditions. Can be useful to
+    // approximate the clear area under a vehicle that a sensor can see
+    // through.
+    optional double ground_clearance = 12;
 
     // Definition of vehicle types.
     //
