@@ -293,6 +293,10 @@ message SupplementarySign
     //
     optional double value_2 = 3;
 
+    // Defines the position to the supplementary sign
+    // 
+    optional Position position_supplementary = 4;
+
     // Definition of supplementary sign types.
     // See TrafficSign.Type for further information.
     enum Type
@@ -400,6 +404,31 @@ message SupplementarySign
         // Ends in X meter.
         //
         TYPE_STOP_IN = 25;
+    }
+
+    // The position of the supplementary sign.
+    //
+    enum Position 
+    {
+        // Position of supplementary sign is unknown (must not be used in ground truth).
+        //
+        POSITION_UNKNOWN = 0;
+        
+        // Supplementary sign is above the sign.
+        //
+        POSITION_ABOVE = 1;
+
+        // Supplementary sign is left of the sign.
+        //
+        POSITION_LEFT = 2;
+
+        // Supplementary sign is right of the sign.
+        //
+        POSITION_RIGHT = 3;
+
+        // Supplementary sign is under the sign.
+        //
+        POSITION_UNDER = 4;
     }
 }
 
@@ -665,7 +694,7 @@ message RoadMarking
         //
         TYPE_OTHER = 1;
         
-        // A stop line.
+        // A solid stop line.
         //
         TYPE_STOP_LINE = 2;
         
@@ -684,6 +713,50 @@ message RoadMarking
         // A straight arrow painted on the road surface indicating a lane to turn left.
         //
         TYPE_LEFT_TURN_ARROW = 6;
+
+        // A dashed stop line
+        //
+        TYPE_STOP_LINE_DASHED = 7;
+
+        // A stop line consisting of triangles.
+        //
+        TYPE_STOP_LINE_TRIANGLE = 8;
+
+        // An arrow painted on the road surface indicating a lane to drive straight and to turn left.
+        // 
+        TYPE_STRAIGHT_LEFT_TURN_ARROW = 9;
+
+        // An arrow painted on the road surface indicating a lane to drive straight and to turn right.
+        // 
+        TYPE_STRAIGHT_RIGHT_TURN_ARROW = 10;
+
+        // An arrow painted on the road surface indicating a lane to drive straight and to turn right or left.
+        // 
+        TYPE_STRAIGHT_LEFT_TURN_RIGHT_TURN_ARROW = 11;
+
+        // An arrow painted on the road surface indicating a lane to turn right or left.
+        // 
+        TYPE_LEFT_TURN_RIGHT_TURN_ARROW = 12;
+
+        // An arrow painted on the road surface indicating a turning point left.
+        // 
+        TYPE_TURNPOINT_LEFT_ARROW = 13;
+
+        // An arrow painted on the road surface indicating a turning point right.
+        // 
+        TYPE_TURNPOINT_RIGHT_ARROW = 14;
+
+        // Paint on the road surface indicating a zebra crossing.
+        // 
+        TYPE_ZEBRA = 15;
+
+        // Paint on the road surface indicating a generic symbol.
+        // 
+        TYPE_GENERIC_SYMBOL = 16;
+
+        // Paint on the road surface indicating a generic line.
+        // 
+        TYPE_GENERIC_LINE = 17;
     }
 
     // Definition of road marking colors
