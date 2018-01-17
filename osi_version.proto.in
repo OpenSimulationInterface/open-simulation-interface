@@ -7,20 +7,31 @@ package osi;
 //
 // \brief The interface version number.
 //
-// The field containing the version number. Should be left on default, not to be modified by sender.
+// The field containing the version number.  This needs to be set by the
+// sender to the actual OSI version that is to be sent:
+//
+// version_major = @VERSION_MAJOR@;
+// version_minor = @VERSION_MINOR@;
+// version_patch = @VERSION_PATCH@;
+//
+// If a message with all components set to 0, the default value, is
+// received, the receiver can assume that the message was sent by
+// a version 2.2.0 or earlier release, or that the sender did not
+// properly set the version components prior to sending.
+//
 // Increments will happen as part of changes to the whole interface.
 //
 message InterfaceVersion
 {
     // Major version number.
     //
-    optional uint32 version_major = 1 [default = @VERSION_MAJOR@];
+    optional uint32 version_major = 1 [default = 0];
     
     // Minor version number.
     //
-    optional uint32 version_minor = 2 [default = @VERSION_MINOR@];
+    optional uint32 version_minor = 2 [default = 0];
     
     // Patch version number.
     //
-    optional uint32 version_patch = 3 [default = @VERSION_PATCH@];
+    optional uint32 version_patch = 3 [default = 0];
 }
