@@ -44,7 +44,7 @@ message DetectedObject
 
     // Reference point of the sensor measurement (required to decouple position and bounding box estimation) as used by
     // the sensor (model).
-	//
+    //
     // \note Note that the value of this field has no impact on the value of object.position, which always references the
     // center of the object / bounding box.
     optional ReferencePoint reference_point = 8;
@@ -54,17 +54,17 @@ message DetectedObject
     optional ModelInternalObject model_internal_object = 9;
 
     // Additional data that is specific to radar sensors.
-	//
+    //
     // \note Field need not be set if simulated sensor is not a radar sensor.
     optional RadarSpecificObjectData radar_specifics = 10;
 
     // Additional data that is specific to lidar sensors.
-	//
+    //
     // \note Field need not be set if simulated sensor is not a lidar sensor.
     optional LidarSpecificObjectData lidar_specifics = 11;
 
     // Additional data that is specific to camera sensors.
-	//
+    //
     // \note Field need not be set if simulated sensor is not a camera sensor.
     optional CameraSpecificObjectData camera_specifics = 12;
 
