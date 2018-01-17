@@ -29,6 +29,7 @@ endforeach()
 configure_file(osi_version.proto.in ${CMAKE_CURRENT_SOURCE_DIR}/osi_version.proto)
 
 find_package(Protobuf 2.6.1 REQUIRED)
+set(PROTOBUF_IMPORT_DIRS ${PROTOBUF_INCLUDE_DIRS})
 
 set(OSI_PROTO_FILES
     osi_version.proto
