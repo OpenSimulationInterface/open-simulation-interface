@@ -54,15 +54,19 @@ message DetectedObject
 
     // Additional data that is specific to radar sensors.
     // Field need not be set if simulated sensor is not a radar sensor.
-    optional RadarSpecificObjectData radar_specifics = 10;
+    optional SpecificRadarData radar_specifics = 10;
 
     // Additional data that is specific to lidar sensors.
     // Field need not be set if simulated sensor is not a lidar sensor.
-    optional LidarSpecificObjectData lidar_specifics = 11;
+    optional SpecificLidarData lidar_specifics = 11;
 
     // Additional data that is specific to camera sensors.
     // Field need not be set if simulated sensor is not a camera sensor.
-    optional CameraSpecificObjectData camera_specifics = 12;
+    optional SpecificCameraData camera_specifics = 12;
+
+    // Additional data that is specific to ultrasonic sensors.
+    // Field need not be set if simulated sensor is not an ultrasonic sensor.
+    optional SpecificUltrasonicData ultrasonic_specifics = 13;
 
     // Definition of available reference points.
     //
