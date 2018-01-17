@@ -33,6 +33,7 @@ message SensorData
 
     // Should be used as constant; use this if you require fields that do not exist in osi_sensordata or for the purpose
     // of matching sensor output against ground truth data.
+    //
     optional SensorDataGroundTruth ground_truth = 3;
     
     // The id of the ego vehicle in the ground_truth data.
@@ -41,13 +42,14 @@ message SensorData
 
     // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
     //
-    // given in vehicle coordinates: origin is \c Vehicle::reference_point; the orientation is equal to the orientation of the vehicle.
+    // given in vehicle coordinates: origin is ( \c Vehicle::base.position + INV(\c Vehicle::base.orientation) * \c Vehicle::bbcenter_to_rear) the orientation is equal to the orientation of the vehicle \c Vehicle::base.orientation.
     //
     // \arg \b x-direction: longitudinal direction & positive in driving direction
     // \arg \b y-direction: lateral direction & positive to the left when looking orientated as a driver
     // \arg \b z-direction: perpendicular to x and z right hand system (up)
     //
     // See https://en.wikipedia.org/wiki/Axes_conventions#/media/File:RPY_angles_of_cars.png 
+    //
     // \note This field is usually static during the simulation.
     optional MountingPosition mounting_position = 5;
 
@@ -88,18 +90,18 @@ message SensorData
 //
 message SensorDataGroundTruth
 {
-    // Ground truth w.r.t. global coordinate system (copy of GroundTruth message),
+    // Ground truth w.r.t. global coordinate system (copy of GroundTruth message to \c SensorData::ground_truth.global_ground_truth),
     //
     // needed for setting fields in the SensorData that are not covered by the model.
     // \note Should be used as constant in the sensor models.
     // 
     optional GroundTruth global_ground_truth = 1;
 
-    // Ground truth w.r.t. the sensor coordinate system.
+    // Ground truth w.r.t. the sensor coordinate system (\c SensorData::ground_truth.sensor_ground_truth.ground_truth.global_ground_truth).
     //
     // Is equal to the version of the SensorData interface that is used as input by the sensor model before
     // any processing takes place aside from the coordinate transformation from global to sensor reference frame.
     //
-    // SensorData.ground_truth is not set in this instance to avoid the resulting infinite loop.
+    // \c SensorData::ground_truth.sensor_ground_truth.ground_truth.sensor_ground_truth is not set in this instance to avoid the resulting infinite loop.
     optional SensorData sensor_ground_truth = 2;
 }
