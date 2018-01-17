@@ -11,10 +11,12 @@ package osi;
 //
 // This is basically a BaseObject with additional attributes, such as type and lights. 
 // The origin of the rear (front) axis coordinate system in world coordinates is calculated as: 
-// base.position + R * bbcenter_to_rear (front) for the ego vehicle (R rotates from vehicle to world frame). 
+// base.position + R * bbcenter_to_rear (front) for the ego vehicle (R rotates from vehicle to world frame, i.e. inverse orientation of base.orientation). 
 // 
 // For all vehicles, including ego vehicles, the position given 
 // in base.position points to the center of the vehicle's bounding box.
+//
+// The object coordinates are defined as x-axis is the direction from rear to front of the vehicle, y-axis corresponds to rear axle and z-axis points to vehicle ceiling. 
 //
 message Vehicle
 {
@@ -22,7 +24,7 @@ message Vehicle
     //
     optional Identifier id = 1;
 
-    // The base parameters of the vehicle.
+    // The base parameters of the vehicle (as a characteristic moving object).
     //
     optional BaseMoving base = 2;
 
@@ -38,7 +40,7 @@ message Vehicle
     // See the description above!
     optional bool ego_vehicle = 5;
 
-    // The vector pointing from the bounding box center point ( base.position ) to the middle (in x, y and z) 
+    // The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) 
     // of the rear axle under neutral load conditions. In object coordinates.
     optional Vector3d bbcenter_to_rear = 6;
 
@@ -51,11 +53,11 @@ message Vehicle
     optional bool has_trailer = 8;
 
     // Id of the attached trailer.
-    // \note Field need not be set if has_Trailer is set to false.
+    // \note Field need not be set if has_Trailer is set to false or use value for non valid id.
     optional Identifier trailer_id = 9;
 
     // The id of the driver of the (ego) vehicle.
-    // \note Field need not be set if ego_vehicle is set to false.
+    // \note Field need not be set if ego_vehicle is set to false or use value for non valid id.
     optional Identifier driver = 10;
     
     // The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z)
@@ -87,7 +89,7 @@ message Vehicle
         //
         TYPE_MOTOR_BIKE = 4;
         
-        // Vehicle is a bicycle (without motor).
+        // Vehicle is a bicycle (without motor and specific lights).
         //
         TYPE_BICYCLE = 5;
         
@@ -211,7 +213,9 @@ message Vehicle
 }
 
 //
-// \brief A simulated object that is neither a vehicle, traffic sign or traffic light.
+// \brief A simulated object that is neither a moving object (vehicle) nor a stationary object (traffic sign, traffic light, StationaryObject).
+//
+// MovingObject excludes vehicles
 //
 message MovingObject
 {
@@ -249,7 +253,9 @@ message MovingObject
 }
 
 //
-// \brief A simulated object that is neither a vehicle, traffic sign or traffic light.
+// \brief A simulated object that is neither a moving object (vehicle or MovingObject e.g. pedestrian or animal) nor a stationary object (traffic sign, traffic light).
+//
+// StationaryObject excludes traffic lights and traffic signs
 //
 message StationaryObject
 {

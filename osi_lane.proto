@@ -22,8 +22,8 @@ package osi;
 //
 message Lane
 {
-    // The (global) id of the lane.
-    // Example: 3 (see reference picture)
+    // The id of the lane.
+    // Example: 3 (see reference picture). Note id is global unique.
     optional Identifier id = 1;
 
     // The type of the lane.
@@ -38,7 +38,7 @@ message Lane
     //
     // \image html highway_exit.png "Center lines as yellow dotted lines."
     //
-    // \attention The points describing the center line might be set at arbitrary distances, but must not be further appart than 5m. 
+    // \attention The points describing the center line might be set at arbitrary distances. 
     // When the points are pairwise linearly connected, the lateral distance to the real ideal line (as used by the simulation
     // environment internally) must not exceed 5cm. As shown in the following image:
     //

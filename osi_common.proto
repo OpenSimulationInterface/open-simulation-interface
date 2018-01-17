@@ -6,9 +6,11 @@ package osi;
 
 
 //
-// \brief A cartesian 3D vector for positions, velocities or accelerations.
+// \brief A cartesian 3D vector for positions, velocities or accelerations or its uncertainties.
 // 
 // Units are [m] for positions, [m/s] for velocities and [m/s^2] for accelerations.
+//
+// The coordinate system is defined as right-handed. 
 //
 message Vector3d
 {
@@ -26,7 +28,7 @@ message Vector3d
 }
 
 //
-// \brief A cartesian 2D vector for positions, velocities or accelerations.
+// \brief A cartesian 2D vector for positions, velocities or accelerations or its uncertainties.
 // 
 // Units are [m] for positions, [m/s] for velocities and [m/s^2] for accelerations.
 //
@@ -59,10 +61,14 @@ message Timestamp
 }
 
 //
-// \brief A 3D dimension, e.g. parameters of a 3D bounding box.
+// \brief A 3D dimension, e.g. parameters of a 3D bounding box or its uncertainties.
 // 
 // Units are all [m].
 //
+// The preferred dimensions are positive.
+//
+// Dimension is defined in the specified reference coordinate frame along x (=length), y (=width) and z (=height). 
+// 
 message Dimension3d
 {
     // The length of the bounding box.
@@ -79,7 +85,7 @@ message Dimension3d
 }
 
 //
-// \brief A 3D orientation, orientation rate or orientation acceleration.
+// \brief A 3D orientation, orientation rate or orientation acceleration or its uncertainties.
 // 
 // Units are 
 // \arg [rad] for orientation
@@ -123,6 +129,9 @@ message Orientation3d
 // address space is exhausted and the specific values have not been in use for several timesteps. Sensor specific
 // tracking ids have no restrictions and should behave according to the sensor specifications.
 //
+// Value MAX(uint64) = 2^(64) -1 = 0b1111111111111111111111111111111111111111111111111111111111111111 is reserved and 
+// indicates a non valid id or an error.
+//
 message Identifier
 {
     // The identifier's value.
@@ -147,7 +156,9 @@ message MountingPosition
 }
 
 //
-// \brief A spherical representation for a point / vector in 3D space used for low level representations of radar detections.
+// \brief A spherical representation for a point / vector in 3D space.
+//
+// Used for e.g. low level representations of radar detections.
 // 
 // Units are [m] for radial distance and [rad] for azimuth and elevation angles. If azimuth and elevation are zero, the
 // referenced point is directly in front / vector is pointing directly in the central viewing direction of the sensor.
@@ -174,15 +185,15 @@ message Spherical3d
 //
 message BaseStationary
 {
-    // The 3D dimension of the landmark (bounding box):
+    // The 3D dimension of the stationary object (bounding box) e.g. a landmark:
     //
     optional Dimension3d dimension = 1;
 
-    // The reference point for position and rotation (orientation): center (x, y, z) of bounding box.
+    // The reference point for position and orientation: center (x, y, z) of bounding box.
     //
     optional Vector3d position = 2;
 
-    // The relative orientation of the landmark w.r.t its parent frame.
+    // The relative orientation of the stationary object w.r.t. its parent frame.
     //
     optional Orientation3d orientation = 3;
     
@@ -209,27 +220,27 @@ message BaseStationary
 //
 message BaseMoving
 {
-    // The 3D dimension of the object (bounding box).
+    // The 3D dimension of the moving object (bounding box).
     //
     optional Dimension3d dimension = 1;
 
-    // The reference point for position and rotation (orientation): center (x, y, z) of bounding box.
+    // The reference point for position and orientation: center (x, y, z) of bounding box.
     //
     optional Vector3d position = 2;
 
-    // The relative orientation of the object w.r.t its parent frame.
+    // The relative orientation of the moving object w.r.t. its parent frame.
     //
     optional Orientation3d orientation = 3;
 
-    // The relative velocity of the object w.r.t. its parent frame and parent velocity.
+    // The relative velocity of the moving object w.r.t. its parent frame and parent velocity.
     // Obviously, the velocity becomes global/absolute if the parent frame does not move.
     optional Vector3d velocity = 4;
 
-    // The relative acceleration of the object w.r.t. its parent frame and parent acceleration.
+    // The relative acceleration of the moving object w.r.t. its parent frame and parent acceleration.
     // Obviously, the acceleration becomes global/absolute if the parent frame is not accelerating.
     optional Vector3d acceleration = 5;
 
-    // The relative orientation rate of the object w.r.t. its parent frame and parent orientation rate.
+    // The relative orientation rate of the moving object w.r.t. its parent frame and parent orientation rate in the center point of the bounding box.
     // Obviously, the orientation rate becomes global/absolute if the parent frame is not rotating.
     optional Orientation3d orientation_rate = 6;
     
