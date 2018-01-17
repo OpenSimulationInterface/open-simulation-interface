@@ -44,7 +44,8 @@ message DetectedObject
 
     // Reference point of the sensor measurement (required to decouple position and bounding box estimation) as used by
     // the sensor (model).
-    // Note that the value of this field has no impact on the value of object.position, which always references the
+	//
+    // \note Note that the value of this field has no impact on the value of object.position, which always references the
     // center of the object / bounding box.
     optional ReferencePoint reference_point = 8;
 
@@ -53,15 +54,18 @@ message DetectedObject
     optional ModelInternalObject model_internal_object = 9;
 
     // Additional data that is specific to radar sensors.
-    // Field need not be set if simulated sensor is not a radar sensor.
+	//
+    // \note Field need not be set if simulated sensor is not a radar sensor.
     optional RadarSpecificObjectData radar_specifics = 10;
 
     // Additional data that is specific to lidar sensors.
-    // Field need not be set if simulated sensor is not a lidar sensor.
+	//
+    // \note Field need not be set if simulated sensor is not a lidar sensor.
     optional LidarSpecificObjectData lidar_specifics = 11;
 
     // Additional data that is specific to camera sensors.
-    // Field need not be set if simulated sensor is not a camera sensor.
+	//
+    // \note Field need not be set if simulated sensor is not a camera sensor.
     optional CameraSpecificObjectData camera_specifics = 12;
 
     // Definition of available reference points.
@@ -148,5 +152,13 @@ message DetectedObject
         // Probability that the object is a stationary object. Range [0,1].
         //
         optional double prob_stationary = 7;
+        
+        // Probability that the object is a vehicle (except a car or a truck). Range [0,1].
+        //
+        optional double prob_other_vehicle = 8;
+        
+        // Probability that the object is an animal. Range [0,1].
+        //
+        optional double prob_animal = 9;
     }
 }
