@@ -60,20 +60,20 @@ message SensorData
     //
     repeated DetectedTrafficSign traffic_sign = 7;
     
-    //
     // The list of traffic lights detected by the sensor
+    // 
     repeated DetectedTrafficLight traffic_light = 8;
 
     // The list of road marking detected by the sensor.
     // This excludes lane boundary marking as these are included in DetectedLane.
     repeated DetectedRoadMarking road_marking = 9;
 
-    //
     // The list of lane detected by the sensor
+    // 
     repeated DetectedLane lane = 10;
 
-    //
     // The list of occupants of the ego vehicle
+    // 
     repeated DetectedOccupant occupant = 11;
 
     // Additional internal data and state flags required and used by the sensor-models.
@@ -95,7 +95,7 @@ message SensorDataGroundTruth
     // Ground truth w.r.t. global coordinate system (copy of GroundTruth message),
     //
     // needed for setting fields in the SensorData that are not covered by the model.
-    // \note should be used as constant in the sensor models.
+    // \note Should be used as constant in the sensor models.
     // 
     optional GroundTruth global_ground_truth = 1;
 
