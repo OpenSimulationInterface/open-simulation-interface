@@ -22,7 +22,7 @@ message DetectedObject
     // Multiple entries if detected object is a merge of multiple ground truth objects.
     repeated Identifier ground_truth_id = 2;
 
-    // Base parameters of the object. Reference point is the middle of the bounding box of the target object.
+    // Base parameters of the object. object.position is the middle of the bounding box of the target object.
     //
     optional BaseMoving object = 3;
 
@@ -42,7 +42,7 @@ message DetectedObject
     // has lights.
     optional Vehicle.LightState light_state = 7;
 
-    // Reference point of the sensor measurement (required to decouple position and bounding box estimation) as used by
+    // Reference point location specification of the sensor measurement (required to decouple sensor measurement, position and bounding box estimation) as used by
     // the sensor (model).
     //
     // \note Note that the value of this field has no impact on the value of object.position, which always references the
