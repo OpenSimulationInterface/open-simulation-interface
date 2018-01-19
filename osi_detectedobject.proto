@@ -14,59 +14,96 @@ package osi;
 //
 message DetectedObject
 {
+    // Header attributes of detected object.
+    //
+    optional DetectedObjectHeader header = 1;
+
     // Specific id of the object as assigned by the sensor internally. Need not match with ground_truth_id.
     //
-    optional Identifier tracking_id = 1;
+    optional Identifier tracking_id = 2;
 
     // The id of the original object in the ground truth list of vehicles / objects / ..
     // Multiple entries if detected object is a merge of multiple ground truth objects.
-    repeated Identifier ground_truth_id = 2;
+    repeated Identifier ground_truth_id = 3;
+
+    // The amount of time that this object has been currently observed/tracked.
+    // Unit: [s]
+    optional double age = 4;
+
+    // The measurement state of the detected object.
+    //
+    optional MeasurementState measurement_state = 5;
 
     // Base parameters of the object. object.position is the middle of the bounding box of the target object.
     //
-    optional BaseMoving object = 3;
+    optional BaseMoving object = 6;
 
-    // The standard deviations of the base parameters in object (cross correlations are currently neglected).
+    // The root mean square error of the base parameters in object (cross correlations are currently neglected).
     //
-    optional BaseMoving standard_deviation = 4;
+    optional BaseMoving object_rmse = 7;
 
-    // The estimated probabilities for the object to belong to a specific class.
+    // Kinematic point of the objects rotation.
     //
-    optional ClassProbability class_probability = 5;
+    optional Vector3d kinematic_point = 8;
+
+    // The relative orientation rate of the moving object w.r.t. its kinematic point.
+    //
+    optional Orientation3d kinematic_orientation_rate = 9;
+
+    // Actual movement state w.r.t. the moving object history.
+    //
+    optional MovementState movement_state = 10;
 
     // The estimated probability that this object really exists. Range [0,1].
     //
-    optional double existence_probability = 6;
+    // \note Field need not be set if false_positive_rate and false_negative_rate is defined.
+    optional double existence_probability = 11;
+
+    // False positive rate.
+    //
+    // \note Field need not be set if existence_probability is defined.
+    optional double false_positive_rate = 12;
+
+    // False negative rate.
+    //
+    // \note Field need not be set if existence_probability is defined.
+    optional double false_negative_rate = 13;
 
     // Current state of lights as perceived by sensor, only relevant if the object is estimated to be an object that
     // has lights.
-    optional Vehicle.LightState light_state = 7;
+    optional Vehicle.LightState light_state = 14;
 
     // Reference point location specification of the sensor measurement (required to decouple sensor measurement, position and bounding box estimation) as used by
     // the sensor (model).
     //
     // \note Note that the value of this field has no impact on the value of object.position, which always references the
     // center of the object / bounding box.
-    optional ReferencePoint reference_point = 8;
+    optional ReferencePoint reference_point = 15;
 
     // Additional internal data and state flags required and used by the sensor-models, should not be used by
     // subscribers to SensorData. Generally this field should be cleared after internal processing.
-    optional ModelInternalObject model_internal_object = 9;
+    //
+    // \note optional. List of used detections to recognize this object. Detections have also an identifier to reference to the detected object.
+    optional ModelInternalObject model_internal_object = 16;
 
     // Additional data that is specific to radar sensors.
     //
     // \note Field need not be set if simulated sensor is not a radar sensor.
-    optional RadarSpecificObjectData radar_specifics = 10;
+    optional RadarSpecificObjectData radar_specifics = 17;
 
     // Additional data that is specific to lidar sensors.
     //
     // \note Field need not be set if simulated sensor is not a lidar sensor.
-    optional LidarSpecificObjectData lidar_specifics = 11;
+    optional LidarSpecificObjectData lidar_specifics = 18;
 
     // Additional data that is specific to camera sensors.
     //
     // \note Field need not be set if simulated sensor is not a camera sensor.
-    optional CameraSpecificObjectData camera_specifics = 12;
+    optional CameraSpecificObjectData camera_specifics = 19;
+
+    // The estimated probabilities for the object to belong to a specific class.
+    //
+    optional ClassProbability class_probability = 20;
 
     // Additional data that is specific to ultrasonic sensors.
     //
@@ -125,6 +162,31 @@ message DetectedObject
         REFERENCE_POINT_FRONT_RIGHT = 10;
     }
 
+    // Information about a possible movement of the object during tracking.
+    //
+    enum MovementState
+    {
+        // Movement state is unknown.
+        //
+        MOVEMENT_STATE_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        MOVEMENT_STATE_OTHER = 1;
+
+        // Until now no object movement was detected in tracking history.
+        //
+        MOVEMENT_STATE_STATIONARY = 2;
+
+        // Object moves currently.
+        //
+        MOVEMENT_STATE_MOVING = 3;
+
+        // Object movment was detected in tracking history.
+        //
+        MOVEMENT_STATE_STOPPED = 4;
+    }
+
     //
     // \brief Probabilities for the classification of the object as perceived by the sensor.
     //
@@ -165,5 +227,99 @@ message DetectedObject
         // Probability that the object is an animal. Range [0,1].
         //
         optional double prob_animal = 9;
+    }
+
+    // Definition of measurement states.
+    //
+    enum MeasurementState
+    {
+        // Measurement state is unknown (must not be used in ground truth).
+        //
+        MEASUREMENT_STATE_UNKNOWN = 0;
+
+        // Measurement state is unspecified (but known, i.e. value is not part of this enum list).
+        //
+        MEASUREMENT_STATE_OTHER = 1;
+
+        // Traffic sign has been measured by the sensor in the current timestep.
+        //
+        MEASUREMENT_STATE_MEASURED = 2;
+
+        // Traffic sign has not been measured by the sensor in the current timestep. Values provided by tracking only.
+        //
+        MEASUREMENT_STATE_PREDICTED = 3;
+    }
+
+    //
+    // \brief The header attributes of each detected object.
+    //
+    message DetectedObjectHeader
+    {
+        // Version number of used detected object messages (DetectedObject etc.).
+        //
+        optional InterfaceVersion version = 1;
+
+        // Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time.
+        //
+        optional Timestamp timestamp = 2;
+
+        // Continuous up counter to identify the cycle.
+        //
+        optional uint32 cylcle_counter = 3;
+
+        // Data Qualifier expresses whether the content of this event can be used or not.
+        //
+        optional DataQualifier data_qualifier = 4;
+
+        // \brief Data qualifier communicates the overall availability of the interface.
+        //
+        enum DataQualifier
+        {
+            // Unknown (must not be used in ground truth).
+            //
+            DATA_QUALIFIER_UNKNOWN = 0;
+
+            // Other (unspecified but known).
+            //
+            DATA_QUALIFIER_OTHER = 1;
+
+            // Data is available.
+            //
+            DATA_QUALIFIER_AVAILABLE = 2;
+
+            // Reduced data is available.
+            //
+            DATA_QUALIFIER_AVAILABLE_REDUCED = 3;
+
+            // Data is not available.
+            //
+            DATA_QUALIFIER_NOT_AVAILABLE = 4;
+
+            // Sensor is blind.
+            //
+            DATA_QUALIFIER_BLINDNESS = 5;
+
+            // Sensor temporary available.
+            //
+            DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
+       }
+
+        //
+        // \brief Version of detected object messages (DetectionObject etc.).
+        //
+        message InterfaceVersion
+        {
+            // Major version number.
+            //
+            optional uint32 version_major = 1;
+
+            // Minor version number.
+            //
+            optional uint32 version_minor = 2;
+
+            // Patch version number.
+            //
+            optional uint32 version_patch = 3;
+        }
     }
 }

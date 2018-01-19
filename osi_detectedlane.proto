@@ -4,7 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_common.proto";
 import "osi_lane.proto";
-import "osi_detectedlandmark.proto";
+import "osi_detectedobject.proto";
 
 package osi;
 
@@ -13,22 +13,26 @@ package osi;
 //
 message DetectedLane
 {
+    // Header attributes of detected lane.
+    //
+    optional DetectedObject.DetectedObjectHeader header = 1;
+
+    // Specific id of the detected lane as assigned by the sensor internally. Need not match with ground_truth_id.
+    //
+    optional Identifier tracking_id = 2;
+
     // The id of the original lane in the ground truth.
     // Multiple entries if the detected lane is a merge of multiple lanes in ground truth (as lane segment definitions
     // may vary between sensor and ground truth).
-    repeated Identifier ground_truth_id = 1;
+    repeated Identifier ground_truth_id = 3;
 
     // The detected lane.
     //
-    optional Lane lane = 2;
+    optional Lane lane = 4;
 
     // Estimated probability that this lane really exists. Range [0,1].
     //
-    optional double existence_probability = 3;
-
-    // The measurement state of the detected lane.
-    //
-    optional DetectedTrafficSign.MeasurementState measurement_state = 4;
+    optional double existence_probability = 5;
 }
 
 //
@@ -46,7 +50,7 @@ message DetectedLaneBoundary
 
     // State of the measurement. Lane boundary measured in the current image or Lane boundary predicted (no measurement in current image).
     //
-    optional DetectedTrafficSign.MeasurementState measurement_state = 3;
+    optional DetectedObject.MeasurementState measurement_state = 3;
 
     // Probability of the detection that the lane exists.
     //
@@ -68,4 +72,3 @@ message DetectedLaneBoundary
     //
     repeated double boundary_line_confidence = 8;
 }
-

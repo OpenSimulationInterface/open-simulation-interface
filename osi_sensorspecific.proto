@@ -10,6 +10,7 @@ package osi;
 message RadarSpecificObjectData
 {
     // The radar cross section (RCS) of the detected object. Unit: [dB m^2].
+    //
     optional double rcs = 1;
 }
 
@@ -26,7 +27,13 @@ message LidarSpecificObjectData
 //
 message CameraSpecificObjectData
 {
-    // currently no fields.
+    // Pedestrian head pose for behaviour prediction. Describes the yaw angle w.r.t. the ego vehicle orientation.
+    //
+    optional double head_pose = 1;
+
+    // Pedestrian upper body pose for behaviour prediction. Describes the yaw angle w.r.t. the ego vehicle orientation.
+    //
+    optional double upper_body_pose = 2;
 }
 
 //

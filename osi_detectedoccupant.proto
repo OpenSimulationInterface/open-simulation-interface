@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_common.proto";
 import "osi_occupant.proto";
+import "osi_detectedobject.proto";
 
 package osi;
 
@@ -12,11 +13,19 @@ package osi;
 //
 message DetectedOccupant
 {
+    // Header attributes of detected occupant.
+    //
+    optional DetectedObject.DetectedObjectHeader header = 1;
+
+    // Specific id of the occupant as assigned by the sensor internally. Need not match with ground_truth_id.
+    //
+    optional Identifier tracking_id = 2;
+
     // The detected vehicle occupant
     //
-    optional Occupant occupant = 1;
+    optional Occupant occupant = 3;
 
     // The id of the original vehicle occupant in the ground truth.
     //
-    optional Identifier ground_truth_occupant_id = 2;
+    optional Identifier ground_truth_occupant_id = 4;
 }
