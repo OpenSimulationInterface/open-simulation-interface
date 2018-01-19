@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_common.proto";
 import "osi_lane.proto";
+import "osi_detectedlandmark.proto";
 
 package osi;
 
@@ -25,30 +26,9 @@ message DetectedLane
     //
     optional double existence_probability = 3;
 
-    // The measurement state of the traffic sign.
-    //  
-    optional MeasurementStatus measurement_state = 4;
-
-    // Definition of measurement states.
-    // 
-    enum MeasurementStatus
-    {
-        // Measurement state is unknown (must not be used in ground truth).
-        //
-        MEASUREMENT_STATE_UNKNOWN = 0;
-        
-        // Measurement state is unspecified (but known, i.e. value is not part of this enum list).
-        //
-        MEASUREMENT_STATE_OTHER = 1;
-        
-        //Lane has been measured by the sensor in the current timestep.
-        //
-        MEASUREMENT_STATE_MEASURED = 2;
-        
-        // Lane has not been measured by the sensor in the current timestep. Values provided by tracking only.
-        //
-        MEASUREMENT_STATE_PREDICTED = 3;
-    }
+    // The measurement state of the detected lane.
+    //
+    optional DetectedTrafficSign.MeasurementState measurement_state = 4;
 }
 
 //
@@ -60,53 +40,32 @@ message DetectedLaneBoundary
     // In case of a ghost laneboundary (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 1;
 
-    // The lane boundary to which this detection is associated to.
-    // 
-    optional LaneBoundary laneboundary = 2;
+    // The basic meassured lane boundary.
+    //
+    optional LaneBoundary lane_boundary = 2;
 
-    // Status of the measurement. Lane boundary measured in the current image or Lane boundary predicted (no measurement in current image)
-    // 
-    optional MeasurementStatus lane_measurement_status = 3;
+    // State of the measurement. Lane boundary measured in the current image or Lane boundary predicted (no measurement in current image).
+    //
+    optional DetectedTrafficSign.MeasurementState measurement_state = 3;
 
     // Probability of the detection that the lane exists.
-    // 
+    //
     optional double existence_probability = 4;
 
     // Confidence of the classified lane boundary type.
-    // 
+    //
     optional double type_confidence = 5;
 
     // Confidence of the classified lane marker color.
-    // 
+    //
     optional double color_confidence = 6;
 
     // The root mean square error of the BoundaryPoint information from a LaneBoundary.
-    // 
+    //
     repeated BoundaryPoint boundary_line_rmse = 7;
 
     // Confidence of the segments of the BoundaryPoint information from a LaneBoundary.
-    // 
+    //
     repeated double boundary_line_confidence = 8;
-
-    // Definition of measurement states.
-    // 
-    enum MeasurementStatus
-    {
-        // Measurement state is unknown (must not be used in ground truth).
-        //
-        MEASUREMENT_STATE_UNKNOWN = 0;
-        
-        // Measurement state is unspecified (but known, i.e. value is not part of this enum list).
-        //
-        MEASUREMENT_STATE_OTHER = 1;
-        
-        //Lane has been measured by the sensor in the current timestep.
-        //
-        MEASUREMENT_STATE_MEASURED = 2;
-        
-        // Lane has not been measured by the sensor in the current timestep. Values provided by tracking only.
-        //
-        MEASUREMENT_STATE_PREDICTED = 3;
-    }
 }
 
