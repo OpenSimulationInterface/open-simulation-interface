@@ -31,13 +31,21 @@ message TrafficSign
     //
     optional Variability variability = 5;
 
+    // View normal of the traffic sign. If the angle between \c -TafficSign::view_normal and \c camera_view_direction is \c (-90° .. +90°)
+    // the camera can see the traffic sing. Larger angles will display the backside of the traffic sign.
+    optional Vector3d view_normal = 6;
+
+    // The view_normal as x-Axis, the global z-Axis and an optional arrow on the displayed traffic sign.
+    // Arrow in direction y-Axis means right, arrow in direction of -y-Axis means left.
+    optional DirectionScope direction_scope = 7;
+    
     // Additional, supplementary signs, e.g. time limit, modifying the traffic sign.
     //
-    repeated SupplementarySign supplementary_sign = 6;
+    repeated SupplementarySign supplementary_sign = 8;
 
     // The ids of the lanes that the traffic sign is assigned to.
     // Might be multiple if the traffic sign is valid for multiple lanes.
-    repeated Identifier assigned_lane = 7;
+    repeated Identifier assigned_lane = 9;
 
     // Definition of traffic sign types.
     // Numbers given according to German StVO.
@@ -82,176 +90,276 @@ message TrafficSign
         //
         TYPE_ZONE_30_END = 7;
         
-        // Mandatory minimum speed (StVO 275).
+        // Start of mandatory minimum speed (StVO 275).
         //
-        TYPE_MINIMUM_SPEED = 8;
+        TYPE_MINIMUM_SPEED_BEGIN = 8;
+        
+        // End of mandatory minimum speed (StVO 279).
+        //
+        TYPE_MINIMUM_SPEED_END = 9;
         
         // Start of area with calmed / reduced traffic (verkehrsberuhigter Bereich - StVO 325.1).
         //
-        TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN = 9;
+        TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN = 10;
         
         // End of area with calmed / reduced traffic (verkehrsberuhigter Bereich - StVO 325.2).
         //
-        TYPE_TRAFFIC_CALMED_DISTRICT_END = 10;
+        TYPE_TRAFFIC_CALMED_DISTRICT_END = 11;
         
         // Start of area without traffic to reduce harmful air pollution (StVO 270.1).
         //
-        TYPE_ENVIRONMENTAL_ZONE_BEGIN = 11;
+        TYPE_ENVIRONMENTAL_ZONE_BEGIN = 12;
         // End of area without traffic to reduce harmful air pollution (StVO 270.2).
         //
-        TYPE_ENVIRONMENTAL_ZONE_END = 12;
+        TYPE_ENVIRONMENTAL_ZONE_END = 13;
         
         // Start of overtaking ban (StVO 276).
         //
-        TYPE_OVERTAKING_BAN_BEGIN = 13;
+        TYPE_OVERTAKING_BAN_BEGIN = 14;
         
         // End of overtaking ban (StVO 280).
         //
-        TYPE_OVERTAKING_BAN_END = 14;
+        TYPE_OVERTAKING_BAN_END = 15;
         
         // Start of overtaking ban for trucks (StVO 277).
         //
-        TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN = 15;
+        TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN = 16;
         
         // End of overtaking ban for trucks (StVO 281).
         //
-        TYPE_OVERTAKING_BAN_FOR_TRUCKS_END = 16;
+        TYPE_OVERTAKING_BAN_FOR_TRUCKS_END = 17;
         
         // End of all speed and overtaking restrictions (StVO 282).
         //
-        TYPE_ALL_RESTRICTIONS_END = 17;
+        TYPE_ALL_RESTRICTIONS_END = 18;
         
         // Begin of priority road with right of way (StVO 306).
         //
-        TYPE_RIGHT_OF_WAY_BEGIN = 18;
+        TYPE_RIGHT_OF_WAY_BEGIN = 19;
         
         // End of priority road with right of way (StVO 307).
         //
-        TYPE_RIGHT_OF_WAY_END = 19;
+        TYPE_RIGHT_OF_WAY_END = 20;
         
         // Right of way at the next intersection (StVO 301).
         //
-        TYPE_RIGHT_OF_WAY_NEXT_INTERSECTION = 20;
+        TYPE_RIGHT_OF_WAY_NEXT_INTERSECTION = 21;
+        
+        // "Right before left" rule at the next intersection (StVO 102).
+        //
+        TYPE_RIGHT_BEFORE_LEFT_NEXT_INTERSECTION = 22;
         
         // Begin of no parking zone (StVO 290.1).
         //
-        TYPE_NO_PARKING_ZONE_BEGIN = 21;
+        TYPE_NO_PARKING_ZONE_BEGIN = 23;
         
         // End of no parking zone (StVO 290.2).
         //
-        TYPE_NO_PARKING_ZONE_END = 22;
+        TYPE_NO_PARKING_ZONE_END = 24;
         
         // No parking sign (StVO 286).
         //
-        TYPE_NO_PARKING = 23;
+        TYPE_NO_PARKING = 25;
         
         // No stopping sign (StVO 283).
         //
-        TYPE_NO_STOPPING = 24;
+        TYPE_NO_STOPPING = 26;
+        
+        // Begin of parking zone (StVO 314.1).
+        //
+        TYPE_CAR_PARKING_ZONE_BEGIN = 27;
+
+        // End of parking zone (StVO 314.2).
+        //
+        TYPE_CAR_PARKING_ZONE_END = 28;
+
+        // Parking space (StVO 314).
+        //
+        TYPE_CAR_PARKING = 29;
         
         // Give way sign (StVO 205).
         //
-        TYPE_GIVE_WAY = 25;
+        TYPE_GIVE_WAY = 30;
         
         // Stop sign (StVO 206).
         //
-        TYPE_STOP = 26;
+        TYPE_STOP = 31;
         
         // Danger sign (StVO 101).
         //
-        TYPE_DANGER_SPOT = 27;
+        TYPE_DANGER_SPOT = 32;
         
         // Road works sign (StVO 123)
         //
-        TYPE_ROAD_WORKS = 28;
+        TYPE_ROAD_WORKS = 33;
         
+        // Steep hill downwards (StVO 108).
+        //
+        TYPE_HILL_DOWNWARDS = 34;
+        
+        // Steep hill upwards (StVO 110).
+        //
+        TYPE_HILL_UPWARDS = 35;
+        
+        // Prescribed left turn (StVO 209.1).
+        //
+        TYPE_PRESCRIBED_LEFT_TURN = 36;
+        
+        // Prescribed right turn (StVO 209.2).
+        //
+        TYPE_PRESCRIBED_RIGHT_TURN = 37;
+        
+        // Prescribed driving straight ahead (StVO 209.3).
+        //
+        TYPE_PRESCRIBED_STRAIGHT = 38;
+        
+        // Prescribed left way (StVO 211.1).
+        //
+        TYPE_PRESCRIBED_LEFT_WAY = 39;
+        
+        // Prescribed right way (StVO 211.2).
+        //
+        TYPE_PRESCRIBED_RIGHT_WAY = 40;
+        
+        // Prescribed left turn and driving straight ahead (StVO 214.1).
+        //
+        TYPE_PRESCRIBED_LEFT_TURN_AND_STRAIGHT = 41;
+        
+        // Prescribed right turn and driving straight ahead (StVO 214.2).
+        //
+        TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT = 42;
+                
         // Roundabout (StVO 215).
         //
-        TYPE_ROUNDABOUT = 29;
+        TYPE_ROUNDABOUT = 43;
         
-        // Traffic light ahead sign (StVO 131).
+        // One-way road to the left (StVO 220.1).
         //
-        TYPE_ATTENTION_TRAFFIC_LIGHT = 30;
+        TYPE_ONEWAY_LEFT = 44;
         
-        // Pedestrian crossing (StVO 350).
+        // One-way road to the right (StVO 220.2).
         //
-        TYPE_PEDESTRIAN_CROSSING_INFO = 31;
-        
-        // Minimum safety distance for trucks (StVO 273).
-        //
-        TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 32;
+        TYPE_ONEWAY_RIGHT = 45;
         
         // Entry not allowed (StVO 267).
         //
-        TYPE_DO_NOT_ENTER = 33;
+        TYPE_DO_NOT_ENTER = 46;
         
         // Entry prohibited for all vehicle types (StVO 250).
         //
-        TYPE_PROHIBITED_FOR_ALL = 34;
+        TYPE_PROHIBITED_FOR_ALL = 47;
         
         // Entry prohibited for all motor vehicles (StVO 251).
         //
-        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES  = 35;
+        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES  = 48;
         
         // Entry prohibited for trucks (StVO 253).
         //
-        TYPE_PROHIBITED_FOR_TRUCKS  = 36;
+        TYPE_PROHIBITED_FOR_TRUCKS  = 49;
         
         // Entry prohibited for bicycles (StVO 254).
         //
-        TYPE_PROHIBITED_FOR_BICYCLES  = 37;
+        TYPE_PROHIBITED_FOR_BICYCLES  = 50;
         
         // Entry prohibited for motor bikes (StVO 255).
         //
-        TYPE_PROHIBITED_FOR_MOTOR_BIKES  = 38;
+        TYPE_PROHIBITED_FOR_MOTOR_BIKES  = 51;
         
         // Entry prohibited for pedestrians (StVO 259).
         //
-        TYPE_PROHIBITED_FOR_PEDESTRIANS  = 39;
+        TYPE_PROHIBITED_FOR_PEDESTRIANS  = 52;
         
         // Entry prohibited for all motor vehicles and bikes (StVO 260).
         //
-        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES_BIKES  = 40;
+        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES_BIKES  = 53;
         
         // Begin of highway (StVO 330.1).
         //
-        TYPE_HIGHWAY_BEGIN = 41;
+        TYPE_HIGHWAY_BEGIN = 54;
         
         // End of highway (StVO 330.2).
         //
-        TYPE_HIGHWAY_END = 42;
+        TYPE_HIGHWAY_END = 55;
         
         // Highway exit sign (StVO 333).
         //
-        TYPE_HIGHWAY_EXIT = 43;
+        TYPE_HIGHWAY_EXIT = 56;
         
         // Pole indicating highways exit in 100m (StVO 450).
         //
-        TYPE_POLE_EXIT_100M = 44;
+        TYPE_POLE_EXIT_100M = 57;
         
         // Pole indicating highways exit in 200m (StVO 450).
         //
-        TYPE_POLE_EXIT_200M = 45;
+        TYPE_POLE_EXIT_200M = 58;
         
         // Pole indicating highways exit in 300m (StVO 450).
         //
-        TYPE_POLE_EXIT_300M = 46;
+        TYPE_POLE_EXIT_300M = 59;
         
         // Pole for warning and guiding purposes (red/white stripes - StVO 605).
         //
-        TYPE_POLE_WARNING = 47;
+        TYPE_POLE_WARNING = 60;
         
         // Begin of expressway for motor vehicles (StVO 331.1).
         //
-        TYPE_EXPRESSWAY_BEGIN = 48;
+        TYPE_EXPRESSWAY_BEGIN = 61;
         
         // End of expressways for motor vehicles (StVO 331.2).
         //
-        TYPE_EXPRESSWAY_END = 49;
-        
-        // Parking space (StVO 314).
+        TYPE_EXPRESSWAY_END = 62;
+                
+        // Priority must be given to vehicles from the opposite direction (StVO 208).
         //
-        TYPE_CAR_PARKING = 50;
+        TPYE_PRIORITY_TO_OPPOSITE_DIRECTION = 63;
+        
+        // Traffic has priority over vehicles from the opposite direction (StVO 308).
+        //
+        TPYE_PRIORITY_OVER_OPPOSITE_DIRECTION = 64;
+        
+        // Priority must be given to vehicles from the opposite direction (StVO 208). Upside down.
+        // 
+        TPYE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 65;
+        
+        // Traffic has priority over vehicles from the opposite direction (StVO 308). Upside down.
+        //
+        TPYE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 66;
+        
+        // Minimum safety distance for trucks (StVO 273).
+        //
+        TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 67;
+        
+        // Traffic light ahead sign (StVO 131).
+        //
+        TYPE_ATTENTION_TRAFFIC_LIGHT = 68;
+        
+        // Pedestrian crossing (StVO 350).
+        //
+        TYPE_PEDESTRIAN_CROSSING_INFO = 69;
+        
+        // Warning sign for a left turn (StVO 103.1).
+        //
+        TYPE_TURN_LEFT = 70;
+        
+        // Warning sign for a right turn (StVO 103.2).
+        //
+        TYPE_TURN_RIGHT = 71;
+        
+        // Warning sign for a double turn (first left turn) (StVO 105.1).
+        //
+        TYPE_DOUBLE_TURN_LEFT = 72;
+        
+        // Warning sign for a double turn (first right turn) (StVO 105.2).
+        //
+        TYPE_DOUBLE_TURN_RIGHT = 73;
+        
+        // Drive past on the left side (StVO 222.1).
+        //
+        TYPE_PASS_LEFT = 74;
+        
+        // Drive past on the right side (StVO 222.2).
+        //
+        TYPE_PASS_RIGHT = 75;
     }
 
     // Definition of the variability of the traffic sign.
@@ -273,6 +381,35 @@ message TrafficSign
         // Temporary or variable sign, e.g. on a sign bridge.
         //
         VARIABILITY_VARIABLE = 3;
+    }
+
+    // Definition of the direction of the traffic sign's scope.
+    // Marked with additional arrows.
+    enum DirectionScope
+    {
+        // Direction of the sign's scope is unknown (must not be used in ground truth).
+        //
+        DIRECTION_SCOPE_UNKNOWN = 0;
+        
+        // Other (unspecified but known) direction of the sign's scope.
+        //
+        DIRECTION_SCOPE_OTHER = 1;
+        
+        // Direction of the sign's scope is not specified.
+        //
+        DIRECTION_SCOPE_NO_DIRECTION = 2;
+        
+        // Direction of the sign's scope for viewer is left.
+        //
+        DIRECTION_SCOPE_LEFT = 3;
+        
+        // Direction of the sign's scope for viewer is right.
+        //
+        DIRECTION_SCOPE_RIGHT = 4;
+        
+        //  Direction of the sign's scope for viewer is to both sides.
+        //
+        DIRECTION_SCOPE_LEFT_RIGHT = 5;
     }
 }
 
@@ -702,15 +839,15 @@ message RoadMarking
         //
         TYPE_SPEED_LIMIT = 3;
         
-        // A straight arrow painted on the road surface indicating a lane to drive straight.
+        // A straight arrow painted on the road surface indicating a lane to drive straight. (StVO 297).
         //
         TYPE_STRAIGHT_ARROW = 4;
         
-        // A straight arrow painted on the road surface indicating a lane to turn right.
+        // A straight arrow painted on the road surface indicating a lane to turn right (StVO 297).
         //
         TYPE_RIGHT_TURN_ARROW = 5;
         
-        // A straight arrow painted on the road surface indicating a lane to turn left.
+        // A straight arrow painted on the road surface indicating a lane to turn left (StVO 297).
         //
         TYPE_LEFT_TURN_ARROW = 6;
 
@@ -722,15 +859,15 @@ message RoadMarking
         //
         TYPE_STOP_LINE_TRIANGLE = 8;
 
-        // An arrow painted on the road surface indicating a lane to drive straight and to turn left.
+        // An arrow painted on the road surface indicating a lane to drive straight and to turn left (StVO 297).
         // 
         TYPE_STRAIGHT_LEFT_TURN_ARROW = 9;
 
-        // An arrow painted on the road surface indicating a lane to drive straight and to turn right.
+        // An arrow painted on the road surface indicating a lane to drive straight and to turn right (StVO 297).
         // 
         TYPE_STRAIGHT_RIGHT_TURN_ARROW = 10;
 
-        // An arrow painted on the road surface indicating a lane to drive straight and to turn right or left.
+        // An arrow painted on the road surface indicating a lane to drive straight and to turn right or left (StVO 297).
         // 
         TYPE_STRAIGHT_LEFT_TURN_RIGHT_TURN_ARROW = 11;
 
@@ -753,10 +890,18 @@ message RoadMarking
         // Paint on the road surface indicating a generic symbol.
         // 
         TYPE_GENERIC_SYMBOL = 16;
+        
+        // A right arrow painted on the road surface announcing a lane limitation or the end of a lane (StVO 297.1). 
+        //
+        TYPE_ANNOUNCE_RIGHT_ARROW = 17;
+        
+        // A left arrow painted on the road surface announcing a lane limitation or the end of a lane (StVO 297.1). 
+        //
+        TYPE_ANNOUNCE_LEFT_ARROW = 18;
 
         // Paint on the road surface indicating a generic line.
         // 
-        TYPE_GENERIC_LINE = 17;
+        TYPE_GENERIC_LINE = 19;
     }
 
     // Definition of road marking colors
@@ -782,5 +927,17 @@ message RoadMarking
         // Marking with blue color.
         //
         COLOR_BLUE = 5;
+        
+        // Marking with red color.
+        // TWT: add COLOR_RED
+        COLOR_RED = 6;
+        
+        // Marking with green color.
+        // TWT: add COLOR_GREEN
+        COLOR_GREEN = 7;
+        
+        // Marking with violet color.
+        // TWT: add COLOR_VIOLET
+        COLOR_VIOLET = 8;
     }
 }
