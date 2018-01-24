@@ -83,6 +83,11 @@ message Lane
     //
     optional LaneFraming lane_framing = 9;
 
+    // A lane driving direction describes the driving direction of the lane.
+    // The lane driving direction is defined regarding the direction of the vector defining the center line of the lane.
+    //
+    optional LaneDrivingDirection lane_driving_direction = 10;
+
     // Definition of available lane types.
     //
     enum Type
@@ -143,6 +148,31 @@ message Lane
         // The lane segment is on a bridge.
         //
         LANE_FRAMING_BRIDGE = 4;
+    }
+
+    // Definition of available lane direction types.
+    //
+    enum LaneDrivingDirection
+    {
+        // Lane of unknown driving direction (must not be used in ground truth).
+        //
+        LANE_DRIVING_DIRECTION_UNKNOWN = 0;
+        
+        // Other (unspecified but known) lane driving direction.
+        //
+        LANE_DRIVING_DIRECTION_OTHER = 1;
+        
+        // The lane driving direction is the straight.
+        //
+        LANE_DRIVING_DIRECTION_STRAIGHT = 2;
+        
+        // The lane driving direction is the opposite.
+        //
+        LANE_DRIVING_DIRECTION_OPPOSITE = 3;
+
+        // The lane driving direction is two ways.
+        //
+        LANE_DRIVING_DIRECTION_TWO_WAYS = 4;
     }
 }
 
