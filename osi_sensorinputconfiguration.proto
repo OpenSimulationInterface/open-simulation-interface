@@ -1,0 +1,216 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+
+package osi;
+
+//
+// \brief The configuration settings for the Sensor Input to be provided
+// by the environment simulation.
+//
+// This message can be provided by the sensor model to the environment
+// simulation, in which case it describes the input configuration that
+// is desired by the sensor model.  In response the environment simulation
+// will configure the input and provide a new message of this type, which
+// describes the actual configuration that it is going to employ.  The two
+// can and will differ, when either the environment simulation does not
+// support a given requested configuration, and/or when the requested
+// configuration allowed for multiple alternatives, in which case the set
+// configuration will only contain the alternative chosen.
+//
+message SensorInputConfiguration
+{
+    // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
+    //
+    // given in vehicle coordinates: origin is \c Vehicle::reference_point; the orientation is equal to the orientation of the vehicle.
+    //
+    // \arg \b x-direction: longitudinal direction & positive in driving direction
+    // \arg \b y-direction: lateral direction & positive to the left when looking orientated as a driver
+    // \arg \b z-direction: perpendicular to x and z right hand system (up)
+    //
+    // See https://en.wikipedia.org/wiki/Axes_conventions#/media/File:RPY_angles_of_cars.png
+    // \note A default position can be provided by the sensor model (e.g. to indicate the position the model was validated for),
+    // but this is optional; the environment simulation must provide a valid mounting position (based on the vehicle configuration)
+    // when setting the input configuration.
+    optional MountingPosition mounting_position = 1;
+
+    // Field of View in horizontal orientation of the sensor
+    //
+    // This determines the limit of the cone of interest of ground truth
+    // that the simulation environment has to provide.
+    //
+    // Unit: [rad]
+    optional double field_of_view_horizontal = 2;
+
+    // Field of View in vertical orientation of the sensor
+    //
+    // This determines the limit of the cone of interest of ground truth
+    // that the simulation environment has to provide.
+    //
+    // Unit: [rad]
+    optional double field_of_view_vertical = 3;
+
+    // Maximum range of the sensor
+    //
+    // This determines the limit of the cone of interest of ground truth
+    // that the simulation environment has to provide.
+    //
+    // Unit: [m]
+    optional double range = 4;
+
+    // The update cycle time of the sensor model
+    //
+    // This specifies the rate at which the sensor model is provided with
+    // new input data.
+    //
+    // Unit: [s]
+    // \note In the case of FMU packaging this will correspond to the
+    // communication step size.
+    optional double update_cycle_time = 5;
+
+    // Radar-specific Sensor Input Configuration
+    optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1000;
+
+    // Lidar-specific Sensor Input Configuration
+    optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1001;
+
+    // Camera-specific Sensor Input Configuration
+    optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1002;
+
+    // Ultrasonic-specific Sensor Input Configuration
+    optional UltrasonicSensorInputConfiguration ultrasonic_sensor_input_configuration = 1003;
+}
+
+message RadarSensorInputConfiguration
+{
+    // This represents the combined TX/RX antenna diagram
+    repeated AntennaDiagramEntry combined_antenna_diagram = 1;
+
+    // Number of rays to cast across horizontal field of view
+    optional uint32 number_of_rays_horizontal = 2;
+
+    // Number of rays to cast across vertical field of view
+    optional uint32 number_of_rays_vertical = 3;
+
+    // Maximum number of interactions to take into account
+    optional uint32 max_number_of_interactions = 4;
+
+    message AntennaDiagramEntry {
+        // Horizontal deflection of entry in sensor/antenna coordinates
+        // Unit: [rad]
+        optional double horizontal_angle = 1;
+
+        // Vertical deflection of entry in sensor/antenna coordinates
+        // Unit: [rad]
+        optional double vertical_angle = 2;
+
+        // Combined response of emitter and receiver antenna at this
+        // point
+        // Unit: [dB]
+        // TBD: Merge with emitted power thus specify in dBm?
+        optional double response = 3;
+    }
+}
+
+message LidarSensorInputConfiguration
+{
+    // Number of rays to cast across horizontal field of view
+    optional uint32 number_of_rays_horizontal = 1;
+
+    // Number of rays to cast across vertical field of view
+    optional uint32 number_of_rays_vertical = 2;
+
+    // Maximum number of interactions to take into account
+    optional uint32 max_number_of_interactions = 3;
+}
+
+message CameraSensorInputConfiguration
+{
+    // Number of pixels to produce across horizontal field of view
+    optional uint32 number_of_pixels_horizontal = 1;
+
+    // Number of pixels to produce across horizontal field of view
+    optional uint32 number_of_pixels_vertical = 2;
+
+    // Format for image data (includes number, kind and format of channels)
+    //
+    // In the message provided by the sensor model, this field can
+    // be repeated and all values are acceptable to the model, with
+    // the most acceptable value being listed first, and the remaining
+    // values indicating alternatives in descending order of preference.
+    //
+    // In the message provided to the sensor model, this field must
+    // contain exactly one value, indicating the format of the image
+    // data being provided by the simulation environment - which must
+    // be one of the values the sensor model requested - or there
+    // must be no value, indicating that the simulation environment
+    // cannot provide image data in one of the requested formats.
+    repeated ChannelFormat channel_format = 3;
+
+    enum ChannelFormat {
+        // Type of channel format is unknown (must not be used).
+        //
+        FORMAT_UNKNOWN = 0;
+
+        // Single Luminance Channel UINT8 Linear
+        //
+        FORMAT_MONO_U8_LIN = 1;
+
+        // Single Luminance Channel UINT16 Linear
+        //
+        FORMAT_MONO_U16_LIN = 2;
+
+        // Single Luminance Channel UINT32 Linear
+        //
+        FORMAT_MONO_U32_LIN = 3;
+
+        // Single Luminance Channel Single Precision FP Linear
+        //
+        FORMAT_MONO_F32_LIN = 4;
+
+        // Packed RGB Channels (no padding) UINT8 Linear
+        //
+        FORMAT_RGB_U8_LIN = 5;
+
+        // Packed RGB Channels (no padding) UINT16 Linear
+        //
+        FORMAT_RGB_U16_LIN = 6;
+
+        // Packed RGB Channels (no padding) UINT32 Linear
+        //
+        FORMAT_RGB_U32_LIN = 7;
+
+        // Packed RGB Channels (no padding) Single Precision FP Linear
+        //
+        FORMAT_RGB_F32_LIN = 8;
+
+        // Bayer RGGB Channels UINT8 FP Linear
+        //
+        FORMAT_BAYER_BGGR_U8_LIN = 9;
+
+        // Bayer RGGB Channels UINT16 FP Linear
+        //
+        FORMAT_BAYER_BGGR_U16_LIN = 10;
+
+        // Bayer RGGB Channels UINT32 FP Linear
+        //
+        FORMAT_BAYER_BGGR_U32_LIN = 11;
+
+        // Bayer RGGB Channels Single Precision FP Linear
+        //
+        FORMAT_BAYER_BGGR_F32_LIN = 12;
+
+        // TBD: Further channel permutations and padding (e.g. RGBZ,
+        // BGR, BAYER_RGGB/GBRG/GRBG/...), non-BAYER filters, non-linear
+        // encodings, ...
+    }
+
+    // TBD: Optical (and other) effects to apply to image, etc.
+}
+
+message UltrasonicSensorInputConfiguration
+{
+    // TBD: Ultrasonic Sensor specific configuration
+}

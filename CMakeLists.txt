@@ -49,6 +49,7 @@ set(OSI_PROTO_FILES
     osi_occupant.proto
     osi_sensordata.proto
     osi_sensorspecific.proto
+    osi_sensorinputconfiguration.proto
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
