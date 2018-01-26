@@ -32,7 +32,7 @@ message TrafficSign
     optional Variability variability = 5;
 
     // View normal of the traffic sign. If the angle between \c -TafficSign::view_normal and \c camera_view_direction is \c (-90° .. +90°)
-    // the camera can see the traffic sing. Larger angles will display the backside of the traffic sign.
+    // the camera can see the traffic sign. Larger angles will display the backside of the traffic sign.
     optional Vector3d view_normal = 6;
 
     // The view_normal as x-Axis, the global z-Axis and an optional arrow on the displayed traffic sign.
@@ -929,15 +929,12 @@ message RoadMarking
         COLOR_BLUE = 5;
         
         // Marking with red color.
-        // TWT: add COLOR_RED
         COLOR_RED = 6;
         
         // Marking with green color.
-        // TWT: add COLOR_GREEN
         COLOR_GREEN = 7;
         
         // Marking with violet color.
-        // TWT: add COLOR_VIOLET
         COLOR_VIOLET = 8;
     }
 }
