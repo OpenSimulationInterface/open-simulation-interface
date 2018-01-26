@@ -69,6 +69,35 @@ message SensorInputConfiguration
     // \note In the case of FMU packaging this will correspond to the
     // communication step size.
     optional double update_cycle_time = 5;
+    
+    // Initial update cycle offset of the sensor model
+    //
+    // This specifies the initial offset (i.e. initial delay) of the
+    // sensor model update cycle that the simulation should take into
+    // account. It is defined against a simulation start time of 0:
+    // i.e. an initial offset of 0.008s would mean, that the initial
+    // update of sensor input data to the model should occur at 0+0.008s,
+    // and then update_cycle_time after that, etc. If the simulation
+    // start time of the simulation is non-zero, then the offset still
+    // has to be interpreted against a 0 start time, and not simply
+    // added on top of the start time: e.g. if the simulation starts at
+    // 0.030s, and the update cycle time is 0.020s, then the first
+    // update to the sensor input should happen at 0.048s, or 0.018s
+    // after simulation start.  This convention is needed to ensure
+    // stable phase position of the offset in the case of changing
+    // simulation start times, e.g. for partial resimulation.
+    //
+    // Unit: [s]
+    optional double update_cycle_offset = 6;
+    
+    // Simulation Start time
+    //
+    // This specifies the simulation start time that the Simulation
+    // has chosen. This field has no defined meaning if provided by
+    // the sensor model.
+    //
+    // Unit: [s]
+    optional double simulation_start_time = 7;
 
     // Radar-specific Sensor Input Configuration
     optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1000;
