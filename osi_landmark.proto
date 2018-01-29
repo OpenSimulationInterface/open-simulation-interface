@@ -826,18 +826,30 @@ message RoadMarking
     // The type of the road marking.
     //
     optional Type type = 3;
+    
+    // Painted trffic sign as road marking.
+    //
+    // \note if ( \c RoadMarking.type != \c RoadMarking.Type.TYPE_PAINTED_TRAFFIC_SIGN ) then
+    // \c RoadMarking.painted_sign_type := \c TrafficSign.Type.TYPE_OTHER 
+    // \note if ( \c RoadMarking.type == \c RoadMarking.Type.TYPE_PAINTED_TRAFFIC_SIGN ) then
+    // \c RoadMarking.color := \c RoadMarking.Color.COLOR_OTHER
+    optional TrafficSign.Type painted_sign_type = 4;
 
     // The color of the road marking.
     //
-    optional Color color = 4;
+    optional Color color = 5;
 
     // Additional value associated with the road marking, e.g. value of the speed limit.
     // Field need not be set if road marking type does not require it.
-    optional double value = 5;
+    optional double value = 6;
+    
+    // Additional text value as road marking, e.g. BUS, TAXI etc.
+    // Field need not be set if road marking type does not require it.
+    optional string value_text = 7;
 
     // The id(s) of the lane(s) that the road marking is assigned to.
     // Might be multiple if the road marking goes across multiple lanes.
-    repeated Identifier assigned_lane = 6;
+    repeated Identifier assigned_lane = 8;
 
     // Definition of road marking types.
     //
@@ -854,30 +866,30 @@ message RoadMarking
         // A solid stop line.
         //
         TYPE_STOP_LINE = 2;
-        
-        // A speed limit sign painted on the road surface.
-        //
-        TYPE_SPEED_LIMIT = 3;
-        
-        // A straight arrow painted on the road surface indicating a lane to drive straight. (StVO 297).
-        //
-        TYPE_STRAIGHT_ARROW = 4;
-        
-        // A straight arrow painted on the road surface indicating a lane to turn right (StVO 297).
-        //
-        TYPE_RIGHT_TURN_ARROW = 5;
-        
-        // A straight arrow painted on the road surface indicating a lane to turn left (StVO 297).
-        //
-        TYPE_LEFT_TURN_ARROW = 6;
 
-        // A dashed stop line
+        // A dashed stop line.
         //
-        TYPE_STOP_LINE_DASHED = 7;
+        TYPE_STOP_LINE_DASHED = 3;
 
         // A stop line consisting of triangles.
         //
-        TYPE_STOP_LINE_TRIANGLE = 8;
+        TYPE_STOP_LINE_TRIANGLE = 4;
+        
+        // A speed limit sign painted on the road surface.
+        //
+        TYPE_SPEED_LIMIT = 5;
+        
+        // A straight arrow painted on the road surface indicating a lane to drive straight. (StVO 297).
+        //
+        TYPE_STRAIGHT_ARROW = 6;
+        
+        // A straight arrow painted on the road surface indicating a lane to turn right (StVO 297).
+        //
+        TYPE_RIGHT_TURN_ARROW = 7;
+        
+        // A straight arrow painted on the road surface indicating a lane to turn left (StVO 297).
+        //
+        TYPE_LEFT_TURN_ARROW = 8;
 
         // An arrow painted on the road surface indicating a lane to drive straight and to turn left (StVO 297).
         // 
@@ -910,18 +922,26 @@ message RoadMarking
         // A left arrow painted on the road surface announcing a lane limitation or the end of a lane (StVO 297.1). 
         //
         TYPE_ANNOUNCE_LEFT_ARROW = 16;
+        
+        // Road markings in text form, e.g. BUS, TAXI etc.
+        //
+        TYPE_TEXT = 17;
 
         // Paint on the road surface indicating a zebra crossing.
         // 
-        TYPE_ZEBRA = 17;
+        TYPE_ZEBRA = 18;
+
+        // Paint on the road surface indicating an image of a traffic sign.
+        // 
+        TYPE_PAINTED_TRAFFIC_SIGN = 19;
 
         // Paint on the road surface indicating a generic symbol.
         // 
-        TYPE_GENERIC_SYMBOL = 18;
+        TYPE_GENERIC_SYMBOL = 20;
 
         // Paint on the road surface indicating a generic line.
         // 
-        TYPE_GENERIC_LINE = 19;
+        TYPE_GENERIC_LINE = 21;
     }
 
     // Definition of road marking colors
