@@ -20,6 +20,16 @@ package osi;
 // configuration allowed for multiple alternatives, in which case the set
 // configuration will only contain the alternative chosen.
 //
+// It should be noted that this message is not intended to provide for
+// parametrization of a generic sensor model, but rather for the automatic
+// configuration of an environment simulation in order to supply the 
+// necessary input to it, depending on its actual configuration.
+// Mechanisms to parametrize sensor models are currently packaging-specific,
+// i.e. they depend on the packaging mechanism chosen:  For FMU-packaging
+// the parametrization can be implemented using normal FMU parameters,
+// and the requested sensor input configuration can depend on those
+// parameter values by being defined as a calculatedParameter.
+//
 message SensorInputConfiguration
 {
     // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
@@ -117,21 +127,23 @@ message RadarSensorInputConfiguration
     // This represents the combined TX/RX antenna diagram
     repeated AntennaDiagramEntry combined_antenna_diagram = 1;
 
-    // Number of rays to cast across horizontal field of view
+    // Number of rays to cast across horizontal field of view (azimuth)
     optional uint32 number_of_rays_horizontal = 2;
 
-    // Number of rays to cast across vertical field of view
+    // Number of rays to cast across vertical field of view (elevation)
     optional uint32 number_of_rays_vertical = 3;
 
     // Maximum number of interactions to take into account
     optional uint32 max_number_of_interactions = 4;
 
     message AntennaDiagramEntry {
-        // Horizontal deflection of entry in sensor/antenna coordinates
+        // Horizontal deflection (azimuth) of entry in sensor/antenna
+        // coordinates
         // Unit: [rad]
         optional double horizontal_angle = 1;
 
-        // Vertical deflection of entry in sensor/antenna coordinates
+        // Vertical deflection (elevation) of entry in sensor/antenna
+        // coordinates
         // Unit: [rad]
         optional double vertical_angle = 2;
 
