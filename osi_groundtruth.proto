@@ -50,7 +50,7 @@ message GroundTruth
     //
     repeated MovingObject moving_object = 4;
 
-    // A list of stationary objects.
+    // A list of stationary objects (excluding traffic signs and traffic lights).
     //
     repeated StationaryObject stationary_object = 5;
 
@@ -62,7 +62,7 @@ message GroundTruth
     //
     repeated TrafficLight traffic_light = 7;
 
-    // A list of road surface markings. Lane Markings are excluded and defined as LaneBoundaries as part of the Lanes.
+    // A list of road surface markings (LaneMarkings are excluded and defined as LaneBoundaries as part of the Lanes).
     //
     repeated RoadMarking road_marking = 8;
 
@@ -77,4 +77,12 @@ message GroundTruth
     // Conditions of the environment.
     //
     optional EnvironmentalConditions environmental_conditions = 11;
+
+    // The country code in 3 digit numeric format: ISO Code 3166/1 [1,2]. 
+    // e.g. Germany = 276, USA = 840
+    //
+    // \par References: 
+    // [1] [ISO 3166/1 Country codes] (https://www.iso.org/obp/ui/) 
+    // [2] [ISO 3166/1 Wikipedia] (https://en.wikipedia.org/wiki/ISO_3166-1) 
+    optional uint32 country_code = 12;
 }
