@@ -68,6 +68,11 @@ message DetectedObject
     // \note Field need not be set if simulated sensor is not a camera sensor.
     optional CameraSpecificObjectData camera_specifics = 12;
 
+    // Additional data that is specific to ultrasonic sensors.
+    //
+    // \note Field need not be set if simulated sensor is not an ultrasonic sensor.
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 13;
+
     // Definition of available reference points.
     //
     enum ReferencePoint
