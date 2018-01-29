@@ -902,22 +902,22 @@ message RoadMarking
         // An arrow painted on the road surface indicating a turning point right.
         // 
         TYPE_TURNPOINT_RIGHT_ARROW = 14;
-
-        // Paint on the road surface indicating a zebra crossing.
-        // 
-        TYPE_ZEBRA = 15;
-
-        // Paint on the road surface indicating a generic symbol.
-        // 
-        TYPE_GENERIC_SYMBOL = 16;
         
         // A right arrow painted on the road surface announcing a lane limitation or the end of a lane (StVO 297.1). 
         //
-        TYPE_ANNOUNCE_RIGHT_ARROW = 17;
+        TYPE_ANNOUNCE_RIGHT_ARROW = 15;
         
         // A left arrow painted on the road surface announcing a lane limitation or the end of a lane (StVO 297.1). 
         //
-        TYPE_ANNOUNCE_LEFT_ARROW = 18;
+        TYPE_ANNOUNCE_LEFT_ARROW = 16;
+
+        // Paint on the road surface indicating a zebra crossing.
+        // 
+        TYPE_ZEBRA = 17;
+
+        // Paint on the road surface indicating a generic symbol.
+        // 
+        TYPE_GENERIC_SYMBOL = 18;
 
         // Paint on the road surface indicating a generic line.
         // 
