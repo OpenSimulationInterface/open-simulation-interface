@@ -100,16 +100,16 @@ cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
 
 
 Citing
--------------
+------
 
 For refering to OSI in your publication, please cite as:
 
 ```
 @misc{osi.2017,
-	author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
-	year = {2017},
-	title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
-	url = {http://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
-	note = {{Accessed: 2017-08-28}}
+        author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
+        year = {2017},
+        title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
+        url = {http://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
+        note = {{Accessed: 2017-08-28}}
 }
 ```
