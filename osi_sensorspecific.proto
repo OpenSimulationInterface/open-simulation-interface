@@ -2,6 +2,8 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_common.proto";
+
 package osi;
 
 //
@@ -27,13 +29,13 @@ message LidarSpecificObjectData
 //
 message CameraSpecificObjectData
 {
-    // Pedestrian head pose for behaviour prediction. Describes the yaw angle w.r.t. the ego vehicle orientation.
+    // Pedestrian head pose for behaviour prediction. Describes the head orientation w.r.t. the ego vehicle orientation.
     //
-    optional double head_pose = 1;
+    optional Orientation3d head_pose = 1;
 
-    // Pedestrian upper body pose for behaviour prediction. Describes the yaw angle w.r.t. the ego vehicle orientation.
+    // Pedestrian upper body pose for behaviour prediction. Describes the upper body orientation w.r.t. the ego vehicle orientation.
     //
-    optional double upper_body_pose = 2;
+    optional Orientation3d upper_body_pose = 2;
 }
 
 //
