@@ -135,50 +135,41 @@ message DetectionLidar
 {
     // Existence probability of the detection not based on history.
     //
-    // \note Field need not be set if false_positive_rate and false_negative_rate is defined.
+    // \note Use as confidence measure where a low value means less confidence and a high value indicates 
+    // strong confidence.
     optional double existence_probability = 1;
-  
-    // False positive rate.
-    //
-    // \note Field need not be set if existence_probability is defined.
-    optional double false_positive_rate = 2;
-
-    // False negative rate.
-    //
-    // \note Field need not be set if existence_probability is defined.
-    optional double false_negative_rate = 3;
 
     // Object ID of the object to which this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
     //
-    optional Identifier object_id = 4;
+    optional Identifier object_id = 2;
 
     // Measured position of the detection, given in spherical coordinates in sensor coordinate system.
     //
-    optional Spherical3d position = 5;
+    optional Spherical3d position = 3;
 
     // Root mean square error of the measured position of the detection.
     //
-    optional Spherical3d position_rmse = 6;
+    optional Spherical3d position_rmse = 4;
 
     // Height field is required if multiple scan points are vertically clustered. Only vertical clustering allowed (z-Axis).
     // 
-    optional double height = 7;
+    optional double height = 5;
 
     // Root mean square error of the object height.
     // 
-    optional double height_rmse = 8;
+    optional double height_rmse = 6;
 
     // Intensity or equivalent value of the detection's echo.
     // Unit: [%].
-    optional double intensity = 9;
+    optional double intensity = 7;
 
     // The free space probability in the range [0.0, 1.0] from the origin up to this detection, as given by the distance.
     // 
-    optional double free_space_probability = 10;
+    optional double free_space_probability = 8;
 
     // Attributes of the detection.
     // 
-    optional Classification classification = 11;
+    optional Classification classification = 9;
    
     // Definition of detection classifications. 
     // 
@@ -229,59 +220,50 @@ message DetectionRadarList
 //
 message DetectionRadar
 {
-    // Existence probability of the detection, using e.g. SNR and RCS, not based on history.
+    // Existence probability of the detection not based on history.
     //
-    // \note Field need not be set if false_positive_rate and false_negative_rate is defined.
+    // \note Use as confidence measure where a low value means less confidence and a high value indicates 
+    // strong confidence.
     optional double existence_probability = 1;
-  
-    // False positive rate.
-    //
-    // \note Field need not be set if existence_probability is defined.
-    optional double false_positive_rate = 2;
-
-    // False negative rate.
-    //
-    // \note Field need not be set if existence_probability is defined.
-    optional double false_negative_rate = 3;
 
     // Object ID of the object to which this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
     // 
-    optional Identifier object_id = 4;
+    optional Identifier object_id = 2;
 
     // Measured position of the detection, given in spherical coordinates in sensor coordinate system.
     //
-    optional Spherical3d position = 5;
+    optional Spherical3d position = 3;
 
     // Root mean square error of the measured position of the detection.
     // 
-    optional Spherical3d position_rmse = 6;
+    optional Spherical3d position_rmse = 4;
 
     // Absolute radial (in direction to the sensor) velocity of the detection.
     // 
-    optional double radial_velocity = 7;
+    optional double radial_velocity = 5;
 
     // Root mean square error of the object measured radial velocity.
     // 
-    optional double radial_velocity_rmse = 8;
+    optional double radial_velocity_rmse = 6;
 
     // The radar cross section (RCS) of the radar detection.
     // Unit: [dB m^2].
-    optional double rcs = 9;
+    optional double rcs = 7;
 
     // The signal to noise ratio (SNR) of the radar detection.
     // Unit: [dB m^2].
-    optional double snr = 10;
+    optional double snr = 8;
 
     // Describes the possibility if more than one object has led to this detection.
     // 
-    optional double point_target_probability = 11;
+    optional double point_target_probability = 9;
 
     // Ambiguity Information: 
     // Each ambiguous measurement generates one Ambiguity ID. Ambiguity is shown by the identical Ambiguity ID. 
     // Unambiguous measurements has Amiguity ID := 0.
-    optional Identifier ambiguity_id = 12;
+    optional Identifier ambiguity_id = 10;
 
     // Attributes of the detection.
     // 
-    optional DetectionLidar.Classification classification = 13;
+    optional DetectionLidar.Classification classification = 11;
 }
