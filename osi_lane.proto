@@ -44,7 +44,8 @@ message Lane
     //
     // \image html line_approximation_error.png "Approximation error as green line."
     //
-    // \note Centerline is defined for \c Lane::type = TYPE_DRIVING.
+    // \note Centerline is defined only for \c Lane::type = \c TYPE_DRIVING and one
+    // \c Lane::lane_pairing pair.
     repeated Vector3d center_line = 3;
 
     // Definition of the intended driving direction.
@@ -73,37 +74,34 @@ message Lane
     // \note Right isn't defined for \c Lane::type = TYPE_INTERSECTION.
     repeated Identifier right_adjacent_lane_id = 6;
 
-    // The lane's antecessors (lanes that end in the same point that this lane's center line starts from).
-    // There might be multiple antecessors e.g. in road crossings or on lane merges.
-    // Example: Considering lane 6, its antecessor is the lane with id 4.
-    repeated Identifier antecessor_lane_id = 7;
-
-    // The lane's successors (lanes that start in the same point that this lane's center line ends in).
-    // There might be multiple successors e.g. in road crossings, highway exits, or lane splits.
-    // Example: Considering lane 4, its successors are the lanes with id 6 and 7.
-    repeated Identifier successor_lane_id = 8;
+    // The antecessor/successor lane pairings of this lane. There can be multiple pairings with the same
+    // antecessor and different successor lanes and vice versa.
+    // The antecessor lanes end in the same point that this lane starts from.
+    // The successor lanes start in the same point that this lane ends in.
+    // Example:
+    repeated LanePairing lane_pairing = 7;
 
     // The id of the right boundary ID of the right lane ID w.r.t. driving direction. Empty for intersections.
     //
     // \note Left isn't defined for \c Lane::type = TYPE_INTERSECTION.
-    repeated Identifier right_lane_boundary_id = 9;
+    repeated Identifier right_lane_boundary_id = 8;
 
     // The id of the left boundary ID of the left lane ID w.r.t. driving direction. Empty for intersections.
     //
     // \note Left isn't defined for \c Lane::type = TYPE_INTERSECTION.
-    repeated Identifier left_lane_boundary_id = 10;
+    repeated Identifier left_lane_boundary_id = 9;
 
     // The id of the free boundary ID.
     //
     // \note Lanes with \c Lane::type = TYPE_INTERSECTION use only free lane boundaries
-    repeated Identifier free_lane_boundary_id = 11;
+    repeated Identifier free_lane_boundary_id = 10;
 
     // A lane framing describes the surrounding of the lane segment.
     //
-    optional LaneFraming lane_framing = 12;
+    optional LaneFraming lane_framing = 11;
 
     // The condition of the lane, e.g. influenced by weather. 
-    optional RoadCondition road_condition = 13;
+    optional RoadCondition road_condition = 12;
 
     // Definition of available lane types.
     //
@@ -212,6 +210,19 @@ message Lane
         // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling, University of Michigan Transportation Research Institute, 1998.
         optional double surface_roughness = 6;
     }
+}
+
+// \brief The lane id pairings of antecessor and successor lanes.
+//
+message LanePairing
+{
+    // The antecessor lane.
+    //
+    optional Identifier antecessor_lane_id = 1;
+
+    // The successor lane.
+    //
+    optional Identifier successor_lane_id = 2;
 }
 
 //
