@@ -83,6 +83,9 @@ message Lane
     //
     optional LaneFraming lane_framing = 9;
 
+    // The condition of the lane, e.g. influenced by weather. 
+    optional RoadCondition road_condition = 10;
+
     // Definition of available lane types.
     //
     enum Type
@@ -143,6 +146,64 @@ message Lane
         // The lane segment is on a bridge.
         //
         LANE_FRAMING_BRIDGE = 4;
+    }
+
+    //
+    // \brief The condition of the roads surface.
+    //
+    message RoadCondition
+    {
+        // The temperature of the roads surface in Kelvin.
+        // Unit: [K]
+        optional double surface_temperature = 1;
+
+        // The height of the water film on top of the surface in mm.
+        // Unit: [mm]
+        optional double surface_water_film = 2;
+
+        // The temperature where the water on top of the surface would start
+        // to freeze or dew in Kelvin.
+        // Unit: [K]
+        optional double surface_freezing_point = 3;
+
+        // The percentage of ice covering the road.
+        // Unit: [%]
+        optional double surface_ice = 4;
+
+        // The coefficient presenting the friction and the grip of the road.
+        //
+        optional double surface_friction = 5;
+
+        // The coefficient presenting the roughness of the road. 
+        // International Roughness Index (IRI) [1] values range from 0 = smooth ground (equivalent to driving on a plate of glass) up to > 20 mm/m (a very rough road). 
+        //
+        // Estimated value ranges (IRI):
+        //        0.0 [mm/m] absolute perfect
+        // 0.3 -  1.8 [mm/m] airport runways and superhighways
+        // 1.4 -  3.4 [mm/m] new pavements
+        // 2.2 -  5.7 [mm/m] older pavements
+        // 3.2 -  9.8 [mm/m] maintained unpaved roads
+        // 4.0 - 11.0 [mm/m] damaged pavements
+        // 8.0 - > 20 [mm/m] rough unpaved roads
+        //
+        // Speed of normal use (IRI):
+        //  30 [km/h] - 20   [mm/m]
+        //  50 [km/h] - 14.5 [mm/m]
+        //  60 [km/h] - 10.0 [mm/m]
+        //  80 [km/h] -  8.5 [mm/m]
+        // 100 [km/h] -  3.4 [mm/m]
+        //
+        // Road conditions (IRI);
+        // 15 [mm/m] erosion gulleys and deep depressions
+        // 11 [mm/m] frequent shallow depressions, some deep
+        //  9 [mm/m] frequent minor depressions
+        //  5 [mm/m] surface imperfections
+        //
+        // Unit: [mm/m]
+        //
+        // \par References: 
+        // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling, University of Michigan Transportation Research Institute, 1998.
+        optional double surface_roughness = 6;
     }
 }
 
