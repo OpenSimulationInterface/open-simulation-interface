@@ -153,16 +153,17 @@ message Lane
     //
     message RoadCondition
     {
-        // The temperature of the roads surface in degree Celsius.
-        // Unit: [°C]
+        // The temperature of the roads surface in Kelvin.
+        // Unit: [K]
         optional double surface_temperature = 1;
 
         // The height of the water film on top of the surface in mm.
         // Unit: [mm]
         optional double surface_water_film = 2;
 
-        // The temperature where the water on top of the surface would start to freeze or dew in degree Celsius.
-        // Unit: [°C]
+        // The temperature where the water on top of the surface would start
+        // to freeze or dew in Kelvin.
+        // Unit: [K]
         optional double surface_freezing_point = 3;
 
         // The percentage of ice covering the road.
