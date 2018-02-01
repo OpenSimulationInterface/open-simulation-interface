@@ -28,3 +28,11 @@ message CameraSpecificObjectData
 {
     // currently no fields.
 }
+
+//
+// \brief Message encapsulates all data for detected objects that is specific to ultrasonic sensors.
+//
+message UltrasonicSpecificObjectData
+{
+    // currently no fields.
+}
