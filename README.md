@@ -102,7 +102,7 @@ cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
 Citing
 ------
 
-For refering to OSI in your publication, please cite as:
+Use the following citation for referencing the OSI interface in your scientific work:
 
 ```
 @misc{osi.2017,
