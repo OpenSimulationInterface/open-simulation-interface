@@ -54,7 +54,7 @@ class GenerateProtobuf(install):
         'osi_environment.proto',
         'osi_groundtruth.proto',
         'osi_landmark.proto',
-        'osi_lowleveldata.proto',
+        'osi_featuredata.proto',
         'osi_modelinternal.proto',
         'osi_object.proto',
         'osi_occupant.proto',
