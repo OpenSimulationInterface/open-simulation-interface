@@ -44,22 +44,25 @@ message Lane
     //
     // \image html line_approximation_error.png "Approximation error as green line."
     //
+    // \note Centerline is defined only for \c Lane::type = \c TYPE_DRIVING and one
+    // \c Lane::lane_pairing pair.
     repeated Vector3d center_line = 3;
 
-    // The boundary of the lane.
+    // Definition of the intended driving direction.
     //
-    // The lane boundaries describe the lane markings or other boundaries delimiting the lane as well as free lines that
-    // might be used e.g. in construction sites. The lane markings do not have to be parallel to the center_line, but
-    // they are the basis for calculating the width of the lane at any given distance.
+    // Defined and used for driving lanes.
+    // true means driving direction is according to ascending order of center line points.
+    // false means driving direction is according to descending order of center line points.
     //
-    // Example: The double solid line above the 3, and the dashed line below the 3. (see reference picture) There might
-    // also be additional free lanes.
-    repeated LaneBoundary lane_boundary = 4;
+    // \note CenterlineIsDrivingDirection is defined for \c Lane::type = TYPE_DRIVING.
+    optional bool center_line_is_driving_direction = 4;
 
     // List of ids of all lane segments that are directy adjacent to the lane on the left side (w.r.t. intended driving
     // direction). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent
     // segments if there is a split/merge point in the adjacent lane.
     // Example: The lane id 2 is the only left adjacent lane for lane id 3 in the reference picture.
+    //
+    // \note Left isn't defined for \c Lane::type = TYPE_INTERSECTION.
     repeated Identifier left_adjacent_lane_id = 5;
 
     // List of ids of all lane segments that are directy adjacent to the lane on the right side (w.r.t. intended driving
@@ -67,24 +70,38 @@ message Lane
     // segments if there is a split/merge point in the adjacent lane.
     // Example: The lane ids 4 and 7 are the right adjacent lane segments for lane id 3 in the reference picture due to
     // the lane split. Lane id 6 is not a right adjacent lane to lane id 3 as they are separated by lane id 7.
+    //
+    // \note Right isn't defined for \c Lane::type = TYPE_INTERSECTION.
     repeated Identifier right_adjacent_lane_id = 6;
 
-    // The lane's antecessors (lanes that end in the same point that this lane's center line starts from).
-    // There might be multiple antecessors e.g. in road crossings or on lane merges.
-    // Example: Considering lane 6, its antecessor is the lane with id 4.
-    repeated Identifier antecessor_lane_id = 7;
+    // The antecessor/successor lane pairings of this lane. There can be multiple pairings with the same
+    // antecessor and different successor lanes and vice versa.
+    // The antecessor lanes end in the same point that this lane starts from.
+    // The successor lanes start in the same point that this lane ends in.
+    // Example:
+    repeated LanePairing lane_pairing = 7;
 
-    // The lane's successors (lanes that start in the same point that this lane's center line ends in).
-    // There might be multiple successors e.g. in road crossings, highway exits, or lane splits.
-    // Example: Considering lane 4, its successors are the lanes with id 6 and 7.
-    repeated Identifier successor_lane_id = 8;
+    // The id of the right boundary ID of the right lane ID w.r.t. driving direction. Empty for intersections.
+    //
+    // \note Left isn't defined for \c Lane::type = TYPE_INTERSECTION.
+    repeated Identifier right_lane_boundary_id = 8;
+
+    // The id of the left boundary ID of the left lane ID w.r.t. driving direction. Empty for intersections.
+    //
+    // \note Left isn't defined for \c Lane::type = TYPE_INTERSECTION.
+    repeated Identifier left_lane_boundary_id = 9;
+
+    // The id of the free boundary ID.
+    //
+    // \note Lanes with \c Lane::type = TYPE_INTERSECTION use only free lane boundaries
+    repeated Identifier free_lane_boundary_id = 10;
 
     // A lane framing describes the surrounding of the lane segment.
     //
-    optional LaneFraming lane_framing = 9;
+    optional LaneFraming lane_framing = 11;
 
     // The condition of the lane, e.g. influenced by weather. 
-    optional RoadCondition road_condition = 10;
+    optional RoadCondition road_condition = 12;
 
     // Definition of available lane types.
     //
@@ -100,27 +117,15 @@ message Lane
         
         // A normal lane.
         // E.g. lanes with ids 1, 2, 3, 4 and 7 of the highway_exit image.
-        TYPE_NORMAL = 2;
-        
-        // A stop/emergency lane on highways/freeways.
-        // E.g. lane with id 5 of the highway_exit image.
-        TYPE_EMERGENCY = 3;
-        
-        // A freeway/highway entry lane.
+        TYPE_DRIVING = 2;
+
+        // A road where driving is normally not permitted
         //
-        TYPE_ENTRANCE = 4;
-        
-        // A freeway/highway exit lane.
-        // E.g. lane with id 6 of the highway_exit image.
-        TYPE_EXIT = 5;
-        
-        // A car pooling lane.
+        TYPE_NONDRIVING = 3;
+
+        // An intersection as a lane.
         //
-        TYPE_HIGH_OCCUPANCY_VEHICLE = 6;
-        
-        // A road area / lane reserved for parking.
-        //
-        TYPE_PARKING = 7;
+        TYPE_INTERSECTION = 4;
     }
 
     // Definition of available lane framing types.
@@ -207,6 +212,19 @@ message Lane
     }
 }
 
+// \brief The lane id pairings of antecessor and successor lanes.
+//
+message LanePairing
+{
+    // The antecessor lane.
+    //
+    optional Identifier antecessor_lane_id = 1;
+
+    // The successor lane.
+    //
+    optional Identifier successor_lane_id = 2;
+}
+
 //
 // \brief A lane boundary defining the border of a lane.
 //
@@ -216,6 +234,9 @@ message Lane
 //
 message LaneBoundary
 {
+    //The id of the lane boundary.
+    optional Identifier id = 1;
+
     // The list of individual points defining the location of the lane boundary.
     //
     // Since a BoundaryPoint is part of a sequence only the position attribute has to be set for each instance. All
@@ -225,11 +246,7 @@ message LaneBoundary
     //
     // \attention For BoundaryPoints the same rules apply as for Lane::center_line regarding maximum distance and
     // approximation error.
-    repeated BoundaryPoint boundary_line = 1;
-
-    // The location of the lane boundary within the lane.
-    //
-    optional BoundaryLocation location = 2;
+    repeated BoundaryPoint boundary_line = 2;
 
     // The type of the lane boundary.
     //
@@ -238,31 +255,6 @@ message LaneBoundary
     // The color of the lane boundary in case of lane markings.
     //
     optional Color color = 4;
-
-    // The location of the lane boundary within the lane.
-    //
-    enum BoundaryLocation
-    {
-        // The location of the boundary is unknown. Value must not be used in ground truth.
-        //
-        BOUNDARY_LOCATION_UNKNOWN = 0;
-        
-        // Other (unspecified but known) boundary location.
-        //
-        BOUNDARY_LOCATION_OTHER = 1;
-        
-        // A left lane boundary.
-        //
-        BOUNDARY_LOCATION_LEFT = 2;
-        
-        // A right lane boundary.
-        //
-        BOUNDARY_LOCATION_RIGHT = 3;
-        
-        // A free lane boundary.
-        //
-        BOUNDARY_LOCATION_FREE = 4;
-    }
 
     // The lane boundary type.
     // There are no double lines, e.g. solid solid or dashed solid, as each lane will define its own side of the lane boundary.
@@ -348,6 +340,10 @@ message LaneBoundary
         // Marking with green color;
         //
         COLOR_GREEN = 7;
+
+        // Marking with violet color.
+        //
+        COLOR_VIOLET = 8;
     }
 }
 
