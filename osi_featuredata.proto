@@ -114,6 +114,36 @@ message DetectionHeader
     }
 }
 
+// Definition of common detection classifications. 
+// 
+enum DetectionClassification
+{
+    // detection is unknown (must not be used in ground truth).
+    //
+    DETECTION_CLASSIFICATION_UNKNOWN = 0;
+
+    // Other (unspecified but known) detection.
+    //
+    DETECTION_CLASSIFICATION_OTHER = 1;
+
+    // Invalid detection, not to be used for object tracking, of unspecified type (none of the other types applies).
+    //
+    DETECTION_CLASSIFICATION_INVALID = 2;
+
+    // Clutter (noise, spay, rain, fog etc.).
+    //
+    DETECTION_CLASSIFICATION_CLUTTER = 3;
+
+    // Overdrivable (ground etc.).
+    //
+    DETECTION_CLASSIFICATION_OVERDRIVABLE = 4;
+
+    // Underdrivable (sign gantry etc.).
+    //
+    DETECTION_CLASSIFICATION_UNDERDRIVABLE = 5;
+}
+
+
 //
 // \brief A list of lidar detection.
 //
@@ -169,36 +199,8 @@ message LidarDetection
 
     // Attributes of the detection.
     // 
-    optional Classification classification = 9;
+    optional DetectionClassification classification = 9;
    
-    // Definition of detection classifications. 
-    // 
-    enum Classification
-    {
-        // detection is unknown (must not be used in ground truth).
-        //
-        CLASSIFICATION_UNKNOWN = 0;
-
-        // Other (unspecified but known) detection.
-        //
-        CLASSIFICATION_OTHER = 1;
-
-        // Invalid detection, not to be used for object tracking, of unspecified type (none of the other types applies).
-        //
-        CLASSIFICATION_INVALID = 2;
-
-        // Clutter (noise, spay, rain, fog etc.).
-        //
-        CLASSIFICATION_CLUTTER = 3;
-
-        // Overdrivable (ground etc.).
-        //
-        CLASSIFICATION_OVERDRIVABLE = 4;
-
-        // Underdrivable (sign gantry etc.).
-        //
-        CLASSIFICATION_UNDERDRIVABLE = 5;
-    }
 }
 
 //
@@ -265,5 +267,5 @@ message RadarDetection
 
     // Attributes of the detection.
     // 
-    optional LidarDetection.Classification classification = 11;
+    optional DetectionClassification classification = 11;
 }
