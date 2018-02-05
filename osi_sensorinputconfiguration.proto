@@ -30,6 +30,37 @@ package osi;
 // and the requested sensor input configuration can depend on those
 // parameter values by being defined as a calculatedParameter.
 //
+// The sensor-technology specific configurations are intended to allow
+// sensor models to use useful sensor modeling base capabilities of the
+// environment simulation (e.g. ray tracing engines, camera/lens image
+// generation), which need configuration by the sensor model to supply
+// suitable data. The specified details are not directly related to
+// sensor details, but rather provide the necessary base machinery
+// setup so that the data provided is suitable to model the sensor to
+// a sufficient degree of fidelity internally.  For example the number
+// of rays parameters for the Lidar configuration does not match one to
+// one with the number of laser rays a lidar sensor might cast, but
+// rather specifies the number of rays being cast by a ray 
+// casting/tracing engine, which might be many more than the physical
+// rays being cast at any point in time.
+//
+// This also implies that for sensors that have dynamically varying
+// characteristics (e.g. switching between wide and narrow focus, 
+// switching update rates, etc.), the basic approach is to specify
+// the maximum amount of data needed at all times here, and internally
+// select the data that is needed at any point in time.
+//
+// In order to optimize the workload and bandwidth needed for sensor
+// simulation, OSI packaging mechanisms can specify the ability to
+// exchange SensorInputConfiguration messages not only prior to
+// simulation startup, but also dynamically during simulation runs,
+// thereby allowing dynamic input configuration switching to only
+// request data that is needed in the current sensor mode.  However
+// this is more or less only a resource optimization strategy, and
+// since providing fine-grained information like this can reveal
+// internal characteristics of the sensor and/or sensor model, will
+// not always be the preferred approach for reasons of IP protection.
+//
 message SensorInputConfiguration
 {
     // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
@@ -128,12 +159,21 @@ message RadarSensorInputConfiguration
     repeated AntennaDiagramEntry combined_antenna_diagram = 1;
 
     // Number of rays to cast across horizontal field of view (azimuth)
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_horizontal = 2;
 
     // Number of rays to cast across vertical field of view (elevation)
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_vertical = 3;
 
     // Maximum number of interactions to take into account
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 max_number_of_interactions = 4;
 
     message AntennaDiagramEntry {
@@ -158,21 +198,36 @@ message RadarSensorInputConfiguration
 message LidarSensorInputConfiguration
 {
     // Number of rays to cast across horizontal field of view
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_horizontal = 1;
 
     // Number of rays to cast across vertical field of view
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_vertical = 2;
 
     // Maximum number of interactions to take into account
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 max_number_of_interactions = 3;
 }
 
 message CameraSensorInputConfiguration
 {
     // Number of pixels to produce across horizontal field of view
+    //
+    // \note This is a characteristic of the rendering engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_pixels_horizontal = 1;
 
     // Number of pixels to produce across horizontal field of view
+    //
+    // \note This is a characteristic of the rendering engine of the
+    // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_pixels_vertical = 2;
 
     // Format for image data (includes number, kind and format of channels)
