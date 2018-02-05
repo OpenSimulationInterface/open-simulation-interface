@@ -16,11 +16,11 @@ message FeatureData
 {
     // Lidar detection list for multiple lidar sensors.
     //
-    repeated DetectionLidarList detection_lidar_list = 1;
+    repeated LidarDetectionList lidar_detection_list = 1;
 
     // Radar detection list for multiple lidar sensors.
     //
-    repeated DetectionRadarList detection_radar_list = 2;
+    repeated RadarDetectionList radar_detection_list = 2;
 }
 
 //
@@ -28,7 +28,7 @@ message FeatureData
 //
 message DetectionHeader
 {
-    // Version number of used detecion list messages (DetectionHeader, DetectionLidar, DetectionLidarList etc.).
+    // Version number of used detecion list messages (DetectionHeader, LidarDetection, LidarDetectionList etc.).
     // 
     optional DetectionInterfaceVersion version = 1;
 
@@ -96,7 +96,7 @@ message DetectionHeader
    }
 
     //
-    // \brief Version of detection messages (DetectionHeader, DetectionLidar, DetectionLidarList etc.).
+    // \brief Version of detection messages (DetectionHeader, LidarDetection, LidarDetectionList etc.).
     //
     message DetectionInterfaceVersion
     {
@@ -117,7 +117,7 @@ message DetectionHeader
 //
 // \brief A list of lidar detection.
 //
-message DetectionLidarList
+message LidarDetectionList
 {
     // Header attributes of lidar detection.
     //
@@ -125,13 +125,13 @@ message DetectionLidarList
 
     // List of lidar detections.
     //
-    repeated DetectionLidar detection = 2;
+    repeated LidarDetection detection = 2;
 }
 
 //
 // \brief A point or vertical line in a lidar point cloud.
 //
-message DetectionLidar
+message LidarDetection
 {
     // Existence probability of the detection not based on history.
     //
@@ -204,7 +204,7 @@ message DetectionLidar
 //
 // \brief A list of radar detections.
 //
-message DetectionRadarList
+message RadarDetectionList
 {    
     // Header attributes of radar detection.
     //
@@ -212,13 +212,13 @@ message DetectionRadarList
 
     // List of radar detections constituting the radar detection list.
     //
-    repeated DetectionRadar detection = 2;
+    repeated RadarDetection detection = 2;
 }
 
 //
 // \brief A radar detection.
 //
-message DetectionRadar
+message RadarDetection
 {
     // Existence probability of the detection not based on history.
     //
@@ -265,5 +265,5 @@ message DetectionRadar
 
     // Attributes of the detection.
     // 
-    optional DetectionLidar.Classification classification = 11;
+    optional LidarDetection.Classification classification = 11;
 }
