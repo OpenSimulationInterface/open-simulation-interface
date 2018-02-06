@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_common.proto";
 import "osi_lane.proto";
+import "osi_detectedlandmark.proto";
 
 package osi;
 
@@ -24,4 +25,47 @@ message DetectedLane
     // Estimated probability that this lane really exists. Range [0,1].
     //
     optional double existence_probability = 3;
+
+    // The measurement state of the detected lane.
+    //
+    optional DetectedTrafficSign.MeasurementState measurement_state = 4;
 }
+
+//
+// \brief A lane segment as detected by the sensor.
+//
+message DetectedLaneBoundary
+{
+    // The id of the original laneboundary in the ground truth.
+    // In case of a ghost laneboundary (no corresponding ground truth), this field should be unset.
+    optional Identifier ground_truth_id = 1;
+
+    // The basic meassured lane boundary.
+    //
+    optional LaneBoundary lane_boundary = 2;
+
+    // State of the measurement. Lane boundary measured in the current image or Lane boundary predicted (no measurement in current image).
+    //
+    optional DetectedTrafficSign.MeasurementState measurement_state = 3;
+
+    // Probability of the detection that the lane exists.
+    //
+    optional double existence_probability = 4;
+
+    // Confidence of the classified lane boundary type.
+    //
+    optional double type_confidence = 5;
+
+    // Confidence of the classified lane marker color.
+    //
+    optional double color_confidence = 6;
+
+    // The root mean square error of the BoundaryPoint information from a LaneBoundary.
+    //
+    repeated BoundaryPoint boundary_line_rmse = 7;
+
+    // Confidence of the segments of the BoundaryPoint information from a LaneBoundary.
+    //
+    repeated double boundary_line_confidence = 8;
+}
+
