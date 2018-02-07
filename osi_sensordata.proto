@@ -26,9 +26,30 @@ message SensorData
     //
     optional Identifier id = 1;
 
-    // The data timestamp of the sensor data. Zero time is arbitrary but must be identical for all messages.
-    // Zero time does not need to coincide with the unix epoch. Recommended is the starting time point of the
+    // The timestamp of the sensor data. Zero time is arbitrary but must be
+    // identical for all messages. Zero time does not need to coincide with
+    // the unix epoch. Recommended is the starting time point of the
     // simulation.
+    //
+    // \note This is the point in time that the sensor data message becomes
+    // available to the rest of the system (i.e. the driving functions), so
+    // it corresponds with the sending time and thus takes the latency of
+    // internal processing of the sensor into account. Latencies of bus
+    // communications, etc., that occur after the sensor output have to be
+    // applied on top of this, if needed.
+    //
+    // The time that the actual measurement was performed (which will usually
+    // correspond with the timestamp of the GroundTruth the sensor model
+    // processed to arrive at these results) can be found in the additional
+    // field SensorData::last_measurement_time.
+    //
+    // For an ideal zero latency sensor the two timestamps would be the same
+    // and would correspond with the timestamp from the current GroundTruth
+    // message.
+    //
+    // For a sensor model that does not know its own internal latencies (e.g.
+    // a dumb sensor with no internal time concept), the two timestamps might
+    // also be identical, but delayed from the GroundTruth timestamp.
     optional Timestamp timestamp = 2;
 
     // Should be used as constant; use this if you require fields that do not exist in osi_sensordata or for the purpose
@@ -93,6 +114,15 @@ message SensorData
     // The id of the ego lane in the DetectedLane data, relative to the sensor.
     // 
     optional Identifier ego_lane_id = 15;
+    
+    // The timestamp of the last real-world measurement (e.g. GT input) that
+    // this set of sensor data takes into account.  This in effect is the last
+    // time instance of reality the measurements correspond to.  See field
+    // SensorData::timestamp for a detailed discussion.  This value is also
+    // the upper bound to the DetectedObjectHeader::measurement_time and the
+    // feature data DetectionHeader::measurement_time fields.
+    // 
+    optional Timestamp last_measurement_time = 16;
 }
 
 //

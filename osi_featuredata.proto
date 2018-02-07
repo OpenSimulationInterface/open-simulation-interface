@@ -32,9 +32,13 @@ message DetectionHeader
     // 
     optional DetectionInterfaceVersion version = 1;
 
-    // Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time. 
+    // Time stamp at which the measurement was taken (not the time at which it
+    // was processed or at which it is transmitted) in the global synchronized
+    // time.
     //
-    optional Timestamp timestamp = 2;
+    // \note See SensorData::timestamp and SensorData::last_measurement_time
+    // for detailed discussions on the semantics of time-related fields.
+    optional Timestamp measurement_time = 2;
 
     // Continuous up counter to identify the cycle.
     //

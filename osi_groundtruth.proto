@@ -37,9 +37,15 @@ message GroundTruth
     //
     optional InterfaceVersion version = 1;
 
-    // The data timestamp of the simulation environment. Zero time is arbitrary but must be identical for all messages.
-    // Zero time does not need to coincide with the unix epoch. Recommended is the starting time point of the
-    // simulation.
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the unix epoch. Recommended is the starting time point of
+    // the simulation.
+    //
+    // \note For ground truth data this timestamp coincides both with the
+    // notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for ground truth data, as opposed to
+    // sensor data).
     optional Timestamp timestamp = 2;
 
     // A list of vehicles.
