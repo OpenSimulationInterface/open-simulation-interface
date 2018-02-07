@@ -179,8 +179,10 @@ message Lane
         //
         optional double surface_friction = 5;
 
-        // The coefficient presenting the roughness of the road. 
-        // International Roughness Index (IRI) [1] values range from 0 = smooth ground (equivalent to driving on a plate of glass) up to > 20 mm/m (a very rough road). 
+        // The coefficient presenting the roughness or unevenness of the road.
+        // International Roughness Index (IRI) [1] values range from 0 = smooth
+        // ground (equivalent to driving on a plate of glass) up to > 20 mm/m
+        // (a very rough road). 
         //
         // Estimated value ranges (IRI):
         //        0.0 [mm/m] absolute perfect
@@ -207,8 +209,23 @@ message Lane
         // Unit: [mm/m]
         //
         // \par References: 
-        // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling, University of Michigan Transportation Research Institute, 1998.
+        // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
+        // University of Michigan Transportation Research Institute, 1998.
         optional double surface_roughness = 6;
+        
+        // The surface texture or fine roughness
+        //
+        // Whereas the IRI-based roughness or unevenness measure only takes
+        // into account road wavelengths around 0.5m - 100m, the surface texture
+        // or fine roughness measures only wavelengths below 0.5m.
+        // It is given as the standard height deviation of fine roughness
+        //
+        // Unit: [m]
+        //
+        // \par References: 
+        // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
+        // University of Michigan Transportation Research Institute, 1998.
+        optional double surface_texture = 7;
     }
 }
 
