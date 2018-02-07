@@ -155,42 +155,57 @@ message SensorInputConfiguration
 
 message RadarSensorInputConfiguration
 {
-    // This represents the combined TX/RX antenna diagram
-    repeated AntennaDiagramEntry combined_antenna_diagram = 1;
-
     // Number of rays to cast across horizontal field of view (azimuth)
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
-    optional uint32 number_of_rays_horizontal = 2;
+    optional uint32 number_of_rays_horizontal = 1;
 
     // Number of rays to cast across vertical field of view (elevation)
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
-    optional uint32 number_of_rays_vertical = 3;
+    optional uint32 number_of_rays_vertical = 2;
 
     // Maximum number of interactions to take into account
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
-    optional uint32 max_number_of_interactions = 4;
+    optional uint32 max_number_of_interactions = 3;
+
+    // Emitter Frequency
+    //
+    // This information can be used by a ray tracing engine to calculate
+    // doppler shift information and take into account differences in
+    // refraction and reflection.  For doppler shift calculations the
+    // sensor model can of course always provide a nominal frequency and
+    // adjust the resulting doppler shift information to actual frequency
+    // through frequency adjustments.  For material and geometry interaction
+    // purposes the frequency is also relevant.
+    //
+    // Unit: [Hz]
+    optional double emitter_frequency = 4;
+    
+    // This represents the combined TX/RX antenna diagram
+    repeated AntennaDiagramEntry combined_antenna_diagram = 5;
 
     message AntennaDiagramEntry {
         // Horizontal deflection (azimuth) of entry in sensor/antenna
         // coordinates
+        //
         // Unit: [rad]
         optional double horizontal_angle = 1;
 
         // Vertical deflection (elevation) of entry in sensor/antenna
         // coordinates
+        //
         // Unit: [rad]
         optional double vertical_angle = 2;
 
         // Combined response of emitter and receiver antenna at this
-        // point
+        // point (positive dB is gain, negative dB is attenuation)
+        //
         // Unit: [dB]
-        // TBD: Merge with emitted power thus specify in dBm?
         optional double response = 3;
     }
 }
@@ -214,6 +229,19 @@ message LidarSensorInputConfiguration
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 max_number_of_interactions = 3;
+
+    // Emitter Frequency
+    //
+    // This information can be used by a ray tracing engine to calculate
+    // doppler shift information and take into account differences in
+    // refraction and reflection.  For doppler shift calculations the
+    // sensor model can of course always provide a nominal frequency and
+    // adjust the resulting doppler shift information to actual frequency
+    // through frequency adjustments.  For material and geometry interaction
+    // purposes the frequency is also relevant.
+    //
+    // Unit: [Hz]
+    optional double emitter_frequency = 4;
 }
 
 message CameraSensorInputConfiguration
