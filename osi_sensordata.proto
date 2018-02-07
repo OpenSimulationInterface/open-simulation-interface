@@ -57,9 +57,9 @@ message SensorData
     //
     optional SensorDataGroundTruth ground_truth = 3;
     
-    // The id of the ego vehicle in the ground_truth data.
+    // The id of the host vehicle in the ground_truth data.
     //    
-    optional Identifier ego_vehicle_id = 4;
+    optional Identifier host_vehicle_id = 4;
 
     // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
     //
@@ -94,7 +94,7 @@ message SensorData
     // 
     repeated DetectedLane lane = 10;
 
-    // The list of occupants of the ego vehicle
+    // The list of occupants of the host vehicle
     // 
     repeated DetectedOccupant occupant = 11;
 
@@ -111,9 +111,10 @@ message SensorData
     // This excludes lane boundary marking as these are included in DetectedLane.
     repeated DetectedLaneBoundary lane_boundary = 14;
 
-    // The id of the ego lane in the DetectedLane data, relative to the sensor.
+    // The id of the lane the host vehicle travels on in the DetectedLane data,
+    // relative to the sensor.
     // 
-    optional Identifier ego_lane_id = 15;
+    optional Identifier host_vehicle_lane_id = 15;
     
     // The timestamp of the last real-world measurement (e.g. GT input) that
     // this set of sensor data takes into account.  This in effect is the last

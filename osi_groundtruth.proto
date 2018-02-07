@@ -15,21 +15,27 @@ package osi;
 //
 // \brief The ground truth information from the simulation environment.
 //
-// This ground truth information is supposed to describe the whole simulated environment around any simulated vehicle.
-// For each simulated ego vehicle (might only be one, but could also be multiple) define an area around the vehicle
-// which is greater than the combined field of views (FOV) of all sensors obstructed in the vehicle. The ground truth
-// data is supposed to describe the convex hull of all such areas w.r.t. a global simulation coordinate system.
+// This ground truth information is supposed to describe the whole simulated
+// environment around any simulated vehicle.  For each simulated host vehicle
+// (might only be one, but could also be multiple) define an area around the
+// vehicle which is greater than the combined field of views (FOV) of all
+// sensors obstructed in the vehicle. The ground truth data is supposed to
+// describe the convex hull of all such areas w.r.t. a global simulation
+// coordinate system.
 //
-// The simulation coordinate system might change during the simulation if and only if, all coordinates w.r.t. this
-// coordinate system are also changed.
+// The simulation coordinate system might change during the simulation if and
+// only if, all coordinates w.r.t. this coordinate system are also changed.
 //
-// The data has to be sent at a rate defined by the receiving partner. When sending, values with default values might be
-// left default in order to improve performance.
+// The data has to be sent at a rate defined by the receiving partner. When
+// sending, values with default values might be left default in order to improve
+// performance.
 //
-// To provide a complete interface, all fields of all messages have to be set, unless specifically stated in the field's
-// definition that the field may remain unset.
+// To provide a complete interface, all fields of all messages have to be set,
+// unless specifically stated in the field's definition that the field may
+// remain unset.
 //
-// In enums (e.g. types) the unknown (first / default) value is not allowed to be used in the ground truth interface.
+// In enums (e.g. types) the unknown (first / default) value is not allowed to
+// be used in the ground truth interface.
 //
 message GroundTruth
 {
@@ -80,7 +86,7 @@ message GroundTruth
     //
     repeated LaneBoundary lane_boundary = 10;
 
-    // A list of passengers in the (ego) vehicle(s).
+    // A list of passengers in the (host) vehicle(s).
     //
     repeated Occupant occupant = 11;
 
