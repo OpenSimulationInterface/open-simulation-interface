@@ -7,16 +7,20 @@ import "osi_common.proto";
 package osi;
 
 //
-// \brief A vehicle (ego or other).
+// \brief A vehicle (host or other).
 //
-// This is basically a BaseObject with additional attributes, such as type and lights. 
-// The origin of the rear (front) axis coordinate system in world coordinates is calculated as: 
-// base.position + R * bbcenter_to_rear (front) for the ego vehicle (R rotates from vehicle to world frame, i.e. inverse orientation of base.orientation). 
+// This is basically a BaseObject with additional attributes, such as type and
+// lights.  The origin of the rear (front) axis coordinate system in world
+// coordinates is calculated as:  base.position + R * bbcenter_to_rear (front)
+// for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
+// orientation of base.orientation).
 // 
-// For all vehicles, including ego vehicles, the position given 
-// in base.position points to the center of the vehicle's bounding box.
+// For all vehicles, including host vehicles, the position given  in
+// base.position points to the center of the vehicle's bounding box.
 //
-// The object coordinates are defined as x-axis is the direction from rear to front of the vehicle, y-axis corresponds to rear axle and z-axis points to vehicle ceiling. 
+// The object coordinates are defined as x-axis is the direction from rear to
+// front of the vehicle, y-axis corresponds to rear axle and z-axis points to
+// vehicle ceiling.
 //
 message Vehicle
 {
@@ -36,9 +40,9 @@ message Vehicle
     //
     optional LightState light_state = 4;
 
-    // Flag defining whether the vehicle is a simulated ego vehicle: True for ego vehicle(s), false for other vehicles.
-    // See the description above!
-    optional bool ego_vehicle = 5;
+    // Flag defining whether the vehicle is a simulated host vehicle: True for
+    // host vehicle(s), false for other vehicles.  See the description above!
+    optional bool host_vehicle = 5;
 
     // The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) 
     // of the rear axle under neutral load conditions. In object coordinates.
@@ -56,8 +60,8 @@ message Vehicle
     // \note Field need not be set if has_Trailer is set to false or use value for non valid id.
     optional Identifier trailer_id = 9;
 
-    // The id of the driver of the (ego) vehicle.
-    // \note Field need not be set if ego_vehicle is set to false or use value for non valid id.
+    // The id of the driver of the (host) vehicle.
+    // \note Field need not be set if host_vehicle is set to false or use value for non valid id.
     optional Identifier driver = 10;
     
     // The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z)

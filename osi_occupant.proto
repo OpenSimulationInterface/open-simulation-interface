@@ -7,7 +7,7 @@ import "osi_common.proto";
 package osi;
 
 //
-// \brief An occupant of an ego vehicle, especially the driver of the vehicle.
+// \brief An occupant of a host vehicle, especially the driver of the vehicle.
 //
 message Occupant
 {
