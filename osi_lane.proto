@@ -217,7 +217,7 @@ message Lane
         //
         // Whereas the IRI-based roughness or unevenness measure only takes
         // into account road wavelengths around 0.5m - 100m, the surface texture
-        // or fine roughness measures only wavelengths below 0.5m.
+        // or fine roughness [2] measures only wavelengths below 0.5m.
         // It is given as the standard height deviation of fine roughness
         //
         // Unit: [m]
@@ -225,6 +225,9 @@ message Lane
         // \par References: 
         // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
         // University of Michigan Transportation Research Institute, 1998.
+        // [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung für
+        // ein bildgebendes Kfz-Radar, Dissertation, Universität Karlsruhe,
+        // Mai 1998.
         optional double surface_texture = 7;
     }
 }
