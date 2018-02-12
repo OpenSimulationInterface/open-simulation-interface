@@ -60,8 +60,9 @@ class GenerateProtobuf(install):
         'osi_occupant.proto',
         'osi_lane.proto',
         'osi_sensordata.proto',
+        'osi_sensorinputconfiguration.proto',
         'osi_sensorspecific.proto',
-        'osi_sensorinputconfiguration.proto')
+        'osi_sensorview.proto')
 
     """ Generate Protobuf Messages """
 

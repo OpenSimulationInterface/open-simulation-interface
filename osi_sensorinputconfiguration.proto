@@ -186,8 +186,11 @@ message RadarSensorInputConfiguration
     // Unit: [Hz]
     optional double emitter_frequency = 4;
     
-    // This represents the combined TX/RX antenna diagram
-    repeated AntennaDiagramEntry combined_antenna_diagram = 5;
+    // This represents the TX antenna diagram
+    repeated AntennaDiagramEntry tx_antenna_diagram = 5;
+    
+    // This represents the RX antenna diagram
+    repeated AntennaDiagramEntry rx_antenna_diagram = 6;
 
     message AntennaDiagramEntry {
         // Horizontal deflection (azimuth) of entry in sensor/antenna
