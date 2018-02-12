@@ -66,6 +66,7 @@ message RadarSensorView {
     
     message Reflection {
         // Relative signal level of the reflection
+        //
         // This takes the combined_antenna_diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
         // into account, and will, when multiplied by TX power yield the
@@ -74,6 +75,7 @@ message RadarSensorView {
         optional double signal_strength = 1;
         
         // Time of flight
+        //
         // This is the time of flight of the reflection, which is directly
         // proportional to the distance travelled. 
         // Unit: [s]
@@ -84,6 +86,20 @@ message RadarSensorView {
         // Shift in frequency based on the specified TX frequency
         // Unit: [Hz]
         optional double doppler_shift = 3;
+        
+        // TX horizontal angle (azimuth)
+        //
+        // Horizontal angle of incidence of the source of the reflection
+        // at the TX antenna.
+        // Unit: [rad]
+        optional double source_horizontal_angle = 4;
+        
+        // TX vertical angle (elevation)
+        //
+        // Vertical angle of incidence of the source of the reflection
+        // at the TX antenna.
+        // Unit: [rad]
+        optional double source_vertical_angle = 5;
     }
 }
 
@@ -106,6 +122,7 @@ message LidarSensorView {
 
     message Reflection {
         // Relative signal level of the reflection
+        //
         // This takes the combined_antenna_diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
         // into account, and will, when multiplied by TX power yield the
@@ -114,6 +131,7 @@ message LidarSensorView {
         optional double signal_strength = 1;
             
         // Time of flight
+        //
         // This is the time of flight of the reflection, which is directly
         // proportional to the distance travelled. 
         // Unit: [s]
