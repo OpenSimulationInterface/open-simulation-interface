@@ -42,7 +42,7 @@ message DetectionHeader
 
     // Continuous up counter to identify the cycle.
     //
-    optional uint32 cylcle_counter = 3;
+    optional uint32 cycle_counter = 3;
 
     // Mounting position of the sensor (origin and orientation of the sensor
     // coordinate system); given relative to the middle of the rear axle of the
