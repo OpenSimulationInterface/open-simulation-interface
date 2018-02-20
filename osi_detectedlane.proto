@@ -42,35 +42,43 @@ message DetectedLane
 //
 message DetectedLaneBoundary
 {
+    // Header attributes of detected lane boundary.
+    //
+    optional DetectedObjectHeader header = 1;
+
+    // Specific id of the detected lane boundary as assigned by the sensor internally. Need not match with ground_truth_id.
+    //
+    optional Identifier tracking_id = 2;
+
     // The id of the original laneboundary in the ground truth.
     // In case of a ghost laneboundary (no corresponding ground truth), this field should be unset.
-    optional Identifier ground_truth_id = 1;
+    optional Identifier ground_truth_id = 3;
 
     // The basic meassured lane boundary.
     //
-    optional LaneBoundary lane_boundary = 2;
+    optional LaneBoundary lane_boundary = 4;
 
     // State of the measurement. Lane boundary measured in the current image or Lane boundary predicted (no measurement in current image).
     //
-    optional MeasurementState measurement_state = 3;
+    optional MeasurementState measurement_state = 5;
 
     // Probability of the detection that the lane exists.
     //
-    optional double existence_probability = 4;
+    optional double existence_probability = 6;
 
     // Confidence of the classified lane boundary type.
     //
-    optional double type_confidence = 5;
+    optional double type_confidence = 7;
 
     // Confidence of the classified lane marker color.
     //
-    optional double color_confidence = 6;
+    optional double color_confidence = 8;
 
     // The root mean square error of the BoundaryPoint information from a LaneBoundary.
     // For every \c lane_boundary.boundary_line point exact one \c boundary_line_rmse rmse information exist.
-    repeated BoundaryPoint boundary_line_rmse = 7;
+    repeated BoundaryPoint boundary_line_rmse = 9;
 
     // Confidence of the segments of the BoundaryPoint information from a LaneBoundary.
     // For every \c lane_boundary.boundary_line point exact one \c boundary_line_confidence confidence value is specified.
-    repeated double boundary_line_confidence = 8;
+    repeated double boundary_line_confidence = 10;
 }
