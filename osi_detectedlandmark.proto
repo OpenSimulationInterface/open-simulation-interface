@@ -66,17 +66,49 @@ message DetectedTrafficSign
         //    
         GEOMETRY_OTHER = 1;
         
-        // Traffic sign has a triangular geometry.
+        // Traffic sign has a triangular geometry pointing to the top.
         //    
-        GEOMETRY_TRIANGLE = 2;
+        GEOMETRY_TRIANGLE_TOP = 2;
+        
+        //Traffic sign has a triangular geometry pointing down.
+        //    
+        GEOMETRY_TRIANGLE_DOWN = 3;
         
         // Traffic sign has a circular geometry.
         //    
-        GEOMETRY_CIRCLE = 3;
+        GEOMETRY_CIRCLE = 4;
         
         // Traffic sign has a square geometry.
         //    
-        GEOMETRY_SQUARE = 4;
+        GEOMETRY_SQUARE = 5;
+        
+        // Traffic sign has a diamond geometry.
+        //    
+        GEOMETRY_DIAMOND = 6;
+        
+        // Traffic sign has an octagon geometry.
+        //    
+        GEOMETRY_OCTAGON = 7;
+        
+        // Traffic sign has a geomety of an arrow pointing to the left.
+        //    
+        GEOMETRY_ARROW_LEFT = 8;
+        
+        // Traffic sign has a geomety of an arrow pointing to the right.
+        //    
+        GEOMETRY_ARROW_RIGHT = 9;
+        
+        // Traffic sign has a rectangle geometry. (width is bigger than height)
+        // E.g. one-way
+        GEOMETRY_RECTANGLE = 10;
+        
+        // Traffic sign that has a pole geometry. (height is bigger than width)
+        // E.g. pole indicating highways exit in xx m.
+        GEOMETRY_POLE = 11;
+        
+        // Traffic sign that has an oversize rectangle geometry.
+        // E.g. direction plates on highway or city signs.
+        GEOMETRY_PLATE = 12;
     }
 }
 
