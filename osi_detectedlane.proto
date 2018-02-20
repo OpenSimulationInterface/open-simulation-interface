@@ -67,10 +67,10 @@ message DetectedLaneBoundary
     optional double color_confidence = 6;
 
     // The root mean square error of the BoundaryPoint information from a LaneBoundary.
-    //
+    // For every \c lane_boundary.boundary_line point exact one \c boundary_line_rmse rmse information exist.
     repeated BoundaryPoint boundary_line_rmse = 7;
 
     // Confidence of the segments of the BoundaryPoint information from a LaneBoundary.
-    //
+    // For every \c lane_boundary.boundary_line point exact one \c boundary_line_confidence confidence value is specified.
     repeated double boundary_line_confidence = 8;
 }
