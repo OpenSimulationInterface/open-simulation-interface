@@ -53,6 +53,7 @@ class GenerateProtobuf(install):
         'osi_detectedlane.proto',
         'osi_environment.proto',
         'osi_groundtruth.proto',
+        'osi_hostvehicledata.proto',
         'osi_landmark.proto',
         'osi_featuredata.proto',
         'osi_modelinternal.proto',
