@@ -54,6 +54,7 @@ set(OSI_PROTO_FILES
     osi_detectedoccupant.proto
     osi_environment.proto
     osi_groundtruth.proto
+    osi_hostvehicledata.proto
     osi_landmark.proto
     osi_lane.proto
     osi_featuredata.proto

@@ -10,6 +10,7 @@ import "osi_detectedoccupant.proto";
 import "osi_groundtruth.proto";
 import "osi_sensorview.proto";
 import "osi_featuredata.proto";
+import "osi_hostvehicledata.proto";
 
 package osi;
 
@@ -73,7 +74,7 @@ message SensorData
     // The id of the host vehicle in the ground_truth data.
     //    
     optional Identifier host_vehicle_id = 5;
-
+    
     // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
     //
     // given in vehicle coordinates: origin is ( \c Vehicle::base.position + INV(\c Vehicle::base.orientation) * \c Vehicle::bbcenter_to_rear) the orientation is equal to the orientation of the vehicle \c Vehicle::base.orientation.
@@ -141,4 +142,11 @@ message SensorData
     // object hypothesis and tracking.
     //
     optional FeatureData feature_data = 17;
+    
+    // Host Vehicle Data
+    //
+    // Host vehicle data is data that the host vehicle knows about itself,
+    // e.g. from location sensors, internal sensors and ECU bus data, etc.,
+    // that is made available to sensors as input.
+    optional HostVehicleData host_vehicle_data_id = 18;
 }
