@@ -17,6 +17,11 @@ message TrafficSign
 
     // The base parameters of the traffic sign.
     //
+    // The orientation of the bounding box \c TrafficSign::base.orientation is defined as:
+    // \c BaseStationary::orientation x-axis is the vector from bottom to top of the traffic sign's image. 
+    // (Normally it is equal to the ground truth z-axis.)
+    // \c BaseStationary::orientation z-axis is view normal of the traffic sign's image. 
+    // This z-axis points from the traffic sign's image in the direction from where a 'viewer' could see the traffic sign. 
     optional BaseStationary base = 2;
 
     // The type of the traffic sign.
@@ -31,21 +36,27 @@ message TrafficSign
     //
     optional Variability variability = 5;
 
-    // View normal of the traffic sign. If the angle between \c -TafficSign::view_normal and \c camera_view_direction is \c (-90° .. +90°)
-    // the camera can see the traffic sign. Larger angles will display the backside of the traffic sign.
-    optional Vector3d view_normal = 6;
-
-    // The view_normal as x-Axis, the global z-Axis and an optional arrow on the displayed traffic sign.
-    // Arrow in direction y-Axis means right, arrow in direction of -y-Axis means left.
-    optional DirectionScope direction_scope = 7;
+    // Some traffic signs could have an additional arrow symbol as an additional constrain for the scope (e.g. no parking to the right). 
+    // The arrow points to right resp. left from the viewpoint of a 'normal standing pedestrian' viewing the traffic sign's arrow.
+    //
+    // The definition for left and right: 
+    // Build a fictive coord. system. 
+    // z-axis of the fictive coord. system is equal to the GT z-axis.
+    // x-axis of the fictive coord. system is like the view normal of the traffic sign (\c TrafficSign::base.orientation z-axis).
+    // Right: direction of the fictive coord. system's y-axis.
+    // Left: opposite direction of the fictive coord. system's y-axis i.e. -(y-axis),
+    //
+    // \note If the traffic sign lies on the ground (there is no definition for right or left). 
+    // Normally this is a road marking and no traffic sign.
+    optional DirectionScope direction_scope = 6;
     
     // Additional, supplementary signs, e.g. time limit, modifying the traffic sign.
     //
-    repeated SupplementarySign supplementary_sign = 8;
+    repeated SupplementarySign supplementary_sign = 7;
 
     // The ids of the lanes that the traffic sign is assigned to.
     // Might be multiple if the traffic sign is valid for multiple lanes.
-    repeated Identifier assigned_lane = 9;
+    repeated Identifier assigned_lane = 8;
 
     // Definition of traffic sign types.
     // Numbers given according to German StVO.
@@ -311,19 +322,19 @@ message TrafficSign
                 
         // Priority must be given to vehicles from the opposite direction (StVO 208).
         //
-        TPYE_PRIORITY_TO_OPPOSITE_DIRECTION = 63;
+        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 63;
         
         // Traffic has priority over vehicles from the opposite direction (StVO 308).
         //
-        TPYE_PRIORITY_OVER_OPPOSITE_DIRECTION = 64;
+        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 64;
         
         // Priority must be given to vehicles from the opposite direction (StVO 208). Upside down.
         // 
-        TPYE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 65;
+        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 65;
         
         // Traffic has priority over vehicles from the opposite direction (StVO 308). Upside down.
         //
-        TPYE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 66;
+        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 66;
         
         // Minimum safety distance for trucks (StVO 273).
         //
@@ -460,7 +471,7 @@ message SupplementarySign
         
         // Time range for validity of traffic sign (starting from value_1 and ending with value_2, both defining
         // time of day in minutes from midnight).
-        TPYE_TIME_RANGE = 5;
+        TYPE_TIME_RANGE = 5;
         
         // Restriction of the validity of the traffic sign depending on the vehicle's weight (more than value_1 in kilogram).
         //
@@ -801,6 +812,15 @@ message RoadMarking
 
     // The base parameters of the road marking.
     //
+    // The orientation of the bounding box \c RoadMarking::base.orientation is defined as:
+    // \c BaseStationary::orientation x-axis is the vector from 'bottom' to 'top' of the road marking's image. 
+    // (Normally it is in the ground truth xy-plain.)
+    // \c BaseStationary::orientation z-axis is view normal of the traffic sign's image. 
+    // This z-axis points normally to the sky.
+    // 
+    // \note In case of a unidirectional valid road marking, if the road marking is assigned to the 
+    // host vehicle lane and the driving direction of the host vehice
+    // is 'equal' to the \c RoadMarking::base.orientation x-axis than the 'driver' has to regard the road marking.
     optional BaseStationary base = 2;
 
     // The type of the road marking.
@@ -818,11 +838,6 @@ message RoadMarking
     // The id(s) of the lane(s) that the road marking is assigned to.
     // Might be multiple if the road marking goes across multiple lanes.
     repeated Identifier assigned_lane = 6;
-
-    // Intersection orientation of the road marking.
-    //
-    // \note Defined for \c Lane::type = TYPE_INTERSECTION, otherwise zero vector
-    optional Vector3d roadmarking_orientation = 7;
 
     // Definition of road marking types.
     //
