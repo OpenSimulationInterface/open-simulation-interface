@@ -175,10 +175,6 @@ message Lane
         // Unit: [%]
         optional double surface_ice = 4;
 
-        // The coefficient presenting the friction and the grip of the road.
-        //
-        optional double surface_friction = 5;
-
         // The coefficient presenting the roughness or unevenness of the road.
         // International Roughness Index (IRI) [1] values range from 0 = smooth
         // ground (equivalent to driving on a plate of glass) up to > 20 mm/m
@@ -211,7 +207,7 @@ message Lane
         // \par References: 
         // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
         // University of Michigan Transportation Research Institute, 1998.
-        optional double surface_roughness = 6;
+        optional double surface_roughness = 5;
         
         // The surface texture or fine roughness
         //
@@ -228,7 +224,7 @@ message Lane
         // [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung für
         // ein bildgebendes Kfz-Radar, Dissertation, Universität Karlsruhe,
         // Mai 1998.
-        optional double surface_texture = 7;
+        optional double surface_texture = 6;
     }
 }
 
