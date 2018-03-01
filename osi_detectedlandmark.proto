@@ -53,6 +53,12 @@ message DetectedTrafficSign
     // Links to the corresponding lanes.
     //    
     repeated RelevantLane relevant_lane = 10;
+    
+    // A list of sensors which 'detected' this 'object'.
+    // 
+    // \note This is a redundant information because you can determine this list from 
+    // the \c ...Detection::object_id and the sensors to which these detections belong.
+    repeated Identifier sensor_id = 11;
 
     // Definition of traffic sign geometries.
     //
@@ -182,6 +188,13 @@ message DetectedTrafficLight
     // The root mean squared error of the base parameters of the detected traffic light.
     //
     optional BaseStationary rmse = 9;
+    
+    
+    // A list of sensors which 'detected' this 'object'.
+    // 
+    // \note This is a redundant information because you can determine this list from 
+    // the \c ...Detection::object_id and the sensors to which these detections belong.
+    repeated Identifier sensor_id = 10;
 
     //
     // \brief Further specifies the relevant directions of the traffic light.
@@ -267,9 +280,16 @@ message DetectedRoadMarking
     // The measurement state.
     //
     optional MeasurementState measurement_state = 7;
-    // The root mean squared error of the base parameters of the detected road marking.
+
+    // The root mean square error of the base parameters of the detected road marking.
     //
     optional BaseStationary rmse = 8;
+    
+    // A list of sensors which 'detected' this 'object'.
+    // 
+    // \note This is a redundant information because you can determine this list from 
+    // the \c ...Detection::object_id and the sensors to which these detections belong.
+    repeated Identifier sensor_id = 9;
 }
 
 //

@@ -26,6 +26,12 @@ message SensorData
 {  
     // The ID of the sensor.
     //
+    // This id can be equal to \c DetectionHeader::sensor_id. 
+    // In case of a multisensor configuration this id is different to
+    // the DetectionHeader::sensor_id.
+    //
+    // \note This is a redundant information because the sensor's 
+    // mounting_position defines unique the host vehicle's sensor.
     optional Identifier id = 1;
 
     // The timestamp of the sensor data. Zero time is arbitrary but must be

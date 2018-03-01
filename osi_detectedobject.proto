@@ -93,26 +93,32 @@ message DetectedObject
     // The estimated probabilities for the object to belong to a specific class.
     //
     optional ClassProbability class_probability = 17;
+    
+    // A list of sensors which 'detected' this 'object'.
+    // 
+    // \note This is a redundant information because you can determine this list from 
+    // the \c ...Detection::object_id and the sensors to which these detections belong.
+    repeated Identifier sensor_id = 18;
 
     // The estimated pedestrian head pose.
     //
     // \note Pedestrian specific value.
-    optional Orientation3d pedestrian_head_pose = 18;
+    optional Orientation3d pedestrian_head_pose = 19;
 
     // The estimated pedestrian upper body pose.
     //
     // \note Pedestrian specific value.
-    optional Orientation3d pedestrian_upper_body_pose = 19;
+    optional Orientation3d pedestrian_upper_body_pose = 20;
 
     // Percentage side lane left.
     //
     // Percentage value of the object width in the corresponding lane.
-    optional double percentage_side_lane_left = 20;
+    optional double percentage_side_lane_left = 21;
 
     // Percentage side lane right.
     //
     // Percentage value of the object width in the corresponding lane.
-    optional double percentage_side_lane_right = 21;
+    optional double percentage_side_lane_right = 22;
     
     // Definition of available reference points. Left/middle/right and front/middle/rear indicate the position in y- and
     // x direction respectively. The z position is always considered as middle.
