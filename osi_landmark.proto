@@ -120,6 +120,7 @@ message TrafficSign
         // Start of area without traffic to reduce harmful air pollution (StVO 270.1).
         //
         TYPE_ENVIRONMENTAL_ZONE_BEGIN = 12;
+        
         // End of area without traffic to reduce harmful air pollution (StVO 270.2).
         //
         TYPE_ENVIRONMENTAL_ZONE_END = 13;
@@ -239,138 +240,178 @@ message TrafficSign
         // Prescribed right turn and driving straight ahead (StVO 214.2).
         //
         TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT = 42;
-                
-        // Roundabout (StVO 215).
-        //
-        TYPE_ROUNDABOUT = 43;
         
+        // Prescribed left and right turn (StVO 214.3).
+        //
+        TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN = 43;
+
+        // Prescribed left turn, right turn and driving straight ahead (required for logical signs as road marking).
+        //
+        TYPE_PRESCRIBED_LEFT_TURN_RIGHT_TURN_AND_STRAIGHT = 44;
+
         // One-way road to the left (StVO 220.1).
         //
-        TYPE_ONEWAY_LEFT = 44;
-        
+        TYPE_ONEWAY_LEFT = 45;
+
         // One-way road to the right (StVO 220.2).
         //
-        TYPE_ONEWAY_RIGHT = 45;
-        
+        TYPE_ONEWAY_RIGHT = 46;
+
+        // No U turn left (StVO 272).
+        //
+        TYPE_NO_U_TURN_LEFT = 47;
+
+        // No U turn right ().
+        //
+        TYPE_NO_U_TURN_RIGHT = 48;
+
+        // Prescribed U turn left ().
+        //
+        TYPE_PRESCRIBED_U_TURN_LEFT = 49;
+
+        // Prescribed U turn right ().
+        //
+        TYPE_PRESCRIBED_U_TURN_RIGHT = 50;
+
+        // Left lane limitation or end of left lane (StVO 531.2x). 
+        //
+        TYPE_ANNOUNCE_LEFT_LANE_END = 51;
+
+        // Right lane limitation or end of right lane (StVO 531.1x). 
+        //
+        TYPE_ANNOUNCE_RIGHT_LANE_END = 52;
+
         // Entry not allowed (StVO 267).
         //
-        TYPE_DO_NOT_ENTER = 46;
+        TYPE_DO_NOT_ENTER = 53;
+
+        // Roundabout (StVO 215).
+        //
+        TYPE_ROUNDABOUT = 54;
+
+        // Bus only lane begin. 
+        //
+        TYPE_BUS_LANE_BEGIN = 55;
+
+        // Bus only lane end (). 
+        //
+        TYPE_BUS_LANE_END = 56;
         
         // Entry prohibited for all vehicle types (StVO 250).
         //
-        TYPE_PROHIBITED_FOR_ALL = 47;
+        TYPE_PROHIBITED_FOR_ALL = 57;
         
         // Entry prohibited for all motor vehicles (StVO 251).
         //
-        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES  = 48;
+        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES = 58;
         
         // Entry prohibited for trucks (StVO 253).
         //
-        TYPE_PROHIBITED_FOR_TRUCKS  = 49;
+        TYPE_PROHIBITED_FOR_TRUCKS = 59;
         
         // Entry prohibited for bicycles (StVO 254).
         //
-        TYPE_PROHIBITED_FOR_BICYCLES  = 50;
+        TYPE_PROHIBITED_FOR_BICYCLES = 60;
         
         // Entry prohibited for motor bikes (StVO 255).
         //
-        TYPE_PROHIBITED_FOR_MOTOR_BIKES  = 51;
+        TYPE_PROHIBITED_FOR_MOTOR_BIKES = 61;
         
         // Entry prohibited for pedestrians (StVO 259).
         //
-        TYPE_PROHIBITED_FOR_PEDESTRIANS  = 52;
+        TYPE_PROHIBITED_FOR_PEDESTRIANS = 62;
         
         // Entry prohibited for all motor vehicles and bikes (StVO 260).
         //
-        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES_BIKES  = 53;
+        TYPE_PROHIBITED_FOR_MOTOR_VEHICLES_BIKES = 63;
         
         // Begin of highway (StVO 330.1).
         //
-        TYPE_HIGHWAY_BEGIN = 54;
+        TYPE_HIGHWAY_BEGIN = 64;
         
         // End of highway (StVO 330.2).
         //
-        TYPE_HIGHWAY_END = 55;
+        TYPE_HIGHWAY_END = 65;
         
         // Highway exit sign (StVO 333).
         //
-        TYPE_HIGHWAY_EXIT = 56;
+        TYPE_HIGHWAY_EXIT = 66;
         
         // Pole indicating highways exit in 100m (StVO 450).
         //
-        TYPE_POLE_EXIT_100M = 57;
+        TYPE_POLE_EXIT_100M = 67;
         
         // Pole indicating highways exit in 200m (StVO 450).
         //
-        TYPE_POLE_EXIT_200M = 58;
+        TYPE_POLE_EXIT_200M = 68;
         
         // Pole indicating highways exit in 300m (StVO 450).
         //
-        TYPE_POLE_EXIT_300M = 59;
+        TYPE_POLE_EXIT_300M = 69;
         
         // Pole for warning and guiding purposes (red/white stripes - StVO 605).
         //
-        TYPE_POLE_WARNING = 60;
+        TYPE_POLE_WARNING = 70;
         
         // Begin of expressway for motor vehicles (StVO 331.1).
         //
-        TYPE_EXPRESSWAY_BEGIN = 61;
+        TYPE_EXPRESSWAY_BEGIN = 71;
         
         // End of expressways for motor vehicles (StVO 331.2).
         //
-        TYPE_EXPRESSWAY_END = 62;
+        TYPE_EXPRESSWAY_END = 72;
                 
         // Priority must be given to vehicles from the opposite direction (StVO 208).
         //
-        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 63;
+        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 73;
         
         // Traffic has priority over vehicles from the opposite direction (StVO 308).
         //
-        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 64;
+        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 74;
         
         // Priority must be given to vehicles from the opposite direction (StVO 208). Upside down.
         // 
-        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 65;
+        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 75;
         
         // Traffic has priority over vehicles from the opposite direction (StVO 308). Upside down.
         //
-        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 66;
+        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 76;
         
         // Minimum safety distance for trucks (StVO 273).
         //
-        TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 67;
+        TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 77;
         
         // Traffic light ahead sign (StVO 131).
         //
-        TYPE_ATTENTION_TRAFFIC_LIGHT = 68;
+        TYPE_ATTENTION_TRAFFIC_LIGHT = 78;
         
         // Pedestrian crossing (StVO 350).
         //
-        TYPE_PEDESTRIAN_CROSSING_INFO = 69;
+        TYPE_PEDESTRIAN_CROSSING_INFO = 79;
         
         // Warning sign for a left turn (StVO 103.1).
         //
-        TYPE_TURN_LEFT = 70;
+        TYPE_TURN_LEFT = 80;
         
         // Warning sign for a right turn (StVO 103.2).
         //
-        TYPE_TURN_RIGHT = 71;
+        TYPE_TURN_RIGHT = 81;
         
         // Warning sign for a double turn (first left turn) (StVO 105.1).
         //
-        TYPE_DOUBLE_TURN_LEFT = 72;
+        TYPE_DOUBLE_TURN_LEFT = 82;
         
         // Warning sign for a double turn (first right turn) (StVO 105.2).
         //
-        TYPE_DOUBLE_TURN_RIGHT = 73;
+        TYPE_DOUBLE_TURN_RIGHT = 83;
         
         // Drive past on the left side (StVO 222.1).
         //
-        TYPE_PASS_LEFT = 74;
+        TYPE_PASS_LEFT = 84;
         
         // Drive past on the right side (StVO 222.2).
         //
-        TYPE_PASS_RIGHT = 75;
+        TYPE_PASS_RIGHT = 85;
     }
 
     // Definition of the variability of the traffic sign.
@@ -826,18 +867,37 @@ message RoadMarking
     // The type of the road marking.
     //
     optional Type type = 3;
-
-    // The color of the road marking.
+    
+    // Traffic sign as road marking (colour image, monochrome image or character string).
     //
-    optional Color color = 4;
+    // \note Field is set if ( \c RoadMarking.type == \c RoadMarking.Type.TYPE_PAINTED_TRAFFIC_SIGN or 
+    // \c RoadMarking.Type.TYPE_SYMBOLIC_TRAFFIC_SIGN or \c RoadMarking.Type.TYPE_TEXTUAL_TRAFFIC_SIGN ).
+    //
+    // \note Field need not be set (or set to \c TrafficSign.Type.TYPE_OTHER)
+    // if road marking type (\c RoadMarking.type) does not require it.
+    optional TrafficSign.Type traffic_sign_type = 4;
+
+    // The monochrome color of the road marking.
+    // \note Field need not be set (or set to \c RoadMarking.Color.COLOR_OTHER) 
+    // if road marking type does not require it (e.g. for \c RoadMarking.type == \c RoadMarking.Type.TYPE_PAINTED_TRAFFIC_SIGN).
+    optional Color monochrome_color = 5;
 
     // Additional value associated with the road marking, e.g. value of the speed limit.
-    // Field need not be set if road marking type does not require it.
-    optional double value = 5;
+    // \note Field need not be set if road marking type does not require it.
+    optional double value = 6;
+    
+    // Additional text value as road marking, e.g. BUS, TAXI etc.
+    // \note Field need not be set if road marking type does not require it.
+    optional string value_text = 7;
 
     // The id(s) of the lane(s) that the road marking is assigned to.
     // Might be multiple if the road marking goes across multiple lanes.
-    repeated Identifier assigned_lane = 6;
+    repeated Identifier assigned_lane = 8;
+
+    // Intersection orientation of the road marking.
+    //
+    // \note Defined for \c Lane::type = TYPE_INTERSECTION, otherwise zero vector
+    optional Vector3d roadmarking_orientation = 9;
 
     // Definition of road marking types.
     //
@@ -851,77 +911,29 @@ message RoadMarking
         //
         TYPE_OTHER = 1;
         
-        // A solid stop line.
+        // Paint on the road surface indicating a colour image of a traffic sign.
         //
-        TYPE_STOP_LINE = 2;
+        TYPE_PAINTED_TRAFFIC_SIGN = 2;
         
-        // A speed limit sign painted on the road surface.
+        // Paint on the road surface indicating a monochrome logical symbol of a traffic sign (e.g. digits 50 as start of speed limit 50 or stop line for stop sign).
         //
-        TYPE_SPEED_LIMIT = 3;
+        TYPE_SYMBOLIC_TRAFFIC_SIGN = 3;
         
-        // A straight arrow painted on the road surface indicating a lane to drive straight. (StVO 297).
+        // Paint on the road surface as a character string (e.g. BUS as bus only lane).
         //
-        TYPE_STRAIGHT_ARROW = 4;
+        TYPE_TEXTUAL_TRAFFIC_SIGN = 4;
         
-        // A straight arrow painted on the road surface indicating a lane to turn right (StVO 297).
-        //
-        TYPE_RIGHT_TURN_ARROW = 5;
-        
-        // A straight arrow painted on the road surface indicating a lane to turn left (StVO 297).
-        //
-        TYPE_LEFT_TURN_ARROW = 6;
-
-        // A dashed stop line
-        //
-        TYPE_STOP_LINE_DASHED = 7;
-
-        // A stop line consisting of triangles.
-        //
-        TYPE_STOP_LINE_TRIANGLE = 8;
-
-        // An arrow painted on the road surface indicating a lane to drive straight and to turn left (StVO 297).
-        // 
-        TYPE_STRAIGHT_LEFT_TURN_ARROW = 9;
-
-        // An arrow painted on the road surface indicating a lane to drive straight and to turn right (StVO 297).
-        // 
-        TYPE_STRAIGHT_RIGHT_TURN_ARROW = 10;
-
-        // An arrow painted on the road surface indicating a lane to drive straight and to turn right or left (StVO 297).
-        // 
-        TYPE_STRAIGHT_LEFT_TURN_RIGHT_TURN_ARROW = 11;
-
-        // An arrow painted on the road surface indicating a lane to turn right or left.
-        // 
-        TYPE_LEFT_TURN_RIGHT_TURN_ARROW = 12;
-
-        // An arrow painted on the road surface indicating a turning point left.
-        // 
-        TYPE_TURNPOINT_LEFT_ARROW = 13;
-
-        // An arrow painted on the road surface indicating a turning point right.
-        // 
-        TYPE_TURNPOINT_RIGHT_ARROW = 14;
-
-        // Paint on the road surface indicating a zebra crossing.
-        // 
-        TYPE_ZEBRA = 15;
-
         // Paint on the road surface indicating a generic symbol.
-        // 
-        TYPE_GENERIC_SYMBOL = 16;
-        
-        // A right arrow painted on the road surface announcing a lane limitation or the end of a lane (StVO 297.1). 
         //
-        TYPE_ANNOUNCE_RIGHT_ARROW = 17;
+        TYPE_GENERIC_SYMBOL = 5;
         
-        // A left arrow painted on the road surface announcing a lane limitation or the end of a lane (StVO 297.1). 
-        //
-        TYPE_ANNOUNCE_LEFT_ARROW = 18;
-
         // Paint on the road surface indicating a generic line.
-        // 
-        TYPE_GENERIC_LINE = 19;
+        //
+        TYPE_GENERIC_LINE = 6;
+        
+        // Paint on the road surface indicating a generic character string.
+        //
+        TYPE_GENERIC_TEXT = 7;
     }
 
     // Definition of road marking colors
