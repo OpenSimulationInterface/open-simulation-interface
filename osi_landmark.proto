@@ -120,6 +120,7 @@ message TrafficSign
         // Start of area without traffic to reduce harmful air pollution (StVO 270.1).
         //
         TYPE_ENVIRONMENTAL_ZONE_BEGIN = 12;
+        
         // End of area without traffic to reduce harmful air pollution (StVO 270.2).
         //
         TYPE_ENVIRONMENTAL_ZONE_END = 13;
