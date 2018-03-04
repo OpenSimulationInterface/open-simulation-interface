@@ -88,7 +88,7 @@ message SensorData
     // \note This field is usually static during the simulation.
     optional MountingPosition mounting_position = 6;
 
-    // The root mean square error of the mounting position.
+    // The root mean squared error of the mounting position.
     //
     optional MountingPosition mounting_position_rmse = 7;
 

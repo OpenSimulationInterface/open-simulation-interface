@@ -46,7 +46,7 @@ message DetectedTrafficSign
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
-    // The root mean square error of the base parameters of the detected traffic sign.
+    // The root mean squared error of the base parameters of the detected traffic sign.
     //
     optional BaseStationary rmse = 9;
 
@@ -179,7 +179,7 @@ message DetectedTrafficLight
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
-    // The root mean square error of the base parameters of the detected traffic light.
+    // The root mean squared error of the base parameters of the detected traffic light.
     //
     optional BaseStationary rmse = 9;
 
@@ -267,7 +267,7 @@ message DetectedRoadMarking
     // The measurement state.
     //
     optional MeasurementState measurement_state = 7;
-    // The root mean square error of the base parameters of the detected road marking.
+    // The root mean squared error of the base parameters of the detected road marking.
     //
     optional BaseStationary rmse = 8;
 }

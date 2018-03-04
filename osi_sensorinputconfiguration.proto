@@ -140,19 +140,23 @@ message SensorInputConfiguration
     // Unit: [s]
     optional double simulation_start_time = 7;
 
-    // Radar-specific Sensor Input Configuration
+    // Radar-specific Sensor Input Configuration.
     optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1000;
 
-    // Lidar-specific Sensor Input Configuration
+    // Lidar-specific Sensor Input Configuration.
     optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1001;
 
-    // Camera-specific Sensor Input Configuration
+    // Camera-specific Sensor Input Configuration.
     optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1002;
 
-    // Ultrasonic-specific Sensor Input Configuration
+    // Ultrasonic-specific Sensor Input Configuration.
     optional UltrasonicSensorInputConfiguration ultrasonic_sensor_input_configuration = 1003;
 }
 
+//
+// \brief The configuration settings for the Radar Sensor Input to be provided
+// by the environment simulation.
+//
 message RadarSensorInputConfiguration
 {
     // Number of rays to cast across horizontal field of view (azimuth)
@@ -192,6 +196,9 @@ message RadarSensorInputConfiguration
     // This represents the RX antenna diagram
     repeated AntennaDiagramEntry rx_antenna_diagram = 6;
 
+    //
+    // \brief The radar antenna diagram.
+    //
     message AntennaDiagramEntry {
         // Horizontal deflection (azimuth) of entry in sensor/antenna
         // coordinates
@@ -213,6 +220,10 @@ message RadarSensorInputConfiguration
     }
 }
 
+//
+// \brief The configuration settings for the Lidar Sensor Input to be provided
+// by the environment simulation.
+//
 message LidarSensorInputConfiguration
 {
     // Number of rays to cast across horizontal field of view
@@ -247,6 +258,10 @@ message LidarSensorInputConfiguration
     optional double emitter_frequency = 4;
 }
 
+//
+// \brief The configuration settings for the Camera Sensor Input to be provided
+// by the environment simulation.
+//
 message CameraSensorInputConfiguration
 {
     // Number of pixels to produce across horizontal field of view
@@ -337,6 +352,10 @@ message CameraSensorInputConfiguration
     // TBD: Optical (and other) effects to apply to image, etc.
 }
 
+//
+// \brief The configuration settings for the Ultrasonic Sensor Input to be provided
+// by the environment simulation.
+//
 message UltrasonicSensorInputConfiguration
 {
     // TBD: Ultrasonic Sensor specific configuration

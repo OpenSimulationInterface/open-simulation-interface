@@ -18,11 +18,11 @@ message DetectedObject
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific id of the object as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the object as assigned by the sensor internally. Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
-    // The id of the original object in the ground truth list of vehicles / objects / etc.
+    // The ID of the original object in the ground truth list of vehicles / objects / etc.
     // Multiple entries if detected object is a merge of multiple ground truth objects.
     repeated Identifier ground_truth_id = 3;
 
@@ -38,71 +38,83 @@ message DetectedObject
     //
     optional BaseMoving object = 6;
 
-    // The root mean square error of the base parameters in object (cross correlations are currently neglected).
+    // The root mean squared error of the base parameters in object (cross correlations are currently neglected).
     //
     optional BaseMoving object_rmse = 7;
-
-    // Kinematic point of the objects rotation.
-    //
-    optional Vector3d kinematic_point = 8;
-
-    // The relative orientation rate of the moving object w.r.t. its kinematic point.
-    //
-    optional Orientation3d kinematic_orientation_rate = 9;
-
-    // Actual movement state w.r.t. the moving object history.
-    //
-    optional MovementState movement_state = 10;
-
-    // The estimated probability that this object really exists, not based on history.
-    //
-    // \note Use as confidence measure where a low value means less confidence and a high value indicates
-    // strong confidence.
-    optional double existence_probability = 11;
-
-    // Current state of lights as perceived by sensor, only relevant if the object is estimated to be an object that
-    // has lights.
-    optional Vehicle.LightState light_state = 12;
 
     // Reference point location specification of the sensor measurement (required to decouple sensor measurement,
     // position and bounding box estimation) as used by the sensor (model).
     //
     // \note Note that the value of this field has no impact on the value of object.position, which always references
     // the center of the object / bounding box.
-    optional ReferencePoint reference_point = 13;
+    optional ReferencePoint reference_point = 8;
+
+    // Actual movement state w.r.t. the moving object history.
+    //
+    optional MovementState movement_state = 9;
+
+    // The estimated probability that this object really exists, not based on history.
+    //
+    // \note Use as confidence measure where a low value means less confidence and a high value indicates
+    // strong confidence.
+    optional double existence_probability = 10;
+
+    // Current state of lights as perceived by sensor, only relevant if the object is estimated to be an object that
+    // has lights.
+    optional Vehicle.LightState light_state = 11;
 
     // Additional internal data and state flags required and used by the sensor-models, should not be used by
     // subscribers to SensorData. Generally this field should be cleared after internal processing.
     //
     // \note optional. List of used detections to recognize this object. Detections have also an identifier to
     // reference to the detected object.
-    optional ModelInternalObject model_internal_object = 14;
+    optional ModelInternalObject model_internal_object = 12;
 
     // Additional data that is specific to radar sensors.
     //
     // \note Field need not be set if simulated sensor is not a radar sensor.
-    optional RadarSpecificObjectData radar_specifics = 15;
+    optional RadarSpecificObjectData radar_specifics = 13;
 
     // Additional data that is specific to lidar sensors.
     //
     // \note Field need not be set if simulated sensor is not a lidar sensor.
-    optional LidarSpecificObjectData lidar_specifics = 16;
+    optional LidarSpecificObjectData lidar_specifics = 14;
 
     // Additional data that is specific to camera sensors.
     //
     // \note Field need not be set if simulated sensor is not a camera sensor.
-    optional CameraSpecificObjectData camera_specifics = 17;
+    optional CameraSpecificObjectData camera_specifics = 15;
 
     // Additional data that is specific to ultrasonic sensors.
     //
     // \note Field need not be set if simulated sensor is not an ultrasonic sensor.
-    optional UltrasonicSpecificObjectData ultrasonic_specifics = 18;
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 16;
 
     // The estimated probabilities for the object to belong to a specific class.
     //
-    optional ClassProbability class_probability = 19;
+    optional ClassProbability class_probability = 17;
 
-    // Definition of available reference points. Left/middle/right and front/middle/rear indicate the position in y and
+    // The estimated pedestrian head pose.
+    //
+    // \note Pedestrian specific value.
+    optional Orientation3d pedestrian_head_pose = 18;
+
+    // The estimated pedestrian upper body pose.
+    //
+    // \note Pedestrian specific value.
+    optional Orientation3d pedestrian_upper_body_pose = 19;
+
+    // Percentage side lane left.
+    //
+    // Percentage value of the object width in the corresponding lane.
+    optional double percentage_side_lane_left = 20;
+
+    // Percentage side lane right.
+    //
+    // Percentage value of the object width in the corresponding lane.
+    optional double percentage_side_lane_right = 21;
+    
+    // Definition of available reference points. Left/middle/right and front/middle/rear indicate the position in y- and
     // x direction respectively. The z position is always considered as middle.
     //
     enum ReferencePoint
@@ -199,7 +211,7 @@ message DetectedObject
         
         // Probability that the object is a heavy truck. Range [0,1].
         //
-        optional double prob_truck = 4;
+        optional double prob_heavy_truck = 4;
         
         // Probablility that the object is a van. Range [0,1].
         //
@@ -277,7 +289,7 @@ message DetectedObjectHeader
     //
     optional uint32 cycle_counter = 3;
 
-    // Data Qualifier expresses whether the content of this event can be used or not.
+    // Data Qualifier expresses to what extent the content of this event can be relied on.
     //
     optional DataQualifier data_qualifier = 4;
 

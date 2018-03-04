@@ -7,8 +7,8 @@ import "osi_common.proto";
 package osi;
 
 //
-// \brief Interface for host vehicle data, that is available to sensors and
-// other functions due to host vehicle internal communication.
+// \brief Interface for host vehicle data that is available to sensors and
+// other functions due to host vehicle's internal communication.
 //
 // All coordinates and orientations are relative to the global ground truth
 // coordinate system.
@@ -17,13 +17,13 @@ message HostVehicleData
 {
     // Current estimated location based on GPS- and related navigation sensors
     //
-    // Note that dimension and base_polygon need not be filled.
+    // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location = 1;
 
     // Current estimated location error based on GPS- and related navigation sensors
     //
-    // Note that dimension and base_polygon need not be filled.
+    // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
 
