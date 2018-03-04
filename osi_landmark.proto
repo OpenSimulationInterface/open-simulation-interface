@@ -11,7 +11,7 @@ package osi;
 //
 message TrafficSign
 {
-    // The id of the traffic sign.
+    // The ID of the traffic sign.
     //
     optional Identifier id = 1;
 
@@ -54,7 +54,7 @@ message TrafficSign
     //
     repeated SupplementarySign supplementary_sign = 7;
 
-    // The ids of the lanes that the traffic sign is assigned to.
+    // The IDs of the lanes that the traffic sign is assigned to.
     // Might be multiple if the traffic sign is valid for multiple lanes.
     repeated Identifier assigned_lane = 8;
 
@@ -626,7 +626,7 @@ message SupplementarySign
 //
 message TrafficLight
 {
-    // The id of the traffic light.
+    // The ID of the traffic light.
     //
     optional Identifier id = 1;
 
@@ -650,7 +650,7 @@ message TrafficLight
     //
     optional GreenArrowPresence green_arrow = 6;
 
-    // The ids of the lanes that the traffic light is assigned to.
+    // The IDs of the lanes that the traffic light is assigned to.
     // Might be multiple if the traffic light is valid for multiple driving lanes.
     repeated Identifier assigned_lane = 7;
 
@@ -847,7 +847,7 @@ message TrafficLight
 //
 message RoadMarking
 {
-    // The id of the road marking.
+    // The ID of the road marking.
     //
     optional Identifier id = 1;
 

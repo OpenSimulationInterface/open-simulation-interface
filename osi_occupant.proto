@@ -11,7 +11,7 @@ package osi;
 //
 message Occupant
 {
-    // The id of the driver.
+    // The ID of the driver.
     //
     optional Identifier id = 1;
 

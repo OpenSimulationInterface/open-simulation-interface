@@ -17,11 +17,11 @@ message DetectedLane
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific id of the detected lane as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the detected lane as assigned by the sensor internally. Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
-    // The id of the original lane in the ground truth.
+    // The ID of the original lane in the ground truth.
     // Multiple entries if the detected lane is a merge of multiple lanes in ground truth (as lane segment definitions
     // may vary between sensor and ground truth).
     repeated Identifier ground_truth_id = 3;
@@ -46,11 +46,11 @@ message DetectedLaneBoundary
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific id of the detected lane boundary as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the detected lane boundary as assigned by the sensor internally. Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
-    // The id of the original laneboundary in the ground truth.
+    // The ID of the original laneboundary in the ground truth.
     // In case of a ghost laneboundary (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 3;
 

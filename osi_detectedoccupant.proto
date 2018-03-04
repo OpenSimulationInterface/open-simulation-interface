@@ -17,7 +17,7 @@ message DetectedOccupant
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific id of the occupant as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the occupant as assigned by the sensor internally. Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
@@ -25,7 +25,7 @@ message DetectedOccupant
     //
     optional Occupant occupant = 3;
 
-    // The id of the original vehicle occupant in the ground truth.
+    // The ID of the original vehicle occupant in the ground truth.
     //
     optional Identifier ground_truth_occupant_id = 4;
 

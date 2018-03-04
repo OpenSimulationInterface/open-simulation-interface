@@ -24,7 +24,7 @@ package osi;
 //
 message Vehicle
 {
-    // The id of the vehicle.
+    // The ID of the vehicle.
     //
     optional Identifier id = 1;
 
@@ -48,7 +48,7 @@ message Vehicle
     // of the rear axle under neutral load conditions. In object coordinates.
     optional Vector3d bbcenter_to_rear = 6;
 
-    // The ids of the lanes that this vehicle is assigned to.
+    // The IDs of the lanes that this vehicle is assigned to.
     // \note Might be multiple if the vehicle is switching lanes or moving from one lane into another following lane.
     repeated Identifier assigned_lane = 7;
 
@@ -60,7 +60,7 @@ message Vehicle
     // \note Field need not be set if has_Trailer is set to false or use value for non valid id.
     optional Identifier trailer_id = 9;
 
-    // The id of the driver of the (host) vehicle.
+    // The ID of the driver of the (host) vehicle.
     // \note Field need not be set if host_vehicle is set to false or use value for non valid id.
     optional Identifier driver = 10;
     
@@ -229,7 +229,7 @@ message Vehicle
 //
 message MovingObject
 {
-    // The id of the object.
+    // The ID of the object.
     //
     optional Identifier id = 1;
 
@@ -269,7 +269,7 @@ message MovingObject
 //
 message StationaryObject
 {
-    // The id of the object.
+    // The ID of the object.
     //
     optional Identifier id = 1;
 
