@@ -9,9 +9,9 @@ package osi;
 //
 // \brief The interface version number.
 //
-// The field containing the version number.  This needs to be set by the
+// The field denoting the version number. This needs to be set by the
 // sender to the actual OSI version that is to be sent.  Code wanting to
-// access the version number of the OSI code base can access a FileOption
+// access the version number of the OSI code base can access a FileOption,
 // which has the proper values, like this:
 //
 // @code
@@ -19,13 +19,16 @@ package osi;
 //   InterfaceVersion::descriptor()->file()->options().GetExtension(current_interface_version);
 // @endcode
 //
-// If a message with all components set to 0, the default value, is
-// received, the receiver can assume that the message was sent by
+// If a message with all components set to the default value 0 is
+// received, this indicates that either that the message was sent by
 // a version 2.2.0 or earlier release, or that the sender did not
 // properly set the version components prior to sending.
 //
 // Increments will happen as part of changes to the whole interface.
+// The meaning of different InterfaceVersions is defined [1].
 //
+// \par References: 
+// [1] Open Simulation Interface: README.md
 message InterfaceVersion
 {
     // Major version number.
