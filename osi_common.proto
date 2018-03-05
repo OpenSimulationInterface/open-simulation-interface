@@ -46,46 +46,49 @@ message Vector2d
 //
 // \brief A timestamp.
 // 
-// Names and types of fields chosen in accordance with google/protobuf/timestamp.proto to allow a possible switch in the future. 
-// Definition of zero point in time differs and does not use Unix epoch.
+// Names and types of fields are chosen in accordance to google/protobuf/timestamp.proto to allow a possible switch in the future. 
+// There is no definition of the zero point in time neither it is the Unix epoch. 
+// A simulation may start at the zero point in time but it is not mandatory.
 //
 message Timestamp
 {
-    // The number of seconds since start of the simulation / system / vehicle. Unit: [s].
-    //
+    // The number of seconds since the start of e.g. the simulation / system / vehicle. 
+    // Unit: [s]
     optional int64 seconds = 1;
 
-    // The number of nanoseconds since the start of the last second. Unit: [ns].
-    //
+    // The number of nanoseconds since the start of the last second. 
+    // Unit: [ns]
     optional int32 nanos = 2;
 }
 
 //
-// \brief A 3D dimension, e.g. parameters of a 3D bounding box or its uncertainties.
+// \brief The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties.
 // 
 // Units are all [m].
 //
-// The preferred dimensions are positive.
+// The dimensions are positive. Uncertainties are negative or positive.
 //
-// Dimension is defined in the specified reference coordinate frame along x (=length), y (=width) and z (=height). 
+// Dimension is defined in the specified reference coordinate frame along the
+// x-axis (=length), y-axis (=width) and z-axis (=height). 
 // 
 message Dimension3d
 {
-    // The length of the bounding box.
+    // The length of the box.
     //
     optional double length = 1;
     
-    // The width of the bounding box.
+    // The width of the box.
     //
     optional double width = 2;
     
-    // The height of the bounding box.
+    // The height of the box.
     //
     optional double height = 3;
 }
 
 //
-// \brief A 3D orientation, orientation rate or orientation acceleration or its uncertainties.
+// \brief A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives)
+// or its uncertainties denoted in euler angles.
 // 
 // Units are 
 // \arg [rad] for orientation
@@ -94,13 +97,14 @@ message Dimension3d
 // 
 // The preferred angular range is (-pi, pi]. The coordinate system is defined as right-handed. 
 //  
-// The rotations are to be performed \b roll \b first, \b pitch \b second, and \b yaw \b third to follow the definition according to [1]. 
+// The rotations are to be performed \b roll \b first, \b pitch \b second and \b yaw \b third to follow the definition according to [1]. 
 // 
-// Rotations are defined in the reference coordinate frame around z (=yaw), y (=pitch) and x (=roll), not in the body frame of the object. 
-// Rotations with positive angles are performed counter-clockwise.
+// Rotations are defined in the reference coordinate frame around z-axis (=yaw), y-axis (=pitch) and x-axis (=roll), 
+// not in the body frame of the object. 
+// A positive angle corresponds to a counter-clockwise rotation around the respective axis.
 //
-// Roll/Pitch are 0 if objects xy-plane corresponds it's parent xy-plane.
-// Yaw is 0 if the x axis is parallel to the x axis of it's parent coordinate system.
+// Roll/Pitch are 0 if the objects xy-plane is parallel to its parent's xy-plane.
+// Yaw is 0 if the object's local x-axis is parallel to its parent's x-axis.
 //
 // \par References: 
 // [1] LAVALLE, Steven M. Planning algorithms. Cambridge university press, 2006. Chapter 3.2.3.
@@ -122,15 +126,15 @@ message Orientation3d
 }
 
 //
-// \brief A common identifier.
+// \brief A common identifier (ID), represented as an integer.
 // 
 // Has to be unique among all simulated items at any given time. For ground truth, the identifier of an item (object,
-// lane, sign, etc.) must remain stable over its lifetime. Identifier values might be only be reused if the available
+// lane, sign, etc.) must remain stable over its lifetime. Identifier values may be only be reused if the available
 // address space is exhausted and the specific values have not been in use for several timesteps. Sensor specific
-// tracking ids have no restrictions and should behave according to the sensor specifications.
+// tracking IDs have no restrictions and should behave according to the sensor specifications.
 //
-// Value MAX(uint64) = 2^(64) -1 = 0b1111111111111111111111111111111111111111111111111111111111111111 is reserved and 
-// indicates a non valid id or an error.
+// The value MAX(uint64) = 2^(64) -1 = 0b1111111111111111111111111111111111111111111111111111111111111111 is reserved and 
+// indicates an invalid ID or error.
 //
 message Identifier
 {
@@ -146,22 +150,23 @@ message Identifier
 //
 message MountingPosition
 {
-    // Offset position relative to specified reference coordinate system.
+    // Offset position relative to the specified reference coordinate system.
     //
     optional Vector3d position = 1;
 
-    // Orientation offset relative to specified reference coordinate system.
+    // Orientation offset relative to the specified reference coordinate system.
     //
     optional Orientation3d orientation = 2;
 }
 
 //
-// \brief A spherical representation for a point / vector in 3D space.
+// \brief A spherical representation for a point or vector in 3D space.
 //
-// Used for e.g. low level representations of radar detections.
+// Used e.g., for low level representations of radar detections.
 // 
-// Units are [m] for radial distance and [rad] for azimuth and elevation angles. If azimuth and elevation are zero, the
-// referenced point is directly in front / vector is pointing directly in the central viewing direction of the sensor.
+// Units are [m] for radial distance and [rad] for azimuth and elevation angles. 
+// If azimuth and elevation are zero, the referenced point lies directly ahead
+// in the central viewing direction of the sensor, and the respective vector points directly in the latter.
 //
 message Spherical3d
 {
@@ -179,37 +184,39 @@ message Spherical3d
 }
 
 //
-// \brief The base attributes of object or similar that is stationary.
+// \brief The base attributes of a stationary object or entity.
 // 
 // This includes the StationaryObject, TrafficSign, TrafficLight, RoadMarking messages.
 //
 message BaseStationary
 {
-    // The 3D dimension of the stationary object (bounding box) e.g. a landmark:
+    // The 3D dimensions of the stationary object (bounding box), e.g. a landmark:
     //
     optional Dimension3d dimension = 1;
 
-    // The reference point for position and orientation: center (x, y, z) of bounding box.
+    // The reference point for position and orientation, i.e. the center (x, y, z) of the bounding box.
     //
     optional Vector3d position = 2;
 
     // The relative orientation of the stationary object w.r.t. its parent frame.
-    //
+    // There may be some constraints how to use orientation w.r.t. to some stationary object's or entity's definition.
     optional Orientation3d orientation = 3;
     
     // Usage as ground truth:
     // The two dimensional (flat) contour of the object. This is an extension of the concept of a 
-    // bounding box as defined in Dimension3d. The contour is the projection of the object outline 
-    // on the z-plane in the object frame (independent of its current position and orientation). 
+    // bounding box as defined by Dimension3d. The contour is the projection of the object's outline 
+    // onto the z-plane in the object frame (independent of its current position and orientation). 
+    //
     // Usage as sensor data:
     // The polygon describes the visible part of the object's contour.
+    //
     // General definitions:
     // The polygon is defined in the local object frame: x pointing forward and y to the left.
     // The origin is the center of the bounding box.
     // As ground truth, the polygon is closed by connecting the last with the first point. Therefore  
-    // these two points are different and there are at least three points.
-    // As sensor data, the polygon is open.
-    // The polygon is defined counter-clockwise.    
+    // these two points must be different. The polygon must consist of at least three points.
+    // As sensor data, however, the polygon is open.
+    // The polygon is defined counter-clockwise.
     repeated Vector2d base_polygon = 4;
 }
 
@@ -220,11 +227,11 @@ message BaseStationary
 //
 message BaseMoving
 {
-    // The 3D dimension of the moving object (bounding box).
+    // The 3D dimension of the moving object (its bounding box).
     //
     optional Dimension3d dimension = 1;
 
-    // The reference point for position and orientation: center (x, y, z) of bounding box.
+    // The reference point for position and orientation: the center (x, y, z) of the bounding box.
     //
     optional Vector3d position = 2;
 
@@ -233,29 +240,31 @@ message BaseMoving
     optional Orientation3d orientation = 3;
 
     // The relative velocity of the moving object w.r.t. its parent frame and parent velocity.
-    // Obviously, the velocity becomes global/absolute if the parent frame does not move.
+    // The velocity becomes global/absolute if the parent frame does not move.
     optional Vector3d velocity = 4;
 
     // The relative acceleration of the moving object w.r.t. its parent frame and parent acceleration.
-    // Obviously, the acceleration becomes global/absolute if the parent frame is not accelerating.
+    // The acceleration becomes global/absolute if the parent frame is not accelerating.
     optional Vector3d acceleration = 5;
 
     // The relative orientation rate of the moving object w.r.t. its parent frame and parent orientation rate in the center point of the bounding box.
-    // Obviously, the orientation rate becomes global/absolute if the parent frame is not rotating.
+    // The orientation rate becomes global/absolute if the parent frame is not rotating.
     optional Orientation3d orientation_rate = 6;
     
     // Usage as ground truth:
     // The two dimensional (flat) contour of the object. This is an extension of the concept of a 
-    // bounding box as defined in Dimension3d. The contour is the projection of the object outline 
-    // on the z-plane in the object frame (independent of its current position and orientation). 
+    // bounding box as defined by Dimension3d. The contour is the projection of the object's outline 
+    // onto the z-plane in the object frame (independent of its current position and orientation). 
+    //
     // Usage as sensor data:
     // The polygon describes the visible part of the object's contour.
+    //
     // General definitions:
     // The polygon is defined in the local object frame: x pointing forward and y to the left.
     // The origin is the center of the bounding box.
     // As ground truth, the polygon is closed by connecting the last with the first point. Therefore  
-    // these two points are different and there are at least three points.
-    // As sensor data, the polygon is open.
-    // The polygon is defined counter-clockwise.    
+    // these two points must be different. The polygon must consist of at least three points.
+    // As sensor data, however, the polygon is open.
+    // The polygon is defined counter-clockwise.
     repeated Vector2d base_polygon = 7;    
 }

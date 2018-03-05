@@ -40,7 +40,7 @@ message DetectionHeader
     // for detailed discussions on the semantics of time-related fields.
     optional Timestamp measurement_time = 2;
 
-    // Continuous up counter to identify the cycle.
+    // Monotonous counter to identify the exact cycle.
     //
     optional uint32 cycle_counter = 3;
 
@@ -49,21 +49,21 @@ message DetectionHeader
     // host vehicle.
     //
     // The x-axis must be the angle bisector of the horizontal field of view in
-    // a right handed coordinate system. The x-y plane represents the
-    // horizontal field of view and the x-z plane the vertical field of view.
+    // a right-handed coordinate system. The xy-plane represents the
+    // horizontal field of view and the xz-plane the vertical field of view.
     //
     // The origin of the detection coordinate system (= spherical polar
     // coordinates) is the sensor mounting pose in the host vehicle coordinate
     // system.
     //
-    // The host vehicle coordinate system is at the center of the rear axis
+    // The host vehicle coordinate system is at the center of the rear axle
     // (from the top view as well as from the side view) in the static case.
     // The origin represents the current mounting pose to the best knowledge of
-    // the sensor. It includes the estimated 6-D pose estimation given by  the
+    // the sensor. It includes the estimated 6D pose estimation given by  the
     // calibration. The uncertainty of this estimation is given with the
-    // corresponding 6-D root mean square error. The estimation of the current
+    // corresponding 6D root mean squared error. The estimation of the current
     // origin does not include effects due to short-time dynamics, such as pitch
-    // angles from braking, but includes long-time calibration values,  such as
+    // angles from braking, but includes long-time calibration values, such as
     // pitch angles from luggage in the trunk.
     optional MountingPosition mounting_position = 4;
 
@@ -72,9 +72,14 @@ message DetectionHeader
     //
     optional MountingPosition mounting_position_rmse = 5;
 
-    // Data Qualifier expresses whether the content of this event can be used or not.
+    // Data Qualifier expresses to what extent the content of this event can be relied on.
     //
     optional DataQualifier data_qualifier = 6;
+
+    // The current number of valid detections in the detections list.
+    //
+    // \note This value has to be set if the list contains invalid detections.    
+    optional uint32 number_of_detections = 7;
 
     // \brief Data qualifier communicates the overall availability of the interface.
     //
@@ -107,10 +112,10 @@ message DetectionHeader
         // Sensor temporary available.
         //
         DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
-   }
+    }
 
     //
-    // \brief Version of detection messages (DetectionHeader, LidarDetection, LidarDetectionList etc.).
+    // \brief Version of detection messages (DetectionHeader, LidarDetection, LidarDetectionList, etc.).
     //
     message DetectionInterfaceVersion
     {
@@ -132,7 +137,7 @@ message DetectionHeader
 // 
 enum DetectionClassification
 {
-    // detection is unknown (must not be used in ground truth).
+    // Detection is unknown (must not be used in ground truth).
     //
     DETECTION_CLASSIFICATION_UNKNOWN = 0;
 
@@ -144,7 +149,7 @@ enum DetectionClassification
     //
     DETECTION_CLASSIFICATION_INVALID = 2;
 
-    // Clutter (noise, spay, rain, fog etc.).
+    // Clutter (noise, spray, rain, fog etc.).
     //
     DETECTION_CLASSIFICATION_CLUTTER = 3;
 
@@ -177,37 +182,37 @@ message LidarDetectionList
 //
 message LidarDetection
 {
-    // Existence probability of the detection not based on history.
+    // Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.
     //
-    // \note Use as confidence measure where a low value means less confidence and a high value indicates 
+    // \note Used as confidence measure where a low value means less confidence and a high value indicates 
     // strong confidence.
     optional double existence_probability = 1;
 
-    // Object ID of the object to which this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
+    // ID of the object this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in sensor coordinate system.
+    // Measured position of the detection, given in spherical coordinates in the sensor coordinate system.
     //
     optional Spherical3d position = 3;
 
-    // Root mean square error of the measured position of the detection.
+    // Root mean squared error of the measured position of the detection.
     //
     optional Spherical3d position_rmse = 4;
 
-    // Height field is required if multiple scan points are vertically clustered. Only vertical clustering allowed (z-Axis).
-    // 
+    // Height value, which is required when multiple scan points are vertically clustered.
+    // Only vertical clustering is allowed (z-axis).
     optional double height = 5;
 
-    // Root mean square error of the object height.
+    // Root mean squared error of the object height.
     // 
     optional double height_rmse = 6;
 
     // Intensity or equivalent value of the detection's echo.
-    // Unit: [%].
+    // Unit: [%]
     optional double intensity = 7;
 
-    // The free space probability in the range [0.0, 1.0] from the origin up to this detection, as given by the distance.
+    // The free space probability in the range [0.0, 1.0] from the origin of the sensor up to this detection, as given by the distance.
     // 
     optional double free_space_probability = 8;
 
@@ -236,21 +241,21 @@ message RadarDetectionList
 //
 message RadarDetection
 {
-    // Existence probability of the detection not based on history.
+    // Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.
     //
     // \note Use as confidence measure where a low value means less confidence and a high value indicates 
     // strong confidence.
     optional double existence_probability = 1;
 
-    // Object ID of the object to which this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
+    // ID of the object this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
     // 
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in sensor coordinate system.
+    // Measured position of the detection, given in spherical coordinates in the sensor coordinate system.
     //
     optional Spherical3d position = 3;
 
-    // Root mean square error of the measured position of the detection.
+    // Root mean squared error of the measured position of the detection.
     // 
     optional Spherical3d position_rmse = 4;
 
@@ -258,7 +263,7 @@ message RadarDetection
     // 
     optional double radial_velocity = 5;
 
-    // Root mean square error of the object measured radial velocity.
+    // Root mean squared error of the object measured radial velocity.
     // 
     optional double radial_velocity_rmse = 6;
 
@@ -270,13 +275,13 @@ message RadarDetection
     // Unit: [dB m^2].
     optional double snr = 8;
 
-    // Describes the possibility if more than one object has led to this detection.
+    // Describes the possibility whether more than one object may have led to this detection.
     // 
     optional double point_target_probability = 9;
 
     // Ambiguity Information: 
-    // Each ambiguous measurement generates one Ambiguity ID. Ambiguity is shown by the identical Ambiguity ID. 
-    // Unambiguous measurements has Amiguity ID := 0.
+    // Each ambiguous measurement generates one Ambiguity ID. Ambiguity is indicated by an identical Ambiguity ID. 
+    // Unambiguous measurements have the Amiguity ID 0.
     optional Identifier ambiguity_id = 10;
 
     // Attributes of the detection.

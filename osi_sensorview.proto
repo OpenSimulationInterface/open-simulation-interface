@@ -63,7 +63,10 @@ message RadarSensorView {
     // top-to-bottom order (think scan lines in a TV).
     //
     repeated Reflection reflection = 2;
-    
+
+    //
+    // \brief The radar reflection.
+    //    
     message Reflection {
         // Relative signal level of the reflection
         //
@@ -120,6 +123,9 @@ message LidarSensorView {
     //
     repeated Reflection reflections = 2;
 
+    //
+    // \brief The lidar reflection.
+    //
     message Reflection {
         // Relative signal level of the reflection
         //

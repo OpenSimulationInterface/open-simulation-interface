@@ -17,11 +17,11 @@ message DetectedTrafficSign
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific id of the traffic sign as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the traffic sign as assigned by the sensor internally. Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
-    // The id of the original traffic sign in the ground truth.
+    // The ID of the original traffic sign in the ground truth.
     // In case of a ghost sign (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 3;
 
@@ -46,7 +46,7 @@ message DetectedTrafficSign
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
-    // The root mean square error of the base parameters of the detected traffic sign.
+    // The root mean squared error of the base parameters of the detected traffic sign.
     //
     optional BaseStationary rmse = 9;
 
@@ -118,7 +118,7 @@ message DetectedTrafficSign
 message CandidateSign
 {
     // The definition of the candidate's properties.
-    // The sign.id values of all CandidateSigns within one DetectedTrafficSign correspond to the tracking id and must
+    // The sign.id values of all CandidateSigns within one DetectedTrafficSign correspond to the tracking ID and must
     // be identical.
     optional TrafficSign sign = 1;
 
@@ -150,11 +150,11 @@ message DetectedTrafficLight
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific id of the traffic light as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the traffic light as assigned by the sensor internally. Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
-    // The id of the original traffic light in the ground truth.
+    // The ID of the original traffic light in the ground truth.
     // In case of a ghost detection (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 3;
 
@@ -179,7 +179,7 @@ message DetectedTrafficLight
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
-    // The root mean square error of the base parameters of the detected traffic light.
+    // The root mean squared error of the base parameters of the detected traffic light.
     //
     optional BaseStationary rmse = 9;
 
@@ -224,7 +224,7 @@ message DetectedTrafficLight
 //
 message RelevantLane
 {
-    // Tracking id of the lane segment.
+    // Tracking ID of the lane segment.
     //
     optional Identifier lane_id = 1;
 
@@ -242,11 +242,11 @@ message DetectedRoadMarking
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific id of the road marking as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the road marking as assigned by the sensor internally. Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
-    // The id of the original road marking in the ground truth.
+    // The ID of the original road marking in the ground truth.
     // In case of a ghost detection (no corresponding ground truth), this field should be unset.
     optional Identifier ground_truth_id = 3;
 
@@ -267,7 +267,7 @@ message DetectedRoadMarking
     // The measurement state.
     //
     optional MeasurementState measurement_state = 7;
-    // The root mean square error of the base parameters of the detected road marking.
+    // The root mean squared error of the base parameters of the detected road marking.
     //
     optional BaseStationary rmse = 8;
 }

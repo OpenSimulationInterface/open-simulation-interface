@@ -24,7 +24,7 @@ package osi;
 //
 message SensorData
 {  
-    // The id of the sensor.
+    // The ID of the sensor.
     //
     optional Identifier id = 1;
 
@@ -71,7 +71,7 @@ message SensorData
     // 
     optional SensorView sensor_view = 4;
     
-    // The id of the host vehicle in the ground_truth data.
+    // The ID of the host vehicle in the ground_truth data.
     //    
     optional Identifier host_vehicle_id = 5;
     
@@ -88,7 +88,7 @@ message SensorData
     // \note This field is usually static during the simulation.
     optional MountingPosition mounting_position = 6;
 
-    // The root mean square error of the mounting position.
+    // The root mean squared error of the mounting position.
     //
     optional MountingPosition mounting_position_rmse = 7;
 
@@ -126,7 +126,7 @@ message SensorData
     //
     repeated DetectedLaneBoundary lane_boundary = 14;
 
-    // The id of the lane the host vehicle travels on in the DetectedLane data,
+    // The ID of the lane the host vehicle travels on in the DetectedLane data,
     // relative to the sensor.
     //
     optional Identifier host_vehicle_lane_id = 15;
