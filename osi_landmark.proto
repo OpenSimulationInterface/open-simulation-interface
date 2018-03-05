@@ -32,9 +32,13 @@ message TrafficSign
     // Field need not be set if traffic sign type does not require it. Speed (limits) should be given in km/h.
     optional double value = 4;
 
+    // Unit for additional value.
+    //
+    optional Unit value_unit = 5;
+
     // Variability
     //
-    optional Variability variability = 5;
+    optional Variability variability = 6;
 
     // Some traffic signs could have an additional arrow symbol as an additional constrain for the scope (e.g. no parking to the right). 
     // The arrow points to right resp. left from the viewpoint of a 'normal standing pedestrian' viewing the traffic sign's arrow.
@@ -48,15 +52,15 @@ message TrafficSign
     //
     // \note If the traffic sign lies on the ground (there is no definition for right or left). 
     // Normally this is a road marking and no traffic sign.
-    optional DirectionScope direction_scope = 6;
+    optional DirectionScope direction_scope = 7;
     
     // Additional, supplementary signs, e.g. time limit, modifying the traffic sign.
     //
-    repeated SupplementarySign supplementary_sign = 7;
+    repeated SupplementarySign supplementary_sign = 8;
 
     // The IDs of the lanes that the traffic sign is assigned to.
     // Might be multiple if the traffic sign is valid for multiple lanes.
-    repeated Identifier assigned_lane = 8;
+    repeated Identifier assigned_lane = 9;
 
     // Definition of traffic sign types.
     // Numbers given according to German StVO.
@@ -337,81 +341,73 @@ message TrafficSign
         //
         TYPE_HIGHWAY_EXIT = 66;
         
-        // Pole indicating highways exit in 100m (StVO 450).
+        // Pole indicating highways exit in e.g. 100m (StVO 450). See additional value and its unit.
         //
-        TYPE_POLE_EXIT_100M = 67;
-        
-        // Pole indicating highways exit in 200m (StVO 450).
-        //
-        TYPE_POLE_EXIT_200M = 68;
-        
-        // Pole indicating highways exit in 300m (StVO 450).
-        //
-        TYPE_POLE_EXIT_300M = 69;
+        TYPE_POLE_EXIT = 67;
         
         // Pole for warning and guiding purposes (red/white stripes - StVO 605).
         //
-        TYPE_POLE_WARNING = 70;
+        TYPE_POLE_WARNING = 68;
         
         // Begin of expressway for motor vehicles (StVO 331.1).
         //
-        TYPE_EXPRESSWAY_BEGIN = 71;
+        TYPE_EXPRESSWAY_BEGIN = 69;
         
         // End of expressways for motor vehicles (StVO 331.2).
         //
-        TYPE_EXPRESSWAY_END = 72;
+        TYPE_EXPRESSWAY_END = 70;
                 
         // Priority must be given to vehicles from the opposite direction (StVO 208).
         //
-        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 73;
+        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 71;
         
         // Traffic has priority over vehicles from the opposite direction (StVO 308).
         //
-        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 74;
+        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 72;
         
         // Priority must be given to vehicles from the opposite direction (StVO 208). Upside down.
         // 
-        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 75;
+        TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 73;
         
         // Traffic has priority over vehicles from the opposite direction (StVO 308). Upside down.
         //
-        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 76;
+        TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 74;
         
         // Minimum safety distance for trucks (StVO 273).
         //
-        TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 77;
+        TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 75;
         
         // Traffic light ahead sign (StVO 131).
         //
-        TYPE_ATTENTION_TRAFFIC_LIGHT = 78;
+        TYPE_ATTENTION_TRAFFIC_LIGHT = 76;
         
         // Pedestrian crossing (StVO 350).
         //
-        TYPE_PEDESTRIAN_CROSSING_INFO = 79;
+        TYPE_PEDESTRIAN_CROSSING_INFO = 77;
         
         // Warning sign for a left turn (StVO 103.1).
         //
-        TYPE_TURN_LEFT = 80;
+        TYPE_TURN_LEFT = 78;
         
         // Warning sign for a right turn (StVO 103.2).
         //
-        TYPE_TURN_RIGHT = 81;
+        TYPE_TURN_RIGHT = 79;
         
         // Warning sign for a double turn (first left turn) (StVO 105.1).
         //
-        TYPE_DOUBLE_TURN_LEFT = 82;
+        TYPE_DOUBLE_TURN_LEFT = 80;
         
         // Warning sign for a double turn (first right turn) (StVO 105.2).
         //
-        TYPE_DOUBLE_TURN_RIGHT = 83;
+        TYPE_DOUBLE_TURN_RIGHT = 81;
         
         // Drive past on the left side (StVO 222.1).
         //
-        TYPE_PASS_LEFT = 84;
+        TYPE_PASS_LEFT = 82;
         
         // Drive past on the right side (StVO 222.2).
         //
-        TYPE_PASS_RIGHT = 85;
+        TYPE_PASS_RIGHT = 83;
     }
 
     // Definition of the variability of the traffic sign.
@@ -463,6 +459,76 @@ message TrafficSign
         //
         DIRECTION_SCOPE_LEFT_RIGHT = 5;
     }
+    
+    // Unit for values on traffic signs
+    //
+    enum Unit
+    {
+        // Unit of the sign's value is unknown (must not be used in ground truth).
+        //
+        UNIT_UNKNOWN = 0;
+
+        // Other (unspecified but known) uUnit of the sign's value.
+        //
+        UNIT_OTHER = 1;
+
+        // Value without unit.
+        // Unit []
+        UNIT_NO_UNIT = 2;
+
+        // Velocity 
+        // Unit [km/h]
+        UNIT_KILOMETER_PER_HOUR = 3;
+
+        // Velocity 
+        // Unit [mph]
+        //
+        UNIT_MILE_PER_HOUR = 4;
+
+        // Length
+        // Unit [m]
+        UNIT_METER = 5;
+
+        // Length
+        // Unit [km]
+        UNIT_KILOMETER = 6;
+
+        // Length
+        // Unit [ft]
+        UNIT_FEET = 7;
+
+        // Length
+        // Unit [mile]
+        UNIT_MILE = 8;
+
+        // Weight
+        // Unit [t]
+        UNIT_METRIC_TON = 9;
+
+        // Weight 
+        // Long ton UK 1,016.047 kg
+        // Unit [tn. l.]
+        UNIT_LONG_TON = 10;
+
+        // Weight 
+        // Short ton USA 907.1847 kg
+        // Unit [tn. sh.]
+        UNIT_SHORT_TON = 11;
+
+        // Time of day 
+        // Hour since midnight
+        // Unit [min]
+        UNIT_MINUTES = 12;
+
+        // Day of the week 
+        // Days since monday. Monday = 0; Tuesday = 1; ...
+        // Unit []
+        UNIT_DAY = 13;
+
+        // Percentage
+        // Unit [%]
+        UNIT_DAY = 14;
+    }
 }
 
 //
@@ -478,13 +544,37 @@ message SupplementarySign
     //
     optional double value_1 = 2;
 
+    // Unit for first optional value.
+    //
+    optional TrafficSign.Unit value_1_unit = 3;
+
     // Optional second value defining additional properties, e.g. end time in time range.
     //
-    optional double value_2 = 3;
+    optional double value_2 = 4;
+
+    // Unit for second optional value.
+    //
+    optional TrafficSign.Unit value_2_unit = 5;
+
+    // Optional third value defining additional properties, e.g. day of the week start.
+    //
+    optional double value_3 = 6;
+
+    // Unit for third optional value.
+    //
+    optional TrafficSign.Unit value_3_unit = 7;
+
+    // Optional fourth value defining additional properties, e.g. day of the week end.
+    //
+    optional double value_4 = 8;
+
+    // Unit for fourth optional value.
+    //
+    optional TrafficSign.Unit value_4_unit = 9;
 
     // Defines the position to the supplementary sign
     // 
-    optional Position position_supplementary = 4;
+    optional Position position_supplementary = 10;
 
     // Definition of supplementary sign types.
     // See TrafficSign.Type for further information.
@@ -550,11 +640,11 @@ message SupplementarySign
         //
         TYPE_RIGHT_BEND_ARROW = 14;
         
-        // Valid for trucks.
+        // Valid for heavy trucks.
         //
         TYPE_TRUCK = 15;
         
-        // Only trucks allowed.
+        // Passing, only tractors allowed.
         //
         TYPE_TRACTORS_MAY_BE_PASSED = 16;
         
@@ -885,19 +975,23 @@ message RoadMarking
     // Additional value associated with the road marking, e.g. value of the speed limit.
     // \note Field need not be set if road marking type does not require it.
     optional double value = 6;
+
+    // Unit for optional value.
+    //
+    optional TrafficSign.Unit value_unit = 7;
     
     // Additional text value as road marking, e.g. BUS, TAXI etc.
     // \note Field need not be set if road marking type does not require it.
-    optional string value_text = 7;
+    optional string value_text = 8;
 
     // The id(s) of the lane(s) that the road marking is assigned to.
     // Might be multiple if the road marking goes across multiple lanes.
-    repeated Identifier assigned_lane = 8;
+    repeated Identifier assigned_lane = 9;
 
     // Intersection orientation of the road marking.
     //
     // \note Defined for \c Lane::type = TYPE_INTERSECTION, otherwise zero vector
-    optional Vector3d roadmarking_orientation = 9;
+    optional Vector3d roadmarking_orientation = 10;
 
     // Definition of road marking types.
     //
