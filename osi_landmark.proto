@@ -18,10 +18,10 @@ message TrafficSign
     // The base parameters of the traffic sign.
     //
     // The orientation of the bounding box \c TrafficSign::base.orientation is defined as:
-    // \c BaseStationary::orientation x-axis is the vector from bottom to top of the traffic sign's image. 
+    // \c BaseStationary::orientation z-axis is the vector from bottom to top of the traffic sign's image. 
     // (Normally it is equal to the ground truth z-axis.)
-    // \c BaseStationary::orientation z-axis is view normal of the traffic sign's image. 
-    // This z-axis points from the traffic sign's image in the direction from where a 'viewer' could see the traffic sign. 
+    // \c BaseStationary::orientation x-axis is view normal of the traffic sign's image. 
+    // This x-axis points from the traffic sign's image in the direction from where a 'viewer' could see the traffic sign. 
     optional BaseStationary base = 2;
 
     // The type of the traffic sign.
@@ -44,9 +44,9 @@ message TrafficSign
     // The arrow points to right resp. left from the viewpoint of a 'normal standing pedestrian' viewing the traffic sign's arrow.
     //
     // The definition for left and right: 
-    // Build a fictive coord. system. 
+    // Build a fictive coord. system (right hand coord. system). 
     // z-axis of the fictive coord. system is equal to the GT z-axis.
-    // x-axis of the fictive coord. system is like the view normal of the traffic sign (\c TrafficSign::base.orientation z-axis).
+    // x-axis of the fictive coord. system is like the view normal of the traffic sign (\c TrafficSign::base.orientation x-axis).
     // Right: direction of the fictive coord. system's y-axis.
     // Left: opposite direction of the fictive coord. system's y-axis i.e. -(y-axis),
     //
@@ -944,14 +944,14 @@ message RoadMarking
     // The base parameters of the road marking.
     //
     // The orientation of the bounding box \c RoadMarking::base.orientation is defined as:
-    // \c BaseStationary::orientation x-axis is the vector from 'bottom' to 'top' of the road marking's image. 
+    // \c BaseStationary::orientation z-axis is the vector from 'bottom' to 'top' of the road marking's (i.e. painted traffic sign) image. 
     // (Normally it is in the ground truth xy-plain.)
-    // \c BaseStationary::orientation z-axis is view normal of the traffic sign's image. 
-    // This z-axis points normally to the sky.
+    // \c BaseStationary::orientation x-axis is view normal of the road markings's image. 
+    // Normally this x-axis points to the sky.
     // 
     // \note In case of a unidirectional valid road marking, if the road marking is assigned to the 
     // host vehicle lane and the driving direction of the host vehice
-    // is 'equal' to the \c RoadMarking::base.orientation x-axis than the 'driver' has to regard the road marking.
+    // is 'equal' to the \c RoadMarking::base.orientation z-axis than the 'driver' has to regard the road marking.
     optional BaseStationary base = 2;
 
     // The type of the road marking.
