@@ -54,17 +54,18 @@ message DetectionHeader
     //
     // The origin of the detection coordinate system (= spherical polar
     // coordinates) is the sensor mounting pose in the host vehicle coordinate
-    // system.
+    // system w.r.t. orientation of the sensor mounting position.
     //
     // The host vehicle coordinate system is at the center of the rear axle
     // (from the top view as well as from the side view) in the static case.
     // The origin represents the current mounting pose to the best knowledge of
-    // the sensor. It includes the estimated 6D pose estimation given by  the
+    // the sensor. It includes the estimated 6D pose estimation given by the
     // calibration. The uncertainty of this estimation is given with the
     // corresponding 6D root mean squared error. The estimation of the current
     // origin does not include effects due to short-time dynamics, such as pitch
     // angles from braking, but includes long-time calibration values, such as
     // pitch angles from luggage in the trunk.
+    // 
     optional MountingPosition mounting_position = 4;
 
     // Uncertainty of the mounting pose calibration should be included in the

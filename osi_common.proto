@@ -97,18 +97,24 @@ message Dimension3d
 // 
 // The preferred angular range is (-pi, pi]. The coordinate system is defined as right-handed. 
 //  
-// The rotations are to be performed \b roll \b first, \b pitch \b second and \b yaw \b third to follow the definition according to [1]. 
+// The rotations are to be performed \b yaw \b first, \b pitch \b second and \b roll \b third to follow the definition according to [1]. 
 // 
 // Rotations are defined in the reference coordinate frame around z-axis (=yaw), y-axis (=pitch) and x-axis (=roll), 
 // not in the body frame of the object. 
-// A positive angle corresponds to a counter-clockwise rotation around the respective axis.
+// A positive angle corresponds to a clockwise rotation around the respective axis.
 //
 // Roll/Pitch are 0 if the objects xy-plane is parallel to its parent's xy-plane.
 // Yaw is 0 if the object's local x-axis is parallel to its parent's x-axis.
 //
+// Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw
+//
+// vector_global_coord_system := Inverse_Rotation_yaw_pitch_roll(orientation)*(vector_local_coord_system) + local_origin.position
+
+//
+// \note This definition changed in OSI version 3.0.0. Previous OSI versions (V2.xx) had an other definition.
+//
 // \par References: 
-// [1] LAVALLE, Steven M. Planning algorithms. Cambridge university press, 2006. Chapter 3.2.3.
-// See http://planning.cs.uiuc.edu/node102.html for online version of this chapter.
+// [1] DIN ISO 8855:2013-11
 //
 message Orientation3d
 {
@@ -155,7 +161,7 @@ message MountingPosition
     optional Vector3d position = 1;
 
     // Orientation offset relative to the specified reference coordinate system.
-    //
+    // Origin_sensor := Rotation_yaw_pitch_roll(MountingPosition.orientation)*(Origin_reference_coordinate_system - MountingPosition.position)
     optional Orientation3d orientation = 2;
 }
 
@@ -167,7 +173,10 @@ message MountingPosition
 // Units are [m] for radial distance and [rad] for azimuth and elevation angles. 
 // If azimuth and elevation are zero, the referenced point lies directly ahead
 // in the central viewing direction of the sensor, and the respective vector points directly in the latter.
+// A positive angle corresponds to a clockwise rotation around the respective axis, i.e. 
+// z-axis (azimuth = yaw), y-axis (elevation = pitch).
 //
+// vector_cartesian := Rotation(elevation)*Rotation(azimuth)*Unit_vector_x*distance
 message Spherical3d
 {
     // The radial distance.
@@ -188,6 +197,9 @@ message Spherical3d
 // 
 // This includes the StationaryObject, TrafficSign, TrafficLight, RoadMarking messages.
 //
+// All coordinates and orientations are relative to the global ground truth
+// coordinate system.
+//
 message BaseStationary
 {
     // The 3D dimensions of the stationary object (bounding box), e.g. a landmark:
@@ -199,7 +211,9 @@ message BaseStationary
     optional Vector3d position = 2;
 
     // The relative orientation of the stationary object w.r.t. its parent frame.
-    // There may be some constraints how to use orientation w.r.t. to some stationary object's or entity's definition.
+    //
+    // Origin_base_stationary_entity := Rotation_yaw_pitch_roll(BaseStationary.orientation)*(Origin_parent_coordinate_system - BaseStationary.position)
+    // \note There may be some constraints how to align the orientation w.r.t. to some stationary object's or entity's definition.
     optional Orientation3d orientation = 3;
     
     // Usage as ground truth:
@@ -225,6 +239,9 @@ message BaseStationary
 // 
 // This includes the MovingObject messages.
 //
+// All coordinates and orientations are relative to the global ground truth
+// coordinate system.
+//
 message BaseMoving
 {
     // The 3D dimension of the moving object (its bounding box).
@@ -237,18 +254,27 @@ message BaseMoving
 
     // The relative orientation of the moving object w.r.t. its parent frame.
     //
+    // Origin_base_moving_entity := Rotation_yaw_pitch_roll(BaseMoving.orientation)*(Origin_parent_coordinate_system - BaseMoving.position)
+    // \note There may be some constraints how to align the orientation w.r.t. to some stationary object's or entity's definition.
     optional Orientation3d orientation = 3;
 
     // The relative velocity of the moving object w.r.t. its parent frame and parent velocity.
     // The velocity becomes global/absolute if the parent frame does not move.
+    //
+    // BaseMoving.position(t) := BaseMoving.position(t-dt)+velocity*dt 
     optional Vector3d velocity = 4;
 
     // The relative acceleration of the moving object w.r.t. its parent frame and parent acceleration.
     // The acceleration becomes global/absolute if the parent frame is not accelerating.
+    //
+    // BaseMoving.position(t) := BaseMoving.position(t-dt)+velocity*dt+acceleration/2*dt^2
+    // BaseMoving.velocity(t) := BaseMoving.velocity(t-dt)+acceleration*dt 
     optional Vector3d acceleration = 5;
 
-    // The relative orientation rate of the moving object w.r.t. its parent frame and parent orientation rate in the center point of the bounding box.
-    // The orientation rate becomes global/absolute if the parent frame is not rotating.
+    // The relative orientation rate of the moving object w.r.t. its parent frame and parent orientation rate in the center point of the bounding box (origin of the bounding box frame).
+    //
+    // Rotation_yaw_pitch_roll(BaseMoving.orientation(t)) := Rotation_yaw_pitch_roll(BaseMoving.orientation_rate*dt)*Rotation_yaw_pitch_roll(BaseMoving.orientation(t-dt))
+    // \note BaseMoving.orientation(t) is \b not equal BaseMoving.orientation(t-dt)+BaseMoving.orientation_rate*dt
     optional Orientation3d orientation_rate = 6;
     
     // Usage as ground truth:

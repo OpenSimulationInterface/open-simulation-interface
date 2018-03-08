@@ -15,10 +15,10 @@ package osi;
 // for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
 // orientation of base.orientation).
 // 
-// For all vehicles, including host vehicles, the position given  in
+// For all vehicles, including host vehicles, the position given in
 // base.position points to the center of the vehicle's bounding box.
 //
-// The object coordinates are defined as x-axis is the direction from rear to
+// The vehicle object coordinates are defined as x-axis is the direction from rear to
 // front of the vehicle, y-axis corresponds to rear axle and z-axis points to
 // vehicle ceiling.
 //

@@ -93,16 +93,20 @@ message DetectedObject
     // The estimated probabilities for the object to belong to a specific class.
     //
     optional ClassProbability class_probability = 17;
-
-    // The estimated pedestrian head pose.
+    
+    // Pedestrian head pose for behaviour prediction. Describes the head
+    // orientation w.r.t. the host vehicle orientation.
+    // x-axis of head_pose is pedestrian's straight ahead viewing direction.
     //
-    // \note Pedestrian specific value.
-    optional Orientation3d pedestrian_head_pose = 18;
+    // View_normal_base_coord_system = Inverse_Rotation(head_pose)*Unit_vector_x 
+    optional Orientation3d head_pose = 18;
 
-    // The estimated pedestrian upper body pose.
+    // Pedestrian upper body pose for behaviour prediction. Describes the
+    // upper body orientation w.r.t. the host vehicle orientation.
+    // x-axis of upper_body_pose is pedestrian's upper body intended moving direction.
     //
-    // \note Pedestrian specific value.
-    optional Orientation3d pedestrian_upper_body_pose = 19;
+    // View_normal_base_coord_system = Inverse_Rotation(upper_body_pose)*Unit_vector_x 
+    optional Orientation3d upper_body_pose = 19;
 
     // Percentage side lane left.
     //
