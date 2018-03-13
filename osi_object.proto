@@ -18,9 +18,13 @@ package osi;
 // For all vehicles, including host vehicles, the position given in
 // base.position points to the center of the vehicle's bounding box.
 //
-// The vehicle object coordinates are defined as x-axis is the direction from rear to
-// front of the vehicle, y-axis corresponds to rear axle and z-axis points to
-// vehicle ceiling.
+// The vehicle object coordinates are defined as x-axis is the direction from 
+// rear to front of the vehicle, y-axis corresponds to rear axle and z-axis 
+// points to vehicle ceiling [1]. The coordinate system is right-handed.
+// Therefore the positive y-axis points to the left of the vehicle. 
+//
+// \par References: 
+// [1] DIN ISO 8855:2013-11
 //
 message Vehicle
 {
@@ -44,12 +48,15 @@ message Vehicle
     // host vehicle(s), false for other vehicles.  See the description above!
     optional bool host_vehicle = 5;
 
-    // The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z) 
-    // of the rear axle under neutral load conditions. In object coordinates.
+    // The vector pointing from the bounding box center point (base.position) to
+    // the middle (in x, y and z) of the rear axle under neutral load 
+    // conditions. In object coordinates.
     optional Vector3d bbcenter_to_rear = 6;
 
     // The IDs of the lanes that this vehicle is assigned to.
-    // \note Might be multiple if the vehicle is switching lanes or moving from one lane into another following lane.
+    //
+    // \note Might be multiple if the vehicle is switching lanes or moving from 
+    // one lane into another following lane.
     repeated Identifier assigned_lane = 7;
 
     // Flag defining whether the vehicle has an attached trailer.
@@ -57,15 +64,20 @@ message Vehicle
     optional bool has_trailer = 8;
 
     // Id of the attached trailer.
-    // \note Field need not be set if has_Trailer is set to false or use value for non valid id.
+    //
+    // \note Field need not be set if has_Trailer is set to false or use value
+    // for non valid id.
     optional Identifier trailer_id = 9;
 
     // The ID of the driver of the (host) vehicle.
-    // \note Field need not be set if host_vehicle is set to false or use value for non valid id.
+    //
+    // \note Field need not be set if host_vehicle is set to false or use value
+    // for non valid id.
     optional Identifier driver = 10;
     
-    // The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z)
-    // of the front axle under neutral load conditions. In object coordinates.
+    // The vector pointing from the bounding box center point (base.position) to
+    // the middle (in x, y and z) of the front axle under neutral load 
+    // conditions. In object coordinates.
     optional Vector3d bbcenter_to_front = 11;
     
     // Static minimal distance in [m] of underbody plane to ground
@@ -215,15 +227,16 @@ message Vehicle
             //
             BRAKE_LIGHT_STATE_NORMAL = 3;
             
-            // Brake lights are on with extra bright intensity (indicating stronger braking).
-            //
+            // Brake lights are on with extra bright intensity (indicating
+            // stronger braking).
             BRAKE_LIGHT_STATE_STRONG = 4;
         }
     }
 }
 
 //
-// \brief A simulated object that is neither a moving object (vehicle) nor a stationary object (traffic sign, traffic light, StationaryObject).
+// \brief A simulated object that is neither a moving object (vehicle) nor a
+// stationary object (traffic sign, traffic light, StationaryObject).
 //
 // MovingObject excludes vehicles
 //
@@ -263,7 +276,9 @@ message MovingObject
 }
 
 //
-// \brief A simulated object that is neither a moving object (vehicle or MovingObject e.g. pedestrian or animal) nor a stationary object (traffic sign, traffic light).
+// \brief A simulated object that is neither a moving object (vehicle or 
+// \c OSI::MovingObject e.g. pedestrian or animal) nor a stationary object 
+// (traffic sign, traffic light).
 //
 // StationaryObject excludes traffic lights and traffic signs
 //
