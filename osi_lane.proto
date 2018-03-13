@@ -9,16 +9,19 @@ package osi;
 //
 // \brief A lane in the road network.
 //
-// A lane is part of a road and mainly characterized by its center line. It also knows about any adjacent lanes,
-// antecessor and successor lanes. 
-// The following image will be referred to by later comments. We'll use the lane with ID 3 as reference if not mentioned otherwise.
+// A lane is part of a road and mainly characterized by its center line. It also
+// knows about any adjacent lanes, antecessor and successor lanes. 
+// The following image will be referred to by later comments. We'll use the lane
+// with ID 3 as reference if not mentioned otherwise.
 //
 // \image html highway_exit.png
 //
-// For lane a to be the antecessor of lane b, the last point of a's center line has to be identical to the first point
-// of b's center line (although both points might lie outside the simulated region, the relationship remains). Any lane
-// starts or ends at such a split/merge point. No lane can ever keep its ID after such a split point, i.e. lane 4 has to
-// change its ID after lane 6 splits off of lane 4, thus in the example it becomes a new lane with ID 7.
+// For lane a to be the antecessor of lane b, the last point of a's center line
+// has to be identical to the first point of b's center line (although both
+// points might lie outside the simulated region, the relationship remains). Any
+// lane starts or ends at such a split/merge point. No lane can ever keep its ID
+// after such a split point, i.e. lane 4 has to change its ID after lane 6
+// splits off of lane 4, thus in the example it becomes a new lane with ID 7.
 //
 message Lane
 {
@@ -33,68 +36,89 @@ message Lane
 
     // The lane's center line.
     //
-    // This is the line, that a typical vehicle is supposed to follow. Thus, if the road narrows (e.g. at a construction
-    // site) this line is supposed to describe the trajectory that the vehicle should follow. The intended direction of
-    // travel on the lane is given by the direction defined by the sequence of points forming the center line.
+    // This is the line, that a typical vehicle is supposed to follow. Thus, if
+    // the road narrows (e.g. at a construction site) this line is supposed to
+    // describe the trajectory that the vehicle should follow. The intended
+    // direction of travel on the lane is given by the direction defined by the
+    // sequence of points forming the center line.
     //
     // \image html highway_exit.png "Center lines as yellow dotted lines."
     //
-    // \attention The points describing the center line might be set at arbitrary distances. 
-    // When the points are pairwise linearly connected, the lateral distance to the real ideal line (as used by the simulation
-    // environment internally) must not exceed 5cm. As shown in the following image:
+    // \attention The points describing the center line might be set at
+    // arbitrary distances. When the points are pairwise linearly connected, the
+    // lateral distance to the real ideal line (as used by the simulation
+    // environment internally) must not exceed 5cm. As shown in the following
+    // image:
     //
     // \image html line_approximation_error.png "Approximation error as green line."
     //
-    // \note The center_line is defined only for \c Lane::type = \c TYPE_DRIVING and one
-    // \c Lane::lane_pairing pair.
+    // \note The center_line is defined only for \c Lane::type = \c TYPE_DRIVING
+    // and one \c Lane::lane_pairing pair.
     repeated Vector3d center_line = 3;
 
     // Definition of the intended driving direction.
     //
     // Defined and used for driving lanes.
-    // true means driving direction is according to ascending order of center line points.
-    // false means driving direction is according to descending order of center line points.
+    // true means driving direction is according to ascending order of center
+    // line points.
+    // false means driving direction is according to descending order of center
+    // line points.
     //
-    // \note The center_line_is_driving_direction is defined for \c Lane::type = TYPE_DRIVING.
+    // \note The center_line_is_driving_direction is defined for \c Lane::type =
+    // TYPE_DRIVING.
     optional bool center_line_is_driving_direction = 4;
 
-    // List of IDs of all lane segments that are directly adjacent to the lane on the left side (w.r.t. intended driving
-    // direction). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent
-    // segments if there is a split/merge point in the adjacent lane.
-    // Example: The lane ID 2 is the only left adjacent lane for lane ID 3 in the reference picture.
+    // List of IDs of all lane segments that are directly adjacent to the lane 
+    // on the left side (w.r.t. intended driving direction). Note that lengths
+    // of lane segments are not synchronized and therefore there are multiple
+    // adjacent segments if there is a split/merge point in the adjacent lane.
     //
-    // \note The left_adjacent_lane_id is undefined for \c Lane::type = TYPE_INTERSECTION.
+    // Example: The lane ID 2 is the only left adjacent lane for lane ID 3 in
+    // the reference picture.
+    //
+    // \note The left_adjacent_lane_id is undefined for \c Lane::type =
+    // TYPE_INTERSECTION.
     repeated Identifier left_adjacent_lane_id = 5;
 
-    // List of IDs of all lane segments that are directy adjacent to the lane on the right side (w.r.t. intended driving
-    // direction). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent
-    // segments if there is a split/merge point in the adjacent lane.
-    // Example: The lane IDs 4 and 7 are the right adjacent lane segments for lane ID 3 in the reference picture due to
-    // the lane split. Lane ID 6 is not a right adjacent lane to lane ID 3 as they are separated by lane ID 7.
+    // List of IDs of all lane segments that are directy adjacent to the lane on
+    // the right side (w.r.t. intended driving direction). Note that lengths of 
+    // lane segments are not synchronized and therefore there are multiple
+    // adjacent segments if there is a split/merge point in the adjacent lane.
+    // Example: The lane IDs 4 and 7 are the right adjacent lane segments for
+    // lane ID 3 in the reference picture due to the lane split. Lane ID 6 is 
+    // not a right adjacent lane to lane ID 3 as they are separated by lane ID 
+    // 7.
     //
-    // \note The right_adjacent_lane_id is undefined for \c Lane::type = TYPE_INTERSECTION.
+    // \note The right_adjacent_lane_id is undefined for \c Lane::type = 
+    // TYPE_INTERSECTION.
     repeated Identifier right_adjacent_lane_id = 6;
 
-    // The antecessor/successor lane pairings of this lane. There can be multiple pairings with the same
-    // antecessor and different successor lanes and vice versa.
+    // The antecessor/successor lane pairings of this lane. There can be
+    // multiple pairings with the same antecessor and different successor lanes
+    // and vice versa.
     // The antecessor lanes end in the same point that this lane starts from.
     // The successor lanes start in the same point that this lane ends in.
     // Example:
     repeated LanePairing lane_pairing = 7;
 
-    // The ID of the right boundary ID of the right lane ID w.r.t. the driving direction. Empty for intersections.
+    // The ID of the right boundary ID of the right lane ID w.r.t. the driving
+    // direction. Empty for intersections.
     //
-    // \note The right_lane_boundary_id is undefined for \c Lane::type = TYPE_INTERSECTION.
+    // \note The right_lane_boundary_id is undefined for \c Lane::type =
+    // TYPE_INTERSECTION.
     repeated Identifier right_lane_boundary_id = 8;
 
-    // The ID of the left boundary ID of the left lane ID w.r.t. the driving direction. Empty for intersections.
+    // The ID of the left boundary ID of the left lane ID w.r.t. the driving
+    // direction. Empty for intersections.
     //
-    // \note The left_lane_boundary_id is udefined for \c Lane::type = TYPE_INTERSECTION.
+    // \note The left_lane_boundary_id is udefined for \c Lane::type =
+    // TYPE_INTERSECTION.
     repeated Identifier left_lane_boundary_id = 9;
 
     // The ID of the free boundary ID.
     //
-    // \note Lanes with \c Lane::type = TYPE_INTERSECTION use only free lane boundaries
+    // \note Lanes with \c Lane::type = TYPE_INTERSECTION use only free lane
+    // boundaries
     repeated Identifier free_lane_boundary_id = 10;
 
     // A lane framing describes the surroundings of the lane segment.
@@ -245,9 +269,9 @@ message LanePairing
 //
 // \brief A lane boundary defining the border of a lane.
 //
-// The left and right lane boundary define the width of the lane borders. Additionally, free markings can be defined,
-// e.g. in construction sites. Free markings across multiple lanes may be defined multiple times by all affected
-// lanes.
+// The left and right lane boundary define the width of the lane. Additionally,
+// free markings can be defined, e.g. at construction sites. Free markings
+// across multiple lanes may be defined multiple times for all affected lanes.
 //
 message LaneBoundary
 {
@@ -257,13 +281,16 @@ message LaneBoundary
 
     // The list of individual points defining the location of the lane boundary.
     //
-    // Since a BoundaryPoint is part of a sequence only the position attribute has to be set for each instance. All
-    // other values will be reused from the previous BoundaryPoint in the sequence or set to default values if there is
-    // none or it was never set. For dashed lines, one BoundaryPoint has to be at the start and another at the end of
-    // each dashed line segment.
+    // Since a \c OSI::BoundaryPoint is part of a sequence, only the position
+    // attribute has to be set for each instance. All other values will be
+    // reused from the previous \c OSI::BoundaryPoint in the sequence or set to
+    // default values if there is none or it was never set. For dashed lines,
+    // one \c OSI::BoundaryPoint has to be at the start and another at the end
+    // of each dashed line segment. For Botts' dots lines, one 
+    // \c OSI::BoundaryPoint position has to define each Botts' dot.
     //
-    // \attention For BoundaryPoints the same rules apply as for Lane::center_line regarding maximum distance and
-    // approximation error.
+    // \attention For \c OSI::BoundaryPoint the same rules regarding maximum 
+    // distance and approximation error apply as for \c OSI::Lane::center_line.
     repeated BoundaryPoint boundary_line = 2;
 
     // The type of the lane boundary.
@@ -275,11 +302,14 @@ message LaneBoundary
     optional Color color = 4;
 
     // The lane boundary type.
-    // There are no double lines, e.g. solid solid or dashed solid, as each lane will define its own side of the lane boundary.
+    // There is no special representation for double lines, e.g. solid / solid 
+    // or dashed / solid. In such cases, each lane will define its own side of
+    // the lane boundary.
+    //
     enum Type
     {
-        // The type of lane boundary is unknown. Value must not be used in ground truth.
-        //
+        // The type of lane boundary is unknown. Value must not be used in
+        // ground truth.
         TYPE_UNKNOWN = 0;
         
         // Unspecified but known type of lane boundary.
@@ -298,16 +328,16 @@ message LaneBoundary
         //
         TYPE_DASHED_LINE = 4;
         
-        // A lane boundary consisting of Botts' dots.
-        //
+        // A lane boundary consisting of Botts' dots (multiple Botts dots).
+        // 
         TYPE_BOTTS_DOTS = 5;
         
         // A lane boundary formed by the road's edge.
         // The road edge is the end of the (paved) road surface.
         TYPE_ROAD_EDGE = 6;
         
-        // A lane boundary formed by a snow edge that may be on the road surface.
-        //
+        // A lane boundary formed by a snow edge that may be on the road
+        // surface.
         TYPE_SNOW_EDGE = 7;
         
         // A guard rail.
@@ -324,10 +354,11 @@ message LaneBoundary
     }
 
     // The color of the lane boundary in case of a lane markings.
-    // Lane markings that change their color must be represented by individual Lane segments.
+    // Lane markings that alternate in color must be represented by individual
+    // \c OSI::LaneBoundary segments.
     enum Color
     {
-        // Color of Marking is unknown. Value must not be used in ground truth.
+        // Color of marking is unknown. Value must not be used in ground truth.
         //
         COLOR_UNKNOWN = 0;
         
@@ -335,7 +366,8 @@ message LaneBoundary
         //
         COLOR_OTHER = 1;
         
-        // Marking without color, used to represent logical boundaries without physical markings.
+        // Marking without color. Used to represent logical boundaries without
+        // actual physical markings at the respective position.
         // Value may be used in ground truth only.
         COLOR_NONE = 2;
         
@@ -366,19 +398,27 @@ message LaneBoundary
 }
 
 //
-// \brief One point of a lane boundary.
+// \brief A single point of a lane boundary.
 //
 message BoundaryPoint
 {
-    // The position of the BoundaryPoint.
+    // The position of the \c OSI::BoundaryPoint.
     //
     optional Vector3d position = 1;
 
-    // The overall width of the lane boundary at the position of the BoundaryPoint.
+    // The overall width of the lane boundary at the position of the
+    // \c OSI::BoundaryPoint.
     // Used for lines forming lane markings.
+    //
+    // \note Field need not be set if it is defined previous. 
+    // See \c OSI::LaneBoundary.
     optional double boundary_width = 2;
 
-    // The overall height of the lane boundary at the position of the BoundaryPoint.
-    // Used for guard rails, curbstone, or similar
+    // The overall height of the lane boundary at the position of the
+    // \c OSI::BoundaryPoint.
+    // Used for guard rails, curbstone, or similar.
+    //
+    // \note Field need not be set if it is defined previous.
+    // See \c OSI::LaneBoundary.
     optional double boundary_height = 3;
 }
