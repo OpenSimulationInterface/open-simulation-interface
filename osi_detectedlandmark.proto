@@ -192,17 +192,21 @@ message DetectedTrafficLight
     //
     optional Identifier ground_truth_id = 3;
 
-    // Description of the detected traffic light.
+    // A list of candidates for this traffic light as estimated by the sensor.
     //
-    optional TrafficLight traffic_light = 4;
+    repeated CandidateTrafficLight candidate_traffic_light = 4;
+    
+    // The root mean squared error of the base parameters of the detected
+    // traffic light.
+    optional BaseStationary rmse = 5;
 
     // Determines for which directions the traffic light applies.
     //
-    repeated RelevantDirection relevant_direction = 5;
+    repeated RelevantDirection relevant_direction = 6;
 
     // Links to the corresponding lanes.
     //
-    repeated RelevantLane relevant_lane = 6;
+    repeated RelevantLane relevant_lane = 7;
 
     // The estimated probability that this traffic light really exists, not
     // based on history.
@@ -210,17 +214,12 @@ message DetectedTrafficLight
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    optional double existence_probability = 7;
+    optional double existence_probability = 8;
 
     // The measurement state.
     //
-    optional MeasurementState measurement_state = 8;
+    optional MeasurementState measurement_state = 9;
     
-    // The root mean squared error of the base parameters of the detected
-    // traffic light.
-    //
-    optional BaseStationary rmse = 9;
-   
     // A list of sensors which detected this detected entity.
     //
     // If SensorData has detected entities and all detections are missing, then 
@@ -270,6 +269,21 @@ message DetectedTrafficLight
             DIRECTION_RIGHT = 4;
         }
     }
+}
+
+//
+// \brief A candidate for (a) detected traffic light(s) as estimated by the
+// sensor.
+message CandidateTrafficLight
+{
+    // The definition of one traffic light that define this candidate.
+    //
+    optional TrafficLight traffic_light = 1;
+
+    // The estimated probability that this candidate is the true value. 
+    // Range [0,1].
+    // The sum of all candidate_probabilities must be one.
+    optional double candidate_probability = 2;
 }
 
 //

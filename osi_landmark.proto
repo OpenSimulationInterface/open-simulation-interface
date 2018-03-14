@@ -480,6 +480,10 @@ message TrafficSign
         // Lane for buses (StVO 245). 
         // See e.g.: https://www.dvr.de/bilder/stvo/gt/245.png
         TYPE_BUS_LANE = 91;
+
+        // Green arrow sign at a traffic light (StVO 720).
+        //
+        TYPE_TRAFFIC_LIGHT_GREEN_ARROW = 92;
     }
 
     // Definition of the variability of the traffic sign.
@@ -812,133 +816,81 @@ message TrafficLight
     //
     optional BaseStationary base = 2;
 
-    // The type of the traffic light.
+    // Specifies the alignment of the individual light bulbs / sub-displays
+    // of this traffic light and determines the order in which they are given
+    // in the \c bulbs field. See \c TrafficLight::Arrangement for details.
     //
-    optional Type type = 3;
-
-    // The shape of the traffic light.
+    optional Arrangement arrangement = 3;
+    
+    // The individual light bulbs / sub-displays of the traffic light.
+    // See \c TrafficLight::Arrangement for details on the order of the entries
+    // of this field. For example, this field starts at the left of the traffic
+    // light if a horizontal arrangement (\c arrangement =
+    // \c ARRANGEMENT_LEFT_TO_RIGHT) is given.
     //
-    optional Shape shape = 4;
-
-    // The state of the traffic light.
-    //
-    optional LightState light_state = 5;
-
-    // Presence of a green arrow sign indicating permitted right turns at the
-    // red traffic light.
-    //
-    optional GreenArrowPresence green_arrow = 6;
-
+    repeated TrafficLightBulb bulbs = 4;
+    
     // The IDs of the lanes that the traffic light is assigned to.
     // Might be multiple if the traffic light is valid for multiple driving
     // lanes.
-    repeated Identifier assigned_lanes = 7;
-
-    // Definition of traffic light types.
     //
-    enum Type
+    repeated Identifier assigned_lanes = 5;
+    
+    //
+    // \brief Geometrical arrangement of the individual light bulbs of a traffic
+    // light.
+    //
+    enum Arrangement
     {
-        // Unknown type of traffic light (must not be used in ground truth).
+        // Arrangement is unknown (must not be used in ground truth).
         //
-        TYPE_UNKNOWN = 0;
+        ARRANGEMENT_UNKNOWN = 0;
         
-        // Other (unspecified but known) type of traffic light.
+        // Other (unspecified but known) arrangement.
         //
-        TYPE_OTHER = 1;
+        ARRANGEMENT_OTHER = 1;
         
-        // Normal traffic light for motor vehicle traffic.
+        // The light bulbs / sub-displays are arranged top to bottom, i.e. the
+        // entries in the \c TrafficLight::bulbs field start at the top of the
+        // physical traffic light.
         //
-        TYPE_NORMAL = 2;
+        ARRANGEMENT_TOP_TO_BOTTOM = 2;
         
-        // Light for pedestrian traffic.
+        // The light bulbs / sub-displays are arranged left to right, i.e. the
+        // entries in the \c TrafficLight::bulbs field start at the left of the
+        // physical traffic light.
         //
-        TYPE_PEDESTRIAN = 3;
+        ARRANGEMENT_LEFT_TO_RIGHT = 3;
         
-        // Light for bicycle traffic.
+        // The light bulbs / sub-displays do not have a specific alignment, e.g.
+        // the traffic light consists of a single LED display unit that can
+        // show arbitrary content.
         //
-        TYPE_BICYCLE = 4;
+        ARRANGEMENT_GENERIC = 4;
     }
-
-    // Definition of traffic light shapes.
+    
     //
-    enum Shape
-    {
-        // Unknown shape of traffic light (must not be used in ground truth).
-        //
-        SHAPE_UNKNOWN = 0;
-        
-        // Other (unspecified but known) shape of traffic light.
-        //
-        SHAPE_OTHER = 1;
-        
-        // This is a normal traffic light without specification of direction.
-        //
-        SHAPE_CIRCULAR = 2;
-        
-        // This traffic light applies to the lane straight ahead.
-        //
-        SHAPE_ARROW_STRAIGHT_AHEAD = 3;
-        
-        // This traffic light applies to left turns.
-        //
-        SHAPE_ARROW_LEFT = 4;
-        
-        // This traffic light applies to diagonal left turns.
-        //
-        SHAPE_ARROW_DIAG_LEFT = 5;
-        
-        // This traffic light applies to a lane allowing to drive straight ahead
-        // or to turn left.
-        SHAPE_ARROW_STRAIGHT_AHEAD_LEFT = 6;
-        
-        // This traffic light applies to right turns.
-        //
-        SHAPE_ARROW_RIGHT = 7;
-        
-        // This traffic light applies to diagonal right turns.
-        //
-        SHAPE_ARROW_DIAG_RIGHT = 8;
-        
-        // This traffic light applies to a lane allowing to drive straight ahead
-        // or to turn right.
-        SHAPE_ARROW_STRAIGHT_AHEAD_RIGHT = 9;
-        
-        // This traffic light applies to a lane allowing to turn left or right.
-        //
-        SHAPE_ARROW_LEFT_RIGHT = 10;
-        
-        // This traffic light indicates that the assigned lane is open for
-        // driving.
-        SHAPE_ARROW_DOWN = 11;
-        
-        // This traffic light indicates a necessary lane change to the left
-        // ahead.
-        SHAPE_ARROW_DOWN_LEFT = 12;
-        
-        // This traffic light indicates a necessary lane change to the right
-        // ahead.
-        SHAPE_ARROW_DOWN_RIGHT = 13;
-        
-        // This traffic light indicates that the assigned lane is not open for
-        // driving.
-        SHAPE_ARROW_CROSS = 14;
-    }
-
+    // \brief A single traffic light bulb.
     //
-    // \brief Definition of light state for traffic lights.
-    // 
-    // Summarizes the relevant semantic information about the entire traffic
-    // light's state and NOT a description of the individual light bulbs.
-    //
-    message LightState
+    message TrafficLightBulb
     {
         // The color of the traffic light.
         //
         optional Color color = 1;
+
+        // The shape of the traffic light.
+        //
+        optional Icon icon = 2;
         
         // The operating mode of the traffic light.
         //
-        optional Mode mode = 2;
+        optional Mode mode = 3;
+        
+        // The value of the counter.
+        // Unit: [%] or [s] 
+        // 
+        // \note Set value only if traffic light bulb is a countdown counter.
+        optional double counter = 4;
         
         // Definition of colors for traffic lights.
         //
@@ -952,25 +904,114 @@ message TrafficLight
             //
             COLOR_OTHER = 1;
             
-            // Traffic light is off / inactive. In this case mode must also be
-            // set to \c MODE_OFF.
-            COLOR_OFF = 2;
-            
-            // Red light is on.
+            // Red light.
             //
-            COLOR_RED = 3;
+            COLOR_RED = 2;
             
-            // Red and yellow light are on at the same time.
+            // Orange-yellow light.
             //
-            COLOR_RED_YELLOW = 4;
+            COLOR_YELLOW = 3;
+                        
+            // Green light.
+            //
+            COLOR_GREEN = 4;
+                        
+            // Blue light.
+            //
+            COLOR_BLUE = 5;
+                        
+            // White light.
+            //
+            COLOR_WHITE = 6;
+        }
+
+        // Definition of traffic light bulb icon.
+        //
+        enum Icon
+        {
+            // Unknown icon of traffic light (must not be used in ground truth).
+            //
+            ICON_UNKNOWN = 0;
             
-            // Yellow light is on.
+            // Other (unspecified but known) icon of traffic light.
             //
-            COLOR_YELLOW = 5;
+            ICON_OTHER = 1;
             
-            // Green light is on.
+            // This is a normal traffic light without specification of e.g.
+            // direction.
+            ICON_NONE = 2;
+            
+            // This traffic light applies to the lane straight ahead.
             //
-            COLOR_GREEN = 6;
+            ICON_ARROW_STRAIGHT_AHEAD = 3;
+            
+            // This traffic light applies to left turns.
+            //
+            ICON_ARROW_LEFT = 4;
+            
+            // This traffic light applies to diagonal left turns.
+            //
+            ICON_ARROW_DIAG_LEFT = 5;
+            
+            // This traffic light applies to a lane allowing to drive straight
+            // ahead or to turn left.
+            ICON_ARROW_STRAIGHT_AHEAD_LEFT = 6;
+            
+            // This traffic light applies to right turns.
+            //
+            ICON_ARROW_RIGHT = 7;
+            
+            // This traffic light applies to diagonal right turns.
+            //
+            ICON_ARROW_DIAG_RIGHT = 8;
+            
+            // This traffic light applies to a lane allowing to drive straight
+            // ahead or to turn right.
+            ICON_ARROW_STRAIGHT_AHEAD_RIGHT = 9;
+            
+            // This traffic light applies to a lane allowing to turn left or
+            // right.
+            ICON_ARROW_LEFT_RIGHT = 10;
+            
+            // This traffic light indicates that the assigned lane is open for
+            // driving.
+            ICON_ARROW_DOWN = 11;
+            
+            // This traffic light indicates a necessary lane change to the left
+            // ahead.
+            ICON_ARROW_DOWN_LEFT = 12;
+            
+            // This traffic light indicates a necessary lane change to the right
+            // ahead.
+            ICON_ARROW_DOWN_RIGHT = 13;
+            
+            // This traffic light indicates that the assigned lane is not open
+            // for driving.
+            ICON_ARROW_CROSS = 14;
+            
+            // This traffic light is valid for pedestrians.
+            //
+            ICON_PEDESTRIAN = 15;
+            
+            // This traffic light is valid for bicyclists. 
+            //
+            ICON_BICYCLE = 16;
+            
+            // This traffic light is valid for pedestrians and bicyclists. 
+            //
+            ICON_PEDESTRIAN_AND_BICYCLE = 17;
+            
+            // This traffic light is valid for trams. 
+            //
+            ICON_TRAM = 18;
+            
+            // This traffic light counter in second. 
+            //
+            ICON_COUNTDOWN_SECONDS = 19;
+            
+            // This traffic light counter in percent. 
+            //
+            ICON_COUNTDOWN_PERCENT = 20;
         }
 
         // Definition of light modes for traffic lights.
@@ -985,39 +1026,22 @@ message TrafficLight
             //
             MODE_OTHER = 1;
             
-            // Traffic light is off / inactive. In this case color must also be
-            // set to \c COLOR_OFF.
+            // Traffic light is off.
+            //
             MODE_OFF = 2;
             
-            // Light is on and not blinking.
+            // Light is on and not flashing.
             //
             MODE_CONSTANT = 3;
             
-            // Light is blinking.
+            // Light is flashing.
             //
-            MODE_BLINKING = 4;
+            MODE_FLASHING = 4;
+            
+            // Light is counting.
+            //
+            MODE_COUNTING = 5;
         }
-    }
-
-    // Definition of states for the presence of a green arrow sign for right
-    // turns.
-    enum GreenArrowPresence
-    {
-        // The presence of a green arrow sign is unknown (must not be used in
-        // ground truth).
-        GREEN_ARROW_UNKNOWN = 0;
-        
-        // Other (unspecified but known) green arrow sign.
-        //
-        GREEN_ARROW_OTHER = 1;
-        
-        // No green arrow sign is present.
-        //
-        GREEN_ARROW_NOT_PRESENT = 2;
-        
-        // A green arrow sign is present.
-        //
-        GREEN_ARROW_PRESENT = 3;
     }
 }
 
