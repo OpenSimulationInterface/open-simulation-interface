@@ -45,35 +45,40 @@ message DetectionHeader
     // for detailed discussions on the semantics of time-related fields.
     optional Timestamp measurement_time = 2;
 
-    // Monotonous counter to identify the exact cycle.
-    //
-    optional uint32 cycle_counter = 3;
+    // Monotonous counter to identify the exact cycle. 
+    // Generally the detecion function is called periodic and 
+    // \c DetectionHeader::cycle_counter corresponds to the number of periods.
+    optional uint64 cycle_counter = 3;
 
-    // Mounting position of the sensor (origin and orientation of the cartesian
-    // sensor coordinate system); given relative from the middle of the rear
-    // axle of the host vehicle coordinate system (see: \c OSI::Vehicle vehicle
-    // reference point) to the sensor detection coordinate system's origin. The
-    // sensor detection coordinate system is a spherical polar coordinate system
-    // (same origin and orientation as cartesian sensor coordinate system).
+
+    // Mounting position of the sensor (origin and orientation of the sensor 
+    // frame). Both origin and orientation are given in and with respect to the 
+    // host vehicle coordinate system (see: \c OSI::Vehicle vehicle reference
+    // point).
     //
-    // The sensor detection coordinate system's x-axis must be the angle
-    // bisector of the sensor's horizontal and vertical field of view in a
-    // right-handed coordinate system. The xy-plane represents the horizontal
-    // field of view and the xz-plane the vertical field of view.
+    // The sensor frame's x-axis is pointing in the central viewing direction of 
+    // the sensor. It is the angle bisector of the sensor's horizontal and 
+    // vertical field of view. The terms horizontal and vertical must be 
+    // understood as names for the two principal planes of the sensor's field of 
+    // view (relative to the sensor frame's orientation), which do not have to
+    // be horizontal or vertical in the strict sense of being parallel or 
+    // perpendicular to the local gravitational vector. The horizontal field
+    // of view defines the sensor frame's xy-plane and the vertical field
+    // of view defines the xz-plane. The sensor frame is right-handed and the 
+    // z-axis is pointing in an upward direction.
     //
-    // The origin represents the current mounting pose to the best knowledge of
-    // the sensor. The estimation of the 6D pose given by the calibration. The
-    // uncertainty of this estimation is given with the corresponding 6D root
-    // mean squared error. The estimation of the current origin does not include
-    // effects due to short-time dynamics, such as pitch angles from braking,
-    // but includes long-time calibration values, such as pitch angles from
-    // luggage in the trunk. 
-    //
+    // The sensor frame uses cartesian coordinates. The sensor frame's origin is
+    // identical to sensor detection frame's origin. Detections are defined in 
+    // the sensor detection frame which uses e.g. spherical coordinates.
     optional MountingPosition mounting_position = 4;
 
-    // Uncertainty of the mounting pose calibration should be included in the
-    // interface (x, y, z, yaw, pitch, roll).
-    //
+    // The origin/orientation of the sensor frame represents the current
+    // mounting pose to the best knowledge of the sensor. The estimation of the
+    // 6D pose given by the calibration. The uncertainty of this estimation is
+    // given with the corresponding 6D root mean squared error. The estimation
+    // of the current origin does not include effects due to short-time
+    // dynamics, such as pitch angles from braking, but includes long-time
+    // calibration values, such as pitch angles from luggage in the trunk. 
     optional MountingPosition mounting_position_rmse = 5;
 
     // Data Qualifier expresses to what extent the content of this event can be 
@@ -172,7 +177,7 @@ enum DetectionClassification
 
 
 //
-// \brief A list of lidar detection.
+// \brief A list of lidar detection from one sensor.
 //
 message LidarDetectionList
 {
@@ -235,7 +240,7 @@ message LidarDetection
 }
 
 //
-// \brief A list of radar detections.
+// \brief A list of radar detections from one sensor.
 //
 message RadarDetectionList
 {    
