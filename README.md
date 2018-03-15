@@ -64,9 +64,9 @@ A change of the major version results in an incompatibility of code and recorded
 
 Minor:
 A change of the minor version indicates remaining compatibility to previously recorded files. The code on the other hand needs fixing.
-- Renaming of a field without changing the field number
-- Changing the names of messages
-- Adding a new field in a message without changing the numbering of other fields
+- Renaming of a field without changing the field number and the meanning of the field contents.
+- Changing the names of messages without varing the meaning of the messages.
+- Adding a new field in a message without changing the numbering of other fields, all new add fields are appended to the message due to field index numbers increment. The sorting of fields in minor version changing is logical based. A resorting to merge the logical and index will be performed in the coming major version changing.
 
 Patch:
 The compatibility of both recorded files and code remains.
@@ -74,6 +74,19 @@ The compatibility of both recorded files and code remains.
 - Changing or adding comments
 - Clarification of text passages explaining the message content
 
+Compatibility:
+Major changes: 
+If a major version changing occurs, the serialization and deserialization (separated on different locations & applications) are not compatibile. E.g. An OSI message that serilized in App_1 with OSI major.x.x locally built is NOT compatible to be deserilized in App_2 with OSI major +/- x.x.x locally built, and as versa.
+
+Users have to update source codes if an upgrade of OSI major version changing in the application is needed.
+
+Minor changes:
+If a minor version changing occurs, the serialization and deserialization (separated on different locations & applications) are compatibile. E.g. An OSI message that serilized in App_1 with OSI major.minor.x locally built is compatible to be deserilized in App_2 with OSI major.minor +/- x.x locally built, and as versa. 
+
+With the same major version, if an upgrade of OSI minor version in the application is needed, users might need to update the application source codes, when some new fields are necessary to use in the applciation but not defined in the OSI with last minor version release. As versa, when the new fields in the OSI minor version changing are un-used in the application, users are not obligated to update the source codes of the application. 
+
+Patch changes:
+With the same major and minor versions, the serialization and deserialization of OSI messages with different patch versions are compatible.
 
 Packaging
 ---------
