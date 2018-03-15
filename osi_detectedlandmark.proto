@@ -197,7 +197,8 @@ message DetectedTrafficLight
     repeated CandidateTrafficLight candidate_traffic_light = 4;
     
     // The root mean squared error of the base parameters of the detected
-    // traffic light.
+    // traffic light's geometry. TrafficLight::base have to be identical for all
+    // \c DetectedTrafficLight::candidate_traffic_light traffic lights.
     optional BaseStationary rmse = 5;
 
     // Determines for which directions the traffic light applies.
