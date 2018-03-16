@@ -14,34 +14,30 @@ package osi;
 //
 message DetectedObject
 {
-    // Header attributes of detected object.
-    //
-    optional DetectedObjectHeader header = 1;
-
     // Specific ID of the object as assigned by the sensor internally. Need not
     // match with ground_truth_id.
-    optional Identifier tracking_id = 2;
+    optional Identifier tracking_id = 1;
 
     // The ID of the original object in the ground truth list of vehicles /
     // objects etc. Multiple entries if detected object is a merge of multiple
     // ground truth objects.
-    repeated Identifier ground_truth_id = 3;
+    repeated Identifier ground_truth_id = 2;
 
     // The amount of time that this object has been currently observed/tracked.
     // Unit: [s]
-    optional double age = 4;
+    optional double age = 3;
 
     // The measurement state of the detected object.
     //
-    optional MeasurementState measurement_state = 5;
+    optional MeasurementState measurement_state = 4;
 
     // Base parameters of the object. object.position is the middle of the
     // bounding box of the target object.
-    optional BaseMoving object = 6;
+    optional BaseMoving object = 5;
 
     // The root mean squared error of the base parameters in object (cross 
     // correlations are currently neglected).
-    optional BaseMoving object_rmse = 7;
+    optional BaseMoving object_rmse = 6;
 
     // Reference point location specification of the sensor measurement
     // (required to decouple sensor measurement, position and bounding box
@@ -50,22 +46,22 @@ message DetectedObject
     // \note Note that the value of this field has no impact on the value of 
     // object.position, which always references the center of the object /
     // bounding box.
-    optional ReferencePoint reference_point = 8;
+    optional ReferencePoint reference_point = 7;
 
     // Actual movement state w.r.t. the moving object history.
     //
-    optional MovementState movement_state = 9;
+    optional MovementState movement_state = 8;
 
     // The estimated probability that this object really exists, not based on
     // history.
     //
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
-    optional double existence_probability = 10;
+    optional double existence_probability = 9;
 
     // Current state of lights as perceived by sensor, only relevant if the
     // object is estimated to be an object that has lights.
-    optional Vehicle.LightState light_state = 11;
+    optional Vehicle.LightState light_state = 10;
 
     // Additional internal data and state flags required and used by the
     // sensor-models, should not be used by subscribers to SensorData. Generally 
@@ -73,32 +69,32 @@ message DetectedObject
     //
     // \note optional. List of used detections to recognize this object. 
     // Detections have also an identifier to reference to the detected object.
-    optional ModelInternalObject model_internal_object = 12;
+    optional ModelInternalObject model_internal_object = 11;
 
     // Additional data that is specific to radar sensors.
     //
     // \note Field need not be set if simulated sensor is not a radar sensor.
-    optional RadarSpecificObjectData radar_specifics = 13;
+    optional RadarSpecificObjectData radar_specifics = 12;
 
     // Additional data that is specific to lidar sensors.
     //
     // \note Field need not be set if simulated sensor is not a lidar sensor.
-    optional LidarSpecificObjectData lidar_specifics = 14;
+    optional LidarSpecificObjectData lidar_specifics = 13;
 
     // Additional data that is specific to camera sensors.
     //
     // \note Field need not be set if simulated sensor is not a camera sensor.
-    optional CameraSpecificObjectData camera_specifics = 15;
+    optional CameraSpecificObjectData camera_specifics = 14;
 
     // Additional data that is specific to ultrasonic sensors.
     //
     // \note Field need not be set if simulated sensor is not an ultrasonic 
     // sensor.
-    optional UltrasonicSpecificObjectData ultrasonic_specifics = 16;
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 15;
 
     // The estimated probabilities for the object to belong to a specific class.
     //
-    optional ClassProbability class_probability = 17;
+    optional ClassProbability class_probability = 16;
     
     // Pedestrian head pose for behaviour prediction. Describes the head
     // orientation w.r.t. the host vehicle orientation.
@@ -110,7 +106,7 @@ message DetectedObject
     //
     // \par References: 
     // [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
-    optional Orientation3d head_pose = 18;
+    optional Orientation3d head_pose = 17;
 
     // Pedestrian upper body pose for behaviour prediction. Describes the
     // upper body orientation w.r.t. the host vehicle orientation.
@@ -123,17 +119,17 @@ message DetectedObject
     //
     // \par References: 
     // [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
-    optional Orientation3d upper_body_pose = 19;
+    optional Orientation3d upper_body_pose = 18;
 
     // Percentage side lane left.
     //
     // Percentage value of the object width in the corresponding lane.
-    optional double percentage_side_lane_left = 20;
+    optional double percentage_side_lane_left = 19;
 
     // Percentage side lane right.
     //
     // Percentage value of the object width in the corresponding lane.
-    optional double percentage_side_lane_right = 21;
+    optional double percentage_side_lane_right = 20;
     
     // A list of sensors which detected this detected entity.
     //
@@ -143,7 +139,7 @@ message DetectedObject
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
-    repeated Identifier sensor_id = 22;    
+    repeated Identifier sensor_id = 21;    
     
     // Definition of available reference points. Left/middle/right and 
     // front/middle/rear indicate the position in y- and x-direction 
@@ -302,82 +298,6 @@ message DetectedObject
         // Range [0,1].
         //
         optional double prob_other_vehicle = 17;
-    }
-}
-
-//
-// \brief The header attributes of each detected object.
-//
-message DetectedObjectHeader
-{
-    // Time stamp at which the measurement was taken (not the time at which it
-    // was processed or at which it is transmitted) in the global synchronized
-    // time.
-    //
-    // \note See SensorData::timestamp and SensorData::last_measurement_time
-    // for detailed discussions on the semantics of time-related fields.
-    optional Timestamp measurement_time = 1;
-
-    // Continuous up counter to identify the cycle.
-    //
-    optional uint32 cycle_counter = 2;
-
-    // Data Qualifier expresses to what extent the content of this event can be
-    // relied on.
-    optional DataQualifier data_qualifier = 3;
-
-    //
-    // \brief Data qualifier communicates the overall availability of the
-    // interface.
-    //
-    enum DataQualifier
-    {
-        // Unknown (must not be used in ground truth).
-        //
-        DATA_QUALIFIER_UNKNOWN = 0;
-
-        // Other (unspecified but known).
-        //
-        DATA_QUALIFIER_OTHER = 1;
-
-        // Data is available.
-        //
-        DATA_QUALIFIER_AVAILABLE = 2;
-
-        // Reduced data is available.
-        //
-        DATA_QUALIFIER_AVAILABLE_REDUCED = 3;
-
-        // Data is not available.
-        //
-        DATA_QUALIFIER_NOT_AVAILABLE = 4;
-
-        // Sensor is blind.
-        //
-        DATA_QUALIFIER_BLINDNESS = 5;
-
-        // Sensor temporary available.
-        //
-        DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
-    }
-
-    //
-    // \brief Version of detected object messages ( \c DetectedObject
-    // etc.).
-    //
-    message InterfaceVersion
-    {
-        // Major version number.
-        //
-        optional uint32 version_major = 1;
-
-        // Minor version number.
-        //
-        optional uint32 version_minor = 2;
-
-        // Patch version number.
-        //
-        optional uint32 version_patch = 3;
     }
 }
 
