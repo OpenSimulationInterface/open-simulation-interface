@@ -15,16 +15,16 @@ package osi;
 //
 message HostVehicleData
 {
-    // Current estimated location based on GPS- and related navigation sensors
+    // Current estimated location based on GPS- and related navigation sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location = 1;
 
-    // Current estimated location error based on GPS- and related navigation sensors
+    // Current estimated location error based on GPS- and related navigation 
+    // sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
-
 }
