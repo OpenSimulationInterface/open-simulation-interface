@@ -44,4 +44,18 @@ message DetectedOccupant
     // \note Use as confidence measure where a low value means less confidence and a high value indicates
     // strong confidence.
     optional double existence_probability = 5;
+
+    // The measurement state.
+    //
+    optional MeasurementState measurement_state = 6;
+   
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    repeated Identifier sensor_id = 7;    
 }

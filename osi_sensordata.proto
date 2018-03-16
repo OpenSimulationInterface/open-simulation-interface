@@ -26,9 +26,11 @@ package osi;
 //
 message SensorData
 {  
-    // The ID of the sensor.
+    // The ID of the sensor at host vehicle's mounting_position.
     //
-    optional Identifier id = 1;
+    // This ID can equal \c DetectionHeader::sensor_id, if SensorData hold only
+    // data from one sensor/sensor model.
+    optional Identifier sensor_id = 1;
 
     // The timestamp of the sensor data. Zero time is arbitrary but must be
     // identical for all messages. Zero time does not need to coincide with

@@ -135,6 +135,16 @@ message DetectedObject
     // Percentage value of the object width in the corresponding lane.
     optional double percentage_side_lane_right = 21;
     
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    repeated Identifier sensor_id = 22;    
+    
     // Definition of available reference points. Left/middle/right and 
     // front/middle/rear indicate the position in y- and x-direction 
     // respectively. The z position is always considered as middle.
@@ -300,25 +310,21 @@ message DetectedObject
 //
 message DetectedObjectHeader
 {
-    // Version number of used detected object messages (DetectedObject etc.).
-    //
-    optional InterfaceVersion version = 1;
-
     // Time stamp at which the measurement was taken (not the time at which it
     // was processed or at which it is transmitted) in the global synchronized
     // time.
     //
     // \note See SensorData::timestamp and SensorData::last_measurement_time
     // for detailed discussions on the semantics of time-related fields.
-    optional Timestamp measurement_time = 2;
+    optional Timestamp measurement_time = 1;
 
     // Continuous up counter to identify the cycle.
     //
-    optional uint32 cycle_counter = 3;
+    optional uint32 cycle_counter = 2;
 
     // Data Qualifier expresses to what extent the content of this event can be
     // relied on.
-    optional DataQualifier data_qualifier = 4;
+    optional DataQualifier data_qualifier = 3;
 
     //
     // \brief Data qualifier communicates the overall availability of the

@@ -53,6 +53,16 @@ message DetectedTrafficSign
     // Links to the corresponding lanes.
     //    
     repeated RelevantLane relevant_lane = 10;
+   
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    repeated Identifier sensor_id = 11;    
 
     // Definition of traffic sign geometries.
     //
@@ -191,9 +201,20 @@ message DetectedTrafficLight
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
+    
     // The root mean squared error of the base parameters of the detected traffic light.
     //
     optional BaseStationary rmse = 9;
+   
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    repeated Identifier sensor_id = 10;    
 
     //
     // \brief Further specifies the relevant directions of the traffic light.
@@ -279,9 +300,20 @@ message DetectedRoadMarking
     // The measurement state.
     //
     optional MeasurementState measurement_state = 7;
+    
     // The root mean squared error of the base parameters of the detected road marking.
     //
     optional BaseStationary rmse = 8;
+   
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    repeated Identifier sensor_id = 11;    
 }
 
 //
