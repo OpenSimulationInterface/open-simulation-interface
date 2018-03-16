@@ -818,7 +818,7 @@ message TrafficLight
     // The base parameters of the traffic light.
     //
     // \c BaseStationary::orientation x-axis is view normal of the traffic 
-    // sign's icon. 
+    // light's icon. 
     optional BaseStationary base = 2;
     
     // The color of the traffic light.
@@ -826,8 +826,9 @@ message TrafficLight
     // \note If the color of the traffic light is known (from history or
     // geometrical arrangement) and the state \c TrafficLight::mode is
     // \c MODE_OFF then \c TrafficLight::color could remain unchanged. 
-    // If The traffic light displays different images in different colors,
-    // then \c TrafficLight::mode  
+    // If traffic light displays images in different colors and traffic light
+    // is off ( \c TrafficLight::mode =  \c MODE_OFF), then 
+    // \c TrafficLight::color = \c COLOR_OTHER .
     optional Color color = 3;
 
     // The icon of the traffic light.
@@ -967,17 +968,31 @@ message TrafficLight
         //
         ICON_PEDESTRIAN_AND_BICYCLE = 19;
         
-        // This traffic light is valid for trams. 
-        //
-        ICON_TRAM = 20;
-        
         // This traffic light counter in second. 
         //
-        ICON_COUNTDOWN_SECONDS = 21;
+        ICON_COUNTDOWN_SECONDS = 20;
         
         // This traffic light counter in percent. 
         //
-        ICON_COUNTDOWN_PERCENT = 22;
+        ICON_COUNTDOWN_PERCENT = 21;
+        
+        // This traffic light is valid for trams. 
+        // 
+        // \note There is no detailed traffic light specification for trams and  
+        // buses at the moment.
+        ICON_TRAM = 22;
+        
+        // This traffic light is valid for buses. 
+        //
+        // \note There is no detailed traffic light specification for trams and  
+        // buses at the moment.
+        ICON_BUS = 23;
+        
+        // This traffic light is valid for buses and trams. 
+        //
+        // \note There is no detailed traffic light specification for trams and  
+        // buses at the moment.
+        ICON_BUS_AND_TRAM = 24;
     }
 
     // Definition of light modes for traffic lights.
