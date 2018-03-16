@@ -7,10 +7,14 @@ import "osi_common.proto";
 package osi;
 
 //
-// \brief Interface for sensor data, in contrast to interpreted data after object hypothesis and tracking.
+// \brief Interface for sensor data, in contrast to interpreted data after 
+// object hypothesis and tracking.
 //
-// All information regarding the environment is given with respect to the sensor coordinate system specified in \c DetectionHeader::mounting_position. 
-// When simulating multiple sensors, each sensor has an individual copy of FeatureData in its own reference frame. This allows an independent treatment of the sensors.
+// All information regarding the environment is given with respect to the sensor 
+// coordinate system specified in \c DetectionHeader::mounting_position. 
+// When simulating multiple sensors, each sensor has an individual copy of 
+// \c OSI::FeatureData in its own reference frame. This allows an independent 
+// treatment of the sensors.
 //
 message FeatureData
 {
@@ -28,7 +32,8 @@ message FeatureData
 //
 message DetectionHeader
 {
-    // Version number of used detecion list messages (DetectionHeader, LidarDetection, LidarDetectionList etc.).
+    // Version number of used detecion list messages ( \c OSI::DetectionHeader, 
+    // \c OSI::LidarDetection, \c OSI::LidarDetectionList etc.).
     // 
     optional DetectionInterfaceVersion version = 1;
 
@@ -40,36 +45,40 @@ message DetectionHeader
     // for detailed discussions on the semantics of time-related fields.
     optional Timestamp measurement_time = 2;
 
-    // Monotonous counter to identify the exact cycle.
-    //
-    optional uint32 cycle_counter = 3;
+    // Monotonous counter to identify the exact cycle. 
+    // Generally the detecion function is called periodic and 
+    // \c DetectionHeader::cycle_counter corresponds to the number of periods.
+    optional uint64 cycle_counter = 3;
 
-    // Mounting position of the sensor (origin and orientation of the sensor
-    // coordinate system); given relative to the middle of the rear axle of the
-    // host vehicle.
+
+    // Mounting position of the sensor (origin and orientation of the sensor 
+    // frame). Both origin and orientation are given in and with respect to the 
+    // host vehicle coordinate system (see: \c OSI::Vehicle vehicle reference
+    // point).
     //
-    // The x-axis must be the angle bisector of the horizontal field of view in
-    // a right-handed coordinate system. The xy-plane represents the
-    // horizontal field of view and the xz-plane the vertical field of view.
+    // The sensor frame's x-axis is pointing in the central viewing direction of 
+    // the sensor. It is the angle bisector of the sensor's horizontal and 
+    // vertical field of view. The terms horizontal and vertical must be 
+    // understood as names for the two principal planes of the sensor's field of 
+    // view (relative to the sensor frame's orientation), which do not have to
+    // be horizontal or vertical in the strict sense of being parallel or 
+    // perpendicular to the local gravitational vector. The horizontal field
+    // of view defines the sensor frame's xy-plane and the vertical field
+    // of view defines the xz-plane. The sensor frame is right-handed and the 
+    // z-axis is pointing in an upward direction.
     //
-    // The origin of the detection coordinate system (= spherical polar
-    // coordinates) is the sensor mounting pose in the host vehicle coordinate
-    // system.
-    //
-    // The host vehicle coordinate system is at the center of the rear axle
-    // (from the top view as well as from the side view) in the static case.
-    // The origin represents the current mounting pose to the best knowledge of
-    // the sensor. It includes the estimated 6D pose estimation given by  the
-    // calibration. The uncertainty of this estimation is given with the
-    // corresponding 6D root mean squared error. The estimation of the current
-    // origin does not include effects due to short-time dynamics, such as pitch
-    // angles from braking, but includes long-time calibration values, such as
-    // pitch angles from luggage in the trunk.
+    // The sensor frame uses cartesian coordinates. The sensor frame's origin is
+    // identical to sensor detection frame's origin. Detections are defined in 
+    // the sensor detection frame which uses e.g. spherical coordinates.
     optional MountingPosition mounting_position = 4;
 
-    // Uncertainty of the mounting pose calibration should be included in the
-    // interface (x, y, z, yaw, pitch, roll).
-    //
+    // The origin/orientation of the sensor frame represents the current
+    // mounting pose to the best knowledge of the sensor. The estimation of the
+    // 6D pose given by the calibration. The uncertainty of this estimation is
+    // given with the corresponding 6D root mean squared error. The estimation
+    // of the current origin does not include effects due to short-time
+    // dynamics, such as pitch angles from braking, but includes long-time
+    // calibration values, such as pitch angles from luggage in the trunk. 
     optional MountingPosition mounting_position_rmse = 5;
 
     // The id of the sensor at host vehicle's mounting_position.
@@ -80,7 +89,8 @@ message DetectionHeader
     // mounting_position defines unique the host vehicle's sensor.
     optional Identifier sensor_id = 6;
     
-    // Data Qualifier expresses to what extent the content of this event can be relied on.
+    // Data Qualifier expresses to what extent the content of this event can be 
+    // relied on.
     //
     optional DataQualifier data_qualifier = 7;
 
@@ -89,7 +99,8 @@ message DetectionHeader
     // \note This value has to be set if the list contains invalid detections.    
     optional uint32 number_of_detections = 8;
 
-    // \brief Data qualifier communicates the overall availability of the interface.
+    // \brief Data qualifier communicates the overall availability of the 
+    // interface.
     //
     enum DataQualifier
     {
@@ -123,7 +134,8 @@ message DetectionHeader
     }
 
     //
-    // \brief Version of detection messages (DetectionHeader, LidarDetection, LidarDetectionList, etc.).
+    // \brief Version of detection messages ( \c OSI::DetectionHeader, 
+    // \c OSI::LidarDetection, \c OSI::LidarDetectionList, etc.).
     //
     message DetectionInterfaceVersion
     {
@@ -153,7 +165,8 @@ enum DetectionClassification
     //
     DETECTION_CLASSIFICATION_OTHER = 1;
 
-    // Invalid detection, not to be used for object tracking, of unspecified type (none of the other types applies).
+    // Invalid detection, not to be used for object tracking, of unspecified 
+    // type (none of the other types applies).
     //
     DETECTION_CLASSIFICATION_INVALID = 2;
 
@@ -172,7 +185,7 @@ enum DetectionClassification
 
 
 //
-// \brief A list of lidar detection.
+// \brief A list of lidar detection from one sensor.
 //
 message LidarDetectionList
 {
@@ -190,17 +203,20 @@ message LidarDetectionList
 //
 message LidarDetection
 {
-    // Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.
+    // Existence probability of the detection not based on history. Value does 
+    // not depend on any past experience with similar detections.
     //
-    // \note Used as confidence measure where a low value means less confidence and a high value indicates 
-    // strong confidence.
+    // \note Used as confidence measure where a low value means less confidence 
+    // and a high value indicates strong confidence.
     optional double existence_probability = 1;
 
-    // ID of the object this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
+    // ID of the object this detection is associated to; ID = MAX(uint64) 
+    // indicates no reference to an object.
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in the sensor coordinate system.
+    // Measured position of the detection, given in spherical coordinates in the 
+    // sensor coordinate system.
     //
     optional Spherical3d position = 3;
 
@@ -208,8 +224,8 @@ message LidarDetection
     //
     optional Spherical3d position_rmse = 4;
 
-    // Height value, which is required when multiple scan points are vertically clustered.
-    // Only vertical clustering is allowed (z-axis).
+    // Height value, which is required when multiple scan points are vertically 
+    // clustered. Only vertical clustering is allowed (z-axis).
     optional double height = 5;
 
     // Root mean squared error of the object height.
@@ -220,7 +236,8 @@ message LidarDetection
     // Unit: [%]
     optional double intensity = 7;
 
-    // The free space probability in the range [0.0, 1.0] from the origin of the sensor up to this detection, as given by the distance.
+    // The free space probability in the range [0.0, 1.0] from the origin of the 
+    // sensor up to this detection, as given by the distance.
     // 
     optional double free_space_probability = 8;
 
@@ -231,7 +248,7 @@ message LidarDetection
 }
 
 //
-// \brief A list of radar detections.
+// \brief A list of radar detections from one sensor.
 //
 message RadarDetectionList
 {    
@@ -249,17 +266,21 @@ message RadarDetectionList
 //
 message RadarDetection
 {
-    // Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.
+    // Existence probability of the detection not based on history. Value does 
+    // not depend on any past experience with similar detections.
     //
-    // \note Use as confidence measure where a low value means less confidence and a high value indicates 
+    // \note Use as confidence measure where a low value means less confidence 
+    // and a high value indicates 
     // strong confidence.
     optional double existence_probability = 1;
 
-    // ID of the object this detection is associated to; ID = MAX(uint64) indicates no reference to an object.
+    // ID of the object this detection is associated to; ID = MAX(uint64) 
+    // indicates no reference to an object.
     // 
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in the sensor coordinate system.
+    // Measured position of the detection, given in spherical coordinates in the
+    // sensor coordinate system.
     //
     optional Spherical3d position = 3;
 
@@ -283,12 +304,14 @@ message RadarDetection
     // Unit: [dB m^2].
     optional double snr = 8;
 
-    // Describes the possibility whether more than one object may have led to this detection.
+    // Describes the possibility whether more than one object may have led to 
+    // this detection.
     // 
     optional double point_target_probability = 9;
 
     // Ambiguity Information: 
-    // Each ambiguous measurement generates one Ambiguity ID. Ambiguity is indicated by an identical Ambiguity ID. 
+    // Each ambiguous measurement generates one Ambiguity ID. Ambiguity is 
+    // indicated by an identical Ambiguity ID. 
     // Unambiguous measurements have the Amiguity ID 0.
     optional Identifier ambiguity_id = 10;
 

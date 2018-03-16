@@ -18,12 +18,13 @@ message DetectedObject
     //
     optional DetectedObjectHeader header = 1;
 
-    // Specific ID of the object as assigned by the sensor internally. Need not match with ground_truth_id.
-    //
+    // Specific ID of the object as assigned by the sensor internally. Need not
+    // match with ground_truth_id.
     optional Identifier tracking_id = 2;
 
-    // The ID of the original object in the ground truth list of vehicles / objects / etc.
-    // Multiple entries if detected object is a merge of multiple ground truth objects.
+    // The ID of the original object in the ground truth list of vehicles /
+    // objects etc. Multiple entries if detected object is a merge of multiple
+    // ground truth objects.
     repeated Identifier ground_truth_id = 3;
 
     // The amount of time that this object has been currently observed/tracked.
@@ -34,40 +35,44 @@ message DetectedObject
     //
     optional MeasurementState measurement_state = 5;
 
-    // Base parameters of the object. object.position is the middle of the bounding box of the target object.
-    //
+    // Base parameters of the object. object.position is the middle of the
+    // bounding box of the target object.
     optional BaseMoving object = 6;
 
-    // The root mean squared error of the base parameters in object (cross correlations are currently neglected).
-    //
+    // The root mean squared error of the base parameters in object (cross 
+    // correlations are currently neglected).
     optional BaseMoving object_rmse = 7;
 
-    // Reference point location specification of the sensor measurement (required to decouple sensor measurement,
-    // position and bounding box estimation) as used by the sensor (model).
+    // Reference point location specification of the sensor measurement
+    // (required to decouple sensor measurement, position and bounding box
+    // estimation) as used by the sensor (model).
     //
-    // \note Note that the value of this field has no impact on the value of object.position, which always references
-    // the center of the object / bounding box.
+    // \note Note that the value of this field has no impact on the value of 
+    // object.position, which always references the center of the object /
+    // bounding box.
     optional ReferencePoint reference_point = 8;
 
     // Actual movement state w.r.t. the moving object history.
     //
     optional MovementState movement_state = 9;
 
-    // The estimated probability that this object really exists, not based on history.
+    // The estimated probability that this object really exists, not based on
+    // history.
     //
-    // \note Use as confidence measure where a low value means less confidence and a high value indicates
-    // strong confidence.
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
     optional double existence_probability = 10;
 
-    // Current state of lights as perceived by sensor, only relevant if the object is estimated to be an object that
-    // has lights.
+    // Current state of lights as perceived by sensor, only relevant if the
+    // object is estimated to be an object that has lights.
     optional Vehicle.LightState light_state = 11;
 
-    // Additional internal data and state flags required and used by the sensor-models, should not be used by
-    // subscribers to SensorData. Generally this field should be cleared after internal processing.
+    // Additional internal data and state flags required and used by the
+    // sensor-models, should not be used by subscribers to SensorData. Generally 
+    // this field should be cleared after internal processing.
     //
-    // \note optional. List of used detections to recognize this object. Detections have also an identifier to
-    // reference to the detected object.
+    // \note optional. List of used detections to recognize this object. 
+    // Detections have also an identifier to reference to the detected object.
     optional ModelInternalObject model_internal_object = 12;
 
     // Additional data that is specific to radar sensors.
@@ -87,7 +92,8 @@ message DetectedObject
 
     // Additional data that is specific to ultrasonic sensors.
     //
-    // \note Field need not be set if simulated sensor is not an ultrasonic sensor.
+    // \note Field need not be set if simulated sensor is not an ultrasonic 
+    // sensor.
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 16;
 
     // The estimated probabilities for the object to belong to a specific class.
@@ -100,14 +106,29 @@ message DetectedObject
     // the \c ...Detection::object_id and the sensors to which these detections belong.
     repeated Identifier sensor_id = 18;
 
-    // The estimated pedestrian head pose.
+    // Pedestrian head pose for behaviour prediction. Describes the head
+    // orientation w.r.t. the host vehicle orientation.
+    // The x-axis of the right-handed head frame is pointing along the 
+    // pedestrian's straight ahead viewing direction and the z-axis is pointing 
+    // upwards (cranial direction [1] i.e. to pedestrian's skull cap).
     //
-    // \note Pedestrian specific value.
+    // View_normal_base_coord_system = Inverse_Rotation(head_pose)*Unit_vector_x 
+    //
+    // \par References: 
+    // [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     optional Orientation3d pedestrian_head_pose = 19;
 
-    // The estimated pedestrian upper body pose.
+    // Pedestrian upper body pose for behaviour prediction. Describes the
+    // upper body orientation w.r.t. the host vehicle orientation.
+    // The x-axis of the right-handed upper body frame is pointing along the 
+    // pedestrian's upper body ventral direction [2] (i.e. usually pedestrian's 
+    // intended moving direction) and the z-axis is pointing upwards (to 
+    // pedestrian's head).
     //
-    // \note Pedestrian specific value.
+    // View_normal_base_coord_system = Inverse_Rotation(upper_body_pose)*Unit_vector_x 
+    //
+    // \par References: 
+    // [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     optional Orientation3d pedestrian_upper_body_pose = 20;
 
     // Percentage side lane left.
@@ -120,16 +141,20 @@ message DetectedObject
     // Percentage value of the object width in the corresponding lane.
     optional double percentage_side_lane_right = 22;
     
-    // Definition of available reference points. Left/middle/right and front/middle/rear indicate the position in y- and
-    // x direction respectively. The z position is always considered as middle.
+    // Definition of available reference points. Left/middle/right and 
+    // front/middle/rear indicate the position in y- and x-direction 
+    // respectively. The z position is always considered as middle.
     //
     enum ReferencePoint
     {
-        // Reference point is unknown, i.e. sensor does not report a reference point for the position coordinate.
+        // Reference point is unknown, i.e. sensor does not report a reference 
+        // point for the position coordinate.
         // Value must not be used in ground truth data.
-        // Usually this means that the reference point for the given position coordinates is a largely arbitrary point
-        // within the bounding volume unknown to the sensor. If this value is set, the center of the bounding box should
-        // be used as reference point by convention, unless the specific use case requires otherwise.
+        // Usually this means that the reference point for the given position 
+        // coordinates is a largely arbitrary point within the bounding volume 
+        // unknown to the sensor. If this value is set, the center of the 
+        // bounding box should be used as reference point by convention, unless 
+        // the specific use case requires otherwise.
         REFERENCE_POINT_UNKNOWN = 0;
         
         // Other (unspecified but known) reference point.
@@ -193,13 +218,14 @@ message DetectedObject
         //
         MOVEMENT_STATE_MOVING = 3;
 
-        // Object movement was detected in tracking history, but object is currently not moving.
-        //
+        // Object movement was detected in tracking history, but object is
+        // currently not moving.
         MOVEMENT_STATE_STOPPED = 4;
     }
 
     //
-    // \brief Probabilities for the classification of the object as perceived by the sensor.
+    // \brief Probabilities for the classification of the object as perceived by 
+    // the sensor.
     //
     message ClassProbability
     {
@@ -268,7 +294,8 @@ message DetectedObject
         //
         optional double prob_stationary = 16;
 
-        // Probability that the object is an unspecified but known vehicle. Range [0,1].
+        // Probability that the object is an unspecified but known vehicle. 
+        // Range [0,1].
         //
         optional double prob_other_vehicle = 17;
     }
@@ -295,11 +322,13 @@ message DetectedObjectHeader
     //
     optional uint32 cycle_counter = 3;
 
-    // Data Qualifier expresses to what extent the content of this event can be relied on.
-    //
+    // Data Qualifier expresses to what extent the content of this event can be
+    // relied on.
     optional DataQualifier data_qualifier = 4;
 
-    // \brief Data qualifier communicates the overall availability of the interface.
+    //
+    // \brief Data qualifier communicates the overall availability of the
+    // interface.
     //
     enum DataQualifier
     {
@@ -333,7 +362,8 @@ message DetectedObjectHeader
     }
 
     //
-    // \brief Version of detected object messages (DetectionObject etc.).
+    // \brief Version of detected object messages ( \c OSI::DetectedObject
+    // etc.).
     //
     message InterfaceVersion
     {
@@ -359,15 +389,15 @@ enum MeasurementState
     //
     MEASUREMENT_STATE_UNKNOWN = 0;
 
-    // Measurement state is unspecified (but known, i.e. value is not part of this enum list).
-    //
+    // Measurement state is unspecified (but known, i.e. value is not part of
+    // this enum list).
     MEASUREMENT_STATE_OTHER = 1;
 
     // Entity has been measured by the sensor in the current timestep.
     //
     MEASUREMENT_STATE_MEASURED = 2;
 
-    // Entity has not been measured by the sensor in the current timestep. Values provided by tracking only.
-    //
+    // Entity has not been measured by the sensor in the current timestep.
+    // Values provided by tracking only.
     MEASUREMENT_STATE_PREDICTED = 3;
 }

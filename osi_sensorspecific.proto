@@ -29,15 +29,7 @@ message LidarSpecificObjectData
 //
 message CameraSpecificObjectData
 {
-    // Pedestrian head pose for behaviour prediction. Describes the head
-    // orientation w.r.t. the host vehicle orientation.
-    //
-    optional Orientation3d head_pose = 1;
-
-    // Pedestrian upper body pose for behaviour prediction. Describes the
-    // upper body orientation w.r.t. the host vehicle orientation.
-    //
-    optional Orientation3d upper_body_pose = 2;
+    // currently no fields.
 }
 
 //
