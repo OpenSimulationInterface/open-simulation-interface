@@ -9,6 +9,9 @@ package osi;
 //
 // \brief A traffic sign.
 //
+// All coordinates and orientations are relative to the global ground truth
+// coordinate system.
+//
 message TrafficSign
 {
     // The ID of the traffic sign.
@@ -957,6 +960,10 @@ message TrafficLight
 // 
 // Lane markings are excluded and defined as \c OSI::LaneBoundary messages 
 // as part of the \c OSI::Lanes .
+//
+// All coordinates and orientations are relative to the global ground truth
+// coordinate system.
+//
 message RoadMarking
 {
     // The ID of the road marking.
@@ -1020,11 +1027,6 @@ message RoadMarking
     // The ID(s) of the lane(s) that the road marking is assigned to.
     // May be multiple if the road marking goes across multiple lanes.
     repeated Identifier assigned_lane = 9;
-
-    // Intersection orientation of the road marking.
-    //
-    // \note Defined for \c Lane::type = TYPE_INTERSECTION, otherwise zero vector
-    optional Vector3d roadmarking_orientation = 10;
 
     // Definition of road marking types.
     //
