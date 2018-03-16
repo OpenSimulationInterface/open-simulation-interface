@@ -81,15 +81,23 @@ message DetectionHeader
     // calibration values, such as pitch angles from luggage in the trunk. 
     optional MountingPosition mounting_position_rmse = 5;
 
+    // The id of the sensor at host vehicle's mounting_position.
+    //
+    // This id can be equal to \c SensorData::id 
+    //
+    // \note This is a redundant information because the sensor's 
+    // mounting_position defines unique the host vehicle's sensor.
+    optional Identifier sensor_id = 6;
+    
     // Data Qualifier expresses to what extent the content of this event can be 
     // relied on.
     //
-    optional DataQualifier data_qualifier = 6;
+    optional DataQualifier data_qualifier = 7;
 
     // The current number of valid detections in the detections list.
     //
     // \note This value has to be set if the list contains invalid detections.    
-    optional uint32 number_of_detections = 7;
+    optional uint32 number_of_detections = 8;
 
     // \brief Data qualifier communicates the overall availability of the 
     // interface.

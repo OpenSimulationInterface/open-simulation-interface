@@ -38,4 +38,11 @@ message DetectedOccupant
     // The measurement state.
     //
     optional MeasurementState measurement_state = 6;
+
+    // A list of sensors which 'detected' this 'object'.
+    // 
+    // \note This is a redundant information because you can determine this list from 
+    // the \c ...Detection::object_id and the sensors to which these detections belong.
+    repeated Identifier sensor_id = 7;
 }
+

@@ -100,6 +100,12 @@ message DetectedObject
     //
     optional ClassProbability class_probability = 17;
     
+    // A list of sensors which 'detected' this 'object'.
+    // 
+    // \note This is a redundant information because you can determine this list from 
+    // the \c ...Detection::object_id and the sensors to which these detections belong.
+    repeated Identifier sensor_id = 18;
+
     // Pedestrian head pose for behaviour prediction. Describes the head
     // orientation w.r.t. the host vehicle orientation.
     // The x-axis of the right-handed head frame is pointing along the 
@@ -110,7 +116,7 @@ message DetectedObject
     //
     // \par References: 
     // [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
-    optional Orientation3d head_pose = 18;
+    optional Orientation3d pedestrian_head_pose = 19;
 
     // Pedestrian upper body pose for behaviour prediction. Describes the
     // upper body orientation w.r.t. the host vehicle orientation.
@@ -123,17 +129,17 @@ message DetectedObject
     //
     // \par References: 
     // [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
-    optional Orientation3d upper_body_pose = 19;
+    optional Orientation3d pedestrian_upper_body_pose = 20;
 
     // Percentage side lane left.
     //
     // Percentage value of the object width in the corresponding lane.
-    optional double percentage_side_lane_left = 20;
+    optional double percentage_side_lane_left = 21;
 
     // Percentage side lane right.
     //
     // Percentage value of the object width in the corresponding lane.
-    optional double percentage_side_lane_right = 21;
+    optional double percentage_side_lane_right = 22;
     
     // Definition of available reference points. Left/middle/right and 
     // front/middle/rear indicate the position in y- and x-direction 
