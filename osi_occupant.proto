@@ -15,16 +15,16 @@ message Occupant
     //
     optional Identifier id = 1;
 
-    // Flag determining whether the person is the driver of the vehicle or a passenger.
-    //
+    // Flag determining whether the person is the driver of the vehicle or a
+    // passenger.
     optional bool is_driver = 2;
 
     // Seat position of the vehicle occupant.
     //
     optional Seat seat = 3;
 
-    // Describes the state of the passengers hands related to the steering wheel (mostly driver).
-    //
+    // Describes the state of the passenger's hands related to the steering
+    // wheel (mostly driver).
     optional SteeringControl steering_control = 4;
 
     // Definition of seat positions.
@@ -55,7 +55,7 @@ message Occupant
         //
         SEAT_BACK_LEFT = 5;
         
-        // Seat position is in the back row, right right.
+        // Seat position is in the back row, right seat.
         //
         SEAT_BACK_RIGHT = 6;
         
@@ -84,27 +84,30 @@ message Occupant
         //
         STEERING_CONTROL_UNKNOWN = 0;
         
-        // Other (unspecified but known) hand positioning related to the steering wheel.
-        //
+        // Other (unspecified but known) hand positioning related to the
+        // steering wheel.
         STEERING_CONTROL_OTHER = 1;
         
         // Hands are not on the steering wheel.
         //
         STEERING_CONTROL_NO_HAND = 2;
         
-        // One hand is on the steering wheel. Whether it is the left or right hand is unspecified or unknown.
-        // \note If there is no differentiation between one or both hands on the steering wheel, this value should be used.
+        // One hand is on the steering wheel. Whether it is the left or right
+        // hand is unspecified or unknown.
+        //
+        // \note If there is no differentiation between one or both hands on the
+        // steering wheel, this value should be used.
         STEERING_CONTROL_ONE_HAND = 3;
         
         // Both hands are on the steering wheel.
         //
         STEERING_CONTROL_BOTH_HANDS = 4;
         
-        // The left hand only is on the steering wheel.
+        // Only left hand is on the steering wheel.
         //
         STEERING_CONTROL_LEFT_HAND = 5;
         
-        // The right hand only is on the steering wheel.
+        // Only right hand is on the steering wheel.
         //
         STEERING_CONTROL_RIGHT_HAND = 6;
     }
