@@ -7,22 +7,32 @@ import "osi_common.proto";
 package osi;
 
 //
-// \brief A vehicle (ego or other).
+// \brief A vehicle (host or other).
 //
-// This is basically a BaseObject with additional attributes, such as type and lights. 
-// The origin of the rear (front) axis coordinate system in world coordinates is calculated as: 
-// base.position + R * bbcenter_to_rear (front) for the ego vehicle (R rotates from vehicle to world frame). 
+// This is basically a BaseObject with additional attributes, such as type and
+// lights.  The origin of the rear (front) axis coordinate system in world
+// coordinates is calculated as:  base.position + R * bbcenter_to_rear (front)
+// for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
+// orientation of base.orientation).
 // 
-// For all vehicles, including ego vehicles, the position given 
-// in base.position points to the center of the vehicle's bounding box.
+// For all vehicles, including host vehicles, the position given in
+// base.position points to the center of the vehicle's bounding box.
+//
+// The vehicle object coordinates are defined as x-axis is the direction from 
+// rear to front of the vehicle, y-axis corresponds to rear axle and z-axis 
+// points to vehicle ceiling [1]. The coordinate system is right-handed.
+// Therefore the positive y-axis points to the left of the vehicle. 
+//
+// \par References: 
+// [1] DIN ISO 8855:2013-11
 //
 message Vehicle
 {
-    // The id of the vehicle.
+    // The ID of the vehicle.
     //
     optional Identifier id = 1;
 
-    // The base parameters of the vehicle.
+    // The base parameters of the vehicle (as a characteristic moving object).
     //
     optional BaseMoving base = 2;
 
@@ -34,16 +44,19 @@ message Vehicle
     //
     optional LightState light_state = 4;
 
-    // Flag defining whether the vehicle is a simulated ego vehicle: True for ego vehicle(s), false for other vehicles.
-    // See the description above!
-    optional bool ego_vehicle = 5;
+    // Flag defining whether the vehicle is a simulated host vehicle: True for
+    // host vehicle(s), false for other vehicles.  See the description above!
+    optional bool host_vehicle = 5;
 
-    // The vector pointing from the bounding box center point ( base.position ) to the middle (in x, y and z) 
-    // of the rear axle under neutral load conditions. In object coordinates.
+    // The vector pointing from the bounding box center point (base.position) to
+    // the middle (in x, y and z) of the rear axle under neutral load 
+    // conditions. In object coordinates.
     optional Vector3d bbcenter_to_rear = 6;
 
-    // The ids of the lanes that this vehicle is assigned to.
-    // \note Might be multiple if the vehicle is switching lanes or moving from one lane into another following lane.
+    // The IDs of the lanes that this vehicle is assigned to.
+    //
+    // \note Might be multiple if the vehicle is switching lanes or moving from 
+    // one lane into another following lane.
     repeated Identifier assigned_lane = 7;
 
     // Flag defining whether the vehicle has an attached trailer.
@@ -51,17 +64,28 @@ message Vehicle
     optional bool has_trailer = 8;
 
     // Id of the attached trailer.
-    // \note Field need not be set if has_Trailer is set to false.
+    //
+    // \note Field need not be set if has_Trailer is set to false or use value
+    // for non valid id.
     optional Identifier trailer_id = 9;
 
-    // The id of the driver of the (ego) vehicle.
-    // \note Field need not be set if ego_vehicle is set to false.
+    // The ID of the driver of the (host) vehicle.
+    //
+    // \note Field need not be set if host_vehicle is set to false or use value
+    // for non valid id.
     optional Identifier driver = 10;
     
-    // The vector pointing from the bounding box center point (base.position) to the middle (in x, y and z)
-    // of the front axle under neutral load conditions. In object coordinates.
+    // The vector pointing from the bounding box center point (base.position) to
+    // the middle (in x, y and z) of the front axle under neutral load 
+    // conditions. In object coordinates.
     optional Vector3d bbcenter_to_front = 11;
     
+    // Static minimal distance in [m] of underbody plane to ground
+    // surface plane (i.e. disregarding driving dynamic effects or road
+    // surface effects) under neutral load conditions. Can be useful to
+    // approximate the clear area under a vehicle that a sensor can see
+    // through.
+    optional double ground_clearance = 12;
 
     // Definition of vehicle types.
     //
@@ -85,9 +109,9 @@ message Vehicle
         
         // Vehicle is a motorbike or moped.
         //
-        TYPE_MOTOR_BIKE = 4;
+        TYPE_MOTORBIKE = 4;
         
-        // Vehicle is a bicycle (without motor).
+        // Vehicle is a bicycle (without motor and specific lights).
         //
         TYPE_BICYCLE = 5;
         
@@ -203,19 +227,22 @@ message Vehicle
             //
             BRAKE_LIGHT_STATE_NORMAL = 3;
             
-            // Brake lights are on with extra bright intensity (indicating stronger braking).
-            //
+            // Brake lights are on with extra bright intensity (indicating
+            // stronger braking).
             BRAKE_LIGHT_STATE_STRONG = 4;
         }
     }
 }
 
 //
-// \brief A simulated object that is neither a vehicle, traffic sign or traffic light.
+// \brief A simulated object that is neither a moving object (vehicle) nor a
+// stationary object (traffic sign, traffic light, StationaryObject).
+//
+// MovingObject excludes vehicles
 //
 message MovingObject
 {
-    // The id of the object.
+    // The ID of the object.
     //
     optional Identifier id = 1;
 
@@ -249,11 +276,15 @@ message MovingObject
 }
 
 //
-// \brief A simulated object that is neither a vehicle, traffic sign or traffic light.
+// \brief A simulated object that is neither a moving object (vehicle or 
+// \c OSI::MovingObject e.g. pedestrian or animal) nor a stationary object 
+// (traffic sign, traffic light).
+//
+// StationaryObject excludes traffic lights and traffic signs
 //
 message StationaryObject
 {
-    // The id of the object.
+    // The ID of the object.
     //
     optional Identifier id = 1;
 

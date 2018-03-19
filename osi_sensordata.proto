@@ -8,7 +8,9 @@ import "osi_detectedlane.proto";
 import "osi_detectedobject.proto";
 import "osi_detectedoccupant.proto";
 import "osi_groundtruth.proto";
-import "osi_modelinternal.proto";
+import "osi_sensorview.proto";
+import "osi_featuredata.proto";
+import "osi_hostvehicledata.proto";
 
 package osi;
 
@@ -22,84 +24,134 @@ package osi;
 //
 message SensorData
 {  
-    // The id of the sensor.
+    // The ID of the sensor.
     //
     optional Identifier id = 1;
 
-    // The data timestamp of the sensor data. Zero time is arbitrary but must be identical for all messages.
-    // Zero time does not need to coincide with the unix epoch. Recommended is the starting time point of the
+    // The timestamp of the sensor data. Zero time is arbitrary but must be
+    // identical for all messages. Zero time does not need to coincide with
+    // the unix epoch. Recommended is the starting time point of the
     // simulation.
+    //
+    // \note This is the point in time that the sensor data message becomes
+    // available to the rest of the system (i.e. the driving functions), so
+    // it corresponds with the sending time and thus takes the latency of
+    // internal processing of the sensor into account. Latencies of bus
+    // communications, etc., that occur after the sensor output have to be
+    // applied on top of this, if needed.
+    //
+    // The time that the actual measurement was performed (which will usually
+    // correspond with the timestamp of the GroundTruth the sensor model
+    // processed to arrive at these results) can be found in the additional
+    // field SensorData::last_measurement_time.
+    //
+    // For an ideal zero latency sensor the two timestamps would be the same
+    // and would correspond with the timestamp from the current GroundTruth
+    // message.
+    //
+    // For a sensor model that does not know its own internal latencies (e.g.
+    // a dumb sensor with no internal time concept), the two timestamps might
+    // also be identical, but delayed from the GroundTruth timestamp.
     optional Timestamp timestamp = 2;
 
-    // Should be used as constant; use this if you require fields that do not exist in osi_sensordata or for the purpose
-    // of matching sensor output against ground truth data.
-    optional SensorDataGroundTruth ground_truth = 3;
+    // Ground truth w.r.t. global coordinate system
+    //
+    // This is the ground truth that is provided to the sensor model by the
+    // simulation environment.
+    // \note Should be used as constant in the sensor models.
+    // 
+    optional GroundTruth global_ground_truth = 3;
     
-    // The id of the ego vehicle in the ground_truth data.
+    // Sensor view w.r.t. the sensor coordinate system
+    //
+    // This provides additional data to the sensor model as configured in
+    // the sensor input configuration.  All data is relative to the sensor
+    // both in terms of the coordinate system, as well as the content.
+    // \note Should be used as constant in the sensor models.
+    // 
+    optional SensorView sensor_view = 4;
+    
+    // The ID of the host vehicle in the ground_truth data.
     //    
-    optional Identifier ego_vehicle_id = 4;
-
+    optional Identifier host_vehicle_id = 5;
+    
     // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
+    // given in vehicle coordinates [1].
     //
-    // given in vehicle coordinates: origin is \c Vehicle::reference_point; the orientation is equal to the orientation of the vehicle.
+    // \arg \b x-direction of sensor coordinate system: sensor viewing direction
+    // \arg \b z-direction of sensor coordinate system: sensor (up)
+    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z right hand system
     //
-    // \arg \b x-direction: longitudinal direction & positive in driving direction
-    // \arg \b y-direction: lateral direction & positive to the left when looking orientated as a driver
-    // \arg \b z-direction: perpendicular to x and z right hand system (up)
+    // \par References: 
+    // [1] DIN ISO 8855:2013-11
     //
-    // See https://en.wikipedia.org/wiki/Axes_conventions#/media/File:RPY_angles_of_cars.png 
     // \note This field is usually static during the simulation.
-    optional MountingPosition mounting_position = 5;
+    // \note The origin of vehicle's coordinate system in world frame is 
+    // ( \c Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(\c Vehicle::base.orientation) * \c Vehicle::bbcenter_to_rear) .
+    // The orientation of the vehicle's coordinate system is equal to the orientation 
+    // of the vehicle's bounding box \c Vehicle::base.orientation.
+    //
+    optional MountingPosition mounting_position = 6;
 
+    // The root mean squared error of the mounting position.
+    //
+    optional MountingPosition mounting_position_rmse = 7;
+
+    // The timestamp of the last real-world measurement (e.g. GT input) that
+    // this set of sensor data takes into account.  This in effect is the last
+    // time instance of reality the measurements correspond to.  See field
+    // SensorData::timestamp for a detailed discussion.  This value is also
+    // the upper bound to the DetectedObjectHeader::measurement_time and the
+    // feature data DetectionHeader::measurement_time fields.
+    // 
+    optional Timestamp last_measurement_time = 8;
+    
     // The list of objects detected by the sensor as perceived by the sensor.
     //
-    repeated DetectedObject object = 6;
+    repeated DetectedObject object = 9;
 
     // The list of traffic signs detected by the sensor
     //
-    repeated DetectedTrafficSign traffic_sign = 7;
+    repeated DetectedTrafficSign traffic_sign = 10;
     
-    //
     // The list of traffic lights detected by the sensor
-    repeated DetectedTrafficLight traffic_light = 8;
+    // 
+    repeated DetectedTrafficLight traffic_light = 11;
 
     // The list of road marking detected by the sensor.
-    // This excludes lane boundary marking as these are included in DetectedLane.
-    repeated DetectedRoadMarking road_marking = 9;
-
+    // This excludes lane boundary markings.
     //
+    repeated DetectedRoadMarking road_marking = 12;
+
     // The list of lane detected by the sensor
-    repeated DetectedLane lane = 10;
-
-    //
-    // The list of occupants of the ego vehicle
-    repeated DetectedOccupant occupant = 11;
-
-    // Additional internal data and state flags required and used by the sensor-models.
-    // \note Should not be used by subscribers to SensorData data. 
-    // Generally this field should be cleared after internal processing.
-    optional ModelInternal model_internal = 12;
-}
-
-//
-// \brief Ground truth data with respect to two different reference frames (global and sensor).
-// 
-// Use in the sensor model's data processing and comparison of sensor and ground truth data.
-//
-message SensorDataGroundTruth
-{
-    // Ground truth w.r.t. global coordinate system (copy of GroundTruth message),
-    //
-    // needed for setting fields in the SensorData that are not covered by the model.
-    // \note should be used as constant in the sensor models.
     // 
-    optional GroundTruth global_ground_truth = 1;
+    repeated DetectedLane lane = 13;
 
-    // Ground truth w.r.t. the sensor coordinate system.
+    // The list of lane boundary markings detected by the sensor.
     //
-    // Is equal to the version of the SensorData interface that is used as input by the sensor model before
-    // any processing takes place aside from the coordinate transformation from global to sensor reference frame.
+    repeated DetectedLaneBoundary lane_boundary = 14;
+
+    // The ID of the lane the host vehicle travels on in the DetectedLane data,
+    // relative to the sensor.
     //
-    // SensorData.ground_truth is not set in this instance to avoid the resulting infinite loop.
-    optional SensorData sensor_ground_truth = 2;
+    optional Identifier host_vehicle_lane_id = 15;
+
+    // The list of occupants of the host vehicle
+    // 
+    repeated DetectedOccupant occupant = 16;
+    
+    // Low level feature data interface.
+    //
+    // Low Level feature data is optionally provided by sensor models that
+    // model sensors giving access to this low level data, i.e. data prior to
+    // object hypothesis and tracking.
+    //
+    optional FeatureData feature_data = 17;
+    
+    // Host Vehicle Data
+    //
+    // Host vehicle data is data that the host vehicle knows about itself,
+    // e.g. from location sensors, internal sensors and ECU bus data, etc.,
+    // that is made available to sensors as input.
+    optional HostVehicleData host_vehicle_data_id = 18;
 }

@@ -1,0 +1,182 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_sensorinputconfiguration.proto";
+
+package osi;
+
+//
+// \brief sensor view
+//
+// 
+//
+message SensorView
+{
+    // The interface version used by the sender (simulation environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the unix epoch. Recommended is the starting time point of
+    // the simulation.
+    //
+    // \note For sensor view data this timestamp coincides both with the
+    // notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for sensor view data, as opposed to
+    // sensor data).
+    optional Timestamp timestamp = 2;
+    
+    // Radar-Specific SensorView
+    //
+    optional RadarSensorView radar_sensor_view = 1000;
+
+    // Lidar-Specific SensorView
+    //
+    optional LidarSensorView lidar_sensor_view = 1001;
+
+    // Camera-Specific SensorView
+    //
+    optional CameraSensorView camera_sensor_view = 1002;
+
+    // Ultrasonic-Specific SensorView
+    //
+    optional UltrasonicSensorView ultrasonic_sensor_view = 1003;
+}
+
+//
+// \brief Radar Sensor View
+//
+// Radar-Specific Sensor View Data
+message RadarSensorView {
+    
+    // Radar Input Configuration valid at the time the data was created
+    //
+    optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1;
+
+    // Ray Tracing Data
+    //
+    // This field includes one entry for each ray, in left-to-right,
+    // top-to-bottom order (think scan lines in a TV).
+    //
+    repeated Reflection reflection = 2;
+
+    //
+    // \brief The radar reflection.
+    //    
+    message Reflection {
+        // Relative signal level of the reflection
+        //
+        // This takes the combined_antenna_diagram (losses in TX and RX)
+        // as well as the signal losses due to scattering and absorption
+        // into account, and will, when multiplied by TX power yield the
+        // actual RX power.
+        // Unit: [dB]
+        optional double signal_strength = 1;
+        
+        // Time of flight
+        //
+        // This is the time of flight of the reflection, which is directly
+        // proportional to the distance travelled. 
+        // Unit: [s]
+        optional double time_of_flight = 2;
+        
+        // Doppler shift
+        //
+        // Shift in frequency based on the specified TX frequency
+        // Unit: [Hz]
+        optional double doppler_shift = 3;
+        
+        // TX horizontal angle (azimuth)
+        //
+        // Horizontal angle of incidence of the source of the reflection
+        // at the TX antenna.
+        // Unit: [rad]
+        optional double source_horizontal_angle = 4;
+        
+        // TX vertical angle (elevation)
+        //
+        // Vertical angle of incidence of the source of the reflection
+        // at the TX antenna.
+        // Unit: [rad]
+        optional double source_vertical_angle = 5;
+    }
+}
+
+//
+// \brief Lidar Sensor View
+//
+// Lidar-Specific Sensor View Data
+message LidarSensorView {
+
+    // Lidar Input Configuration valid at the time the data was created
+    //
+    optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1;
+    
+    // Ray Tracing Data
+    //
+    // This field includes one entry for each ray, in left-to-right,
+    // top-to-bottom order (think scan lines in a TV).
+    //
+    repeated Reflection reflections = 2;
+
+    //
+    // \brief The lidar reflection.
+    //
+    message Reflection {
+        // Relative signal level of the reflection
+        //
+        // This takes the combined_antenna_diagram (losses in TX and RX)
+        // as well as the signal losses due to scattering and absorption
+        // into account, and will, when multiplied by TX power yield the
+        // actual RX power.
+        // Unit: [dB]
+        optional double signal_strength = 1;
+            
+        // Time of flight
+        //
+        // This is the time of flight of the reflection, which is directly
+        // proportional to the distance travelled. 
+        // Unit: [s]
+        optional double time_of_flight = 2;
+            
+        // Doppler shift
+        //
+        // Shift in frequency based on the specified TX frequency
+        // Unit: [Hz]
+        optional double doppler_shift = 3;
+    }
+}
+
+//
+// \brief Camera Sensor View
+//
+// Camera-Specific Sensor View Data
+message CameraSensorView {
+    
+    // Camera Input Configuration valid at the time the data was created
+    //
+    optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1;
+    
+    // Raw Image Data
+    //
+    // The raw image data in the memory layout and order specified by the
+    // camera sensor input configuration.
+    //
+    optional bytes image_data = 2;
+}
+
+//
+// \brief Ultrasonic Sensor View
+//
+// Ultrasonic-Specific Sensor View Data
+message UltrasonicSensorView {
+
+    // Ultrasonic Input Configuration valid at the time the data was created
+    //
+    optional UltrasonicSensorInputConfiguration ultrasonic_sensor_input_configuration = 1;
+    
+}

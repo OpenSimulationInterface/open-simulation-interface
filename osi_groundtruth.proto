@@ -15,79 +15,106 @@ package osi;
 //
 // \brief The ground truth information from the simulation environment.
 //
-// This ground truth information is supposed to describe the whole simulated environment around any simulated vehicle.
-// For each simulated ego vehicle (might only be one, but could also be multiple) define an area around the vehicle
-// which is greater than the combined field of views (FOV) of all sensors obstructed in the vehicle. The ground truth
-// data is supposed to describe the convex hull of all such areas w.r.t. a global simulation coordinate system.
+// This ground truth information is supposed to describe the whole simulated
+// environment around any simulated vehicle. For each simulated host vehicle
+// (there may be one or multiple), define an area around the vehicle which
+// is greater than the combined field of views (FOV) of all obstructed sensors 
+// in the vehicle. The ground truth data is supposed to describe the convex
+// hull of all such areas w.r.t. a global simulation coordinate system.
 //
-// The simulation coordinate system might change during the simulation if and only if, all coordinates w.r.t. this
-// coordinate system are also changed.
+// The simulation coordinate system may change during the simulation if and
+// only if all coordinates w.r.t. this coordinate system are also changed.
 //
-// The data has to be sent at a rate defined by the receiving partner. When sending, values with default values might be
-// left default in order to improve performance.
+// The data has to be sent at a rate defined by the receiving partner. When
+// sending, values with default values might be left default in order to improve
+// performance.
 //
-// To provide a complete interface, all fields of all messages have to be set, unless specifically stated in the field's
-// definition that the field may remain unset.
+// To provide a complete interface, all fields of all contained messages must be
+// properly set unless specifically stated in the field's definition that the
+// field may remain unset.
 //
-// In enums (e.g. types) the unknown (first / default) value is not allowed to be used in the ground truth interface.
+// In enums (e.g. types) the unknown (first / default) value is not allowed to
+// be used in the ground truth interface.
 //
 message GroundTruth
 {
-    // The interface version used by the sender (simulation environment).
-    //
+    // The interface version used by the sender (i.e. the simulation
+    // environment).
     optional InterfaceVersion version = 1;
 
-    // The data timestamp of the simulation environment. Zero time is arbitrary but must be identical for all messages.
-    // Zero time does not need to coincide with the unix epoch. Recommended is the starting time point of the
-    // simulation.
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages. 
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    // \note Zero time point does not need to coincide with the unix epoch. 
+    //
+    // \note For ground truth data this timestamp coincides both with the
+    // notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for ground truth data, as opposed to
+    // sensor data).
     optional Timestamp timestamp = 2;
 
-    // A list of vehicles.
+    // The list of (host) vehicles.
     //
     repeated Vehicle vehicle = 3;
 
-    // A list of moving objects (excluding vehicles).
+    // The list of all other moving objects (i.e. excluding vehicles).
     //
     repeated MovingObject moving_object = 4;
 
-    // A list of stationary objects.
-    //
+    // The list of stationary objects (excluding traffic signs and traffic
+    // lights).
     repeated StationaryObject stationary_object = 5;
 
-    // A list of traffic signs.
+    // The list of traffic signs.
     //
     repeated TrafficSign traffic_sign = 6;
 
-    // A list of traffic lights.
+    // The list of traffic lights.
     //
     repeated TrafficLight traffic_light = 7;
 
-    // A list of road surface markings. Lane Markings are excluded and defined as LaneBoundaries as part of the Lanes.
+    // The list of road surface markings (lane markings are excluded and
+    // defined as \c LaneBoundary).
     //
     repeated RoadMarking road_marking = 8;
 
-    // A list of lanes forming a road network.
+    // The list of lanes forming a road network.
     //
     repeated Lane lane = 9;
 
-    // A list of passengers in the (ego) vehicle(s).
+    // The list of lane boundaries from lanes.
     //
-    repeated Occupant occupant = 10;
+    repeated LaneBoundary lane_boundary = 10;
+
+    // The list of passengers in the (host) vehicle(s).
+    //
+    repeated Occupant occupant = 11;
 
     // Conditions of the environment.
     //
-    optional EnvironmentalConditions environmental_conditions = 11;
+    optional EnvironmentalConditions environmental_conditions = 12;
 
     // The real start timestamp of the customized sceniro for simulation. If not set, the simulation start time is 0.
     //
-    repeated Timestamp simulation_start_time = 12;
+    repeated Timestamp simulation_start_time = 13;
 
     // The real end timestamp of the customized sceniro for simulation. If not set, the simulation lasts infinite.
     //
-    repeated Timestamp simulation_end_time = 13;
+    repeated Timestamp simulation_end_time = 14;
 
     // The flag to validate the current GroundTruth for simulation.
     //
-    optional bool valid_scenario_flag = 14;
+    optional bool valid_scenario_flag = 15;
 
+    // The ISO country code in 3 digit numeric format according to:
+    // ISO Code 3166/1 [1,2]. 
+    // E.g. Germany = 276, USA = 840.
+    //
+    // Unit: []
+    //
+    // \par References: 
+    // [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions – Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/) 
+    // [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1) 
+    optional uint32 country_code = 16;
 }

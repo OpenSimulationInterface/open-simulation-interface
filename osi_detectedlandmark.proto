@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_common.proto";
 import "osi_landmark.proto";
+import "osi_detectedobject.proto";
 
 package osi;
 
@@ -12,40 +13,49 @@ package osi;
 //
 message DetectedTrafficSign
 {
-    // The id of the original traffic sign in the ground truth.
+    // Header attributes of detected traffic sign.
+    //
+    optional DetectedObjectHeader header = 1;
+
+    // Specific ID of the traffic sign as assigned by the sensor internally. Need not match with ground_truth_id.
+    //
+    optional Identifier tracking_id = 2;
+
+    // The ID of the original traffic sign in the ground truth.
     // In case of a ghost sign (no corresponding ground truth), this field should be unset.
-    optional Identifier ground_truth_id = 1;
+    optional Identifier ground_truth_id = 3;
 
     // A list of candidates for this traffic sign as estimated by the sensor.
     //    
-    repeated CandidateSign candidate_sign = 2;
+    repeated CandidateSign candidate_sign = 4;
 
     // A list of candidates for (a) possible supplementary sign(s) as estimated by the sensor.
     //    
-    repeated CandidateSupplementarySign candidate_supplementary_sign = 3;
+    repeated CandidateSupplementarySign candidate_supplementary_sign = 5;
 
     // The detected geometry of the traffic sign.
     //    
-    optional Geometry geometry = 4;
+    optional Geometry geometry = 6;
 
-    // The estimated probability that this traffic sign really exists. Range [0,1].
-    //    
-    optional double existence_probability = 5;
+    // The estimated probability that this traffic sign really exists, not based on history.
+    //
+    // \note Use as confidence measure where a low value means less confidence and a high value indicates
+    // strong confidence.
+    optional double existence_probability = 7;
 
-    // The measurement state of the traffic sign.
-    //    
-    optional MeasurementState measurement_state = 6;
-
-    // The standard deviation of the base parameters of the detected traffic sign.
-    //    
-    optional BaseStationary standard_deviation = 7;
+    // The measurement state.
+    //
+    optional MeasurementState measurement_state = 8;
+    // The root mean squared error of the base parameters of the detected traffic sign.
+    //
+    optional BaseStationary rmse = 9;
 
     // Links to the corresponding lanes.
     //    
-    repeated RelevantLane relevant_lane = 8;
+    repeated RelevantLane relevant_lane = 10;
 
     // Definition of traffic sign geometries.
-    //    
+    //
     enum Geometry
     {
         // Geometry of the traffic sign is unknown (must not be used in ground truth).
@@ -56,38 +66,49 @@ message DetectedTrafficSign
         //    
         GEOMETRY_OTHER = 1;
         
-        // Traffic sign has a triangular geometry.
+        // Traffic sign has a triangular geometry pointing to the top.
         //    
-        GEOMETRY_TRIANGLE = 2;
+        GEOMETRY_TRIANGLE_TOP = 2;
+        
+        //Traffic sign has a triangular geometry pointing down.
+        //    
+        GEOMETRY_TRIANGLE_DOWN = 3;
         
         // Traffic sign has a circular geometry.
         //    
-        GEOMETRY_CIRCLE = 3;
+        GEOMETRY_CIRCLE = 4;
         
         // Traffic sign has a square geometry.
         //    
-        GEOMETRY_SQUARE = 4;
-    }
-
-    // Definition of measurement states.
-    //
-    enum MeasurementState
-    {
-        // Measurement state is unknown (must not be used in ground truth).
-        //
-        MEASUREMENT_STATE_UNKNOWN = 0;
+        GEOMETRY_SQUARE = 5;
         
-        // Measurement state is unspecified (but known, i.e. value is not part of this enum list).
-        //
-        MEASUREMENT_STATE_OTHER = 1;
+        // Traffic sign has a diamond geometry.
+        //    
+        GEOMETRY_DIAMOND = 6;
         
-        // Traffic sign has been measured by the sensor in the current timestep.
-        //
-        MEASUREMENT_STATE_MEASURED = 2;
+        // Traffic sign has an octagon geometry.
+        //    
+        GEOMETRY_OCTAGON = 7;
         
-        // Traffic sign has not been measured by the sensor in the current timestep. Values provided by tracking only.
-        //
-        MEASUREMENT_STATE_PREDICTED = 3;
+        // Traffic sign has a geomety of an arrow pointing to the left.
+        //    
+        GEOMETRY_ARROW_LEFT = 8;
+        
+        // Traffic sign has a geomety of an arrow pointing to the right.
+        //    
+        GEOMETRY_ARROW_RIGHT = 9;
+        
+        // Traffic sign has a rectangle geometry. (width is bigger than height)
+        // E.g. one-way
+        GEOMETRY_RECTANGLE = 10;
+        
+        // Traffic sign that has a pole geometry. (height is bigger than width)
+        // E.g. pole indicating highways exit in xx m.
+        GEOMETRY_POLE = 11;
+        
+        // Traffic sign that has an oversize rectangle geometry.
+        // E.g. direction plates on highway or city signs.
+        GEOMETRY_PLATE = 12;
     }
 }
 
@@ -97,7 +118,7 @@ message DetectedTrafficSign
 message CandidateSign
 {
     // The definition of the candidate's properties.
-    // The sign.id values of all CandidateSigns within one DetectedTrafficSign correspond to the tracking id and must
+    // The sign.id values of all CandidateSigns within one DetectedTrafficSign correspond to the tracking ID and must
     // be identical.
     optional TrafficSign sign = 1;
 
@@ -125,29 +146,42 @@ message CandidateSupplementarySign
 //
 message DetectedTrafficLight
 {
-    // The id of the original traffic light in the ground truth.
+    // Header attributes of detected traffic light.
+    //
+    optional DetectedObjectHeader header = 1;
+
+    // Specific ID of the traffic light as assigned by the sensor internally. Need not match with ground_truth_id.
+    //
+    optional Identifier tracking_id = 2;
+
+    // The ID of the original traffic light in the ground truth.
     // In case of a ghost detection (no corresponding ground truth), this field should be unset.
-    optional Identifier ground_truth_id = 1;
+    optional Identifier ground_truth_id = 3;
 
     // Description of the detected traffic light.
     //
-    optional TrafficLight traffic_light = 2;
+    optional TrafficLight traffic_light = 4;
 
     // Determines for which directions the traffic light applies.
     //
-    repeated RelevantDirection relevant_direction = 3;
+    repeated RelevantDirection relevant_direction = 5;
 
     // Links to the corresponding lanes.
     //
-    repeated RelevantLane relevant_lane = 4;
+    repeated RelevantLane relevant_lane = 6;
 
-    // Existence probability. Range [0,1].
+    // The estimated probability that this traffic light really exists, not based on history.
     //
-    optional double existence_probability = 5;
+    // \note Use as confidence measure where a low value means less confidence and a high value indicates
+    // strong confidence.
+    optional double existence_probability = 7;
 
-    // The standard deviation of the base parameters of the detected traffic light.
+    // The measurement state.
     //
-    optional BaseStationary standard_deviation = 6;
+    optional MeasurementState measurement_state = 8;
+    // The root mean squared error of the base parameters of the detected traffic light.
+    //
+    optional BaseStationary rmse = 9;
 
     //
     // \brief Further specifies the relevant directions of the traffic light.
@@ -190,7 +224,7 @@ message DetectedTrafficLight
 //
 message RelevantLane
 {
-    // Tracking id of the lane segment.
+    // Tracking ID of the lane segment.
     //
     optional Identifier lane_id = 1;
 
@@ -204,29 +238,38 @@ message RelevantLane
 //
 message DetectedRoadMarking
 {
-    // Tracking id of the road marking.
+    // Header attributes of detected road marking.
     //
-    optional Identifier tracking_id = 1;
+    optional DetectedObjectHeader header = 1;
 
-    // The id of the original road marking in the ground truth.
+    // Specific ID of the road marking as assigned by the sensor internally. Need not match with ground_truth_id.
+    //
+    optional Identifier tracking_id = 2;
+
+    // The ID of the original road marking in the ground truth.
     // In case of a ghost detection (no corresponding ground truth), this field should be unset.
-    optional Identifier ground_truth_id = 2;
+    optional Identifier ground_truth_id = 3;
 
     // A list of candidates for this road marking as estimated by the sensor.
     //
-    repeated CandidateRoadMarking candidate_road_marking = 3;
+    repeated CandidateRoadMarking candidate_road_marking = 4;
 
-    // Existence probability. Range [0,1].
+    // The estimated probability that this road marking really exists, not based on history.
     //
-    optional double existence_probability = 4;
+    // \note Use as confidence measure where a low value means less confidence and a high value indicates
+    // strong confidence.
+    optional double existence_probability = 5;
 
     // Links to the corresponding lanes.
     //
-    repeated RelevantLane relevant_lane = 5;
+    repeated RelevantLane relevant_lane = 6;
 
-    // The standard deviation of the base parameters of the detected road marking.
+    // The measurement state.
     //
-    optional BaseStationary standard_deviation = 6;
+    optional MeasurementState measurement_state = 7;
+    // The root mean squared error of the base parameters of the detected road marking.
+    //
+    optional BaseStationary rmse = 8;
 }
 
 //

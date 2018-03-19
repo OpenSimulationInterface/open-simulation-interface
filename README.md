@@ -97,3 +97,19 @@ In order to generate the doxygen documentation for OSI, please follow the follow
 cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
 ```
 5. The build process will then generate the doxygen documentation under the directory doc.
+
+
+Citing
+------
+
+Use the following citation for referencing the OSI interface in your scientific work:
+
+```
+@misc{osi.2017,
+        author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
+        year = {2017},
+        title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
+        url = {http://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
+        note = {{Accessed: 2017-08-28}}
+}
+```

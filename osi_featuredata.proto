@@ -1,0 +1,313 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+
+package osi;
+
+//
+// \brief Interface for sensor data, in contrast to interpreted data after 
+// object hypothesis and tracking.
+//
+// All information regarding the environment is given with respect to the sensor 
+// coordinate system specified in \c DetectionHeader::mounting_position. 
+// When simulating multiple sensors, each sensor has an individual copy of 
+// \c OSI::FeatureData in its own reference frame. This allows an independent 
+// treatment of the sensors.
+//
+message FeatureData
+{
+    // Lidar detection list for multiple lidar sensors.
+    //
+    repeated LidarDetectionList lidar_detection_list = 1;
+
+    // Radar detection list for multiple lidar sensors.
+    //
+    repeated RadarDetectionList radar_detection_list = 2;
+}
+
+//
+// \brief The header attributes of each detection.
+//
+message DetectionHeader
+{
+    // Version number of used detecion list messages ( \c OSI::DetectionHeader, 
+    // \c OSI::LidarDetection, \c OSI::LidarDetectionList etc.).
+    // 
+    optional DetectionInterfaceVersion version = 1;
+
+    // Time stamp at which the measurement was taken (not the time at which it
+    // was processed or at which it is transmitted) in the global synchronized
+    // time.
+    //
+    // \note See SensorData::timestamp and SensorData::last_measurement_time
+    // for detailed discussions on the semantics of time-related fields.
+    optional Timestamp measurement_time = 2;
+
+    // Monotonous counter to identify the exact cycle. 
+    // Generally the detecion function is called periodic and 
+    // \c DetectionHeader::cycle_counter corresponds to the number of periods.
+    optional uint64 cycle_counter = 3;
+
+
+    // Mounting position of the sensor (origin and orientation of the sensor 
+    // frame). Both origin and orientation are given in and with respect to the 
+    // host vehicle coordinate system (see: \c OSI::Vehicle vehicle reference
+    // point).
+    //
+    // The sensor frame's x-axis is pointing in the central viewing direction of 
+    // the sensor. It is the angle bisector of the sensor's horizontal and 
+    // vertical field of view. The terms horizontal and vertical must be 
+    // understood as names for the two principal planes of the sensor's field of 
+    // view (relative to the sensor frame's orientation), which do not have to
+    // be horizontal or vertical in the strict sense of being parallel or 
+    // perpendicular to the local gravitational vector. The horizontal field
+    // of view defines the sensor frame's xy-plane and the vertical field
+    // of view defines the xz-plane. The sensor frame is right-handed and the 
+    // z-axis is pointing in an upward direction.
+    //
+    // The sensor frame uses cartesian coordinates. The sensor frame's origin is
+    // identical to sensor detection frame's origin. Detections are defined in 
+    // the sensor detection frame which uses e.g. spherical coordinates.
+    optional MountingPosition mounting_position = 4;
+
+    // The origin/orientation of the sensor frame represents the current
+    // mounting pose to the best knowledge of the sensor. The estimation of the
+    // 6D pose given by the calibration. The uncertainty of this estimation is
+    // given with the corresponding 6D root mean squared error. The estimation
+    // of the current origin does not include effects due to short-time
+    // dynamics, such as pitch angles from braking, but includes long-time
+    // calibration values, such as pitch angles from luggage in the trunk. 
+    optional MountingPosition mounting_position_rmse = 5;
+
+    // Data Qualifier expresses to what extent the content of this event can be 
+    // relied on.
+    //
+    optional DataQualifier data_qualifier = 6;
+
+    // The current number of valid detections in the detections list.
+    //
+    // \note This value has to be set if the list contains invalid detections.    
+    optional uint32 number_of_detections = 7;
+
+    // \brief Data qualifier communicates the overall availability of the 
+    // interface.
+    //
+    enum DataQualifier
+    {
+        // Unknown (must not be used in ground truth).
+        //
+        DATA_QUALIFIER_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        DATA_QUALIFIER_OTHER = 1;
+        
+        // Data is available.
+        //
+        DATA_QUALIFIER_AVAILABLE = 2;
+
+        // Reduced data is available.
+        //
+        DATA_QUALIFIER_AVAILABLE_REDUCED = 3;
+
+        // Data is not available.
+        //
+        DATA_QUALIFIER_NOT_AVAILABLE = 4;
+
+        // Sensor is blind.
+        //
+        DATA_QUALIFIER_BLINDNESS = 5;
+
+        // Sensor temporary available.
+        //
+        DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
+    }
+
+    //
+    // \brief Version of detection messages ( \c OSI::DetectionHeader, 
+    // \c OSI::LidarDetection, \c OSI::LidarDetectionList, etc.).
+    //
+    message DetectionInterfaceVersion
+    {
+        // Major version number.
+        //
+        optional uint32 version_major = 1;
+        
+        // Minor version number.
+        //
+        optional uint32 version_minor = 2;
+        
+        // Patch version number.
+        //
+        optional uint32 version_patch = 3;
+    }
+}
+
+// Definition of common detection classifications. 
+// 
+enum DetectionClassification
+{
+    // Detection is unknown (must not be used in ground truth).
+    //
+    DETECTION_CLASSIFICATION_UNKNOWN = 0;
+
+    // Other (unspecified but known) detection.
+    //
+    DETECTION_CLASSIFICATION_OTHER = 1;
+
+    // Invalid detection, not to be used for object tracking, of unspecified 
+    // type (none of the other types applies).
+    //
+    DETECTION_CLASSIFICATION_INVALID = 2;
+
+    // Clutter (noise, spray, rain, fog etc.).
+    //
+    DETECTION_CLASSIFICATION_CLUTTER = 3;
+
+    // Overdrivable (ground etc.).
+    //
+    DETECTION_CLASSIFICATION_OVERDRIVABLE = 4;
+
+    // Underdrivable (sign gantry etc.).
+    //
+    DETECTION_CLASSIFICATION_UNDERDRIVABLE = 5;
+}
+
+
+//
+// \brief A list of lidar detection from one sensor.
+//
+message LidarDetectionList
+{
+    // Header attributes of lidar detection.
+    //
+    optional DetectionHeader header = 1;
+
+    // List of lidar detections.
+    //
+    repeated LidarDetection detection = 2;
+}
+
+//
+// \brief A point or vertical line in a lidar point cloud.
+//
+message LidarDetection
+{
+    // Existence probability of the detection not based on history. Value does 
+    // not depend on any past experience with similar detections.
+    //
+    // \note Used as confidence measure where a low value means less confidence 
+    // and a high value indicates strong confidence.
+    optional double existence_probability = 1;
+
+    // ID of the object this detection is associated to; ID = MAX(uint64) 
+    // indicates no reference to an object.
+    //
+    optional Identifier object_id = 2;
+
+    // Measured position of the detection, given in spherical coordinates in the 
+    // sensor coordinate system.
+    //
+    optional Spherical3d position = 3;
+
+    // Root mean squared error of the measured position of the detection.
+    //
+    optional Spherical3d position_rmse = 4;
+
+    // Height value, which is required when multiple scan points are vertically 
+    // clustered. Only vertical clustering is allowed (z-axis).
+    optional double height = 5;
+
+    // Root mean squared error of the object height.
+    // 
+    optional double height_rmse = 6;
+
+    // Intensity or equivalent value of the detection's echo.
+    // Unit: [%]
+    optional double intensity = 7;
+
+    // The free space probability in the range [0.0, 1.0] from the origin of the 
+    // sensor up to this detection, as given by the distance.
+    // 
+    optional double free_space_probability = 8;
+
+    // Attributes of the detection.
+    // 
+    optional DetectionClassification classification = 9;
+   
+}
+
+//
+// \brief A list of radar detections from one sensor.
+//
+message RadarDetectionList
+{    
+    // Header attributes of radar detection.
+    //
+    optional DetectionHeader header = 1;
+
+    // List of radar detections constituting the radar detection list.
+    //
+    repeated RadarDetection detection = 2;
+}
+
+//
+// \brief A radar detection.
+//
+message RadarDetection
+{
+    // Existence probability of the detection not based on history. Value does 
+    // not depend on any past experience with similar detections.
+    //
+    // \note Use as confidence measure where a low value means less confidence 
+    // and a high value indicates 
+    // strong confidence.
+    optional double existence_probability = 1;
+
+    // ID of the object this detection is associated to; ID = MAX(uint64) 
+    // indicates no reference to an object.
+    // 
+    optional Identifier object_id = 2;
+
+    // Measured position of the detection, given in spherical coordinates in the
+    // sensor coordinate system.
+    //
+    optional Spherical3d position = 3;
+
+    // Root mean squared error of the measured position of the detection.
+    // 
+    optional Spherical3d position_rmse = 4;
+
+    // Absolute radial (in direction to the sensor) velocity of the detection.
+    // 
+    optional double radial_velocity = 5;
+
+    // Root mean squared error of the object measured radial velocity.
+    // 
+    optional double radial_velocity_rmse = 6;
+
+    // The radar cross section (RCS) of the radar detection.
+    // Unit: [dB m^2].
+    optional double rcs = 7;
+
+    // The signal to noise ratio (SNR) of the radar detection.
+    // Unit: [dB m^2].
+    optional double snr = 8;
+
+    // Describes the possibility whether more than one object may have led to 
+    // this detection.
+    // 
+    optional double point_target_probability = 9;
+
+    // Ambiguity Information: 
+    // Each ambiguous measurement generates one Ambiguity ID. Ambiguity is 
+    // indicated by an identical Ambiguity ID. 
+    // Unambiguous measurements have the Amiguity ID 0.
+    optional Identifier ambiguity_id = 10;
+
+    // Attributes of the detection.
+    // 
+    optional DetectionClassification classification = 11;
+}

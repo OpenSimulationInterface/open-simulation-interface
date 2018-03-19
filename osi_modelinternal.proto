@@ -2,32 +2,10 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_lowleveldata.proto";
+import "osi_featuredata.proto";
 import "osi_object.proto";
 
 package osi;
-
-//
-// \brief Internal data and state flags for the sensor model, set and used during modification of the interface data.
-//
-// Content of all ModelInternal* messages may be cleared at the end of the sensor model processing chain and not sent
-// with the final output of the sensor model. Receiving components must not expect values in ModelInternal* messages to
-// be set. In particular, the message structures defined in this file must not be used by receiving components outside
-// of the sensor model to read required input data.
-//
-message ModelInternal
-{
-    // Low level data interface, for use by models performing statistical generation of such "low level data" before
-    // object hypothesis and tracking from object ground truth.
-    //
-    // Low Level data should be transferred to receiving components by means of a separate data stream. Therefore they
-    // are not part the top level SensorData message, as they are used only internally by some models.
-    optional LowLevelData low_level_data = 1;
-
-    // Latency, time offset that should have been elapsed before the data is transmitted to the receiving component.
-    // Unit [ms].
-    optional double latency = 2;
-}
 
 //
 // \brief Additional internal data and state flags for SensorDataObjects.

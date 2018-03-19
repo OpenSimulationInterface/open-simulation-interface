@@ -2,25 +2,54 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "google/protobuf/descriptor.proto";
+
 package osi;
 
 //
 // \brief The interface version number.
 //
-// The field containing the version number. Should be left on default, not to be modified by sender.
-// Increments will happen as part of changes to the whole interface.
+// The field denoting the version number. This needs to be set by the
+// sender to the actual OSI version that is to be sent.  Code wanting to
+// access the version number of the OSI code base can access a FileOption,
+// which has the proper values, like this:
 //
+// @code
+// auto currentInterfaceVersion =
+//   InterfaceVersion::descriptor()->file()->options().GetExtension(current_interface_version);
+// @endcode
+//
+// If a message with all components set to the default value 0 is
+// received, this indicates that either that the message was sent by
+// a version 2.2.0 or earlier release, or that the sender did not
+// properly set the version components prior to sending.
+//
+// Increments will happen as part of changes to the whole interface.
+// The meaning of different InterfaceVersions is defined [1].
+//
+// \par References: 
+// [1] Open Simulation Interface: README.md
 message InterfaceVersion
 {
     // Major version number.
     //
-    optional uint32 version_major = 1 [default = @VERSION_MAJOR@];
+    optional uint32 version_major = 1 [default = 0];
     
     // Minor version number.
     //
-    optional uint32 version_minor = 2 [default = @VERSION_MINOR@];
+    optional uint32 version_minor = 2 [default = 0];
     
     // Patch version number.
     //
-    optional uint32 version_patch = 3 [default = @VERSION_PATCH@];
+    optional uint32 version_patch = 3 [default = 0];
 }
+
+
+extend google.protobuf.FileOptions {
+    optional InterfaceVersion current_interface_version = 81000;
+}
+
+option (current_interface_version).version_major = @VERSION_MAJOR@;
+option (current_interface_version).version_minor = @VERSION_MINOR@;
+option (current_interface_version).version_patch = @VERSION_PATCH@;
+

@@ -53,14 +53,17 @@ class GenerateProtobuf(install):
         'osi_detectedlane.proto',
         'osi_environment.proto',
         'osi_groundtruth.proto',
+        'osi_hostvehicledata.proto',
         'osi_landmark.proto',
-        'osi_lowleveldata.proto',
+        'osi_featuredata.proto',
         'osi_modelinternal.proto',
         'osi_object.proto',
         'osi_occupant.proto',
         'osi_lane.proto',
         'osi_sensordata.proto',
-        'osi_sensorspecific.proto')
+        'osi_sensorinputconfiguration.proto',
+        'osi_sensorspecific.proto',
+        'osi_sensorview.proto')
 
     """ Generate Protobuf Messages """
 

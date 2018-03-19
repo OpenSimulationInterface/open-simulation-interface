@@ -14,65 +14,141 @@ package osi;
 //
 message DetectedObject
 {
-    // Specific id of the object as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Header attributes of detected object.
     //
-    optional Identifier tracking_id = 1;
+    optional DetectedObjectHeader header = 1;
 
-    // The id of the original object in the ground truth list of vehicles / objects / ..
-    // Multiple entries if detected object is a merge of multiple ground truth objects.
-    repeated Identifier ground_truth_id = 2;
+    // Specific ID of the object as assigned by the sensor internally. Need not
+    // match with ground_truth_id.
+    optional Identifier tracking_id = 2;
 
-    // Base parameters of the object. Reference point is the middle of the bounding box of the target object.
+    // The ID of the original object in the ground truth list of vehicles /
+    // objects etc. Multiple entries if detected object is a merge of multiple
+    // ground truth objects.
+    repeated Identifier ground_truth_id = 3;
+
+    // The amount of time that this object has been currently observed/tracked.
+    // Unit: [s]
+    optional double age = 4;
+
+    // The measurement state of the detected object.
     //
-    optional BaseMoving object = 3;
+    optional MeasurementState measurement_state = 5;
 
-    // The standard deviations of the base parameters in object (cross correlations are currently neglected).
+    // Base parameters of the object. object.position is the middle of the
+    // bounding box of the target object.
+    optional BaseMoving object = 6;
+
+    // The root mean squared error of the base parameters in object (cross 
+    // correlations are currently neglected).
+    optional BaseMoving object_rmse = 7;
+
+    // Reference point location specification of the sensor measurement
+    // (required to decouple sensor measurement, position and bounding box
+    // estimation) as used by the sensor (model).
     //
-    optional BaseMoving standard_deviation = 4;
+    // \note Note that the value of this field has no impact on the value of 
+    // object.position, which always references the center of the object /
+    // bounding box.
+    optional ReferencePoint reference_point = 8;
+
+    // Actual movement state w.r.t. the moving object history.
+    //
+    optional MovementState movement_state = 9;
+
+    // The estimated probability that this object really exists, not based on
+    // history.
+    //
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    optional double existence_probability = 10;
+
+    // Current state of lights as perceived by sensor, only relevant if the
+    // object is estimated to be an object that has lights.
+    optional Vehicle.LightState light_state = 11;
+
+    // Additional internal data and state flags required and used by the
+    // sensor-models, should not be used by subscribers to SensorData. Generally 
+    // this field should be cleared after internal processing.
+    //
+    // \note optional. List of used detections to recognize this object. 
+    // Detections have also an identifier to reference to the detected object.
+    optional ModelInternalObject model_internal_object = 12;
+
+    // Additional data that is specific to radar sensors.
+    //
+    // \note Field need not be set if simulated sensor is not a radar sensor.
+    optional RadarSpecificObjectData radar_specifics = 13;
+
+    // Additional data that is specific to lidar sensors.
+    //
+    // \note Field need not be set if simulated sensor is not a lidar sensor.
+    optional LidarSpecificObjectData lidar_specifics = 14;
+
+    // Additional data that is specific to camera sensors.
+    //
+    // \note Field need not be set if simulated sensor is not a camera sensor.
+    optional CameraSpecificObjectData camera_specifics = 15;
+
+    // Additional data that is specific to ultrasonic sensors.
+    //
+    // \note Field need not be set if simulated sensor is not an ultrasonic 
+    // sensor.
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 16;
 
     // The estimated probabilities for the object to belong to a specific class.
     //
-    optional ClassProbability class_probability = 5;
-
-    // The estimated probability that this object really exists. Range [0,1].
+    optional ClassProbability class_probability = 17;
+    
+    // Pedestrian head pose for behaviour prediction. Describes the head
+    // orientation w.r.t. the host vehicle orientation.
+    // The x-axis of the right-handed head frame is pointing along the 
+    // pedestrian's straight ahead viewing direction and the z-axis is pointing 
+    // upwards (cranial direction [1] i.e. to pedestrian's skull cap).
     //
-    optional double existence_probability = 6;
+    // View_normal_base_coord_system = Inverse_Rotation(head_pose)*Unit_vector_x 
+    //
+    // \par References: 
+    // [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+    optional Orientation3d head_pose = 18;
 
-    // Current state of lights as perceived by sensor, only relevant if the object is estimated to be an object that
-    // has lights.
-    optional Vehicle.LightState light_state = 7;
+    // Pedestrian upper body pose for behaviour prediction. Describes the
+    // upper body orientation w.r.t. the host vehicle orientation.
+    // The x-axis of the right-handed upper body frame is pointing along the 
+    // pedestrian's upper body ventral direction [2] (i.e. usually pedestrian's 
+    // intended moving direction) and the z-axis is pointing upwards (to 
+    // pedestrian's head).
+    //
+    // View_normal_base_coord_system = Inverse_Rotation(upper_body_pose)*Unit_vector_x 
+    //
+    // \par References: 
+    // [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+    optional Orientation3d upper_body_pose = 19;
 
-    // Reference point of the sensor measurement (required to decouple position and bounding box estimation) as used by
-    // the sensor (model).
-    // Note that the value of this field has no impact on the value of object.position, which always references the
-    // center of the object / bounding box.
-    optional ReferencePoint reference_point = 8;
+    // Percentage side lane left.
+    //
+    // Percentage value of the object width in the corresponding lane.
+    optional double percentage_side_lane_left = 20;
 
-    // Additional internal data and state flags required and used by the sensor-models, should not be used by
-    // subscribers to SensorData. Generally this field should be cleared after internal processing.
-    optional ModelInternalObject model_internal_object = 9;
-
-    // Additional data that is specific to radar sensors.
-    // Field need not be set if simulated sensor is not a radar sensor.
-    optional RadarSpecificObjectData radar_specifics = 10;
-
-    // Additional data that is specific to lidar sensors.
-    // Field need not be set if simulated sensor is not a lidar sensor.
-    optional LidarSpecificObjectData lidar_specifics = 11;
-
-    // Additional data that is specific to camera sensors.
-    // Field need not be set if simulated sensor is not a camera sensor.
-    optional CameraSpecificObjectData camera_specifics = 12;
-
-    // Definition of available reference points.
+    // Percentage side lane right.
+    //
+    // Percentage value of the object width in the corresponding lane.
+    optional double percentage_side_lane_right = 21;
+    
+    // Definition of available reference points. Left/middle/right and 
+    // front/middle/rear indicate the position in y- and x-direction 
+    // respectively. The z position is always considered as middle.
     //
     enum ReferencePoint
     {
-        // Reference point is unknown, i.e. sensor does not report a reference point for the position coordinate.
+        // Reference point is unknown, i.e. sensor does not report a reference 
+        // point for the position coordinate.
         // Value must not be used in ground truth data.
-        // Usually this means that the reference point for the given position coordinates is a largely arbitrary point
-        // within the bounding volume unknown to the sensor. If this value is set, the center of the bounding box should
-        // be used as reference point by convention, unless the specific use case requires otherwise.
+        // Usually this means that the reference point for the given position 
+        // coordinates is a largely arbitrary point within the bounding volume 
+        // unknown to the sensor. If this value is set, the center of the 
+        // bounding box should be used as reference point by convention, unless 
+        // the specific use case requires otherwise.
         REFERENCE_POINT_UNKNOWN = 0;
         
         // Other (unspecified but known) reference point.
@@ -116,37 +192,206 @@ message DetectedObject
         REFERENCE_POINT_FRONT_RIGHT = 10;
     }
 
+    // Information about a possible movement of the object during tracking.
     //
-    // \brief Probabilities for the classification of the object as perceived by the sensor.
+    enum MovementState
+    {
+        // Movement state is unknown.
+        //
+        MOVEMENT_STATE_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        MOVEMENT_STATE_OTHER = 1;
+
+        // Until now no object movement was detected in tracking history.
+        //
+        MOVEMENT_STATE_STATIONARY = 2;
+
+        // Object moves currently.
+        //
+        MOVEMENT_STATE_MOVING = 3;
+
+        // Object movement was detected in tracking history, but object is
+        // currently not moving.
+        MOVEMENT_STATE_STOPPED = 4;
+    }
+
+    //
+    // \brief Probabilities for the classification of the object as perceived by 
+    // the sensor.
     //
     message ClassProbability
     {
         // Probability that the object has unknown type. Range [0,1].
         //
         optional double prob_unknown = 1;
-        
+
+        // Probablility that the object is unspecified but known. Range [0,1].
+        //
+        optional double prob_other = 2;
+
         // Probability that the object is a car. Range [0,1].
         //
-        optional double prob_car = 2;
+        optional double prob_car = 3;
         
-        // Probability that the object is a truck. Range [0,1].
+        // Probability that the object is a heavy truck. Range [0,1].
         //
-        optional double prob_truck = 3;
+        optional double prob_heavy_truck = 4;
         
+        // Probablility that the object is a van. Range [0,1].
+        //
+        optional double prob_van = 5;
+
+        // Probability that the object is a bus. Range [0,1].
+        //
+        optional double prob_bus = 6;
+
+        // Probability that the object is a trailer. Range [0,1].
+        //
+        optional double prob_trailer = 7;
+
+        // Probability that the object is a semitrailer. Range [0,1].
+        //
+        optional double prob_semitrailer = 8;
+
+        // Probability that the object is a tram. Range [0,1].
+        //
+        optional double prob_tram = 9;
+
+        // Probability that the object is a train. Range [0,1].
+        //
+        // \note Can also be used for underground railway.
+        optional double prob_train = 10;
+
         // Probability that the object is a motorbike. Range [0,1].
         //
-        optional double prob_motorbike = 4;
+        optional double prob_motorbike = 11;
         
         // Probability that the object is a bicycle. Range [0,1].
         //
-        optional double prob_bicycle = 5;
+        optional double prob_bicycle = 12;
         
         // Probability that the object is a pedestrian. Range [0,1].
         //
-        optional double prob_pedestrian = 6;
+        optional double prob_pedestrian = 13;
+
+        // Probability that the object is a wheelchair. Range [0,1].
+        //
+        optional double prob_wheelchair = 14;
         
+        // Probability that the object is an animal. Range [0,1].
+        //
+        optional double prob_animal = 15;
+
         // Probability that the object is a stationary object. Range [0,1].
         //
-        optional double prob_stationary = 7;
+        optional double prob_stationary = 16;
+
+        // Probability that the object is an unspecified but known vehicle. 
+        // Range [0,1].
+        //
+        optional double prob_other_vehicle = 17;
     }
+}
+
+//
+// \brief The header attributes of each detected object.
+//
+message DetectedObjectHeader
+{
+    // Version number of used detected object messages (DetectedObject etc.).
+    //
+    optional InterfaceVersion version = 1;
+
+    // Time stamp at which the measurement was taken (not the time at which it
+    // was processed or at which it is transmitted) in the global synchronized
+    // time.
+    //
+    // \note See SensorData::timestamp and SensorData::last_measurement_time
+    // for detailed discussions on the semantics of time-related fields.
+    optional Timestamp measurement_time = 2;
+
+    // Continuous up counter to identify the cycle.
+    //
+    optional uint32 cycle_counter = 3;
+
+    // Data Qualifier expresses to what extent the content of this event can be
+    // relied on.
+    optional DataQualifier data_qualifier = 4;
+
+    //
+    // \brief Data qualifier communicates the overall availability of the
+    // interface.
+    //
+    enum DataQualifier
+    {
+        // Unknown (must not be used in ground truth).
+        //
+        DATA_QUALIFIER_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        DATA_QUALIFIER_OTHER = 1;
+
+        // Data is available.
+        //
+        DATA_QUALIFIER_AVAILABLE = 2;
+
+        // Reduced data is available.
+        //
+        DATA_QUALIFIER_AVAILABLE_REDUCED = 3;
+
+        // Data is not available.
+        //
+        DATA_QUALIFIER_NOT_AVAILABLE = 4;
+
+        // Sensor is blind.
+        //
+        DATA_QUALIFIER_BLINDNESS = 5;
+
+        // Sensor temporary available.
+        //
+        DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
+    }
+
+    //
+    // \brief Version of detected object messages ( \c OSI::DetectedObject
+    // etc.).
+    //
+    message InterfaceVersion
+    {
+        // Major version number.
+        //
+        optional uint32 version_major = 1;
+
+        // Minor version number.
+        //
+        optional uint32 version_minor = 2;
+
+        // Patch version number.
+        //
+        optional uint32 version_patch = 3;
+    }
+}
+
+// Definition of measurement states.
+//
+enum MeasurementState
+{
+    // Measurement state is unknown (must not be used in ground truth).
+    //
+    MEASUREMENT_STATE_UNKNOWN = 0;
+
+    // Measurement state is unspecified (but known, i.e. value is not part of
+    // this enum list).
+    MEASUREMENT_STATE_OTHER = 1;
+
+    // Entity has been measured by the sensor in the current timestep.
+    //
+    MEASUREMENT_STATE_MEASURED = 2;
+
+    // Entity has not been measured by the sensor in the current timestep.
+    // Values provided by tracking only.
+    MEASUREMENT_STATE_PREDICTED = 3;
 }
