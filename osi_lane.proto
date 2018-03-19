@@ -27,14 +27,15 @@ message Lane
 {
     // The ID of the lane.
     // Example: 3 (see reference picture).
+    //
     // \note Note ID is global unique.
     optional Identifier id = 1;
 
     // The type of the lane.
-    // Example: Lane::Type::NORMAL (see reference picture)
+    // Example: \c Lane::type = \c Type::TYPE_DRIVING (see reference picture)
     optional Type type = 2;
 
-    // The lane's center line.
+    // The lane's center line (as a list of segments).
     //
     // This is the line, that a typical vehicle is supposed to follow. Thus, if
     // the road narrows (e.g. at a construction site) this line is supposed to
@@ -52,8 +53,8 @@ message Lane
     //
     // \image html line_approximation_error.png "Approximation error as green line."
     //
-    // \note The center_line is defined only for \c Lane::type = \c TYPE_DRIVING
-    // and one \c Lane::lane_pairing pair.
+    // \note The center_line is defined only for \c Lane::type =
+    // \c Type::TYPE_DRIVING and one \c Lane::lane_pairings pair.
     repeated Vector3d center_line = 3;
 
     // Definition of the intended driving direction.
@@ -65,7 +66,7 @@ message Lane
     // line points.
     //
     // \note The center_line_is_driving_direction is defined for \c Lane::type =
-    // TYPE_DRIVING.
+    // \c Type::TYPE_DRIVING .
     optional bool center_line_is_driving_direction = 4;
 
     // List of IDs of all lane segments that are directly adjacent to the lane 
@@ -77,8 +78,8 @@ message Lane
     // the reference picture.
     //
     // \note The left_adjacent_lane_id is undefined for \c Lane::type =
-    // TYPE_INTERSECTION.
-    repeated Identifier left_adjacent_lane_id = 5;
+    // \c Type::TYPE_INTERSECTION .
+    repeated Identifier left_adjacent_lane_id_list = 5;
 
     // List of IDs of all lane segments that are directy adjacent to the lane on
     // the right side (w.r.t. intended driving direction). Note that lengths of 
@@ -90,8 +91,8 @@ message Lane
     // 7.
     //
     // \note The right_adjacent_lane_id is undefined for \c Lane::type = 
-    // TYPE_INTERSECTION.
-    repeated Identifier right_adjacent_lane_id = 6;
+    // \c Type::TYPE_INTERSECTION .
+    repeated Identifier right_adjacent_lane_id_list = 6;
 
     // The antecessor/successor lane pairings of this lane. There can be
     // multiple pairings with the same antecessor and different successor lanes
@@ -99,27 +100,27 @@ message Lane
     // The antecessor lanes end in the same point that this lane starts from.
     // The successor lanes start in the same point that this lane ends in.
     // Example:
-    repeated LanePairing lane_pairing = 7;
+    repeated LanePairing lane_pairings = 7;
 
     // The ID of the right boundary ID of the right lane ID w.r.t. the driving
     // direction. Empty for intersections.
     //
     // \note The right_lane_boundary_id is undefined for \c Lane::type =
-    // TYPE_INTERSECTION.
-    repeated Identifier right_lane_boundary_id = 8;
+    // \c Type::TYPE_INTERSECTION .
+    repeated Identifier right_lane_boundary_id_list = 8;
 
     // The ID of the left boundary ID of the left lane ID w.r.t. the driving
     // direction. Empty for intersections.
     //
     // \note The left_lane_boundary_id is udefined for \c Lane::type =
-    // TYPE_INTERSECTION.
-    repeated Identifier left_lane_boundary_id = 9;
+    // \c Type::TYPE_INTERSECTION .
+    repeated Identifier left_lane_boundary_id_list = 9;
 
     // The ID of the free boundary ID.
     //
-    // \note Lanes with \c Lane::type = TYPE_INTERSECTION use only free lane
-    // boundaries
-    repeated Identifier free_lane_boundary_id = 10;
+    // \note Lanes with \c Lane::type = \c Type::TYPE_INTERSECTION use only free
+    // lane boundaries.
+    repeated Identifier free_lane_boundary_id_list = 10;
 
     // A lane framing describes the surroundings of the lane segment.
     //
@@ -184,19 +185,23 @@ message Lane
     message RoadCondition
     {
         // The temperature of the roads surface in Kelvin.
+        //
         // Unit: [K]
         optional double surface_temperature = 1;
 
         // The height of the water film on top of the surface in mm.
+        //
         // Unit: [mm]
         optional double surface_water_film = 2;
 
         // The temperature where the water on top of the surface would start
         // to freeze or dew in Kelvin.
+        //
         // Unit: [K]
         optional double surface_freezing_point = 3;
 
         // The percentage of ice covering the road.
+        //
         // Unit: [%]
         optional double surface_ice = 4;
 
@@ -279,18 +284,19 @@ message LaneBoundary
     //
     optional Identifier id = 1;
 
-    // The list of individual points defining the location of the lane boundary.
+    // The list of individual points defining the location of the lane boundary
+    // (as a list of segments).
     //
-    // Since a \c OSI::BoundaryPoint is part of a sequence, only the position
+    // Since a \c BoundaryPoint is part of a sequence, only the position
     // attribute has to be set for each instance. All other values will be
-    // reused from the previous \c OSI::BoundaryPoint in the sequence or set to
+    // reused from the previous \c BoundaryPoint in the sequence or set to
     // default values if there is none or it was never set. For dashed lines,
-    // one \c OSI::BoundaryPoint has to be at the start and another at the end
+    // one \c BoundaryPoint has to be at the start and another at the end
     // of each dashed line segment. For Botts' dots lines, one 
-    // \c OSI::BoundaryPoint position has to define each Botts' dot.
+    // \c BoundaryPoint position has to define each Botts' dot.
     //
-    // \attention For \c OSI::BoundaryPoint the same rules regarding maximum 
-    // distance and approximation error apply as for \c OSI::Lane::center_line.
+    // \attention For \c BoundaryPoint the same rules regarding maximum 
+    // distance and approximation error apply as for \c Lane::center_line.
     repeated BoundaryPoint boundary_line = 2;
 
     // The type of the lane boundary.
@@ -355,7 +361,7 @@ message LaneBoundary
 
     // The color of the lane boundary in case of a lane markings.
     // Lane markings that alternate in color must be represented by individual
-    // \c OSI::LaneBoundary segments.
+    // \c LaneBoundary segments.
     enum Color
     {
         // Color of marking is unknown. Value must not be used in ground truth.
@@ -402,23 +408,23 @@ message LaneBoundary
 //
 message BoundaryPoint
 {
-    // The position of the \c OSI::BoundaryPoint.
+    // The position of the \c BoundaryPoint.
     //
     optional Vector3d position = 1;
 
     // The overall width of the lane boundary at the position of the
-    // \c OSI::BoundaryPoint.
+    // \c BoundaryPoint .
     // Used for lines forming lane markings.
     //
     // \note Field need not be set if it is defined previous. 
-    // See \c OSI::LaneBoundary.
+    // See \c LaneBoundary.
     optional double boundary_width = 2;
 
     // The overall height of the lane boundary at the position of the
-    // \c OSI::BoundaryPoint.
+    // \c BoundaryPoint .
     // Used for guard rails, curbstone, or similar.
     //
     // \note Field need not be set if it is defined previous.
-    // See \c OSI::LaneBoundary.
+    // See \c LaneBoundary .
     optional double boundary_height = 3;
 }

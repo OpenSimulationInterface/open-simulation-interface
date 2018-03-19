@@ -277,7 +277,7 @@ message MovingObject
 
 //
 // \brief A simulated object that is neither a moving object (vehicle or 
-// \c OSI::MovingObject e.g. pedestrian or animal) nor a stationary object 
+// \c MovingObject e.g. pedestrian or animal) nor a stationary object 
 // (traffic sign, traffic light).
 //
 // StationaryObject excludes traffic lights and traffic signs
