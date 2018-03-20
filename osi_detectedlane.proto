@@ -26,6 +26,16 @@ message DetectedLane
     // may vary between sensor and ground truth).
     repeated Identifier ground_truth_id = 3;
 
+    // The amount of time that this detected object has been currently 
+    // observed/tracked.
+    // 
+    // Unit: [s]
+    optional double age = 1000;
+    
+    // The measurement state of the detected object.
+    //
+    optional MeasurementState measurement_state = 1001;
+    
     // The detected lane.
     //
     optional Lane lane = 4;
@@ -50,20 +60,31 @@ message DetectedLaneBoundary
     //
     optional Identifier tracking_id = 2;
 
-    // The ID of the original laneboundary in the ground truth.
-    // In case of a ghost laneboundary (no corresponding ground truth), this field should be unset.
+    // The ID of the original LaneBoundary in the ground truth.
+    //
+    // \note In case of a ghost LaneBoundary (no corresponding ground truth),
+    // this field should be unset.
     optional Identifier ground_truth_id = 3;
 
-    // The basic meassured lane boundary.
-    //
-    optional LaneBoundary lane_boundary = 4;
+    // The amount of time that this detected object has been currently 
+    // observed/tracked.
+    // 
+    // Unit: [s]
+    optional double age = 1000;
 
     // State of the measurement. Lane boundary measured in the current image or Lane boundary predicted (no measurement in current image).
     //
     optional MeasurementState measurement_state = 5;
 
-    // Probability of the detection that the lane exists.
+    // The basic measured lane boundary.
     //
+    optional LaneBoundary lane_boundary = 4;
+
+    // The estimated probability that this lane boundary really exists, not
+    // based on history.
+    //
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
     optional double existence_probability = 6;
 
     // Confidence of the classified lane boundary type.
@@ -76,9 +97,9 @@ message DetectedLaneBoundary
 
     // The root mean squared error of the BoundaryPoint information from a LaneBoundary.
     // For every \c lane_boundary.boundary_line point exact one \c boundary_line_rmse rmse information exist.
-    repeated BoundaryPoint boundary_line_rmse = 9;
+    repeated BoundaryPoint boundary_line_point_rmse = 9;
 
     // Confidence of the segments of the BoundaryPoint information from a LaneBoundary.
     // For every \c lane_boundary.boundary_line point exact one \c boundary_line_confidence confidence value is specified.
-    repeated double boundary_line_confidence = 10;
+    repeated double boundary_line_point_confidences = 10;
 }

@@ -21,21 +21,27 @@ message DetectedOccupant
     //
     optional Identifier tracking_id = 2;
 
-    // The detected vehicle occupant
-    //
-    optional Occupant occupant = 3;
-
     // The ID of the original vehicle occupant in the ground truth.
     //
     optional Identifier ground_truth_occupant_id = 4;
+
+    // The amount of time that this detected object has been currently 
+    // observed/tracked.
+    // 
+    // Unit: [s]
+    optional double age = 1000;
+
+    // The measurement state.
+    //
+    optional MeasurementState measurement_state = 6;
+
+    // The detected vehicle occupant
+    //
+    optional Occupant occupant = 3;
 
     // The estimated probability that this occupant really exists, not based on history.
     //
     // \note Use as confidence measure where a low value means less confidence and a high value indicates
     // strong confidence.
     optional double existence_probability = 5;
-
-    // The measurement state.
-    //
-    optional MeasurementState measurement_state = 6;
 }
