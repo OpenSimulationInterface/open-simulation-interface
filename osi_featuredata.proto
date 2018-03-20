@@ -11,7 +11,7 @@ package osi;
 // object hypothesis and tracking.
 //
 // All information regarding the environment is given with respect to the sensor 
-// coordinate system specified in \c DetectionHeader::mounting_position. 
+// coordinate system specified in \c SensorDetectionHeader::mounting_position. 
 // When simulating multiple sensors, each sensor has an individual copy of 
 // \c FeatureData in its own reference frame. This allows an independent 
 // treatment of the sensors.
@@ -32,7 +32,7 @@ message FeatureData
 //
 message SensorDetectionHeader
 {
-    // Version number of used detection list messages ( \c DetectionHeader, 
+    // Version number of used detection list messages ( \c SensorDetectionHeader, 
     // \c LidarDetection, \c LidarDetectionList etc.).
     // 
     optional DetectionInterfaceVersion version = 1;
@@ -41,13 +41,14 @@ message SensorDetectionHeader
     // was processed or at which it is transmitted) in the global synchronized
     // time.
     //
-    // \note See SensorData::timestamp and SensorData::last_measurement_time
-    // for detailed discussions on the semantics of time-related fields.
+    // \note See \c SensorData::timestamp and
+    // \c SensorData::last_measurement_time for detailed discussions on the 
+    // semantics of time-related fields.
     optional Timestamp measurement_time = 2;
 
     // Monotonous counter to identify the exact cycle. 
     // Generally the detection function is called periodic and 
-    // \c DetectionHeader::cycle_counter corresponds to the number of periods.
+    // \c SensorDetectionHeader::cycle_counter corresponds to the number of periods.
     optional uint64 cycle_counter = 3;
 
 
@@ -126,7 +127,7 @@ message SensorDetectionHeader
     }
 
     //
-    // \brief Version of detection messages ( \c DetectionHeader, 
+    // \brief Version of detection messages ( \c SensorDetectionHeader, 
     // \c LidarDetection, \c LidarDetectionList etc.).
     //
     message DetectionInterfaceVersion

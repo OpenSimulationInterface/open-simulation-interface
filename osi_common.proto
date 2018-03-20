@@ -194,7 +194,7 @@ message MountingPosition
 // 
 // Azimuth and elevation are defined as the rotations that would have to be 
 // applied to the local frame (e.g sensor frame definition in 
-// \c DetectionHeader) to make its x-axis point towards the referenced point
+// \c SensorDetectionHeader) to make its x-axis point towards the referenced point
 // or to align it with the referenced vector. The rotations are to be performed
 // \b azimuth \b first (around the z-axis) and \b elevation \b second (around 
 // the new y-axis) to follow the definition of \c Orientation3D. For the
