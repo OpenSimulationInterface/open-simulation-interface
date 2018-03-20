@@ -21,7 +21,7 @@ message SensorView
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
     // but must be identical for all messages. Zero time does not need to
-    // coincide with the unix epoch. Recommended is the starting time point of
+    // coincide with the UNIX epoch. Recommended is the starting time point of
     // the simulation.
     //
     // \note For sensor view data this timestamp coincides both with the
@@ -51,8 +51,8 @@ message SensorView
 // \brief Radar Sensor View
 //
 // Radar-Specific Sensor View Data
-message RadarSensorView {
-    
+message RadarSensorView 
+{
     // Radar Input Configuration valid at the time the data was created
     //
     optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1;
@@ -62,31 +62,35 @@ message RadarSensorView {
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think scan lines in a TV).
     //
-    repeated Reflection reflection = 2;
+    repeated Reflection reflections = 2;
 
     //
     // \brief The radar reflection.
     //    
-    message Reflection {
+    message Reflection 
+    {
         // Relative signal level of the reflection
         //
         // This takes the combined_antenna_diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
         // into account, and will, when multiplied by TX power yield the
         // actual RX power.
+        //
         // Unit: [dB]
         optional double signal_strength = 1;
         
         // Time of flight
         //
         // This is the time of flight of the reflection, which is directly
-        // proportional to the distance travelled. 
+        // proportional to the distance traveled. 
+        //
         // Unit: [s]
         optional double time_of_flight = 2;
         
         // Doppler shift
         //
         // Shift in frequency based on the specified TX frequency
+        //
         // Unit: [Hz]
         optional double doppler_shift = 3;
         
@@ -94,6 +98,7 @@ message RadarSensorView {
         //
         // Horizontal angle of incidence of the source of the reflection
         // at the TX antenna.
+        //
         // Unit: [rad]
         optional double source_horizontal_angle = 4;
         
@@ -101,6 +106,7 @@ message RadarSensorView {
         //
         // Vertical angle of incidence of the source of the reflection
         // at the TX antenna.
+        //
         // Unit: [rad]
         optional double source_vertical_angle = 5;
     }
@@ -110,8 +116,8 @@ message RadarSensorView {
 // \brief Lidar Sensor View
 //
 // Lidar-Specific Sensor View Data
-message LidarSensorView {
-
+message LidarSensorView 
+{
     // Lidar Input Configuration valid at the time the data was created
     //
     optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1;
@@ -126,26 +132,30 @@ message LidarSensorView {
     //
     // \brief The lidar reflection.
     //
-    message Reflection {
+    message Reflection 
+    {
         // Relative signal level of the reflection
         //
         // This takes the combined_antenna_diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
         // into account, and will, when multiplied by TX power yield the
         // actual RX power.
+        //
         // Unit: [dB]
         optional double signal_strength = 1;
             
         // Time of flight
         //
         // This is the time of flight of the reflection, which is directly
-        // proportional to the distance travelled. 
+        // proportional to the distance traveled. 
+        //
         // Unit: [s]
         optional double time_of_flight = 2;
             
         // Doppler shift
         //
         // Shift in frequency based on the specified TX frequency
+        //
         // Unit: [Hz]
         optional double doppler_shift = 3;
     }
@@ -155,7 +165,8 @@ message LidarSensorView {
 // \brief Camera Sensor View
 //
 // Camera-Specific Sensor View Data
-message CameraSensorView {
+message CameraSensorView 
+{
     
     // Camera Input Configuration valid at the time the data was created
     //
@@ -173,7 +184,8 @@ message CameraSensorView {
 // \brief Ultrasonic Sensor View
 //
 // Ultrasonic-Specific Sensor View Data
-message UltrasonicSensorView {
+message UltrasonicSensorView 
+{
 
     // Ultrasonic Input Configuration valid at the time the data was created
     //

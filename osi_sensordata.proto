@@ -15,12 +15,14 @@ import "osi_hostvehicledata.proto";
 package osi;
 
 //
-// \brief The virtual sensor information derived from GroundTruth and potentially processed by sensor-models.
+// \brief The virtual sensor information derived from \c GroundTruth and 
+// potentially processed by sensor-models.
 //
-// The virtual sensor information is supposed to imitate the output of a real sensor. All information regarding the
-// environment is given with respect to the sensor coordinate system specified in \c SensorData::mounting_position. 
-// When simulating multiple sensors, each sensor has an individual copy of the SensorData interface. This allows an
-// independent treatment of the sensors.
+// The virtual sensor information is supposed to imitate the output of a real 
+// sensor. All information regarding the environment is given with respect to 
+// the sensor coordinate system specified in \c SensorData::mounting_position. 
+// When simulating multiple sensors, each sensor has an individual copy of the 
+// \c SensorData interface. This allows an independent treatment of the sensors.
 //
 message SensorData
 {  
@@ -43,7 +45,7 @@ message SensorData
     // The time that the actual measurement was performed (which will usually
     // correspond with the timestamp of the GroundTruth the sensor model
     // processed to arrive at these results) can be found in the additional
-    // field SensorData::last_measurement_time.
+    // field \c SensorData::last_measurement_time.
     //
     // For an ideal zero latency sensor the two timestamps would be the same
     // and would correspond with the timestamp from the current GroundTruth
@@ -100,9 +102,9 @@ message SensorData
     // The timestamp of the last real-world measurement (e.g. GT input) that
     // this set of sensor data takes into account.  This in effect is the last
     // time instance of reality the measurements correspond to.  See field
-    // SensorData::timestamp for a detailed discussion.  This value is also
-    // the upper bound to the DetectedObjectHeader::measurement_time and the
-    // feature data DetectionHeader::measurement_time fields.
+    // \c SensorData::timestamp for a detailed discussion.  This value is also
+    // the upper bound to the \c DetectedObjectHeader::measurement_time and the
+    // feature data \c SensorDetectionHeader::measurement_time fields.
     // 
     optional Timestamp last_measurement_time = 8;
     
