@@ -125,6 +125,12 @@ message CandidateSign
     // The estimated probability that this candidate is the true value. Range [0,1].
     // The sum of all candidate_probabilities must be one.
     optional double candidate_probability = 2;
+
+    // The amount of time that this detected object has been currently 
+    // observed/tracked.
+    // 
+    // Unit: [s]
+    optional double age = 3;
 }
 
 //
@@ -139,6 +145,12 @@ message CandidateSupplementarySign
     // The estimated probability that this candidate is the true value. Range [0,1].
     // The sum of all candidate_probabilities must be one.
     optional double candidate_probability = 2;
+
+    // The amount of time that this detected object has been currently 
+    // observed/tracked.
+    // 
+    // Unit: [s]
+    optional double age = 3;
 }
 
 //
@@ -284,4 +296,10 @@ message CandidateRoadMarking
     // The estimated probability that this candidate is the true value. Range [0,1].
     // The sum of all candidate_probabilities must be one.
     optional double candidate_probability = 2;
+
+    // The amount of time that this detected object has been currently 
+    // observed/tracked.
+    // 
+    // Unit: [s]
+    optional double age = 3;
 }
