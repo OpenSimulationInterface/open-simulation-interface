@@ -95,6 +95,18 @@ message GroundTruth
     //
     optional EnvironmentalConditions environmental_conditions = 12;
 
+    // The real start timestamp of the customized sceniro for simulation. If not set, the simulation start time is 0.
+    //
+    repeated Timestamp simulation_start_time = 13;
+
+    // The real end timestamp of the customized sceniro for simulation. If not set, the simulation lasts infinite.
+    //
+    repeated Timestamp simulation_end_time = 14;
+
+    // The flag to validate the current GroundTruth for simulation.
+    //
+    optional bool valid_scenario_flag = 15;
+
     // The ISO country code in 3 digit numeric format according to:
     // ISO Code 3166/1 [1,2]. 
     // E.g. Germany = 276, USA = 840.
@@ -104,5 +116,5 @@ message GroundTruth
     // \par References: 
     // [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions – Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/) 
     // [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1) 
-    optional uint32 country_code = 13;
+    optional uint32 country_code = 16;
 }
