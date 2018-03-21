@@ -48,7 +48,7 @@ message DetectedTrafficSign
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
-    
+
     // The root mean squared error of the base parameters of the detected
     // traffic sign.
     //
@@ -137,8 +137,8 @@ message DetectedTrafficSign
 message CandidateSign
 {
     // The definition of the candidate's properties.
-    // The sign.id values of all \c CandidateSign within one
-    // \c DetectedTrafficSign correspond to the tracking ID and must be identical.
+    // The sign.id values of all CandidateSigns within one DetectedTrafficSign
+    // correspond to the tracking ID and must be identical.
     //
     optional TrafficSign sign = 1;
 
@@ -199,6 +199,7 @@ message DetectedTrafficLight
     // The root mean squared error of the base parameters of the detected
     // traffic light's geometry. TrafficLight::base have to be identical for all
     // \c DetectedTrafficLight::candidate_traffic_light traffic lights.
+    //
     optional BaseStationary rmse = 5;
 
     // Determines for which directions the traffic light applies.
@@ -284,6 +285,7 @@ message CandidateTrafficLight
     // The estimated probability that this candidate is the true value. 
     // Range [0,1].
     // The sum of all candidate_probabilities must be one.
+    //
     optional double candidate_probability = 2;
 }
 
