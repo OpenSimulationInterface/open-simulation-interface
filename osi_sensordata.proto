@@ -28,8 +28,9 @@ message SensorData
 {  
     // The ID of the sensor at host vehicle's mounting_position.
     //
-    // This ID can equal \c DetectionHeader::sensor_id, if SensorData hold only
+    // This ID can equal \c DetectionHeader::sensor_id, if SensorData holds only
     // data from one sensor/sensor model.
+    //
     optional Identifier sensor_id = 1;
 
     // The timestamp of the sensor data. Zero time is arbitrary but must be
@@ -56,6 +57,7 @@ message SensorData
     // For a sensor model that does not know its own internal latencies (e.g.
     // a dumb sensor with no internal time concept), the two timestamps might
     // also be identical, but delayed from the GroundTruth timestamp.
+    //
     optional Timestamp timestamp = 2;
 
     // Ground truth w.r.t. global coordinate system
@@ -185,6 +187,7 @@ message SensorData
     // Host vehicle data is data that the host vehicle knows about itself,
     // e.g. from location sensors, internal sensors and ECU bus data, etc.,
     // that is made available to sensors as input.
+    //
     optional HostVehicleData host_vehicle_data_id = 18;
 }
 
@@ -199,6 +202,7 @@ message DetectedEntityHeader
     //
     // \note See SensorData::timestamp and SensorData::last_measurement_time
     // for detailed discussions on the semantics of time-related fields.
+    //
     optional Timestamp measurement_time = 1;
 
     // Continuous up counter to identify the cycle.
@@ -207,6 +211,7 @@ message DetectedEntityHeader
 
     // Data Qualifier expresses to what extent the content of this event can be
     // relied on.
+    //
     optional DataQualifier data_qualifier = 3;
 
     //
