@@ -13,53 +13,69 @@ package osi;
 //
 message DetectedTrafficSign
 {
-    // Header attributes of detected traffic sign.
-    //
-    optional DetectedObjectHeader header = 1;
-
-    // Specific ID of the traffic sign as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the traffic sign as assigned by the sensor internally.
+    // Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
     // The ID of the original traffic sign in the ground truth.
-    // In case of a ghost sign (no corresponding ground truth), this field should be unset.
+    // In case of a ghost sign (no corresponding ground truth), this field
+    // should be unset.
+    //
     optional Identifier ground_truth_id = 3;
 
     // A list of candidates for this traffic sign as estimated by the sensor.
     //    
     repeated CandidateSign candidate_sign = 4;
 
-    // A list of candidates for (a) possible supplementary sign(s) as estimated by the sensor.
-    //    
+    // A list of candidates for (a) possible supplementary sign(s) as estimated
+    // by the sensor.
+    //
     repeated CandidateSupplementarySign candidate_supplementary_sign = 5;
 
     // The detected geometry of the traffic sign.
     //    
     optional Geometry geometry = 6;
 
-    // The estimated probability that this traffic sign really exists, not based on history.
+    // The estimated probability that this traffic sign really exists, not based
+    // on history.
     //
-    // \note Use as confidence measure where a low value means less confidence and a high value indicates
-    // strong confidence.
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
     optional double existence_probability = 7;
 
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
-    // The root mean squared error of the base parameters of the detected traffic sign.
+    
+    // The root mean squared error of the base parameters of the detected
+    // traffic sign.
     //
     optional BaseStationary rmse = 9;
 
     // Links to the corresponding lanes.
     //    
     repeated RelevantLane relevant_lane = 10;
+   
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    //
+    repeated Identifier sensor_id = 11;    
 
     // Definition of traffic sign geometries.
     //
     enum Geometry
     {
-        // Geometry of the traffic sign is unknown (must not be used in ground truth).
-        //    
+        // Geometry of the traffic sign is unknown (must not be used in ground
+        // truth).
+        //
         GEOMETRY_UNKNOWN = 0;
         
         // Geometry of the traffic sign is unspecified (but known).
@@ -100,14 +116,17 @@ message DetectedTrafficSign
         
         // Traffic sign has a rectangle geometry. (width is bigger than height)
         // E.g. one-way
+        //
         GEOMETRY_RECTANGLE = 10;
         
         // Traffic sign that has a pole geometry. (height is bigger than width)
         // E.g. pole indicating highways exit in xx m.
+        //
         GEOMETRY_POLE = 11;
         
         // Traffic sign that has an oversize rectangle geometry.
         // E.g. direction plates on highway or city signs.
+        //
         GEOMETRY_PLATE = 12;
     }
 }
@@ -118,12 +137,14 @@ message DetectedTrafficSign
 message CandidateSign
 {
     // The definition of the candidate's properties.
-    // The sign.id values of all CandidateSigns within one DetectedTrafficSign correspond to the tracking ID and must
-    // be identical.
+    // The sign.id values of all \c CandidateSign within one
+    // \c DetectedTrafficSign correspond to the tracking ID and must be identical.
+    //
     optional TrafficSign sign = 1;
 
-    // The estimated probability that this candidate is the true value. Range [0,1].
-    // The sum of all candidate_probabilities must be one.
+    // The estimated probability that this candidate is the true value.
+    // Range [0,1]. The sum of all candidate_probabilities must be one.
+    //
     optional double candidate_probability = 2;
 
     // The amount of time that this detected object has been currently 
@@ -134,16 +155,18 @@ message CandidateSign
 }
 
 //
-// \brief A candidate for (a) detected supplementary sign(s) as estimated by the sensor.
-//
+// \brief A candidate for (a) detected supplementary sign(s) as estimated by the
+// sensor.
 message CandidateSupplementarySign
 {
-    // The definition of one of more supplementary signs that together define this candidate.
+    // The definition of one of more supplementary signs that together define
+    // this candidate.
     //
     repeated SupplementarySign sign = 1;
 
-    // The estimated probability that this candidate is the true value. Range [0,1].
-    // The sum of all candidate_probabilities must be one.
+    // The estimated probability that this candidate is the true value.
+    // Range [0,1]. The sum of all candidate_probabilities must be one.
+    //
     optional double candidate_probability = 2;
 
     // The amount of time that this detected object has been currently 
@@ -158,16 +181,15 @@ message CandidateSupplementarySign
 //
 message DetectedTrafficLight
 {
-    // Header attributes of detected traffic light.
-    //
-    optional DetectedObjectHeader header = 1;
-
-    // Specific ID of the traffic light as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the traffic light as assigned by the sensor internally.
+    // Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
     // The ID of the original traffic light in the ground truth.
-    // In case of a ghost detection (no corresponding ground truth), this field should be unset.
+    // In case of a ghost detection (no corresponding ground truth), this field
+    // should be unset.
+    //
     optional Identifier ground_truth_id = 3;
 
     // Description of the detected traffic light.
@@ -182,18 +204,33 @@ message DetectedTrafficLight
     //
     repeated RelevantLane relevant_lane = 6;
 
-    // The estimated probability that this traffic light really exists, not based on history.
+    // The estimated probability that this traffic light really exists, not
+    // based on history.
     //
-    // \note Use as confidence measure where a low value means less confidence and a high value indicates
-    // strong confidence.
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
     optional double existence_probability = 7;
 
     // The measurement state.
     //
     optional MeasurementState measurement_state = 8;
-    // The root mean squared error of the base parameters of the detected traffic light.
+    
+    // The root mean squared error of the base parameters of the detected
+    // traffic light.
     //
     optional BaseStationary rmse = 9;
+   
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    //
+    repeated Identifier sensor_id = 10;    
 
     //
     // \brief Further specifies the relevant directions of the traffic light.
@@ -215,15 +252,19 @@ message DetectedTrafficLight
             // Direction is unknown (must not be used in ground truth).
             //
             DIRECTION_UNKNOWN = 0;
+
             // Other (unspecified but known) direction.
             //
             DIRECTION_OTHER = 1;
+
             // Direction is straight.
             //
             DIRECTION_STRAIGHT = 2;
+
             // Direction is left.
             //
             DIRECTION_LEFT = 3;
+
             // Direction is right.
             //
             DIRECTION_RIGHT = 4;
@@ -250,26 +291,27 @@ message RelevantLane
 //
 message DetectedRoadMarking
 {
-    // Header attributes of detected road marking.
-    //
-    optional DetectedObjectHeader header = 1;
-
-    // Specific ID of the road marking as assigned by the sensor internally. Need not match with ground_truth_id.
+    // Specific ID of the road marking as assigned by the sensor internally.
+    // Need not match with ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
     // The ID of the original road marking in the ground truth.
-    // In case of a ghost detection (no corresponding ground truth), this field should be unset.
+    // In case of a ghost detection (no corresponding ground truth), this field
+    // should be unset.
+    //
     optional Identifier ground_truth_id = 3;
 
     // A list of candidates for this road marking as estimated by the sensor.
     //
     repeated CandidateRoadMarking candidate_road_marking = 4;
 
-    // The estimated probability that this road marking really exists, not based on history.
+    // The estimated probability that this road marking really exists, not based
+    // on history.
     //
-    // \note Use as confidence measure where a low value means less confidence and a high value indicates
-    // strong confidence.
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
     optional double existence_probability = 5;
 
     // Links to the corresponding lanes.
@@ -279,9 +321,22 @@ message DetectedRoadMarking
     // The measurement state.
     //
     optional MeasurementState measurement_state = 7;
-    // The root mean squared error of the base parameters of the detected road marking.
+    
+    // The root mean squared error of the base parameters of the detected road
+    // marking.
     //
     optional BaseStationary rmse = 8;
+   
+    // A list of sensors which detected this detected entity.
+    //
+    // If SensorData has detected entities and all detections are missing, then 
+    // e.g. the number of sensors can confirm the existence_probability.
+    // 
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
+    // the sensors (their IDs) to which these detections belong.
+    //
+    repeated Identifier sensor_id = 11;    
 }
 
 //
@@ -293,8 +348,9 @@ message CandidateRoadMarking
     //
     optional RoadMarking road_marking = 1;
 
-    // The estimated probability that this candidate is the true value. Range [0,1].
-    // The sum of all candidate_probabilities must be one.
+    // The estimated probability that this candidate is the true value.
+    // Range [0,1]. The sum of all candidate_probabilities must be one.
+    //
     optional double candidate_probability = 2;
 
     // The amount of time that this detected object has been currently 

@@ -91,6 +91,12 @@ message SensorDetectionHeader
     //
     // \note This value has to be set if the list contains invalid detections.    
     optional uint32 number_of_valid_detections = 7;
+    
+    // The ID of the sensor at host vehicle's mounting_position.
+    //
+    // This ID can equal \c SensorData::sensor_id, if SensorData hold only data
+    // from one sensor/sensor model.
+    optional Identifier sensor_id = 8;
 
     // \brief Data qualifier communicates the overall availability of the 
     // interface.
