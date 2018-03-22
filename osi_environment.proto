@@ -183,7 +183,7 @@ message EnvironmentalConditions
         // Level 1 illumination in ]0.001, 0.01[ [lx]
         // E.g. Night with no artificial light.
         //
-        // \note Use \c AMBIENT_ILLUMINATION_LEVEL1 if illumination is less than
+        // \note Use \c #AMBIENT_ILLUMINATION_LEVEL1 if illumination is less than
         // 0.001 [lx]
         //
         AMBIENT_ILLUMINATION_LEVEL1 = 2;
@@ -231,7 +231,7 @@ message EnvironmentalConditions
         // Level 9 illumination in [10000, 120000[ [lx]
         // E.g. Full daylight to intense sunlight.
         //
-        // \note Use \c AMBIENT_ILLUMINATION_LEVEL9 if illumination is more than
+        // \note Use \c #AMBIENT_ILLUMINATION_LEVEL9 if illumination is more than
         // 120000 [lx]
         //
         AMBIENT_ILLUMINATION_LEVEL9 = 10;
