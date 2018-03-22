@@ -29,10 +29,12 @@ message Lane
     // Example: 3 (see reference picture).
     //
     // \note Note ID is global unique.
+    //
     optional Identifier id = 1;
 
     // The type of the lane.
-    // Example: \c Lane::type = \c Type::TYPE_DRIVING (see reference picture)
+    // Example: \c #type = \c #TYPE_DRIVING (see reference picture)
+    //
     optional Type type = 2;
 
     // The lane's center line (as a list of segments).
@@ -53,8 +55,9 @@ message Lane
     //
     // \image html line_approximation_error.png "Approximation error as green line."
     //
-    // \note The center_line is defined only for \c Lane::type =
-    // \c Type::TYPE_DRIVING and one \c Lane::lane_pairings pair.
+    // \note The \c #center_line is defined only for \c #type =
+    // \c #TYPE_DRIVING and one \c #lane_pairings pair.
+    //
     repeated Vector3d center_line = 3;
 
     // Definition of the intended driving direction.
@@ -65,8 +68,9 @@ message Lane
     // false means driving direction is according to descending storage order of
     // center line points.
     //
-    // \note The center_line_is_driving_direction is defined for \c Lane::type =
-    // \c Type::TYPE_DRIVING .
+    // \note The \c #center_line_is_driving_direction is defined for \c #type =
+    // \c #TYPE_DRIVING .
+    //
     optional bool center_line_is_driving_direction = 4;
 
     // List of IDs of all lane segments that are directly adjacent to the lane 
@@ -77,8 +81,9 @@ message Lane
     // Example: The lane ID 2 is the only left adjacent lane for lane ID 3 in
     // the reference picture.
     //
-    // \note The left_adjacent_lane_id is undefined for \c Lane::type =
-    // \c Type::TYPE_INTERSECTION .
+    // \note The \c #left_adjacent_lane_id_list is undefined for \c #type =
+    // \c #TYPE_INTERSECTION .
+    //
     repeated Identifier left_adjacent_lane_id_list = 5;
 
     // List of IDs of all lane segments that are directly adjacent to the lane
@@ -90,8 +95,9 @@ message Lane
     // not a right adjacent lane to lane ID 3 as they are separated by lane ID 
     // 7.
     //
-    // \note The right_adjacent_lane_id is undefined for \c Lane::type = 
-    // \c Type::TYPE_INTERSECTION .
+    // \note The \c #right_adjacent_lane_id_list is undefined for \c #type = 
+    // \c #TYPE_INTERSECTION .
+    //
     repeated Identifier right_adjacent_lane_id_list = 6;
 
     // The antecessor/successor lane pairings of this lane. There can be
@@ -100,26 +106,30 @@ message Lane
     // The antecessor lanes end in the same point that this lane starts from.
     // The successor lanes start in the same point that this lane ends in.
     // Example:
+    //
     repeated LanePairing lane_pairings = 7;
 
     // The ID of the right boundary ID of the right lane ID w.r.t. the driving
     // direction. Empty for intersections.
     //
-    // \note The right_lane_boundary_id is undefined for \c Lane::type =
-    // \c Type::TYPE_INTERSECTION .
+    // \note The \c #right_lane_boundary_id_list is undefined for \c #type =
+    // \c #TYPE_INTERSECTION .
+    //
     repeated Identifier right_lane_boundary_id_list = 8;
 
     // The ID of the left boundary ID of the left lane ID w.r.t. the driving
     // direction. Empty for intersections.
     //
-    // \note The left_lane_boundary_id is undefined for \c Lane::type =
-    // \c Type::TYPE_INTERSECTION .
+    // \note The \c #left_lane_boundary_id_list is undefined for \c #type =
+    // \c #TYPE_INTERSECTION .
+    //
     repeated Identifier left_lane_boundary_id_list = 9;
 
     // The ID of the free boundary ID.
     //
-    // \note Lanes with \c Lane::type = \c Type::TYPE_INTERSECTION use only free
+    // \note \c Lanes with \c #type = \c #TYPE_INTERSECTION use only free
     // lane boundaries.
+    //
     repeated Identifier free_lane_boundary_id_list = 10;
 
     // A lane framing describes the surroundings of the lane segment.
@@ -127,6 +137,7 @@ message Lane
     optional LaneFraming lane_framing = 11;
 
     // The condition of the lane, e.g. influenced by weather. 
+    //
     optional RoadCondition road_condition = 12;
 
     // Definition of available lane types.
@@ -143,6 +154,7 @@ message Lane
         
         // A normal lane.
         // Example: lanes with IDs 1, 2, 3, 4 and 7 of the highway_exit image.
+        //
         TYPE_DRIVING = 2;
 
         // A road where driving is normally not permitted.
@@ -187,22 +199,26 @@ message Lane
         // The temperature of the roads surface in Kelvin.
         //
         // Unit: [K]
+        //
         optional double surface_temperature = 1;
 
         // The height of the water film on top of the surface in mm.
         //
         // Unit: [mm]
+        //
         optional double surface_water_film = 2;
 
         // The temperature where the water on top of the surface would start
         // to freeze or dew in Kelvin.
         //
         // Unit: [K]
+        //
         optional double surface_freezing_point = 3;
 
         // The percentage of ice covering the road.
         //
         // Unit: [%]
+        //
         optional double surface_ice = 4;
 
         // The coefficient representing the roughness or unevenness of the road.
@@ -237,6 +253,7 @@ message Lane
         // \par References: 
         // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
         // University of Michigan Transportation Research Institute, 1998.
+        //
         optional double surface_roughness = 5;
         
         // The surface texture or fine roughness
@@ -249,11 +266,12 @@ message Lane
         // Unit: [m]
         //
         // \par References: 
-        // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
+        // \li [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
         // University of Michigan Transportation Research Institute, 1998.
-        // [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung für
-        // ein bildgebendes Kfz-Radar, Dissertation, Universität Karlsruhe,
+        // \li [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung fuer
+        // ein bildgebendes Kfz-Radar, Dissertation, Universitaet Karlsruhe,
         // Mai 1998.
+        //
         optional double surface_texture = 6;
     }
 }
@@ -297,6 +315,7 @@ message LaneBoundary
     //
     // \attention For \c BoundaryPoint the same rules regarding maximum 
     // distance and approximation error apply as for \c Lane::center_line.
+    //
     repeated BoundaryPoint boundary_line = 2;
 
     // The type of the lane boundary.
@@ -316,10 +335,12 @@ message LaneBoundary
     {
         // The type of lane boundary is unknown. Value must not be used in
         // ground truth.
+        //
         TYPE_UNKNOWN = 0;
         
         // Unspecified but known type of lane boundary.
         // Consider proposing an additional type if using TYPE_OTHER.
+        //
         TYPE_OTHER = 1;
         
         // An invisible lane boundary (e.g. unmarked part of a dashed line).
@@ -340,10 +361,12 @@ message LaneBoundary
         
         // A lane boundary formed by the road's edge.
         // The road edge is the end of the (paved) road surface.
+        //
         TYPE_ROAD_EDGE = 6;
         
         // A lane boundary formed by a snow edge that may be on the road
         // surface.
+        //
         TYPE_SNOW_EDGE = 7;
         
         // A guard rail.
@@ -362,6 +385,7 @@ message LaneBoundary
     // The color of the lane boundary in case of a lane markings.
     // Lane markings that alternate in color must be represented by individual
     // \c LaneBoundary segments.
+    //
     enum Color
     {
         // Color of marking is unknown. Value must not be used in ground truth.
@@ -375,6 +399,7 @@ message LaneBoundary
         // Marking without color. Used to represent logical boundaries without
         // actual physical markings at the respective position.
         // Value may be used in ground truth only.
+        //
         COLOR_NONE = 2;
         
         // Marking with white color.
@@ -418,6 +443,7 @@ message BoundaryPoint
     //
     // \note Field need not be set if it is defined previous. 
     // See \c LaneBoundary.
+    //
     optional double boundary_width = 2;
 
     // The overall height of the lane boundary at the position of the
@@ -426,5 +452,6 @@ message BoundaryPoint
     //
     // \note Field need not be set if it is defined previous.
     // See \c LaneBoundary .
+    //
     optional double boundary_height = 3;
 }

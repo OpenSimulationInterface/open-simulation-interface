@@ -17,6 +17,7 @@ message Occupant
 
     // Flag determining whether the person is the driver of the vehicle or a
     // passenger.
+    //
     optional bool is_driver = 2;
 
     // Seat position of the vehicle occupant.
@@ -25,6 +26,7 @@ message Occupant
 
     // Describes the state of the passenger's hands related to the steering
     // wheel (mostly driver).
+    //
     optional SteeringControl steering_control = 4;
 
     // Definition of seat positions.
@@ -41,10 +43,12 @@ message Occupant
         
         // Seat position is in the front row, left seat.
         // This is usually the driver's seat in right-hand traffic.
+        //
         SEAT_FRONT_LEFT = 2;
         
         // Seat position is in the front row, right seat.
         // This is usually the driver's seat in left-hand traffic.
+        //
         SEAT_FRONT_RIGHT = 3;
         
         // Seat position is in the front row, middle seat.
@@ -86,6 +90,7 @@ message Occupant
         
         // Other (unspecified but known) hand positioning related to the
         // steering wheel.
+        //
         STEERING_CONTROL_OTHER = 1;
         
         // Hands are not on the steering wheel.
@@ -97,6 +102,7 @@ message Occupant
         //
         // \note If there is no differentiation between one or both hands on the
         // steering wheel, this value should be used.
+        //
         STEERING_CONTROL_ONE_HAND = 3;
         
         // Both hands are on the steering wheel.
