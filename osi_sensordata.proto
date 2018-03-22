@@ -215,7 +215,7 @@ message DetectedEntityHeader
 
     // Continuous up counter to identify the cycle.
     //
-    optional uint32 cycle_counter = 2;
+    optional uint64 cycle_counter = 2;
 
     // Data Qualifier expresses to what extent the content of this event can be
     // relied on.
