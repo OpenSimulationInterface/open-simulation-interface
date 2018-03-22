@@ -7,7 +7,8 @@ package osi;
 //
 // \brief The conditions of the environment.
 //
-// Definiton of light, weather conditions and other environmental conditions.
+// Definition of light, weather conditions and other environmental conditions.
+//
 message EnvironmentalConditions
 {
     // The ambient illumination of the environment.
@@ -22,11 +23,13 @@ message EnvironmentalConditions
     // [Pa]).
     //
     // Unit: [Pa]
+    //
     optional double atmospheric_pressure = 3;
 
     // Temperature in Kelvin at z=0.0 in world frame.
     //
     // Unit: [K]
+    //
     optional double temperature = 4;
 
     // Description of the precipitation.
@@ -42,9 +45,11 @@ message EnvironmentalConditions
     //
     // \par References: 
     // [1] PAULAT, Marcus, et al. A gridded dataset of hourly precipitation in Germany: Its construction, climatology and application. Meteorologische Zeitschrift, 2008, 17. Jg. Nr. 6, S. 719-732.
+    //
     enum Precipitation
     {
-        // Intensity of precipitation is unknown (must not be used in ground truth).
+        // Intensity of precipitation is unknown (must not be used in ground
+        // truth).
         //
         PRECIPITATION_UNKNOWN = 0;
 
@@ -96,6 +101,7 @@ message EnvironmentalConditions
     // [2] SHEPARD, Frank D. Reduced visibility due to fog on the highway. Transportation Research Board, 1996.
     // [3] [StVO §17 chapter 3](https://www.stvo.de/strassenverkehrsordnung/101-17-beleuchtung) 
     // [4] [Homepage of the Meteorological Office](http://www.metoffice.gov.uk/guide/weather/observations-guide/how-we-measure-visibility)
+    //
     enum Fog
     {
         // Visibility is unknown (must not be used in ground truth).
@@ -136,16 +142,17 @@ message EnvironmentalConditions
 
         // Dense fog, when V in [0,50[ [m]
         // (allowed to use rear fog light according to [3])
+        //
         FOG_DENSE = 9;
     }
 
     // Definition of discretized ambient illumination states:
     // Ambient light is any light in the vehicle's environment that is not
     // emitted by the vehicle itself. It can include sun/moon light, light from
-    // other cars, street  lights, etc.
+    // other cars, street lights etc.
     // 
     // Lux [lx] is the SI unit of luminance or illumination of an area of exact
-    // one square metre, which is equal to one lumen per square meter 1 [lx] = 
+    // one square meter, which is equal to one lumen per square meter 1 [lx] = 
     // 1 [lm/m^2] [5].
     // The lumen [lm] is the SI derived unit of luminous flux and a measure of
     // the total quantity of visible light emitted by a source. The lumen is 
@@ -162,6 +169,7 @@ message EnvironmentalConditions
     // [7] [Standards for required street lighting in the USA](http://www.wsdot.wa.gov/research/reports/fullreports/847.1.pdf)
     // [8] [Canadian IES-RP-8 standards for road lighting - municipality of Saint-Gédéon-de-. Beauce](http://sslnet.ca/wp-content/uploads/2011/10/LTE-RT-2011-0076-Anglais.pdf)
     // [9] [European standards for road lighting](http://courtneystrong.com/wp-content/uploads/2017/07/css-sl1-class-and-quality-of-street-lighting.pdf)
+    //
     enum AmbientIllumination
     {
         // Ambient illumination is unknown (must not be used in ground truth).
@@ -175,40 +183,49 @@ message EnvironmentalConditions
         // Level 1 illumination in ]0.001, 0.01[ [lx]
         // E.g. Night with no artificial light.
         //
-        // \note Use \c AMBIENT_ILLUMINATION_LEVEL1 if illumination is less than 0.001 [lx]
+        // \note Use \c AMBIENT_ILLUMINATION_LEVEL1 if illumination is less than
+        // 0.001 [lx]
+        //
         AMBIENT_ILLUMINATION_LEVEL1 = 2;
 
         // Level 2 illumination in [0.01, 1[ [lx]
         // E.g. Night full moon / Deep twilight.
+        //
         AMBIENT_ILLUMINATION_LEVEL2 = 3;
 
         // Level 3 illumination in [1, 3[ [lx]
         // E.g. Deep to average twilight / Minimum lighting on local low 
         // pedestrian conflict roads.
+        //
         AMBIENT_ILLUMINATION_LEVEL3 = 4;
 
         // Level 4 illumination in [3, 10[ [lx]
         // E.g. Average to full twilight / Minimum lighting on collector roads /
         // Minimum lighting on major and expressway roads with low to average 
         // pedestrian conflict.
+        //
         AMBIENT_ILLUMINATION_LEVEL4 = 5;
 
         // Level 5 illumination in [10, 20[ [lx]
         // E.g. Minimum lighting on major and expressway roads with high 
         // pedestrian conflict.
+        //
         AMBIENT_ILLUMINATION_LEVEL5 = 6;
 
         // Level 6 illumination in [20, 400[ [lx]
         // E.g. Roads with more lighting / Very dark overcast day to sunrise or 
         // sunset on a clear day.
+        //
         AMBIENT_ILLUMINATION_LEVEL6 = 7;
 
         // Level 7 illumination in [400, 1000[ [lx]
         // E.g. Sunrise or sunset on a clear day / Overcast day.
+        //
         AMBIENT_ILLUMINATION_LEVEL7 = 8;
 
         // Level 8 illumination in [1000, 10000[ [lx]
         // E.g. Average to full daylight.
+        //
         AMBIENT_ILLUMINATION_LEVEL8 = 9;
 
         // Level 9 illumination in [10000, 120000[ [lx]
@@ -216,6 +233,7 @@ message EnvironmentalConditions
         //
         // \note Use \c AMBIENT_ILLUMINATION_LEVEL9 if illumination is more than
         // 120000 [lx]
+        //
         AMBIENT_ILLUMINATION_LEVEL9 = 10;
     }
 
@@ -230,6 +248,7 @@ message EnvironmentalConditions
         //
         // \note No changes of daylight saving time or time zones are 
         // considered.
+        //
         optional uint32 seconds_since_midnight = 1;
     }
 }

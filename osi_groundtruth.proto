@@ -40,56 +40,59 @@ message GroundTruth
 {
     // The interface version used by the sender (i.e. the simulation
     // environment).
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. The zero time point is
     // arbitrary but must be identical for all messages. 
     // Recommendation: Zero time point for start point of the simulation.
     //
-    // \note Zero time point does not need to coincide with the unix epoch. 
+    // \note Zero time point does not need to coincide with the UNIX epoch. 
     //
     // \note For ground truth data this timestamp coincides both with the
     // notional simulation time the data applies to and the time it was sent
     // (there is no inherent latency for ground truth data, as opposed to
     // sensor data).
+    //
     optional Timestamp timestamp = 2;
 
     // The list of (host) vehicles.
     //
-    repeated Vehicle vehicle = 3;
+    repeated Vehicle vehicles = 3;
 
     // The list of all other moving objects (i.e. excluding vehicles).
     //
-    repeated MovingObject moving_object = 4;
+    repeated MovingObject moving_objects = 4;
 
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
-    repeated StationaryObject stationary_object = 5;
+    //
+    repeated StationaryObject stationary_objects = 5;
 
     // The list of traffic signs.
     //
-    repeated TrafficSign traffic_sign = 6;
+    repeated TrafficSign traffic_signs = 6;
 
     // The list of traffic lights.
     //
-    repeated TrafficLight traffic_light = 7;
+    repeated TrafficLight traffic_lights = 7;
 
     // The list of road surface markings (lane markings are excluded and
     // defined as \c LaneBoundary).
     //
-    repeated RoadMarking road_marking = 8;
+    repeated RoadMarking road_markings = 8;
 
     // The list of lanes forming a road network.
     //
-    repeated Lane lane = 9;
+    repeated Lane lanes = 9;
 
-    // The list of lane boundaries from lanes.
+    // The list of lane boundaries.
     //
-    repeated LaneBoundary lane_boundary = 10;
+    repeated LaneBoundary lane_boundaries = 10;
 
     // The list of passengers in the (host) vehicle(s).
     //
-    repeated Occupant occupant = 11;
+    repeated Occupant occupants = 11;
 
     // Conditions of the environment.
     //
@@ -104,5 +107,6 @@ message GroundTruth
     // \par References: 
     // [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions – Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/) 
     // [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1) 
+    //
     optional uint32 country_code = 13;
 }

@@ -32,7 +32,7 @@ message FeatureData
 //
 message SensorDetectionHeader
 {
-    // Version number of used detection list messages ( \c SensorDetectionHeader, 
+    // Version number of used detection list messages (\c SensorDetectionHeader, 
     // \c LidarDetection, \c LidarDetectionList etc.).
     // 
     optional DetectionInterfaceVersion version = 1;
@@ -44,11 +44,13 @@ message SensorDetectionHeader
     // \note See \c SensorData::timestamp and
     // \c SensorData::last_measurement_time for detailed discussions on the 
     // semantics of time-related fields.
+    //
     optional Timestamp measurement_time = 2;
 
     // Monotonous counter to identify the exact cycle. 
     // Generally the detection function is called periodic and 
-    // \c SensorDetectionHeader::cycle_counter corresponds to the number of periods.
+    // \c #cycle_counter corresponds to the number of periods.
+    //
     optional uint64 cycle_counter = 3;
 
 
@@ -71,6 +73,7 @@ message SensorDetectionHeader
     // The sensor frame uses cartesian coordinates. The sensor frame's origin is
     // identical to sensor detection frame's origin. Detections are defined in 
     // the sensor detection frame which uses e.g. spherical coordinates.
+    //
     optional MountingPosition mounting_position = 4;
 
     // The origin/orientation of the sensor frame represents the current
@@ -80,6 +83,7 @@ message SensorDetectionHeader
     // of the current origin does not include effects due to short-time
     // dynamics, such as pitch angles from braking, but includes long-time
     // calibration values, such as pitch angles from luggage in the trunk. 
+    //
     optional MountingPosition mounting_position_rmse = 5;
 
     // Data Qualifier expresses to what extent the content of this event can be 
@@ -90,12 +94,14 @@ message SensorDetectionHeader
     // The current number of valid detections in the detections list.
     //
     // \note This value has to be set if the list contains invalid detections.    
+    //
     optional uint32 number_of_valid_detections = 7;
     
     // The ID of the sensor at host vehicle's mounting_position.
     //
     // This ID can equal \c SensorData::sensor_id, if SensorData hold only data
     // from one sensor/sensor model.
+    //
     optional Identifier sensor_id = 8;
 
     // \brief Data qualifier communicates the overall availability of the 
@@ -176,11 +182,13 @@ message LidarDetection
     //
     // \note Used as confidence measure where a low value means less confidence 
     // and a high value indicates strong confidence.
+    //
     optional double existence_probability = 1;
 
     // ID of the detected object this detection is associated to.
     // 
     // \note ID = MAX(uint64) indicates no reference to an object.
+    //
     optional Identifier object_id = 2;
 
     // Measured position of the detection, given in spherical coordinates in the 
@@ -196,22 +204,26 @@ message LidarDetection
     // clustered. Only vertical clustering is allowed (z-axis).
     //
     // Unit: [m]
+    //
     optional double height = 5;
 
     // Root mean squared error of the object height.
     //
     // Unit: [m]
+    //
     optional double height_rmse = 6;
 
     // Intensity or equivalent value of the detection's echo.
     //
     // Unit: [%]
+    //
     optional double intensity = 7;
 
     // The free space probability in the range [0.0, 1.0] from the origin of the 
     // sensor up to this detection, as given by the distance.
     // 
     // Range: [0.0, 1.0]
+    //
     optional double free_space_probability = 8;
 
     // Basic classification of the detection.
@@ -243,13 +255,14 @@ message RadarDetection
     // not depend on any past experience with similar detections.
     //
     // \note Use as confidence measure where a low value means less confidence 
-    // and a high value indicates 
-    // strong confidence.
+    // and a high value indicates strong confidence.
+    //
     optional double existence_probability = 1;
 
     // ID of the detected object this detection is associated to.
     // 
     // \note ID = MAX(uint64) indicates no reference to an object.
+    //
     optional Identifier object_id = 2;
 
     // Measured position of the detection, given in spherical coordinates in the
@@ -264,21 +277,25 @@ message RadarDetection
     // Absolute radial (in direction to the sensor) velocity of the detection.
     // 
     // Unit: [m/s]
+    //
     optional double radial_velocity = 5;
 
     // Root mean squared error of the object measured radial velocity.
     // 
     // Unit: [m/s]
+    //
     optional double radial_velocity_rmse = 6;
 
     // The radar cross section (RCS) of the radar detection.
     //
-    // Unit: [dB m^2].
+    // Unit: [dB m^2]
+    //
     optional double rcs = 7;
 
     // The signal to noise ratio (SNR) of the radar detection.
     //
-    // Unit: [dB m^2].
+    // Unit: [dB m^2]
+    //
     optional double snr = 8;
 
     // Describes the possibility whether more than one object may have led to 
@@ -291,6 +308,7 @@ message RadarDetection
     // indicated by an identical ambiguity ID. 
     // 
     // \note Unambiguous measurements have the ambiguity ID 0.
+    //
     optional Identifier ambiguity_id = 10;
 
     // Basic classification of the detection.
@@ -319,11 +337,11 @@ enum DetectionClassification
     //
     DETECTION_CLASSIFICATION_CLUTTER = 3;
 
-    // Overdrivable (ground etc.).
+    // Over-drivable (ground etc.).
     //
     DETECTION_CLASSIFICATION_OVERDRIVABLE = 4;
 
-    // Underdrivable (sign gantry etc.).
+    // Under-drivable (sign gantry etc.).
     //
     DETECTION_CLASSIFICATION_UNDERDRIVABLE = 5;
 }

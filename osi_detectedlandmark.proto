@@ -14,7 +14,7 @@ package osi;
 message DetectedTrafficSign
 {
     // Specific ID of the traffic sign as assigned by the sensor internally.
-    // Need not match with ground_truth_id.
+    // Need not match with \c #ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
@@ -25,16 +25,16 @@ message DetectedTrafficSign
     optional Identifier ground_truth_id = 3;
 
     // A list of candidates for this traffic sign as estimated by the sensor.
-    //    
-    repeated CandidateSign candidate_sign = 4;
+    // 
+    repeated CandidateSign candidate_signs = 4;
 
     // A list of candidates for (a) possible supplementary sign(s) as estimated
     // by the sensor.
     //
-    repeated CandidateSupplementarySign candidate_supplementary_sign = 5;
+    repeated CandidateSupplementarySigns candidate_multiple_supplementary_signs = 5;
 
     // The detected geometry of the traffic sign.
-    //    
+    // 
     optional Geometry geometry = 6;
 
     // The estimated probability that this traffic sign really exists, not based
@@ -50,24 +50,25 @@ message DetectedTrafficSign
     optional MeasurementState measurement_state = 8;
 
     // The root mean squared error of the base parameters of the detected
-    // traffic sign.
+    // traffic sign. \c TrafficSign::base has to be identical for
+    // all \c #candidate_sign traffic signs.
     //
-    optional BaseStationary rmse = 9;
+    optional BaseStationary base_rmse = 9;
 
     // Links to the corresponding lanes.
-    //    
-    repeated RelevantLane relevant_lane = 10;
+    // 
+    repeated RelevantLane relevant_lanes = 10;
    
     // A list of sensors which detected this detected entity.
     //
     // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the existence_probability.
+    // e.g. the number of sensors can confirm the #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id = 11;    
+    repeated Identifier sensor_id_list = 11;    
 
     // Definition of traffic sign geometries.
     //
@@ -79,39 +80,39 @@ message DetectedTrafficSign
         GEOMETRY_UNKNOWN = 0;
         
         // Geometry of the traffic sign is unspecified (but known).
-        //    
+        // 
         GEOMETRY_OTHER = 1;
         
         // Traffic sign has a triangular geometry pointing to the top.
-        //    
+        // 
         GEOMETRY_TRIANGLE_TOP = 2;
         
         //Traffic sign has a triangular geometry pointing down.
-        //    
+        // 
         GEOMETRY_TRIANGLE_DOWN = 3;
         
         // Traffic sign has a circular geometry.
-        //    
+        // 
         GEOMETRY_CIRCLE = 4;
         
         // Traffic sign has a square geometry.
-        //    
+        // 
         GEOMETRY_SQUARE = 5;
         
         // Traffic sign has a diamond geometry.
-        //    
+        // 
         GEOMETRY_DIAMOND = 6;
         
         // Traffic sign has an octagon geometry.
-        //    
+        // 
         GEOMETRY_OCTAGON = 7;
         
-        // Traffic sign has a geomety of an arrow pointing to the left.
-        //    
+        // Traffic sign has a geometry of an arrow pointing to the left.
+        // 
         GEOMETRY_ARROW_LEFT = 8;
         
-        // Traffic sign has a geomety of an arrow pointing to the right.
-        //    
+        // Traffic sign has a geometry of an arrow pointing to the right.
+        // 
         GEOMETRY_ARROW_RIGHT = 9;
         
         // Traffic sign has a rectangle geometry. (width is bigger than height)
@@ -137,13 +138,16 @@ message DetectedTrafficSign
 message CandidateSign
 {
     // The definition of the candidate's properties.
-    // The sign.id values of all CandidateSigns within one DetectedTrafficSign
-    // correspond to the tracking ID and must be identical.
+    // The sign.id values of all CandidateSigns within one
+    // \c DetectedTrafficSign correspond to the tracking ID and must be
+    // identical.
     //
     optional TrafficSign sign = 1;
 
     // The estimated probability that this candidate is the true value.
-    // Range [0,1]. The sum of all candidate_probabilities must be one.
+    // The sum of all \c #candidate_probability must be one.
+    //
+    // Range: [0,1]
     //
     optional double candidate_probability = 2;
 
@@ -151,21 +155,44 @@ message CandidateSign
     // observed/tracked.
     // 
     // Unit: [s]
+    //
     optional double age = 3;
 }
 
 //
-// \brief A candidate for (a) detected supplementary sign(s) as estimated by the
+// \brief Candidates for all detected supplementary signs of one traffic sign
+// as estimated by the sensor.
+//
+message CandidateSupplementarySigns
+{
+    // The definition of one of more supplementary signs that together define
+    // this candidate.
+    //
+    repeated CandidateSupplementarySign candidate_signs = 1;
+
+    // The root mean squared error of the base parameters of the detected
+    // supplementary traffic sign. \c #candidate_signs
+    // \c SupplementarySign::base has to be identical for all 
+    // \c #candidate_sign supplementary traffic signs.
+    //
+    optional BaseStationary base_rmse = 9;
+}
+
+//
+// \brief A candidate for a detected supplementary sign as estimated by the
 // sensor.
+//
 message CandidateSupplementarySign
 {
     // The definition of one of more supplementary signs that together define
     // this candidate.
     //
-    repeated SupplementarySign sign = 1;
+    optional SupplementarySign sign = 1;
 
     // The estimated probability that this candidate is the true value.
-    // Range [0,1]. The sum of all candidate_probabilities must be one.
+    // The sum of all \c #candidate_probability must be one.
+    //
+    // Range: [0,1]
     //
     optional double candidate_probability = 2;
 
@@ -173,6 +200,7 @@ message CandidateSupplementarySign
     // observed/tracked.
     // 
     // Unit: [s]
+    //
     optional double age = 3;
 }
 
@@ -182,7 +210,7 @@ message CandidateSupplementarySign
 message DetectedTrafficLight
 {
     // Specific ID of the traffic light as assigned by the sensor internally.
-    // Need not match with ground_truth_id.
+    // Need not match with \c #ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
@@ -194,21 +222,21 @@ message DetectedTrafficLight
 
     // A list of candidates for this traffic light as estimated by the sensor.
     //
-    repeated CandidateTrafficLight candidate_traffic_light = 4;
+    repeated CandidateTrafficLight candidate_traffic_lights = 4;
     
     // The root mean squared error of the base parameters of the detected
-    // traffic light's geometry. TrafficLight::base have to be identical for all
-    // \c DetectedTrafficLight::candidate_traffic_light traffic lights.
+    // traffic light's geometry. \c TrafficLight::base has to be identical for
+    // all \c #candidate_traffic_light traffic lights.
     //
-    optional BaseStationary rmse = 5;
+    optional BaseStationary base_rmse = 5;
 
     // Determines for which directions the traffic light applies.
     //
-    repeated RelevantDirection relevant_direction = 6;
+    repeated RelevantDirection relevant_directions = 6;
 
     // Links to the corresponding lanes.
     //
-    repeated RelevantLane relevant_lane = 7;
+    repeated RelevantLane relevant_lanes = 7;
 
     // The estimated probability that this traffic light really exists, not
     // based on history.
@@ -225,13 +253,13 @@ message DetectedTrafficLight
     // A list of sensors which detected this detected entity.
     //
     // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the existence_probability.
+    // e.g. the number of sensors can confirm the #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id = 10;    
+    repeated Identifier sensor_id_list = 10;    
 
     //
     // \brief Further specifies the relevant directions of the traffic light.
@@ -242,7 +270,9 @@ message DetectedTrafficLight
         //
         optional Direction direction = 1;
 
-        // Relevance probability. Range [0,1].
+        // Relevance probability. 
+        //
+        // Range: [0,1]
         //
         optional double relevance_probability = 2;
 
@@ -276,6 +306,7 @@ message DetectedTrafficLight
 //
 // \brief A candidate for (a) detected traffic light(s) as estimated by the
 // sensor.
+//
 message CandidateTrafficLight
 {
     // The definition of one traffic light that define this candidate.
@@ -283,8 +314,9 @@ message CandidateTrafficLight
     optional TrafficLight traffic_light = 1;
 
     // The estimated probability that this candidate is the true value. 
-    // Range [0,1].
-    // The sum of all candidate_probabilities must be one.
+    // The sum of all \c #candidate_probability must be one.
+    //
+    // Range: [0,1]
     //
     optional double candidate_probability = 2;
 }
@@ -298,8 +330,9 @@ message RelevantLane
     //
     optional Identifier lane_id = 1;
 
-    // Relevance probability. Range [0,1].
+    // Relevance probability. 
     //
+    // Range: [0,1]
     optional double relevance_probability = 2;
 }
 
@@ -309,7 +342,7 @@ message RelevantLane
 message DetectedRoadMarking
 {
     // Specific ID of the road marking as assigned by the sensor internally.
-    // Need not match with ground_truth_id.
+    // Need not match with \c #ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
@@ -321,7 +354,7 @@ message DetectedRoadMarking
 
     // A list of candidates for this road marking as estimated by the sensor.
     //
-    repeated CandidateRoadMarking candidate_road_marking = 4;
+    repeated CandidateRoadMarking candidate_road_markings = 4;
 
     // The estimated probability that this road marking really exists, not based
     // on history.
@@ -333,27 +366,28 @@ message DetectedRoadMarking
 
     // Links to the corresponding lanes.
     //
-    repeated RelevantLane relevant_lane = 6;
+    repeated RelevantLane relevant_lanes = 6;
 
     // The measurement state.
     //
     optional MeasurementState measurement_state = 7;
     
     // The root mean squared error of the base parameters of the detected road
-    // marking.
+    // marking. \c RoadMarking::base has to be identical for
+    // all \c #candidate_road_marking road markings.
     //
-    optional BaseStationary rmse = 8;
+    optional BaseStationary base_rmse = 8;
    
     // A list of sensors which detected this detected entity.
     //
     // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the existence_probability.
+    // e.g. the number of sensors can confirm the #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id = 11;    
+    repeated Identifier sensor_id_list = 11;    
 }
 
 //
@@ -366,7 +400,9 @@ message CandidateRoadMarking
     optional RoadMarking road_marking = 1;
 
     // The estimated probability that this candidate is the true value.
-    // Range [0,1]. The sum of all candidate_probabilities must be one.
+    // The sum of all \c #candidate_probability must be one.
+    //
+    // Range: [0,1]
     //
     optional double candidate_probability = 2;
 
@@ -374,5 +410,6 @@ message CandidateRoadMarking
     // observed/tracked.
     // 
     // Unit: [s]
+    //
     optional double age = 3;
 }

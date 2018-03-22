@@ -57,7 +57,7 @@ message Vehicle
     //
     // \note Might be multiple if the vehicle is switching lanes or moving from 
     // one lane into another following lane.
-    repeated Identifier assigned_lane = 7;
+    repeated Identifier assigned_lanes = 7;
 
     // Flag defining whether the vehicle has an attached trailer.
     //
@@ -80,7 +80,7 @@ message Vehicle
     // conditions. In object coordinates.
     optional Vector3d bbcenter_to_front = 11;
     
-    // Static minimal distance in [m] of underbody plane to ground
+    // Static minimal distance in [m] of under-body plane to ground
     // surface plane (i.e. disregarding driving dynamic effects or road
     // surface effects) under neutral load conditions. Can be useful to
     // approximate the clear area under a vehicle that a sensor can see
@@ -236,7 +236,7 @@ message Vehicle
 
 //
 // \brief A simulated object that is neither a moving object (vehicle) nor a
-// stationary object (traffic sign, traffic light, StationaryObject).
+// stationary object (traffic sign, traffic light, \c StationaryObject).
 //
 // MovingObject excludes vehicles
 //
