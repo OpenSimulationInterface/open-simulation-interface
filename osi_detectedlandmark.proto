@@ -375,14 +375,15 @@ message DetectedRoadMarking
     
     // The root mean squared error of the base parameters of the detected road
     // marking. \c RoadMarking::base has to be identical for
-    // all \c #candidate_road_marking road markings.
+    // all \c #candidate_road_markings road markings.
     //
     optional BaseStationary base_rmse = 8;
    
     // A list of sensors which detected this detected entity.
     //
-    // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the #existence_probability.
+    // If \c SensorData has detected entities and all detections are missing,
+    // then e.g. the number of sensors can confirm the 
+    // \c #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and

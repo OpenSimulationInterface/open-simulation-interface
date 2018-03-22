@@ -20,7 +20,7 @@ message DetectedOccupant
 
     // The ID of the original vehicle occupant in the ground truth.
     //
-    optional Identifier ground_truth_occupant_id = 4;
+    optional Identifier ground_truth_id = 4;
 
     // The amount of time that this detected object has been currently 
     // observed/tracked.
@@ -33,7 +33,7 @@ message DetectedOccupant
     //
     optional MeasurementState measurement_state = 6;
 
-    // The detected vehicle occupant
+    // The detected vehicle occupant.
     //
     optional Occupant occupant = 3;
 

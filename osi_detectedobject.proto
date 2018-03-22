@@ -252,61 +252,61 @@ message DetectedObject
     {
         // Probability that the object has unknown type. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_unknown = 1;
 
         // Probability that the object is unspecified but known.
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_other = 2;
 
         // Probability that the object is a car.
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_car = 3;
         
         // Probability that the object is a heavy truck. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_heavy_truck = 4;
         
         // Probability that the object is a van. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_van = 5;
 
         // Probability that the object is a bus. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_bus = 6;
 
         // Probability that the object is a trailer. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_trailer = 7;
 
         // Probability that the object is a semitrailer. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_semitrailer = 8;
 
         // Probability that the object is a tram. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_tram = 9;
 
         // Probability that the object is a train. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         // \note Can also be used for underground railway.
         //
@@ -314,43 +314,43 @@ message DetectedObject
 
         // Probability that the object is a motorbike. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_motorbike = 11;
         
         // Probability that the object is a bicycle. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_bicycle = 12;
         
         // Probability that the object is a pedestrian. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_pedestrian = 13;
 
         // Probability that the object is a wheelchair. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_wheelchair = 14;
         
         // Probability that the object is an animal. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_animal = 15;
 
         // Probability that the object is a stationary object. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_stationary = 16;
 
         // Probability that the object is an unspecified but known vehicle. 
         //
-        // Range [0,1].
+        // Range: [0,1]
         //
         optional double prob_other_vehicle = 17;
     }
