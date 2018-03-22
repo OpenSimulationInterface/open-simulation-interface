@@ -101,8 +101,8 @@ message SensorDetectionHeader
     
     // The ID of the sensor at host vehicle's mounting_position.
     //
-    // This ID can equal \c SensorData::sensor_id, if SensorData hold only data
-    // from one sensor/sensor model.
+    // This ID can equal \c SensorData::sensor_id, if \c SensorData holds only
+    // data from one sensor/sensor model.
     //
     optional Identifier sensor_id = 8;
 
