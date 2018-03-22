@@ -61,8 +61,9 @@ message DetectedTrafficSign
    
     // A list of sensors which detected this detected entity.
     //
-    // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the #existence_probability.
+    // If \c SensorData has detected entities and all detections are missing, 
+    // then e.g. the number of sensors can confirm the 
+    // \c #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
@@ -227,7 +228,7 @@ message DetectedTrafficLight
     
     // The root mean squared error of the base parameters of the detected
     // traffic light's geometry. \c TrafficLight::base has to be identical for
-    // all \c #candidate_traffic_light traffic lights.
+    // all \c #candidate_traffic_lights traffic lights.
     //
     optional BaseStationary base_rmse = 5;
 
@@ -253,8 +254,9 @@ message DetectedTrafficLight
     
     // A list of sensors which detected this detected entity.
     //
-    // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the #existence_probability.
+    // If \c SensorData has detected entities and all detections are missing, 
+    // then e.g. the number of sensors can confirm the 
+    // \c #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
