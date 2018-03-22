@@ -105,7 +105,7 @@ message DetectedObject
     // View_normal_base_coord_system = Inverse_Rotation(head_pose)*Unit_vector_x 
     //
     // \par References: 
-    // [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+    // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     optional Orientation3d head_pose = 17;
 
     // Pedestrian upper body pose for behaviour prediction. Describes the
@@ -118,7 +118,7 @@ message DetectedObject
     // View_normal_base_coord_system = Inverse_Rotation(upper_body_pose)*Unit_vector_x 
     //
     // \par References: 
-    // [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+    // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     optional Orientation3d upper_body_pose = 18;
 
     // Percentage side lane left.

@@ -251,7 +251,7 @@ message Lane
         // Unit: [mm/m]
         //
         // \par References: 
-        // [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
+        // \li [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
         // University of Michigan Transportation Research Institute, 1998.
         //
         optional double surface_roughness = 5;

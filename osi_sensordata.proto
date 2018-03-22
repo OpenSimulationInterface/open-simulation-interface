@@ -102,7 +102,7 @@ message SensorData
     // the sensor detection frame which uses e.g. spherical coordinates.
     //
     // \par References: 
-    // [1] DIN ISO 8855:2013-11
+    // \li [1] DIN ISO 8855:2013-11
     //
     optional MountingPosition mounting_position = 6;
 
