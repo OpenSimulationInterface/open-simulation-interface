@@ -12,7 +12,7 @@ package osi;
 //
 // This message can be provided by the sensor model to the environment
 // simulation, in which case it describes the input configuration that
-// is desired by the sensor model.  In response the environment simulation
+// is desired by the sensor model. In response the environment simulation
 // will configure the input and provide a new message of this type, which
 // describes the actual configuration that it is going to employ.  The two
 // can and will differ, when either the environment simulation does not
@@ -37,7 +37,7 @@ package osi;
 // suitable data. The specified details are not directly related to
 // sensor details, but rather provide the necessary base machinery
 // setup so that the data provided is suitable to model the sensor to
-// a sufficient degree of fidelity internally.  For example the number
+// a sufficient degree of fidelity internally. For example the number
 // of rays parameters for the Lidar configuration does not match one to
 // one with the number of laser rays a lidar sensor might cast, but
 // rather specifies the number of rays being cast by a ray 
@@ -46,7 +46,7 @@ package osi;
 //
 // This also implies that for sensors that have dynamically varying
 // characteristics (e.g. switching between wide and narrow focus, 
-// switching update rates, etc.), the basic approach is to specify
+// switching update rates etc.), the basic approach is to specify
 // the maximum amount of data needed at all times here, and internally
 // select the data that is needed at any point in time.
 //
@@ -63,69 +63,76 @@ package osi;
 //
 message SensorInputConfiguration
 {
-    // The mounting position of the sensor (origin and orientation of the sensor
-    // coordinate system) given in vehicle coordinates [1].
+    // Mounting position of the sensor (origin and orientation of the sensor 
+    // frame). Both origin and orientation are given in and with respect to the 
+    // host vehicle coordinate system (see: \c Vehicle vehicle reference
+    // point) [1].
     //
-    // \arg \b x-direction of sensor coordinate system: sensor viewing direction
-    // \arg \b z-direction of sensor coordinate system: sensor (up)
-    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
-    // right hand system
+    // The sensor frame's x-axis is pointing in the central viewing direction of 
+    // the sensor. It is the angle bisector of the sensor's horizontal and 
+    // vertical field of view. The terms horizontal and vertical must be 
+    // understood as names for the two principal planes of the sensor's field of 
+    // view (relative to the sensor frame's orientation), which do not have to
+    // be horizontal or vertical in the strict sense of being parallel or 
+    // perpendicular to the local gravitational vector. The horizontal field
+    // of view defines the sensor frame's xy-plane and the vertical field
+    // of view defines the xz-plane. The sensor frame is right-handed and the 
+    // z-axis is pointing in an upward direction.
+    //
+    // The sensor frame uses cartesian coordinates. The sensor frame's origin is
+    // identical to sensor detection frame's origin. Detections are defined in 
+    // the sensor detection frame which uses e.g. spherical coordinates.
     //
     // \par References: 
     // [1] DIN ISO 8855:2013-11
     //
-    // \note The origin of vehicle's coordinate system in world frame is 
-    // ( \c Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll( 
-    // \c Vehicle::base.orientation) * \c Vehicle::bbcenter_to_rear ).
-    // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c Vehicle::base.orientation.
-    // \note A default position can be provided by the sensor model (e.g. to 
-    // indicate the position the model was validated for),
-    // but this is optional; the environment simulation must provide a valid
-    // mounting position (based on the vehicle configuration) when setting the
-    // input configuration.
-    //
     optional MountingPosition mounting_position = 1;
 
-    // Field of View in horizontal orientation of the sensor
+    // Field of View in horizontal orientation of the sensor.
     //
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
     // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
-    // azimuth in the sensor frame as defined in \c OSI:Spherical3d.
+    // azimuth in the sensor frame as defined in \c Spherical3d.
+    //
     // Unit: [rad]
+    //
     optional double field_of_view_horizontal = 2;
 
-    // Field of View in vertical orientation of the sensor
+    // Field of View in vertical orientation of the sensor.
     //
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
     // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in 
-    // \c OSI:Spherical3d.
+    // \c Spherical3d.
     //
     // Unit: [rad]
+    //
     optional double field_of_view_vertical = 3;
 
-    // Maximum range of the sensor
+    // Maximum range of the sensor.
     //
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
     //
     // Unit: [m]
+    //
     optional double range = 4;
 
-    // The update cycle time of the sensor model
+    // The update cycle time of the sensor model.
     //
     // This specifies the rate at which the sensor model is provided with
     // new input data.
     //
     // Unit: [s]
+    //
     // \note In the case of FMU packaging this will correspond to the
     // communication step size.
+    //
     optional double update_cycle_time = 5;
     
-    // Initial update cycle offset of the sensor model
+    // Initial update cycle offset of the sensor model.
     //
     // This specifies the initial offset (i.e. initial delay) of the
     // sensor model update cycle that the simulation should take into
@@ -140,30 +147,36 @@ message SensorInputConfiguration
     // update to the sensor input should happen at 0.048s, or 0.018s
     // after simulation start.  This convention is needed to ensure
     // stable phase position of the offset in the case of changing
-    // simulation start times, e.g. for partial resimulation.
+    // simulation start times, e.g. for partial re-simulation.
     //
     // Unit: [s]
+    //
     optional double update_cycle_offset = 6;
     
-    // Simulation Start time
+    // Simulation Start time.
     //
     // This specifies the simulation start time that the Simulation
     // has chosen. This field has no defined meaning if provided by
     // the sensor model.
     //
     // Unit: [s]
+    //
     optional double simulation_start_time = 7;
 
     // Radar-specific Sensor Input Configuration.
+    //
     optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1000;
 
     // Lidar-specific Sensor Input Configuration.
+    //
     optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1001;
 
     // Camera-specific Sensor Input Configuration.
+    //
     optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1002;
 
     // Ultrasonic-specific Sensor Input Configuration.
+    //
     optional UltrasonicSensorInputConfiguration ultrasonic_sensor_input_configuration = 1003;
 }
 
@@ -173,25 +186,28 @@ message SensorInputConfiguration
 //
 message RadarSensorInputConfiguration
 {
-    // Number of rays to cast across horizontal field of view (azimuth)
+    // Number of rays to cast across horizontal field of view (azimuth).
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 number_of_rays_horizontal = 1;
 
-    // Number of rays to cast across vertical field of view (elevation)
+    // Number of rays to cast across vertical field of view (elevation).
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 number_of_rays_vertical = 2;
 
-    // Maximum number of interactions to take into account
+    // Maximum number of interactions to take into account.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 max_number_of_interactions = 3;
 
-    // Emitter Frequency
+    // Emitter Frequency.
     //
     // This information can be used by a ray tracing engine to calculate
     // doppler shift information and take into account differences in
@@ -202,35 +218,43 @@ message RadarSensorInputConfiguration
     // purposes the frequency is also relevant.
     //
     // Unit: [Hz]
+    //
     optional double emitter_frequency = 4;
     
-    // This represents the TX antenna diagram
+    // This represents the TX antenna diagram.
+    //
     repeated AntennaDiagramEntry tx_antenna_diagram = 5;
     
-    // This represents the RX antenna diagram
+    // This represents the RX antenna diagram.
+    //
     repeated AntennaDiagramEntry rx_antenna_diagram = 6;
 
     //
     // \brief The radar antenna diagram.
     //
-    // \note Rotation is defined analog OSI:Spherical3d
-    message AntennaDiagramEntry {
+    // \note Rotation is defined analog \c Spherical3d.
+    //
+    message AntennaDiagramEntry 
+    {
         // Horizontal deflection (azimuth) of entry in sensor/antenna
-        // coordinates
+        // coordinates.
         //
         // Unit: [rad]
+        //
         optional double horizontal_angle = 1;
 
         // Vertical deflection (elevation) of entry in sensor/antenna
-        // coordinates
+        // coordinates.
         //
         // Unit: [rad]
+        //
         optional double vertical_angle = 2;
 
         // Combined response of emitter and receiver antenna at this
-        // point (positive dB is gain, negative dB is attenuation)
+        // point (positive dB is gain, negative dB is attenuation).
         //
         // Unit: [dB]
+        //
         optional double response = 3;
     }
 }
@@ -241,25 +265,28 @@ message RadarSensorInputConfiguration
 //
 message LidarSensorInputConfiguration
 {
-    // Number of rays to cast across horizontal field of view
+    // Number of rays to cast across horizontal field of view.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 number_of_rays_horizontal = 1;
 
-    // Number of rays to cast across vertical field of view
+    // Number of rays to cast across vertical field of view.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 number_of_rays_vertical = 2;
 
-    // Maximum number of interactions to take into account
+    // Maximum number of interactions to take into account.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 max_number_of_interactions = 3;
 
-    // Emitter Frequency
+    // Emitter Frequency.
     //
     // This information can be used by a ray tracing engine to calculate
     // doppler shift information and take into account differences in
@@ -270,6 +297,7 @@ message LidarSensorInputConfiguration
     // purposes the frequency is also relevant.
     //
     // Unit: [Hz]
+    //
     optional double emitter_frequency = 4;
 }
 
@@ -279,19 +307,21 @@ message LidarSensorInputConfiguration
 //
 message CameraSensorInputConfiguration
 {
-    // Number of pixels to produce across horizontal field of view
+    // Number of pixels to produce across horizontal field of view.
     //
     // \note This is a characteristic of the rendering engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 number_of_pixels_horizontal = 1;
 
-    // Number of pixels to produce across horizontal field of view
+    // Number of pixels to produce across horizontal field of view.
     //
     // \note This is a characteristic of the rendering engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
     optional uint32 number_of_pixels_vertical = 2;
 
-    // Format for image data (includes number, kind and format of channels)
+    // Format for image data (includes number, kind and format of channels).
     //
     // In the message provided by the sensor model, this field can
     // be repeated and all values are acceptable to the model, with
@@ -304,6 +334,7 @@ message CameraSensorInputConfiguration
     // be one of the values the sensor model requested - or there
     // must be no value, indicating that the simulation environment
     // cannot provide image data in one of the requested formats.
+    //
     repeated ChannelFormat channel_format = 3;
 
     enum ChannelFormat {
@@ -311,51 +342,51 @@ message CameraSensorInputConfiguration
         //
         FORMAT_UNKNOWN = 0;
 
-        // Single Luminance Channel UINT8 Linear
+        // Single Luminance Channel UINT8 Linear.
         //
         FORMAT_MONO_U8_LIN = 1;
 
-        // Single Luminance Channel UINT16 Linear
+        // Single Luminance Channel UINT16 Linear.
         //
         FORMAT_MONO_U16_LIN = 2;
 
-        // Single Luminance Channel UINT32 Linear
+        // Single Luminance Channel UINT32 Linear.
         //
         FORMAT_MONO_U32_LIN = 3;
 
-        // Single Luminance Channel Single Precision FP Linear
+        // Single Luminance Channel Single Precision FP Linear.
         //
         FORMAT_MONO_F32_LIN = 4;
 
-        // Packed RGB Channels (no padding) UINT8 Linear
+        // Packed RGB Channels (no padding) UINT8 Linear.
         //
         FORMAT_RGB_U8_LIN = 5;
 
-        // Packed RGB Channels (no padding) UINT16 Linear
+        // Packed RGB Channels (no padding) UINT16 Linear.
         //
         FORMAT_RGB_U16_LIN = 6;
 
-        // Packed RGB Channels (no padding) UINT32 Linear
+        // Packed RGB Channels (no padding) UINT32 Linear.
         //
         FORMAT_RGB_U32_LIN = 7;
 
-        // Packed RGB Channels (no padding) Single Precision FP Linear
+        // Packed RGB Channels (no padding) Single Precision FP Linear.
         //
         FORMAT_RGB_F32_LIN = 8;
 
-        // Bayer RGGB Channels UINT8 FP Linear
+        // Bayer RGGB Channels UINT8 FP Linear.
         //
         FORMAT_BAYER_BGGR_U8_LIN = 9;
 
-        // Bayer RGGB Channels UINT16 FP Linear
+        // Bayer RGGB Channels UINT16 FP Linear.
         //
         FORMAT_BAYER_BGGR_U16_LIN = 10;
 
-        // Bayer RGGB Channels UINT32 FP Linear
+        // Bayer RGGB Channels UINT32 FP Linear.
         //
         FORMAT_BAYER_BGGR_U32_LIN = 11;
 
-        // Bayer RGGB Channels Single Precision FP Linear
+        // Bayer RGGB Channels Single Precision FP Linear.
         //
         FORMAT_BAYER_BGGR_F32_LIN = 12;
 

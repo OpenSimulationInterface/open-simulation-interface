@@ -53,11 +53,10 @@ message SensorDetectionHeader
     //
     optional uint64 cycle_counter = 3;
 
-
     // Mounting position of the sensor (origin and orientation of the sensor 
     // frame). Both origin and orientation are given in and with respect to the 
     // host vehicle coordinate system (see: \c Vehicle vehicle reference
-    // point).
+    // point) [1].
     //
     // The sensor frame's x-axis is pointing in the central viewing direction of 
     // the sensor. It is the angle bisector of the sensor's horizontal and 
@@ -73,6 +72,9 @@ message SensorDetectionHeader
     // The sensor frame uses cartesian coordinates. The sensor frame's origin is
     // identical to sensor detection frame's origin. Detections are defined in 
     // the sensor detection frame which uses e.g. spherical coordinates.
+    //
+    // \par References: 
+    // [1] DIN ISO 8855:2013-11
     //
     optional MountingPosition mounting_position = 4;
 
