@@ -1260,21 +1260,24 @@ message TrafficLight
         //
         ICON_COUNTDOWN_PERCENT = 21;
         
-        // This traffic light is valid for trams. 
+        // This traffic light is valid for
+        // trams. 
         // 
         // \note There is no detailed traffic light specification for trams and  
         // buses at the moment.
         //
         ICON_TRAM = 22;
         
-        // This traffic light is valid for buses. 
+        // This traffic light is valid for
+        // buses. 
         //
         // \note There is no detailed traffic light specification for trams and  
         // buses at the moment.
         //
         ICON_BUS = 23;
         
-        // This traffic light is valid for buses and trams. 
+        // This traffic light is valid for
+        // buses and trams. 
         //
         // \note There is no detailed traffic light specification for trams and  
         // buses at the moment.
@@ -1316,7 +1319,7 @@ message TrafficLight
 // \brief A road surface marking.
 // 
 // Lane markings are excluded and defined as \c LaneBoundary messages 
-// as part of the \c Lanes .
+// as part of \c Lane.
 //
 // All coordinates and orientations are relative to the global ground truth
 // coordinate system.

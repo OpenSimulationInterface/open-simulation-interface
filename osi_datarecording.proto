@@ -7,7 +7,7 @@ import "osi_sensordata.proto";
 package osi;
 
 //
-// \brief (Time) Series of SensorData messages that may be used for data
+// \brief (Time) Series of \c SensorData messages that may be used for data
 // recording or internal buffering by some sensor models.
 //
 message SensorDataSeries
@@ -18,7 +18,7 @@ message SensorDataSeries
 }
 
 //
-// \brief List of SensorData interface copies, one for each sensor in the
+// \brief List of \c SensorData interface copies, one for each sensor in the
 //  vehicle.
 //
 // Can be used to bundle output of multiple sensors in one transmission.
@@ -32,7 +32,7 @@ message SensorDataList
 
 //
 // \brief List of sensors where each element contains a time series of
-// SensorData messages.
+// \c SensorData messages.
 //
 message SensorDataSeriesList
 {

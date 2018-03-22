@@ -52,7 +52,7 @@ package osi;
 //
 // In order to optimize the workload and bandwidth needed for sensor
 // simulation, OSI packaging mechanisms can specify the ability to
-// exchange SensorInputConfiguration messages not only prior to
+// exchange \c SensorInputConfiguration messages not only prior to
 // simulation startup, but also dynamically during simulation runs,
 // thereby allowing dynamic input configuration switching to only
 // request data that is needed in the current sensor mode.  However

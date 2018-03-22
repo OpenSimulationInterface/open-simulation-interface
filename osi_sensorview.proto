@@ -31,19 +31,19 @@ message SensorView
     //
     optional Timestamp timestamp = 2;
     
-    // Radar-Specific SensorView.
+    // Radar-Specific \c SensorView.
     //
     optional RadarSensorView radar_sensor_view = 1000;
 
-    // Lidar-Specific SensorView.
+    // Lidar-Specific \c SensorView.
     //
     optional LidarSensorView lidar_sensor_view = 1001;
 
-    // Camera-Specific SensorView.
+    // Camera-Specific \c SensorView.
     //
     optional CameraSensorView camera_sensor_view = 1002;
 
-    // Ultrasonic-Specific SensorView.
+    // Ultrasonic-Specific \c SensorView.
     //
     optional UltrasonicSensorView ultrasonic_sensor_view = 1003;
 }
@@ -126,11 +126,11 @@ message RadarSensorView
 //
 message LidarSensorView 
 {
-    // Lidar Input Configuration valid at the time the data was created
+    // Lidar Input Configuration valid at the time the data was created.
     //
     optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1;
     
-    // Ray Tracing Data
+    // Ray Tracing Data.
     //
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think scan lines in a TV).

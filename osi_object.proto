@@ -238,7 +238,7 @@ message Vehicle
 // \brief A simulated object that is neither a moving object (vehicle) nor a
 // stationary object (traffic sign, traffic light, \c StationaryObject).
 //
-// MovingObject excludes vehicles
+// \c MovingObject excludes vehicles.
 //
 message MovingObject
 {
@@ -280,7 +280,7 @@ message MovingObject
 // \c MovingObject e.g. pedestrian or animal) nor a stationary object 
 // (traffic sign, traffic light).
 //
-// StationaryObject excludes traffic lights and traffic signs
+// \c StationaryObject excludes traffic lights and traffic signs
 //
 message StationaryObject
 {

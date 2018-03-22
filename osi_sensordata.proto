@@ -28,8 +28,8 @@ message SensorData
 {  
     // The ID of the sensor at host vehicle's mounting_position.
     //
-    // This ID can equal \c DetectionHeader::sensor_id, if \c SensorData holds
-    // only data from one sensor/sensor model.
+    // This ID can equal \c SensorDetectionHeader::sensor_id, if \c SensorData
+    // holds only data from one sensor/sensor model.
     //
     optional Identifier sensor_id = 1;
 
@@ -46,17 +46,17 @@ message SensorData
     // applied on top of this, if needed.
     //
     // The time that the actual measurement was performed (which will usually
-    // correspond with the timestamp of the GroundTruth the sensor model
+    // correspond with the timestamp of the \c GroundTruth the sensor model
     // processed to arrive at these results) can be found in the additional
     // field \c SensorData::last_measurement_time.
     //
     // For an ideal zero latency sensor the two timestamps would be the same
-    // and would correspond with the timestamp from the current GroundTruth
+    // and would correspond with the timestamp from the current \c GroundTruth
     // message.
     //
     // For a sensor model that does not know its own internal latencies (e.g.
     // a dumb sensor with no internal time concept), the two timestamps might
-    // also be identical, but delayed from the GroundTruth timestamp.
+    // also be identical, but delayed from the \c GroundTruth timestamp.
     //
     optional Timestamp timestamp = 2;
 
