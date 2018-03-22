@@ -183,7 +183,7 @@ message CameraSensorView
     //
     optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1;
     
-    // Raw Image Data
+    // Raw Image Data.
     //
     // The raw image data in the memory layout and order specified by the
     // camera sensor input configuration.

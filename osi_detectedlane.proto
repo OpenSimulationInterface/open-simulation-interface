@@ -50,8 +50,9 @@ message DetectedLane
    
     // A list of sensors which detected this detected entity.
     //
-    // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the existence_probability.
+    // If \c SensorData has detected entities and all detections are missing,
+    // then e.g. the number of sensors can confirm the
+    // \c #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
@@ -66,13 +67,13 @@ message DetectedLane
 message DetectedLaneBoundary
 {
     // Specific ID of the detected lane boundary as assigned by the sensor
-    // internally. Need not match with ground_truth_id.
+    // internally. Need not match with \c #ground_truth_id.
     //
     optional Identifier tracking_id = 2;
 
-    // The ID of the original LaneBoundary in the ground truth.
+    // The ID of the original \c LaneBoundary in the ground truth.
     //
-    // \note In case of a ghost LaneBoundary (no corresponding ground truth),
+    // \note In case of a ghost \c LaneBoundary (no corresponding ground truth),
     // this field should be unset.
     //
     optional Identifier ground_truth_id = 3;
@@ -125,8 +126,9 @@ message DetectedLaneBoundary
    
     // A list of sensors which detected this detected entity.
     //
-    // If SensorData has detected entities and all detections are missing, then 
-    // e.g. the number of sensors can confirm the \c #existence_probability.
+    // If \c SensorData has detected entities and all detections are missing,
+    // then e.g. the number of sensors can confirm the 
+    // \c #existence_probability.
     // 
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and

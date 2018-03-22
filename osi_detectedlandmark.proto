@@ -51,7 +51,7 @@ message DetectedTrafficSign
 
     // The root mean squared error of the base parameters of the detected
     // traffic sign. \c TrafficSign::base has to be identical for
-    // all \c #candidate_sign traffic signs.
+    // all \c #candidate_signs traffic signs.
     //
     optional BaseStationary base_rmse = 9;
 
@@ -190,7 +190,8 @@ message CandidateSupplementarySign
     optional SupplementarySign sign = 1;
 
     // The estimated probability that this candidate is the true value.
-    // The sum of all \c #candidate_probability must be one.
+    // The sum of all \c #candidate_probability of one supplementary sign must 
+    // be one.
     //
     // Range: [0,1]
     //
