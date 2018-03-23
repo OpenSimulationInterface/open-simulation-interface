@@ -110,7 +110,7 @@ message DetectedObject
     //
     optional ClassProbability class_probability = 16;
     
-    // Pedestrian head pose for behaviour prediction. Describes the head
+    // Pedestrian head pose for behavior prediction. Describes the head
     // orientation w.r.t. the host vehicle orientation.
     // The x-axis of the right-handed head frame is pointing along the 
     // pedestrian's straight ahead viewing direction and the z-axis is pointing 
@@ -123,7 +123,7 @@ message DetectedObject
     //
     optional Orientation3d head_pose = 17;
 
-    // Pedestrian upper body pose for behaviour prediction. Describes the
+    // Pedestrian upper body pose for behavior prediction. Describes the
     // upper body orientation w.r.t. the host vehicle orientation.
     // The x-axis of the right-handed upper body frame is pointing along the 
     // pedestrian's upper body ventral direction [2] (i.e. usually pedestrian's 

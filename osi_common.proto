@@ -247,8 +247,10 @@ message Spherical3d
 // This includes the \c StationaryObject , \c TrafficSign ,
 // \c TrafficLight , \c RoadMarking messages.
 //
-// All coordinates and orientations are relative to the global ground truth
-// coordinate system.
+// All coordinates and orientations from ground truth objects are relative to
+// the global ground truth frame. All coordinates and orientations
+// from detected objects are relative to the host vehicle frame (see: \c Vehicle
+// vehicle reference point).
 //
 message BaseStationary
 {
@@ -299,8 +301,10 @@ message BaseStationary
 // 
 // This includes the \c MovingObject messages.
 //
-// All coordinates and orientations are relative to the global ground truth
-// coordinate system.
+// All coordinates and orientations from ground truth objects are relative to
+// the global ground truth frame. All coordinates and orientations
+// from detected objects are relative to the host vehicle frame (see: \c Vehicle
+// vehicle reference point).
 //
 message BaseMoving
 {
