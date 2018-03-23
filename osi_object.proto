@@ -318,7 +318,7 @@ message StationaryObject
         
         // Object is a pole (e.g. traffic light).
         //
-        TYPE_POLE = 4;
+        TYPE_POLE = 20;
         
         // Object is a pylon.
         //
