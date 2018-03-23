@@ -1483,7 +1483,7 @@ message RoadMarking
 //
 message Landmark
 {
-    // The ID of the road marking.
+    // The ID of the landmark.
     //
     optional Identifier id = 1;
 
