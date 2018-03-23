@@ -246,26 +246,6 @@ message BaseStationary
     // \note There may be some constraints how to align the orientation w.r.t. 
     // to some stationary object's or entity's definition.
     optional Orientation3d orientation = 3;
-    
-    // Usage as ground truth:
-    // The two dimensional (flat) contour of the object. This is an extension of
-    // the concept of a bounding box as defined by Dimension3d. The contour is
-    // the projection of the object's outline onto the z-plane in the object
-    // frame (independent of its current position and orientation). 
-    //
-    // Usage as sensor data:
-    // The polygon describes the visible part of the object's contour.
-    //
-    // General definitions:
-    // The polygon is defined in the local object frame: x pointing forward and
-    // y to the left.
-    // The origin is the center of the bounding box.
-    // As ground truth, the polygon is closed by connecting the last with the 
-    // first point. Therefore these two points must be different. The polygon  
-    // must consist of at least three points.
-    // As sensor data, however, the polygon is open.
-    // The polygon is defined counter-clockwise.
-    repeated Vector2d base_polygon = 4;
 }
 
 //
@@ -319,23 +299,4 @@ message BaseMoving
     //
     // \note BaseMoving.orientation(t) is \b not equal BaseMoving.orientation(t-dt)+BaseMoving.orientation_rate*dt
     optional Orientation3d orientation_rate = 6;
-    
-    // Usage as ground truth:
-    // The two dimensional (flat) contour of the object. This is an extension of
-    // the concept of a  bounding box as defined by Dimension3d. The contour is
-    // the projection of the object's outline onto the z-plane in the object
-    // frame (independent of its current position and orientation). 
-    //
-    // Usage as sensor data:
-    // The polygon describes the visible part of the object's contour.
-    //
-    // General definitions:
-    // The polygon is defined in the local object frame: x pointing forward and
-    // y to the left. The origin is the center of the bounding box.
-    // As ground truth, the polygon is closed by connecting the last with the
-    // first point. Therefore these two points must be different. The polygon
-    // must consist of at least three points. As sensor data, however, the 
-    // polygon is open.
-    // The polygon is defined counter-clockwise.
-    repeated Vector2d base_polygon = 7;    
 }
