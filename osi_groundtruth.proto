@@ -87,6 +87,10 @@ message GroundTruth
     //
     repeated LaneBoundary lane_boundary = 10;
 
+    // The list of landmarks.
+    //
+    repeated Landmark landmarks = 1000;
+
     // The list of passengers in the (host) vehicle(s).
     //
     repeated Occupant occupant = 11;
