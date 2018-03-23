@@ -155,16 +155,16 @@ message SensorInputConfiguration
     optional double simulation_start_time = 7;
 
     // Radar-specific Sensor Input Configuration.
-    optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1000;
+    repeated RadarSensorInputConfiguration radar_sensor_input_configurations = 1000;
 
     // Lidar-specific Sensor Input Configuration.
-    optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1001;
+    repeated LidarSensorInputConfiguration lidar_sensor_input_configurations = 1001;
 
     // Camera-specific Sensor Input Configuration.
-    optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1002;
+    repeated CameraSensorInputConfiguration camera_sensor_input_configurations = 1002;
 
     // Ultrasonic-specific Sensor Input Configuration.
-    optional UltrasonicSensorInputConfiguration ultrasonic_sensor_input_configuration = 1003;
+    repeated UltrasonicSensorInputConfiguration ultrasonic_sensor_input_configurations = 1003;
 }
 
 //
