@@ -3,6 +3,7 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
+import "osi_version.proto";
 
 package osi;
 
@@ -63,6 +64,10 @@ package osi;
 //
 message SensorInputConfiguration
 {
+    // The interface version used by the sender (simulation environment).
+    //
+    optional InterfaceVersion version = 1100;    
+    
     // The mounting position of the sensor (origin and orientation of the sensor
     // coordinate system) given in vehicle coordinates [1].
     //
