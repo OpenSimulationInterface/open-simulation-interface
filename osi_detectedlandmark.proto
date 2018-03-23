@@ -442,9 +442,9 @@ message DetectedLandmark
 //
 message CandidateLandmark
 {
-    // The description of the road marking.
+    // The description of the landmark.
     //
-    optional RoadMarking road_marking = 1;
+    optional Landmark landmark = 1;
 
     // The estimated probability that this candidate is the true value.
     // The sum of all \c #candidate_probability must be one.
