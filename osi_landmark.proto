@@ -1472,3 +1472,65 @@ message RoadMarking
         COLOR_VIOLET = 8;
     }
 }
+
+//
+// \brief A landmark.
+// 
+// Landmarks for example the pole of a traffic light or traffic sign.
+//
+// All coordinates and orientations are relative to the global ground truth
+// coordinate system.
+//
+message Landmark
+{
+    // The ID of the road marking.
+    //
+    optional Identifier id = 1;
+
+    // The base parameters of the landmark.
+    //
+    optional BaseStationary base = 2;
+
+    // The type of the landmark.
+    //
+    optional Type type = 3;
+
+    // Definition of landmark types.
+    //
+    enum Type
+    {
+        // Type of landmark is unknown (must not be used in ground truth).
+        //
+        TYPE_UNKNOWN = 0;
+        
+        // Other (unspecified but known) type of landmark.
+        //
+        TYPE_OTHER = 1;
+        
+        // Landmarks corresponding to vertical structures in the environment, 
+        // like poles.
+        //
+        TYPE_VERTICAL_STRUCTURE = 2;
+        
+        // Landmarks corresponding to rectangular structures in the environment,
+        // like walls.
+        //
+        TYPE_RECTANGULAR_STRUCTURE = 3;
+        
+        // Landmarks corresponding to overhead structures in the environment, 
+        // like sign bridges.
+        //
+        TYPE_OVERHEAD_STRUCTURE = 4;
+        
+        // Landmarks corresponding to light sources or reflective structures in 
+        // the environment, like street lights or reflective poles on the road 
+        // boarder.
+        //
+        TYPE_REFLECTIVE_STRUCTURE = 5;
+        
+        // Landmarks corresponding to construction site elements in the 
+        // environment, like cones or beacons.
+        //
+        TYPE_CONSTRUCTION_SITE_ELEMENT = 6;
+    }
+}

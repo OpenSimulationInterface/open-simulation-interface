@@ -167,7 +167,15 @@ message SensorData
     // The list of lane boundary markings detected by the sensor.
     //
     repeated DetectedLaneBoundary lane_boundary = 14;
-        
+
+    // General information about the \c DetectedLandmark .
+    // 
+    optional DetectedEntityHeader landmarks_header = 1000;
+
+    // The list of landmarks detected by the sensor.
+    //
+    repeated DetectedLandmark landmarks = 1001;
+    
     // General information about the \c DetectedOccupant .
     // 
     optional DetectedEntityHeader occupant_header = 106;
@@ -214,7 +222,7 @@ message DetectedEntityHeader
 
     // Continuous up counter to identify the cycle.
     //
-    optional uint32 cycle_counter = 2;
+    optional uint64 cycle_counter = 2;
 
     // Data Qualifier expresses to what extent the content of this event can be
     // relied on.
