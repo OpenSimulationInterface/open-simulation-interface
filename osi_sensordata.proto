@@ -11,6 +11,7 @@ import "osi_groundtruth.proto";
 import "osi_sensorview.proto";
 import "osi_featuredata.proto";
 import "osi_hostvehicledata.proto";
+import "osi_version.proto";
 
 package osi;
 
@@ -26,6 +27,10 @@ package osi;
 //
 message SensorData
 {  
+    // The interface version used by the sender (simulation environment).
+    //
+    optional InterfaceVersion version = 1100;
+
     // The ID of the sensor at host vehicle's mounting_position.
     //
     // This ID can equal \c DetectionHeader::sensor_id, if SensorData holds only
