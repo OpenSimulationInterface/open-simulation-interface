@@ -161,13 +161,13 @@ message SensorData
     //
     repeated DetectedLaneBoundary lane_boundary = 14;
 
-    // General information about the \c DetectedLandmark .
+    // General information about the \c DetectedStationaryObject .
     // 
-    optional DetectedEntityHeader landmarks_header = 1000;
+    optional DetectedEntityHeader stationary_object_header = 1000;
 
-    // The list of landmarks detected by the sensor.
+    // The list of stationary objects (e.g. landmarks) detected by the sensor.
     //
-    repeated DetectedLandmark landmarks = 1001;
+    repeated DetectedStationaryObject stationary_object = 1001;
     
     // General information about the \c DetectedOccupant .
     // 
