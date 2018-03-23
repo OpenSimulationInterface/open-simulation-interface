@@ -32,11 +32,6 @@ message FeatureData
 //
 message SensorDetectionHeader
 {
-    // Version number of used detection list messages ( \c SensorDetectionHeader, 
-    // \c LidarDetection, \c LidarDetectionList etc.).
-    // 
-    optional DetectionInterfaceVersion version = 1;
-
     // Time stamp at which the measurement was taken (not the time at which it
     // was processed or at which it is transmitted) in the global synchronized
     // time.
@@ -130,25 +125,6 @@ message SensorDetectionHeader
         // Sensor temporary available.
         //
         DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
-    }
-
-    //
-    // \brief Version of detection messages ( \c SensorDetectionHeader, 
-    // \c LidarDetection, \c LidarDetectionList etc.).
-    //
-    message DetectionInterfaceVersion
-    {
-        // Major version number.
-        //
-        optional uint32 version_major = 1;
-        
-        // Minor version number.
-        //
-        optional uint32 version_minor = 2;
-        
-        // Patch version number.
-        //
-        optional uint32 version_patch = 3;
     }
 }
 
