@@ -39,6 +39,9 @@ foreach(LINE ${VERSION_CONTENTS})
 endforeach()
 set(OPEN_SIMULATION_INTERFACE_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
+set(INSTALL_LIB_DIR ${INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
+set(INSTALL_INCLUDE_DIR ${INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
+
 configure_file(osi_version.proto.in ${CMAKE_CURRENT_SOURCE_DIR}/osi_version.proto)
 
 find_package(Protobuf 2.6.1 REQUIRED)
@@ -105,7 +108,6 @@ install(TARGETS ${PROJECT_NAME}_pic
         EXPORT ${PROJECT_NAME}_targets
         ARCHIVE DESTINATION "${INSTALL_LIB_DIR}" COMPONENT lib)
 
-
 add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:${PROJECT_NAME}_obj>)
 target_include_directories(${PROJECT_NAME}
     PUBLIC
@@ -141,7 +143,7 @@ install(FILES
 
 # Header files
 install(FILES ${PROTO_HEADERS}
-        DESTINATION "${CMAKE_INSTALL_PREFIX}/${INSTALL_INCLUDE_DIR}")
+        DESTINATION "${INSTALL_INCLUDE_DIR}")
 
 # Install the export set for use with the install-tree
 install(EXPORT ${PROJECT_NAME}_targets
