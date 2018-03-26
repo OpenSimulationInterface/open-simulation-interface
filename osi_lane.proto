@@ -81,10 +81,10 @@ message Lane
     // Example: The lane ID 2 is the only left adjacent lane for lane ID 3 in
     // the reference picture.
     //
-    // \note The \c #left_adjacent_lane_id_list is undefined for \c #type =
+    // \note The \c #left_adjacent_lane_ids is undefined for \c #type =
     // \c #TYPE_INTERSECTION .
     //
-    repeated Identifier left_adjacent_lane_id_list = 5;
+    repeated Identifier left_adjacent_lane_ids = 5;
 
     // List of IDs of all lane segments that are directly adjacent to the lane
     // on the right side (w.r.t. intended driving direction). Note that lengths
@@ -95,10 +95,10 @@ message Lane
     // not a right adjacent lane to lane ID 3 as they are separated by lane ID 
     // 7.
     //
-    // \note The \c #right_adjacent_lane_id_list is undefined for \c #type = 
+    // \note The \c #right_adjacent_lane_ids is undefined for \c #type = 
     // \c #TYPE_INTERSECTION .
     //
-    repeated Identifier right_adjacent_lane_id_list = 6;
+    repeated Identifier right_adjacent_lane_ids = 6;
 
     // The antecessor/successor lane pairings of this lane. There can be
     // multiple pairings with the same antecessor and different successor lanes
@@ -112,25 +112,25 @@ message Lane
     // The ID of the right boundary ID of the right lane ID w.r.t. the driving
     // direction. Empty for intersections.
     //
-    // \note The \c #right_lane_boundary_id_list is undefined for \c #type =
+    // \note The \c #right_lane_boundary_ids is undefined for \c #type =
     // \c #TYPE_INTERSECTION .
     //
-    repeated Identifier right_lane_boundary_id_list = 8;
+    repeated Identifier right_lane_boundary_ids = 8;
 
     // The ID of the left boundary ID of the left lane ID w.r.t. the driving
     // direction. Empty for intersections.
     //
-    // \note The \c #left_lane_boundary_id_list is undefined for \c #type =
+    // \note The \c #left_lane_boundary_ids is undefined for \c #type =
     // \c #TYPE_INTERSECTION .
     //
-    repeated Identifier left_lane_boundary_id_list = 9;
+    repeated Identifier left_lane_boundary_ids = 9;
 
     // The ID of the free boundary ID.
     //
     // \note \c Lanes with \c #type = \c #TYPE_INTERSECTION use only free
     // lane boundaries.
     //
-    repeated Identifier free_lane_boundary_id_list = 10;
+    repeated Identifier free_lane_boundary_ids = 10;
 
     // A lane framing describes the surroundings of the lane segment.
     //

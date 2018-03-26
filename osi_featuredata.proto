@@ -18,13 +18,13 @@ package osi;
 //
 message FeatureData
 {
-    // Lidar detection list for multiple lidar sensors.
+    // Lidar detections for multiple lidar sensors (sensor fusion).
     //
-    repeated LidarDetectionList multiple_lidar_detections = 1;
+    repeated LidarDetectionData lidar_sensors = 1;
 
-    // Radar detection list for multiple radar sensors.
+    // Radar detections for multiple radar sensors (sensor fusion).
     //
-    repeated RadarDetectionList multiple_radar_detections = 2;
+    repeated RadarDetectionData radar_sensors = 2;
 }
 
 //
@@ -33,7 +33,7 @@ message FeatureData
 message SensorDetectionHeader
 {
     // Version number of used detection list messages (\c SensorDetectionHeader, 
-    // \c LidarDetection, \c LidarDetectionList etc.).
+    // \c LidarDetection, \c LidarDetectionData etc.).
     // 
     optional DetectionInterfaceVersion version = 1;
 
@@ -142,7 +142,7 @@ message SensorDetectionHeader
 
     //
     // \brief Version of detection messages ( \c SensorDetectionHeader, 
-    // \c LidarDetection, \c LidarDetectionList etc.).
+    // \c LidarDetection, \c LidarDetectionData etc.).
     //
     message DetectionInterfaceVersion
     {
@@ -161,9 +161,9 @@ message SensorDetectionHeader
 }
 
 //
-// \brief A list of lidar detection from one sensor.
+// \brief Data from one lidar sensor including a list of detections.
 //
-message LidarDetectionList
+message LidarDetectionData
 {
     // Header attributes of lidar detection from one lidar sensor.
     //
@@ -235,9 +235,9 @@ message LidarDetection
 }
 
 //
-// \brief A list of radar detections from one sensor.
+// \brief Data from one radar sensor including a list of detections.
 //
-message RadarDetectionList
+message RadarDetectionData
 {    
     // Header attributes of radar detection from one radar sensor.
     //

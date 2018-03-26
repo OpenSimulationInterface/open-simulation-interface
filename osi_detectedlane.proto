@@ -14,7 +14,7 @@ package osi;
 message DetectedLane
 {
     // Specific ID of the detected lane as assigned by the sensor internally.
-    // Need not match with \c #ground_truth_id_list IDs.
+    // Need not match with \c #ground_truth_ids IDs.
     //
     optional Identifier tracking_id = 2;
 
@@ -23,7 +23,7 @@ message DetectedLane
     // ground truth (as lane segment definitions may vary between sensor and
     // ground truth).
     //
-    repeated Identifier ground_truth_id_list = 3;
+    repeated Identifier ground_truth_ids = 3;
 
     // The amount of time that this detected object has been currently 
     // observed/tracked.
@@ -58,7 +58,7 @@ message DetectedLane
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id_list = 6;    
+    repeated Identifier sensor_ids = 6;    
 }
 
 //
@@ -134,5 +134,5 @@ message DetectedLaneBoundary
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id_list = 11;    
+    repeated Identifier sensor_ids = 11;    
 }

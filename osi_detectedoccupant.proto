@@ -22,28 +22,17 @@ message DetectedOccupant
     //
     optional Identifier ground_truth_id = 4;
 
-    // The amount of time that this detected object has been currently 
-    // observed/tracked.
-    // 
-    // Unit: [s]
+    // The occupant as estimated by the sensor.
     //
-    optional double age = 1000;
+    optional EssentialOccupant occupant = 5;
 
-    // The measurement state.
-    //
-    optional MeasurementState measurement_state = 6;
-
-    // The detected vehicle occupant.
-    //
-    optional Occupant occupant = 3;
-
-    // The estimated probability that this occupant really exists, not based on
-    // history.
+    // The estimated probability that this occupant really exists, not
+    // based on history.
     //
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    optional double existence_probability = 5;
+    optional double existence_probability = 6;
 
     // A list of sensors which detected this detected entity.
     //
@@ -54,5 +43,50 @@ message DetectedOccupant
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id_list = 7;    
+    repeated Identifier sensor_ids = 7;
+
+    //
+    // \brief Candidates for a detected occupant as estimated by the sensor.
+    //
+    message EssentialOccupant
+    {
+        // A list of candidates for this occupant as estimated by the
+        // sensor.
+        // 
+        repeated CandidateOccupant candidates = 4;
+
+        // The root mean squared error of the base parameters of the detected
+        // occupant's geometry. \c Occupant::base has to be identical
+        // for all \c #candidates occupants.
+        //
+        optional BaseStationary base_rmse = 5;
+    
+        //
+        // \brief A candidate for a detected occupant as estimated by
+        // the sensor.
+        //
+        message CandidateOccupant
+        {
+            // The detected vehicle occupant.
+            //
+            optional Occupant occupant = 1;
+
+            // The estimated probability that this candidate is the true value. 
+            // The sum of all \c #candidate_probability must be one.
+            //
+            // Range: [0,1]
+            //
+            optional double candidate_probability = 2;
+
+            // The amount of time that this detected object has been currently 
+            // observed/tracked.
+            // 
+            // Unit: [s]
+            optional double age = 3;
+
+            // The measurement state.
+            //
+            optional MeasurementState measurement_state = 4;
+        }
+    }
 }
