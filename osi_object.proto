@@ -14,16 +14,16 @@ package osi;
 // coordinates is calculated as:  base.position + R * bbcenter_to_rear (front)
 // for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
 // orientation of base.orientation).
-// 
+//
 // For all vehicles, including host vehicles, the position given in
 // base.position points to the center of the vehicle's bounding box.
 //
-// The vehicle object coordinates are defined as x-axis is the direction from 
-// rear to front of the vehicle, y-axis corresponds to rear axle and z-axis 
+// The vehicle object coordinates are defined as x-axis is the direction from
+// rear to front of the vehicle, y-axis corresponds to rear axle and z-axis
 // points to vehicle ceiling [1]. The coordinate system is right-handed.
-// Therefore the positive y-axis points to the left of the vehicle. 
+// Therefore the positive y-axis points to the left of the vehicle.
 //
-// \par References: 
+// \par References:
 // \li [1] DIN ISO 8855:2013-11
 //
 message Vehicle
@@ -49,15 +49,19 @@ message Vehicle
     optional bool host_vehicle = 5;
 
     // The vector pointing from the bounding box center point (base.position) to
-    // the middle (in x, y and z) of the rear axle under neutral load 
+    // the middle (in x, y and z) of the rear axle under neutral load
     // conditions. In object coordinates.
+    //
     optional Vector3d bbcenter_to_rear = 6;
 
     // The IDs of the lanes that this vehicle is assigned to.
     //
-    // \note Might be multiple if the vehicle is switching lanes or moving from 
+    // \note Might be multiple if the vehicle is switching lanes or moving from
     // one lane into another following lane.
-    repeated Identifier assigned_lanes = 7;
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier assigned_lane = 7;
 
     // Flag defining whether the vehicle has an attached trailer.
     //
@@ -74,12 +78,12 @@ message Vehicle
     // \note Field need not be set if host_vehicle is set to false or use value
     // for non valid id.
     optional Identifier driver = 10;
-    
+
     // The vector pointing from the bounding box center point (base.position) to
-    // the middle (in x, y and z) of the front axle under neutral load 
+    // the middle (in x, y and z) of the front axle under neutral load
     // conditions. In object coordinates.
     optional Vector3d bbcenter_to_front = 11;
-    
+
     // Static minimal distance in [m] of under-body plane to ground
     // surface plane (i.e. disregarding driving dynamic effects or road
     // surface effects) under neutral load conditions. Can be useful to
@@ -94,27 +98,27 @@ message Vehicle
         // Type of vehicle is unknown (must not be used in ground truth).
         //
         TYPE_UNKNOWN = 0;
-        
+
         // Other (unspecified but known) type of vehicle.
         //
         TYPE_OTHER = 1;
-        
+
         // Vehicle is a normal car.
         //
         TYPE_CAR = 2;
-        
+
         // Vehicle is a truck, bus, or large van.
         //
         TYPE_TRUCK = 3;
-        
+
         // Vehicle is a motorbike or moped.
         //
         TYPE_MOTORBIKE = 4;
-        
+
         // Vehicle is a bicycle (without motor and specific lights).
         //
         TYPE_BICYCLE = 5;
-        
+
         // Vehicle is a trailer (possibly attached to another vehicle).
         //
         TYPE_TRAILER = 6;
@@ -164,23 +168,23 @@ message Vehicle
             // Indicator state is unknown (must not be used in ground truth).
             //
             INDICATOR_STATE_UNKNOWN = 0;
-        
+
             // Other (unspecified but known) state of indicator.
             //
             INDICATOR_STATE_OTHER = 1;
-        
+
             // Indicators are off.
             //
             INDICATOR_STATE_OFF = 2;
-            
+
             // Left indicator is on.
             //
             INDICATOR_STATE_LEFT = 3;
-            
+
             // Right indicator is on.
             //
             INDICATOR_STATE_RIGHT = 4;
-            
+
             // Hazard/warning light, i.e. both indicators, are on.
             //
             INDICATOR_STATE_WARNING = 5;
@@ -193,15 +197,15 @@ message Vehicle
             // Light state is unknown (must not be used in ground truth).
             //
             GENERIC_LIGHT_STATE_UNKNOWN = 0;
-            
+
             // Other (unspecified but known) state of light.
             //
             GENERIC_LIGHT_STATE_OTHER = 1;
-            
+
             // Light is off.
             //
              GENERIC_LIGHT_STATE_OFF = 2;
-            
+
             // Light is on.
             //
             GENERIC_LIGHT_STATE_ON = 3;
@@ -214,19 +218,19 @@ message Vehicle
             // Brake light state is unknown (must not be used in ground truth).
             //
             BRAKE_LIGHT_STATE_UNKNOWN = 0;
-             
+
             // Other (unspecified but known) state of brake light.
             //
             BRAKE_LIGHT_STATE_OTHER = 1;
-             
+
             // Brake lights are off.
             //
             BRAKE_LIGHT_STATE_OFF = 2;
-            
+
             // Brake lights are on with normal intensity.
             //
             BRAKE_LIGHT_STATE_NORMAL = 3;
-            
+
             // Brake lights are on with extra bright intensity (indicating
             // stronger braking).
             BRAKE_LIGHT_STATE_STRONG = 4;
@@ -260,15 +264,15 @@ message MovingObject
         // Type of the object is unknown (must not be used in ground truth).
         //
         TYPE_UNKNOWN = 0;
-        
+
         // Other (unspecified but known) type of moving object.
         //
         TYPE_OTHER = 1;
-        
+
         // Object is a pedestrian.
         //
         TYPE_PEDESTRIAN = 2;
-        
+
         // Object is an animal.
         //
         TYPE_ANIMAL = 3;
@@ -276,8 +280,8 @@ message MovingObject
 }
 
 //
-// \brief A simulated object that is neither a moving object (vehicle or 
-// \c MovingObject e.g. pedestrian or animal) nor a stationary object 
+// \brief A simulated object that is neither a moving object (vehicle or
+// \c MovingObject e.g. pedestrian or animal) nor a stationary object
 // (traffic sign, traffic light).
 //
 // \c StationaryObject excludes traffic lights and traffic signs
@@ -303,27 +307,27 @@ message StationaryObject
         // Type of the object is unknown (must not be used in ground truth).
         //
         TYPE_UNKNOWN = 0;
-        
+
         // Other (unspecified but known) type of object.
         //
         TYPE_OTHER = 1;
-        
+
         // Object is a bridge.
         //
         TYPE_BRIDGE = 2;
-        
+
         // Object is a building.
         //
         TYPE_BUILDING = 3;
-        
+
         // Object is a pylon.
         //
         TYPE_PYLON = 4;
-        
+
         // Object is a reflector post.
         //
         TYPE_REFLECTOR_POST = 5;
-        
+
         // Object is a delineator (e.g. at a construction site).
         //
         TYPE_DELINEATOR = 6;

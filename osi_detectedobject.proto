@@ -15,13 +15,15 @@ package osi;
 message DetectedObject
 {
     // Specific ID of the object as assigned by the sensor internally. Need not
-    // match with ground_truth_id.
+    // match with \c #ground_truth_id.
     //
     optional Identifier tracking_id = 1;
 
     // The ID of the original object in the ground truth list of vehicles /
     // objects etc. Multiple entries if detected object is a merge of multiple
     // ground truth objects.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Identifier ground_truth_id = 2;
 
@@ -40,7 +42,7 @@ message DetectedObject
     //
     optional BaseMoving object = 5;
 
-    // The root mean squared error of the base parameters in object (cross 
+    // The root mean squared error of the base parameters in object (cross
     // correlations are currently neglected).
     //
     optional BaseMoving object_rmse = 6;
@@ -49,7 +51,7 @@ message DetectedObject
     // (required to decouple sensor measurement, position and bounding box
     // estimation) as used by the sensor (model).
     //
-    // \note Note that the value of this field has no impact on the value of 
+    // \note Note that the value of this field has no impact on the value of
     // object.position, which always references the center of the object /
     // bounding box.
     //
@@ -73,10 +75,10 @@ message DetectedObject
     optional Vehicle.LightState light_state = 10;
 
     // Additional internal data and state flags required and used by the
-    // sensor-models, should not be used by subscribers to SensorData. Generally 
+    // sensor-models, should not be used by subscribers to SensorData. Generally
     // this field should be cleared after internal processing.
     //
-    // \note optional. List of used detections to recognize this object. 
+    // \note optional. List of used detections to recognize this object.
     // Detections have also an identifier to reference to the detected object.
     //
     optional ModelInternalObject model_internal_object = 11;
@@ -101,7 +103,7 @@ message DetectedObject
 
     // Additional data that is specific to ultrasonic sensors.
     //
-    // \note Field need not be set if simulated sensor is not an ultrasonic 
+    // \note Field need not be set if simulated sensor is not an ultrasonic
     // sensor.
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 15;
@@ -109,30 +111,30 @@ message DetectedObject
     // The estimated probabilities for the object to belong to a specific class.
     //
     optional ClassProbability class_probability = 16;
-    
+
     // Pedestrian head pose for behavior prediction. Describes the head
     // orientation w.r.t. the host vehicle orientation.
-    // The x-axis of the right-handed head frame is pointing along the 
-    // pedestrian's straight ahead viewing direction and the z-axis is pointing 
+    // The x-axis of the right-handed head frame is pointing along the
+    // pedestrian's straight ahead viewing direction and the z-axis is pointing
     // upwards (cranial direction [1] i.e. to pedestrian's skull cap).
     //
-    // View_normal_base_coord_system = Inverse_Rotation(head_pose)*Unit_vector_x 
+    // View_normal_base_coord_system = Inverse_Rotation(head_pose)*Unit_vector_x
     //
-    // \par References: 
+    // \par References:
     // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     //
     optional Orientation3d head_pose = 17;
 
     // Pedestrian upper body pose for behavior prediction. Describes the
     // upper body orientation w.r.t. the host vehicle orientation.
-    // The x-axis of the right-handed upper body frame is pointing along the 
-    // pedestrian's upper body ventral direction [2] (i.e. usually pedestrian's 
-    // intended moving direction) and the z-axis is pointing upwards (to 
+    // The x-axis of the right-handed upper body frame is pointing along the
+    // pedestrian's upper body ventral direction [2] (i.e. usually pedestrian's
+    // intended moving direction) and the z-axis is pointing upwards (to
     // pedestrian's head).
     //
-    // View_normal_base_coord_system = Inverse_Rotation(upper_body_pose)*Unit_vector_x 
+    // View_normal_base_coord_system = Inverse_Rotation(upper_body_pose)*Unit_vector_x
     //
-    // \par References: 
+    // \par References:
     // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     //
     optional Orientation3d upper_body_pose = 18;
@@ -148,71 +150,73 @@ message DetectedObject
     // Percentage value of the object width in the corresponding lane.
     //
     optional double percentage_side_lane_right = 20;
-    
+
     // A list of sensors which detected this detected entity.
     //
-    // If SensorData has detected entities and all detections are missing, then 
+    // If SensorData has detected entities and all detections are missing, then
     // e.g. the number of sensors can confirm the existence_probability.
-    // 
+    //
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id = 21;    
-    
-    // Definition of available reference points. Left/middle/right and 
-    // front/middle/rear indicate the position in y- and x-direction 
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier sensor_id = 21;
+
+    // Definition of available reference points. Left/middle/right and
+    // front/middle/rear indicate the position in y- and x-direction
     // respectively. The z position is always considered as middle.
     //
     enum ReferencePoint
     {
-        // Reference point is unknown, i.e. sensor does not report a reference 
+        // Reference point is unknown, i.e. sensor does not report a reference
         // point for the position coordinate.
         // Value must not be used in ground truth data.
-        // Usually this means that the reference point for the given position 
-        // coordinates is a largely arbitrary point within the bounding volume 
-        // unknown to the sensor. If this value is set, the center of the 
-        // bounding box should be used as reference point by convention, unless 
+        // Usually this means that the reference point for the given position
+        // coordinates is a largely arbitrary point within the bounding volume
+        // unknown to the sensor. If this value is set, the center of the
+        // bounding box should be used as reference point by convention, unless
         // the specific use case requires otherwise.
         //
         REFERENCE_POINT_UNKNOWN = 0;
-        
+
         // Other (unspecified but known) reference point.
         //
         REFERENCE_POINT_OTHER = 1;
-        
+
         // Center of the bounding box.
         //
         REFERENCE_POINT_CENTER = 2;
-        
+
         // Middle-Left of the bounding box.
         //
         REFERENCE_POINT_MIDDLE_LEFT = 3;
-        
+
         // Middle-Right of the bounding box.
         //
         REFERENCE_POINT_MIDDLE_RIGHT = 4;
-        
+
         // Rear-Middle of the bounding box.
         //
         REFERENCE_POINT_REAR_MIDDLE = 5;
-        
+
         // Rear-Left of the bounding box.
         //
         REFERENCE_POINT_REAR_LEFT = 6;
-        
+
         // Rear-Right of the bounding box.
         //
         REFERENCE_POINT_REAR_RIGHT = 7;
-        
+
         // Front-Middle of the bounding box.
         //
         REFERENCE_POINT_FRONT_MIDDLE = 8;
-        
+
         // Front-Left of the bounding box.
         //
         REFERENCE_POINT_FRONT_LEFT = 9;
-        
+
         // Front-Right of the bounding box.
         //
         REFERENCE_POINT_FRONT_RIGHT = 10;
@@ -245,12 +249,12 @@ message DetectedObject
     }
 
     //
-    // \brief Probabilities for the classification of the object as perceived by 
+    // \brief Probabilities for the classification of the object as perceived by
     // the sensor.
     //
     message ClassProbability
     {
-        // Probability that the object has unknown type. 
+        // Probability that the object has unknown type.
         //
         // Range: [0,1]
         //
@@ -267,44 +271,44 @@ message DetectedObject
         // Range: [0,1]
         //
         optional double prob_car = 3;
-        
-        // Probability that the object is a heavy truck. 
+
+        // Probability that the object is a heavy truck.
         //
         // Range: [0,1]
         //
         optional double prob_heavy_truck = 4;
-        
-        // Probability that the object is a van. 
+
+        // Probability that the object is a van.
         //
         // Range: [0,1]
         //
         optional double prob_van = 5;
 
-        // Probability that the object is a bus. 
+        // Probability that the object is a bus.
         //
         // Range: [0,1]
         //
         optional double prob_bus = 6;
 
-        // Probability that the object is a trailer. 
+        // Probability that the object is a trailer.
         //
         // Range: [0,1]
         //
         optional double prob_trailer = 7;
 
-        // Probability that the object is a semitrailer. 
+        // Probability that the object is a semitrailer.
         //
         // Range: [0,1]
         //
         optional double prob_semitrailer = 8;
 
-        // Probability that the object is a tram. 
+        // Probability that the object is a tram.
         //
         // Range: [0,1]
         //
         optional double prob_tram = 9;
 
-        // Probability that the object is a train. 
+        // Probability that the object is a train.
         //
         // Range: [0,1]
         //
@@ -312,43 +316,43 @@ message DetectedObject
         //
         optional double prob_train = 10;
 
-        // Probability that the object is a motorbike. 
+        // Probability that the object is a motorbike.
         //
         // Range: [0,1]
         //
         optional double prob_motorbike = 11;
-        
-        // Probability that the object is a bicycle. 
+
+        // Probability that the object is a bicycle.
         //
         // Range: [0,1]
         //
         optional double prob_bicycle = 12;
-        
-        // Probability that the object is a pedestrian. 
+
+        // Probability that the object is a pedestrian.
         //
         // Range: [0,1]
         //
         optional double prob_pedestrian = 13;
 
-        // Probability that the object is a wheelchair. 
+        // Probability that the object is a wheelchair.
         //
         // Range: [0,1]
         //
         optional double prob_wheelchair = 14;
-        
-        // Probability that the object is an animal. 
+
+        // Probability that the object is an animal.
         //
         // Range: [0,1]
         //
         optional double prob_animal = 15;
 
-        // Probability that the object is a stationary object. 
+        // Probability that the object is a stationary object.
         //
         // Range: [0,1]
         //
         optional double prob_stationary = 16;
 
-        // Probability that the object is an unspecified but known vehicle. 
+        // Probability that the object is an unspecified but known vehicle.
         //
         // Range: [0,1]
         //

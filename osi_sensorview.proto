@@ -64,7 +64,9 @@ message RadarSensorView
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think scan lines in a TV).
     //
-    repeated Reflection reflections = 2;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Reflection reflection = 2;
 
     //
     // \brief Definition of the radar reflection.
@@ -135,7 +137,9 @@ message LidarSensorView
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think scan lines in a TV).
     //
-    repeated Reflection reflections = 2;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Reflection reflection = 2;
 
     //
     // \brief Definition of the lidar reflection.

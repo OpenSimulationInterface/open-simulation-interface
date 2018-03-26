@@ -14,7 +14,7 @@ package osi;
 message DetectedLane
 {
     // Specific ID of the detected lane as assigned by the sensor internally.
-    // Need not match with \c #ground_truth_ids IDs.
+    // Need not match with \c #ground_truth_id IDs.
     //
     optional Identifier tracking_id = 2;
 
@@ -23,19 +23,21 @@ message DetectedLane
     // ground truth (as lane segment definitions may vary between sensor and
     // ground truth).
     //
-    repeated Identifier ground_truth_ids = 3;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier ground_truth_id = 3;
 
-    // The amount of time that this detected object has been currently 
+    // The amount of time that this detected object has been currently
     // observed/tracked.
-    // 
+    //
     // Unit: [s]
     //
     optional double age = 1000;
-    
+
     // The measurement state of the detected object.
     //
     optional MeasurementState measurement_state = 1001;
-    
+
     // The detected lane.
     //
     optional Lane lane = 4;
@@ -47,18 +49,20 @@ message DetectedLane
     // and a high value indicates strong confidence.
     //
     optional double existence_probability = 5;
-   
+
     // A list of sensors which detected this detected entity.
     //
     // If \c SensorData has detected entities and all detections are missing,
     // then e.g. the number of sensors can confirm the
     // \c #existence_probability.
-    // 
+    //
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_ids = 6;    
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier sensor_id = 6;
 }
 
 //
@@ -78,9 +82,9 @@ message DetectedLaneBoundary
     //
     optional Identifier ground_truth_id = 3;
 
-    // The amount of time that this detected object has been currently 
+    // The amount of time that this detected object has been currently
     // observed/tracked.
-    // 
+    //
     // Unit: [s]
     //
     optional double age = 1000;
@@ -110,29 +114,31 @@ message DetectedLaneBoundary
     //
     optional double color_confidence = 8;
 
-    // The root mean squared error of the \c BoundaryPoint information from a 
+    // The root mean squared error of the \c BoundaryPoint information from a
     // \c LaneBoundary.
     // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
     // one \c #boundary_line_points_rmse rmse information exist.
     //
     repeated BoundaryPoint boundary_line_points_rmse = 9;
 
-    // Confidence of the segments of the \c BoundaryPoint information from a 
+    // Confidence of the segments of the \c BoundaryPoint information from a
     // \c LaneBoundary.
     // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
     // one \c #boundary_line_points_confidences confidence value is specified.
     //
     repeated double boundary_line_points_confidences = 10;
-   
+
     // A list of sensors which detected this detected entity.
     //
     // If \c SensorData has detected entities and all detections are missing,
-    // then e.g. the number of sensors can confirm the 
+    // then e.g. the number of sensors can confirm the
     // \c #existence_probability.
-    // 
+    //
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_ids = 11;    
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier sensor_id = 11;
 }

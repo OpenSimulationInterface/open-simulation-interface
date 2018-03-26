@@ -43,27 +43,27 @@ message ModelInternalObject
         // Object is a ghost object and does not exist in ground truth.
         //
         OBJECT_TYPE_GHOST = 0;
-        
+
         // Other (unspecified but known) type of object.
         //
         OBJECT_TYPE_OTHER = 1;
-        
+
         // Object of type \c Vehicle.
         //
         OBJECT_TYPE_VEHICLE = 2;
-        
+
         // Object of type \c MovingObject.
         //
         OBJECT_TYPE_MOVING = 3;
-        
+
         // Object of type \c StationaryObject.
         //
         OBJECT_TYPE_STATIONARY = 4;
-        
+
         // Object of type \c TrafficSign.
         //
         OBJECT_TYPE_TRAFFIC_SIGN = 5;
-        
+
         // Object of type \c TrafficLight.
         //
         OBJECT_TYPE_TRAFFIC_LIGHT = 6;

@@ -18,7 +18,7 @@ package osi;
 // This ground truth information is supposed to describe the whole simulated
 // environment around any simulated vehicle. For each simulated host vehicle
 // (there may be one or multiple), define an area around the vehicle which
-// is greater than the combined field of views (FOV) of all obstructed sensors 
+// is greater than the combined field of views (FOV) of all obstructed sensors
 // in the vehicle. The ground truth data is supposed to describe the convex
 // hull of all such areas w.r.t. a global simulation coordinate system.
 //
@@ -44,10 +44,10 @@ message GroundTruth
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. The zero time point is
-    // arbitrary but must be identical for all messages. 
+    // arbitrary but must be identical for all messages.
     // Recommendation: Zero time point for start point of the simulation.
     //
-    // \note Zero time point does not need to coincide with the UNIX epoch. 
+    // \note Zero time point does not need to coincide with the UNIX epoch.
     //
     // \note For ground truth data this timestamp coincides both with the
     // notional simulation time the data applies to and the time it was sent
@@ -58,59 +58,79 @@ message GroundTruth
 
     // The list of (host) vehicles.
     //
-    repeated Vehicle vehicles = 3;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Vehicle vehicle = 3;
 
     // The list of all other moving objects (i.e. excluding vehicles).
     //
-    repeated MovingObject moving_objects = 4;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated MovingObject moving_object = 4;
 
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
     //
-    repeated StationaryObject stationary_objects = 5;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated StationaryObject stationary_object = 5;
 
     // The list of traffic signs.
     //
-    repeated TrafficSign traffic_signs = 6;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated TrafficSign traffic_sign = 6;
 
     // The list of traffic lights.
     //
-    repeated TrafficLight traffic_lights = 7;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated TrafficLight traffic_light = 7;
 
     // The list of road surface markings (lane markings are excluded and
     // defined as \c LaneBoundary).
     //
-    repeated RoadMarking road_markings = 8;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated RoadMarking road_marking = 8;
 
     // The list of lanes forming a road network.
     //
-    repeated Lane lanes = 9;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Lane lane = 9;
 
     // The list of lane boundaries.
     //
-    repeated LaneBoundary lane_boundaries = 10;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated LaneBoundary lane_boundary = 10;
 
     // The list of landmarks.
     //
-    repeated Landmark landmarks = 1000;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Landmark landmark = 1000;
 
     // The list of passengers in the (host) vehicle(s).
     //
-    repeated Occupant occupants = 11;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Occupant occupant = 11;
 
     // Conditions of the environment.
     //
     optional EnvironmentalConditions environmental_conditions = 12;
 
     // The ISO country code in 3 digit numeric format according to:
-    // ISO Code 3166/1 [1,2]. 
+    // ISO Code 3166/1 [1,2].
     // E.g. Germany = 276, USA = 840.
     //
     // Unit: []
     //
-    // \par References: 
-    // \li [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions - Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/) 
-    // \li [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1) 
+    // \par References:
+    // \li [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions - Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/)
+    // \li [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
     //
     optional uint32 country_code = 13;
 }
