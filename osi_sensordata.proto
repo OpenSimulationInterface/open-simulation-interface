@@ -2,36 +2,44 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_version.proto";
 import "osi_common.proto";
 import "osi_detectedlandmark.proto";
 import "osi_detectedlane.proto";
 import "osi_detectedobject.proto";
 import "osi_detectedoccupant.proto";
-import "osi_groundtruth.proto";
 import "osi_sensorview.proto";
 import "osi_featuredata.proto";
-import "osi_hostvehicledata.proto";
 
 package osi;
 
 //
-// \brief The virtual sensor information derived from \c GroundTruth and 
-// potentially processed by sensor-models.
+// \brief The sensor information derived from \c GroundTruth and processed by
+// sensor-models.
 //
-// The virtual sensor information is supposed to imitate the output of a real 
-// sensor. All information regarding the environment is given with respect to 
-// the sensor coordinate system specified in \c SensorData::mounting_position. 
-// When simulating multiple sensors, each sensor has an individual copy of the 
-// \c SensorData interface. This allows an independent treatment of the sensors.
+// The sensor information is supposed to imitate the output of real sensors.
+// All information regarding the environment is given with respect to
+// the virtual sensor coordinate system specified in
+// \c SensorData::mounting_position, except for feature data, which is given
+// with respect to the physical sensor coordinate system specified in the
+// corresponding physical sensor's coordinate system.
+//
+// When simulating multiple distinct sensors, each sensor can produce an
+// individual copy of the \c SensorData interface. This allows an independent
+// treatment of the sensors.
+//
+// Sensor fusion models can consolidate multiple \c SensorData interfaces into
+// one consolidated \c SensorData interface.  This can happen either in
+// seperate logical models, consuming and producing \c SensorData interfaces,
+// or it can happen as part of a combined sensor/logical model, that consumes
+// \c SensorView interfaces and directly produces one consolidated \c SensorData
+// output.
 //
 message SensorData
-{  
-    // The ID of the sensor at host vehicle's mounting_position.
+{
+    // The interface version used by the sender.
     //
-    // This ID can equal \c DetectionHeader::sensor_id, if SensorData holds only
-    // data from one sensor/sensor model.
-    //
-    optional Identifier sensor_id = 1;
+    optional InterfaceVersion version = 1;
 
     // The timestamp of the sensor data. Zero time is arbitrary but must be
     // identical for all messages. Zero time does not need to coincide with
@@ -60,48 +68,49 @@ message SensorData
     //
     optional Timestamp timestamp = 2;
 
-    // Ground truth w.r.t. global coordinate system
+    // The ID of the sensor at host vehicle's mounting_position.
     //
-    // This is the ground truth that is provided to the sensor model by the
-    // simulation environment.
-    // \note Should be used as constant in the sensor models.
-    // 
-    optional GroundTruth global_ground_truth = 3;
-    
-    // Sensor view w.r.t. the sensor coordinate system
+    // This is the ID of the virtual sensor, to be used in its detected
+    // object output; it is distinct from the IDs of its physical detectors,
+    // which are used in the detected features.
     //
-    // This provides additional data to the sensor model as configured in
-    // the sensor input configuration.  All data is relative to the sensor
-    // both in terms of the coordinate system, as well as the content.
-    // \note Should be used as constant in the sensor models.
-    // 
-    optional SensorView sensor_view = 4;
-    
-    // The ID of the host vehicle in the ground_truth data.
-    //    
-    optional Identifier host_vehicle_id = 5;
-    
-    // The mounting position of the sensor (origin and orientation of the sensor coordinate system)
-    // given in vehicle coordinates [1].
+    optional Identifier sensor_id = 3;
+
+    // The virtual mounting position of the sensor (origin and orientation
+    // of the sensor coordinate system) given in vehicle coordinates [1].
+    // The virtual position pertains to the sensor as a whole, regardless
+    // of the actual position of individual physical detectors, and governs
+    // the sensor-relative coordinates in detected objects of the sensor
+    // as a whole.  Individual features detected by individual physical
+    // detectors are governed by the actual physical mounting positions
+    // of the detectors, as indicated in the technology-specific sub-views
+    // and sub-view configurations.
     //
     // \arg \b x-direction of sensor coordinate system: sensor viewing direction
     // \arg \b z-direction of sensor coordinate system: sensor (up)
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z right hand system
     //
-    // \par References: 
+    // \par References:
     // [1] DIN ISO 8855:2013-11
     //
     // \note This field is usually static during the simulation.
-    // \note The origin of vehicle's coordinate system in world frame is 
+    // \note The origin of vehicle's coordinate system in world frame is
     // ( \c Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(\c Vehicle::base.orientation) * \c Vehicle::bbcenter_to_rear) .
-    // The orientation of the vehicle's coordinate system is equal to the orientation 
+    // The orientation of the vehicle's coordinate system is equal to the orientation
     // of the vehicle's bounding box \c Vehicle::base.orientation.
     //
-    optional MountingPosition mounting_position = 6;
+    optional MountingPosition mounting_position = 4;
 
     // The root mean squared error of the mounting position.
     //
-    optional MountingPosition mounting_position_rmse = 7;
+    optional MountingPosition mounting_position_rmse = 5;
+
+    // Sensor view w.r.t. the sensor coordinate system
+    //
+    // This provides a copy of the \c SensorView data received by the sensor
+    // for reference purposes.
+    //
+    optional SensorView sensor_view = 6;
 
     // The timestamp of the last real-world measurement (e.g. GT input) that
     // this set of sensor data takes into account.  This in effect is the last
@@ -109,94 +118,87 @@ message SensorData
     // \c SensorData::timestamp for a detailed discussion.  This value is also
     // the upper bound to the \c DetectedObjectHeader::measurement_time and the
     // feature data \c SensorDetectionHeader::measurement_time fields.
-    // 
-    optional Timestamp last_measurement_time = 8;
+    //
+    optional Timestamp last_measurement_time = 7;
 
     // General information about the \c DetectedObject .
-    // 
-    optional DetectedEntityHeader object_header = 100;
-    
+    //
+    optional DetectedEntityHeader object_header = 8;
+
     // The list of objects detected by the sensor as perceived by the sensor.
     //
     repeated DetectedObject object = 9;
-    
+
     // General information about the \c DetectedTrafficSign .
-    // 
-    optional DetectedEntityHeader traffic_sign_header = 101;
+    //
+    optional DetectedEntityHeader traffic_sign_header = 10;
 
     // The list of traffic signs detected by the sensor
     //
-    repeated DetectedTrafficSign traffic_sign = 10;
-        
+    repeated DetectedTrafficSign traffic_sign = 11;
+
     // General information about the \c DetectedTrafficLight .
-    // 
-    optional DetectedEntityHeader traffic_light_header = 102;
+    //
+    optional DetectedEntityHeader traffic_light_header = 12;
 
     // The list of traffic lights detected by the sensor
-    // 
-    repeated DetectedTrafficLight traffic_light = 11;
+    //
+    repeated DetectedTrafficLight traffic_light = 13;
 
     // General information about the \c DetectedRoadMarking .
-    // 
-    optional DetectedEntityHeader road_marking_header = 103;
+    //
+    optional DetectedEntityHeader road_marking_header = 14;
 
     // The list of road marking detected by the sensor.
     // This excludes lane boundary markings.
     //
-    repeated DetectedRoadMarking road_marking = 12;
-        
+    repeated DetectedRoadMarking road_marking = 15;
+
     // General information about the \c DetectedLane .
-    // 
-    optional DetectedEntityHeader lane_header = 104;
+    //
+    optional DetectedEntityHeader lane_header = 16;
 
     // The list of lane detected by the sensor
-    // 
-    repeated DetectedLane lane = 13;
-        
-    // General information about the \c DetectedLaneBoundary .
-    // 
-    optional DetectedEntityHeader lane_boundary_header = 105;
-
-    // The list of lane boundary markings detected by the sensor.
     //
-    repeated DetectedLaneBoundary lane_boundary = 14;
-
-    // General information about the \c DetectedLandmark .
-    // 
-    optional DetectedEntityHeader landmarks_header = 1000;
-
-    // The list of landmarks detected by the sensor.
-    //
-    repeated DetectedLandmark landmarks = 1001;
-    
-    // General information about the \c DetectedOccupant .
-    // 
-    optional DetectedEntityHeader occupant_header = 106;
-
-    // The list of occupants of the host vehicle
-    // 
-    repeated DetectedOccupant occupant = 16;
+    repeated DetectedLane lane = 17;
 
     // The ID of the lane the host vehicle travels on in the DetectedLane data,
     // relative to the sensor.
     //
-    optional Identifier host_vehicle_lane_id = 15;
-    
+    optional Identifier host_vehicle_lane_id = 18;
+
+    // General information about the \c DetectedLaneBoundary .
+    //
+    optional DetectedEntityHeader lane_boundary_header = 19;
+
+    // The list of lane boundary markings detected by the sensor.
+    //
+    repeated DetectedLaneBoundary lane_boundary = 20;
+
+    // General information about the \c DetectedLandmark .
+    //
+    optional DetectedEntityHeader landmarks_header = 21;
+
+    // The list of landmarks detected by the sensor.
+    //
+    repeated DetectedLandmark landmarks = 22;
+
+    // General information about the \c DetectedOccupant .
+    //
+    optional DetectedEntityHeader occupant_header = 23;
+
+    // The list of occupants of the host vehicle
+    //
+    repeated DetectedOccupant occupant = 24;
+
     // Low level feature data interface.
     //
     // Low Level feature data is optionally provided by sensor models that
     // model sensors giving access to this low level data, i.e. data prior to
     // object hypothesis and tracking.
     //
-    optional FeatureData feature_data = 17;
-    
-    // Host Vehicle Data
-    //
-    // Host vehicle data is data that the host vehicle knows about itself,
-    // e.g. from location sensors, internal sensors and ECU bus data, etc.,
-    // that is made available to sensors as input.
-    //
-    optional HostVehicleData host_vehicle_data_id = 18;
+    optional FeatureData feature_data = 25;
+
 }
 
 //
