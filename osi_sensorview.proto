@@ -135,7 +135,7 @@ message RadarSensorView
 {
     // Radar View Configuration valid at the time the data was created
     //
-    optional RadarSensorViewConfiguration radar_sensor_view_configuration = 1;
+    optional RadarSensorViewConfiguration view_configuration = 1;
 
     // Ray Tracing Data
     //
@@ -200,7 +200,7 @@ message LidarSensorView
 {
     // Lidar View Configuration valid at the time the data was created
     //
-    optional LidarSensorViewConfiguration lidar_sensor_view_configuration = 1;
+    optional LidarSensorViewConfiguration view_configuration = 1;
 
     // Ray Tracing Data
     //
@@ -250,7 +250,7 @@ message CameraSensorView
 
     // Camera View Configuration valid at the time the data was created
     //
-    optional CameraSensorViewConfiguration camera_sensor_view_configuration = 1;
+    optional CameraSensorViewConfiguration view_configuration = 1;
 
     // Raw Image Data
     //
@@ -269,6 +269,6 @@ message UltrasonicSensorView
 
     // Ultrasonic View Configuration valid at the time the data was created
     //
-    optional UltrasonicSensorViewConfiguration ultrasonic_sensor_view_configuration = 1;
+    optional UltrasonicSensorViewConfiguration view_configuration = 1;
 
 }

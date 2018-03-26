@@ -320,7 +320,7 @@ message RadarSensorViewConfiguration
 }
 
 //
-// \brief The configuration settings for the Lidar Sensor Input to be provided
+// \brief The configuration settings for the Lidar Sensor View to be provided
 // by the environment simulation.
 //
 message LidarSensorViewConfiguration
@@ -415,7 +415,7 @@ message LidarSensorViewConfiguration
 }
 
 //
-// \brief The configuration settings for the Camera Sensor Input to be provided
+// \brief The configuration settings for the Camera Sensor View to be provided
 // by the environment simulation.
 //
 message CameraSensorViewConfiguration
@@ -566,7 +566,7 @@ message CameraSensorViewConfiguration
 }
 
 //
-// \brief The configuration settings for the Ultrasonic Sensor Input to be
+// \brief The configuration settings for the Ultrasonic Sensor View to be
 // provided by the environment simulation.
 //
 message UltrasonicSensorViewConfiguration
