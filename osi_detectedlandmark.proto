@@ -45,10 +45,6 @@ message DetectedTrafficSign
     //
     optional double existence_probability = 7;
 
-    // The measurement state.
-    //
-    optional MeasurementState measurement_state = 8;
-
     // The root mean squared error of the base parameters of the detected
     // traffic sign. \c TrafficSign::base has to be identical for
     // all \c #candidate_signs traffic signs.
