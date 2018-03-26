@@ -31,7 +31,7 @@ message DetectedTrafficSign
     // A list of candidates for (a) possible supplementary sign(s) as estimated
     // by the sensor.
     //
-    repeated CandidateSupplementarySigns candidate_multiple_supplementary_signs = 5;
+    repeated CandidateSupplementarySignList candidate_supplementary_sign_lists = 5;
 
     // The detected geometry of the traffic sign.
     // 
@@ -168,12 +168,12 @@ message CandidateSign
 // \brief Candidates for all detected supplementary signs of one traffic sign
 // as estimated by the sensor.
 //
-message CandidateSupplementarySigns
+message CandidateSupplementarySignList
 {
     // The definition of one of more supplementary signs that together define
     // this candidate.
     //
-    repeated CandidateSupplementarySign candidate_signs = 1;
+    repeated CandidateSupplementarySign candidate_supplementary_signs = 1;
 
     // The root mean squared error of the base parameters of the detected
     // supplementary traffic sign. \c #candidate_signs
