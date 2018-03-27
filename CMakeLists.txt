@@ -62,7 +62,7 @@ set(OSI_PROTO_FILES
     osi_object.proto
     osi_occupant.proto
     osi_sensordata.proto
-    osi_sensorinputconfiguration.proto
+    osi_sensorviewconfiguration.proto
     osi_sensorspecific.proto
     osi_sensorview.proto
 )
