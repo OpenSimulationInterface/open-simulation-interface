@@ -510,54 +510,59 @@ message CameraSensorViewConfiguration
         // Type of channel format is unknown (must not be used).
         //
         CHANNEL_FORMAT_UNKNOWN = 0;
-
+    
+        // Unspecified but known channel format.
+        // Consider proposing an additional format if using #CHANNEL_FORMAT_OTHER.
+        //
+        CHANNEL_FORMAT_OTHER = 1;
+         
         // Single Luminance Channel UINT8 Linear.
         //
-        CHANNEL_FORMAT_MONO_U8_LIN = 1;
+        CHANNEL_FORMAT_MONO_U8_LIN = 2;
 
         // Single Luminance Channel UINT16 Linear.
         //
-        CHANNEL_FORMAT_MONO_U16_LIN = 2;
+        CHANNEL_FORMAT_MONO_U16_LIN = 3;
 
         // Single Luminance Channel UINT32 Linear.
         //
-        CHANNEL_FORMAT_MONO_U32_LIN = 3;
+        CHANNEL_FORMAT_MONO_U32_LIN = 4;
 
         // Single Luminance Channel Single Precision FP Linear.
         //
-        CHANNEL_FORMAT_MONO_F32_LIN = 4;
+        CHANNEL_FORMAT_MONO_F32_LIN = 5;
 
         // Packed RGB Channels (no padding) UINT8 Linear.
         //
-        CHANNEL_FORMAT_RGB_U8_LIN = 5;
+        CHANNEL_FORMAT_RGB_U8_LIN = 6;
 
         // Packed RGB Channels (no padding) UINT16 Linear.
         //
-        CHANNEL_FORMAT_RGB_U16_LIN = 6;
+        CHANNEL_FORMAT_RGB_U16_LIN = 7;
 
         // Packed RGB Channels (no padding) UINT32 Linear.
         //
-        CHANNEL_FORMAT_RGB_U32_LIN = 7;
+        CHANNEL_FORMAT_RGB_U32_LIN = 8;
 
         // Packed RGB Channels (no padding) Single Precision FP Linear.
         //
-        CHANNEL_FORMAT_RGB_F32_LIN = 8;
+        CHANNEL_FORMAT_RGB_F32_LIN = 9;
 
         // Bayer RGGB Channels UINT8 FP Linear.
         //
-        CHANNEL_FORMAT_BAYER_BGGR_U8_LIN = 9;
+        CHANNEL_FORMAT_BAYER_BGGR_U8_LIN = 10;
 
         // Bayer RGGB Channels UINT16 FP Linear.
         //
-        CHANNEL_FORMAT_BAYER_BGGR_U16_LIN = 10;
+        CHANNEL_FORMAT_BAYER_BGGR_U16_LIN = 11;
 
         // Bayer RGGB Channels UINT32 FP Linear.
         //
-        CHANNEL_FORMAT_BAYER_BGGR_U32_LIN = 11;
+        CHANNEL_FORMAT_BAYER_BGGR_U32_LIN = 12;
 
         // Bayer RGGB Channels Single Precision FP Linear.
         //
-        CHANNEL_FORMAT_BAYER_BGGR_F32_LIN = 12;
+        CHANNEL_FORMAT_BAYER_BGGR_F32_LIN = 13;
 
         // TBD: Further channel permutations and padding (e.g. RGBZ,
         // BGR, BAYER_RGGB/GBRG/GRBG/...), non-BAYER filters, non-linear
