@@ -88,10 +88,18 @@ message Vehicle
     // approximate the clear area under a vehicle that a sensor can see
     // through.
     optional double ground_clearance = 12;
-    
+
     // Median radius of the wheels.
-    // 
+    //
+    // Unit: [m]
+    //    
     optional double radius_wheel = 13;
+    
+    // Number of independent wheels.
+    //
+    // Unit: []
+    //    
+    optional uint32 number_wheels = 13;
 
     // Definition of vehicle types.
     //
