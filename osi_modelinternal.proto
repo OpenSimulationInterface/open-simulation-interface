@@ -8,11 +8,12 @@ import "osi_object.proto";
 package osi;
 
 //
-// \brief Additional internal data and state flags for SensorDataObjects.
+// \brief Additional internal data and state flags for \c SensorData objects.
 //
 message ModelInternalObject
 {
-    // Specifies whether this vehicle is seen by the sensor; set by the field-of-view calculation.
+    // Specifies whether this vehicle is seen by the sensor; set by the
+    // field-of-view calculation.
     //
     optional bool is_seen = 1 [default = true];
 
@@ -20,15 +21,18 @@ message ModelInternalObject
     //
     optional ObjectType ground_truth_type = 2;
 
-    // Ground truth vehicle type for object of ground_truth_type Vehicle, should not be set otherwise.
+    // Ground truth vehicle type for object of \c #ground_truth_type \c Vehicle,
+    // should not be set otherwise.
     //
     optional Vehicle.Type vehicle_type = 3;
 
-    // Ground truth object type for object of ground_truth_type MovingObject, should not be set otherwise.
+    // Ground truth object type for object of \c #ground_truth_type
+    // \c MovingObject, should not be set otherwise.
     //
     optional MovingObject.Type moving_object_type = 4;
 
-    // Ground truth object type for object of ground_truth_type StationaryObject, should not be set otherwise.
+    // Ground truth object type for object of \c #ground_truth_type
+    // \c StationaryObject, should not be set otherwise.
     //
     optional StationaryObject.Type stationary_object_type = 5;
 
@@ -36,32 +40,36 @@ message ModelInternalObject
     //
     enum ObjectType
     {
-        // Object is a ghost object and does not exist in ground truth.
+        // The object type is unknown. Value must not be used in ground truth.
         //
-        OBJECT_TYPE_GHOST = 0;
-        
+        OBJECT_TYPE_UNKNOWN = 0;
+
         // Other (unspecified but known) type of object.
         //
         OBJECT_TYPE_OTHER = 1;
-        
-        // Object of type Vehicle.
+
+        // Object of type \c Vehicle.
         //
         OBJECT_TYPE_VEHICLE = 2;
-        
-        // Object of type MovingObject.
+
+        // Object of type \c MovingObject.
         //
         OBJECT_TYPE_MOVING = 3;
-        
-        // Object of type StationaryObject.
+
+        // Object of type \c StationaryObject.
         //
         OBJECT_TYPE_STATIONARY = 4;
-        
-        // Object of type TrafficSign.
+
+        // Object of type \c TrafficSign.
         //
         OBJECT_TYPE_TRAFFIC_SIGN = 5;
-        
-        // Object of type TrafficLight.
+
+        // Object of type \c TrafficLight.
         //
         OBJECT_TYPE_TRAFFIC_LIGHT = 6;
+
+        // Object is a ghost object and does not exist in ground truth.
+        //
+        OBJECT_TYPE_GHOST = 7;
     }
 }

@@ -54,17 +54,17 @@ message SensorData
     // applied on top of this, if needed.
     //
     // The time that the actual measurement was performed (which will usually
-    // correspond with the timestamp of the GroundTruth the sensor model
+    // correspond with the timestamp of the \c GroundTruth the sensor model
     // processed to arrive at these results) can be found in the additional
     // field \c SensorData::last_measurement_time.
     //
     // For an ideal zero latency sensor the two timestamps would be the same
-    // and would correspond with the timestamp from the current GroundTruth
+    // and would correspond with the timestamp from the current \c GroundTruth
     // message.
     //
     // For a sensor model that does not know its own internal latencies (e.g.
     // a dumb sensor with no internal time concept), the two timestamps might
-    // also be identical, but delayed from the GroundTruth timestamp.
+    // also be identical, but delayed from the \c GroundTruth timestamp.
     //
     optional Timestamp timestamp = 2;
 
@@ -111,12 +111,14 @@ message SensorData
     // for reference purposes.  For complex sensors or logic models this
     // can be multiple copies.
     //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
     repeated SensorView sensor_view = 6;
 
     // The timestamp of the last real-world measurement (e.g. GT input) that
-    // this set of sensor data takes into account.  This in effect is the last
+    // this set of sensor data takes into account. This in effect is the last
     // time instance of reality the measurements correspond to.  See field
-    // \c SensorData::timestamp for a detailed discussion.  This value is also
+    // \c SensorData::timestamp for a detailed discussion. This value is also
     // the upper bound to the \c DetectedObjectHeader::measurement_time and the
     // feature data \c SensorDetectionHeader::measurement_time fields.
     //
@@ -128,13 +130,17 @@ message SensorData
 
     // The list of objects detected by the sensor as perceived by the sensor.
     //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
     repeated DetectedObject object = 9;
 
     // General information about the \c DetectedTrafficSign .
     //
     optional DetectedEntityHeader traffic_sign_header = 10;
 
-    // The list of traffic signs detected by the sensor
+    // The list of traffic signs detected by the sensor.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedTrafficSign traffic_sign = 11;
 
@@ -142,7 +148,9 @@ message SensorData
     //
     optional DetectedEntityHeader traffic_light_header = 12;
 
-    // The list of traffic lights detected by the sensor
+    // The list of traffic lights detected by the sensor.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedTrafficLight traffic_light = 13;
 
@@ -150,8 +158,10 @@ message SensorData
     //
     optional DetectedEntityHeader road_marking_header = 14;
 
-    // The list of road marking detected by the sensor.
+    // The list of road markings detected by the sensor.
     // This excludes lane boundary markings.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedRoadMarking road_marking = 15;
 
@@ -159,7 +169,9 @@ message SensorData
     //
     optional DetectedEntityHeader lane_header = 16;
 
-    // The list of lane detected by the sensor
+    // The list of lanes detected by the sensor
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedLane lane = 17;
 
@@ -174,21 +186,27 @@ message SensorData
 
     // The list of lane boundary markings detected by the sensor.
     //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
     repeated DetectedLaneBoundary lane_boundary = 20;
 
     // General information about the \c DetectedLandmark .
     //
-    optional DetectedEntityHeader landmarks_header = 21;
+    optional DetectedEntityHeader landmark_header = 21;
 
     // The list of landmarks detected by the sensor.
     //
-    repeated DetectedLandmark landmarks = 22;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated DetectedLandmark landmark = 22;
 
     // General information about the \c DetectedOccupant .
     //
     optional DetectedEntityHeader occupant_header = 23;
 
     // The list of occupants of the host vehicle
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedOccupant occupant = 24;
 
@@ -215,7 +233,6 @@ message SensorData
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving host_vehicle_location_rmse = 27;
-
 }
 
 //
