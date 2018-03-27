@@ -61,7 +61,7 @@ message Vehicle
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier assigned_lane = 7;
+    repeated Identifier assigned_lane_id = 7;
 
     // Flag defining whether the vehicle has an attached trailer.
     //
@@ -77,7 +77,7 @@ message Vehicle
     //
     // \note Field need not be set if host_vehicle is set to false or use value
     // for non valid id.
-    optional Identifier driver = 10;
+    optional Identifier driver_id = 10;
 
     // The vector pointing from the bounding box center point (base.position) to
     // the middle (in x, y and z) of the front axle under neutral load
