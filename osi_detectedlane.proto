@@ -127,17 +127,17 @@ message DetectedLaneBoundary
         // The root mean squared error of the \c LaneBoundary.BoundaryPoint
         // information from a \c LaneBoundary.
         // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
-        // one \c #boundary_line_points_rmse rmse information exist.
+        // one \c #boundary_line_rmse rmse information exist.
         //
-        repeated LaneBoundary.BoundaryPoint boundary_line_points_rmse = 2;
+        repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 2;
 
         // Confidence of the segments of the \c LaneBoundary.BoundaryPoint
         // information from a \c LaneBoundary.
         // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
-        // one \c #boundary_line_points_confidences confidence value is
+        // one \c #boundary_line_confidences confidence value is
         // specified.
         //
-        repeated double boundary_line_points_confidences = 3;
+        repeated double boundary_line_confidences = 3;
 
         //
         // \brief A candidate for a detected traffic sign as estimated by the
