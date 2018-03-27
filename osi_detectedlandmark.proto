@@ -24,15 +24,15 @@ message DetectedTrafficSign
     //
     optional Identifier ground_truth_id = 3;
 
-    // The main sign as estimated by the sensor.
+    // The main sign as detected by the sensor.
     //
-    optional EstimatedMainSign main_sign = 4;
+    optional DetectedMainSignData main_sign = 4;
 
-    // A list of additional supplementary sign(s) as estimated by the sensor.
+    // A list of additional supplementary sign(s) as detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated EstimatedSupplementarySign supplementary_sign = 5;
+    repeated DetectedSupplementarySignData supplementary_sign = 5;
 
     // The estimated probability that this traffic sign with all supplementary
     // signs really exists, not based on history.
@@ -65,7 +65,7 @@ message DetectedTrafficSign
     //
     // \brief Candidates for a detected sign as estimated by the sensor.
     //
-    message EstimatedMainSign
+    message DetectedMainSignData
     {
         // A list of candidates for this traffic sign as estimated by the
         // sensor.
@@ -182,7 +182,7 @@ message DetectedTrafficSign
     // \brief Candidates for all detected supplementary signs of one traffic
     // sign as estimated by the sensor.
     //
-    message EstimatedSupplementarySign
+    message DetectedSupplementarySignData
     {
         // The definition of one of more supplementary signs that together
         // define this candidate.
@@ -255,9 +255,9 @@ message DetectedTrafficLight
     //
     optional Identifier ground_truth_id = 3;
 
-    // The main sign as estimated by the sensor.
+    // The main sign as detected by the sensor.
     //
-    optional EstimatedTrafficLight traffic_light = 4;
+    optional DetectedTrafficLightData traffic_light = 4;
 
     // Determines for which directions the traffic light applies.
     //
@@ -297,7 +297,7 @@ message DetectedTrafficLight
     // \brief Candidates for a detected traffic light as estimated by the
     // sensor.
     //
-    message EstimatedTrafficLight
+    message DetectedTrafficLightData
     {
         // A list of candidates for this traffic light as estimated by the
         // sensor.
@@ -414,9 +414,9 @@ message DetectedRoadMarking
     //
     optional Identifier ground_truth_id = 3;
 
-    // The road marking as estimated by the sensor.
+    // The road marking as detected by the sensor.
     //
-    optional EstimatedRoadMarking road_marking = 4;
+    optional DetectedRoadMarkingData road_marking = 4;
 
     // The estimated probability that this road marking really exists, not based
     // on history.
@@ -450,7 +450,7 @@ message DetectedRoadMarking
     // \brief Candidates for a detected traffic light as estimated by the
     // sensor.
     //
-    message EstimatedRoadMarking
+    message DetectedRoadMarkingData
     {
         // A list of candidates for this road marking as estimated by the
         // sensor.
@@ -513,9 +513,9 @@ message DetectedLandmark
     //
     repeated Identifier ground_truth_id = 2;
 
-    // The landmark as estimated by the sensor.
+    // The landmark as detected by the sensor.
     //
-    optional EstimatedLandmark landmark = 3;
+    optional DetectedLandmarkData landmark = 3;
 
     // The estimated probability that this landmark really exists, not based
     // on history.
@@ -542,7 +542,7 @@ message DetectedLandmark
     // \brief Candidates for a detected Landmark as estimated by the
     // sensor.
     //
-    message EstimatedLandmark
+    message DetectedLandmarkData
     {
         // A list of candidates for this landmark as estimated by the sensor.
         //

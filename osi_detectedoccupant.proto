@@ -22,9 +22,9 @@ message DetectedOccupant
     //
     optional Identifier ground_truth_id = 4;
 
-    // The occupant as estimated by the sensor.
+    // The occupant as detected by the sensor.
     //
-    optional EstimatedOccupant occupant = 5;
+    optional DetectedOccupantData occupant = 5;
 
     // The estimated probability that this occupant really exists, not
     // based on history.
@@ -50,7 +50,7 @@ message DetectedOccupant
     //
     // \brief Candidates for a detected occupant as estimated by the sensor.
     //
-    message EstimatedOccupant
+    message DetectedOccupantData
     {
         // A list of candidates for this occupant as estimated by the
         // sensor.

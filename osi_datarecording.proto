@@ -29,9 +29,7 @@ message SensorDataList
 {
     // List of sensor data for multiple sensors at a specific timestep.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated SensorData sensor = 1;
+    repeated SensorData sensor_data = 1;
 }
 
 //
@@ -44,5 +42,5 @@ message SensorDataSeriesList
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated SensorDataSeries sensor = 1;
+    repeated SensorDataSeries sensor_data_series = 1;
 }
