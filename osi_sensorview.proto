@@ -49,13 +49,8 @@ message SensorView
     // sensor data).
     //
     optional Timestamp timestamp = 2;
-<<<<<<< HEAD
-    
-    // Radar-Specific \c SensorView.
-=======
 
     // The ID of the sensor at host vehicle's mounting_position.
->>>>>>> master
     //
     // This is the ID of the virtual sensor, to be used in its detected
     // object output; it is distinct from the IDs of its physical detectors,
@@ -63,9 +58,6 @@ message SensorView
     //
     optional Identifier sensor_id = 3;
 
-<<<<<<< HEAD
-    // Lidar-Specific \c SensorView.
-=======
     // The virtual mounting position of the sensor (origin and orientation
     // of the sensor coordinate system) given in vehicle coordinates [1].
     // The virtual position pertains to the sensor as a whole, regardless
@@ -79,7 +71,6 @@ message SensorView
     // \arg \b x-direction of sensor coordinate system: sensor viewing direction
     // \arg \b z-direction of sensor coordinate system: sensor (up)
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z right hand system
->>>>>>> master
     //
     // \par References:
     // [1] DIN ISO 8855:2013-11
@@ -92,19 +83,11 @@ message SensorView
     //
     optional MountingPosition mounting_position = 4;
 
-<<<<<<< HEAD
-    // Camera-Specific \c SensorView.
-=======
     // The root mean squared error of the mounting position.
->>>>>>> master
     //
     optional MountingPosition mounting_position_rmse = 5;
 
-<<<<<<< HEAD
-    // Ultrasonic-Specific \c SensorView.
-=======
     // Host Vehicle Data
->>>>>>> master
     //
     // Host vehicle data is data that the host vehicle knows about itself,
     // e.g. from location sensors, internal sensors and ECU bus data, etc.,
@@ -150,16 +133,9 @@ message SensorView
 //
 // Radar specific sensor view data.
 //
-<<<<<<< HEAD
 message RadarSensorView 
 {
     // Radar Input Configuration valid at the time the data was created.
-=======
-// Radar-Specific Sensor View Data
-message RadarSensorView
-{
-    // Radar View Configuration valid at the time the data was created
->>>>>>> master
     //
     optional RadarSensorViewConfiguration view_configuration = 1;
 
@@ -173,15 +149,9 @@ message RadarSensorView
     repeated Reflection reflection = 2;
 
     //
-<<<<<<< HEAD
     // \brief Definition of the radar reflection.
     //    
     message Reflection 
-=======
-    // \brief The radar reflection.
-    //
-    message Reflection
->>>>>>> master
     {
         // Relative signal level of the reflection.
         //
@@ -193,13 +163,8 @@ message RadarSensorView
         // Unit: [dB]
         //
         optional double signal_strength = 1;
-<<<<<<< HEAD
         
         // Time of flight.
-=======
-
-        // Time of flight
->>>>>>> master
         //
         // This is the time of flight of the reflection, which is directly
         // proportional to the distance traveled.
@@ -207,26 +172,16 @@ message RadarSensorView
         // Unit: [s]
         //
         optional double time_of_flight = 2;
-<<<<<<< HEAD
         
         // Doppler shift.
-=======
-
-        // Doppler shift
->>>>>>> master
         //
         // Shift in frequency based on the specified TX frequency.
         //
         // Unit: [Hz]
         //
         optional double doppler_shift = 3;
-<<<<<<< HEAD
         
         // TX horizontal angle (azimuth).
-=======
-
-        // TX horizontal angle (azimuth)
->>>>>>> master
         //
         // Horizontal angle of incidence of the source of the reflection
         // at the TX antenna.
@@ -234,13 +189,8 @@ message RadarSensorView
         // Unit: [rad]
         //
         optional double source_horizontal_angle = 4;
-<<<<<<< HEAD
         
         // TX vertical angle (elevation).
-=======
-
-        // TX vertical angle (elevation)
->>>>>>> master
         //
         // Vertical angle of incidence of the source of the reflection
         // at the TX antenna.
@@ -256,24 +206,13 @@ message RadarSensorView
 //
 // Lidar specific sensor view data.
 //
-<<<<<<< HEAD
 message LidarSensorView 
 {
-    // Lidar Input Configuration valid at the time the data was created.
-    //
-    optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1;
-    
-    // Ray Tracing Data.
-=======
-// Lidar-Specific Sensor View Data
-message LidarSensorView
-{
-    // Lidar View Configuration valid at the time the data was created
+    // Lidar View Configuration valid at the time the data was created.
     //
     optional LidarSensorViewConfiguration view_configuration = 1;
-
-    // Ray Tracing Data
->>>>>>> master
+    
+    // Ray Tracing Data.
     //
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think scan lines in a TV).
@@ -297,13 +236,8 @@ message LidarSensorView
         // Unit: [dB]
         //
         optional double signal_strength = 1;
-<<<<<<< HEAD
             
         // Time of flight.
-=======
-
-        // Time of flight
->>>>>>> master
         //
         // This is the time of flight of the reflection, which is directly
         // proportional to the distance traveled.
@@ -311,13 +245,8 @@ message LidarSensorView
         // Unit: [s]
         //
         optional double time_of_flight = 2;
-<<<<<<< HEAD
             
         // Doppler shift.
-=======
-
-        // Doppler shift
->>>>>>> master
         //
         // Shift in frequency based on the specified TX frequency.
         //
@@ -332,25 +261,13 @@ message LidarSensorView
 //
 // Camera specific sensor view data.
 //
-<<<<<<< HEAD
 message CameraSensorView 
 {   
-    // Camera Input Configuration valid at the time the data was created.
-    //
-    optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1;
-    
-    // Raw Image Data.
-=======
-// Camera-Specific Sensor View Data
-message CameraSensorView
-{
-
-    // Camera View Configuration valid at the time the data was created
+    // Camera View Configuration valid at the time the data was created.
     //
     optional CameraSensorViewConfiguration view_configuration = 1;
-
-    // Raw Image Data
->>>>>>> master
+    
+    // Raw Image Data.
     //
     // The raw image data in the memory layout and order specified by the
     // camera sensor input configuration.
@@ -361,19 +278,10 @@ message CameraSensorView
 //
 // \brief Definition of the ultrasonic sensor view.
 //
-<<<<<<< HEAD
 // Ultrasonic specific sensor view data.
 message UltrasonicSensorView 
 {
     // Ultrasonic Input Configuration valid at the time the data was created.
-=======
-// Ultrasonic-Specific Sensor View Data
-message UltrasonicSensorView
-{
-
-    // Ultrasonic View Configuration valid at the time the data was created
->>>>>>> master
     //
     optional UltrasonicSensorViewConfiguration view_configuration = 1;
-
 }
