@@ -147,13 +147,13 @@ message Vehicle
         //
         TYPE_DELIVERY_VAN = 6;
 
-        // Vehicle is a heavy truck, bus, or large van.
+        // Vehicle is a heavy truck.
         //
-        TYPE_TRUCK = 7;
+        TYPE_HEAVY_TRUCK = 7;
 
         // Vehicle is a truck with semitrailer.
         //
-        TYPE_TRUCK_SEMITRAILER = 8;
+        TYPE_SEMITRAILER = 8;
         
         // Vehicle is a trailer (possibly attached to another vehicle).
         //
@@ -166,6 +166,22 @@ message Vehicle
         // Vehicle is a bicycle (without motor and specific lights).
         //
         TYPE_BICYCLE = 11;
+
+        // Vehicle is a bus.
+        //
+        TYPE_BUS = 12;
+
+        // Vehicle is a tram.
+        //
+        TYPE_TRAM = 13;
+
+        // Vehicle is a train.
+        //
+        TYPE_TRAIN = 14;
+
+        // Vehicle is a wheelchair.
+        //
+        TYPE_WHEELCHAIR = 15;
     }
 
     //
@@ -248,7 +264,7 @@ message Vehicle
 
             // Light is off.
             //
-             GENERIC_LIGHT_STATE_OFF = 2;
+            GENERIC_LIGHT_STATE_OFF = 2;
 
             // Light is on.
             //
@@ -400,9 +416,5 @@ message StationaryObject
         // Object is a wall.
         //
         TYPE_WALL = 2005;
-        
-        // Object is a guard rail.
-        //
-        TYPE_GUARD_RAIL = 2006;
     }
 }
