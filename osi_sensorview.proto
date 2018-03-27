@@ -29,7 +29,7 @@ package osi;
 // treatment of the sensors.
 //
 // Alternatively combined sensor models can also consume one combined
-// \c SensorView, with either combined or seperate \c SensorData outputs,
+// \c SensorView, with either combined or separate \c SensorData outputs,
 // depending on model architecture.
 //
 message SensorView
@@ -133,7 +133,7 @@ message SensorView
 //
 // Radar specific sensor view data.
 //
-message RadarSensorView 
+message RadarSensorView
 {
     // Radar Input Configuration valid at the time the data was created.
     //
@@ -150,8 +150,8 @@ message RadarSensorView
 
     //
     // \brief Definition of the radar reflection.
-    //    
-    message Reflection 
+    //
+    message Reflection
     {
         // Relative signal level of the reflection.
         //
@@ -163,7 +163,7 @@ message RadarSensorView
         // Unit: [dB]
         //
         optional double signal_strength = 1;
-        
+
         // Time of flight.
         //
         // This is the time of flight of the reflection, which is directly
@@ -172,7 +172,7 @@ message RadarSensorView
         // Unit: [s]
         //
         optional double time_of_flight = 2;
-        
+
         // Doppler shift.
         //
         // Shift in frequency based on the specified TX frequency.
@@ -180,7 +180,7 @@ message RadarSensorView
         // Unit: [Hz]
         //
         optional double doppler_shift = 3;
-        
+
         // TX horizontal angle (azimuth).
         //
         // Horizontal angle of incidence of the source of the reflection
@@ -189,7 +189,7 @@ message RadarSensorView
         // Unit: [rad]
         //
         optional double source_horizontal_angle = 4;
-        
+
         // TX vertical angle (elevation).
         //
         // Vertical angle of incidence of the source of the reflection
@@ -206,12 +206,12 @@ message RadarSensorView
 //
 // Lidar specific sensor view data.
 //
-message LidarSensorView 
+message LidarSensorView
 {
     // Lidar View Configuration valid at the time the data was created.
     //
     optional LidarSensorViewConfiguration view_configuration = 1;
-    
+
     // Ray Tracing Data.
     //
     // This field includes one entry for each ray, in left-to-right,
@@ -236,7 +236,7 @@ message LidarSensorView
         // Unit: [dB]
         //
         optional double signal_strength = 1;
-            
+
         // Time of flight.
         //
         // This is the time of flight of the reflection, which is directly
@@ -245,7 +245,7 @@ message LidarSensorView
         // Unit: [s]
         //
         optional double time_of_flight = 2;
-            
+
         // Doppler shift.
         //
         // Shift in frequency based on the specified TX frequency.
@@ -261,12 +261,12 @@ message LidarSensorView
 //
 // Camera specific sensor view data.
 //
-message CameraSensorView 
-{   
+message CameraSensorView
+{
     // Camera View Configuration valid at the time the data was created.
     //
     optional CameraSensorViewConfiguration view_configuration = 1;
-    
+
     // Raw Image Data.
     //
     // The raw image data in the memory layout and order specified by the
@@ -279,7 +279,7 @@ message CameraSensorView
 // \brief Definition of the ultrasonic sensor view.
 //
 // Ultrasonic specific sensor view data.
-message UltrasonicSensorView 
+message UltrasonicSensorView
 {
     // Ultrasonic Input Configuration valid at the time the data was created.
     //

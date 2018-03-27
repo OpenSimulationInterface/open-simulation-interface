@@ -167,7 +167,7 @@ message SensorData
     //
     optional DetectedEntityHeader lane_header = 16;
 
-    // The list of lane detected by the sensor
+    // The list of lanes detected by the sensor
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
