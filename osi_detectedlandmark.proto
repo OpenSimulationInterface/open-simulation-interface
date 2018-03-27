@@ -472,7 +472,7 @@ message DetectedRoadMarking
         optional BaseStationary base_rmse = 2;
 
         //
-        // \brief A candidate for a detected road marking as estimated by the 
+        // \brief A candidate for a detected road marking as estimated by the
         // sensor.
         //
         message CandidateRoadMarking
@@ -567,7 +567,7 @@ message DetectedLandmark
         optional BaseStationary base_rmse = 2;
 
         //
-        // \brief A candidate for a detected landmark as estimated by the 
+        // \brief A candidate for a detected landmark as estimated by the
         // sensor.
         //
         message CandidateLandmark

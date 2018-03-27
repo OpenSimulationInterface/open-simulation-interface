@@ -53,8 +53,8 @@ message EnvironmentalConditions
     // (I = Intensity of precipitation in mm per hour [mm/h])
     //
     // \par References:
-    // \li [1] PAULAT, Marcus, et al. A gridded dataset of hourly precipitation 
-    // in Germany: Its construction, climatology and application. 
+    // \li [1] PAULAT, Marcus, et al. A gridded dataset of hourly precipitation
+    // in Germany: Its construction, climatology and application.
     // Meteorologische Zeitschrift, 2008, 17. Jg. Nr. 6, S. 719-732.
     //
     enum Precipitation

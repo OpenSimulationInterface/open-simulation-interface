@@ -115,10 +115,10 @@ message Lane
     //
     repeated LanePairing lane_pairing = 7;
 
-    // The right adjacent lane boundaries \c #right_lane_boundary_id may only be 
+    // The right adjacent lane boundaries \c #right_lane_boundary_id may only be
     // shared with/as the left adjacent lane boundaries
-    // \c #left_lane_boundary_id of the nearest right adjacent lane 
-    // \c #right_adjacent_lane_id. 
+    // \c #left_lane_boundary_id of the nearest right adjacent lane
+    // \c #right_adjacent_lane_id.
     //
     // \note Empty for intersections.
     //
@@ -129,10 +129,10 @@ message Lane
     //
     repeated Identifier right_lane_boundary_id = 8;
 
-    // The left adjacent lane boundaries \c #left_lane_boundary_id may only be 
+    // The left adjacent lane boundaries \c #left_lane_boundary_id may only be
     // shared with/as the right adjacent lane boundaries
-    // \c #right_lane_boundary_id of the nearest left adjacent lane 
-    // \c #left_adjacent_lane_id. 
+    // \c #right_lane_boundary_id of the nearest left adjacent lane
+    // \c #left_adjacent_lane_id.
     //
     // \note Empty for intersections.
     //

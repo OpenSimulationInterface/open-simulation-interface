@@ -113,25 +113,25 @@ message SensorView
 
     // Radar-Specific SensorView(s)
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RadarSensorView radar_sensor_view = 1000;
 
     // Lidar-Specific SensorView(s)
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated LidarSensorView lidar_sensor_view = 1001;
 
     // Camera-Specific SensorView(s)
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CameraSensorView camera_sensor_view = 1002;
 
     // Ultrasonic-Specific SensorView(s)
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated UltrasonicSensorView ultrasonic_sensor_view = 1003;
 }

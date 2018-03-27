@@ -111,7 +111,7 @@ message SensorData
     // for reference purposes.  For complex sensors or logic models this
     // can be multiple copies.
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated SensorView sensor_view = 6;
 
