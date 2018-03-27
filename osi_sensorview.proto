@@ -4,14 +4,33 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
-import "osi_sensorinputconfiguration.proto";
+import "osi_groundtruth.proto";
+import "osi_sensorviewconfiguration.proto";
+import "osi_hostvehicledata.proto";
 
 package osi;
 
 //
-// \brief sensor view
+// \brief The sensor view as derived from \c GroundTruth and used as
+// input to sensor models.
 //
-// 
+// The sensor view information is supposed to provide input to sensor
+// models for simulation of actual real sensors.
+// All information regarding the environment is given with respect to
+// the virtual sensor coordinate system specified in
+// \c SensorView::mounting_position, except for the individual physical
+// technology-specific data, which is given with respect to the physical
+// sensor coordinate system specified in the corresponding physical sensor's
+// mounting_position, and the global_ground_truth, which is given in global
+// coordinates.
+//
+// When simulating multiple distinct sensors, each sensor can consume an
+// individual copy of the \c SensorView interface. This allows an independent
+// treatment of the sensors.
+//
+// Alternatively combined sensor models can also consume one combined
+// \c SensorView, with either combined or separate \c SensorData outputs,
+// depending on model architecture.
 //
 message SensorView
 {
@@ -28,48 +47,121 @@ message SensorView
     // notional simulation time the data applies to and the time it was sent
     // (there is no inherent latency for sensor view data, as opposed to
     // sensor data).
+    //
     optional Timestamp timestamp = 2;
-    
-    // Radar-Specific SensorView
-    //
-    optional RadarSensorView radar_sensor_view = 1000;
 
-    // Lidar-Specific SensorView
+    // The ID of the sensor at host vehicle's mounting_position.
     //
-    optional LidarSensorView lidar_sensor_view = 1001;
+    // This is the ID of the virtual sensor, to be used in its detected
+    // object output; it is distinct from the IDs of its physical detectors,
+    // which are used in the detected features.
+    //
+    optional Identifier sensor_id = 3;
 
-    // Camera-Specific SensorView
+    // The virtual mounting position of the sensor (origin and orientation
+    // of the sensor coordinate system) given in vehicle coordinates [1].
+    // The virtual position pertains to the sensor as a whole, regardless
+    // of the actual position of individual physical detectors, and governs
+    // the sensor-relative coordinates in detected objects of the sensor
+    // as a whole.  Individual features detected by individual physical
+    // detectors are governed by the actual physical mounting positions
+    // of the detectors, as indicated in the technology-specific sub-views
+    // and sub-view configurations.
     //
-    optional CameraSensorView camera_sensor_view = 1002;
+    // \arg \b x-direction of sensor coordinate system: sensor viewing direction
+    // \arg \b z-direction of sensor coordinate system: sensor (up)
+    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z right hand system
+    //
+    // \par References:
+    // [1] DIN ISO 8855:2013-11
+    //
+    // \note This field is usually static during the simulation.
+    // \note The origin of vehicle's coordinate system in world frame is
+    // ( \c Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(\c Vehicle::base.orientation) * \c Vehicle::bbcenter_to_rear) .
+    // The orientation of the vehicle's coordinate system is equal to the orientation
+    // of the vehicle's bounding box \c Vehicle::base.orientation.
+    //
+    optional MountingPosition mounting_position = 4;
 
-    // Ultrasonic-Specific SensorView
+    // The root mean squared error of the mounting position.
     //
-    optional UltrasonicSensorView ultrasonic_sensor_view = 1003;
+    optional MountingPosition mounting_position_rmse = 5;
+
+    // Host Vehicle Data
+    //
+    // Host vehicle data is data that the host vehicle knows about itself,
+    // e.g. from location sensors, internal sensors and ECU bus data, etc.,
+    // that is made available to sensors as input.
+    //
+    optional HostVehicleData host_vehicle_data = 6;
+
+    // Ground truth w.r.t. global coordinate system
+    //
+    // This is the ground truth that is provided to the sensor model by the
+    // simulation environment. It is filtered as per the requirements of the
+    // sensor model as expressed by the SensorViewConfiguration message(s)
+    // that where exchanged during the simulation initialization phase.
+    //
+    // \note The host vehicle is always contained in the ground truth provided,
+    // regardless of any filtering.
+    //
+    optional GroundTruth global_ground_truth = 7;
+
+    // The ID of the host vehicle in the ground_truth data.
+    //
+    optional Identifier host_vehicle_id = 8;
+
+    // Radar-Specific SensorView(s)
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated RadarSensorView radar_sensor_view = 1000;
+
+    // Lidar-Specific SensorView(s)
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated LidarSensorView lidar_sensor_view = 1001;
+
+    // Camera-Specific SensorView(s)
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraSensorView camera_sensor_view = 1002;
+
+    // Ultrasonic-Specific SensorView(s)
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated UltrasonicSensorView ultrasonic_sensor_view = 1003;
 }
 
 //
-// \brief Radar Sensor View
+// \brief Definition of the radar sensor view.
 //
-// Radar-Specific Sensor View Data
-message RadarSensorView 
+// Radar specific sensor view data.
+//
+message RadarSensorView
 {
-    // Radar Input Configuration valid at the time the data was created
+    // Radar Input Configuration valid at the time the data was created.
     //
-    optional RadarSensorInputConfiguration radar_sensor_input_configuration = 1;
+    optional RadarSensorViewConfiguration view_configuration = 1;
 
     // Ray Tracing Data
     //
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think scan lines in a TV).
     //
-    repeated Reflection reflections = 2;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Reflection reflection = 2;
 
     //
-    // \brief The radar reflection.
-    //    
-    message Reflection 
+    // \brief Definition of the radar reflection.
+    //
+    message Reflection
     {
-        // Relative signal level of the reflection
+        // Relative signal level of the reflection.
         //
         // This takes the combined_antenna_diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
@@ -77,64 +169,72 @@ message RadarSensorView
         // actual RX power.
         //
         // Unit: [dB]
+        //
         optional double signal_strength = 1;
-        
-        // Time of flight
+
+        // Time of flight.
         //
         // This is the time of flight of the reflection, which is directly
-        // proportional to the distance traveled. 
+        // proportional to the distance traveled.
         //
         // Unit: [s]
-        optional double time_of_flight = 2;
-        
-        // Doppler shift
         //
-        // Shift in frequency based on the specified TX frequency
+        optional double time_of_flight = 2;
+
+        // Doppler shift.
+        //
+        // Shift in frequency based on the specified TX frequency.
         //
         // Unit: [Hz]
+        //
         optional double doppler_shift = 3;
-        
-        // TX horizontal angle (azimuth)
+
+        // TX horizontal angle (azimuth).
         //
         // Horizontal angle of incidence of the source of the reflection
         // at the TX antenna.
         //
         // Unit: [rad]
+        //
         optional double source_horizontal_angle = 4;
-        
-        // TX vertical angle (elevation)
+
+        // TX vertical angle (elevation).
         //
         // Vertical angle of incidence of the source of the reflection
         // at the TX antenna.
         //
         // Unit: [rad]
+        //
         optional double source_vertical_angle = 5;
     }
 }
 
 //
-// \brief Lidar Sensor View
+// \brief Definition of the lidar sensor view.
 //
-// Lidar-Specific Sensor View Data
-message LidarSensorView 
+// Lidar specific sensor view data.
+//
+message LidarSensorView
 {
-    // Lidar Input Configuration valid at the time the data was created
+    // Lidar View Configuration valid at the time the data was created.
     //
-    optional LidarSensorInputConfiguration lidar_sensor_input_configuration = 1;
-    
-    // Ray Tracing Data
+    optional LidarSensorViewConfiguration view_configuration = 1;
+
+    // Ray Tracing Data.
     //
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think scan lines in a TV).
     //
-    repeated Reflection reflections = 2;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Reflection reflection = 2;
 
     //
-    // \brief The lidar reflection.
+    // \brief Definition of the lidar reflection.
     //
-    message Reflection 
+    message Reflection
     {
-        // Relative signal level of the reflection
+        // Relative signal level of the reflection.
         //
         // This takes the combined_antenna_diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
@@ -142,37 +242,40 @@ message LidarSensorView
         // actual RX power.
         //
         // Unit: [dB]
+        //
         optional double signal_strength = 1;
-            
-        // Time of flight
+
+        // Time of flight.
         //
         // This is the time of flight of the reflection, which is directly
-        // proportional to the distance traveled. 
+        // proportional to the distance traveled.
         //
         // Unit: [s]
-        optional double time_of_flight = 2;
-            
-        // Doppler shift
         //
-        // Shift in frequency based on the specified TX frequency
+        optional double time_of_flight = 2;
+
+        // Doppler shift.
+        //
+        // Shift in frequency based on the specified TX frequency.
         //
         // Unit: [Hz]
+        //
         optional double doppler_shift = 3;
     }
 }
 
 //
-// \brief Camera Sensor View
+// \brief Definition of the camera sensor view.
 //
-// Camera-Specific Sensor View Data
-message CameraSensorView 
+// Camera specific sensor view data.
+//
+message CameraSensorView
 {
-    
-    // Camera Input Configuration valid at the time the data was created
+    // Camera View Configuration valid at the time the data was created.
     //
-    optional CameraSensorInputConfiguration camera_sensor_input_configuration = 1;
-    
-    // Raw Image Data
+    optional CameraSensorViewConfiguration view_configuration = 1;
+
+    // Raw Image Data.
     //
     // The raw image data in the memory layout and order specified by the
     // camera sensor input configuration.
@@ -181,14 +284,12 @@ message CameraSensorView
 }
 
 //
-// \brief Ultrasonic Sensor View
+// \brief Definition of the ultrasonic sensor view.
 //
-// Ultrasonic-Specific Sensor View Data
-message UltrasonicSensorView 
+// Ultrasonic specific sensor view data.
+message UltrasonicSensorView
 {
-
-    // Ultrasonic Input Configuration valid at the time the data was created
+    // Ultrasonic Input Configuration valid at the time the data was created.
     //
-    optional UltrasonicSensorInputConfiguration ultrasonic_sensor_input_configuration = 1;
-    
+    optional UltrasonicSensorViewConfiguration view_configuration = 1;
 }
