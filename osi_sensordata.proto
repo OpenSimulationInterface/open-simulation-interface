@@ -108,9 +108,10 @@ message SensorData
     // Sensor view w.r.t. the sensor coordinate system
     //
     // This provides a copy of the \c SensorView data received by the sensor
-    // for reference purposes.
+    // for reference purposes.  For complex sensors or logic models this
+    // can be multiple copies.
     //
-    optional SensorView sensor_view = 6;
+    repeated SensorView sensor_view = 6;
 
     // The timestamp of the last real-world measurement (e.g. GT input) that
     // this set of sensor data takes into account.  This in effect is the last
