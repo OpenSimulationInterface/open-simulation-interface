@@ -18,8 +18,8 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 # Offer the user the choice of overriding the installation directories
-set(INSTALL_LIB_DIR /usr/local/lib CACHE PATH "Installation directory for libraries")
-set(INSTALL_INCLUDE_DIR /usr/local/include CACHE PATH "Installation directory for header files")
+set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
+set(INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
 
 if(WIN32 AND NOT CYGWIN)
   set(DEF_INSTALL_CMAKE_DIR CMake)
@@ -126,7 +126,7 @@ set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
 configure_file(open_simulation_interface-config.cmake.in
                "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config.cmake" @ONLY)
 # ... for the install tree
-set(CONF_INCLUDE_DIRS ${INSTALL_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIR})
+set(CONF_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${INSTALL_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIR})
 configure_file(open_simulation_interface-config.cmake.in
                "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/open_simulation_interface-config.cmake" @ONLY)
 # ... for both
