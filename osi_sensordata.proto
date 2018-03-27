@@ -199,6 +199,22 @@ message SensorData
     //
     optional FeatureData feature_data = 25;
 
+    // The sensors estimated location of the host vehicle
+    //
+    // \note This value is only set by sensors that are able to
+    // provide an own estimation of the host vehicle location.
+    // \note Note that dimension and base_polygon need not be set.
+    //
+    optional BaseMoving host_vehicle_location = 26;
+
+    // The sensors estimated location error of the host vehicle
+    //
+    // \note This value is only set by sensors that are able to
+    // provide an own estimation of the host vehicle location.
+    // \note Note that dimension and base_polygon need not be set.
+    //
+    optional BaseMoving host_vehicle_location_rmse = 27;
+
 }
 
 //
