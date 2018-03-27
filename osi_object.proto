@@ -34,6 +34,8 @@ message Vehicle
 
     // The base parameters of the vehicle (as a characteristic moving object).
     //
+    // \note The bounding box includes mirrors.
+    //
     optional BaseMoving base = 2;
 
     // The type of the vehicle.
@@ -91,6 +93,18 @@ message Vehicle
     // through.
     optional double ground_clearance = 12;
 
+    // Median radius of the wheels.
+    //
+    // Unit: [m]
+    //    
+    optional double radius_wheel = 13;
+    
+    // Number of independent wheels.
+    //
+    // Unit: []
+    //    
+    optional uint32 number_wheels = 14;
+
     // Definition of vehicle types.
     //
     enum Type
@@ -102,26 +116,72 @@ message Vehicle
         // Other (unspecified but known) type of vehicle.
         //
         TYPE_OTHER = 1;
-
-        // Vehicle is a normal car.
+        
+        // Vehicle is a small car.
         //
-        TYPE_CAR = 2;
-
-        // Vehicle is a truck, bus, or large van.
+        // Definition:
         //
-        TYPE_TRUCK = 3;
+        TYPE_SMALL_CAR = 2;
+        
+        // Vehicle is a medium car.
+        //
+        // Definition:
+        //
+        TYPE_MEDIUM_CAR = 3;
+        
+        // Vehicle is a compact car.
+        //
+        // Definition:
+        //
+        TYPE_COMPACT_CAR = 4;
+        
+        // Vehicle is a luxury  car.
+        //
+        // Definition:
+        //
+        TYPE_LUXURY_CAR = 5;
+        
+        // Vehicle is a delivery van.
+        //
+        // Definition:
+        //
+        TYPE_DELIVERY_VAN = 6;
+
+        // Vehicle is a heavy truck.
+        //
+        TYPE_HEAVY_TRUCK = 7;
+
+        // Vehicle is a truck with semitrailer.
+        //
+        TYPE_SEMITRAILER = 8;
+        
+        // Vehicle is a trailer (possibly attached to another vehicle).
+        //
+        TYPE_TRAILER = 9;
 
         // Vehicle is a motorbike or moped.
         //
-        TYPE_MOTORBIKE = 4;
+        TYPE_MOTORBIKE = 10;
 
         // Vehicle is a bicycle (without motor and specific lights).
         //
-        TYPE_BICYCLE = 5;
+        TYPE_BICYCLE = 11;
 
-        // Vehicle is a trailer (possibly attached to another vehicle).
+        // Vehicle is a bus.
         //
-        TYPE_TRAILER = 6;
+        TYPE_BUS = 12;
+
+        // Vehicle is a tram.
+        //
+        TYPE_TRAM = 13;
+
+        // Vehicle is a train.
+        //
+        TYPE_TRAIN = 14;
+
+        // Vehicle is a wheelchair.
+        //
+        TYPE_WHEELCHAIR = 15;
     }
 
     //
@@ -204,7 +264,7 @@ message Vehicle
 
             // Light is off.
             //
-             GENERIC_LIGHT_STATE_OFF = 2;
+            GENERIC_LIGHT_STATE_OFF = 2;
 
             // Light is on.
             //
@@ -332,5 +392,29 @@ message StationaryObject
         // Object is a delineator (e.g. at a construction site).
         //
         TYPE_DELINEATOR = 6;
+        
+        // Object is a pole.
+        //
+        TYPE_POLE = 2000;
+        
+        // Object is a tree.
+        //
+        TYPE_TREE = 2001;
+        
+        // Object is a barrier.
+        //
+        TYPE_BARRIER = 2002;
+        
+        // Object is vegetation.
+        //
+        TYPE_VEGETATION = 2003;
+        
+        // Object is a curbstone.
+        //
+        TYPE_CURBSTONE = 2004;
+        
+        // Object is a wall.
+        //
+        TYPE_WALL = 2005;
     }
 }
