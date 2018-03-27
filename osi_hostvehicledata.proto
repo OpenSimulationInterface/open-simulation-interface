@@ -17,7 +17,7 @@ message HostVehicleData
 {
     // Current estimated location based on GPS- and related navigation sensors.
     //
-    // \note Note that dimension and base_polygon need not be set.
+    // \note Note that \c BaseMoving::dimension need not be set.
     //
     optional BaseMoving location = 1;
 
