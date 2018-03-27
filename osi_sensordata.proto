@@ -147,7 +147,7 @@ message SensorData
     optional DetectedEntityHeader traffic_light_header = 12;
 
     // The list of traffic lights detected by the sensor.
-	//
+    //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedTrafficLight traffic_light = 13;
@@ -159,7 +159,7 @@ message SensorData
     // The list of road markings detected by the sensor.
     // This excludes lane boundary markings.
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedRoadMarking road_marking = 15;
 
@@ -169,7 +169,7 @@ message SensorData
 
     // The list of lane detected by the sensor
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedLane lane = 17;
 
@@ -184,7 +184,7 @@ message SensorData
 
     // The list of lane boundary markings detected by the sensor.
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedLaneBoundary lane_boundary = 20;
 
@@ -194,7 +194,7 @@ message SensorData
 
     // The list of landmarks detected by the sensor.
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedLandmark landmark = 22;
 
@@ -204,7 +204,7 @@ message SensorData
 
     // The list of occupants of the host vehicle
     //
-	// \note OSI uses singular instead of plural for repeated field names.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedOccupant occupant = 24;
 
