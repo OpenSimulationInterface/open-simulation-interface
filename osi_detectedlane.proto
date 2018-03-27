@@ -40,6 +40,9 @@ message DetectedLane
 
     // The detected lane.
     //
+    // \note IDs, which is referenced in this message, usually reference to
+    // \c DetectedXXX::tracking_id IDs.
+    //
     optional Lane lane = 4;
 
     // The estimated probability that this lane really exists, not based on
@@ -82,21 +85,9 @@ message DetectedLaneBoundary
     //
     optional Identifier ground_truth_id = 3;
 
-    // The amount of time that this detected object has been currently
-    // observed/tracked.
+    // The lane boundary as detected by the sensor.
     //
-    // Unit: [s]
-    //
-    optional double age = 1000;
-
-    // State of the measurement. Lane boundary measured in the current image or
-    // lane boundary predicted (no measurement in current image).
-    //
-    optional MeasurementState measurement_state = 5;
-
-    // The basic measured lane boundary.
-    //
-    optional LaneBoundary lane_boundary = 4;
+    optional EstimatedLaneBoundary lane_boundary = 4;
 
     // The estimated probability that this lane boundary really exists, not
     // based on history.
@@ -105,28 +96,6 @@ message DetectedLaneBoundary
     // and a high value indicates strong confidence.
     //
     optional double existence_probability = 6;
-
-    // Confidence of the classified lane boundary type.
-    //
-    optional double type_confidence = 7;
-
-    // Confidence of the classified lane marker color.
-    //
-    optional double color_confidence = 8;
-
-    // The root mean squared error of the \c BoundaryPoint information from a
-    // \c LaneBoundary.
-    // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
-    // one \c #boundary_line_points_rmse rmse information exist.
-    //
-    repeated BoundaryPoint boundary_line_points_rmse = 9;
-
-    // Confidence of the segments of the \c BoundaryPoint information from a
-    // \c LaneBoundary.
-    // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
-    // one \c #boundary_line_points_confidences confidence value is specified.
-    //
-    repeated double boundary_line_points_confidences = 10;
 
     // A list of sensors which detected this detected entity.
     //
@@ -141,4 +110,73 @@ message DetectedLaneBoundary
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Identifier sensor_id = 11;
+
+    //
+    // \brief Candidates for a detected lane boundary as estimated by the
+    // sensor.
+    //
+    message EstimatedLaneBoundary
+    {
+        // A list of candidates for this lane boundary as estimated by the
+        // sensor.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated CandidateLaneBoundary candidate = 1;
+
+        // The root mean squared error of the \c LaneBoundary.BoundaryPoint
+        // information from a \c LaneBoundary.
+        // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
+        // one \c #boundary_line_points_rmse rmse information exist.
+        //
+        repeated LaneBoundary.BoundaryPoint boundary_line_points_rmse = 2;
+
+        // Confidence of the segments of the \c LaneBoundary.BoundaryPoint
+        // information from a \c LaneBoundary.
+        // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
+        // one \c #boundary_line_points_confidences confidence value is
+        // specified.
+        //
+        repeated double boundary_line_points_confidences = 3;
+
+        //
+        // \brief A candidate for a detected traffic sign as estimated by the
+        // sensor.
+        //
+        message CandidateLaneBoundary
+        {
+            // The definition of one lane boundary that defines this candidate.
+            //
+            // \note IDs, which are referenced in this message, usually
+            // reference to \c DetectedXXX::tracking_id IDs.
+            //
+            optional LaneBoundary lane_boundary = 1;
+
+            // The estimated probability that this candidate is the true value.
+            // The sum of all \c #probability must be one.
+            //
+            // Range: [0,1]
+            //
+            optional double probability = 2;
+
+            // The amount of time that this detected object has been currently
+            // observed/tracked.
+            //
+            // Unit: [s]
+            //
+            optional double age = 3;
+
+            // The measurement state.
+            //
+            optional MeasurementState measurement_state = 4;
+
+            // Confidence of the classified lane boundary type.
+            //
+            optional double type_confidence = 5;
+
+            // Confidence of the classified lane marker color.
+            //
+            optional double color_confidence = 6;
+        }
+    }
 }

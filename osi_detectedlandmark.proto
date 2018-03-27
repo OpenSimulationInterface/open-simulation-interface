@@ -26,13 +26,13 @@ message DetectedTrafficSign
 
     // The main sign as detected by the sensor.
     //
-    optional DetectedMainSignData main_sign = 4;
+    optional EstimatedMainSign main_sign = 4;
 
     // A list of additional supplementary sign(s) as detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated DetectedSupplementarySignData supplementary_sign = 5;
+    repeated EstimatedSupplementarySign supplementary_sign = 5;
 
     // The estimated probability that this traffic sign with all supplementary
     // signs really exists, not based on history.
@@ -65,14 +65,14 @@ message DetectedTrafficSign
     //
     // \brief Candidates for a detected sign as estimated by the sensor.
     //
-    message DetectedMainSignData
+    message EstimatedMainSign
     {
         // A list of candidates for this traffic sign as estimated by the
         // sensor.
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated CandidateSign candidate = 1;
+        repeated CandidateMainSign candidate = 1;
 
         // The root mean squared error of the base parameters of the detected
         // traffic sign. \c TrafficSign::base has to be identical for
@@ -88,21 +88,21 @@ message DetectedTrafficSign
         // \brief A candidate for a detected traffic sign as estimated by the
         // sensor.
         //
-        message CandidateSign
+        message CandidateMainSign
         {
-            // The definition of the candidate's properties.
-            // The sign.id values of all CandidateSigns within one
-            // \c DetectedTrafficSign correspond to the tracking ID and must be
-            // identical.
+            // The definition of one main sign that defines this candidate.
             //
-            optional TrafficSign.MainSign sign = 1;
+            // \note IDs, which are referenced in this message, usually
+            // reference to \c DetectedXXX::tracking_id IDs.
+            //
+            optional TrafficSign.MainSign main_sign = 1;
 
             // The estimated probability that this candidate is the true value.
-            // The sum of all \c #candidate_probability must be one.
+            // The sum of all \c #probability must be one.
             //
             // Range: [0,1]
             //
-            optional double candidate_probability = 2;
+            optional double probability = 2;
 
             // The amount of time that this detected object has been currently
             // observed/tracked.
@@ -182,7 +182,7 @@ message DetectedTrafficSign
     // \brief Candidates for all detected supplementary signs of one traffic
     // sign as estimated by the sensor.
     //
-    message DetectedSupplementarySignData
+    message EstimatedSupplementarySign
     {
         // The definition of one of more supplementary signs that together
         // define this candidate.
@@ -215,15 +215,18 @@ message DetectedTrafficSign
             // The definition of one of more supplementary signs that together
             // define this candidate.
             //
-            optional TrafficSign.SupplementarySign sign = 1;
+            // \note IDs, which are referenced in this message, usually
+            // reference to \c DetectedXXX::tracking_id IDs.
+            //
+            optional TrafficSign.SupplementarySign supplementary_sign = 1;
 
             // The estimated probability that this candidate is the true value.
-            // The sum of all \c #candidate_probability of one supplementary
+            // The sum of all \c #probability of one supplementary
             // sign must be one.
             //
             // Range: [0,1]
             //
-            optional double candidate_probability = 2;
+            optional double probability = 2;
 
             // The amount of time that this detected object has been currently
             // observed/tracked.
@@ -257,7 +260,7 @@ message DetectedTrafficLight
 
     // The main sign as detected by the sensor.
     //
-    optional DetectedTrafficLightData traffic_light = 4;
+    optional EstimatedTrafficLight traffic_light = 4;
 
     // Determines for which directions the traffic light applies.
     //
@@ -297,7 +300,7 @@ message DetectedTrafficLight
     // \brief Candidates for a detected traffic light as estimated by the
     // sensor.
     //
-    message DetectedTrafficLightData
+    message EstimatedTrafficLight
     {
         // A list of candidates for this traffic light as estimated by the
         // sensor.
@@ -320,14 +323,17 @@ message DetectedTrafficLight
         {
             // The definition of one traffic light that define this candidate.
             //
+            // \note IDs, which are referenced in this message, usually
+            // reference to \c DetectedXXX::tracking_id IDs.
+            //
             optional TrafficLight traffic_light = 1;
 
             // The estimated probability that this candidate is the true value.
-            // The sum of all \c #candidate_probability must be one.
+            // The sum of all \c #probability must be one.
             //
             // Range: [0,1]
             //
-            optional double candidate_probability = 2;
+            optional double probability = 2;
 
             // The amount of time that this detected object has been currently
             // observed/tracked.
@@ -416,7 +422,7 @@ message DetectedRoadMarking
 
     // The road marking as detected by the sensor.
     //
-    optional DetectedRoadMarkingData road_marking = 4;
+    optional EstimatedRoadMarking road_marking = 4;
 
     // The estimated probability that this road marking really exists, not based
     // on history.
@@ -450,7 +456,7 @@ message DetectedRoadMarking
     // \brief Candidates for a detected traffic light as estimated by the
     // sensor.
     //
-    message DetectedRoadMarkingData
+    message EstimatedRoadMarking
     {
         // A list of candidates for this road marking as estimated by the
         // sensor.
@@ -466,20 +472,24 @@ message DetectedRoadMarking
         optional BaseStationary base_rmse = 2;
 
         //
-        // \brief A candidate for a detected road marking as estimated by the sensor.
+        // \brief A candidate for a detected road marking as estimated by the 
+        // sensor.
         //
         message CandidateRoadMarking
         {
             // The description of the road marking.
             //
+            // \note IDs, which are referenced in this message, usually
+            // reference to \c DetectedXXX::tracking_id IDs.
+            //
             optional RoadMarking road_marking = 1;
 
             // The estimated probability that this candidate is the true value.
-            // The sum of all \c #candidate_probability must be one.
+            // The sum of all \c #probability must be one.
             //
             // Range: [0,1]
             //
-            optional double candidate_probability = 2;
+            optional double probability = 2;
 
             // The amount of time that this detected object has been currently
             // observed/tracked.
@@ -515,7 +525,7 @@ message DetectedLandmark
 
     // The landmark as detected by the sensor.
     //
-    optional DetectedLandmarkData landmark = 3;
+    optional EstimatedLandmark landmark = 3;
 
     // The estimated probability that this landmark really exists, not based
     // on history.
@@ -542,7 +552,7 @@ message DetectedLandmark
     // \brief Candidates for a detected Landmark as estimated by the
     // sensor.
     //
-    message DetectedLandmarkData
+    message EstimatedLandmark
     {
         // A list of candidates for this landmark as estimated by the sensor.
         //
@@ -557,20 +567,24 @@ message DetectedLandmark
         optional BaseStationary base_rmse = 2;
 
         //
-        // \brief A candidate for a detected landmark as estimated by the sensor.
+        // \brief A candidate for a detected landmark as estimated by the 
+        // sensor.
         //
         message CandidateLandmark
         {
             // The description of the landmark.
             //
+            // \note IDs, which are referenced in this message, usually
+            // reference to \c DetectedXXX::tracking_id IDs.
+            //
             optional Landmark landmark = 1;
 
             // The estimated probability that this candidate is the true value.
-            // The sum of all \c #candidate_probability must be one.
+            // The sum of all \c #probability must be one.
             //
             // Range: [0,1]
             //
-            optional double candidate_probability = 2;
+            optional double probability = 2;
 
             // The amount of time that this detected object has been currently
             // observed/tracked.

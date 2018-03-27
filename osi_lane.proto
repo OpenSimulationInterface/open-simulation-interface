@@ -55,10 +55,10 @@ message Lane
     //
     // \image html line_approximation_error.png "Approximation error as green line."
     //
-    // \note The \c #center_line is defined only for \c #type =
+    // \note The \c #centerline is defined only for \c #type =
     // \c #TYPE_DRIVING and one \c #lane_pairing pair.
     //
-    repeated Vector3d center_line = 3;
+    repeated Vector3d centerline = 3;
 
     // Definition of the intended driving direction.
     //
@@ -68,10 +68,10 @@ message Lane
     // false means driving direction is according to descending storage order of
     // center line points.
     //
-    // \note The \c #center_line_is_driving_direction is defined for \c #type =
+    // \note The \c #centerline_is_driving_direction is defined for \c #type =
     // \c #TYPE_DRIVING .
     //
-    optional bool center_line_is_driving_direction = 4;
+    optional bool centerline_is_driving_direction = 4;
 
     // List of IDs of all lane segments that are directly adjacent to the lane
     // on the left side (w.r.t. intended driving direction). Note that lengths
@@ -115,8 +115,12 @@ message Lane
     //
     repeated LanePairing lane_pairing = 7;
 
-    // The ID of the right boundary ID of the right lane ID w.r.t. the driving
-    // direction. Empty for intersections.
+    // The right adjacent lane boundaries \c #right_lane_boundary_id may only be 
+    // shared with/as the left adjacent lane boundaries
+    // \c #left_lane_boundary_id of the nearest right adjacent lane 
+    // \c #right_adjacent_lane_id. 
+    //
+    // \note Empty for intersections.
     //
     // \note The \c #right_lane_boundary_id is undefined for \c #type =
     // \c #TYPE_INTERSECTION .
@@ -125,8 +129,12 @@ message Lane
     //
     repeated Identifier right_lane_boundary_id = 8;
 
-    // The ID of the left boundary ID of the left lane ID w.r.t. the driving
-    // direction. Empty for intersections.
+    // The left adjacent lane boundaries \c #left_lane_boundary_id may only be 
+    // shared with/as the right adjacent lane boundaries
+    // \c #right_lane_boundary_id of the nearest left adjacent lane 
+    // \c #left_adjacent_lane_id. 
+    //
+    // \note Empty for intersections.
     //
     // \note The \c #left_lane_boundary_id is undefined for \c #type =
     // \c #TYPE_INTERSECTION .
@@ -135,7 +143,7 @@ message Lane
     //
     repeated Identifier left_lane_boundary_id = 9;
 
-    // The ID of the free boundary ID.
+    // The free boundaries which have no/unknown assignment to left/right.
     //
     // \note \c Lanes with \c #type = \c #TYPE_INTERSECTION use only free
     // lane boundaries.
@@ -286,19 +294,19 @@ message Lane
         //
         optional double surface_texture = 6;
     }
-}
 
-// \brief The lane ID pairings of antecessor and successor lanes.
-//
-message LanePairing
-{
-    // The antecessor lane ID.
+    // \brief The lane ID pairings of antecessor and successor lanes.
     //
-    optional Identifier antecessor_lane_id = 1;
+    message LanePairing
+    {
+        // The antecessor lane ID.
+        //
+        optional Identifier antecessor_lane_id = 1;
 
-    // The successor lane ID.
-    //
-    optional Identifier successor_lane_id = 2;
+        // The successor lane ID.
+        //
+        optional Identifier successor_lane_id = 2;
+    }
 }
 
 //
@@ -326,7 +334,7 @@ message LaneBoundary
     // \c BoundaryPoint position has to define each Botts' dot.
     //
     // \attention For \c BoundaryPoint the same rules regarding maximum
-    // distance and approximation error apply as for \c Lane::center_line.
+    // distance and approximation error apply as for \c Lane::centerline.
     //
     repeated BoundaryPoint boundary_line = 2;
 
@@ -438,32 +446,32 @@ message LaneBoundary
         //
         COLOR_VIOLET = 8;
     }
-}
 
-//
-// \brief A single point of a lane boundary.
-//
-message BoundaryPoint
-{
-    // The position of the \c BoundaryPoint.
     //
-    optional Vector3d position = 1;
+    // \brief A single point of a lane boundary.
+    //
+    message BoundaryPoint
+    {
+        // The position of the \c BoundaryPoint.
+        //
+        optional Vector3d position = 1;
 
-    // The overall width of the lane boundary at the position of the
-    // \c BoundaryPoint .
-    // Used for lines forming lane markings.
-    //
-    // \note Field need not be set if it is defined previous.
-    // See \c LaneBoundary.
-    //
-    optional double boundary_width = 2;
+        // The overall width of the lane boundary at the position of the
+        // \c BoundaryPoint .
+        // Used for lines forming lane markings.
+        //
+        // \note Field need not be set if it is defined previous.
+        // See \c LaneBoundary.
+        //
+        optional double width = 2;
 
-    // The overall height of the lane boundary at the position of the
-    // \c BoundaryPoint .
-    // Used for guard rails, curbstone, or similar.
-    //
-    // \note Field need not be set if it is defined previous.
-    // See \c LaneBoundary .
-    //
-    optional double boundary_height = 3;
+        // The overall height of the lane boundary at the position of the
+        // \c BoundaryPoint .
+        // Used for guard rails, curbstone, or similar.
+        //
+        // \note Field need not be set if it is defined previous.
+        // See \c LaneBoundary .
+        //
+        optional double height = 3;
+    }
 }

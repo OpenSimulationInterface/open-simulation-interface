@@ -60,7 +60,7 @@ message SensorData
     //
     optional Timestamp timestamp = 2;
 
-    // Ground truth w.r.t. global coordinate system
+    // Ground truth w.r.t. global coordinate system.
     //
     // This is the ground truth that is provided to the sensor model by the
     // simulation environment.
@@ -68,7 +68,7 @@ message SensorData
     //
     optional GroundTruth global_ground_truth = 3;
 
-    // Sensor view w.r.t. the sensor coordinate system
+    // Sensor view w.r.t. the sensor coordinate system.
     //
     // This provides additional data to the sensor model as configured in
     // the sensor input configuration.  All data is relative to the sensor
@@ -111,9 +111,9 @@ message SensorData
     optional MountingPosition mounting_position_rmse = 7;
 
     // The timestamp of the last real-world measurement (e.g. GT input) that
-    // this set of sensor data takes into account.  This in effect is the last
+    // this set of sensor data takes into account. This in effect is the last
     // time instance of reality the measurements correspond to.  See field
-    // \c SensorData::timestamp for a detailed discussion.  This value is also
+    // \c SensorData::timestamp for a detailed discussion. This value is also
     // the upper bound to the \c DetectedObjectHeader::measurement_time and the
     // feature data \c SensorDetectionHeader::measurement_time fields.
     //
@@ -133,7 +133,7 @@ message SensorData
     //
     optional DetectedEntityHeader traffic_sign_header = 101;
 
-    // The list of traffic signs detected by the sensor
+    // The list of traffic signs detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -143,7 +143,7 @@ message SensorData
     //
     optional DetectedEntityHeader traffic_light_header = 102;
 
-    // The list of traffic lights detected by the sensor
+    // The list of traffic lights detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -153,7 +153,7 @@ message SensorData
     //
     optional DetectedEntityHeader road_marking_header = 103;
 
-    // The list of road marking detected by the sensor.
+    // The list of road markings detected by the sensor.
     // This excludes lane boundary markings.
     //
     // \note OSI uses singular instead of plural for repeated field names.
@@ -164,7 +164,7 @@ message SensorData
     //
     optional DetectedEntityHeader lane_header = 104;
 
-    // The list of lane detected by the sensor
+    // The list of lanes detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -194,7 +194,7 @@ message SensorData
     //
     optional DetectedEntityHeader occupant_header = 106;
 
-    // The list of occupants of the host vehicle
+    // The list of occupants of the host vehicle.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -213,7 +213,7 @@ message SensorData
     //
     optional FeatureData feature_data = 17;
 
-    // Host Vehicle Data
+    // Host Vehicle Data.
     //
     // Host vehicle data is data that the host vehicle knows about itself,
     // e.g. from location sensors, internal sensors and ECU bus data, etc.,
