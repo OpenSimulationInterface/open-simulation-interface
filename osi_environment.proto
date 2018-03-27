@@ -32,13 +32,22 @@ message EnvironmentalConditions
     //
     optional double temperature = 4;
 
+    // Relative humidity in at z=0.0 in world frame.
+    //
+    // Note that physically more relevant measures, like absolute or specific
+    // humidity can be easily derived from relative_humidity, given that the
+    // temperature and atmospheric_pressure are known.
+    //
+    // Unit: [%]
+    optional double relative_humidity = 5;
+
     // Description of the precipitation.
     //
-    optional Precipitation precipitation = 5;
+    optional Precipitation precipitation = 6;
 
     // Description of the fog.
     //
-    optional Fog fog = 6;
+    optional Fog fog = 7;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour [mm/h])
