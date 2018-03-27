@@ -260,7 +260,8 @@ message MovingObject
 
     // Definition of object types.
     //
-    enum Type {
+    enum Type
+	{
         // Type of the object is unknown (must not be used in ground truth).
         //
         TYPE_UNKNOWN = 0;

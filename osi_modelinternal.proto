@@ -40,9 +40,9 @@ message ModelInternalObject
     //
     enum ObjectType
     {
-        // Object is a ghost object and does not exist in ground truth.
+	    // The object type is unknown. Value must not be used in ground truth.
         //
-        OBJECT_TYPE_GHOST = 0;
+        OBJECT_TYPE_UNKNOWN = 0;
 
         // Other (unspecified but known) type of object.
         //
@@ -67,5 +67,9 @@ message ModelInternalObject
         // Object of type \c TrafficLight.
         //
         OBJECT_TYPE_TRAFFIC_LIGHT = 6;
+		
+		// Object is a ghost object and does not exist in ground truth.
+        //
+        OBJECT_TYPE_GHOST = 7;
     }
 }
