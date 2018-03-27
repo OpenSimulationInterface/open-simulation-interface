@@ -8,14 +8,14 @@ import "osi_version.proto";
 package osi;
 
 //
-// \brief The configuration settings for the SensorView to be provided
+// \brief The configuration settings for the \c SensorView to be provided
 // by the environment simulation.
 //
 // This message can be provided by the sensor model to the environment
 // simulation, in which case it describes the input configuration that
-// is desired by the sensor model.  In response the environment simulation
+// is desired by the sensor model. In response the environment simulation
 // will configure the input and provide a new message of this type, which
-// describes the actual configuration that it is going to employ.  The two
+// describes the actual configuration that it is going to employ. The two
 // can and will differ, when either the environment simulation does not
 // support a given requested configuration, and/or when the requested
 // configuration allowed for multiple alternatives, in which case the set
@@ -28,7 +28,7 @@ package osi;
 // Mechanisms to parametrize sensor models are currently packaging-specific,
 // i.e. they depend on the packaging mechanism chosen:  For FMU-packaging
 // the parametrization can be implemented using normal FMU parameters,
-// and the requested SensorViewConfiguration can depend on those parameter
+// and the requested \c SensorViewConfiguration can depend on those parameter
 // values by being defined as a calculatedParameter.
 //
 // The sensor-technology specific configurations are intended to allow
@@ -38,7 +38,7 @@ package osi;
 // suitable data. The specified details are not directly related to
 // sensor details, but rather provide the necessary base machinery
 // setup so that the data provided is suitable to model the sensor to
-// a sufficient degree of fidelity internally.  For example the number
+// a sufficient degree of fidelity internally. For example the number
 // of rays parameters for the Lidar configuration does not match one to
 // one with the number of laser rays a lidar sensor might cast, but
 // rather specifies the number of rays being cast by a ray
@@ -53,10 +53,10 @@ package osi;
 //
 // In order to optimize the workload and bandwidth needed for sensor
 // simulation, OSI packaging mechanisms can specify the ability to
-// exchange SensorViewConfiguration messages not only prior to
+// exchange \c SensorViewConfiguration messages not only prior to
 // simulation startup, but also dynamically during simulation runs,
 // thereby allowing dynamic input configuration switching to only
-// request data that is needed in the current sensor mode.  However
+// request data that is needed in the current sensor mode. However
 // this is more or less only a resource optimization strategy, and
 // since providing fine-grained information like this can reveal
 // internal characteristics of the sensor and/or sensor model, will
@@ -84,7 +84,7 @@ message SensorViewConfiguration
     // The virtual position pertains to the sensor as a whole, regardless
     // of the actual position of individual physical detectors, and governs
     // the sensor-relative coordinates in detected objects of the sensor
-    // as a whole.  Individual features detected by individual physical
+    // as a whole. Individual features detected by individual physical
     // detectors are governed by the actual physical mounting positions
     // of the detectors, as indicated in the technology-specific sub-views
     // and sub-view configurations.
@@ -114,22 +114,22 @@ message SensorViewConfiguration
     //
     optional MountingPosition mounting_position_rmse = 4;
 
-    // Field of View in horizontal orientation of the sensor
+    // Field of View in horizontal orientation of the sensor.
     //
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
     // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
-    // azimuth in the sensor frame as defined in \c OSI:Spherical3d.
+    // azimuth in the sensor frame as defined in \c Spherical3d.
     // Unit: [rad]
     optional double field_of_view_horizontal = 5;
 
-    // Field of View in vertical orientation of the sensor
+    // Field of View in vertical orientation of the sensor.
     //
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
     // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
-    // \c OSI:Spherical3d.
+    // \c Spherical3d.
     //
     // Unit: [rad]
     optional double field_of_view_vertical = 6;
@@ -142,7 +142,7 @@ message SensorViewConfiguration
     // Unit: [m]
     optional double range = 7;
 
-    // The update cycle time of the sensor model
+    // The update cycle time of the sensor model.
     //
     // This specifies the rate at which the sensor model is provided with
     // new input data.
@@ -152,7 +152,7 @@ message SensorViewConfiguration
     // communication step size.
     optional double update_cycle_time = 8;
 
-    // Initial update cycle offset of the sensor model
+    // Initial update cycle offset of the sensor model.
     //
     // This specifies the initial offset (i.e. initial delay) of the
     // sensor model update cycle that the simulation should take into
@@ -165,7 +165,7 @@ message SensorViewConfiguration
     // added on top of the start time: e.g. if the simulation starts at
     // 0.030s, and the update cycle time is 0.020s, then the first
     // update to the sensor input should happen at 0.048s, or 0.018s
-    // after simulation start.  This convention is needed to ensure
+    // after simulation start. This convention is needed to ensure
     // stable phase position of the offset in the case of changing
     // simulation start times, e.g. for partial resimulation.
     //
@@ -253,48 +253,48 @@ message RadarSensorViewConfiguration
     //
     optional MountingPosition mounting_position_rmse = 3;
 
-    // Field of View in horizontal orientation of the physical sensor
+    // Field of View in horizontal orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
-    // azimuth in the sensor frame as defined in \c OSI:Spherical3d.
+    // azimuth in the sensor frame as defined in \c Spherical3d.
     // Unit: [rad]
     optional double field_of_view_horizontal = 4;
 
-    // Field of View in vertical orientation of the physical sensor
+    // Field of View in vertical orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
-    // \c OSI:Spherical3d.
+    // \c Spherical3d.
     //
     // Unit: [rad]
     optional double field_of_view_vertical = 5;
 
-    // Number of rays to cast across horizontal field of view (azimuth)
+    // Number of rays to cast across horizontal field of view (azimuth).
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_horizontal = 6;
 
-    // Number of rays to cast across vertical field of view (elevation)
+    // Number of rays to cast across vertical field of view (elevation).
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_vertical = 7;
 
-    // Maximum number of interactions to take into account
+    // Maximum number of interactions to take into account.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 max_number_of_interactions = 8;
 
-    // Emitter Frequency
+    // Emitter Frequency.
     //
     // This information can be used by a ray tracing engine to calculate
     // doppler shift information and take into account differences in
-    // refraction and reflection.  For doppler shift calculations the
+    // refraction and reflection. For doppler shift calculations the
     // sensor model can of course always provide a nominal frequency and
     // adjust the resulting doppler shift information to actual frequency
-    // through frequency adjustments.  For material and geometry interaction
+    // through frequency adjustments. For material and geometry interaction
     // purposes the frequency is also relevant.
     //
     // Unit: [Hz]
@@ -315,22 +315,22 @@ message RadarSensorViewConfiguration
     //
     // \brief The radar antenna diagram.
     //
-    // \note Rotation is defined analog OSI:Spherical3d
+    // \note Rotation is defined analog Spherical3d
     message AntennaDiagramEntry {
         // Horizontal deflection (azimuth) of entry in sensor/antenna
-        // coordinates
+        // coordinates.
         //
         // Unit: [rad]
         optional double horizontal_angle = 1;
 
         // Vertical deflection (elevation) of entry in sensor/antenna
-        // coordinates
+        // coordinates.
         //
         // Unit: [rad]
         optional double vertical_angle = 2;
 
         // Combined response of emitter and receiver antenna at this
-        // point (positive dB is gain, negative dB is attenuation)
+        // point (positive dB is gain, negative dB is attenuation).
         //
         // Unit: [dB]
         optional double response = 3;
@@ -384,48 +384,48 @@ message LidarSensorViewConfiguration
     //
     optional MountingPosition mounting_position_rmse = 3;
 
-    // Field of View in horizontal orientation of the physical sensor
+    // Field of View in horizontal orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
-    // azimuth in the sensor frame as defined in \c OSI:Spherical3d.
+    // azimuth in the sensor frame as defined in \c Spherical3d.
     // Unit: [rad]
     optional double field_of_view_horizontal = 4;
 
-    // Field of View in vertical orientation of the physical sensor
+    // Field of View in vertical orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
-    // \c OSI:Spherical3d.
+    // \c Spherical3d.
     //
     // Unit: [rad]
     optional double field_of_view_vertical = 5;
 
-    // Number of rays to cast across horizontal field of view
+    // Number of rays to cast across horizontal field of view.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_horizontal = 6;
 
-    // Number of rays to cast across vertical field of view
+    // Number of rays to cast across vertical field of view.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_rays_vertical = 7;
 
-    // Maximum number of interactions to take into account
+    // Maximum number of interactions to take into account.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 max_number_of_interactions = 8;
 
-    // Emitter Frequency
+    // Emitter Frequency.
     //
     // This information can be used by a ray tracing engine to calculate
     // doppler shift information and take into account differences in
-    // refraction and reflection.  For doppler shift calculations the
+    // refraction and reflection. For doppler shift calculations the
     // sensor model can of course always provide a nominal frequency and
     // adjust the resulting doppler shift information to actual frequency
-    // through frequency adjustments.  For material and geometry interaction
+    // through frequency adjustments. For material and geometry interaction
     // purposes the frequency is also relevant.
     //
     // Unit: [Hz]
@@ -479,35 +479,35 @@ message CameraSensorViewConfiguration
     //
     optional MountingPosition mounting_position_rmse = 3;
 
-    // Field of View in horizontal orientation of the physical sensor
+    // Field of View in horizontal orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
-    // azimuth in the sensor frame as defined in \c OSI:Spherical3d.
+    // azimuth in the sensor frame as defined in \c Spherical3d.
     // Unit: [rad]
     optional double field_of_view_horizontal = 4;
 
-    // Field of View in vertical orientation of the physical sensor
+    // Field of View in vertical orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
-    // \c OSI:Spherical3d.
+    // \c Spherical3d.
     //
     // Unit: [rad]
     optional double field_of_view_vertical = 5;
 
-    // Number of pixels to produce across horizontal field of view
+    // Number of pixels to produce across horizontal field of view.
     //
     // \note This is a characteristic of the rendering engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_pixels_horizontal = 6;
 
-    // Number of pixels to produce across horizontal field of view
+    // Number of pixels to produce across horizontal field of view.
     //
     // \note This is a characteristic of the rendering engine of the
     // environment simulation, not a direct characteristic of the sensor.
     optional uint32 number_of_pixels_vertical = 7;
 
-    // Format for image data (includes number, kind and format of channels)
+    // Format for image data (includes number, kind and format of channels).
     //
     // In the message provided by the sensor model, this field can
     // be repeated and all values are acceptable to the model, with
@@ -525,60 +525,60 @@ message CameraSensorViewConfiguration
     enum ChannelFormat {
         // Type of channel format is unknown (must not be used).
         //
-        FORMAT_UNKNOWN = 0;
-		
-		// Unspecified but known channel format.
-        // Consider proposing an additional format if using FORMAT_OTHER.
+        CHANNEL_FORMAT_UNKNOWN = 0;
+    
+        // Unspecified but known channel format.
+        // Consider proposing an additional format if using #CHANNEL_FORMAT_OTHER.
         //
-        FORMAT_OTHER = 1;
+        CHANNEL_FORMAT_OTHER = 1;
+         
+        // Single Luminance Channel UINT8 Linear.
+        //
+        CHANNEL_FORMAT_MONO_U8_LIN = 2;
 
-        // Single Luminance Channel UINT8 Linear
+        // Single Luminance Channel UINT16 Linear.
         //
-        FORMAT_MONO_U8_LIN = 2;
+        CHANNEL_FORMAT_MONO_U16_LIN = 3;
 
-        // Single Luminance Channel UINT16 Linear
+        // Single Luminance Channel UINT32 Linear.
         //
-        FORMAT_MONO_U16_LIN = 3;
+        CHANNEL_FORMAT_MONO_U32_LIN = 4;
 
-        // Single Luminance Channel UINT32 Linear
+        // Single Luminance Channel Single Precision FP Linear.
         //
-        FORMAT_MONO_U32_LIN = 4;
+        CHANNEL_FORMAT_MONO_F32_LIN = 5;
 
-        // Single Luminance Channel Single Precision FP Linear
+        // Packed RGB Channels (no padding) UINT8 Linear.
         //
-        FORMAT_MONO_F32_LIN = 5;
+        CHANNEL_FORMAT_RGB_U8_LIN = 6;
 
-        // Packed RGB Channels (no padding) UINT8 Linear
+        // Packed RGB Channels (no padding) UINT16 Linear.
         //
-        FORMAT_RGB_U8_LIN = 6;
+        CHANNEL_FORMAT_RGB_U16_LIN = 7;
 
-        // Packed RGB Channels (no padding) UINT16 Linear
+        // Packed RGB Channels (no padding) UINT32 Linear.
         //
-        FORMAT_RGB_U16_LIN = 7;
+        CHANNEL_FORMAT_RGB_U32_LIN = 8;
 
-        // Packed RGB Channels (no padding) UINT32 Linear
+        // Packed RGB Channels (no padding) Single Precision FP Linear.
         //
-        FORMAT_RGB_U32_LIN = 8;
+        CHANNEL_FORMAT_RGB_F32_LIN = 9;
 
-        // Packed RGB Channels (no padding) Single Precision FP Linear
+        // Bayer RGGB Channels UINT8 FP Linear.
         //
-        FORMAT_RGB_F32_LIN = 9;
+        CHANNEL_FORMAT_BAYER_BGGR_U8_LIN = 10;
 
-        // Bayer RGGB Channels UINT8 FP Linear
+        // Bayer RGGB Channels UINT16 FP Linear.
         //
-        FORMAT_BAYER_BGGR_U8_LIN = 10;
+        CHANNEL_FORMAT_BAYER_BGGR_U16_LIN = 11;
 
-        // Bayer RGGB Channels UINT16 FP Linear
+        // Bayer RGGB Channels UINT32 FP Linear.
         //
-        FORMAT_BAYER_BGGR_U16_LIN = 11;
+        CHANNEL_FORMAT_BAYER_BGGR_U32_LIN = 12;
 
-        // Bayer RGGB Channels UINT32 FP Linear
+        // Bayer RGGB Channels Single Precision FP Linear.
         //
-        FORMAT_BAYER_BGGR_U32_LIN = 12;
-
-        // Bayer RGGB Channels Single Precision FP Linear
-        //
-        FORMAT_BAYER_BGGR_F32_LIN = 13;
+        CHANNEL_FORMAT_BAYER_BGGR_F32_LIN = 13;
 
         // TBD: Further channel permutations and padding (e.g. RGBZ,
         // BGR, BAYER_RGGB/GBRG/GRBG/...), non-BAYER filters, non-linear
@@ -635,21 +635,21 @@ message UltrasonicSensorViewConfiguration
     //
     optional MountingPosition mounting_position_rmse = 3;
 
-    // Field of View in horizontal orientation of the physical sensor
+    // Field of View in horizontal orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
-    // azimuth in the sensor frame as defined in \c OSI:Spherical3d.
+    // azimuth in the sensor frame as defined in \c Spherical3d.
     // Unit: [rad]
     optional double field_of_view_horizontal = 4;
 
-    // Field of View in vertical orientation of the physical sensor
+    // Field of View in vertical orientation of the physical sensor.
     //
     // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
-    // \c OSI:Spherical3d.
+    // \c Spherical3d.
     //
     // Unit: [rad]
     optional double field_of_view_vertical = 5;
 
-    // TBD: Ultrasonic Sensor specific configuration
+    // TBD: Ultrasonic Sensor specific configuration.
 }
