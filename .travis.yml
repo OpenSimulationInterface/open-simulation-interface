@@ -10,12 +10,12 @@ compiler:
 # Cache dependencies to speed up the build.
 cache:
     directories:
-        - ${TRAVIS_BUILD_DIR}/deps/cmake
-        - ${TRAVIS_BUILD_DIR}/deps/protobuf
+        - ${HOME}/deps/cmake
+        - ${HOME}/deps/protobuf
 
 # Handle dependencies in separate directory.
 before_install:
-    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+    - DEPS_DIR="${HOME}/deps"
     - mkdir -p "${DEPS_DIR}"
     - cd "${DEPS_DIR}"
 
