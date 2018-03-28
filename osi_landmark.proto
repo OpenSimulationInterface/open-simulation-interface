@@ -823,6 +823,8 @@ message TrafficSign
         //
         // \note Field need not be set if traffic sign type does not require it.
         //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
         repeated TrafficSignValue value = 2;
 
         // Definition of supplementary sign types.
@@ -1375,7 +1377,7 @@ message RoadMarking
     //
     // \note Field need not be set if road marking type does not require it.
     //
-    repeated TrafficSignValue value = 7;
+    optional TrafficSignValue value = 7;
 
     // Additional text value as road marking, e.g. BUS, TAXI etc.
     //
