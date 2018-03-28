@@ -278,7 +278,8 @@ message BaseStationary
     // The two dimensional (flat) contour of the object. This is an extension of
     // the concept of a bounding box as defined by \c Dimension3d. The contour is
     // the projection of the object's outline onto the z-plane in the object
-    // frame (independent of its current position and orientation).
+    // frame (independent of its current position and orientation). The height
+    // is the same as the height of the bounding box.
     //
     // Usage as sensor data:
     // The polygon describes the visible part of the object's contour.
@@ -359,7 +360,8 @@ message BaseMoving
     // The two dimensional (flat) contour of the object. This is an extension of
     // the concept of a bounding box as defined by \c Dimension3d. The contour is
     // the projection of the object's outline onto the z-plane in the object
-    // frame (independent of its current position and orientation).
+    // frame (independent of its current position and orientation). The height
+    // is the same as the height of the bounding box.
     //
     // Usage as sensor data:
     // The polygon describes the visible part of the object's contour.
