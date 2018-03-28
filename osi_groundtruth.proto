@@ -110,17 +110,17 @@ message GroundTruth
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Landmark landmark = 1000;
+    repeated Landmark landmark = 11;
 
     // The list of passengers in the (host) vehicle(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Occupant occupant = 11;
+    repeated Occupant occupant = 12;
 
     // Conditions of the environment.
     //
-    optional EnvironmentalConditions environmental_conditions = 12;
+    optional EnvironmentalConditions environmental_conditions = 13;
 
     // The ISO country code in 3 digit numeric format according to:
     // ISO Code 3166/1 [1,2].
@@ -132,5 +132,5 @@ message GroundTruth
     // \li [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions - Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/)
     // \li [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
     //
-    optional uint32 country_code = 13;
+    optional uint32 country_code = 14;
 }

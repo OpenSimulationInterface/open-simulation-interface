@@ -16,23 +16,23 @@ message DetectedTrafficSign
     // Specific ID of the traffic sign as assigned by the sensor internally.
     // Need not match with \c #ground_truth_id.
     //
-    optional Identifier tracking_id = 2;
+    optional Identifier tracking_id = 1;
 
     // The ID of the original traffic sign in the ground truth.
     // In case of a ghost sign (no corresponding ground truth), this field
     // should be unset.
     //
-    optional Identifier ground_truth_id = 3;
+    optional Identifier ground_truth_id = 2;
 
     // The main sign as detected by the sensor.
     //
-    optional EstimatedMainSign main_sign = 4;
+    optional EstimatedMainSign main_sign = 3;
 
     // A list of additional supplementary sign(s) as detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated EstimatedSupplementarySign supplementary_sign = 5;
+    repeated EstimatedSupplementarySign supplementary_sign = 4;
 
     // The estimated probability that this traffic sign with all supplementary
     // signs really exists, not based on history.
@@ -40,13 +40,13 @@ message DetectedTrafficSign
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    optional double existence_probability = 7;
+    optional double existence_probability = 5;
 
     // Links to the corresponding lanes.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RelevantLane relevant_lane_id = 10;
+    repeated RelevantLane relevant_lane_id = 6;
 
     // A list of sensors which detected this detected entity.
     //
@@ -60,7 +60,7 @@ message DetectedTrafficSign
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 11;
+    repeated Identifier sensor_id = 7;
 
     //
     // \brief Candidates for a detected sign as estimated by the sensor.
@@ -250,29 +250,29 @@ message DetectedTrafficLight
     // Specific ID of the traffic light as assigned by the sensor internally.
     // Need not match with \c #ground_truth_id.
     //
-    optional Identifier tracking_id = 2;
+    optional Identifier tracking_id = 1;
 
     // The ID of the original traffic light in the ground truth.
     // In case of a ghost detection (no corresponding ground truth), this field
     // should be unset.
     //
-    optional Identifier ground_truth_id = 3;
+    optional Identifier ground_truth_id = 2;
 
     // The main sign as detected by the sensor.
     //
-    optional EstimatedTrafficLight traffic_light = 4;
+    optional EstimatedTrafficLight traffic_light = 3;
 
     // Determines for which directions the traffic light applies.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RelevantDirection relevant_direction = 6;
+    repeated RelevantDirection relevant_direction = 4;
 
     // Links to the corresponding lanes.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RelevantLane relevant_lane = 7;
+    repeated RelevantLane relevant_lane = 5;
 
     // The estimated probability that this traffic light really exists, not
     // based on history.
@@ -280,7 +280,7 @@ message DetectedTrafficLight
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    optional double existence_probability = 8;
+    optional double existence_probability = 6;
 
     // A list of sensors which detected this detected entity.
     //
@@ -294,7 +294,7 @@ message DetectedTrafficLight
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 10;
+    repeated Identifier sensor_id = 7;
 
     //
     // \brief Candidates for a detected traffic light as estimated by the
@@ -412,17 +412,17 @@ message DetectedRoadMarking
     // Specific ID of the road marking as assigned by the sensor internally.
     // Need not match with \c #ground_truth_id.
     //
-    optional Identifier tracking_id = 2;
+    optional Identifier tracking_id = 1;
 
     // The ID of the original road marking in the ground truth.
     // In case of a ghost detection (no corresponding ground truth), this field
     // should be unset.
     //
-    optional Identifier ground_truth_id = 3;
+    optional Identifier ground_truth_id = 2;
 
     // The road marking as detected by the sensor.
     //
-    optional EstimatedRoadMarking road_marking = 4;
+    optional EstimatedRoadMarking road_marking = 3;
 
     // The estimated probability that this road marking really exists, not based
     // on history.
@@ -430,13 +430,13 @@ message DetectedRoadMarking
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    optional double existence_probability = 5;
+    optional double existence_probability = 4;
 
     // Links to the corresponding lanes.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RelevantLane relevant_lane = 6;
+    repeated RelevantLane relevant_lane = 5;
 
     // A list of sensors which detected this detected entity.
     //
@@ -450,7 +450,7 @@ message DetectedRoadMarking
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 11;
+    repeated Identifier sensor_id = 6;
 
     //
     // \brief Candidates for a detected traffic light as estimated by the
@@ -546,7 +546,7 @@ message DetectedLandmark
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 6;
+    repeated Identifier sensor_id = 5;
 
     //
     // \brief Candidates for a detected Landmark as estimated by the

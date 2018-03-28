@@ -96,13 +96,13 @@ message Vehicle
     // Median radius of the wheels.
     //
     // Unit: [m]
-    //    
+    //
     optional double radius_wheel = 13;
-    
+
     // Number of independent wheels.
     //
     // Unit: []
-    //    
+    //
     optional uint32 number_wheels = 14;
 
     // Definition of vehicle types.
@@ -116,31 +116,31 @@ message Vehicle
         // Other (unspecified but known) type of vehicle.
         //
         TYPE_OTHER = 1;
-        
+
         // Vehicle is a small car.
         //
         // Definition:
         //
         TYPE_SMALL_CAR = 2;
-        
+
         // Vehicle is a medium car.
         //
         // Definition:
         //
         TYPE_MEDIUM_CAR = 3;
-        
+
         // Vehicle is a compact car.
         //
         // Definition:
         //
         TYPE_COMPACT_CAR = 4;
-        
+
         // Vehicle is a luxury  car.
         //
         // Definition:
         //
         TYPE_LUXURY_CAR = 5;
-        
+
         // Vehicle is a delivery van.
         //
         // Definition:
@@ -154,7 +154,7 @@ message Vehicle
         // Vehicle is a truck with semitrailer.
         //
         TYPE_SEMITRAILER = 8;
-        
+
         // Vehicle is a trailer (possibly attached to another vehicle).
         //
         TYPE_TRAILER = 9;
@@ -392,29 +392,29 @@ message StationaryObject
         // Object is a delineator (e.g. at a construction site).
         //
         TYPE_DELINEATOR = 6;
-        
+
         // Object is a pole.
         //
-        TYPE_POLE = 2000;
-        
+        TYPE_POLE = 7;
+
         // Object is a tree.
         //
-        TYPE_TREE = 2001;
-        
+        TYPE_TREE = 8;
+
         // Object is a barrier.
         //
-        TYPE_BARRIER = 2002;
-        
+        TYPE_BARRIER = 9;
+
         // Object is vegetation.
         //
-        TYPE_VEGETATION = 2003;
-        
+        TYPE_VEGETATION = 10;
+
         // Object is a curbstone.
         //
-        TYPE_CURBSTONE = 2004;
-        
+        TYPE_CURBSTONE = 11;
+
         // Object is a wall.
         //
-        TYPE_WALL = 2005;
+        TYPE_WALL = 12;
     }
 }
