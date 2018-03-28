@@ -198,12 +198,21 @@ message DetectedObject
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 15;
 
-    // The estimated probabilities for the object to belong to a specific class.
+    // The estimated probabilities for the object to belong to a specific 
+    // vehicle class.
     //
     // \note The probability for each class of object has to be provided.
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated ClassProbability class_probability = 16;
+    repeated ClassProbabilityVehicle class_probability_vehicle = 16;
+
+    // The estimated probabilities for the object to belong to a specific 
+    // non-vehicle class.
+    //
+    // \note The probability for each class of object has to be provided.
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated ClassProbabilityMovingObject class_probability_no_vehicle = 17;
 
     // Pedestrian head pose for behavior prediction. Describes the head
     // orientation w.r.t. the host vehicle orientation.
@@ -216,7 +225,7 @@ message DetectedObject
     // \par References:
     // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     //
-    optional Orientation3d head_pose = 17;
+    optional Orientation3d head_pose = 18;
 
     // Pedestrian upper body pose for behavior prediction. Describes the
     // upper body orientation w.r.t. the host vehicle orientation.
@@ -230,19 +239,19 @@ message DetectedObject
     // \par References:
     // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
     //
-    optional Orientation3d upper_body_pose = 18;
+    optional Orientation3d upper_body_pose = 19;
 
     // Percentage side lane left.
     //
     // Percentage value of the object width in the corresponding lane.
     //
-    optional double percentage_side_lane_left = 19;
+    optional double percentage_side_lane_left = 20;
 
     // Percentage side lane right.
     //
     // Percentage value of the object width in the corresponding lane.
     //
-    optional double percentage_side_lane_right = 20;
+    optional double percentage_side_lane_right = 21;
 
     // A list of sensors which detected this detected entity.
     //
@@ -255,7 +264,7 @@ message DetectedObject
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 21;
+    repeated Identifier sensor_id = 22;
 
     // Definition of available reference points. Left/middle/right and
     // front/middle/rear indicate the position in y- and x-direction
@@ -345,12 +354,30 @@ message DetectedObject
     // \brief Probabilities for the classification of the object as perceived by
     // the sensor.
     //
-    message ClassProbability
+    message ClassProbabilityVehicle
     {
         // The class of object that has been estimated with a certain
         // probability.
         //
         optional Vehicle.Type class = 1;
+
+        // Probability that the object is of that certain class.
+        //
+        // Range: [0,1]
+        //
+        optional double probability = 2;
+    }
+
+    //
+    // \brief Probabilities for the classification of the object as perceived by
+    // the sensor.
+    //
+    message ClassProbabilityMovingObject
+    {
+        // The class of object that has been estimated with a certain
+        // probability.
+        //
+        optional MovingObject.Type class = 1;
 
         // Probability that the object is of that certain class.
         //
