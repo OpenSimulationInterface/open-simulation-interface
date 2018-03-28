@@ -47,7 +47,7 @@ message DetectedOccupant
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The detected vehicle occupant.
             //

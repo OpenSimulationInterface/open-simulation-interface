@@ -40,7 +40,7 @@ message DetectedLane
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The definition of one lane that defines this candidate.
             //
@@ -101,7 +101,7 @@ message DetectedLaneBoundary
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The definition of one lane boundary that defines this candidate.
             //

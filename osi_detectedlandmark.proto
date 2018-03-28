@@ -57,7 +57,7 @@ message DetectedTrafficSign
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The definition of one main sign that defines this candidate.
             //
@@ -165,7 +165,7 @@ message DetectedTrafficSign
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The definition of one of more supplementary signs that together
             // define this candidate.
@@ -218,7 +218,7 @@ message DetectedTrafficLight
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The definition of one traffic light that define this candidate.
             //
@@ -270,7 +270,7 @@ message DetectedRoadMarking
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The description of the road marking.
             //
@@ -321,7 +321,7 @@ message DetectedLandmark
         {
             // Common information of one detected item candidate.
             //
-            optional DetectedItemHeader.CandidateItemHeader header = 1;
+            optional DetectedCandidateItemHeader header = 1;
 
             // The description of the landmark.
             //
