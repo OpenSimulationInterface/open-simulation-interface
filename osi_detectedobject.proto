@@ -368,7 +368,14 @@ message DetectedStationaryObject
 {
     // Common information of one detected item.
     //
-    optional DetectedItemHeader header = 1; 
+    optional DetectedItemHeader header = 1;
+
+    // A list of estimates for this stationary object (e.g. landmark) as 
+    // estimated by the sensor.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated EstimatedStationaryObject stationary_object = 2;
 
     //
     // \brief A candidate for a detected stationary object (e.g. landmark) as 
@@ -394,7 +401,7 @@ message DetectedStationaryObject
             // Common information of one detected item candidate.
             //
             optional DetectedCandidateItemHeader header = 1;
-
+            
             // The description of the stationary object (e.g. landmark).
             //
             optional StationaryObject stationary_object = 2;
