@@ -150,7 +150,7 @@ message SensorViewConfiguration
     // Unit: [s]
     // \note In the case of FMU packaging this will correspond to the
     // communication step size.
-    optional double update_cycle_time = 8;
+    optional Timestamp update_cycle_time = 8;
 
     // Initial update cycle offset of the sensor model.
     //
@@ -170,7 +170,7 @@ message SensorViewConfiguration
     // simulation start times, e.g. for partial resimulation.
     //
     // Unit: [s]
-    optional double update_cycle_offset = 9;
+    optional Timestamp update_cycle_offset = 9;
 
     // Simulation Start time
     //
@@ -179,7 +179,7 @@ message SensorViewConfiguration
     // the sensor model.
     //
     // Unit: [s]
-    optional double simulation_start_time = 10;
+    optional Timestamp simulation_start_time = 10;
 
     // Generic SensorView Configuration(s).
     //
