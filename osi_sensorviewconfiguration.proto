@@ -5,7 +5,7 @@ option optimize_for = SPEED;
 import "osi_common.proto";
 import "osi_version.proto";
 
-package osi;
+package osi3;
 
 //
 // \brief The configuration settings for the \c SensorView to be provided
