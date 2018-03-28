@@ -7,18 +7,20 @@ import "osi_sensordata.proto";
 package osi;
 
 //
-// \brief (Time) Series of SensorData messages that may be used for data
+// \brief (Time) Series of \c SensorData messages that may be used for data
 // recording or internal buffering by some sensor models.
 //
 message SensorDataSeries
 {
     // List of sensor data messages for subsequent timesteps.
     //
-    repeated SensorData sensor_data_list = 1;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated SensorData sensor_data = 1;
 }
 
 //
-// \brief List of SensorData interface copies, one for each sensor in the
+// \brief List of \c SensorData interface copies, one for each sensor in the
 //  vehicle.
 //
 // Can be used to bundle output of multiple sensors in one transmission.
@@ -27,16 +29,18 @@ message SensorDataList
 {
     // List of sensor data for multiple sensors at a specific timestep.
     //
-    repeated SensorData sensors = 1;
+    repeated SensorData sensor = 1;
 }
 
 //
 // \brief List of sensors where each element contains a time series of
-// SensorData messages.
+// \c SensorData messages.
 //
 message SensorDataSeriesList
 {
     // List of sensor data for multiple sensors at subsequent timesteps.
     //
-    repeated SensorDataSeries sensors = 1;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated SensorDataSeries sensor = 1;
 }
