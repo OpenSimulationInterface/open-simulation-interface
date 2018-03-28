@@ -40,12 +40,12 @@ message DetectedObject
     // Base parameters of the object. object.position is the middle of the
     // bounding box of the target object.
     //
-    optional BaseMoving object = 5;
+    optional BaseMoving base = 5;
 
     // The root mean squared error of the base parameters in object (cross
     // correlations are currently neglected).
     //
-    optional BaseMoving object_rmse = 6;
+    optional BaseMoving base_rmse = 6;
 
     // Reference point location specification of the sensor measurement
     // (required to decouple sensor measurement, position and bounding box
@@ -400,12 +400,16 @@ message DetectedStationaryObject
     // In case of a ghost detection (no corresponding ground truth), this field
     // should be unset.
     //
-    repeated Identifier ground_truth_id_list = 2;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier ground_truth_id = 2;
 
-    // A list of candidates for this stationary object (e.g. landmark) as 
+    // A list of estimates for this stationary object (e.g. landmark) as 
     // estimated by the sensor.
     //
-    repeated CandidateStationaryObject candidate_stationary_objects = 3;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated EstimatedStationaryObject stationary_object = 3;
 
     // The estimated probability that this stationary object (e.g. landmark)
     // really exists, not based on history.
@@ -414,12 +418,6 @@ message DetectedStationaryObject
     // and a high value indicates strong confidence.
     //
     optional double existence_probability = 4;
-    
-    // The root mean squared error of the base parameters of the detected 
-    // stationary object (e.g. landmark). \c StationaryObject::base has to be
-    // identical for all \c #candidate_stationary_objects landmarks.
-    //
-    optional BaseStationary base_rmse = 5;
    
     // A list of sensors which detected this detected entity.
     //
@@ -430,34 +428,53 @@ message DetectedStationaryObject
     // detections ( \c ...Detection::object_id = 'this detected entity' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    repeated Identifier sensor_id_list = 6;    
-}
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier sensor_id = 5;    
 
-//
-// \brief A candidate for a detected stationary object (e.g. landmark) as 
-// estimated by the sensor.
-//
-message CandidateStationaryObject
-{
-    // The description of the stationary object (e.g. landmark).
-    //
-    optional StationaryObject stationary_object = 1;
 
-    // The estimated probability that this candidate is the true value.
-    // The sum of all \c #candidate_probability must be one.
     //
-    // Range: [0,1]
+    // \brief A candidate for a detected stationary object (e.g. landmark) as 
+    // estimated by the sensor.
     //
-    optional double candidate_probability = 2;
+    message EstimatedStationaryObject
+    {
+        // A list of candidates for this stationary object as estimated by the
+        // sensor.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated CandidateStationaryObject candidate = 1;
+    
+        // The root mean squared error of the base parameters of the detected 
+        // stationary object (e.g. landmark). \c StationaryObject::base has to be
+        // identical for all \c #candidate_stationary_objects landmarks.
+        //
+        optional BaseStationary base_rmse = 2;
+    
+        message CandidateStationaryObject
+        {
+            // The description of the stationary object (e.g. landmark).
+            //
+            optional StationaryObject stationary_object = 1;
 
-    // The amount of time that this detected object has been currently 
-    // observed/tracked.
-    // 
-    // Unit: [s]
-    //
-    optional double age = 3;
+            // The estimated probability that this candidate is the true value.
+            // The sum of all \c #candidate_probability must be one.
+            //
+            // Range: [0,1]
+            //
+            optional double probability = 2;
 
-    // The measurement state.
-    //
-    optional MeasurementState measurement_state = 4;
+            // The amount of time that this detected object has been currently 
+            // observed/tracked.
+            // 
+            // Unit: [s]
+            //
+            optional double age = 3;
+
+            // The measurement state.
+            //
+            optional MeasurementState measurement_state = 4;
+        }
+    }
 }
