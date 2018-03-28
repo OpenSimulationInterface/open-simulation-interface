@@ -54,7 +54,7 @@ message DetectedTrafficSign
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 11;
+    repeated Identifier sensor_id = 8;
 
     //
     // \brief Candidates for a detected sign as estimated by the sensor.
