@@ -8,10 +8,10 @@ import "osi_groundtruth.proto";
 import "osi_sensorviewconfiguration.proto";
 import "osi_hostvehicledata.proto";
 
-package osi;
+package osi3;
 
 //
-// \brief The sensor view as derived from \c GroundTruth and used as
+// \brief The sensor view is derived from \c GroundTruth and used as
 // input to sensor models.
 //
 // The sensor view information is supposed to provide input to sensor
@@ -63,7 +63,7 @@ message SensorView
     // The virtual position pertains to the sensor as a whole, regardless
     // of the actual position of individual physical detectors, and governs
     // the sensor-relative coordinates in detected objects of the sensor
-    // as a whole.  Individual features detected by individual physical
+    // as a whole. Individual features detected by individual physical
     // detectors are governed by the actual physical mounting positions
     // of the detectors, as indicated in the technology-specific sub-views
     // and sub-view configurations.
@@ -87,7 +87,7 @@ message SensorView
     //
     optional MountingPosition mounting_position_rmse = 5;
 
-    // Host Vehicle Data
+    // Host vehicle data.
     //
     // Host vehicle data is data that the host vehicle knows about itself,
     // e.g. from location sensors, internal sensors and ECU bus data, etc.,
@@ -95,7 +95,7 @@ message SensorView
     //
     optional HostVehicleData host_vehicle_data = 6;
 
-    // Ground truth w.r.t. global coordinate system
+    // Ground truth w.r.t. global coordinate system.
     //
     // This is the ground truth that is provided to the sensor model by the
     // simulation environment. It is filtered as per the requirements of the
@@ -111,29 +111,47 @@ message SensorView
     //
     optional Identifier host_vehicle_id = 8;
 
-    // Radar-Specific SensorView(s)
+    // Generic SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RadarSensorView radar_sensor_view = 1000;
+    repeated GenericSensorView generic_sensor_view = 1000;
 
-    // Lidar-Specific SensorView(s)
+    // Radar-specific SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated LidarSensorView lidar_sensor_view = 1001;
+    repeated RadarSensorView radar_sensor_view = 1001;
 
-    // Camera-Specific SensorView(s)
+    // Lidar-specific SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated CameraSensorView camera_sensor_view = 1002;
+    repeated LidarSensorView lidar_sensor_view = 1002;
 
-    // Ultrasonic-Specific SensorView(s)
+    // Camera-specific SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated UltrasonicSensorView ultrasonic_sensor_view = 1003;
+    repeated CameraSensorView camera_sensor_view = 1003;
+
+    // Ultrasonic-specific SensorView(s).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated UltrasonicSensorView ultrasonic_sensor_view = 1004;
+}
+
+//
+// \brief Definition of the generic sensor view.
+//
+// Generic sensor view data.
+//
+message GenericSensorView
+{
+    // Generic view configuration valid at the time the data was created.
+    //
+    optional GenericSensorViewConfiguration view_configuration = 1;
 }
 
 //
@@ -143,14 +161,14 @@ message SensorView
 //
 message RadarSensorView
 {
-    // Radar Input Configuration valid at the time the data was created.
+    // Radar view configuration valid at the time the data was created.
     //
     optional RadarSensorViewConfiguration view_configuration = 1;
 
-    // Ray Tracing Data
+    // Ray tracing data.
     //
     // This field includes one entry for each ray, in left-to-right,
-    // top-to-bottom order (think scan lines in a TV).
+    // top-to-bottom order (think of scan lines in a TV).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -216,14 +234,14 @@ message RadarSensorView
 //
 message LidarSensorView
 {
-    // Lidar View Configuration valid at the time the data was created.
+    // Lidar view configuration valid at the time the data was created.
     //
     optional LidarSensorViewConfiguration view_configuration = 1;
 
-    // Ray Tracing Data.
+    // Ray tracing data.
     //
     // This field includes one entry for each ray, in left-to-right,
-    // top-to-bottom order (think scan lines in a TV).
+    // top-to-bottom order (think of scan lines in a TV).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -271,11 +289,11 @@ message LidarSensorView
 //
 message CameraSensorView
 {
-    // Camera View Configuration valid at the time the data was created.
+    // Camera view configuration valid at the time the data was created.
     //
     optional CameraSensorViewConfiguration view_configuration = 1;
 
-    // Raw Image Data.
+    // Raw image data.
     //
     // The raw image data in the memory layout and order specified by the
     // camera sensor input configuration.
@@ -287,9 +305,10 @@ message CameraSensorView
 // \brief Definition of the ultrasonic sensor view.
 //
 // Ultrasonic specific sensor view data.
+//
 message UltrasonicSensorView
 {
-    // Ultrasonic Input Configuration valid at the time the data was created.
+    // Ultrasonic view configuration valid at the time the data was created.
     //
     optional UltrasonicSensorViewConfiguration view_configuration = 1;
 }

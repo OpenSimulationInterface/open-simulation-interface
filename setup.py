@@ -21,7 +21,7 @@ with open("osi_version.proto.in", "rt") as fin:
             lineConfigured = lineConfigured.replace('@VERSION_PATCH@',str(VERSION_PATCH))
             fout.write(lineConfigured)
 
-package_name = 'osi'
+package_name = 'osi3'
 package_path = os.path.join(os.getcwd(), package_name)
 
 class GenerateProtobuf(install):
