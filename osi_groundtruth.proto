@@ -106,12 +106,6 @@ message GroundTruth
     //
     repeated LaneBoundary lane_boundary = 10;
 
-    // The list of landmarks.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Landmark landmark = 1000;
-
     // The list of passengers in the (host) vehicle(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
