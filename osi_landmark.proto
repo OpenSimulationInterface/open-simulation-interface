@@ -135,15 +135,15 @@ message TrafficSign
             //
             TYPE_OTHER = 1;
 
-            // Start of speed limit (StVO 274) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // Start of speed limit (StVO 274) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/274-60.png
             //
             TYPE_SPEED_LIMIT_BEGIN = 2;
 
-            // End of speed limit (StVO 278) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // End of speed limit (StVO 278) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/278-60.png
             //
@@ -163,29 +163,29 @@ message TrafficSign
             //
             TYPE_TOWN_END = 5;
 
-            // Start of zone with speed limit (StVO 274.1) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // Start of zone with speed limit (StVO 274.1) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/274.1.png
             //
             TYPE_SPEED_LIMIT_ZONE_BEGIN = 6;
 
-            // End of zone with speed limit (StVO 274.2) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // End of zone with speed limit (StVO 274.2) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/274.2.png
             //
             TYPE_SPEED_LIMIT_ZONE_END = 7;
 
-            // Start of mandatory minimum speed (StVO 275) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // Start of mandatory minimum speed (StVO 275) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/275.png
             //
             TYPE_MINIMUM_SPEED_BEGIN = 8;
 
-            // End of mandatory minimum speed (StVO 279) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // End of mandatory minimum speed (StVO 279) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/279.png
             //
@@ -359,15 +359,15 @@ message TrafficSign
             //
             TYPE_ROAD_WORKS = 33;
 
-            // Steep hill downwards (StVO 108) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // Steep hill downwards (StVO 108) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/108-10.png
             //
             TYPE_HILL_DOWNWARDS = 34;
 
-            // Steep hill upwards (StVO 110) \c TrafficSign::value and
-            // \c TrafficSign::value_unit .
+            // Steep hill upwards (StVO 110) \c TrafficSignValue::value and
+            // \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/110-12.png
             //
@@ -580,7 +580,7 @@ message TrafficSign
             TYPE_HIGHWAY_EXIT = 66;
 
             // Pole indicating highways exit in e.g. 100m (StVO 450).
-            // \c TrafficSign::value and \c TrafficSign::value_unit .
+            // \c TrafficSignValue::value and \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/450-51.png
             //
@@ -636,7 +636,7 @@ message TrafficSign
             TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 74;
 
             // Minimum safety distance for trucks (StVO 273).
-            // \c TrafficSign::value and \c TrafficSign::value_unit .
+            // \c TrafficSignValue::value and \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/273.png
             //
@@ -852,27 +852,27 @@ message TrafficSign
             //
             TYPE_NO_SIGN = 2;
 
-            // Traffic sign is valid for a certain distance (given by \c #value_1 in
-            // e.g. meter - \c #value_1_unit).
+            // Traffic sign is valid for a certain distance (given by \c TrafficSignValue::value in
+            // e.g. meter - \c TrafficSignValue::value_unit).
             //
             TYPE_VALID_FOR_DISTANCE = 3;
 
             // Distance to the start of validity of the traffic sign (given by
-            // \c #value_1 in e.g. meter - \c #value_1_unit).
+            // \c TrafficSignValue::value in e.g. meter - \c TrafficSignValue::value_unit).
             //
             TYPE_VALID_IN_DISTANCE = 4;
 
-            // Time range for validity of traffic sign (starting from \c #value_1
-            // and ending with \c #value_2, both defining e.g. time of day in
-            // minutes since midnight - \c #value_1_unit and \c #value_2_unit).
-            // Day of the week starting from \c #value_3 and ending with
-            // \c #value_4 with \c #value_3_unit and \c #value_4_unit).
+            // Time range for validity of traffic sign (starting from first \c TrafficSignValue::value
+            // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
+            // minutes since midnight - first \c TrafficSignValue::value_unit and second \c TrafficSignValue::value_unit).
+            // Day of the week starting from third \c TrafficSignValue::value and ending with
+            // fourth \c TrafficSignValue::value with third \c TrafficSignValue::value_unit and fourth \c TrafficSignValue::value_unit).
             //
             TYPE_TIME_RANGE = 5;
 
             // Restriction of the validity of the traffic sign depending on the
-            // vehicle's weight (more than \c #value_1 e.g. in kilogram -
-            // \c #value_1_unit).
+            // vehicle's weight (more than \c TrafficSignValue::value e.g. in kilogram -
+            // \c TrafficSignValue::value_unit).
             //
             TYPE_WEIGHT = 6;
 
@@ -952,15 +952,15 @@ message TrafficSign
             //
             TYPE_CAR = 24;
 
-            // Ends in e.g. .. meter (given by \c #value_1 in e.g. meter -
-            // \c #value_1_unit).
+            // Ends in e.g. .. meter (given by \c TrafficSignValue::value in e.g. meter -
+            // \c TrafficSignValue::value_unit).
             //
             TYPE_STOP_IN = 25;
         }
     }
 }
 
-// 
+//
 // \brief Additional value associated with a traffic sign or road marking
 // and its unit.
 //
@@ -1104,7 +1104,7 @@ message TrafficLight
     //
     // \note If the color of the traffic light is known (from history or
     // geometrical arrangement) and the state \c #mode is
-    // \c MODE_OFF then \c #color could remain unchanged.
+    // \c #MODE_OFF then \c #color could remain unchanged.
     // If traffic light displays images in different colors and traffic light
     // is off ( \c #mode =  \c #MODE_OFF), then
     // \c #color = \c #COLOR_OTHER .
@@ -1379,7 +1379,7 @@ message RoadMarking
     //
     optional Color monochrome_color = 5;
 
-    // Additional value associated with the road marking, e.g. value of the 
+    // Additional value associated with the road marking, e.g. value of the
     // speed limit.
     //
     // \note Field need not be set if road marking type does not require it.

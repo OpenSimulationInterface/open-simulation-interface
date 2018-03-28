@@ -91,13 +91,13 @@ message SensorData
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z right hand system
     //
     // \par References:
-    // [1] DIN ISO 8855:2013-11
+    // \li [1] DIN ISO 8855:2013-11
     //
     // \note This field is usually static during the simulation.
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(\c Vehicle::base.orientation) * \c Vehicle::bbcenter_to_rear) .
+    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(\c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the orientation
-    // of the vehicle's bounding box \c Vehicle::base.orientation.
+    // of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
     //
     optional MountingPosition mounting_position = 4;
 
@@ -119,7 +119,7 @@ message SensorData
     // this set of sensor data takes into account. This in effect is the last
     // time instance of reality the measurements correspond to.  See field
     // \c SensorData::timestamp for a detailed discussion. This value is also
-    // the upper bound to the \c DetectedObjectHeader::measurement_time and the
+    // the upper bound to the \c DetectedEntityHeader::measurement_time and the
     // feature data \c SensorDetectionHeader::measurement_time fields.
     //
     optional Timestamp last_measurement_time = 7;
@@ -176,8 +176,8 @@ message SensorData
     //
     repeated DetectedLane lane = 17;
 
-    // The ID of the lane the host vehicle travels on in the DetectedLane data,
-    // relative to the sensor.
+    // The ID of the lane the host vehicle travels on in the \c DetectedLane
+    // data, relative to the sensor.
     //
     optional Identifier host_vehicle_lane_id = 18;
 
@@ -192,7 +192,7 @@ message SensorData
     repeated DetectedLaneBoundary lane_boundary = 20;
 
     // General information about the \c DetectedStationaryObject .
-    // 
+    //
     optional DetectedEntityHeader stationary_object_header = 21;
 
     // The list of stationary objects (e.g. landmarks) detected by the sensor.
@@ -243,7 +243,7 @@ message DetectedEntityHeader
     // was processed or at which it is transmitted) in the global synchronized
     // time.
     //
-    // \note See SensorData::timestamp and SensorData::last_measurement_time
+    // \note See \c SensorData::timestamp and \c SensorData::last_measurement_time
     // for detailed discussions on the semantics of time-related fields.
     //
     optional Timestamp measurement_time = 1;

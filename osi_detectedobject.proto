@@ -26,7 +26,7 @@ message DetectedItemHeader
     //
     repeated Identifier ground_truth_id = 2;
 
-    // The estimated probability that this detected item really exists, not 
+    // The estimated probability that this detected item really exists, not
     // based on history.
     //
     // \note Use as confidence measure where a low value means less confidence
@@ -108,7 +108,7 @@ message DetectedMovingObject
     // Common information of one detected item.
     //
     optional DetectedItemHeader header = 1;
-    
+
     // A list of estimates for this moving object (e.g. pedestrian, car) as
     // estimated by the sensor.
     //
@@ -116,56 +116,15 @@ message DetectedMovingObject
     //
     repeated EstimatedMovingObject moving_object = 2;
 
-    // Actual movement state w.r.t. the moving object history.
-    //
-    optional MovementState movement_state = 3;
-    
-    // Percentage side lane left.
-    //
-    // Percentage value of the object width in the corresponding lane.
-    //
-    optional double percentage_side_lane_left = 4;
-
-    // Percentage side lane right.
-    //
-    // Percentage value of the object width in the corresponding lane.
-    //
-    optional double percentage_side_lane_right = 5;
-
     // Additional internal data and state flags required and used by the
-    // sensor-models, should not be used by subscribers to SensorData. Generally
-    // this field should be cleared after internal processing.
+    // sensor-models, should not be used by subscribers to \c SensorData.
+    // Generally this field should be cleared after internal processing.
     //
     // \note optional. List of used detections to recognize this object.
     // Detections have also an identifier to reference to the detected object.
     //
-    optional ModelInternalObject model_internal_object = 6;
+    optional ModelInternalObject model_internal_object = 3;
 
-    // Additional data that is specific to radar sensors.
-    //
-    // \note Field need not be set if simulated sensor is not a radar sensor.
-    //
-    optional RadarSpecificObjectData radar_specifics = 7;
-
-    // Additional data that is specific to lidar sensors.
-    //
-    // \note Field need not be set if simulated sensor is not a lidar sensor.
-    //
-    optional LidarSpecificObjectData lidar_specifics = 8;
-
-    // Additional data that is specific to camera sensors.
-    //
-    // \note Field need not be set if simulated sensor is not a camera sensor.
-    //
-    optional CameraSpecificObjectData camera_specifics = 9;
-
-    // Additional data that is specific to ultrasonic sensors.
-    //
-    // \note Field need not be set if simulated sensor is not an ultrasonic
-    // sensor.
-    //
-    optional UltrasonicSpecificObjectData ultrasonic_specifics = 10;
-   
     //
     // \brief A candidate for a detected moving object (e.g. pedestrian, car)
     // as estimated by the sensor.
@@ -178,13 +137,57 @@ message DetectedMovingObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated CandidateMovingObject candidate = 1;
-    
-        // The root mean squared error of the base parameters of the detected 
+
+        // The root mean squared error of the base parameters of the detected
         // moving object (e.g. car). \c MovingObject::base has to be
         // identical for all \c #candidate moving objects.
         //
         optional BaseStationary base_rmse = 2;
-    
+
+        // Actual movement state w.r.t. the moving object history.
+        //
+        optional MovementState movement_state = 3;
+
+        // Percentage side lane left.
+        //
+        // Percentage value of the object width in the corresponding lane.
+        //
+        optional double percentage_side_lane_left = 4;
+
+        // Percentage side lane right.
+        //
+        // Percentage value of the object width in the corresponding lane.
+        //
+        optional double percentage_side_lane_right = 5;
+
+        // Additional data that is specific to radar sensors.
+        //
+        // \note Field need not be set if simulated sensor is not a radar
+        // sensor.
+        //
+        optional RadarSpecificObjectData radar_specifics = 6;
+
+        // Additional data that is specific to lidar sensors.
+        //
+        // \note Field need not be set if simulated sensor is not a lidar
+        // sensor.
+        //
+        optional LidarSpecificObjectData lidar_specifics = 7;
+
+        // Additional data that is specific to camera sensors.
+        //
+        // \note Field need not be set if simulated sensor is not a camera
+        // sensor.
+        //
+        optional CameraSpecificObjectData camera_specifics = 8;
+
+        // Additional data that is specific to ultrasonic sensors.
+        //
+        // \note Field need not be set if simulated sensor is not an ultrasonic
+        // sensor.
+        //
+        optional UltrasonicSpecificObjectData ultrasonic_specifics = 9;
+
         //
         // \brief A candidate for a detected moving object as estimated by the
         // sensor.
@@ -194,11 +197,11 @@ message DetectedMovingObject
             // Common information of one detected item candidate.
             //
             optional DetectedCandidateItemHeader header = 1;
-            
+
             // The description of the moving object (e.g. car).
             //
             optional MovingObject moving_object = 2;
-            
+
             // Reference point location specification of the sensor measurement
             // (required to decouple sensor measurement, position and bounding box
             // estimation) as used by the sensor (model).
@@ -208,20 +211,20 @@ message DetectedMovingObject
             // bounding box.
             //
             optional ReferencePoint reference_point = 3;
-            
+
             // Pedestrian head pose for behavior prediction. Describes the head
             // orientation w.r.t. the host vehicle orientation.
             // The x-axis of the right-handed head frame is pointing along the
             // pedestrian's straight ahead viewing direction and the z-axis is pointing
             // upwards (cranial direction [1] i.e. to pedestrian's skull cap).
             //
-            // View_normal_base_coord_system = Inverse_Rotation(head_pose)*Unit_vector_x
+            // <tt>View_normal_base_coord_system = Inverse_Rotation(#head_pose)*Unit_vector_x</tt>
             //
             // \par References:
             // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
             //
             optional Orientation3d head_pose = 4;
-            
+
             // Pedestrian upper body pose for behavior prediction. Describes the
             // upper body orientation w.r.t. the host vehicle orientation.
             // The x-axis of the right-handed upper body frame is pointing along the
@@ -229,7 +232,7 @@ message DetectedMovingObject
             // intended moving direction) and the z-axis is pointing upwards (to
             // pedestrian's head).
             //
-            // View_normal_base_coord_system = Inverse_Rotation(upper_body_pose)*Unit_vector_x
+            // <tt>View_normal_base_coord_system = Inverse_Rotation(#upper_body_pose)*Unit_vector_x</tt>
             //
             // \par References:
             // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
@@ -333,7 +336,7 @@ message DetectedStationaryObject
     //
     optional DetectedItemHeader header = 1;
 
-    // A list of estimates for this stationary object (e.g. landmark) as 
+    // A list of estimates for this stationary object (e.g. landmark) as
     // estimated by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
@@ -341,7 +344,7 @@ message DetectedStationaryObject
     repeated EstimatedStationaryObject stationary_object = 2;
 
     //
-    // \brief A candidate for a detected stationary object (e.g. landmark) as 
+    // \brief A candidate for a detected stationary object (e.g. landmark) as
     // estimated by the sensor.
     //
     message EstimatedStationaryObject
@@ -352,13 +355,13 @@ message DetectedStationaryObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated CandidateStationaryObject candidate = 1;
-    
-        // The root mean squared error of the base parameters of the detected 
+
+        // The root mean squared error of the base parameters of the detected
         // stationary object (e.g. landmark). \c StationaryObject::base has to be
         // identical for all \c #candidate stationary objects.
         //
         optional BaseStationary base_rmse = 2;
-    
+
         //
         // \brief A candidate for a detected stationary object as estimated
         // by the sensor.
@@ -368,7 +371,7 @@ message DetectedStationaryObject
             // Common information of one detected item candidate.
             //
             optional DetectedCandidateItemHeader header = 1;
-            
+
             // The description of the stationary object (e.g. landmark).
             //
             optional StationaryObject stationary_object = 2;

@@ -46,7 +46,7 @@ message StationaryObject
         // Object is a building.
         //
         TYPE_BUILDING = 3;
-        
+
         // Object is a pole (e.g. traffic light).
         //
         TYPE_POLE = 4;
@@ -66,45 +66,45 @@ message StationaryObject
         // Object is a tree.
         //
         TYPE_TREE = 8;
-        
+
         // Object is a barrier.
         //
         TYPE_BARRIER = 9;
-        
+
         // Object is vegetation.
         //
         TYPE_VEGETATION = 10;
-        
+
         // Object is a curbstone.
         //
         TYPE_CURBSTONE = 11;
-        
+
         // Object is a wall.
         //
         TYPE_WALL = 12;
-       
-        // Landmarks corresponding to vertical structures in the environment, 
+
+        // Landmarks corresponding to vertical structures in the environment,
         // like poles.
         //
         TYPE_VERTICAL_STRUCTURE = 13;
-        
+
         // Landmarks corresponding to rectangular structures in the environment,
         // like walls.
         //
         TYPE_RECTANGULAR_STRUCTURE = 14;
-        
-        // Landmarks corresponding to overhead structures in the environment, 
+
+        // Landmarks corresponding to overhead structures in the environment,
         // like sign bridges.
         //
         TYPE_OVERHEAD_STRUCTURE = 15;
-        
-        // Landmarks corresponding to light sources or reflective structures in 
-        // the environment, like street lights or reflective poles on the road 
+
+        // Landmarks corresponding to light sources or reflective structures in
+        // the environment, like street lights or reflective poles on the road
         // boarder.
         //
         TYPE_REFLECTIVE_STRUCTURE = 16;
-        
-        // Landmarks corresponding to construction site elements in the 
+
+        // Landmarks corresponding to construction site elements in the
         // environment, like cones or beacons.
         //
         TYPE_CONSTRUCTION_SITE_ELEMENT = 17;
@@ -129,7 +129,7 @@ message MovingObject
     // \note The bounding box includes mirrors for vehicles.
     //
     optional BaseMoving base = 2;
-    
+
     // The IDs of the lanes that this object is assigned to.
     //
     // \note Might be multiple if the object is switching lanes or moving from
@@ -142,11 +142,11 @@ message MovingObject
     // The type of the object.
     //
     optional Type type = 4;
-    
+
     // Specific information about the vehicle.
     //
     // \note This field is mandatory if the type is
-    // \c MovingObject.Type.TYPE_VEHICLE .
+    // \c #TYPE_VEHICLE .
     //
     optional Vehicle vehicle_extension = 5;
 
@@ -169,286 +169,286 @@ message MovingObject
         // Object is an animal.
         //
         TYPE_ANIMAL = 3;
-        
+
         // Object is a vehicle.
         //
         TYPE_VEHICLE = 4;
     }
-}
 
-//
-// \brief A vehicle extension for \c MovingObject (host or other).
-//
-// This is an extension to the \c MovingObject with additional attributes,
-// such as type and lights. The origin of the rear (front) axis coordinate
-// system in world coordinates is calculated as:
-// base.position + R * bbcenter_to_rear (front)
-// for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
-// orientation of base.orientation).
-//
-// For all vehicles, including host vehicles, the position given in
-// base.position points to the center of the vehicle's bounding box.
-//
-// The vehicle object coordinates are defined as x-axis is the direction from
-// rear to front of the vehicle, y-axis corresponds to rear axle and z-axis
-// points to vehicle ceiling [1]. The coordinate system is right-handed.
-// Therefore the positive y-axis points to the left of the vehicle.
-//
-// \par References:
-// \li [1] DIN ISO 8855:2013-11
-//
-message Vehicle
-{
-    // The type of the vehicle.
     //
-    optional Type type = 1;
-    
-    // Flag defining whether the vehicle is a simulated host vehicle: True for
-    // host vehicle(s), false for other vehicles.  See the description above!
-    optional bool host_vehicle = 2;
-
-    // The ID of the driver of the (host) vehicle.
+    // \brief A vehicle extension for \c MovingObject (host or other).
     //
-    // \note Field need not be set if host_vehicle is set to false or use value
-    // for non valid id.
-    optional Identifier driver_id = 3;
-
-    // Median radius of the wheels.
+    // This is an extension to the \c MovingObject with additional attributes,
+    // such as type and lights. The origin of the rear (front) axis coordinate
+    // system in world coordinates is calculated as:
+    // base.position + R * bbcenter_to_rear (front)
+    // for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
+    // orientation of base.orientation).
     //
-    // Unit: [m]
-    //    
-    optional double radius_wheel = 4;
-
-    // Number of independent wheels.
+    // For all vehicles, including host vehicles, the position given in
+    // base.position points to the center of the vehicle's bounding box.
     //
-    // Unit: []
-    //    
-    optional uint32 number_wheels = 5;
-
-    // The vector pointing from the bounding box center point (base.position) to
-    // the middle (in x, y and z) of the rear axle under neutral load
-    // conditions. In object coordinates.
+    // The vehicle object coordinates are defined as x-axis is the direction from
+    // rear to front of the vehicle, y-axis corresponds to rear axle and z-axis
+    // points to vehicle ceiling [1]. The coordinate system is right-handed.
+    // Therefore the positive y-axis points to the left of the vehicle.
     //
-    optional Vector3d bbcenter_to_rear = 6;
-
-    // The vector pointing from the bounding box center point (base.position) to
-    // the middle (in x, y and z) of the front axle under neutral load
-    // conditions. In object coordinates.
+    // \par References:
+    // \li [1] DIN ISO 8855:2013-11
     //
-    optional Vector3d bbcenter_to_front = 7;
-
-    // Static minimal distance in [m] of under-body plane to ground
-    // surface plane (i.e. disregarding driving dynamic effects or road
-    // surface effects) under neutral load conditions. Can be useful to
-    // approximate the clear area under a vehicle that a sensor can see
-    // through.
-    //
-    optional double ground_clearance = 8;
-
-    // The light state of the vehicle.
-    //
-    optional LightState light_state = 9;
-    
-    // Flag defining whether the vehicle has an attached trailer.
-    //
-    optional bool has_trailer = 10;
-
-    // Id of the attached trailer.
-    //
-    // \note Field need not be set if has_Trailer is set to false or use value
-    // for non valid id.
-    //
-    optional Identifier trailer_id = 11;
-
-    // Definition of vehicle types.
-    //
-    enum Type
+    message Vehicle
     {
-        // Type of vehicle is unknown (must not be used in ground truth).
+        // The type of the vehicle.
         //
-        TYPE_UNKNOWN = 0;
+        optional Type type = 1;
 
-        // Other (unspecified but known) type of vehicle.
-        //
-        TYPE_OTHER = 1;
-        
-        // Vehicle is a small car.
-        //
-        // Definition:
-        //
-        TYPE_SMALL_CAR = 2;
-        
-        // Vehicle is a medium car.
-        //
-        // Definition:
-        //
-        TYPE_MEDIUM_CAR = 3;
-        
-        // Vehicle is a compact car.
-        //
-        // Definition:
-        //
-        TYPE_COMPACT_CAR = 4;
-        
-        // Vehicle is a luxury  car.
-        //
-        // Definition:
-        //
-        TYPE_LUXURY_CAR = 5;
-        
-        // Vehicle is a delivery van.
-        //
-        // Definition:
-        //
-        TYPE_DELIVERY_VAN = 6;
+        // Flag defining whether the vehicle is a simulated host vehicle: True for
+        // host vehicle(s), false for other vehicles.  See the description above!
+        optional bool host_vehicle = 2;
 
-        // Vehicle is a heavy truck.
+        // The ID of the driver of the (host) vehicle.
         //
-        TYPE_HEAVY_TRUCK = 7;
+        // \note Field need not be set if host_vehicle is set to false or use value
+        // for non valid id.
+        optional Identifier driver_id = 3;
 
-        // Vehicle is a truck with semitrailer.
+        // Median radius of the wheels.
         //
-        TYPE_SEMITRAILER = 8;
-        
-        // Vehicle is a trailer (possibly attached to another vehicle).
+        // Unit: [m]
         //
-        TYPE_TRAILER = 9;
+        optional double radius_wheel = 4;
 
-        // Vehicle is a motorbike or moped.
+        // Number of independent wheels.
         //
-        TYPE_MOTORBIKE = 10;
+        // Unit: []
+        //
+        optional uint32 number_wheels = 5;
 
-        // Vehicle is a bicycle (without motor and specific lights).
+        // The vector pointing from the bounding box center point (base.position) to
+        // the middle (in x, y and z) of the rear axle under neutral load
+        // conditions. In object coordinates.
         //
-        TYPE_BICYCLE = 11;
+        optional Vector3d bbcenter_to_rear = 6;
 
-        // Vehicle is a bus.
+        // The vector pointing from the bounding box center point (base.position) to
+        // the middle (in x, y and z) of the front axle under neutral load
+        // conditions. In object coordinates.
         //
-        TYPE_BUS = 12;
+        optional Vector3d bbcenter_to_front = 7;
 
-        // Vehicle is a tram.
+        // Static minimal distance in [m] of under-body plane to ground
+        // surface plane (i.e. disregarding driving dynamic effects or road
+        // surface effects) under neutral load conditions. Can be useful to
+        // approximate the clear area under a vehicle that a sensor can see
+        // through.
         //
-        TYPE_TRAM = 13;
+        optional double ground_clearance = 8;
 
-        // Vehicle is a train.
+        // The light state of the vehicle.
         //
-        TYPE_TRAIN = 14;
+        optional LightState light_state = 9;
 
-        // Vehicle is a wheelchair.
+        // Flag defining whether the vehicle has an attached trailer.
         //
-        TYPE_WHEELCHAIR = 15;
-    }
+        optional bool has_trailer = 10;
 
-    //
-    // \brief The state of the lights of a vehicle.
-    //
-    message LightState
-    {
-        // State of the object's indicators.
+        // Id of the attached trailer.
         //
-        optional IndicatorState indicator_state = 1;
+        // \note Field need not be set if has_Trailer is set to false or use value
+        // for non valid id.
+        //
+        optional Identifier trailer_id = 11;
 
-        // State of the front fog light.
+        // Definition of vehicle types.
         //
-        optional GenericLightState front_fog_light = 2;
-
-        // State of the rear fog light.
-        //
-        optional GenericLightState rear_fog_light = 3;
-
-        // State of the head lights.
-        //
-        optional GenericLightState head_light = 4;
-
-        // State of the high beam.
-        //
-        optional GenericLightState high_beam = 5;
-
-        // State of the reversing light.
-        //
-        optional GenericLightState reversing_light = 6;
-
-        // State of the brake lights.
-        //
-        optional BrakeLightState brake_light_state = 7;
-
-        // State of the (rear) license plate illumination
-        //
-        optional GenericLightState license_plate_illumination_rear = 8;
-
-        // Definition of indicator states.
-        //
-        enum IndicatorState
+        enum Type
         {
-            // Indicator state is unknown (must not be used in ground truth).
+            // Type of vehicle is unknown (must not be used in ground truth).
             //
-            INDICATOR_STATE_UNKNOWN = 0;
+            TYPE_UNKNOWN = 0;
 
-            // Other (unspecified but known) state of indicator.
+            // Other (unspecified but known) type of vehicle.
             //
-            INDICATOR_STATE_OTHER = 1;
+            TYPE_OTHER = 1;
 
-            // Indicators are off.
+            // Vehicle is a small car.
             //
-            INDICATOR_STATE_OFF = 2;
+            // Definition:
+            //
+            TYPE_SMALL_CAR = 2;
 
-            // Left indicator is on.
+            // Vehicle is a medium car.
             //
-            INDICATOR_STATE_LEFT = 3;
+            // Definition:
+            //
+            TYPE_MEDIUM_CAR = 3;
 
-            // Right indicator is on.
+            // Vehicle is a compact car.
             //
-            INDICATOR_STATE_RIGHT = 4;
+            // Definition:
+            //
+            TYPE_COMPACT_CAR = 4;
 
-            // Hazard/warning light, i.e. both indicators, are on.
+            // Vehicle is a luxury  car.
             //
-            INDICATOR_STATE_WARNING = 5;
+            // Definition:
+            //
+            TYPE_LUXURY_CAR = 5;
+
+            // Vehicle is a delivery van.
+            //
+            // Definition:
+            //
+            TYPE_DELIVERY_VAN = 6;
+
+            // Vehicle is a heavy truck.
+            //
+            TYPE_HEAVY_TRUCK = 7;
+
+            // Vehicle is a truck with semitrailer.
+            //
+            TYPE_SEMITRAILER = 8;
+
+            // Vehicle is a trailer (possibly attached to another vehicle).
+            //
+            TYPE_TRAILER = 9;
+
+            // Vehicle is a motorbike or moped.
+            //
+            TYPE_MOTORBIKE = 10;
+
+            // Vehicle is a bicycle (without motor and specific lights).
+            //
+            TYPE_BICYCLE = 11;
+
+            // Vehicle is a bus.
+            //
+            TYPE_BUS = 12;
+
+            // Vehicle is a tram.
+            //
+            TYPE_TRAM = 13;
+
+            // Vehicle is a train.
+            //
+            TYPE_TRAIN = 14;
+
+            // Vehicle is a wheelchair.
+            //
+            TYPE_WHEELCHAIR = 15;
         }
 
-        // Definition of generic light states for light that may be on or off.
         //
-        enum GenericLightState
-        {
-            // Light state is unknown (must not be used in ground truth).
-            //
-            GENERIC_LIGHT_STATE_UNKNOWN = 0;
-
-            // Other (unspecified but known) state of light.
-            //
-            GENERIC_LIGHT_STATE_OTHER = 1;
-
-            // Light is off.
-            //
-            GENERIC_LIGHT_STATE_OFF = 2;
-
-            // Light is on.
-            //
-            GENERIC_LIGHT_STATE_ON = 3;
-        }
-
-        // Definition of brake light states.
+        // \brief The state of the lights of a vehicle.
         //
-        enum BrakeLightState
+        message LightState
         {
-            // Brake light state is unknown (must not be used in ground truth).
+            // State of the object's indicators.
             //
-            BRAKE_LIGHT_STATE_UNKNOWN = 0;
+            optional IndicatorState indicator_state = 1;
 
-            // Other (unspecified but known) state of brake light.
+            // State of the front fog light.
             //
-            BRAKE_LIGHT_STATE_OTHER = 1;
+            optional GenericLightState front_fog_light = 2;
 
-            // Brake lights are off.
+            // State of the rear fog light.
             //
-            BRAKE_LIGHT_STATE_OFF = 2;
+            optional GenericLightState rear_fog_light = 3;
 
-            // Brake lights are on with normal intensity.
+            // State of the head lights.
             //
-            BRAKE_LIGHT_STATE_NORMAL = 3;
+            optional GenericLightState head_light = 4;
 
-            // Brake lights are on with extra bright intensity (indicating
-            // stronger braking).
-            BRAKE_LIGHT_STATE_STRONG = 4;
+            // State of the high beam.
+            //
+            optional GenericLightState high_beam = 5;
+
+            // State of the reversing light.
+            //
+            optional GenericLightState reversing_light = 6;
+
+            // State of the brake lights.
+            //
+            optional BrakeLightState brake_light_state = 7;
+
+            // State of the (rear) license plate illumination
+            //
+            optional GenericLightState license_plate_illumination_rear = 8;
+
+            // Definition of indicator states.
+            //
+            enum IndicatorState
+            {
+                // Indicator state is unknown (must not be used in ground truth).
+                //
+                INDICATOR_STATE_UNKNOWN = 0;
+
+                // Other (unspecified but known) state of indicator.
+                //
+                INDICATOR_STATE_OTHER = 1;
+
+                // Indicators are off.
+                //
+                INDICATOR_STATE_OFF = 2;
+
+                // Left indicator is on.
+                //
+                INDICATOR_STATE_LEFT = 3;
+
+                // Right indicator is on.
+                //
+                INDICATOR_STATE_RIGHT = 4;
+
+                // Hazard/warning light, i.e. both indicators, are on.
+                //
+                INDICATOR_STATE_WARNING = 5;
+            }
+
+            // Definition of generic light states for light that may be on or off.
+            //
+            enum GenericLightState
+            {
+                // Light state is unknown (must not be used in ground truth).
+                //
+                GENERIC_LIGHT_STATE_UNKNOWN = 0;
+
+                // Other (unspecified but known) state of light.
+                //
+                GENERIC_LIGHT_STATE_OTHER = 1;
+
+                // Light is off.
+                //
+                GENERIC_LIGHT_STATE_OFF = 2;
+
+                // Light is on.
+                //
+                GENERIC_LIGHT_STATE_ON = 3;
+            }
+
+            // Definition of brake light states.
+            //
+            enum BrakeLightState
+            {
+                // Brake light state is unknown (must not be used in ground truth).
+                //
+                BRAKE_LIGHT_STATE_UNKNOWN = 0;
+
+                // Other (unspecified but known) state of brake light.
+                //
+                BRAKE_LIGHT_STATE_OTHER = 1;
+
+                // Brake lights are off.
+                //
+                BRAKE_LIGHT_STATE_OFF = 2;
+
+                // Brake lights are on with normal intensity.
+                //
+                BRAKE_LIGHT_STATE_NORMAL = 3;
+
+                // Brake lights are on with extra bright intensity (indicating
+                // stronger braking).
+                BRAKE_LIGHT_STATE_STRONG = 4;
+            }
         }
     }
 }

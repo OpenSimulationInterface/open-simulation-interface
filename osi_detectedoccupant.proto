@@ -33,12 +33,6 @@ message DetectedOccupant
         //
         repeated CandidateOccupant candidate = 1;
 
-        // The root mean squared error of the base parameters of the detected
-        // occupant's geometry. \c Occupant::base has to be identical
-        // for all \c #candidates occupants.
-        //
-        optional BaseStationary base_rmse = 2;
-
         //
         // \brief A candidate for a detected occupant as estimated by
         // the sensor.

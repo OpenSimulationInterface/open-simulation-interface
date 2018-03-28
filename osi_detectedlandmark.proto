@@ -40,7 +40,7 @@ message DetectedTrafficSign
         repeated CandidateMainSign candidate = 1;
 
         // The root mean squared error of the base parameters of the detected
-        // traffic sign. \c TrafficSign::base has to be identical for
+        // traffic sign. \c TrafficSign::MainSign::base has to be identical for
         // all \c #candidate traffic signs.
         //
         optional BaseStationary base_rmse = 2;
@@ -144,7 +144,7 @@ message DetectedTrafficSign
 
         // The root mean squared error of the base parameters of the detected
         // supplementary traffic sign. \c #candidate
-        // \c SupplementarySign::base has to be identical for all
+        // \c TrafficSign::SupplementarySign::base has to be identical for all
         // \c #candidate supplementary traffic signs.
         //
         optional BaseStationary base_rmse = 2;

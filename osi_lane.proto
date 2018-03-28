@@ -145,7 +145,7 @@ message Lane
 
     // The free boundaries which have no/unknown assignment to left/right.
     //
-    // \note \c Lanes with \c #type = \c #TYPE_INTERSECTION use only free
+    // \note \c Lane with \c #type = \c #TYPE_INTERSECTION use only free
     // lane boundaries.
     //
     // \note OSI uses singular instead of plural for repeated field names.

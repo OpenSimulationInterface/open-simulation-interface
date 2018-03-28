@@ -20,10 +20,10 @@ message ModelInternalObject
     //
     optional ObjectType ground_truth_type = 2;
 
-    // Ground truth vehicle type for object of \c #ground_truth_type \c Vehicle,
-    // should not be set otherwise.
+    // Ground truth vehicle type for object of \c #ground_truth_type
+    // \c MovingObject.Vehicle, should not be set otherwise.
     //
-    optional Vehicle.Type vehicle_type = 3;
+    optional MovingObject.Vehicle.Type vehicle_type = 3;
 
     // Ground truth object type for object of \c #ground_truth_type
     // \c MovingObject, should not be set otherwise.
@@ -47,7 +47,7 @@ message ModelInternalObject
         //
         OBJECT_TYPE_OTHER = 1;
 
-        // Object of type \c Vehicle.
+        // Object of type \c MovingObject.Vehicle.
         //
         OBJECT_TYPE_VEHICLE = 2;
 
