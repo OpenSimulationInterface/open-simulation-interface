@@ -110,6 +110,7 @@ message SensorDetectionHeader
     //
     optional Identifier sensor_id = 8;
 
+    //
     // \brief Data qualifier communicates the overall availability of the
     // interface.
     //
@@ -326,6 +327,7 @@ message RadarDetection
     optional DetectionClassification classification = 11;
 }
 
+//
 // Definition of a basic detection classifications.
 //
 enum DetectionClassification

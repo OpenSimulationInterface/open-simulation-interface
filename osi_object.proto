@@ -7,11 +7,182 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief A vehicle (host or other).
+// \brief A simulated object that is neither a moving object (vehicle or
+// \c MovingObject e.g. pedestrian or animal) nor a stationary object
+// (traffic sign, traffic light).
 //
-// This is basically a BaseObject with additional attributes, such as type and
-// lights.  The origin of the rear (front) axis coordinate system in world
-// coordinates is calculated as:  base.position + R * bbcenter_to_rear (front)
+// \c StationaryObject excludes traffic lights and traffic signs
+//
+message StationaryObject
+{
+    // The ID of the object.
+    //
+    optional Identifier id = 1;
+
+    // The base parameters of the vehicle.
+    //
+    optional BaseStationary base = 2;
+
+    // The type of the object.
+    //
+    optional Type type = 3;
+
+    // Definition of object types.
+    //
+    enum Type
+    {
+        // Type of the object is unknown (must not be used in ground truth).
+        //
+        TYPE_UNKNOWN = 0;
+
+        // Other (unspecified but known) type of object.
+        //
+        TYPE_OTHER = 1;
+
+        // Object is a bridge.
+        //
+        TYPE_BRIDGE = 2;
+
+        // Object is a building.
+        //
+        TYPE_BUILDING = 3;
+        
+        // Object is a pole (e.g. traffic light).
+        //
+        TYPE_POLE = 4;
+
+        // Object is a pylon.
+        //
+        TYPE_PYLON = 5;
+
+        // Object is a reflector post.
+        //
+        TYPE_REFLECTOR_POST = 6;
+
+        // Object is a delineator (e.g. at a construction site).
+        //
+        TYPE_DELINEATOR = 7;
+
+        // Object is a tree.
+        //
+        TYPE_TREE = 8;
+        
+        // Object is a barrier.
+        //
+        TYPE_BARRIER = 9;
+        
+        // Object is vegetation.
+        //
+        TYPE_VEGETATION = 10;
+        
+        // Object is a curbstone.
+        //
+        TYPE_CURBSTONE = 11;
+        
+        // Object is a wall.
+        //
+        TYPE_WALL = 12;
+       
+        // Landmarks corresponding to vertical structures in the environment, 
+        // like poles.
+        //
+        TYPE_VERTICAL_STRUCTURE = 13;
+        
+        // Landmarks corresponding to rectangular structures in the environment,
+        // like walls.
+        //
+        TYPE_RECTANGULAR_STRUCTURE = 14;
+        
+        // Landmarks corresponding to overhead structures in the environment, 
+        // like sign bridges.
+        //
+        TYPE_OVERHEAD_STRUCTURE = 15;
+        
+        // Landmarks corresponding to light sources or reflective structures in 
+        // the environment, like street lights or reflective poles on the road 
+        // boarder.
+        //
+        TYPE_REFLECTIVE_STRUCTURE = 16;
+        
+        // Landmarks corresponding to construction site elements in the 
+        // environment, like cones or beacons.
+        //
+        TYPE_CONSTRUCTION_SITE_ELEMENT = 17;
+    }
+}
+
+//
+// \brief A simulated object that is either a vehicle or another
+// moving object (animal, pedestrian, etc), but not a stationary
+// object (traffic sign, traffic light, \c StationaryObject).
+//
+// \note If the \c MovingObject.Type is a vehicle.
+//
+message MovingObject
+{
+    // The ID of the object.
+    //
+    optional Identifier id = 1;
+
+    // The base parameters of the vehicle.
+    //
+    // \note The bounding box includes mirrors for vehicles.
+    //
+    optional BaseMoving base = 2;
+    
+    // The IDs of the lanes that this object is assigned to.
+    //
+    // \note Might be multiple if the object is switching lanes or moving from
+    // one lane into another following lane.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier assigned_lane_id = 3;
+
+    // The type of the object.
+    //
+    optional Type type = 4;
+    
+    // Specific information about the vehicle.
+    //
+    // \note This field is mandatory if the type is
+    // \c MovingObject.Type.TYPE_VEHICLE .
+    //
+    optional Vehicle vehicle_extension = 5;
+
+    // Definition of object types.
+    //
+    enum Type
+    {
+        // Type of the object is unknown (must not be used in ground truth).
+        //
+        TYPE_UNKNOWN = 0;
+
+        // Other (unspecified but known) type of moving object.
+        //
+        TYPE_OTHER = 1;
+
+        // Object is a pedestrian.
+        //
+        TYPE_PEDESTRIAN = 2;
+
+        // Object is an animal.
+        //
+        TYPE_ANIMAL = 3;
+        
+        // Object is a vehicle.
+        //
+        TYPE_VEHICLE = 4;
+    }
+}
+
+//
+// \brief A vehicle extension for \c MovingObject (host or other).
+//
+// This is an extension to the \c MovingObject with additional attributes,
+// such as type and lights. The origin of the rear (front) axis coordinate
+// system in world coordinates is calculated as:
+// base.position + R * bbcenter_to_rear (front)
 // for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
 // orientation of base.orientation).
 //
@@ -28,27 +199,31 @@ package osi3;
 //
 message Vehicle
 {
-    // The ID of the vehicle.
-    //
-    optional Identifier id = 1;
-
-    // The base parameters of the vehicle (as a characteristic moving object).
-    //
-    // \note The bounding box includes mirrors.
-    //
-    optional BaseMoving base = 2;
-
     // The type of the vehicle.
     //
-    optional Type type = 3;
-
-    // The light state of the vehicle.
-    //
-    optional LightState light_state = 4;
-
+    optional Type type = 1;
+    
     // Flag defining whether the vehicle is a simulated host vehicle: True for
     // host vehicle(s), false for other vehicles.  See the description above!
-    optional bool host_vehicle = 5;
+    optional bool host_vehicle = 2;
+
+    // The ID of the driver of the (host) vehicle.
+    //
+    // \note Field need not be set if host_vehicle is set to false or use value
+    // for non valid id.
+    optional Identifier driver_id = 3;
+
+    // Median radius of the wheels.
+    //
+    // Unit: [m]
+    //    
+    optional double radius_wheel = 4;
+
+    // Number of independent wheels.
+    //
+    // Unit: []
+    //    
+    optional uint32 number_wheels = 5;
 
     // The vector pointing from the bounding box center point (base.position) to
     // the middle (in x, y and z) of the rear axle under neutral load
@@ -56,54 +231,34 @@ message Vehicle
     //
     optional Vector3d bbcenter_to_rear = 6;
 
-    // The IDs of the lanes that this vehicle is assigned to.
-    //
-    // \note Might be multiple if the vehicle is switching lanes or moving from
-    // one lane into another following lane.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Identifier assigned_lane_id = 7;
-
-    // Flag defining whether the vehicle has an attached trailer.
-    //
-    optional bool has_trailer = 8;
-
-    // Id of the attached trailer.
-    //
-    // \note Field need not be set if has_Trailer is set to false or use value
-    // for non valid id.
-    optional Identifier trailer_id = 9;
-
-    // The ID of the driver of the (host) vehicle.
-    //
-    // \note Field need not be set if host_vehicle is set to false or use value
-    // for non valid id.
-    optional Identifier driver_id = 10;
-
     // The vector pointing from the bounding box center point (base.position) to
     // the middle (in x, y and z) of the front axle under neutral load
     // conditions. In object coordinates.
-    optional Vector3d bbcenter_to_front = 11;
+    //
+    optional Vector3d bbcenter_to_front = 7;
 
     // Static minimal distance in [m] of under-body plane to ground
     // surface plane (i.e. disregarding driving dynamic effects or road
     // surface effects) under neutral load conditions. Can be useful to
     // approximate the clear area under a vehicle that a sensor can see
     // through.
-    optional double ground_clearance = 12;
+    //
+    optional double ground_clearance = 8;
 
-    // Median radius of the wheels.
+    // The light state of the vehicle.
     //
-    // Unit: [m]
-    //    
-    optional double radius_wheel = 13;
+    optional LightState light_state = 9;
     
-    // Number of independent wheels.
+    // Flag defining whether the vehicle has an attached trailer.
     //
-    // Unit: []
-    //    
-    optional uint32 number_wheels = 14;
+    optional bool has_trailer = 10;
+
+    // Id of the attached trailer.
+    //
+    // \note Field need not be set if has_Trailer is set to false or use value
+    // for non valid id.
+    //
+    optional Identifier trailer_id = 11;
 
     // Definition of vehicle types.
     //
@@ -295,152 +450,5 @@ message Vehicle
             // stronger braking).
             BRAKE_LIGHT_STATE_STRONG = 4;
         }
-    }
-}
-
-//
-// \brief A simulated object that is neither a moving object (vehicle) nor a
-// stationary object (traffic sign, traffic light, \c StationaryObject).
-//
-// \c MovingObject excludes vehicles.
-//
-message MovingObject
-{
-    // The ID of the object.
-    //
-    optional Identifier id = 1;
-
-    // The base parameters of the vehicle.
-    //
-    optional BaseMoving base = 2;
-
-    // The type of the object.
-    //
-    optional Type type = 3;
-
-    // Definition of object types.
-    //
-    enum Type
-    {
-        // Type of the object is unknown (must not be used in ground truth).
-        //
-        TYPE_UNKNOWN = 0;
-
-        // Other (unspecified but known) type of moving object.
-        //
-        TYPE_OTHER = 1;
-
-        // Object is a pedestrian.
-        //
-        TYPE_PEDESTRIAN = 2;
-
-        // Object is an animal.
-        //
-        TYPE_ANIMAL = 3;
-    }
-}
-
-//
-// \brief A simulated object that is neither a moving object (vehicle or
-// \c MovingObject e.g. pedestrian or animal) nor a stationary object
-// (traffic sign, traffic light).
-//
-// \c StationaryObject excludes traffic lights and traffic signs
-//
-message StationaryObject
-{
-    // The ID of the object.
-    //
-    optional Identifier id = 1;
-
-    // The base parameters of the vehicle.
-    //
-    optional BaseStationary base = 2;
-
-    // The type of the object.
-    //
-    optional Type type = 3;
-
-    // Definition of object types.
-    //
-    enum Type
-    {
-        // Type of the object is unknown (must not be used in ground truth).
-        //
-        TYPE_UNKNOWN = 0;
-
-        // Other (unspecified but known) type of object.
-        //
-        TYPE_OTHER = 1;
-
-        // Object is a bridge.
-        //
-        TYPE_BRIDGE = 2;
-
-        // Object is a building.
-        //
-        TYPE_BUILDING = 3;
-        
-        // Object is a pole (e.g. traffic light).
-        //
-        TYPE_POLE = 20;
-
-        // Object is a pylon.
-        //
-        TYPE_PYLON = 4;
-
-        // Object is a reflector post.
-        //
-        TYPE_REFLECTOR_POST = 5;
-
-        // Object is a delineator (e.g. at a construction site).
-        //
-        TYPE_DELINEATOR = 6;
-
-        // Object is a tree.
-        //
-        TYPE_TREE = 2001;
-        
-        // Object is a barrier.
-        //
-        TYPE_BARRIER = 2002;
-        
-        // Object is vegetation.
-        //
-        TYPE_VEGETATION = 2003;
-        
-        // Object is a curbstone.
-        //
-        TYPE_CURBSTONE = 2004;
-        
-        // Object is a wall.
-        //
-        TYPE_WALL = 2005;
-       
-        // Landmarks corresponding to vertical structures in the environment, 
-        // like poles.
-        //
-        TYPE_VERTICAL_STRUCTURE = 12;
-        
-        // Landmarks corresponding to rectangular structures in the environment,
-        // like walls.
-        //
-        TYPE_RECTANGULAR_STRUCTURE = 13;
-        
-        // Landmarks corresponding to overhead structures in the environment, 
-        // like sign bridges.
-        //
-        TYPE_OVERHEAD_STRUCTURE = 14;
-        
-        // Landmarks corresponding to light sources or reflective structures in 
-        // the environment, like street lights or reflective poles on the road 
-        // boarder.
-        //
-        TYPE_REFLECTIVE_STRUCTURE = 15;
-        
-        // Landmarks corresponding to construction site elements in the 
-        // environment, like cones or beacons.
-        //
-        TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
     }
 }

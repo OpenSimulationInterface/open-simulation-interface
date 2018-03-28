@@ -19,13 +19,13 @@ message DetectedTrafficSign
 
     // The main sign as detected by the sensor.
     //
-    optional EstimatedMainSign main_sign = 4;
+    optional EstimatedMainSign main_sign = 2;
 
     // A list of additional supplementary sign(s) as detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated EstimatedSupplementarySign supplementary_sign = 5;
+    repeated EstimatedSupplementarySign supplementary_sign = 3;
 
     //
     // \brief Candidates for a detected sign as estimated by the sensor.
@@ -189,7 +189,7 @@ message DetectedTrafficLight
 
     // The main sign as detected by the sensor.
     //
-    optional EstimatedTrafficLight traffic_light = 4;
+    optional EstimatedTrafficLight traffic_light = 2;
 
     //
     // \brief Candidates for a detected traffic light as estimated by the
@@ -241,7 +241,7 @@ message DetectedRoadMarking
 
     // The road marking as detected by the sensor.
     //
-    optional EstimatedRoadMarking road_marking = 4;
+    optional EstimatedRoadMarking road_marking = 2;
 
     //
     // \brief Candidates for a detected traffic light as estimated by the
@@ -278,57 +278,6 @@ message DetectedRoadMarking
             // reference to \c DetectedXXX::tracking_id IDs.
             //
             optional RoadMarking road_marking = 2;
-        }
-    }
-}
-
-//
-// \brief A landmark in the environment as detected by the sensor.
-//
-message DetectedLandmark
-{
-    // Common information of one detected item.
-    //
-    optional DetectedItemHeader header = 1;
-
-    // The landmark as detected by the sensor.
-    //
-    optional EstimatedLandmark landmark = 3;
-
-    //
-    // \brief Candidates for a detected Landmark as estimated by the
-    // sensor.
-    //
-    message EstimatedLandmark
-    {
-        // A list of candidates for this landmark as estimated by the sensor.
-        //
-        // \note OSI uses singular instead of plural for repeated field names.
-        //
-        repeated CandidateLandmark candidate = 1;
-
-        // The root mean squared error of the base parameters of the detected
-        // landmark. \c Landmark::base has to be identical for
-        // all \c #candidate landmark.
-        //
-        optional BaseStationary base_rmse = 2;
-
-        //
-        // \brief A candidate for a detected landmark as estimated by the
-        // sensor.
-        //
-        message CandidateLandmark
-        {
-            // Common information of one detected item candidate.
-            //
-            optional DetectedCandidateItemHeader header = 1;
-
-            // The description of the landmark.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional Landmark landmark = 2;
         }
     }
 }

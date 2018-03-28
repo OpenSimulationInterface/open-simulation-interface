@@ -20,18 +20,18 @@ message TrafficSign
 
     // Variability
     //
-    optional Variability variability = 6;
+    optional Variability variability = 2;
 
     // Main sign, e.g. speed limit 30 [km/h]
     //
-    optional MainSign main_sign = 7;
+    optional MainSign main_sign = 3;
 
     // Additional supplementary signs, e.g. time limits, modifying the traffic
     // sign.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated SupplementarySign supplementary_sign = 8;
+    repeated SupplementarySign supplementary_sign = 4;
 
     // Definition of the variability of the traffic sign.
     //
@@ -112,7 +112,7 @@ message TrafficSign
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier assigned_lane_id = 6;
+        repeated Identifier assigned_lane_id = 5;
 
         // Definition of traffic sign types.
         // Numbers are given according to German StVO.
@@ -812,11 +812,11 @@ message TrafficSign
         // This x-axis points from the supplementary traffic sign's image in the
         // direction from where a 'viewer' could see the supplementary traffic sign image.
         //
-        optional BaseStationary base = 1000;
+        optional BaseStationary base = 1;
 
         // Type of the supplementary sign.
         //
-        optional Type type = 1;
+        optional Type type = 2;
 
         // Additional value(s) associated with the traffic sign, e.g. length, mass
         // or starting time in time range.
@@ -825,14 +825,14 @@ message TrafficSign
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated TrafficSignValue value = 2;
+        repeated TrafficSignValue value = 3;
 
         // The IDs of the lanes that the sign is assigned to.
         // May be multiple if the sign is valid for multiple lanes.
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier assigned_lane_id = 10;
+        repeated Identifier assigned_lane_id = 4;
 
         // Definition of supplementary sign types.
         // See \c TrafficSign::Type for further information.
@@ -969,11 +969,11 @@ message TrafficSignValue
     // Additional value associated with a traffic sign or road marking,
     // e.g. value of a speed limit.
     //
-    optional double value = 3;
+    optional double value = 1;
 
     // Unit for additional value.
     //
-    optional Unit value_unit = 4;
+    optional Unit value_unit = 2;
 
     // Unit for values on traffic sign
     //
@@ -1474,67 +1474,5 @@ message RoadMarking
         // Marking with violet color.
         //
         COLOR_VIOLET = 8;
-    }
-}
-
-//
-// \brief A landmark.
-//
-// Landmarks for example the pole of a traffic light or traffic sign.
-//
-// All coordinates and orientations are relative to the global ground truth
-// coordinate system.
-//
-message Landmark
-{
-    // The ID of the landmark.
-    //
-    optional Identifier id = 1;
-
-    // The base parameters of the landmark.
-    //
-    optional BaseStationary base = 2;
-
-    // The type of the landmark.
-    //
-    optional Type type = 3;
-
-    // Definition of landmark types.
-    //
-    enum Type
-    {
-        // Type of landmark is unknown (must not be used in ground truth).
-        //
-        TYPE_UNKNOWN = 0;
-
-        // Other (unspecified but known) type of landmark.
-        //
-        TYPE_OTHER = 1;
-
-        // Landmarks corresponding to vertical structures in the environment,
-        // like poles.
-        //
-        TYPE_VERTICAL_STRUCTURE = 2;
-
-        // Landmarks corresponding to rectangular structures in the environment,
-        // like walls.
-        //
-        TYPE_RECTANGULAR_STRUCTURE = 3;
-
-        // Landmarks corresponding to overhead structures in the environment,
-        // like sign bridges.
-        //
-        TYPE_OVERHEAD_STRUCTURE = 4;
-
-        // Landmarks corresponding to light sources or reflective structures in
-        // the environment, like street lights or reflective poles on the road
-        // boarder.
-        //
-        TYPE_REFLECTIVE_STRUCTURE = 5;
-
-        // Landmarks corresponding to construction site elements in the
-        // environment, like cones or beacons.
-        //
-        TYPE_CONSTRUCTION_SITE_ELEMENT = 6;
     }
 }

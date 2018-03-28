@@ -19,7 +19,7 @@ message DetectedLane
 
     // The lane as detected by the sensor.
     //
-    optional EstimatedLane lane = 3;
+    optional EstimatedLane lane = 2;
 
     //
     // \brief Candidates for a detected lane as estimated by the sensor.
@@ -63,7 +63,7 @@ message DetectedLaneBoundary
 
     // The lane boundary as detected by the sensor.
     //
-    optional EstimatedLaneBoundary lane_boundary = 3;
+    optional EstimatedLaneBoundary lane_boundary = 2;
 
     //
     // \brief Candidates for a detected lane boundary as estimated by the
@@ -112,11 +112,11 @@ message DetectedLaneBoundary
 
             // Confidence of the classified lane boundary type.
             //
-            optional double type_confidence = 5;
+            optional double type_confidence = 3;
 
             // Confidence of the classified lane marker color.
             //
-            optional double color_confidence = 6;
+            optional double color_confidence = 4;
         }
     }
 }

@@ -124,15 +124,16 @@ message SensorData
     //
     optional Timestamp last_measurement_time = 7;
 
-    // General information about the \c DetectedObject .
+    // General information about the \c DetectedMovingObject .
     //
-    optional DetectedEntityHeader object_header = 8;
+    optional DetectedEntityHeader moving_object_header = 8;
 
-    // The list of objects detected by the sensor as perceived by the sensor.
+    // The list of moving objects detected by the sensor as perceived by
+    // the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated DetectedObject object = 9;
+    repeated DetectedMovingObject moving_object = 9;
 
     // General information about the \c DetectedTrafficSign .
     //
@@ -192,11 +193,11 @@ message SensorData
 
     // General information about the \c DetectedStationaryObject .
     // 
-    optional DetectedEntityHeader stationary_object_header = 1000;
+    optional DetectedEntityHeader stationary_object_header = 21;
 
     // The list of stationary objects (e.g. landmarks) detected by the sensor.
     //
-    repeated DetectedStationaryObject stationary_object = 1001;
+    repeated DetectedStationaryObject stationary_object = 22;
 
     // General information about the \c DetectedOccupant .
     //

@@ -19,7 +19,7 @@ message DetectedOccupant
 
     // The occupant as detected by the sensor.
     //
-    optional EstimatedOccupant occupant = 5;
+    optional EstimatedOccupant occupant = 2;
 
     //
     // \brief Candidates for a detected occupant as estimated by the sensor.

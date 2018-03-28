@@ -598,7 +598,8 @@ message CameraSensorViewConfiguration
     //
     repeated ChannelFormat channel_format = 8;
 
-    enum ChannelFormat {
+    enum ChannelFormat
+    {
         // Type of channel format is unknown (must not be used).
         //
         CHANNEL_FORMAT_UNKNOWN = 0;
