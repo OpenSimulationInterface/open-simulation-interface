@@ -110,7 +110,10 @@ message DetectedObject
 
     // The estimated probabilities for the object to belong to a specific class.
     //
-    optional ClassProbability class_probability = 16;
+    // \note The probability for each class of object has to be provided.
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated ClassProbability class_probability = 16;
 
     // Pedestrian head pose for behavior prediction. Describes the head
     // orientation w.r.t. the host vehicle orientation.
@@ -254,109 +257,16 @@ message DetectedObject
     //
     message ClassProbability
     {
-        // Probability that the object has unknown type.
+        // The class of object that has been estimated with a certain
+        // probability.
         //
-        // Range: [0,1]
-        //
-        optional double prob_unknown = 1;
+        optional Vehicle.Type class = 1;
 
-        // Probability that the object is unspecified but known.
+        // Probability that the object is of that certain class.
         //
         // Range: [0,1]
         //
-        optional double prob_other = 2;
-
-        // Probability that the object is a car.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_car = 3;
-
-        // Probability that the object is a heavy truck.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_heavy_truck = 4;
-
-        // Probability that the object is a van.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_van = 5;
-
-        // Probability that the object is a bus.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_bus = 6;
-
-        // Probability that the object is a trailer.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_trailer = 7;
-
-        // Probability that the object is a semitrailer.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_semitrailer = 8;
-
-        // Probability that the object is a tram.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_tram = 9;
-
-        // Probability that the object is a train.
-        //
-        // Range: [0,1]
-        //
-        // \note Can also be used for underground railway.
-        //
-        optional double prob_train = 10;
-
-        // Probability that the object is a motorbike.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_motorbike = 11;
-
-        // Probability that the object is a bicycle.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_bicycle = 12;
-
-        // Probability that the object is a pedestrian.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_pedestrian = 13;
-
-        // Probability that the object is a wheelchair.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_wheelchair = 14;
-
-        // Probability that the object is an animal.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_animal = 15;
-
-        // Probability that the object is a stationary object.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_stationary = 16;
-
-        // Probability that the object is an unspecified but known vehicle.
-        //
-        // Range: [0,1]
-        //
-        optional double prob_other_vehicle = 17;
+        optional double probability = 2;
     }
 }
 
