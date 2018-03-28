@@ -217,7 +217,7 @@ message TrafficSign
         //
         optional DirectionScope direction_scope = 5;
 		
-		// The IDs of the lanes that the sign is assigned to.
+        // The IDs of the lanes that the sign is assigned to.
         // May be multiple if the sign is valid for multiple lanes.
         //
         // \note OSI uses singular instead of plural for repeated field names.
@@ -965,7 +965,7 @@ message TrafficSign
         //
         optional Unit value_4_unit = 9;
 		
-		// The IDs of the lanes that the sign is assigned to.
+        // The IDs of the lanes that the sign is assigned to.
         // May be multiple if the sign is valid for multiple lanes.
         //
         // \note OSI uses singular instead of plural for repeated field names.
