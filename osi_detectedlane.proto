@@ -53,7 +53,7 @@ message DetectedLane
 }
 
 //
-// \brief A lane segment as detected by the sensor.
+// \brief A lane boundary segment as detected by the sensor.
 //
 message DetectedLaneBoundary
 {

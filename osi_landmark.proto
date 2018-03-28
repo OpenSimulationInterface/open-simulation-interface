@@ -56,7 +56,7 @@ message TrafficSign
     }
 
     //
-    // \brief Additional, supplementary sign modifying a parent traffic sign.
+    // \brief Main sign of the traffic sign.
     //
     message MainSign
     {
@@ -796,7 +796,7 @@ message TrafficSign
     }
 
     //
-    // \brief Additional, supplementary sign modifying a parent traffic sign.
+    // \brief Additional supplementary sign modifying the main sign.
     //
     message SupplementarySign
     {
