@@ -33,13 +33,6 @@ message TrafficSign
     //
     repeated SupplementarySign supplementary_sign = 8;
 
-    // The IDs of the lanes that the traffic sign is assigned to.
-    // May be multiple if the traffic sign is valid for multiple lanes.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Identifier assigned_lane_id = 9;
-
     // Definition of the variability of the traffic sign.
     //
     enum Variability
@@ -61,7 +54,6 @@ message TrafficSign
         //
         VARIABILITY_VARIABLE = 3;
     }
-
 
     // Unit for values on traffic sign
     //
@@ -224,6 +216,13 @@ message TrafficSign
         // intentionally unmounted and, hence, not be in effect.
         //
         optional DirectionScope direction_scope = 5;
+
+        // The IDs of the lanes that the sign is assigned to.
+        // May be multiple if the sign is valid for multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 6;
 
         // Definition of traffic sign types.
         // Numbers are given according to German StVO.
@@ -965,6 +964,13 @@ message TrafficSign
         // Unit for fourth optional value.
         //
         optional Unit value_4_unit = 9;
+
+        // The IDs of the lanes that the sign is assigned to.
+        // May be multiple if the sign is valid for multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 10;
 
         // Definition of supplementary sign types.
         // See \c TrafficSign::Type for further information.
