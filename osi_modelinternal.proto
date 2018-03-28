@@ -5,7 +5,7 @@ option optimize_for = SPEED;
 import "osi_featuredata.proto";
 import "osi_object.proto";
 
-package osi;
+package osi3;
 
 //
 // \brief Additional internal data and state flags for \c SensorData objects.

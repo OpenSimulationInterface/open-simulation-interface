@@ -15,6 +15,8 @@ cache:
 
 # Handle dependencies in separate directory.
 before_install:
+    - TESTINST_DIR="${HOME}/dummy"
+    - mkdir -p "${TESTINST_DIR}"
     - DEPS_DIR="${HOME}/deps"
     - mkdir -p "${DEPS_DIR}"
     - cd "${DEPS_DIR}"
@@ -40,9 +42,11 @@ before_script:
 script:
     - mkdir -p build
     - cd build
-    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
+    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
     - cmake --build .
     - cd ..
     - python test_cases.py
     - python setup.py build
     - python setup.py sdist
+    - cd build
+    - cmake --build . --target install
