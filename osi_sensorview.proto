@@ -111,29 +111,47 @@ message SensorView
     //
     optional Identifier host_vehicle_id = 8;
 
+    // Generic SensorView(s).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated GenericSensorView generic_sensor_view = 1000;
+
     // Radar-specific SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RadarSensorView radar_sensor_view = 1000;
+    repeated RadarSensorView radar_sensor_view = 1001;
 
     // Lidar-specific SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated LidarSensorView lidar_sensor_view = 1001;
+    repeated LidarSensorView lidar_sensor_view = 1002;
 
     // Camera-specific SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated CameraSensorView camera_sensor_view = 1002;
+    repeated CameraSensorView camera_sensor_view = 1003;
 
     // Ultrasonic-specific SensorView(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated UltrasonicSensorView ultrasonic_sensor_view = 1003;
+    repeated UltrasonicSensorView ultrasonic_sensor_view = 1004;
+}
+
+//
+// \brief Definition of the generic sensor view.
+//
+// Generic sensor view data.
+//
+message GenericSensorView
+{
+    // Generic view configuration valid at the time the data was created.
+    //
+    optional GenericSensorViewConfiguration view_configuration = 1;
 }
 
 //
