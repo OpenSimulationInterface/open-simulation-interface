@@ -13,39 +13,13 @@ package osi3;
 //
 message DetectedOccupant
 {
-    // Specific ID of the occupant as assigned by the sensor internally. Need
-    // not match with \c #ground_truth_id.
+    // Common information of one detected item.
     //
-    optional Identifier tracking_id = 2;
-
-    // The ID of the original vehicle occupant in the ground truth.
-    //
-    optional Identifier ground_truth_id = 4;
+    optional DetectedItemHeader header = 1;
 
     // The occupant as detected by the sensor.
     //
     optional EstimatedOccupant occupant = 5;
-
-    // The estimated probability that this occupant really exists, not
-    // based on history.
-    //
-    // \note Use as confidence measure where a low value means less confidence
-    // and a high value indicates strong confidence.
-    //
-    optional double existence_probability = 6;
-
-    // A list of sensors which detected this detected entity.
-    //
-    // If SensorData has detected entities and all detections are missing, then
-    // e.g. the number of sensors can confirm the existence_probability.
-    //
-    // \note This information can be determined via the detected entities'
-    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
-    // the sensors (their IDs) to which these detections belong.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Identifier sensor_id = 7;
 
     //
     // \brief Candidates for a detected occupant as estimated by the sensor.
@@ -71,29 +45,16 @@ message DetectedOccupant
         //
         message CandidateOccupant
         {
+            // Common information of one detected item candidate.
+            //
+            optional DetectedCandidateItemHeader header = 1;
+
             // The detected vehicle occupant.
             //
             // \note IDs, which are referenced in this message, usually
             // reference to \c DetectedXXX::tracking_id IDs.
             //
-            optional Occupant occupant = 1;
-
-            // The estimated probability that this candidate is the true value.
-            // The sum of all \c #probability must be one.
-            //
-            // Range: [0,1]
-            //
-            optional double probability = 2;
-
-            // The amount of time that this detected object has been currently
-            // observed/tracked.
-            //
-            // Unit: [s]
-            optional double age = 3;
-
-            // The measurement state.
-            //
-            optional MeasurementState measurement_state = 4;
+            optional Occupant occupant = 2;
         }
     }
 }

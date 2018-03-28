@@ -10,6 +10,96 @@ import "osi_sensorspecific.proto";
 package osi3;
 
 //
+// \brief The common information for a detected item as estimated by the
+// sensor.
+//
+message DetectedItemHeader
+{
+    // Specific ID of the detected item as assigned by the sensor internally.
+    // Need not match with \c #ground_truth_id.
+    //
+    optional Identifier tracking_id = 1;
+
+    // The ID of the original detected item in the ground truth.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier ground_truth_id = 2;
+
+    // The estimated probability that this detected item really exists, not 
+    // based on history.
+    //
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    // Range: [0,1]
+    //
+    optional double existence_probability = 3;
+
+    // A list of sensors which detected this detected item.
+    //
+    // If \c SensorData has detected entities and all detections are missing,
+    // then e.g. the number of sensors can confirm the
+    // \c #existence_probability.
+    //
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected item' ) and
+    // the sensors (their IDs) to which these detections belong.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier sensor_id = 4;
+}
+
+//
+// \brief The common information for a detected item's candidate as estimated
+// by the sensor.
+//
+message DetectedCandidateItemHeader
+{
+    // The estimated probability that this candidate is the true value.
+    // The sum of all \c #probability must be one.
+    //
+    // Range: [0,1]
+    //
+    optional double probability = 1;
+
+    // The amount of time that this detected object has been currently
+    // observed/tracked.
+    //
+    // Unit: [s]
+    //
+    optional double age = 2;
+
+    // The measurement state.
+    //
+    optional MeasurementState measurement_state = 3;
+}
+
+// Definition of measurement states.
+//
+enum MeasurementState
+{
+    // Measurement state is unknown (must not be used in ground truth).
+    //
+    MEASUREMENT_STATE_UNKNOWN = 0;
+
+    // Measurement state is unspecified (but known, i.e. value is not part of
+    // this enum list).
+    //
+    MEASUREMENT_STATE_OTHER = 1;
+
+    // Entity has been measured by the sensor in the current timestep.
+    //
+    MEASUREMENT_STATE_MEASURED = 2;
+
+    // Entity has not been measured by the sensor in the current timestep.
+    // Values provided by tracking only.
+    //
+    MEASUREMENT_STATE_PREDICTED = 3;
+}
+
+//
 // \brief Object in the environment as detected and perceived by the sensor.
 //
 message DetectedObject
@@ -270,77 +360,22 @@ message DetectedObject
     }
 }
 
-// Definition of measurement states.
-//
-enum MeasurementState
-{
-    // Measurement state is unknown (must not be used in ground truth).
-    //
-    MEASUREMENT_STATE_UNKNOWN = 0;
-
-    // Measurement state is unspecified (but known, i.e. value is not part of
-    // this enum list).
-    //
-    MEASUREMENT_STATE_OTHER = 1;
-
-    // Entity has been measured by the sensor in the current timestep.
-    //
-    MEASUREMENT_STATE_MEASURED = 2;
-
-    // Entity has not been measured by the sensor in the current timestep.
-    // Values provided by tracking only.
-    //
-    MEASUREMENT_STATE_PREDICTED = 3;
-}
-
 //
 // \brief A stationary object (e.g. landmark) in the environment as detected by
 // the sensor.
 //
 message DetectedStationaryObject
 {
-    // Specific ID of the stationary object (e.g. landmark) as assigned by the
-    // sensor internally.
-    // Need not match with \c #ground_truth_id.
+    // Common information of one detected item.
     //
-    optional Identifier tracking_id = 1;
-
-    // The ID of the original stationary object (e.g. landmark) in the ground 
-    // truth.
-    // In case of a ghost detection (no corresponding ground truth), this field
-    // should be unset.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Identifier ground_truth_id = 2;
+    optional DetectedItemHeader header = 1;
 
     // A list of estimates for this stationary object (e.g. landmark) as 
     // estimated by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated EstimatedStationaryObject stationary_object = 3;
-
-    // The estimated probability that this stationary object (e.g. landmark)
-    // really exists, not based on history.
-    //
-    // \note Use as confidence measure where a low value means less confidence
-    // and a high value indicates strong confidence.
-    //
-    optional double existence_probability = 4;
-   
-    // A list of sensors which detected this detected entity.
-    //
-    // If \c SensorData has detected entities and all detections are missing, 
-    // then e.g. the number of sensors can confirm the #existence_probability.
-    // 
-    // \note This information can be determined via the detected entities'
-    // detections ( \c ...Detection::object_id = 'this detected entity' ) and
-    // the sensors (their IDs) to which these detections belong.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Identifier sensor_id = 5;    
+    repeated EstimatedStationaryObject stationary_object = 2;
 
     //
     // \brief A candidate for a detected stationary object (e.g. landmark) as 
@@ -363,27 +398,13 @@ message DetectedStationaryObject
     
         message CandidateStationaryObject
         {
+            // Common information of one detected item candidate.
+            //
+            optional DetectedCandidateItemHeader header = 1;
+            
             // The description of the stationary object (e.g. landmark).
             //
-            optional StationaryObject stationary_object = 1;
-
-            // The estimated probability that this candidate is the true value.
-            // The sum of all \c #probability must be one.
-            //
-            // Range: [0,1]
-            //
-            optional double probability = 2;
-
-            // The amount of time that this detected object has been currently 
-            // observed/tracked.
-            // 
-            // Unit: [s]
-            //
-            optional double age = 3;
-
-            // The measurement state.
-            //
-            optional MeasurementState measurement_state = 4;
+            optional StationaryObject stationary_object = 2;
         }
     }
 }
