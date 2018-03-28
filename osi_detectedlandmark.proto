@@ -6,7 +6,7 @@ import "osi_common.proto";
 import "osi_landmark.proto";
 import "osi_detectedobject.proto";
 
-package osi;
+package osi3;
 
 //
 // \brief A traffic sign in the environment as detected by the sensor.
@@ -42,12 +42,6 @@ message DetectedTrafficSign
     //
     optional double existence_probability = 7;
 
-    // Links to the corresponding lanes.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated RelevantLane relevant_lane_id = 10;
-
     // A list of sensors which detected this detected entity.
     //
     // If \c SensorData has detected entities and all detections are missing,
@@ -60,7 +54,7 @@ message DetectedTrafficSign
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 11;
+    repeated Identifier sensor_id = 8;
 
     //
     // \brief Candidates for a detected sign as estimated by the sensor.
@@ -262,18 +256,6 @@ message DetectedTrafficLight
     //
     optional EstimatedTrafficLight traffic_light = 4;
 
-    // Determines for which directions the traffic light applies.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated RelevantDirection relevant_direction = 6;
-
-    // Links to the corresponding lanes.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated RelevantLane relevant_lane = 7;
-
     // The estimated probability that this traffic light really exists, not
     // based on history.
     //
@@ -346,62 +328,6 @@ message DetectedTrafficLight
             optional MeasurementState measurement_state = 4;
         }
     }
-
-    //
-    // \brief Further specifies the relevant directions of the traffic light.
-    //
-    message RelevantDirection
-    {
-        // The direction the traffic light corresponds to.
-        //
-        optional Direction direction = 1;
-
-        // Relevance probability.
-        //
-        // Range: [0,1]
-        //
-        optional double relevance_probability = 2;
-
-        // Specifies the different directions.
-        //
-        enum Direction
-        {
-            // Direction is unknown (must not be used in ground truth).
-            //
-            DIRECTION_UNKNOWN = 0;
-
-            // Other (unspecified but known) direction.
-            //
-            DIRECTION_OTHER = 1;
-
-            // Direction is straight.
-            //
-            DIRECTION_STRAIGHT = 2;
-
-            // Direction is left.
-            //
-            DIRECTION_LEFT = 3;
-
-            // Direction is right.
-            //
-            DIRECTION_RIGHT = 4;
-        }
-    }
-}
-
-//
-// \brief Further specifies the relevant lane of a detected object.
-//
-message RelevantLane
-{
-    // Tracking ID of the lane segment.
-    //
-    optional Identifier lane_id = 1;
-
-    // Relevance probability.
-    //
-    // Range: [0,1]
-    optional double relevance_probability = 2;
 }
 
 //
@@ -431,12 +357,6 @@ message DetectedRoadMarking
     // and a high value indicates strong confidence.
     //
     optional double existence_probability = 5;
-
-    // Links to the corresponding lanes.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated RelevantLane relevant_lane = 6;
 
     // A list of sensors which detected this detected entity.
     //

@@ -4,7 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_common.proto";
 
-package osi;
+package osi3;
 
 //
 // \brief A traffic sign.
@@ -33,13 +33,6 @@ message TrafficSign
     //
     repeated SupplementarySign supplementary_sign = 8;
 
-    // The IDs of the lanes that the traffic sign is assigned to.
-    // May be multiple if the traffic sign is valid for multiple lanes.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Identifier assigned_lane_id = 9;
-
     // Definition of the variability of the traffic sign.
     //
     enum Variability
@@ -60,112 +53,6 @@ message TrafficSign
         // Temporary or variable sign, e.g. on a sign bridge.
         //
         VARIABILITY_VARIABLE = 3;
-    }
-
-
-    // Unit for values on traffic sign
-    //
-    enum Unit
-    {
-        // Unit of the sign's value is unknown (must not be used in ground
-        // truth).
-        //
-        UNIT_UNKNOWN = 0;
-
-        // Other (unspecified but known) unit of the sign's value.
-        //
-        UNIT_OTHER = 1;
-
-        // Value without
-        // unit.
-        //
-        // Unit: []
-        //
-        UNIT_NO_UNIT = 2;
-
-        // Velocity.
-        // Kilometers per hour.
-        //
-        // Unit: [km/h]
-        //
-        UNIT_KILOMETER_PER_HOUR = 3;
-
-        // Velocity .
-        // Miles per hour.
-        //
-        // Unit: [mph]
-        //
-        UNIT_MILE_PER_HOUR = 4;
-
-        // Length.
-        // Meter.
-        //
-        // Unit: [m]
-        //
-        UNIT_METER = 5;
-
-        // Length.
-        // Kilometer.
-        //
-        // Unit: [km]
-        //
-        UNIT_KILOMETER = 6;
-
-        // Length.
-        // Feet.
-        //
-        // Unit: [ft]
-        //
-        UNIT_FEET = 7;
-
-        // Length.
-        // Mile.
-        //
-        // Unit: [mile]
-        //
-        UNIT_MILE = 8;
-
-        // Weight.
-        // Ton.
-        //
-        // Unit: [t]
-        //
-        UNIT_METRIC_TON = 9;
-
-        // Weight.
-        // Long ton UK 1,016.047 [kg].
-        //
-        // Unit: [tn. l.]
-        //
-        UNIT_LONG_TON = 10;
-
-        // Weight.
-        // Short ton USA 907.1847 [kg].
-        //
-        // Unit: [tn. sh.]
-        //
-        UNIT_SHORT_TON = 11;
-
-        // Time of day.
-        // Hour since midnight.
-        //
-        // Unit: [min]
-        //
-        UNIT_MINUTES = 12;
-
-        // Day of the week.
-        // Days since Monday. Monday = 0; Tuesday = 1; ...
-        //
-        // Unit: []
-        //
-        UNIT_DAY = 13;
-
-        // Percentage.
-        // .
-        //
-        // Unit: [%]
-        //
-        UNIT_PERCENTAGE = 14;
     }
 
     //
@@ -195,13 +82,8 @@ message TrafficSign
         // speed limit.
         //
         // \note Field need not be set if traffic sign type does not require it.
-        // Unit of field \c #value is defined by field \c #value_unit.
         //
-        optional double value = 3;
-
-        // Unit for additional value.
-        //
-        optional Unit value_unit = 4;
+        optional TrafficSignValue value = 3;
 
         // Some traffic signs have an additional arrow symbol as an additional
         // constraint for their scope (e.g. no parking to the right).
@@ -223,7 +105,14 @@ message TrafficSign
         // sign. Actual traffic signs lying on the ground might have been
         // intentionally unmounted and, hence, not be in effect.
         //
-        optional DirectionScope direction_scope = 5;
+        optional DirectionScope direction_scope = 4;
+
+        // The IDs of the lanes that the sign is assigned to.
+        // May be multiple if the sign is valid for multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 6;
 
         // Definition of traffic sign types.
         // Numbers are given according to German StVO.
@@ -906,7 +795,6 @@ message TrafficSign
         }
     }
 
-
     //
     // \brief Additional, supplementary sign modifying a parent traffic sign.
     //
@@ -930,41 +818,21 @@ message TrafficSign
         //
         optional Type type = 1;
 
-        // Optional first value defining additional properties, e.g. length, mass
+        // Additional value(s) associated with the traffic sign, e.g. length, mass
         // or starting time in time range.
         //
-        optional double value_1 = 2;
-
-        // Unit for first optional value.
+        // \note Field need not be set if traffic sign type does not require it.
         //
-        optional Unit value_1_unit = 3;
-
-        // Optional second value defining additional properties, e.g. end time in
-        // time range.
+        // \note OSI uses singular instead of plural for repeated field names.
         //
-        optional double value_2 = 4;
+        repeated TrafficSignValue value = 2;
 
-        // Unit for second optional value.
+        // The IDs of the lanes that the sign is assigned to.
+        // May be multiple if the sign is valid for multiple lanes.
         //
-        optional Unit value_2_unit = 5;
-
-        // Optional third value defining additional properties, e.g. day of the
-        // week start.
+        // \note OSI uses singular instead of plural for repeated field names.
         //
-        optional double value_3 = 6;
-
-        // Unit for third optional value.
-        //
-        optional Unit value_3_unit = 7;
-
-        // Optional fourth value defining additional properties, e.g. day of the
-        // week end.
-        //
-        optional double value_4 = 8;
-
-        // Unit for fourth optional value.
-        //
-        optional Unit value_4_unit = 9;
+        repeated Identifier assigned_lane_id = 10;
 
         // Definition of supplementary sign types.
         // See \c TrafficSign::Type for further information.
@@ -1089,6 +957,127 @@ message TrafficSign
             //
             TYPE_STOP_IN = 25;
         }
+    }
+}
+
+// 
+// \brief Additional value associated with a traffic sign or road marking
+// and its unit.
+//
+message TrafficSignValue
+{
+    // Additional value associated with a traffic sign or road marking,
+    // e.g. value of a speed limit.
+    //
+    optional double value = 3;
+
+    // Unit for additional value.
+    //
+    optional Unit value_unit = 4;
+
+    // Unit for values on traffic sign
+    //
+    enum Unit
+    {
+        // Unit of the sign's value is unknown (must not be used in ground
+        // truth).
+        //
+        UNIT_UNKNOWN = 0;
+
+        // Other (unspecified but known) unit of the sign's value.
+        //
+        UNIT_OTHER = 1;
+
+        // Value without
+        // unit.
+        //
+        // Unit: []
+        //
+        UNIT_NO_UNIT = 2;
+
+        // Velocity.
+        // Kilometers per hour.
+        //
+        // Unit: [km/h]
+        //
+        UNIT_KILOMETER_PER_HOUR = 3;
+
+        // Velocity .
+        // Miles per hour.
+        //
+        // Unit: [mph]
+        //
+        UNIT_MILE_PER_HOUR = 4;
+
+        // Length.
+        // Meter.
+        //
+        // Unit: [m]
+        //
+        UNIT_METER = 5;
+
+        // Length.
+        // Kilometer.
+        //
+        // Unit: [km]
+        //
+        UNIT_KILOMETER = 6;
+
+        // Length.
+        // Feet.
+        //
+        // Unit: [ft]
+        //
+        UNIT_FEET = 7;
+
+        // Length.
+        // Mile.
+        //
+        // Unit: [mile]
+        //
+        UNIT_MILE = 8;
+
+        // Weight.
+        // Ton.
+        //
+        // Unit: [t]
+        //
+        UNIT_METRIC_TON = 9;
+
+        // Weight.
+        // Long ton UK 1,016.047 [kg].
+        //
+        // Unit: [tn. l.]
+        //
+        UNIT_LONG_TON = 10;
+
+        // Weight.
+        // Short ton USA 907.1847 [kg].
+        //
+        // Unit: [tn. sh.]
+        //
+        UNIT_SHORT_TON = 11;
+
+        // Time of day.
+        // Hour since midnight.
+        //
+        // Unit: [min]
+        //
+        UNIT_MINUTES = 12;
+
+        // Day of the week.
+        // Days since Monday. Monday = 0; Tuesday = 1; ...
+        //
+        // Unit: []
+        //
+        UNIT_DAY = 13;
+
+        // Percentage.
+        // .
+        //
+        // Unit: [%]
+        //
+        UNIT_PERCENTAGE = 14;
     }
 }
 
@@ -1390,17 +1379,12 @@ message RoadMarking
     //
     optional Color monochrome_color = 5;
 
-    // Additional value associated with the road marking, e.g. value of the
+    // Additional value associated with the road marking, e.g. value of the 
     // speed limit.
     //
-    // \note This field needs not be set if the road marking's type does not
-    // require it.
+    // \note Field need not be set if road marking type does not require it.
     //
-    optional double value = 6;
-
-    // Unit for optional value.
-    //
-    optional TrafficSign.Unit value_unit = 7;
+    optional TrafficSignValue value = 7;
 
     // Additional text value as road marking, e.g. BUS, TAXI etc.
     //
