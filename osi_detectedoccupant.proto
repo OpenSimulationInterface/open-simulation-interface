@@ -16,15 +16,15 @@ message DetectedOccupant
     // Specific ID of the occupant as assigned by the sensor internally. Need
     // not match with \c #ground_truth_id.
     //
-    optional Identifier tracking_id = 2;
+    optional Identifier tracking_id = 1;
 
     // The ID of the original vehicle occupant in the ground truth.
     //
-    optional Identifier ground_truth_id = 4;
+    optional Identifier ground_truth_id = 2;
 
     // The occupant as detected by the sensor.
     //
-    optional EstimatedOccupant occupant = 5;
+    optional EstimatedOccupant occupant = 3;
 
     // The estimated probability that this occupant really exists, not
     // based on history.
@@ -32,7 +32,7 @@ message DetectedOccupant
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    optional double existence_probability = 6;
+    optional double existence_probability = 4;
 
     // A list of sensors which detected this detected entity.
     //
@@ -45,7 +45,7 @@ message DetectedOccupant
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 7;
+    repeated Identifier sensor_id = 5;
 
     //
     // \brief Candidates for a detected occupant as estimated by the sensor.

@@ -185,25 +185,25 @@ message SensorViewConfiguration
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RadarSensorViewConfiguration radar_sensor_view_configuration = 1000;
+    repeated RadarSensorViewConfiguration radar_sensor_view_configuration = 11;
 
     // Lidar-specific SensorView Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated LidarSensorViewConfiguration lidar_sensor_view_configuration = 1001;
+    repeated LidarSensorViewConfiguration lidar_sensor_view_configuration = 12;
 
     // Camera-specific SensorView Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated CameraSensorViewConfiguration camera_sensor_view_configuration = 1002;
+    repeated CameraSensorViewConfiguration camera_sensor_view_configuration = 13;
 
     // Ultrasonic-specific SensorView Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated UltrasonicSensorViewConfiguration ultrasonic_sensor_view_configuration = 1003;
+    repeated UltrasonicSensorViewConfiguration ultrasonic_sensor_view_configuration = 14;
 }
 
 //
@@ -526,12 +526,12 @@ message CameraSensorViewConfiguration
         // Type of channel format is unknown (must not be used).
         //
         CHANNEL_FORMAT_UNKNOWN = 0;
-  
+
         // Unspecified but known channel format.
         // Consider proposing an additional format if using #CHANNEL_FORMAT_OTHER.
         //
         CHANNEL_FORMAT_OTHER = 1;
-       
+
         // Single Luminance Channel UINT8 Linear.
         //
         CHANNEL_FORMAT_MONO_U8_LIN = 2;

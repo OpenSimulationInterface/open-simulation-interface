@@ -20,25 +20,25 @@ message TrafficSign
 
     // Variability
     //
-    optional Variability variability = 6;
+    optional Variability variability = 2;
 
     // Main sign, e.g. speed limit 30 [km/h]
     //
-    optional MainSign main_sign = 7;
+    optional MainSign main_sign = 3;
 
     // Additional supplementary signs, e.g. time limits, modifying the traffic
     // sign.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated SupplementarySign supplementary_sign = 8;
+    repeated SupplementarySign supplementary_sign = 4;
 
     // The IDs of the lanes that the traffic sign is assigned to.
     // May be multiple if the traffic sign is valid for multiple lanes.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier assigned_lane_id = 9;
+    repeated Identifier assigned_lane_id = 5;
 
     // Definition of the variability of the traffic sign.
     //
@@ -924,47 +924,47 @@ message TrafficSign
         // This x-axis points from the supplementary traffic sign's image in the
         // direction from where a 'viewer' could see the supplementary traffic sign image.
         //
-        optional BaseStationary base = 1000;
+        optional BaseStationary base = 1;
 
         // Type of the supplementary sign.
         //
-        optional Type type = 1;
+        optional Type type = 2;
 
         // Optional first value defining additional properties, e.g. length, mass
         // or starting time in time range.
         //
-        optional double value_1 = 2;
+        optional double value_1 = 3;
 
         // Unit for first optional value.
         //
-        optional Unit value_1_unit = 3;
+        optional Unit value_1_unit = 4;
 
         // Optional second value defining additional properties, e.g. end time in
         // time range.
         //
-        optional double value_2 = 4;
+        optional double value_2 = 5;
 
         // Unit for second optional value.
         //
-        optional Unit value_2_unit = 5;
+        optional Unit value_2_unit = 6;
 
         // Optional third value defining additional properties, e.g. day of the
         // week start.
         //
-        optional double value_3 = 6;
+        optional double value_3 = 7;
 
         // Unit for third optional value.
         //
-        optional Unit value_3_unit = 7;
+        optional Unit value_3_unit = 8;
 
         // Optional fourth value defining additional properties, e.g. day of the
         // week end.
         //
-        optional double value_4 = 8;
+        optional double value_4 = 9;
 
         // Unit for fourth optional value.
         //
-        optional Unit value_4_unit = 9;
+        optional Unit value_4_unit = 10;
 
         // Definition of supplementary sign types.
         // See \c TrafficSign::Type for further information.
