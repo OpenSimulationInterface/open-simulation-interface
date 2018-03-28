@@ -382,3 +382,69 @@ enum MeasurementState
     //
     MEASUREMENT_STATE_PREDICTED = 3;
 }
+
+
+
+
+message DetectedItemHeader
+{
+    // Specific ID of the detected item as assigned by the sensor internally.
+    // Need not match with \c #ground_truth_id.
+    //
+    optional Identifier tracking_id = 1;
+
+    // The ID of the original detected item in the ground truth.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier ground_truth_id = 2;
+
+    // The estimated probability that this detected item really exists, not 
+    // based on history.
+    //
+    // \note Use as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    // Range: [0,1]
+    //
+    optional double existence_probability = 3;
+
+    // A list of sensors which detected this detected item.
+    //
+    // If \c SensorData has detected entities and all detections are missing,
+    // then e.g. the number of sensors can confirm the
+    // \c #existence_probability.
+    //
+    // \note This information can be determined via the detected entities'
+    // detections ( \c ...Detection::object_id = 'this detected item' ) and
+    // the sensors (their IDs) to which these detections belong.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Identifier sensor_id = 4;
+
+    //
+    // \brief A candidate for a detected item as estimated by the
+    // sensor.
+    //
+    message CandidateItemHeader
+    {
+        // The estimated probability that this candidate is the true value.
+        // The sum of all \c #probability must be one.
+        //
+        // Range: [0,1]
+        //
+        optional double probability = 1;
+
+        // The amount of time that this detected object has been currently
+        // observed/tracked.
+        //
+        // Unit: [s]
+        //
+        optional double age = 2;
+
+        // The measurement state.
+        //
+        optional MeasurementState measurement_state = 3;
+    }
+}
