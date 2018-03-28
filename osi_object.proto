@@ -380,6 +380,10 @@ message StationaryObject
         // Object is a building.
         //
         TYPE_BUILDING = 3;
+        
+        // Object is a pole (e.g. traffic light).
+        //
+        TYPE_POLE = 20;
 
         // Object is a pylon.
         //
@@ -392,11 +396,7 @@ message StationaryObject
         // Object is a delineator (e.g. at a construction site).
         //
         TYPE_DELINEATOR = 6;
-        
-        // Object is a pole.
-        //
-        TYPE_POLE = 2000;
-        
+
         // Object is a tree.
         //
         TYPE_TREE = 2001;
@@ -416,5 +416,31 @@ message StationaryObject
         // Object is a wall.
         //
         TYPE_WALL = 2005;
+       
+        // Landmarks corresponding to vertical structures in the environment, 
+        // like poles.
+        //
+        TYPE_VERTICAL_STRUCTURE = 12;
+        
+        // Landmarks corresponding to rectangular structures in the environment,
+        // like walls.
+        //
+        TYPE_RECTANGULAR_STRUCTURE = 13;
+        
+        // Landmarks corresponding to overhead structures in the environment, 
+        // like sign bridges.
+        //
+        TYPE_OVERHEAD_STRUCTURE = 14;
+        
+        // Landmarks corresponding to light sources or reflective structures in 
+        // the environment, like street lights or reflective poles on the road 
+        // boarder.
+        //
+        TYPE_REFLECTIVE_STRUCTURE = 15;
+        
+        // Landmarks corresponding to construction site elements in the 
+        // environment, like cones or beacons.
+        //
+        TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
     }
 }
