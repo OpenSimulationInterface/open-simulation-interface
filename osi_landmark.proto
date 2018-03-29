@@ -7,6 +7,127 @@ import "osi_common.proto";
 package osi3;
 
 //
+// \brief Additional value associated with a traffic sign or road marking
+// and its unit.
+//
+message TrafficSignValue
+{
+    // Additional value associated with a traffic sign or road marking,
+    // e.g. value of a speed limit.
+    //
+    optional double value = 1;
+
+    // Unit for additional value.
+    //
+    optional Unit value_unit = 2;
+
+    // Unit for values on traffic sign
+    //
+    enum Unit
+    {
+        // Unit of the sign's value is unknown (must not be used in ground
+        // truth).
+        //
+        UNIT_UNKNOWN = 0;
+
+        // Other (unspecified but known) unit of the sign's value.
+        //
+        UNIT_OTHER = 1;
+
+        // Value without
+        // unit.
+        //
+        // Unit: []
+        //
+        UNIT_NO_UNIT = 2;
+
+        // Velocity.
+        // Kilometers per hour.
+        //
+        // Unit: [km/h]
+        //
+        UNIT_KILOMETER_PER_HOUR = 3;
+
+        // Velocity .
+        // Miles per hour.
+        //
+        // Unit: [mph]
+        //
+        UNIT_MILE_PER_HOUR = 4;
+
+        // Length.
+        // Meter.
+        //
+        // Unit: [m]
+        //
+        UNIT_METER = 5;
+
+        // Length.
+        // Kilometer.
+        //
+        // Unit: [km]
+        //
+        UNIT_KILOMETER = 6;
+
+        // Length.
+        // Feet.
+        //
+        // Unit: [ft]
+        //
+        UNIT_FEET = 7;
+
+        // Length.
+        // Mile.
+        //
+        // Unit: [mile]
+        //
+        UNIT_MILE = 8;
+
+        // Weight.
+        // Ton.
+        //
+        // Unit: [t]
+        //
+        UNIT_METRIC_TON = 9;
+
+        // Weight.
+        // Long ton UK 1,016.047 [kg].
+        //
+        // Unit: [tn. l.]
+        //
+        UNIT_LONG_TON = 10;
+
+        // Weight.
+        // Short ton USA 907.1847 [kg].
+        //
+        // Unit: [tn. sh.]
+        //
+        UNIT_SHORT_TON = 11;
+
+        // Time of day.
+        // Hour since midnight.
+        //
+        // Unit: [min]
+        //
+        UNIT_MINUTES = 12;
+
+        // Day of the week.
+        // Days since Monday. Monday = 0; Tuesday = 1; ...
+        //
+        // Unit: []
+        //
+        UNIT_DAY = 13;
+
+        // Percentage.
+        // .
+        //
+        // Unit: [%]
+        //
+        UNIT_PERCENTAGE = 14;
+    }
+}
+
+//
 // \brief A traffic sign.
 //
 // All coordinates and orientations are relative to the global ground truth
@@ -28,28 +149,6 @@ message TrafficSign
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated SupplementarySign supplementary_sign = 3;
-
-    // Definition of the variability of a traffic sign.
-    //
-    enum Variability
-    {
-        // Variability type of sign is unknown (must not be used in ground
-        // truth).
-        //
-        VARIABILITY_UNKNOWN = 0;
-
-        // Other (unspecified but known) variability.
-        //
-        VARIABILITY_OTHER = 1;
-
-        // Fixed sign, i.e. always present.
-        //
-        VARIABILITY_FIXED = 2;
-
-        // Temporary or variable sign, e.g. on a sign bridge.
-        //
-        VARIABILITY_VARIABLE = 3;
-    }
 
     //
     // \brief Main sign of the traffic sign.
@@ -990,126 +1089,27 @@ message TrafficSign
             }
         }
     }
-}
 
-//
-// \brief Additional value associated with a traffic sign or road marking
-// and its unit.
-//
-message TrafficSignValue
-{
-    // Additional value associated with a traffic sign or road marking,
-    // e.g. value of a speed limit.
+    // Definition of the variability of a traffic sign.
     //
-    optional double value = 1;
-
-    // Unit for additional value.
-    //
-    optional Unit value_unit = 2;
-
-    // Unit for values on traffic sign
-    //
-    enum Unit
+    enum Variability
     {
-        // Unit of the sign's value is unknown (must not be used in ground
+        // Variability type of sign is unknown (must not be used in ground
         // truth).
         //
-        UNIT_UNKNOWN = 0;
+        VARIABILITY_UNKNOWN = 0;
 
-        // Other (unspecified but known) unit of the sign's value.
+        // Other (unspecified but known) variability.
         //
-        UNIT_OTHER = 1;
+        VARIABILITY_OTHER = 1;
 
-        // Value without
-        // unit.
+        // Fixed sign, i.e. always present.
         //
-        // Unit: []
-        //
-        UNIT_NO_UNIT = 2;
+        VARIABILITY_FIXED = 2;
 
-        // Velocity.
-        // Kilometers per hour.
+        // Temporary or variable sign, e.g. on a sign bridge.
         //
-        // Unit: [km/h]
-        //
-        UNIT_KILOMETER_PER_HOUR = 3;
-
-        // Velocity .
-        // Miles per hour.
-        //
-        // Unit: [mph]
-        //
-        UNIT_MILE_PER_HOUR = 4;
-
-        // Length.
-        // Meter.
-        //
-        // Unit: [m]
-        //
-        UNIT_METER = 5;
-
-        // Length.
-        // Kilometer.
-        //
-        // Unit: [km]
-        //
-        UNIT_KILOMETER = 6;
-
-        // Length.
-        // Feet.
-        //
-        // Unit: [ft]
-        //
-        UNIT_FEET = 7;
-
-        // Length.
-        // Mile.
-        //
-        // Unit: [mile]
-        //
-        UNIT_MILE = 8;
-
-        // Weight.
-        // Ton.
-        //
-        // Unit: [t]
-        //
-        UNIT_METRIC_TON = 9;
-
-        // Weight.
-        // Long ton UK 1,016.047 [kg].
-        //
-        // Unit: [tn. l.]
-        //
-        UNIT_LONG_TON = 10;
-
-        // Weight.
-        // Short ton USA 907.1847 [kg].
-        //
-        // Unit: [tn. sh.]
-        //
-        UNIT_SHORT_TON = 11;
-
-        // Time of day.
-        // Hour since midnight.
-        //
-        // Unit: [min]
-        //
-        UNIT_MINUTES = 12;
-
-        // Day of the week.
-        // Days since Monday. Monday = 0; Tuesday = 1; ...
-        //
-        // Unit: []
-        //
-        UNIT_DAY = 13;
-
-        // Percentage.
-        // .
-        //
-        // Unit: [%]
-        //
-        UNIT_PERCENTAGE = 14;
+        VARIABILITY_VARIABLE = 3;
     }
 }
 

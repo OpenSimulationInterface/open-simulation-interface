@@ -218,19 +218,26 @@ message DetectedTrafficLight
     // Common information of one detected item.
     //
     optional DetectedItemHeader header = 1;
+    
+    // The base parameters of the traffic light.
+    //
+    // \c BaseStationary::orientation x-axis is view normal of the traffic
+    // light's icon.
+    //
+    optional BaseStationary base = 2;
+    
+    // The root mean squared error of the base parameters of the detected
+    // traffic light's geometry. \c TrafficLight::base has to be identical
+    // for all \c #candidate traffic lights.
+    //
+    optional BaseStationary base_rmse = 3;
 
     // A list of candidates for this traffic light as estimated by the
     // sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated CandidateTrafficLight candidate = 2;
-
-    // The root mean squared error of the base parameters of the detected
-    // traffic light's geometry. \c TrafficLight::base has to be identical
-    // for all \c #candidate traffic lights.
-    //
-    optional BaseStationary base_rmse = 3;
+    repeated CandidateTrafficLight candidate = 4;
 
     //
     // \brief A candidate for a detected traffic light as estimated by
@@ -265,19 +272,39 @@ message DetectedRoadMarking
     // Common information of one detected item.
     //
     optional DetectedItemHeader header = 1;
+    
+    // The base parameters of the road marking.
+    //
+    // The orientation of the bounding box \c #base
+    // \c BaseStationary::orientation is defined as follows:
+    // The z-axis of the \c BaseStationary::orientation is the vector from the
+    // 'bottom' to the 'top' of the road marking's (i.e. painted traffic sign)
+    // 2D image area.
+    // (Normally it is in the ground truth xy-plain.)
+    // The x-axis of the \c BaseStationary::orientation is the view normal of
+    // the road marking's 2D image area.
+    // Normally this x-axis points to the sky.
+    //
+    // \note If a valid unidirectional road marking is assigned to the host
+    // vehicle's current lane and the driving direction of the latter roughly
+    // matches the z-axis of the \c #base \c BaseStationary::orientation then
+    // the road marking is of relevance to (i.e. in effect for) the host
+    // vehicle.
+    //
+    optional BaseStationary base = 2;
+    
+    // The root mean squared error of the base parameters of the detected
+    // road marking. \c RoadMarking::base has to be identical for
+    // all \c #candidate road markings.
+    //
+    optional BaseStationary base_rmse = 3;
 
     // A list of candidates for this road marking as estimated by the
     // sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated CandidateRoadMarking candidate = 2;
-
-    // The root mean squared error of the base parameters of the detected
-    // road marking. \c RoadMarking::base has to be identical for
-    // all \c #candidate road markings.
-    //
-    optional BaseStationary base_rmse = 3;
+    repeated CandidateRoadMarking candidate = 4;
 
     //
     // \brief A candidate for a detected road marking as estimated by the
