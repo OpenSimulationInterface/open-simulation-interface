@@ -27,6 +27,18 @@ message StationaryObject
     //
     optional Type type = 3;
 
+    // The dominating material of the structure.
+    //
+    optional Material material = 4;
+
+    // The dominating density of the material of the structure.
+    //
+    optional Density density = 5;
+
+    // The dominating color of the material of the structure.
+    //
+    optional Color color = 6;
+
     // Definition of object types.
     //
     enum Type
@@ -104,6 +116,126 @@ message StationaryObject
         //
         TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
     }
+
+    // Definition of material types.
+    //
+    enum Material
+    {
+        // Type of the material is unknown (must not be used in ground truth).
+        //
+        MATERIAL_UNKNOWN = 0;
+
+        // Other (unspecified but known) type of material.
+        //
+        MATERIAL_OTHER = 1;
+
+        // Wooden structure.
+        //
+        MATERIAL_WOOD = 2;
+
+        // Plastic structure.
+        //
+        MATERIAL_PLASTIC = 3;
+
+        // Concrete structure.
+        //
+        MATERIAL_CONCRETE = 4;
+
+        // Metal structure.
+        //
+        MATERIAL_METAL = 5;
+
+        // Natural stone structure.
+        //
+        MATERIAL_STONE = 6;
+
+        // Glas structure.
+        //
+        MATERIAL_GLAS = 7;
+
+        // Mud structure.
+        //
+        MATERIAL_MUD = 8;
+    }
+
+
+    // Definition of material density types.
+    //
+    enum Density
+    {
+        // Type of the material density is unknown (must not be used in ground truth).
+        //
+        DENSITY_UNKNOWN = 0;
+
+        // Other (unspecified but known) type of material density.
+        //
+        DENSITY_OTHER = 1;
+
+        // No perforation - solid;
+        //
+        DENSITY_SOLID = 2;
+
+        // Perforation max. ]0; 100] [mm]
+        DENSITY_SMALL_MESH = 3;
+
+        // Perforation max. ]100; 500] [mm]
+        DENSITY_MEDIAN_MESH = 4;
+
+        // Perforation max. ]500; 5000] [mm]
+        DENSITY_LARGE_MESH = 5;
+
+        // Perforation max. ]5000; infinity] [mm]
+        DENSITY_OPEN = 6;
+    }
+
+    // Definition of colors for structures.
+    //
+    enum Color
+    {
+        // Color is unknown (must not be used in ground truth).
+        //
+        COLOR_UNKNOWN = 0;
+
+        // Other (unspecified but known) color.
+        //
+        COLOR_OTHER = 1;
+
+        // Yellow.
+        //
+        COLOR_YELLOW = 2;
+
+        // Green.
+        //
+        COLOR_GREEN = 3;
+
+        // Blue.
+        //
+        COLOR_BLUE = 4;
+
+        // Violet.
+        //
+        COLOR_VIOLET = 5;
+
+        // Red.
+        //
+        COLOR_RED = 6;
+
+        // Orange.
+        //
+        COLOR_ORANGE = 7;
+
+        // Black.
+        //
+        COLOR_BLACK = 8;
+
+        // GREY.
+        //
+        COLOR_GREY = 9;
+
+        // White.
+        //
+        COLOR_WHITE = 10;
+    }
 }
 
 //
@@ -126,6 +258,10 @@ message MovingObject
     //
     optional BaseMoving base = 2;
 
+    // The type of the object.
+    //
+    optional Type type = 3;
+
     // The IDs of the lanes that this object is assigned to.
     //
     // \note Might be multiple if the object is switching lanes or moving from
@@ -133,11 +269,7 @@ message MovingObject
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier assigned_lane_id = 3;
-
-    // The type of the object.
-    //
-    optional Type type = 4;
+    repeated Identifier assigned_lane_id = 4;
 
     // Specific information about the vehicle.
     //
@@ -157,7 +289,7 @@ message MovingObject
         // Other (unspecified but known) type of moving object.
         //
         TYPE_OTHER = 1;
-        
+
         // Object is a vehicle.
         //
         TYPE_VEHICLE = 2;
@@ -168,7 +300,7 @@ message MovingObject
 
         // Object is an animal.
         //
-        TYPE_ANIMAL = 4;    
+        TYPE_ANIMAL = 4;
     }
 
     //
@@ -212,7 +344,7 @@ message MovingObject
         // including tire.
         //
         // Unit: [m]
-        // 
+        //
         optional double radius_wheel = 4;
 
         // Number of independent wheels.
@@ -273,7 +405,7 @@ message MovingObject
             // Definition: Hatchback car with maximum length 4 m.
             //
             TYPE_SMALL_CAR = 2;
-            
+
             // Vehicle is a compact car.
             //
             // Definition: Hatchback car with length between 4 and 4.5 m.
