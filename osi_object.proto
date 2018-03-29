@@ -25,12 +25,12 @@ message StationaryObject
 
     // Specific information about the classification of the stationary object.
     //
-    optional StationaryObjectClassification classification = 6;
+    optional Classification classification = 6;
     
     //
     // \brief Information regarding the classification of stationary objects.
     //
-    message StationaryObjectClassification
+    message Classification
     {
         // The type of the object.
         //

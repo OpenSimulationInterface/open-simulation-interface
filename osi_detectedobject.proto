@@ -49,7 +49,7 @@ message DetectedItemHeader
     //
     optional MeasurementState measurement_state = 5;
 
-    // A list of sensors which detected this detected item.
+    // A list of physical sensors which detected this detected item.
     //
     // If \c SensorData has detected entities and all detections are missing,
     // then e.g. the number of sensors can confirm the
@@ -132,7 +132,7 @@ message DetectedStationaryObject
 
         // The description of the stationary object (e.g. landmark).
         //
-        optional StationaryObject.StationaryObjectClassification classification = 2;
+        optional StationaryObject.Classification classification = 2;
     }
 }
 

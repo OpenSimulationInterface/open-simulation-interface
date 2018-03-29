@@ -39,11 +39,11 @@ message DetectedOccupant
         //
         optional double probability = 1;
 
-        // The detected vehicle occupant.
+        // The detected vehicle occupant classification.
         //
         // \note IDs, which are referenced in this message, usually
         // reference to \c DetectedXXX::tracking_id IDs.
         //
-        optional Occupant occupant = 2;
+        optional Occupant.Classification classification = 2;
     }
 }
