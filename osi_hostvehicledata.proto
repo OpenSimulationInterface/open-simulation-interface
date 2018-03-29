@@ -15,20 +15,16 @@ package osi3;
 //
 message HostVehicleData
 {
-    // The ID of the host vehicle object.
-    //
-    optional Identifier id = 1;
-
     // Current estimated location based on GPS- and related navigation sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
-    optional BaseMoving location = 2;
+    optional BaseMoving location = 1;
 
     // Current estimated location error based on GPS- and related navigation
     // sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
-    optional BaseMoving location_rmse = 3;
+    optional BaseMoving location_rmse = 2;
 }
