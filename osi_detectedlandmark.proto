@@ -86,52 +86,52 @@ message DetectedTrafficSign
             //
             GEOMETRY_OTHER = 1;
 
-            // Traffic sign has a triangular geometry pointing to the top.
+            // Traffic sign has a circular geometry. (0 corners)
             //
-            GEOMETRY_TRIANGLE_TOP = 2;
+            GEOMETRY_CIRCLE = 2;
 
-            //Traffic sign has a triangular geometry pointing down.
+            // Traffic sign has a triangular geometry pointing to the top. (3 corners)
             //
-            GEOMETRY_TRIANGLE_DOWN = 3;
+            GEOMETRY_TRIANGLE_TOP = 3;
 
-            // Traffic sign has a circular geometry.
+            //Traffic sign has a triangular geometry pointing down. (3 corners)
             //
-            GEOMETRY_CIRCLE = 4;
+            GEOMETRY_TRIANGLE_DOWN = 4;
 
-            // Traffic sign has a square geometry.
+            // Traffic sign has a square geometry. (4 corners)
             //
             GEOMETRY_SQUARE = 5;
 
-            // Traffic sign has a diamond geometry.
+            // Traffic sign that has a pole geometry. (height is bigger than
+            // width e.g. pole indicating highways exit in xx [m]). (4 corners)
             //
-            GEOMETRY_DIAMOND = 6;
-
-            // Traffic sign has an octagon geometry.
-            //
-            GEOMETRY_OCTAGON = 7;
-
-            // Traffic sign has a geometry of an arrow pointing to the left.
-            //
-            GEOMETRY_ARROW_LEFT = 8;
-
-            // Traffic sign has a geometry of an arrow pointing to the right.
-            //
-            GEOMETRY_ARROW_RIGHT = 9;
+            GEOMETRY_POLE = 6;
 
             // Traffic sign has a rectangle geometry. (width is bigger than
-            // height e.g. one-way)
+            // height e.g. one-way) (4 corners)
             //
-            GEOMETRY_RECTANGLE = 10;
+            GEOMETRY_RECTANGLE = 7;
 
-            // Traffic sign that has a pole geometry. (height is bigger than
-            // width e.g. pole indicating highways exit in xx [m]).
-            //
-            GEOMETRY_POLE = 11;
-
-            // Traffic sign that has an oversize rectangle geometry.
+            // Traffic sign that has an oversize rectangle geometry. (4 corners)
             // E.g. direction plates on highway or city signs.
             //
-            GEOMETRY_PLATE = 12;
+            GEOMETRY_PLATE = 8;
+
+            // Traffic sign has a diamond geometry. (4 corners)
+            //
+            GEOMETRY_DIAMOND = 9;
+
+            // Traffic sign has a geometry of an arrow pointing to the left. (5 corners)
+            //
+            GEOMETRY_ARROW_LEFT = 10;
+
+            // Traffic sign has a geometry of an arrow pointing to the right. (5 corners)
+            //
+            GEOMETRY_ARROW_RIGHT = 11;
+
+            // Traffic sign has an octagon geometry. (8 corners)
+            //
+            GEOMETRY_OCTAGON = 12;
         }
     }
 
