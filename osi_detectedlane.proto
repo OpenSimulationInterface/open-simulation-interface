@@ -2,7 +2,6 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_common.proto";
 import "osi_lane.proto";
 import "osi_detectedobject.proto";
 

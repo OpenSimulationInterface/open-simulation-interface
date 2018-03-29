@@ -212,10 +212,11 @@ message MovingObject
         // for non valid id.
         optional Identifier driver_id = 3;
 
-        // Median radius of the wheels.
+        // Median radius of the wheels measured from a center of the wheel
+        // including tire.
         //
         // Unit: [m]
-        //
+        // 
         optional double radius_wheel = 4;
 
         // Number of independent wheels.
@@ -273,31 +274,31 @@ message MovingObject
 
             // Vehicle is a small car.
             //
-            // Definition:
+            // Definition: Hatchback car with maximum length 4 m.
             //
             TYPE_SMALL_CAR = 2;
 
             // Vehicle is a medium car.
             //
-            // Definition:
+            // Definition: Hatchback or sedan with lenght between 4.5 and 5 m.
             //
             TYPE_MEDIUM_CAR = 3;
 
             // Vehicle is a compact car.
             //
-            // Definition:
+            // Definition: Hatchback car with length between 4 and 4.5 m.
             //
             TYPE_COMPACT_CAR = 4;
 
             // Vehicle is a luxury  car.
             //
-            // Definition:
+            // Definition: Sedan or coupe that is longer then 5 m.
             //
             TYPE_LUXURY_CAR = 5;
 
             // Vehicle is a delivery van.
             //
-            // Definition:
+            // Definition: A delivery van.
             //
             TYPE_DELIVERY_VAN = 6;
 
