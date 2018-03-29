@@ -43,9 +43,9 @@ Specific errors should be handled as follows:
     An additional SensorDataObject is added to the list of objects in SensorData.object
     with SensorDataObject.model_internal_object.ground_truth_type set to kTypeGhost.
 - False negative:
-    The object is marked as not seen by the sensor by setting the property 
-    SensorDataObject.model_internal_object.is_seen to false. The implementation 
-    of field-of-view calculation modules should respect this flag and never reset 
+    The object is marked as not seen by the sensor by setting the property
+    SensorDataObject.model_internal_object.is_seen to false. The implementation
+    of field-of-view calculation modules should respect this flag and never reset
     an object marked as not-seen to seen.
 
 
@@ -55,7 +55,7 @@ The version number is defined in InterfaceVersion::version_number in osi_common.
 
 Major:
 A change of the major version results in an incompatibility of code and recorded proto messages.
-- An existing field with a number changes its meaning 
+- An existing field with a number changes its meaning
   optional double field = 1; -> repeated double field = 1;
   Changing the definition of units of a field
 - Deleting a field  and reusing the field number
@@ -88,11 +88,11 @@ Documentation
 
 Detailed information about installation and usage of OSI can be found in the [Wiki](https://github.com/OpenSimulationInterface/open-simulation-interface/wiki)
 
-In order to generate the doxygen documentation for OSI, please follow the following steps: 
+In order to generate the doxygen documentation for OSI, please follow the following steps:
 1. Install [Doxygen](http://www.stack.nl/~dimitri/doxygen/download.html), set an environmental variable 'doxygen' with the path to the binary file and add it to the PATH variable: `PATH += %doxygen%`.
 2. Download the [vg-1.5.0.zip](https://github.com/vgteam/vg/releases/tag/v1.5.0). Unpack and copy the content of folder /vg-1.5.0/contrib/proto2cpp to your desired `<path-to-proto2cpp.py>`
 3. Install [graphviz-2.38](http://www.graphviz.org/Download_windows.php ), set an environmental variable 'graphviz' with the path to the binary file and add it to the PATH variable: `PATH += %graphviz%`.
-4. From the cmd navigate to the build directory and run: 
+4. From the cmd navigate to the build directory and run:
 ```cmd
 cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
 ```

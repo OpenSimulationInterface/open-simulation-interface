@@ -2,7 +2,7 @@
 PROJECT_NAME           = "@CMAKE_PROJECT_NAME@"
 PROJECT_NUMBER         = @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@
 
-#Set input and output directories 
+#Set input and output directories
 INPUT                  = "@CMAKE_CURRENT_SOURCE_DIR@"
 INPUT                 += "@CMAKE_CURRENT_SOURCE_DIR@/README.md"
 
@@ -13,7 +13,7 @@ IMAGE_PATH             = "@CMAKE_CURRENT_SOURCE_DIR@/doc/images"
 
 # There is no standard configuration for .proto files documentation.
 # A Doxygen filter for .proto files has to be added under the directory doc/.
-# proto2cpp.py is an external script. See README.md for more informations. 
+# proto2cpp.py is an external script. See README.md for more informations.
 JAVADOC_AUTOBRIEF      = NO
 EXTENSION_MAPPING      = proto=C
 FILE_PATTERNS          = *.proto

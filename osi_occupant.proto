@@ -14,11 +14,11 @@ message Occupant
     // The ID of the driver.
     //
     optional Identifier id = 1;
-    
+
     // Specific information about the classification of the occupant.
     //
     optional Classification classification = 2;
-    
+
     //
     // \brief Information regarding the classification of the occupant.
     //

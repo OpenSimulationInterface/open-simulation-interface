@@ -19,5 +19,5 @@ for file in glob("*.*"):
                 if line.find("///") != -1:
                     print(file + " in line " + str(i) + ": not permitted use of '///' ")
                     state = 1
-					
+
 sys.exit(state)

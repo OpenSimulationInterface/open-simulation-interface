@@ -186,7 +186,7 @@ message SensorViewConfiguration
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated GenericSensorViewConfiguration generic_sensor_view_configuration = 1000;
-    
+
     // Radar-specific SensorView Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.

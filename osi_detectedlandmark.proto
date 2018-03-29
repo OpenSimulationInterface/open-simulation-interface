@@ -218,14 +218,14 @@ message DetectedTrafficLight
     // Common information of one detected item.
     //
     optional DetectedItemHeader header = 1;
-    
+
     // The base parameters of the traffic light.
     //
     // \c BaseStationary::orientation x-axis is view normal of the traffic
     // light's icon.
     //
     optional BaseStationary base = 2;
-    
+
     // The root mean squared error of the base parameters of the detected
     // traffic light's geometry. \c TrafficLight::base has to be identical
     // for all \c #candidate traffic lights.
@@ -272,7 +272,7 @@ message DetectedRoadMarking
     // Common information of one detected item.
     //
     optional DetectedItemHeader header = 1;
-    
+
     // The base parameters of the road marking.
     //
     // The orientation of the bounding box \c #base
@@ -292,7 +292,7 @@ message DetectedRoadMarking
     // vehicle.
     //
     optional BaseStationary base = 2;
-    
+
     // The root mean squared error of the base parameters of the detected
     // road marking. \c RoadMarking::base has to be identical for
     // all \c #candidate road markings.

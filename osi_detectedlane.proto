@@ -78,7 +78,7 @@ message DetectedLaneBoundary
     // distance and approximation error apply as for \c Lane::centerline.
     //
     repeated LaneBoundary.BoundaryPoint boundary_line = 3;
-    
+
     // The root mean squared error of the \c LaneBoundary.BoundaryPoint
     // information from a \c LaneBoundary.
     // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact

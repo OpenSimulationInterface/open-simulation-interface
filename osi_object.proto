@@ -247,7 +247,7 @@ message StationaryObject
         }
     }
 }
-    
+
 //
 // \brief A simulated object that is either a vehicle or another
 // moving object (animal, pedestrian, etc), but not a stationary
@@ -287,7 +287,7 @@ message MovingObject
     // #TYPE_VEHICLE .
     //
     optional VehicleAttributes vehicle_attributes = 5;
-    
+
     // Specific information about the classification of the vehicle.
     //
     //
@@ -295,7 +295,7 @@ message MovingObject
     // #TYPE_VEHICLE .
     //
     optional VehicleClassification vehicle_classification = 6;
-    
+
     // Definition of object types.
     //
     enum Type
@@ -387,7 +387,7 @@ message MovingObject
         //
         optional double ground_clearance = 7;
     }
-    
+
     //
     // \brief Information for the classification of vehicles regarding
     // \c MovingObject (host or other).

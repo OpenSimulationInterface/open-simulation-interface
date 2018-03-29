@@ -96,11 +96,11 @@ message DetectedStationaryObject
     // Common information of one detected item.
     //
     optional DetectedItemHeader header = 1;
-    
+
     // The base parameters of the stationary object.
     //
     optional BaseStationary base = 2;
-    
+
     // The root mean squared error of the base parameters of the detected
     // stationary object (e.g. landmark). \c StationaryObject::base has to be
     // identical for all \c #candidate stationary objects.
@@ -183,7 +183,7 @@ message DetectedMovingObject
     // Percentage value of the object width in the corresponding lane.
     //
     optional double percentage_side_lane_right = 7;
-    
+
     // A list of candidates for this moving object as estimated by the
     // sensor (e.g. pedestrian, car).
     //
@@ -238,7 +238,7 @@ message DetectedMovingObject
         // The description of the moving object (e.g. car).
         //
         optional MovingObject.Type type = 2;
-        
+
         // Specific information about the classification of the vehicle.
         //
         //

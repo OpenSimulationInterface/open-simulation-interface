@@ -27,18 +27,18 @@ package osi3;
 // Increments will happen as part of changes to the whole interface.
 // The meaning of different InterfaceVersions is defined [1].
 //
-// \par References: 
+// \par References:
 // [1] Open Simulation Interface: README.md
 message InterfaceVersion
 {
     // Major version number.
     //
     optional uint32 version_major = 1;
-    
+
     // Minor version number.
     //
     optional uint32 version_minor = 2;
-    
+
     // Patch version number.
     //
     optional uint32 version_patch = 3;
@@ -52,4 +52,3 @@ extend google.protobuf.FileOptions {
 option (current_interface_version).version_major = @VERSION_MAJOR@;
 option (current_interface_version).version_minor = @VERSION_MINOR@;
 option (current_interface_version).version_patch = @VERSION_PATCH@;
-
