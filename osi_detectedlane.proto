@@ -38,12 +38,12 @@ message DetectedLane
         //
         optional double probability = 1;
 
-        // The definition of one lane that defines this candidate.
+        // The classification of one lane that defines this candidate.
         //
         // \note IDs, which are referenced in this message, usually
         // reference to \c DetectedXXX::tracking_id IDs.
         //
-        optional Lane lane = 2;
+        optional Lane.Classification classification = 2;
     }
 }
 
@@ -63,12 +63,28 @@ message DetectedLaneBoundary
     //
     repeated CandidateLaneBoundary candidate = 2;
 
+    // The list of individual points defining the location of the lane boundary
+    // (as a list of segments).
+    //
+    // Since a \c BoundaryPoint is part of a sequence, only the position
+    // attribute has to be set for each instance. All other values will be
+    // reused from the previous \c BoundaryPoint in the sequence or set to
+    // default values if there is none or it was never set. For dashed lines,
+    // one \c BoundaryPoint has to be at the start and another at the end
+    // of each dashed line segment. For Botts' dots lines, one
+    // \c BoundaryPoint position has to define each Botts' dot.
+    //
+    // \attention For \c BoundaryPoint the same rules regarding maximum
+    // distance and approximation error apply as for \c Lane::centerline.
+    //
+    repeated LaneBoundary.BoundaryPoint boundary_line = 3;
+    
     // The root mean squared error of the \c LaneBoundary.BoundaryPoint
     // information from a \c LaneBoundary.
     // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
     // one \c #boundary_line_rmse rmse information exist.
     //
-    repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 3;
+    repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 4;
 
     // Confidence of the segments of the \c LaneBoundary.BoundaryPoint
     // information from a \c LaneBoundary.
@@ -76,7 +92,7 @@ message DetectedLaneBoundary
     // one \c #boundary_line_confidences confidence value is
     // specified.
     //
-    repeated double boundary_line_confidences = 4;
+    repeated double boundary_line_confidences = 5;
 
     //
     // \brief A candidate for a detected lane boundary as estimated by the
@@ -94,11 +110,11 @@ message DetectedLaneBoundary
         //
         optional double probability = 1;
 
-        // The definition of one lane boundary that defines this candidate.
+        // The classification of one lane boundary that defines this candidate.
         //
         // \note IDs, which are referenced in this message, usually
         // reference to \c DetectedXXX::tracking_id IDs.
         //
-        optional LaneBoundary lane_boundary = 2;
+        optional LaneBoundary.Classification classification = 2;
     }
 }
