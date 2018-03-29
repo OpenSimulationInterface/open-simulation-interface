@@ -130,7 +130,7 @@ message DetectedStationaryObject
         //
         optional double probability = 1;
 
-        // The description of the stationary object (e.g. landmark).
+        // The classification of the stationary object (e.g. landmark).
         //
         optional StationaryObject.Classification classification = 2;
     }
