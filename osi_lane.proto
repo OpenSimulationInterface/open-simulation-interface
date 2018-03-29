@@ -152,13 +152,9 @@ message Lane
     //
     repeated Identifier free_lane_boundary_id = 10;
 
-    // A lane framing describes the surroundings of the lane segment.
-    //
-    optional LaneFraming lane_framing = 11;
-
     // The condition of the lane, e.g. influenced by weather.
     //
-    optional RoadCondition road_condition = 12;
+    optional RoadCondition road_condition = 11;
 
     // Definition of available lane types.
     //
@@ -184,31 +180,6 @@ message Lane
         // An intersection as a lane.
         //
         TYPE_INTERSECTION = 4;
-    }
-
-    // Definition of available lane framing types.
-    //
-    enum LaneFraming
-    {
-        // Lane of unknown framing (must not be used in ground truth).
-        //
-        LANE_FRAMING_UNKNOWN = 0;
-
-        // Other (unspecified but known) lane framing.
-        //
-        LANE_FRAMING_OTHER = 1;
-
-        // The lane is not framed.
-        //
-        LANE_FRAMING_OPEN = 2;
-
-        // The lane segment is inside a tunnel.
-        //
-        LANE_FRAMING_TUNNEL = 3;
-
-        // The lane segment is on a bridge.
-        //
-        LANE_FRAMING_BRIDGE = 4;
     }
 
     //
@@ -345,6 +316,12 @@ message LaneBoundary
     // The color of the lane boundary in case of lane markings.
     //
     optional Color color = 4;
+	
+	// The ids of \c StationaryObjects which limit the corresponding lane.
+	// This field must be set if the \c LaneBoundary.type is set to 
+	// # TYPE_STRUCTURE
+	//
+	repeated Identifier limiting_structure_id = 5;
 
     // The lane boundary type.
     // There is no special representation for double lines, e.g. solid / solid
@@ -388,18 +365,30 @@ message LaneBoundary
         // surface.
         //
         TYPE_SNOW_EDGE = 7;
+		
+		// A lane boundary covered by grass.
+		//
+		TYPE_GRASS_EDGE = 8;
+		
+		// A lane boundary covered by gravel.
+		//
+		TYPE_GRAVEL_EDGE = 9;
+		
+		// A lane boundary covered by soil.
+		//
+		TYPE_SOIL_EDGE = 10;
 
         // A guard rail.
         //
-        TYPE_GUARD_RAIL = 8;
+        TYPE_GUARD_RAIL = 11;
 
         // A curb.
         //
-        TYPE_CURB = 9;
+        TYPE_CURB = 12;
 
         // A structure (e.g. building or tunnel wall).
         //
-        TYPE_STRUCTURE = 10;
+        TYPE_STRUCTURE = 13;
     }
 
     // The color of the lane boundary in case of a lane markings.

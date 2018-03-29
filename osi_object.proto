@@ -142,7 +142,7 @@ message MovingObject
     // Specific information about the vehicle.
     //
     // \note This field is mandatory if the \c MovingObject.type is
-    // \c #TYPE_VEHICLE .
+    // #TYPE_VEHICLE .
     //
     optional Vehicle vehicle_extension = 5;
 
