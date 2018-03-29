@@ -4,7 +4,9 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
-import "osi_detectedlandmark.proto";
+import "osi_detectedtrafficsign.proto";
+import "osi_detectedtrafficlight.proto";
+import "osi_detectedroadmarking.proto";
 import "osi_detectedlane.proto";
 import "osi_detectedobject.proto";
 import "osi_detectedoccupant.proto";
@@ -126,7 +128,7 @@ message SensorData
     // also be identical, but delayed from the \c GroundTruth timestamp.
     //
     optional Timestamp timestamp = 2;
-    
+
     // The sensors estimated location of the host vehicle
     //
     // \note This value is only set by sensors that are able to
@@ -198,7 +200,7 @@ message SensorData
     // feature data \c SensorDetectionHeader::measurement_time fields.
     //
     optional Timestamp last_measurement_time = 9;
-    
+
     // General information about the \c DetectedStationaryObject .
     //
     optional DetectedEntityHeader stationary_object_header = 10;
@@ -248,7 +250,7 @@ message SensorData
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedRoadMarking road_marking = 19;
-    
+
     // General information about the \c DetectedLaneBoundary .
     //
     optional DetectedEntityHeader lane_boundary_header = 20;
@@ -268,7 +270,7 @@ message SensorData
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedLane lane = 23;
-    
+
     // General information about the \c DetectedOccupant .
     //
     optional DetectedEntityHeader occupant_header = 24;

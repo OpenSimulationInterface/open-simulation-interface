@@ -5,7 +5,9 @@ option optimize_for = SPEED;
 import "osi_version.proto";
 import "osi_common.proto";
 import "osi_environment.proto";
-import "osi_landmark.proto";
+import "osi_trafficsign.proto";
+import "osi_trafficlight.proto";
+import "osi_roadmarking.proto";
 import "osi_lane.proto";
 import "osi_object.proto";
 import "osi_occupant.proto";
@@ -55,13 +57,13 @@ message GroundTruth
     // sensor data).
     //
     optional Timestamp timestamp = 2;
-    
+
     // The ID of the host vehicle object referencing to \c MovingObject .
     //
     // \note This ID has to be filled and is not optional!
     //
     optional Identifier host_vehicle_id = 3;
-    
+
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
     //
@@ -93,7 +95,7 @@ message GroundTruth
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RoadMarking road_marking = 8;
-    
+
     // The list of lane boundaries.
     //
     // \note OSI uses singular instead of plural for repeated field names.
