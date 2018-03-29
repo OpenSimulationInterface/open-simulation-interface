@@ -831,7 +831,6 @@ message TrafficSign
         //
         optional BaseStationary base = 1;
         
-        
         // The classification of the supplementary traffic sign.
         //
         optional Classification classification = 2;

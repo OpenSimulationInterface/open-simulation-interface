@@ -39,15 +39,29 @@ message DetectedTrafficSign
         //
         repeated CandidateMainSign candidate = 1;
 
+        // The base parameters of the traffic sign.
+        //
+        // The orientation of the bounding box \c #base
+        // ( \c BaseStationary::orientation ) is defined as follows:
+        // The z-axis of the given \c BaseStationary::orientation is the vector
+        // from the bottom to the top of the traffic sign's 2D image plate.
+        // (Normally it is equal to the ground truth z-axis.)
+        // The x-axis of the given \c BaseStationary::orientation is view
+        // normal of the traffic sign's image.
+        // This x-axis points from the traffic sign's image in the direction from
+        // where a 'viewer' could see the traffic sign image.
+        //
+        optional BaseStationary base = 2;
+
         // The root mean squared error of the base parameters of the detected
         // traffic sign. \c TrafficSign::MainSign::base has to be identical for
         // all \c #candidate traffic signs.
         //
-        optional BaseStationary base_rmse = 2;
+        optional BaseStationary base_rmse = 3;
 
         // The estimated geometry of the traffic sign.
         //
-        optional Geometry geometry = 3;
+        optional Geometry geometry = 4;
 
         //
         // \brief A candidate for a detected main sign as estimated by the
@@ -148,12 +162,26 @@ message DetectedTrafficSign
         //
         repeated CandidateSupplementarySign candidate = 1;
 
+        // The base parameters of the supplementary traffic sign.
+        //
+        // The orientation of the bounding box \c SupplementarySign::base
+        // ( \c BaseStationary::orientation ) is defined as follows:
+        // The z-axis of the given \c BaseStationary::orientation is the vector
+        // from the bottom to the top of the supplementary traffic sign's 2D image
+        // plate. (Normally it is equal to the ground truth z-axis.)
+        // The x-axis of the given \c BaseStationary::orientation is view
+        // normal of the supplementary traffic sign's image.
+        // This x-axis points from the supplementary traffic sign's image in the
+        // direction from where a 'viewer' could see the supplementary traffic sign image.
+        //
+        optional BaseStationary base = 2;
+
         // The root mean squared error of the base parameters of the detected
         // supplementary traffic sign. \c #candidate
         // \c TrafficSign::SupplementarySign::base has to be identical for all
         // \c #candidate supplementary traffic signs.
         //
-        optional BaseStationary base_rmse = 2;
+        optional BaseStationary base_rmse = 3;
 
         //
         // \brief A candidate for a detected supplementary sign as estimated by
