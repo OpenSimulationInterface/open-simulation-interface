@@ -157,7 +157,7 @@ message MovingObject
         // Other (unspecified but known) type of moving object.
         //
         TYPE_OTHER = 1;
-        
+
         // Object is a vehicle.
         //
         TYPE_VEHICLE = 2;
@@ -168,7 +168,7 @@ message MovingObject
 
         // Object is an animal.
         //
-        TYPE_ANIMAL = 4;    
+        TYPE_ANIMAL = 4;
     }
 
     //
@@ -212,7 +212,7 @@ message MovingObject
         // including tire.
         //
         // Unit: [m]
-        // 
+        //
         optional double radius_wheel = 4;
 
         // Number of independent wheels.
@@ -273,7 +273,7 @@ message MovingObject
             // Definition: Hatchback car with maximum length 4 m.
             //
             TYPE_SMALL_CAR = 2;
-            
+
             // Vehicle is a compact car.
             //
             // Definition: Hatchback car with length between 4 and 4.5 m.

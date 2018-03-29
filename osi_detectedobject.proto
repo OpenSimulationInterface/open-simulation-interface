@@ -35,7 +35,7 @@ message DetectedItemHeader
     // Range: [0,1]
     //
     optional double existence_probability = 3;
-    
+
     // The amount of time that this detected object has been continuously
     // observed/tracked.
     //
@@ -45,7 +45,7 @@ message DetectedItemHeader
     // Unit: [s]
     //
     optional double age = 4;
-    
+
     // The measurement state.
     //
     optional MeasurementState measurement_state = 5;
@@ -63,7 +63,7 @@ message DetectedItemHeader
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Identifier sensor_id = 6;
-    
+
     // Definition of measurement states.
     //
     enum MeasurementState
@@ -97,14 +97,14 @@ message DetectedMovingObject
     // Common information of one detected item.
     //
     optional DetectedItemHeader header = 1;
-    
+
     // A list of candidates for this moving object as estimated by the
     // sensor (e.g. pedestrian, car).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateMovingObject candidate = 2;
-    
+
     // Reference point location specification of the sensor measurement
     // (required to decouple sensor measurement, position and bounding box
     // estimation) as used by the sensor (model).
@@ -164,7 +164,7 @@ message DetectedMovingObject
     // sensor.
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
-    
+
     // Additional internal data and state flags required and used by the
     // sensor-models, should not be used by subscribers to \c SensorData.
     // Generally this field should be cleared after internal processing.
@@ -181,7 +181,7 @@ message DetectedMovingObject
     message CandidateMovingObject
     {
         // The estimated probability that this candidate is the true value.
-        // 
+        //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
         // \c #DetectedItemHeader.existence_probability.
@@ -337,7 +337,7 @@ message DetectedStationaryObject
     message CandidateStationaryObject
     {
         // The estimated probability that this candidate is the true value.
-        // 
+        //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
         // \c #DetectedItemHeader.existence_probability.

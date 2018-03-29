@@ -141,7 +141,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/101.png
             //
             TYPE_DANGER_SPOT = 2;
-            
+
             // "Right before left" rule at the next intersection
             // (StVO 102).
             //
@@ -190,7 +190,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/110-12.png
             //
             TYPE_HILL_UPWARDS = 9;
-            
+
             // Warning for road narrowing
             // (StVO 120).
             //
@@ -211,7 +211,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/121-10.png
             //
             TYPE_WARNING_ROAD_NARROWING_RIGHT = 12;
-            
+
             // Road works sign
             // (StVO 123)
             //
@@ -246,7 +246,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/206.png
             //
             TYPE_STOP = 17;
-            
+
             // Priority must be given to vehicles from the opposite direction
             // (StVO 208). Or: #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
             //
@@ -365,17 +365,17 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/245.png
             //
             TYPE_BUS_LANE = 34;
-            
-            // Bus only lane begin (). 
+
+            // Bus only lane begin ().
             // End: #TYPE_BUS_LANE_END
-            // 
+            //
             TYPE_BUS_LANE_BEGIN = 35;
 
-            // Bus only lane end (). 
+            // Bus only lane end ().
             // Begin: #TYPE_BUS_LANE_BEGIN
             //
             TYPE_BUS_LANE_END = 36;
-                
+
             // Entry prohibited for all vehicle types
             // (StVO 250).
             //
@@ -431,7 +431,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/267.png
             //
             TYPE_DO_NOT_ENTER = 44;
-            
+
             // Start of area without traffic to reduce harmful air pollution
             // (StVO 270.1). End: #TYPE_ENVIRONMENTAL_ZONE_END
             //
@@ -453,7 +453,7 @@ message TrafficSign
             //
             TYPE_NO_U_TURN_LEFT = 47;
 
-            // No U turn right (). 
+            // No U turn right ().
             // Left: #TYPE_NO_U_TURN_LEFT
             //
             TYPE_NO_U_TURN_RIGHT = 48;
@@ -467,14 +467,14 @@ message TrafficSign
             // Left: #TYPE_PRESCRIBED_U_TURN_LEFT
             //
             TYPE_PRESCRIBED_U_TURN_RIGHT = 50;
-            
+
             // Minimum safety distance for trucks (StVO 273).
             // \c TrafficSignValue::value and \c TrafficSignValue::value_unit .
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/273.png
             //
             TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 51;
-          
+
             // Start of speed limit (StVO 274) \c TrafficSignValue::value and
             // \c TrafficSignValue::value_unit . End: #TYPE_SPEED_LIMIT_END
             //
@@ -530,7 +530,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/279.png
             //
             TYPE_MINIMUM_SPEED_END = 59;
-            
+
             // End of overtaking ban
             // (StVO 280). Begin: #TYPE_OVERTAKING_BAN_BEGIN
             //
@@ -600,7 +600,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/307.png
             //
             TYPE_RIGHT_OF_WAY_END = 69;
-            
+
             // Traffic has priority over vehicles from the opposite direction
             // (StVO 308). Or: #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
             //
@@ -628,14 +628,14 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/311.png
             //
             TYPE_TOWN_END = 73;
-            
+
             // Parking space
             // (StVO 314).
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/314.png
             //
             TYPE_CAR_PARKING = 74;
-            
+
             // Begin of parking zone
             // (StVO 314.1). End: #TYPE_CAR_PARKING_ZONE_END
             //
@@ -651,7 +651,7 @@ message TrafficSign
             TYPE_CAR_PARKING_ZONE_END = 76;
 
             // Start of area with calmed / reduced traffic
-            // (verkehrsberuhigter Bereich - StVO 325.1). 
+            // (verkehrsberuhigter Bereich - StVO 325.1).
             // End: #TYPE_TRAFFIC_CALMED_DISTRICT_END
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/325.1.png
@@ -659,13 +659,13 @@ message TrafficSign
             TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN = 77;
 
             // End of area with calmed / reduced traffic
-            // (verkehrsberuhigter Bereich - StVO 325.2). 
+            // (verkehrsberuhigter Bereich - StVO 325.2).
             // Begin: #TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN
             //
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/325.2.png
             //
             TYPE_TRAFFIC_CALMED_DISTRICT_END = 78;
-            
+
             // Tunnel ahead
             // (StVO 327).
             //
@@ -700,7 +700,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/330.2.png
             //
             TYPE_HIGHWAY_END = 83;
-            
+
             // Begin of expressway for motor vehicles
             // (StVO 331.1). End: #TYPE_EXPRESSWAY_END
             //
@@ -728,7 +728,7 @@ message TrafficSign
             // See e.g.: https://www.dvr.de/bilder/stvo/gt/350-10.png
             //
             TYPE_PEDESTRIAN_CROSSING_INFO = 87;
-         
+
             // Pole indicating highways exit in e.g. 100m (StVO 450).
             // \c TrafficSignValue::value and \c TrafficSignValue::value_unit .
             //

@@ -605,7 +605,7 @@ message CameraSensorViewConfiguration
         CHANNEL_FORMAT_UNKNOWN = 0;
 
         // Unspecified but known channel format.
-        // Consider proposing an additional format if using 
+        // Consider proposing an additional format if using
         // \c #CHANNEL_FORMAT_OTHER.
         //
         CHANNEL_FORMAT_OTHER = 1;
