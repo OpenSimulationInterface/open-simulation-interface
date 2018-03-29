@@ -248,7 +248,7 @@ message Spherical3d
 //
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
-// from detected objects are relative to the host vehicle frame (see: 
+// from detected objects are relative to the host vehicle frame (see:
 // \c MovingObject.Vehicle vehicle reference point).
 //
 message BaseStationary
@@ -303,7 +303,7 @@ message BaseStationary
 //
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
-// from detected objects are relative to the host vehicle frame 
+// from detected objects are relative to the host vehicle frame
 // (see: \c MovingObject.Vehicle vehicle reference point).
 //
 message BaseMoving

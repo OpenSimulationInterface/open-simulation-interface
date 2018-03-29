@@ -29,7 +29,7 @@ message DetectedLane
     message CandidateLane
     {
         // The estimated probability that this candidate is the true value.
-        // 
+        //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
         // \c #DetectedItemHeader.existence_probability.
@@ -85,7 +85,7 @@ message DetectedLaneBoundary
     message CandidateLaneBoundary
     {
         // The estimated probability that this candidate is the true value.
-        // 
+        //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
         // \c #DetectedItemHeader.existence_probability.

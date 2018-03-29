@@ -316,12 +316,12 @@ message LaneBoundary
     // The color of the lane boundary in case of lane markings.
     //
     optional Color color = 4;
-	
-	// The ids of \c StationaryObjects which limit the corresponding lane.
-	// This field must be set if the \c LaneBoundary.type is set to 
-	// # TYPE_STRUCTURE
-	//
-	repeated Identifier limiting_structure_id = 5;
+
+    // The ids of \c StationaryObjects which limit the corresponding lane.
+    // This field must be set if the \c LaneBoundary.type is set to
+    // # TYPE_STRUCTURE
+    //
+    repeated Identifier limiting_structure_id = 5;
 
     // The lane boundary type.
     // There is no special representation for double lines, e.g. solid / solid
@@ -365,18 +365,18 @@ message LaneBoundary
         // surface.
         //
         TYPE_SNOW_EDGE = 7;
-		
-		// A lane boundary covered by grass.
-		//
-		TYPE_GRASS_EDGE = 8;
-		
-		// A lane boundary covered by gravel.
-		//
-		TYPE_GRAVEL_EDGE = 9;
-		
-		// A lane boundary covered by soil.
-		//
-		TYPE_SOIL_EDGE = 10;
+
+        // A lane boundary covered by grass.
+        //
+        TYPE_GRASS_EDGE = 8;
+
+        // A lane boundary covered by gravel.
+        //
+        TYPE_GRAVEL_EDGE = 9;
+
+        // A lane boundary covered by soil.
+        //
+        TYPE_SOIL_EDGE = 10;
 
         // A guard rail.
         //
