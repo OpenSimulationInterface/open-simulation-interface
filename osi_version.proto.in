@@ -33,15 +33,15 @@ message InterfaceVersion
 {
     // Major version number.
     //
-    optional uint32 version_major = 1 [default = 0];
+    optional uint32 version_major = 1;
     
     // Minor version number.
     //
-    optional uint32 version_minor = 2 [default = 0];
+    optional uint32 version_minor = 2;
     
     // Patch version number.
     //
-    optional uint32 version_patch = 3 [default = 0];
+    optional uint32 version_patch = 3;
 }
 
 
