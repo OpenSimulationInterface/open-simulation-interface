@@ -26,10 +26,10 @@ if(WIN32 AND NOT CYGWIN)
 else()
   set(DEF_INSTALL_CMAKE_DIR lib/cmake/${PROJECT_NAME})
 endif()
-set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH 
+set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH
     "Installation directory for CMake files")
 
-# read the version number from the file "VERSION" 
+# read the version number from the file "VERSION"
 file(STRINGS "VERSION" VERSION_CONTENTS)
 foreach(LINE ${VERSION_CONTENTS})
   string(REGEX REPLACE " |\t" "" LINE ${LINE})
@@ -61,7 +61,6 @@ set(OSI_PROTO_FILES
     osi_landmark.proto
     osi_lane.proto
     osi_featuredata.proto
-    osi_modelinternal.proto
     osi_object.proto
     osi_occupant.proto
     osi_sensordata.proto
@@ -147,7 +146,7 @@ install(FILES ${PROTO_HEADERS}
 
 # Install the export set for use with the install-tree
 install(EXPORT ${PROJECT_NAME}_targets
-        DESTINATION "${INSTALL_CMAKE_DIR}" 
+        DESTINATION "${INSTALL_CMAKE_DIR}"
         COMPONENT dev)
 
 # add a target to generate API documentation with Doxygen
@@ -160,22 +159,22 @@ if(NOT DOXYGEN_FOUND)
     message(WARNING  "Doxygen could not be found.")
 
 else()
-    
+
     if(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
-    
+
     message(WARNING  "${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py could not be found.")
 
     else()
-    
+
         set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen_config.cmake.in)
         set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
         configure_file(${doxyfile_in} ${doxyfile} @ONLY)
 
-        ADD_CUSTOM_TARGET(api_doc ALL 
+        ADD_CUSTOM_TARGET(api_doc ALL
         COMMAND ${DOXYGEN_EXECUTABLE} ${doxyfile}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-    
+
     endif(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
-    
+
 endif(NOT DOXYGEN_FOUND)

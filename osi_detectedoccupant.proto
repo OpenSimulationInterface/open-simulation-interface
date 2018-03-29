@@ -2,7 +2,6 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_common.proto";
 import "osi_occupant.proto";
 import "osi_detectedobject.proto";
 
@@ -17,44 +16,34 @@ message DetectedOccupant
     //
     optional DetectedItemHeader header = 1;
 
-    // The occupant as detected by the sensor.
+    // A list of candidates for this occupant as estimated by the
+    // sensor.
     //
-    optional EstimatedOccupant occupant = 5;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CandidateOccupant candidate = 2;
 
     //
-    // \brief Candidates for a detected occupant as estimated by the sensor.
+    // \brief A candidate for a detected occupant as estimated by
+    // the sensor.
     //
-    message EstimatedOccupant
+    message CandidateOccupant
     {
-        // A list of candidates for this occupant as estimated by the
-        // sensor.
+        // The estimated probability that this candidate is the true value.
         //
-        // \note OSI uses singular instead of plural for repeated field names.
+        // \note The sum of all \c #probability must be one. This probability is
+        // given under the condition of
+        // \c #DetectedItemHeader.existence_probability.
         //
-        repeated CandidateOccupant candidate = 1;
+        // Range: [0,1]
+        //
+        optional double probability = 1;
 
-        // The root mean squared error of the base parameters of the detected
-        // occupant's geometry. \c Occupant::base has to be identical
-        // for all \c #candidates occupants.
+        // The detected vehicle occupant classification.
         //
-        optional BaseStationary base_rmse = 2;
-
+        // \note IDs, which are referenced in this message, usually
+        // reference to \c DetectedXXX::tracking_id IDs.
         //
-        // \brief A candidate for a detected occupant as estimated by
-        // the sensor.
-        //
-        message CandidateOccupant
-        {
-            // Common information of one detected item candidate.
-            //
-            optional DetectedCandidateItemHeader header = 1;
-
-            // The detected vehicle occupant.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional Occupant occupant = 2;
-        }
+        optional Occupant.Classification classification = 2;
     }
 }

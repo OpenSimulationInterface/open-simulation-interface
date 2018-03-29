@@ -2,6 +2,7 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_version.proto";
 import "osi_common.proto";
 
 package osi3;
@@ -18,17 +19,22 @@ package osi3;
 //
 message FeatureData
 {
-    // Lidar detections for multiple lidar sensors (sensor fusion).
+    // The interface version used by the sender (i.e. the simulation
+    // environment).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated LidarDetectionData lidar_sensor = 1;
+    optional InterfaceVersion version = 1;
 
     // Radar detections for multiple radar sensors (sensor fusion).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RadarDetectionData radar_sensor = 2;
+
+    // Lidar detections for multiple lidar sensors (sensor fusion).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated LidarDetectionData lidar_sensor = 3;
 }
 
 //
@@ -36,11 +42,6 @@ message FeatureData
 //
 message SensorDetectionHeader
 {
-    // Version number of used detection list messages (\c SensorDetectionHeader,
-    // \c LidarDetection, \c LidarDetectionData etc.).
-    //
-    optional DetectionInterfaceVersion version = 1;
-
     // Time stamp at which the measurement was taken (not the time at which it
     // was processed or at which it is transmitted) in the global synchronized
     // time.
@@ -49,18 +50,18 @@ message SensorDetectionHeader
     // \c SensorData::last_measurement_time for detailed discussions on the
     // semantics of time-related fields.
     //
-    optional Timestamp measurement_time = 2;
+    optional Timestamp measurement_time = 1;
 
     // Monotonous counter to identify the exact cycle.
     // Generally the detection function is called periodic and
     // \c #cycle_counter corresponds to the number of periods.
     //
-    optional uint64 cycle_counter = 3;
+    optional uint64 cycle_counter = 2;
 
     // Mounting position of the sensor (origin and orientation of the sensor
     // frame). Both origin and orientation are given in and with respect to the
-    // host vehicle coordinate system (see: \c Vehicle vehicle reference
-    // point) [1].
+    // host vehicle coordinate system (see: \c MovingObject.Vehicle vehicle
+    // reference point) [1].
     //
     // The sensor frame's x-axis is pointing in the central viewing direction of
     // the sensor. It is the angle bisector of the sensor's horizontal and
@@ -80,7 +81,7 @@ message SensorDetectionHeader
     // \par References:
     // \li [1] DIN ISO 8855:2013-11
     //
-    optional MountingPosition mounting_position = 4;
+    optional MountingPosition mounting_position = 3;
 
     // The origin/orientation of the sensor frame represents the current
     // mounting pose to the best knowledge of the sensor. The estimation of the
@@ -90,26 +91,27 @@ message SensorDetectionHeader
     // dynamics, such as pitch angles from braking, but includes long-time
     // calibration values, such as pitch angles from luggage in the trunk.
     //
-    optional MountingPosition mounting_position_rmse = 5;
+    optional MountingPosition mounting_position_rmse = 4;
 
     // Data Qualifier expresses to what extent the content of this event can be
     // relied on.
     //
-    optional DataQualifier data_qualifier = 6;
+    optional DataQualifier data_qualifier = 5;
 
     // The current number of valid detections in the detections list.
     //
     // \note This value has to be set if the list contains invalid detections.
     //
-    optional uint32 number_of_valid_detections = 7;
+    optional uint32 number_of_valid_detections = 6;
 
     // The ID of the sensor at host vehicle's mounting_position.
     //
     // This ID can equal \c SensorData::sensor_id, if \c SensorData holds only
     // data from one sensor/sensor model.
     //
-    optional Identifier sensor_id = 8;
+    optional Identifier sensor_id = 7;
 
+    //
     // \brief Data qualifier communicates the overall availability of the
     // interface.
     //
@@ -143,101 +145,6 @@ message SensorDetectionHeader
         //
         DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
     }
-
-    //
-    // \brief Version of detection messages ( \c SensorDetectionHeader,
-    // \c LidarDetection, \c LidarDetectionData etc.).
-    //
-    message DetectionInterfaceVersion
-    {
-        // Major version number.
-        //
-        optional uint32 version_major = 1;
-
-        // Minor version number.
-        //
-        optional uint32 version_minor = 2;
-
-        // Patch version number.
-        //
-        optional uint32 version_patch = 3;
-    }
-}
-
-//
-// \brief Data from one lidar sensor including a list of detections.
-//
-message LidarDetectionData
-{
-    // Header attributes of lidar detection from one lidar sensor.
-    //
-    optional SensorDetectionHeader header = 1;
-
-    // List of lidar detections.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated LidarDetection detection = 2;
-}
-
-//
-// \brief A point or vertical line in a lidar point cloud.
-//
-message LidarDetection
-{
-    // Existence probability of the detection not based on history. Value does
-    // not depend on any past experience with similar detections.
-    //
-    // \note Used as confidence measure where a low value means less confidence
-    // and a high value indicates strong confidence.
-    //
-    optional double existence_probability = 1;
-
-    // ID of the detected object this detection is associated to.
-    //
-    // \note ID = MAX(uint64) indicates no reference to an object.
-    //
-    optional Identifier object_id = 2;
-
-    // Measured position of the detection, given in spherical coordinates in the
-    // sensor coordinate system.
-    //
-    optional Spherical3d position = 3;
-
-    // Root mean squared error of the measured position of the detection.
-    //
-    optional Spherical3d position_rmse = 4;
-
-    // Height value, which is required when multiple scan points are vertically
-    // clustered. Only vertical clustering is allowed (z-axis).
-    //
-    // Unit: [m]
-    //
-    optional double height = 5;
-
-    // Root mean squared error of the object height.
-    //
-    // Unit: [m]
-    //
-    optional double height_rmse = 6;
-
-    // Intensity or equivalent value of the detection's echo.
-    //
-    // Unit: [%]
-    //
-    optional double intensity = 7;
-
-    // The free space probability in the range [0.0, 1.0] from the origin of the
-    // sensor up to this detection, as given by the distance.
-    //
-    // Range: [0.0, 1.0]
-    //
-    optional double free_space_probability = 8;
-
-    // Basic classification of the detection.
-    //
-    optional DetectionClassification classification = 9;
-
 }
 
 //
@@ -326,6 +233,82 @@ message RadarDetection
     optional DetectionClassification classification = 11;
 }
 
+//
+// \brief Data from one lidar sensor including a list of detections.
+//
+message LidarDetectionData
+{
+    // Header attributes of lidar detection from one lidar sensor.
+    //
+    optional SensorDetectionHeader header = 1;
+
+    // List of lidar detections.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated LidarDetection detection = 2;
+}
+
+//
+// \brief A point or vertical line in a lidar point cloud.
+//
+message LidarDetection
+{
+    // Existence probability of the detection not based on history. Value does
+    // not depend on any past experience with similar detections.
+    //
+    // \note Used as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    optional double existence_probability = 1;
+
+    // ID of the detected object this detection is associated to.
+    //
+    // \note ID = MAX(uint64) indicates no reference to an object.
+    //
+    optional Identifier object_id = 2;
+
+    // Measured position of the detection, given in spherical coordinates in the
+    // sensor coordinate system.
+    //
+    optional Spherical3d position = 3;
+
+    // Root mean squared error of the measured position of the detection.
+    //
+    optional Spherical3d position_rmse = 4;
+
+    // Height value, which is required when multiple scan points are vertically
+    // clustered. Only vertical clustering is allowed (z-axis).
+    //
+    // Unit: [m]
+    //
+    optional double height = 5;
+
+    // Root mean squared error of the object height.
+    //
+    // Unit: [m]
+    //
+    optional double height_rmse = 6;
+
+    // Intensity or equivalent value of the detection's echo.
+    //
+    // Unit: [%]
+    //
+    optional double intensity = 7;
+
+    // The free space probability in the range [0.0, 1.0] from the origin of the
+    // sensor up to this detection, as given by the distance.
+    //
+    // Range: [0.0, 1.0]
+    //
+    optional double free_space_probability = 8;
+
+    // Basic classification of the detection.
+    //
+    optional DetectionClassification classification = 9;
+}
+
+//
 // Definition of a basic detection classifications.
 //
 enum DetectionClassification

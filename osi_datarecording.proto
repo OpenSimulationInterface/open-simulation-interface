@@ -20,19 +20,6 @@ message SensorDataSeries
 }
 
 //
-// \brief List of \c SensorData interface copies, one for each sensor in the
-//  vehicle.
-//
-// Can be used to bundle output of multiple sensors in one transmission.
-//
-message SensorDataList
-{
-    // List of sensor data for multiple sensors at a specific timestep.
-    //
-    repeated SensorData sensor = 1;
-}
-
-//
 // \brief List of sensors where each element contains a time series of
 // \c SensorData messages.
 //

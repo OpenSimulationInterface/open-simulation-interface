@@ -4,7 +4,6 @@ option optimize_for = SPEED;
 
 package osi3;
 
-
 //
 // \brief A cartesian 3D vector for positions, velocities or accelerations or
 // its uncertainties.
@@ -215,7 +214,7 @@ message MountingPosition
 // \c SensorDetectionHeader) to make its x-axis point towards the referenced point
 // or to align it with the referenced vector. The rotations are to be performed
 // \b azimuth \b first (around the z-axis) and \b elevation \b second (around
-// the new y-axis) to follow the definition of \c Orientation3D. For the
+// the new y-axis) to follow the definition of \c Orientation3d. For the
 // sense of each rotation, the right-hand rule applies.
 //
 // <tt>vector_cartesian := Rotation(#elevation)*Rotation(#azimuth)*Unit_vector_x*#distance</tt>
@@ -249,8 +248,8 @@ message Spherical3d
 //
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
-// from detected objects are relative to the host vehicle frame (see: \c Vehicle
-// vehicle reference point).
+// from detected objects are relative to the host vehicle frame (see:
+// \c MovingObject.Vehicle vehicle reference point).
 //
 message BaseStationary
 {
@@ -298,14 +297,14 @@ message BaseStationary
 }
 
 //
-// \brief The base attributes of each object that is moving.
+// \brief The base attributes of an object that is moving.
 //
 // This includes the \c MovingObject messages.
 //
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
-// from detected objects are relative to the host vehicle frame (see: \c Vehicle
-// vehicle reference point).
+// from detected objects are relative to the host vehicle frame
+// (see: \c MovingObject.Vehicle vehicle reference point).
 //
 message BaseMoving
 {

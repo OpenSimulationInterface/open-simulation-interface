@@ -19,18 +19,18 @@ message DetectedTrafficSign
 
     // The main sign as detected by the sensor.
     //
-    optional EstimatedMainSign main_sign = 4;
+    optional DetectedMainSign main_sign = 2;
 
     // A list of additional supplementary sign(s) as detected by the sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated EstimatedSupplementarySign supplementary_sign = 5;
+    repeated DetectedSupplementarySign supplementary_sign = 3;
 
     //
-    // \brief Candidates for a detected sign as estimated by the sensor.
+    // \brief Candidates for a detected main sign as estimated by the sensor.
     //
-    message EstimatedMainSign
+    message DetectedMainSign
     {
         // A list of candidates for this traffic sign as estimated by the
         // sensor.
@@ -39,32 +39,52 @@ message DetectedTrafficSign
         //
         repeated CandidateMainSign candidate = 1;
 
+        // The base parameters of the traffic sign.
+        //
+        // The orientation of the bounding box \c #base
+        // ( \c BaseStationary::orientation ) is defined as follows:
+        // The z-axis of the given \c BaseStationary::orientation is the vector
+        // from the bottom to the top of the traffic sign's 2D image plate.
+        // (Normally it is equal to the ground truth z-axis.)
+        // The x-axis of the given \c BaseStationary::orientation is view
+        // normal of the traffic sign's image.
+        // This x-axis points from the traffic sign's image in the direction from
+        // where a 'viewer' could see the traffic sign image.
+        //
+        optional BaseStationary base = 2;
+
         // The root mean squared error of the base parameters of the detected
-        // traffic sign. \c TrafficSign::base has to be identical for
+        // traffic sign. \c TrafficSign::MainSign::base has to be identical for
         // all \c #candidate traffic signs.
         //
-        optional BaseStationary base_rmse = 2;
+        optional BaseStationary base_rmse = 3;
 
-        // The detected geometry of the traffic sign.
+        // The estimated geometry of the traffic sign.
         //
-        optional Geometry geometry = 3;
+        optional Geometry geometry = 4;
 
         //
-        // \brief A candidate for a detected traffic sign as estimated by the
+        // \brief A candidate for a detected main sign as estimated by the
         // sensor.
         //
         message CandidateMainSign
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
+            //
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
-            // The definition of one main sign that defines this candidate.
+            // The classification of one main sign that defines this candidate.
             //
             // \note IDs, which are referenced in this message, usually
             // reference to \c DetectedXXX::tracking_id IDs.
             //
-            optional TrafficSign.MainSign main_sign = 2;
+            optional TrafficSign.MainSign.Classification classification = 2;
         }
 
         // Definition of traffic sign geometries.
@@ -80,52 +100,52 @@ message DetectedTrafficSign
             //
             GEOMETRY_OTHER = 1;
 
-            // Traffic sign has a triangular geometry pointing to the top.
+            // Traffic sign has a circular geometry. (0 corners)
             //
-            GEOMETRY_TRIANGLE_TOP = 2;
+            GEOMETRY_CIRCLE = 2;
 
-            //Traffic sign has a triangular geometry pointing down.
+            // Traffic sign has a triangular geometry pointing to the top. (3 corners)
             //
-            GEOMETRY_TRIANGLE_DOWN = 3;
+            GEOMETRY_TRIANGLE_TOP = 3;
 
-            // Traffic sign has a circular geometry.
+            //Traffic sign has a triangular geometry pointing down. (3 corners)
             //
-            GEOMETRY_CIRCLE = 4;
+            GEOMETRY_TRIANGLE_DOWN = 4;
 
-            // Traffic sign has a square geometry.
+            // Traffic sign has a square geometry. (4 corners)
             //
             GEOMETRY_SQUARE = 5;
 
-            // Traffic sign has a diamond geometry.
+            // Traffic sign that has a pole geometry. (height is bigger than
+            // width e.g. pole indicating highways exit in xx [m]). (4 corners)
             //
-            GEOMETRY_DIAMOND = 6;
-
-            // Traffic sign has an octagon geometry.
-            //
-            GEOMETRY_OCTAGON = 7;
-
-            // Traffic sign has a geometry of an arrow pointing to the left.
-            //
-            GEOMETRY_ARROW_LEFT = 8;
-
-            // Traffic sign has a geometry of an arrow pointing to the right.
-            //
-            GEOMETRY_ARROW_RIGHT = 9;
+            GEOMETRY_POLE = 6;
 
             // Traffic sign has a rectangle geometry. (width is bigger than
-            // height e.g. one-way)
+            // height e.g. one-way) (4 corners)
             //
-            GEOMETRY_RECTANGLE = 10;
+            GEOMETRY_RECTANGLE = 7;
 
-            // Traffic sign that has a pole geometry. (height is bigger than
-            // width e.g. pole indicating highways exit in xx [m]).
-            //
-            GEOMETRY_POLE = 11;
-
-            // Traffic sign that has an oversize rectangle geometry.
+            // Traffic sign that has an oversize rectangle geometry. (4 corners)
             // E.g. direction plates on highway or city signs.
             //
-            GEOMETRY_PLATE = 12;
+            GEOMETRY_PLATE = 8;
+
+            // Traffic sign has a diamond geometry. (4 corners)
+            //
+            GEOMETRY_DIAMOND = 9;
+
+            // Traffic sign has a geometry of an arrow pointing to the left. (5 corners)
+            //
+            GEOMETRY_ARROW_LEFT = 10;
+
+            // Traffic sign has a geometry of an arrow pointing to the right. (5 corners)
+            //
+            GEOMETRY_ARROW_RIGHT = 11;
+
+            // Traffic sign has an octagon geometry. (8 corners)
+            //
+            GEOMETRY_OCTAGON = 12;
         }
     }
 
@@ -133,7 +153,7 @@ message DetectedTrafficSign
     // \brief Candidates for all detected supplementary signs of one traffic
     // sign as estimated by the sensor.
     //
-    message EstimatedSupplementarySign
+    message DetectedSupplementarySign
     {
         // The definition of one of more supplementary signs that together
         // define this candidate.
@@ -142,20 +162,26 @@ message DetectedTrafficSign
         //
         repeated CandidateSupplementarySign candidate = 1;
 
+        // The base parameters of the supplementary traffic sign.
+        //
+        // The orientation of the bounding box \c SupplementarySign::base
+        // ( \c BaseStationary::orientation ) is defined as follows:
+        // The z-axis of the given \c BaseStationary::orientation is the vector
+        // from the bottom to the top of the supplementary traffic sign's 2D image
+        // plate. (Normally it is equal to the ground truth z-axis.)
+        // The x-axis of the given \c BaseStationary::orientation is view
+        // normal of the supplementary traffic sign's image.
+        // This x-axis points from the supplementary traffic sign's image in the
+        // direction from where a 'viewer' could see the supplementary traffic sign image.
+        //
+        optional BaseStationary base = 2;
+
         // The root mean squared error of the base parameters of the detected
         // supplementary traffic sign. \c #candidate
-        // \c SupplementarySign::base has to be identical for all
+        // \c TrafficSign::SupplementarySign::base has to be identical for all
         // \c #candidate supplementary traffic signs.
         //
-        optional BaseStationary base_rmse = 2;
-
-        // The estimated probability that this supplementary sign really
-        // exists, not based on history.
-        //
-        // \note Use as confidence measure where a low value means less
-        // confidence and a high value indicates strong confidence.
-        //
-        optional double existence_probability = 3;
+        optional BaseStationary base_rmse = 3;
 
         //
         // \brief A candidate for a detected supplementary sign as estimated by
@@ -163,17 +189,23 @@ message DetectedTrafficSign
         //
         message CandidateSupplementarySign
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
+            //
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
-            // The definition of one of more supplementary signs that together
+            // The classification of one of more supplementary signs that together
             // define this candidate.
             //
             // \note IDs, which are referenced in this message, usually
             // reference to \c DetectedXXX::tracking_id IDs.
             //
-            optional TrafficSign.SupplementarySign supplementary_sign = 2;
+            optional TrafficSign.SupplementarySign.Classification classification = 2;
         }
     }
 }
@@ -187,46 +219,48 @@ message DetectedTrafficLight
     //
     optional DetectedItemHeader header = 1;
 
-    // The main sign as detected by the sensor.
+    // The base parameters of the traffic light.
     //
-    optional EstimatedTrafficLight traffic_light = 4;
+    // \c BaseStationary::orientation x-axis is view normal of the traffic
+    // light's icon.
+    //
+    optional BaseStationary base = 2;
 
+    // The root mean squared error of the base parameters of the detected
+    // traffic light's geometry. \c TrafficLight::base has to be identical
+    // for all \c #candidate traffic lights.
     //
-    // \brief Candidates for a detected traffic light as estimated by the
+    optional BaseStationary base_rmse = 3;
+
+    // A list of candidates for this traffic light as estimated by the
     // sensor.
     //
-    message EstimatedTrafficLight
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CandidateTrafficLight candidate = 4;
+
+    //
+    // \brief A candidate for a detected traffic light as estimated by
+    // the sensor.
+    //
+    message CandidateTrafficLight
     {
-        // A list of candidates for this traffic light as estimated by the
-        // sensor.
+        // The estimated probability that this candidate is the true value.
         //
-        // \note OSI uses singular instead of plural for repeated field names.
+        // \note The sum of all \c #probability must be one. This probability is
+        // given under the condition of
+        // \c #DetectedItemHeader.existence_probability.
         //
-        repeated CandidateTrafficLight candidate = 1;
+        // Range: [0,1]
+        //
+        optional double probability = 1;
 
-        // The root mean squared error of the base parameters of the detected
-        // traffic light's geometry. \c TrafficLight::base has to be identical
-        // for all \c #candidate traffic lights.
+        // The classification of one traffic light that define this candidate.
         //
-        optional BaseStationary base_rmse = 2;
-
+        // \note IDs, which are referenced in this message, usually
+        // reference to \c DetectedXXX::tracking_id IDs.
         //
-        // \brief A candidate for a detected traffic light as estimated by
-        // the sensor.
-        //
-        message CandidateTrafficLight
-        {
-            // Common information of one detected item candidate.
-            //
-            optional DetectedCandidateItemHeader header = 1;
-
-            // The definition of one traffic light that define this candidate.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional TrafficLight traffic_light = 2;
-        }
+        optional TrafficLight.Classification classification = 2;
     }
 }
 
@@ -239,96 +273,60 @@ message DetectedRoadMarking
     //
     optional DetectedItemHeader header = 1;
 
-    // The road marking as detected by the sensor.
+    // The base parameters of the road marking.
     //
-    optional EstimatedRoadMarking road_marking = 4;
+    // The orientation of the bounding box \c #base
+    // \c BaseStationary::orientation is defined as follows:
+    // The z-axis of the \c BaseStationary::orientation is the vector from the
+    // 'bottom' to the 'top' of the road marking's (i.e. painted traffic sign)
+    // 2D image area.
+    // (Normally it is in the ground truth xy-plain.)
+    // The x-axis of the \c BaseStationary::orientation is the view normal of
+    // the road marking's 2D image area.
+    // Normally this x-axis points to the sky.
+    //
+    // \note If a valid unidirectional road marking is assigned to the host
+    // vehicle's current lane and the driving direction of the latter roughly
+    // matches the z-axis of the \c #base \c BaseStationary::orientation then
+    // the road marking is of relevance to (i.e. in effect for) the host
+    // vehicle.
+    //
+    optional BaseStationary base = 2;
 
+    // The root mean squared error of the base parameters of the detected
+    // road marking. \c RoadMarking::base has to be identical for
+    // all \c #candidate road markings.
     //
-    // \brief Candidates for a detected traffic light as estimated by the
+    optional BaseStationary base_rmse = 3;
+
+    // A list of candidates for this road marking as estimated by the
     // sensor.
     //
-    message EstimatedRoadMarking
-    {
-        // A list of candidates for this road marking as estimated by the
-        // sensor.
-        //
-        // \note OSI uses singular instead of plural for repeated field names.
-        //
-        repeated CandidateRoadMarking candidate = 1;
-
-        // The root mean squared error of the base parameters of the detected
-        // road marking. \c RoadMarking::base has to be identical for
-        // all \c #candidate road markings.
-        //
-        optional BaseStationary base_rmse = 2;
-
-        //
-        // \brief A candidate for a detected road marking as estimated by the
-        // sensor.
-        //
-        message CandidateRoadMarking
-        {
-            // Common information of one detected item candidate.
-            //
-            optional DetectedCandidateItemHeader header = 1;
-
-            // The description of the road marking.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional RoadMarking road_marking = 2;
-        }
-    }
-}
-
-//
-// \brief A landmark in the environment as detected by the sensor.
-//
-message DetectedLandmark
-{
-    // Common information of one detected item.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
-    optional DetectedItemHeader header = 1;
-
-    // The landmark as detected by the sensor.
-    //
-    optional EstimatedLandmark landmark = 3;
+    repeated CandidateRoadMarking candidate = 4;
 
     //
-    // \brief Candidates for a detected Landmark as estimated by the
+    // \brief A candidate for a detected road marking as estimated by the
     // sensor.
     //
-    message EstimatedLandmark
+    message CandidateRoadMarking
     {
-        // A list of candidates for this landmark as estimated by the sensor.
+        // The estimated probability that this candidate is the true value.
         //
-        // \note OSI uses singular instead of plural for repeated field names.
+        // \note The sum of all \c #probability must be one. This probability is
+        // given under the condition of
+        // \c #DetectedItemHeader.existence_probability.
         //
-        repeated CandidateLandmark candidate = 1;
+        // Range: [0,1]
+        //
+        optional double probability = 1;
 
-        // The root mean squared error of the base parameters of the detected
-        // landmark. \c Landmark::base has to be identical for
-        // all \c #candidate landmark.
+        // The classification of the road marking.
         //
-        optional BaseStationary base_rmse = 2;
-
+        // \note IDs, which are referenced in this message, usually
+        // reference to \c DetectedXXX::tracking_id IDs.
         //
-        // \brief A candidate for a detected landmark as estimated by the
-        // sensor.
-        //
-        message CandidateLandmark
-        {
-            // Common information of one detected item candidate.
-            //
-            optional DetectedCandidateItemHeader header = 1;
-
-            // The description of the landmark.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional Landmark landmark = 2;
-        }
+        optional RoadMarking.Classification classification = 2;
     }
 }

@@ -2,7 +2,6 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_common.proto";
 import "osi_lane.proto";
 import "osi_detectedobject.proto";
 
@@ -17,43 +16,39 @@ message DetectedLane
     //
     optional DetectedItemHeader header = 1;
 
-    // The lane as detected by the sensor.
+    // A list of candidates for this lane as estimated by the sensor.
     //
-    optional EstimatedLane lane = 3;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CandidateLane candidate = 2;
 
     //
-    // \brief Candidates for a detected lane as estimated by the sensor.
+    // \brief A candidate for a detected lane as estimated by the
+    // sensor.
     //
-    message EstimatedLane
+    message CandidateLane
     {
-        // A list of candidates for this lane as estimated by the sensor.
+        // The estimated probability that this candidate is the true value.
         //
-        // \note OSI uses singular instead of plural for repeated field names.
+        // \note The sum of all \c #probability must be one. This probability is
+        // given under the condition of
+        // \c #DetectedItemHeader.existence_probability.
         //
-        repeated CandidateLane candidate = 1;
+        // Range: [0,1]
+        //
+        optional double probability = 1;
 
+        // The classification of one lane that defines this candidate.
         //
-        // \brief A candidate for a detected lane as estimated by the
-        // sensor.
+        // \note IDs, which are referenced in this message, usually
+        // reference to \c DetectedXXX::tracking_id IDs.
         //
-        message CandidateLane
-        {
-            // Common information of one detected item candidate.
-            //
-            optional DetectedCandidateItemHeader header = 1;
-
-            // The definition of one lane that defines this candidate.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional Lane lane = 2;
-        }
+        optional Lane.Classification classification = 2;
     }
 }
 
 //
-// \brief A lane segment as detected by the sensor.
+// \brief A lane boundary segment as detected by the sensor.
 //
 message DetectedLaneBoundary
 {
@@ -61,62 +56,65 @@ message DetectedLaneBoundary
     //
     optional DetectedItemHeader header = 1;
 
-    // The lane boundary as detected by the sensor.
-    //
-    optional EstimatedLaneBoundary lane_boundary = 3;
-
-    //
-    // \brief Candidates for a detected lane boundary as estimated by the
+    // A list of candidates for this lane boundary as estimated by the
     // sensor.
     //
-    message EstimatedLaneBoundary
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CandidateLaneBoundary candidate = 2;
+
+    // The list of individual points defining the location of the lane boundary
+    // (as a list of segments).
+    //
+    // Since a \c BoundaryPoint is part of a sequence, only the position
+    // attribute has to be set for each instance. All other values will be
+    // reused from the previous \c BoundaryPoint in the sequence or set to
+    // default values if there is none or it was never set. For dashed lines,
+    // one \c BoundaryPoint has to be at the start and another at the end
+    // of each dashed line segment. For Botts' dots lines, one
+    // \c BoundaryPoint position has to define each Botts' dot.
+    //
+    // \attention For \c BoundaryPoint the same rules regarding maximum
+    // distance and approximation error apply as for \c Lane::centerline.
+    //
+    repeated LaneBoundary.BoundaryPoint boundary_line = 3;
+
+    // The root mean squared error of the \c LaneBoundary.BoundaryPoint
+    // information from a \c LaneBoundary.
+    // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
+    // one \c #boundary_line_rmse rmse information exist.
+    //
+    repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 4;
+
+    // Confidence of the segments of the \c LaneBoundary.BoundaryPoint
+    // information from a \c LaneBoundary.
+    // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
+    // one \c #boundary_line_confidences confidence value is
+    // specified.
+    //
+    repeated double boundary_line_confidences = 5;
+
+    //
+    // \brief A candidate for a detected lane boundary as estimated by the
+    // sensor.
+    //
+    message CandidateLaneBoundary
     {
-        // A list of candidates for this lane boundary as estimated by the
-        // sensor.
+        // The estimated probability that this candidate is the true value.
         //
-        // \note OSI uses singular instead of plural for repeated field names.
+        // \note The sum of all \c #probability must be one. This probability is
+        // given under the condition of
+        // \c #DetectedItemHeader.existence_probability.
         //
-        repeated CandidateLaneBoundary candidate = 1;
-
-        // The root mean squared error of the \c LaneBoundary.BoundaryPoint
-        // information from a \c LaneBoundary.
-        // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
-        // one \c #boundary_line_rmse rmse information exist.
+        // Range: [0,1]
         //
-        repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 2;
+        optional double probability = 1;
 
-        // Confidence of the segments of the \c LaneBoundary.BoundaryPoint
-        // information from a \c LaneBoundary.
-        // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
-        // one \c #boundary_line_confidences confidence value is
-        // specified.
+        // The classification of one lane boundary that defines this candidate.
         //
-        repeated double boundary_line_confidences = 3;
-
+        // \note IDs, which are referenced in this message, usually
+        // reference to \c DetectedXXX::tracking_id IDs.
         //
-        // \brief A candidate for a detected lane boundary as estimated by the
-        // sensor.
-        //
-        message CandidateLaneBoundary
-        {
-            // Common information of one detected item candidate.
-            //
-            optional DetectedCandidateItemHeader header = 1;
-
-            // The definition of one lane boundary that defines this candidate.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional LaneBoundary lane_boundary = 2;
-
-            // Confidence of the classified lane boundary type.
-            //
-            optional double type_confidence = 5;
-
-            // Confidence of the classified lane marker color.
-            //
-            optional double color_confidence = 6;
-        }
+        optional LaneBoundary.Classification classification = 2;
     }
 }
