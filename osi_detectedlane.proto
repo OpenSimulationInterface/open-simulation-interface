@@ -37,9 +37,15 @@ message DetectedLane
         //
         message CandidateLane
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
+            // 
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
             // The definition of one lane that defines this candidate.
             //
@@ -98,9 +104,15 @@ message DetectedLaneBoundary
         //
         message CandidateLaneBoundary
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
+            // 
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
             // The definition of one lane boundary that defines this candidate.
             //

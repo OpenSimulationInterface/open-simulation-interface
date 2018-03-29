@@ -55,9 +55,15 @@ message DetectedTrafficSign
         //
         message CandidateMainSign
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
+            // 
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
             // The definition of one main sign that defines this candidate.
             //
@@ -163,9 +169,15 @@ message DetectedTrafficSign
         //
         message CandidateSupplementarySign
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
+            // 
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
             // The definition of one of more supplementary signs that together
             // define this candidate.
@@ -216,9 +228,15 @@ message DetectedTrafficLight
         //
         message CandidateTrafficLight
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
+            // 
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
             // The definition of one traffic light that define this candidate.
             //
@@ -268,9 +286,15 @@ message DetectedRoadMarking
         //
         message CandidateRoadMarking
         {
-            // Common information of one detected item candidate.
+            // The estimated probability that this candidate is the true value.
+            // 
+            // \note The sum of all \c #probability must be one. This probability is
+            // given under the condition of
+            // \c #DetectedItemHeader.existence_probability.
             //
-            optional DetectedCandidateItemHeader header = 1;
+            // Range: [0,1]
+            //
+            optional double probability = 1;
 
             // The description of the road marking.
             //
