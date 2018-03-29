@@ -79,7 +79,8 @@ message TrafficSign
         //
         message Classification
         {
-            // Variability
+            // The traffic sign is not stationary, for example a temporary
+            // traffic sign in a street construction.
             //
             optional Variability variability = 1;
         
@@ -830,8 +831,7 @@ message TrafficSign
         // direction from where a 'viewer' could see the supplementary traffic sign image.
         //
         optional BaseStationary base = 1;
-        
-        
+           
         // The classification of the supplementary traffic sign.
         //
         optional Classification classification = 2;

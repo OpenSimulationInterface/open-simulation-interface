@@ -319,7 +319,7 @@ message LaneBoundary
 
     // The ids of \c StationaryObjects which limit the corresponding lane.
     // This field must be set if the \c LaneBoundary.type is set to
-    // # TYPE_STRUCTURE
+    // #TYPE_STRUCTURE
     //
     repeated Identifier limiting_structure_id = 5;
 
