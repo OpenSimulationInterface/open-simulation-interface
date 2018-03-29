@@ -23,221 +23,231 @@ message StationaryObject
     //
     optional BaseStationary base = 2;
 
-    // The type of the object.
+    // Specific information about the classification of the stationary object.
     //
-    optional Type type = 3;
-
-    // The dominating material of the structure.
+    optional StationaryObjectClassification classification = 6;
+    
     //
-    optional Material material = 4;
-
-    // The dominating density of the material of the structure.
+    // \brief Information regarding the classification of stationary objects.
     //
-    optional Density density = 5;
-
-    // The dominating color of the material of the structure.
-    //
-    optional Color color = 6;
-
-    // Definition of object types.
-    //
-    enum Type
+    message StationaryObjectClassification
     {
-        // Type of the object is unknown (must not be used in ground truth).
+        // The type of the object.
         //
-        TYPE_UNKNOWN = 0;
+        optional Type type = 3;
 
-        // Other (unspecified but known) type of object.
+        // The dominating material of the structure.
         //
-        TYPE_OTHER = 1;
+        optional Material material = 4;
 
-        // Object is a bridge.
+        // The dominating density of the material of the structure.
         //
-        TYPE_BRIDGE = 2;
+        optional Density density = 5;
 
-        // Object is a building.
+        // The dominating color of the material of the structure.
         //
-        TYPE_BUILDING = 3;
+        optional Color color = 6;
 
-        // Object is a pole (e.g. from a traffic light).
+        // Definition of object types.
         //
-        TYPE_POLE = 4;
+        enum Type
+        {
+            // Type of the object is unknown (must not be used in ground truth).
+            //
+            TYPE_UNKNOWN = 0;
 
-        // Object is a pylon.
+            // Other (unspecified but known) type of object.
+            //
+            TYPE_OTHER = 1;
+
+            // Object is a bridge.
+            //
+            TYPE_BRIDGE = 2;
+
+            // Object is a building.
+            //
+            TYPE_BUILDING = 3;
+
+            // Object is a pole (e.g. from a traffic light).
+            //
+            TYPE_POLE = 4;
+
+            // Object is a pylon.
+            //
+            TYPE_PYLON = 5;
+
+            // Object is a delineator (e.g. at a construction site).
+            //
+            TYPE_DELINEATOR = 6;
+
+            // Object is a tree.
+            //
+            TYPE_TREE = 7;
+
+            // Object is a barrier.
+            //
+            TYPE_BARRIER = 8;
+
+            // Object is vegetation.
+            //
+            TYPE_VEGETATION = 9;
+
+            // Object is a curbstone.
+            //
+            TYPE_CURBSTONE = 10;
+
+            // Object is a wall.
+            //
+            TYPE_WALL = 11;
+
+            // Landmarks corresponding to vertical structures in the environment.
+            //
+            TYPE_VERTICAL_STRUCTURE = 12;
+
+            // Landmarks corresponding to rectangular structures in the environment,
+            // like walls.
+            //
+            TYPE_RECTANGULAR_STRUCTURE = 13;
+
+            // Landmarks corresponding to overhead structures in the environment,
+            // like sign bridges.
+            //
+            TYPE_OVERHEAD_STRUCTURE = 14;
+
+            // Landmarks corresponding to light sources or reflective structures in
+            // the environment, like street lights or reflective poles on the road
+            // boarder.
+            //
+            TYPE_REFLECTIVE_STRUCTURE = 15;
+
+            // Landmarks corresponding to construction site elements in the
+            // environment, like cones or beacons.
+            //
+            TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
+        }
+
+        // Definition of material types.
         //
-        TYPE_PYLON = 5;
+        enum Material
+        {
+            // Type of the material is unknown (must not be used in ground truth).
+            //
+            MATERIAL_UNKNOWN = 0;
 
-        // Object is a delineator (e.g. at a construction site).
+            // Other (unspecified but known) type of material.
+            //
+            MATERIAL_OTHER = 1;
+
+            // Wooden structure.
+            //
+            MATERIAL_WOOD = 2;
+
+            // Plastic structure.
+            //
+            MATERIAL_PLASTIC = 3;
+
+            // Concrete structure.
+            //
+            MATERIAL_CONCRETE = 4;
+
+            // Metal structure.
+            //
+            MATERIAL_METAL = 5;
+
+            // Natural stone structure.
+            //
+            MATERIAL_STONE = 6;
+
+            // Glas structure.
+            //
+            MATERIAL_GLAS = 7;
+
+            // Mud structure.
+            //
+            MATERIAL_MUD = 8;
+        }
+
+
+        // Definition of material density types.
         //
-        TYPE_DELINEATOR = 6;
+        enum Density
+        {
+            // Type of the material density is unknown (must not be used in ground truth).
+            //
+            DENSITY_UNKNOWN = 0;
 
-        // Object is a tree.
+            // Other (unspecified but known) type of material density.
+            //
+            DENSITY_OTHER = 1;
+
+            // No perforation - solid;
+            //
+            DENSITY_SOLID = 2;
+
+            // Perforation max. ]0; 100] [mm]
+            DENSITY_SMALL_MESH = 3;
+
+            // Perforation max. ]100; 500] [mm]
+            DENSITY_MEDIAN_MESH = 4;
+
+            // Perforation max. ]500; 5000] [mm]
+            DENSITY_LARGE_MESH = 5;
+
+            // Perforation max. ]5000; infinity] [mm]
+            DENSITY_OPEN = 6;
+        }
+
+        // Definition of colors for structures.
         //
-        TYPE_TREE = 7;
+        enum Color
+        {
+            // Color is unknown (must not be used in ground truth).
+            //
+            COLOR_UNKNOWN = 0;
 
-        // Object is a barrier.
-        //
-        TYPE_BARRIER = 8;
+            // Other (unspecified but known) color.
+            //
+            COLOR_OTHER = 1;
 
-        // Object is vegetation.
-        //
-        TYPE_VEGETATION = 9;
+            // Yellow.
+            //
+            COLOR_YELLOW = 2;
 
-        // Object is a curbstone.
-        //
-        TYPE_CURBSTONE = 10;
+            // Green.
+            //
+            COLOR_GREEN = 3;
 
-        // Object is a wall.
-        //
-        TYPE_WALL = 11;
+            // Blue.
+            //
+            COLOR_BLUE = 4;
 
-        // Landmarks corresponding to vertical structures in the environment.
-        //
-        TYPE_VERTICAL_STRUCTURE = 12;
+            // Violet.
+            //
+            COLOR_VIOLET = 5;
 
-        // Landmarks corresponding to rectangular structures in the environment,
-        // like walls.
-        //
-        TYPE_RECTANGULAR_STRUCTURE = 13;
+            // Red.
+            //
+            COLOR_RED = 6;
 
-        // Landmarks corresponding to overhead structures in the environment,
-        // like sign bridges.
-        //
-        TYPE_OVERHEAD_STRUCTURE = 14;
+            // Orange.
+            //
+            COLOR_ORANGE = 7;
 
-        // Landmarks corresponding to light sources or reflective structures in
-        // the environment, like street lights or reflective poles on the road
-        // boarder.
-        //
-        TYPE_REFLECTIVE_STRUCTURE = 15;
+            // Black.
+            //
+            COLOR_BLACK = 8;
 
-        // Landmarks corresponding to construction site elements in the
-        // environment, like cones or beacons.
-        //
-        TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
-    }
+            // GREY.
+            //
+            COLOR_GREY = 9;
 
-    // Definition of material types.
-    //
-    enum Material
-    {
-        // Type of the material is unknown (must not be used in ground truth).
-        //
-        MATERIAL_UNKNOWN = 0;
-
-        // Other (unspecified but known) type of material.
-        //
-        MATERIAL_OTHER = 1;
-
-        // Wooden structure.
-        //
-        MATERIAL_WOOD = 2;
-
-        // Plastic structure.
-        //
-        MATERIAL_PLASTIC = 3;
-
-        // Concrete structure.
-        //
-        MATERIAL_CONCRETE = 4;
-
-        // Metal structure.
-        //
-        MATERIAL_METAL = 5;
-
-        // Natural stone structure.
-        //
-        MATERIAL_STONE = 6;
-
-        // Glas structure.
-        //
-        MATERIAL_GLAS = 7;
-
-        // Mud structure.
-        //
-        MATERIAL_MUD = 8;
-    }
-
-
-    // Definition of material density types.
-    //
-    enum Density
-    {
-        // Type of the material density is unknown (must not be used in ground truth).
-        //
-        DENSITY_UNKNOWN = 0;
-
-        // Other (unspecified but known) type of material density.
-        //
-        DENSITY_OTHER = 1;
-
-        // No perforation - solid;
-        //
-        DENSITY_SOLID = 2;
-
-        // Perforation max. ]0; 100] [mm]
-        DENSITY_SMALL_MESH = 3;
-
-        // Perforation max. ]100; 500] [mm]
-        DENSITY_MEDIAN_MESH = 4;
-
-        // Perforation max. ]500; 5000] [mm]
-        DENSITY_LARGE_MESH = 5;
-
-        // Perforation max. ]5000; infinity] [mm]
-        DENSITY_OPEN = 6;
-    }
-
-    // Definition of colors for structures.
-    //
-    enum Color
-    {
-        // Color is unknown (must not be used in ground truth).
-        //
-        COLOR_UNKNOWN = 0;
-
-        // Other (unspecified but known) color.
-        //
-        COLOR_OTHER = 1;
-
-        // Yellow.
-        //
-        COLOR_YELLOW = 2;
-
-        // Green.
-        //
-        COLOR_GREEN = 3;
-
-        // Blue.
-        //
-        COLOR_BLUE = 4;
-
-        // Violet.
-        //
-        COLOR_VIOLET = 5;
-
-        // Red.
-        //
-        COLOR_RED = 6;
-
-        // Orange.
-        //
-        COLOR_ORANGE = 7;
-
-        // Black.
-        //
-        COLOR_BLACK = 8;
-
-        // GREY.
-        //
-        COLOR_GREY = 9;
-
-        // White.
-        //
-        COLOR_WHITE = 10;
+            // White.
+            //
+            COLOR_WHITE = 10;
+        }
     }
 }
-
+    
 //
 // \brief A simulated object that is either a vehicle or another
 // moving object (animal, pedestrian, etc), but not a stationary
@@ -254,7 +264,7 @@ message MovingObject
 
     // The base parameters of the vehicle.
     //
-    // \note The bounding box includes mirrors for vehicles.
+    // \note The bounding box does NOT includes mirrors for vehicles.
     //
     optional BaseMoving base = 2;
 
@@ -276,8 +286,16 @@ message MovingObject
     // \note This field is mandatory if the \c MovingObject.type is
     // #TYPE_VEHICLE .
     //
-    optional Vehicle vehicle_extension = 5;
-
+    optional VehicleAttributes vehicle_attributes = 5;
+    
+    // Specific information about the classification of the vehicle.
+    //
+    //
+    // \note This field is mandatory if the \c MovingObject.type is
+    // #TYPE_VEHICLE .
+    //
+    optional VehicleClassification vehicle_classification = 6;
+    
     // Definition of object types.
     //
     enum Type
@@ -304,7 +322,7 @@ message MovingObject
     }
 
     //
-    // \brief A vehicle extension for \c MovingObject (host or other).
+    // \brief The vehicle attributes for \c MovingObject (host or other).
     //
     // This is an extension to the \c MovingObject with additional attributes,
     // such as type and lights. The origin of the rear (front) axis coordinate
@@ -324,46 +342,42 @@ message MovingObject
     // \par References:
     // \li [1] DIN ISO 8855:2013-11
     //
-    message Vehicle
+    message VehicleAttributes
     {
-        // The type of the vehicle.
-        //
-        optional Type type = 1;
-
         // Flag defining whether the vehicle is a simulated host vehicle: True for
         // host vehicle(s), false for other vehicles.  See the description above!
-        optional bool host_vehicle = 2;
+        optional bool host_vehicle = 1;
 
         // The ID of the driver of the (host) vehicle.
         //
         // \note Field need not be set if host_vehicle is set to false or use value
         // for non valid id.
-        optional Identifier driver_id = 3;
+        optional Identifier driver_id = 2;
 
         // Median radius of the wheels measured from a center of the wheel
         // including tire.
         //
         // Unit: [m]
         //
-        optional double radius_wheel = 4;
+        optional double radius_wheel = 3;
 
         // Number of independent wheels.
         //
         // Unit: []
         //
-        optional uint32 number_wheels = 5;
+        optional uint32 number_wheels = 4;
 
         // The vector pointing from the bounding box center point (base.position) to
         // the middle (in x, y and z) of the rear axle under neutral load
         // conditions. In object coordinates.
         //
-        optional Vector3d bbcenter_to_rear = 6;
+        optional Vector3d bbcenter_to_rear = 5;
 
         // The vector pointing from the bounding box center point (base.position) to
         // the middle (in x, y and z) of the front axle under neutral load
         // conditions. In object coordinates.
         //
-        optional Vector3d bbcenter_to_front = 7;
+        optional Vector3d bbcenter_to_front = 6;
 
         // Static minimal distance in [m] of under-body plane to ground
         // surface plane (i.e. disregarding driving dynamic effects or road
@@ -371,22 +385,33 @@ message MovingObject
         // approximate the clear area under a vehicle that a sensor can see
         // through.
         //
-        optional double ground_clearance = 8;
+        optional double ground_clearance = 7;
+    }
+    
+    //
+    // \brief Information for the classification of vehicles regarding
+    // \c MovingObject (host or other).
+    //
+    message VehicleClassification
+    {
+        // The type of the vehicle.
+        //
+        optional Type type = 1;
 
         // The light state of the vehicle.
         //
-        optional LightState light_state = 9;
+        optional LightState light_state = 2;
 
         // Flag defining whether the vehicle has an attached trailer.
         //
-        optional bool has_trailer = 10;
+        optional bool has_trailer = 3;
 
         // Id of the attached trailer.
         //
         // \note Field need not be set if has_Trailer is set to false or use value
         // for non valid id.
         //
-        optional Identifier trailer_id = 11;
+        optional Identifier trailer_id = 4;
 
         // Definition of vehicle types.
         //

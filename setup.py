@@ -56,7 +56,6 @@ class GenerateProtobuf(install):
         'osi_hostvehicledata.proto',
         'osi_landmark.proto',
         'osi_featuredata.proto',
-        'osi_modelinternal.proto',
         'osi_object.proto',
         'osi_occupant.proto',
         'osi_lane.proto',

@@ -3,7 +3,6 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
-import "osi_modelinternal.proto";
 import "osi_object.proto";
 import "osi_sensorspecific.proto";
 
@@ -89,6 +88,55 @@ message DetectedItemHeader
 }
 
 //
+// \brief A stationary object (e.g. landmark) in the environment as detected by
+// the sensor.
+//
+message DetectedStationaryObject
+{
+    // Common information of one detected item.
+    //
+    optional DetectedItemHeader header = 1;
+    
+    // The base parameters of the stationary object.
+    //
+    optional BaseStationary base = 2;
+    
+    // The root mean squared error of the base parameters of the detected
+    // stationary object (e.g. landmark). \c StationaryObject::base has to be
+    // identical for all \c #candidate stationary objects.
+    //
+    optional BaseStationary base_rmse = 3;
+
+    // A list of candidates for this stationary object as estimated by the
+    // sensor.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CandidateStationaryObject candidate = 4;
+
+    //
+    // \brief A candidate for a detected stationary object as estimated
+    // by the sensor.
+    //
+    message CandidateStationaryObject
+    {
+        // The estimated probability that this candidate is the true value.
+        //
+        // \note The sum of all \c #probability must be one. This probability is
+        // given under the condition of
+        // \c #DetectedItemHeader.existence_probability.
+        //
+        // Range: [0,1]
+        //
+        optional double probability = 1;
+
+        // The description of the stationary object (e.g. landmark).
+        //
+        optional StationaryObject.StationaryObjectClassification classification = 2;
+    }
+}
+
+//
 // \brief Moving object in the environment as detected and perceived by
 // the sensor.
 //
@@ -98,12 +146,17 @@ message DetectedMovingObject
     //
     optional DetectedItemHeader header = 1;
 
-    // A list of candidates for this moving object as estimated by the
-    // sensor (e.g. pedestrian, car).
+    // The base parameters of the moving object.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
+    // \note The bounding box does NOT includes mirrors for vehicles.
     //
-    repeated CandidateMovingObject candidate = 2;
+    optional BaseMoving base = 2;
+
+    // The root mean squared error of the base parameters of the detected
+    // moving object (e.g. car). \c MovingObject::base has to be
+    // identical for all \c #candidate moving objects.
+    //
+    optional BaseMoving base_rmse = 3;
 
     // Reference point location specification of the sensor measurement
     // (required to decouple sensor measurement, position and bounding box
@@ -113,13 +166,7 @@ message DetectedMovingObject
     // object.position, which always references the center of the object /
     // bounding box.
     //
-    optional ReferencePoint reference_point = 3;
-
-    // The root mean squared error of the base parameters of the detected
-    // moving object (e.g. car). \c MovingObject::base has to be
-    // identical for all \c #candidate moving objects.
-    //
-    optional BaseStationary base_rmse = 4;
+    optional ReferencePoint reference_point = 4;
 
     // Actual movement state w.r.t. the moving object history.
     //
@@ -136,6 +183,13 @@ message DetectedMovingObject
     // Percentage value of the object width in the corresponding lane.
     //
     optional double percentage_side_lane_right = 7;
+    
+    // A list of candidates for this moving object as estimated by the
+    // sensor (e.g. pedestrian, car).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CandidateMovingObject candidate = 8;
 
     // Additional data that is specific to radar sensors.
     //
@@ -165,15 +219,6 @@ message DetectedMovingObject
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
 
-    // Additional internal data and state flags required and used by the
-    // sensor-models, should not be used by subscribers to \c SensorData.
-    // Generally this field should be cleared after internal processing.
-    //
-    // \note optional. List of used detections to recognize this object.
-    // Detections have also an identifier to reference to the detected object.
-    //
-    optional ModelInternalObject model_internal_object = 1000;
-
     //
     // \brief A candidate for a detected moving object as estimated by the
     // sensor.
@@ -192,7 +237,15 @@ message DetectedMovingObject
 
         // The description of the moving object (e.g. car).
         //
-        optional MovingObject moving_object = 2;
+        optional MovingObject.Type type = 2;
+        
+        // Specific information about the classification of the vehicle.
+        //
+        //
+        // \note This field is mandatory if the \c CandidateMovingObject.type is
+        // #TYPE_VEHICLE .
+        //
+        optional MovingObject.VehicleClassification vehicle_classification = 3;
 
         // Pedestrian head pose for behavior prediction. Describes the head
         // orientation w.r.t. the host vehicle orientation.
@@ -202,10 +255,13 @@ message DetectedMovingObject
         //
         // <tt>View_normal_base_coord_system = Inverse_Rotation(#head_pose)*Unit_vector_x</tt>
         //
+        // \note This field is mandatory if the \c CandidateMovingObject.type is
+        // #TYPE_PEDESTRIAN
+        //
         // \par References:
         // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
         //
-        optional Orientation3d head_pose = 3;
+        optional Orientation3d head_pose = 4;
 
         // Pedestrian upper body pose for behavior prediction. Describes the
         // upper body orientation w.r.t. the host vehicle orientation.
@@ -216,10 +272,13 @@ message DetectedMovingObject
         //
         // <tt>View_normal_base_coord_system = Inverse_Rotation(#upper_body_pose)*Unit_vector_x</tt>
         //
+        // \note This field is mandatory if the \c CandidateMovingObject.type is
+        // #TYPE_PEDESTRIAN
+        //
         // \par References:
         // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
         //
-        optional Orientation3d upper_body_pose = 4;
+        optional Orientation3d upper_body_pose = 5;
     }
 
     // Definition of available reference points. Left/middle/right and
@@ -304,50 +363,5 @@ message DetectedMovingObject
         // currently not moving.
         //
         MOVEMENT_STATE_STOPPED = 4;
-    }
-}
-
-//
-// \brief A stationary object (e.g. landmark) in the environment as detected by
-// the sensor.
-//
-message DetectedStationaryObject
-{
-    // Common information of one detected item.
-    //
-    optional DetectedItemHeader header = 1;
-
-    // A list of candidates for this stationary object as estimated by the
-    // sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated CandidateStationaryObject candidate = 2;
-
-    // The root mean squared error of the base parameters of the detected
-    // stationary object (e.g. landmark). \c StationaryObject::base has to be
-    // identical for all \c #candidate stationary objects.
-    //
-    optional BaseStationary base_rmse = 3;
-
-    //
-    // \brief A candidate for a detected stationary object as estimated
-    // by the sensor.
-    //
-    message CandidateStationaryObject
-    {
-        // The estimated probability that this candidate is the true value.
-        //
-        // \note The sum of all \c #probability must be one. This probability is
-        // given under the condition of
-        // \c #DetectedItemHeader.existence_probability.
-        //
-        // Range: [0,1]
-        //
-        optional double probability = 1;
-
-        // The description of the stationary object (e.g. landmark).
-        //
-        optional StationaryObject stationary_object = 2;
     }
 }

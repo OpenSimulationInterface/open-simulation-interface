@@ -61,7 +61,6 @@ set(OSI_PROTO_FILES
     osi_landmark.proto
     osi_lane.proto
     osi_featuredata.proto
-    osi_modelinternal.proto
     osi_object.proto
     osi_occupant.proto
     osi_sensordata.proto
