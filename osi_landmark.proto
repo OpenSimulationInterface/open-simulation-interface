@@ -1370,7 +1370,7 @@ message RoadMarking
     // \note Field need not be set (or set to \c #TYPE_OTHER)
     // if road marking type (\c #type) does not require it.
     //
-    optional TrafficSign.MainSign.Type traffic_sign_type = 4;
+    optional TrafficSign.MainSign.Type traffic_main_sign_type = 4;
 
     // The monochrome color of the road marking.
     // \note Field need not be set (or set to \c #COLOR_OTHER)

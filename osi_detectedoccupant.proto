@@ -16,44 +16,34 @@ message DetectedOccupant
     //
     optional DetectedItemHeader header = 1;
 
-    // The occupant as detected by the sensor.
+    // A list of candidates for this occupant as estimated by the
+    // sensor.
     //
-    optional EstimatedOccupant occupant = 2;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CandidateOccupant candidate = 2;
 
     //
-    // \brief Candidates for a detected occupant as estimated by the sensor.
+    // \brief A candidate for a detected occupant as estimated by
+    // the sensor.
     //
-    message EstimatedOccupant
+    message CandidateOccupant
     {
-        // A list of candidates for this occupant as estimated by the
-        // sensor.
+        // The estimated probability that this candidate is the true value.
+        // 
+        // \note The sum of all \c #probability must be one. This probability is
+        // given under the condition of
+        // \c #DetectedItemHeader.existence_probability.
         //
-        // \note OSI uses singular instead of plural for repeated field names.
+        // Range: [0,1]
         //
-        repeated CandidateOccupant candidate = 1;
+        optional double probability = 1;
 
+        // The detected vehicle occupant.
         //
-        // \brief A candidate for a detected occupant as estimated by
-        // the sensor.
+        // \note IDs, which are referenced in this message, usually
+        // reference to \c DetectedXXX::tracking_id IDs.
         //
-        message CandidateOccupant
-        {
-            // The estimated probability that this candidate is the true value.
-            // 
-            // \note The sum of all \c #probability must be one. This probability is
-            // given under the condition of
-            // \c #DetectedItemHeader.existence_probability.
-            //
-            // Range: [0,1]
-            //
-            optional double probability = 1;
-
-            // The detected vehicle occupant.
-            //
-            // \note IDs, which are referenced in this message, usually
-            // reference to \c DetectedXXX::tracking_id IDs.
-            //
-            optional Occupant occupant = 2;
-        }
+        optional Occupant occupant = 2;
     }
 }
