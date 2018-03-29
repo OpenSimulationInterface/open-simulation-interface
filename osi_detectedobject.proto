@@ -35,6 +35,16 @@ message DetectedItemHeader
     // Range: [0,1]
     //
     optional double existence_probability = 3;
+    
+    // The amount of time that this detected object has been continously
+    // observed/tracked.
+    //
+    // \note: 'Time stamp' - Age := 'point in time' when the object has
+    // been observed for the first time.
+    //
+    // Unit: [s]
+    //
+    optional double age = 4;
 
     // A list of sensors which detected this detected item.
     //
@@ -48,7 +58,7 @@ message DetectedItemHeader
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Identifier sensor_id = 4;
+    repeated Identifier sensor_id = 5;
 }
 
 //
@@ -63,13 +73,6 @@ message DetectedCandidateItemHeader
     // Range: [0,1]
     //
     optional double probability = 1;
-
-    // The amount of time that this detected object has been currently
-    // observed/tracked.
-    //
-    // Unit: [s]
-    //
-    optional double age = 2;
 
     // The measurement state.
     //
