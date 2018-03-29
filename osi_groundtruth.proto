@@ -5,7 +5,9 @@ option optimize_for = SPEED;
 import "osi_version.proto";
 import "osi_common.proto";
 import "osi_environment.proto";
-import "osi_landmark.proto";
+import "osi_trafficsign.proto";
+import "osi_trafficlight.proto";
+import "osi_roadmarking.proto";
 import "osi_lane.proto";
 import "osi_object.proto";
 import "osi_occupant.proto";
@@ -56,11 +58,11 @@ message GroundTruth
     //
     optional Timestamp timestamp = 2;
 
-    // The list of all other moving objects including all (host) vehicles.
+    // The ID of the host vehicle object referencing to \c MovingObject .
     //
-    // \note OSI uses singular instead of plural for repeated field names.
+    // \note This ID has to be filled and is not optional!
     //
-    repeated MovingObject moving_object = 3;
+    optional Identifier host_vehicle_id = 3;
 
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
@@ -69,30 +71,30 @@ message GroundTruth
     //
     repeated StationaryObject stationary_object = 4;
 
+    // The list of all other moving objects including all (host) vehicles.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated MovingObject moving_object = 5;
+
     // The list of traffic signs.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated TrafficSign traffic_sign = 5;
+    repeated TrafficSign traffic_sign = 6;
 
     // The list of traffic lights.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated TrafficLight traffic_light = 6;
+    repeated TrafficLight traffic_light = 7;
 
     // The list of road surface markings (lane markings are excluded and
     // defined as \c LaneBoundary).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated RoadMarking road_marking = 7;
-
-    // The list of lanes forming a road network.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    repeated Lane lane = 8;
+    repeated RoadMarking road_marking = 8;
 
     // The list of lane boundaries.
     //
@@ -100,15 +102,21 @@ message GroundTruth
     //
     repeated LaneBoundary lane_boundary = 9;
 
+    // The list of lanes forming a road network.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Lane lane = 10;
+
     // The list of passengers in the (host) vehicle(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Occupant occupant = 10;
+    repeated Occupant occupant = 11;
 
     // Conditions of the environment.
     //
-    optional EnvironmentalConditions environmental_conditions = 11;
+    optional EnvironmentalConditions environmental_conditions = 12;
 
     // The ISO country code in 3 digit numeric format according to:
     // ISO Code 3166/1 [1,2].
@@ -120,5 +128,5 @@ message GroundTruth
     // \li [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions - Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/)
     // \li [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
     //
-    optional uint32 country_code = 12;
+    optional uint32 country_code = 13;
 }

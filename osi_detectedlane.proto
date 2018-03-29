@@ -92,6 +92,8 @@ message DetectedLaneBoundary
     // one \c #boundary_line_confidences confidence value is
     // specified.
     //
+    // Range: [0,1]
+    //
     repeated double boundary_line_confidences = 5;
 
     //
