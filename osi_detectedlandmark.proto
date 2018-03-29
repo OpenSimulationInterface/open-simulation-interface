@@ -65,12 +65,12 @@ message DetectedTrafficSign
             //
             optional double probability = 1;
 
-            // The definition of one main sign that defines this candidate.
+            // The classification of one main sign that defines this candidate.
             //
             // \note IDs, which are referenced in this message, usually
             // reference to \c DetectedXXX::tracking_id IDs.
             //
-            optional TrafficSign.MainSign main_sign = 2;
+            optional TrafficSign.MainSign.Classification classification = 2;
         }
 
         // Definition of traffic sign geometries.
@@ -171,13 +171,13 @@ message DetectedTrafficSign
             //
             optional double probability = 1;
 
-            // The definition of one of more supplementary signs that together
+            // The classification of one of more supplementary signs that together
             // define this candidate.
             //
             // \note IDs, which are referenced in this message, usually
             // reference to \c DetectedXXX::tracking_id IDs.
             //
-            optional TrafficSign.SupplementarySign supplementary_sign = 2;
+            optional TrafficSign.SupplementarySign.Classification classification = 2;
         }
     }
 }
@@ -220,12 +220,12 @@ message DetectedTrafficLight
         //
         optional double probability = 1;
 
-        // The definition of one traffic light that define this candidate.
+        // The classification of one traffic light that define this candidate.
         //
         // \note IDs, which are referenced in this message, usually
         // reference to \c DetectedXXX::tracking_id IDs.
         //
-        optional TrafficLight traffic_light = 2;
+        optional TrafficLight.Classification classification = 2;
     }
 }
 
@@ -267,11 +267,11 @@ message DetectedRoadMarking
         //
         optional double probability = 1;
 
-        // The description of the road marking.
+        // The classification of the road marking.
         //
         // \note IDs, which are referenced in this message, usually
         // reference to \c DetectedXXX::tracking_id IDs.
         //
-        optional RoadMarking road_marking = 2;
+        optional RoadMarking.Classification classification = 2;
     }
 }

@@ -23,30 +23,30 @@ message StationaryObject
     //
     optional BaseStationary base = 2;
 
-    // Specific information about the classification of the stationary object.
+    // The classification of the stationary object.
     //
-    optional StationaryObjectClassification classification = 6;
-    
+    optional Classification classification = 3;
+
     //
-    // \brief Information regarding the classification of stationary objects.
+    // \brief Classification data for a stationary object.
     //
-    message StationaryObjectClassification
+    message Classification
     {
         // The type of the object.
         //
-        optional Type type = 3;
+        optional Type type = 1;
 
         // The dominating material of the structure.
         //
-        optional Material material = 4;
+        optional Material material = 2;
 
         // The dominating density of the material of the structure.
         //
-        optional Density density = 5;
+        optional Density density = 3;
 
         // The dominating color of the material of the structure.
         //
-        optional Color color = 6;
+        optional Color color = 4;
 
         // Definition of object types.
         //
