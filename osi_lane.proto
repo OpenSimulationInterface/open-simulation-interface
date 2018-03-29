@@ -39,11 +39,18 @@ message Lane
     //
     // \brief Classification of a lane.
     //
-    message Classification {
+    message Classification
+    {
         // The type of the lane.
         // Example: \c #type = \c #TYPE_DRIVING (see reference picture)
         //
         optional Type type = 1;
+        
+        // Indicates that the host vehicle travels on this particular lane.
+        // The host vehicle may travel on more than one lane at once. This does
+        // also apply for the \c CanditateLane in the \c DetectedLane .
+        //
+        optional bool is_host_vehicle_lane = 2;
 
         // The lane's center line (as a list of segments).
         //
@@ -66,7 +73,7 @@ message Lane
         // \note The \c #centerline is defined only for \c #type =
         // \c #TYPE_DRIVING and one \c #lane_pairing pair.
         //
-        repeated Vector3d centerline = 2;
+        repeated Vector3d centerline = 3;
 
         // Definition of the intended driving direction.
         //
@@ -79,7 +86,7 @@ message Lane
         // \note The \c #centerline_is_driving_direction is defined for \c #type =
         // \c #TYPE_DRIVING .
         //
-        optional bool centerline_is_driving_direction = 3;
+        optional bool centerline_is_driving_direction = 4;
 
         // List of IDs of all lane segments that are directly adjacent to the lane
         // on the left side (w.r.t. intended driving direction). Note that lengths
@@ -94,7 +101,7 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier left_adjacent_lane_id = 4;
+        repeated Identifier left_adjacent_lane_id = 5;
 
         // List of IDs of all lane segments that are directly adjacent to the lane
         // on the right side (w.r.t. intended driving direction). Note that lengths
@@ -110,7 +117,7 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier right_adjacent_lane_id = 5;
+        repeated Identifier right_adjacent_lane_id = 6;
 
         // The antecessor/successor lane pairings of this lane. There can be
         // multiple pairings with the same antecessor and different successor lanes
@@ -121,7 +128,7 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated LanePairing lane_pairing = 6;
+        repeated LanePairing lane_pairing = 7;
 
         // The right adjacent lane boundaries \c #right_lane_boundary_id may only be
         // shared with/as the left adjacent lane boundaries
@@ -135,7 +142,7 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier right_lane_boundary_id = 7;
+        repeated Identifier right_lane_boundary_id = 8;
 
         // The left adjacent lane boundaries \c #left_lane_boundary_id may only be
         // shared with/as the right adjacent lane boundaries
@@ -149,7 +156,7 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier left_lane_boundary_id = 8;
+        repeated Identifier left_lane_boundary_id = 9;
 
         // The free boundaries which have no/unknown assignment to left/right.
         //
@@ -158,11 +165,11 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier free_lane_boundary_id = 9;
+        repeated Identifier free_lane_boundary_id = 10;
 
         // The condition of the lane, e.g. influenced by weather.
         //
-        optional RoadCondition road_condition = 10;
+        optional RoadCondition road_condition = 11;
 
         // Definition of available lane types.
         //
@@ -313,8 +320,8 @@ message LaneBoundary
     // of each dashed line segment. For Botts' dots lines, one
     // \c BoundaryPoint position has to define each Botts' dot.
     //
-    // \attention For \c BoundaryPoint the same rules regarding maximum
-    // distance and approximation error apply as for \c Lane::centerline.
+    // \attention For \c BoundaryPoint the same rule for the approximation
+    // error applies as for \c Lane::centerline.
     //
     repeated BoundaryPoint boundary_line = 2;
 
@@ -344,7 +351,7 @@ message LaneBoundary
         // \c BoundaryPoint .
         // Used for guard rails, curbstone, or similar.
         //
-        // \note Field need not be set if it is defined previous.
+        // \note Field need not be set if it is previously defined.
         // See \c LaneBoundary .
         //
         optional double height = 3;
@@ -353,7 +360,8 @@ message LaneBoundary
     //
     // \brief Classification data of a lane boundary.
     //
-    message Classification {
+    message Classification
+    {
         // The type of the lane boundary.
         //
         optional Type type = 1;

@@ -344,40 +344,37 @@ message MovingObject
     //
     message VehicleAttributes
     {
-        // Flag defining whether the vehicle is a simulated host vehicle: True for
-        // host vehicle(s), false for other vehicles.  See the description above!
-        optional bool host_vehicle = 1;
-
         // The ID of the driver of the (host) vehicle.
         //
         // \note Field need not be set if host_vehicle is set to false or use value
         // for non valid id.
-        optional Identifier driver_id = 2;
+        //
+        optional Identifier driver_id = 1;
 
         // Median radius of the wheels measured from a center of the wheel
         // including tire.
         //
         // Unit: [m]
         //
-        optional double radius_wheel = 3;
+        optional double radius_wheel = 2;
 
         // Number of independent wheels.
         //
         // Unit: []
         //
-        optional uint32 number_wheels = 4;
+        optional uint32 number_wheels = 3;
 
         // The vector pointing from the bounding box center point (base.position) to
         // the middle (in x, y and z) of the rear axle under neutral load
         // conditions. In object coordinates.
         //
-        optional Vector3d bbcenter_to_rear = 5;
+        optional Vector3d bbcenter_to_rear = 4;
 
         // The vector pointing from the bounding box center point (base.position) to
         // the middle (in x, y and z) of the front axle under neutral load
         // conditions. In object coordinates.
         //
-        optional Vector3d bbcenter_to_front = 6;
+        optional Vector3d bbcenter_to_front = 5;
 
         // Static minimal distance in [m] of under-body plane to ground
         // surface plane (i.e. disregarding driving dynamic effects or road
@@ -385,7 +382,7 @@ message MovingObject
         // approximate the clear area under a vehicle that a sensor can see
         // through.
         //
-        optional double ground_clearance = 7;
+        optional double ground_clearance = 6;
     }
 
     //
