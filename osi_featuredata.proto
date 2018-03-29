@@ -220,7 +220,6 @@ message LidarDetection
     // Basic classification of the detection.
     //
     optional DetectionClassification classification = 9;
-
 }
 
 //

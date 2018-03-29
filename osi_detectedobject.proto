@@ -36,7 +36,7 @@ message DetectedItemHeader
     //
     optional double existence_probability = 3;
     
-    // The amount of time that this detected object has been continously
+    // The amount of time that this detected object has been continuously
     // observed/tracked.
     //
     // \note: 'Time stamp' - Age := 'point in time' when the object has
@@ -63,29 +63,29 @@ message DetectedItemHeader
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Identifier sensor_id = 6;
-}
-
-// Definition of measurement states.
-//
-enum MeasurementState
-{
-    // Measurement state is unknown (must not be used in ground truth).
+    
+    // Definition of measurement states.
     //
-    MEASUREMENT_STATE_UNKNOWN = 0;
+    enum MeasurementState
+    {
+        // Measurement state is unknown (must not be used in ground truth).
+        //
+        MEASUREMENT_STATE_UNKNOWN = 0;
 
-    // Measurement state is unspecified (but known, i.e. value is not part of
-    // this enum list).
-    //
-    MEASUREMENT_STATE_OTHER = 1;
+        // Measurement state is unspecified (but known, i.e. value is not part of
+        // this enum list).
+        //
+        MEASUREMENT_STATE_OTHER = 1;
 
-    // Entity has been measured by the sensor in the current timestep.
-    //
-    MEASUREMENT_STATE_MEASURED = 2;
+        // Entity has been measured by the sensor in the current timestep.
+        //
+        MEASUREMENT_STATE_MEASURED = 2;
 
-    // Entity has not been measured by the sensor in the current timestep.
-    // Values provided by tracking only.
-    //
-    MEASUREMENT_STATE_PREDICTED = 3;
+        // Entity has not been measured by the sensor in the current timestep.
+        // Values provided by tracking only.
+        //
+        MEASUREMENT_STATE_PREDICTED = 3;
+    }
 }
 
 //
@@ -104,15 +104,16 @@ message DetectedMovingObject
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateMovingObject candidate = 2;
-
-    // Additional internal data and state flags required and used by the
-    // sensor-models, should not be used by subscribers to \c SensorData.
-    // Generally this field should be cleared after internal processing.
+    
+    // Reference point location specification of the sensor measurement
+    // (required to decouple sensor measurement, position and bounding box
+    // estimation) as used by the sensor (model).
     //
-    // \note optional. List of used detections to recognize this object.
-    // Detections have also an identifier to reference to the detected object.
+    // \note Note that the value of this field has no impact on the value of
+    // object.position, which always references the center of the object /
+    // bounding box.
     //
-    optional ModelInternalObject model_internal_object = 3;
+    optional ReferencePoint reference_point = 3;
 
     // The root mean squared error of the base parameters of the detected
     // moving object (e.g. car). \c MovingObject::base has to be
@@ -141,28 +142,37 @@ message DetectedMovingObject
     // \note Field need not be set if simulated sensor is not a radar
     // sensor.
     //
-    optional RadarSpecificObjectData radar_specifics = 8;
+    optional RadarSpecificObjectData radar_specifics = 100;
 
     // Additional data that is specific to lidar sensors.
     //
     // \note Field need not be set if simulated sensor is not a lidar
     // sensor.
     //
-    optional LidarSpecificObjectData lidar_specifics = 9;
+    optional LidarSpecificObjectData lidar_specifics = 101;
 
     // Additional data that is specific to camera sensors.
     //
     // \note Field need not be set if simulated sensor is not a camera
     // sensor.
     //
-    optional CameraSpecificObjectData camera_specifics = 10;
+    optional CameraSpecificObjectData camera_specifics = 102;
 
     // Additional data that is specific to ultrasonic sensors.
     //
     // \note Field need not be set if simulated sensor is not an ultrasonic
     // sensor.
     //
-    optional UltrasonicSpecificObjectData ultrasonic_specifics = 11;
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
+    
+    // Additional internal data and state flags required and used by the
+    // sensor-models, should not be used by subscribers to \c SensorData.
+    // Generally this field should be cleared after internal processing.
+    //
+    // \note optional. List of used detections to recognize this object.
+    // Detections have also an identifier to reference to the detected object.
+    //
+    optional ModelInternalObject model_internal_object = 1000;
 
     //
     // \brief A candidate for a detected moving object as estimated by the
@@ -184,16 +194,6 @@ message DetectedMovingObject
         //
         optional MovingObject moving_object = 2;
 
-        // Reference point location specification of the sensor measurement
-        // (required to decouple sensor measurement, position and bounding box
-        // estimation) as used by the sensor (model).
-        //
-        // \note Note that the value of this field has no impact on the value of
-        // object.position, which always references the center of the object /
-        // bounding box.
-        //
-        optional ReferencePoint reference_point = 3;
-
         // Pedestrian head pose for behavior prediction. Describes the head
         // orientation w.r.t. the host vehicle orientation.
         // The x-axis of the right-handed head frame is pointing along the
@@ -205,7 +205,7 @@ message DetectedMovingObject
         // \par References:
         // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
         //
-        optional Orientation3d head_pose = 4;
+        optional Orientation3d head_pose = 3;
 
         // Pedestrian upper body pose for behavior prediction. Describes the
         // upper body orientation w.r.t. the host vehicle orientation.
@@ -219,7 +219,7 @@ message DetectedMovingObject
         // \par References:
         // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
         //
-        optional Orientation3d upper_body_pose = 5;
+        optional Orientation3d upper_body_pose = 4;
     }
 
     // Definition of available reference points. Left/middle/right and

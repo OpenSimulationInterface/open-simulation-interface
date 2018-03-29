@@ -8,10 +8,10 @@ package osi3;
 
 //
 // \brief A simulated object that is neither a moving object (vehicle or
-// \c MovingObject e.g. pedestrian or animal) nor a stationary object
-// (traffic sign, traffic light).
+// \c MovingObject e.g. pedestrian, animal, or vehicle) nor a traffic related
+// object (\c TrafficLight, \c TrafficSign).
 //
-// \c StationaryObject excludes traffic lights and traffic signs
+// \c StationaryObject excludes traffic lights, traffic signs and road marking
 //
 message StationaryObject
 {
@@ -47,7 +47,7 @@ message StationaryObject
         //
         TYPE_BUILDING = 3;
 
-        // Object is a pole (e.g. traffic light).
+        // Object is a pole (e.g. from a traffic light).
         //
         TYPE_POLE = 4;
 
@@ -55,68 +55,64 @@ message StationaryObject
         //
         TYPE_PYLON = 5;
 
-        // Object is a reflector post.
-        //
-        TYPE_REFLECTOR_POST = 6;
-
         // Object is a delineator (e.g. at a construction site).
         //
-        TYPE_DELINEATOR = 7;
+        TYPE_DELINEATOR = 6;
 
         // Object is a tree.
         //
-        TYPE_TREE = 8;
+        TYPE_TREE = 7;
 
         // Object is a barrier.
         //
-        TYPE_BARRIER = 9;
+        TYPE_BARRIER = 8;
 
         // Object is vegetation.
         //
-        TYPE_VEGETATION = 10;
+        TYPE_VEGETATION = 9;
 
         // Object is a curbstone.
         //
-        TYPE_CURBSTONE = 11;
+        TYPE_CURBSTONE = 10;
 
         // Object is a wall.
         //
-        TYPE_WALL = 12;
+        TYPE_WALL = 11;
 
-        // Landmarks corresponding to vertical structures in the environment,
-        // like poles.
+        // Landmarks corresponding to vertical structures in the environment.
         //
-        TYPE_VERTICAL_STRUCTURE = 13;
+        TYPE_VERTICAL_STRUCTURE = 12;
 
         // Landmarks corresponding to rectangular structures in the environment,
         // like walls.
         //
-        TYPE_RECTANGULAR_STRUCTURE = 14;
+        TYPE_RECTANGULAR_STRUCTURE = 13;
 
         // Landmarks corresponding to overhead structures in the environment,
         // like sign bridges.
         //
-        TYPE_OVERHEAD_STRUCTURE = 15;
+        TYPE_OVERHEAD_STRUCTURE = 14;
 
         // Landmarks corresponding to light sources or reflective structures in
         // the environment, like street lights or reflective poles on the road
         // boarder.
         //
-        TYPE_REFLECTIVE_STRUCTURE = 16;
+        TYPE_REFLECTIVE_STRUCTURE = 15;
 
         // Landmarks corresponding to construction site elements in the
         // environment, like cones or beacons.
         //
-        TYPE_CONSTRUCTION_SITE_ELEMENT = 17;
+        TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
     }
 }
 
 //
 // \brief A simulated object that is either a vehicle or another
 // moving object (animal, pedestrian, etc), but not a stationary
-// object (traffic sign, traffic light, \c StationaryObject).
+// object (\c TrafficLight, \c TrafficSign, or \c StationaryObject).
 //
-// \note If the \c MovingObject.Type is a vehicle.
+// \note The field \c MovingObject.vehicle_extension has to be
+// filled if the \c MovingObject.Type is a vehicle.
 //
 message MovingObject
 {
@@ -145,7 +141,7 @@ message MovingObject
 
     // Specific information about the vehicle.
     //
-    // \note This field is mandatory if the type is
+    // \note This field is mandatory if the \c MovingObject.type is
     // \c #TYPE_VEHICLE .
     //
     optional Vehicle vehicle_extension = 5;
@@ -161,18 +157,18 @@ message MovingObject
         // Other (unspecified but known) type of moving object.
         //
         TYPE_OTHER = 1;
+        
+        // Object is a vehicle.
+        //
+        TYPE_VEHICLE = 2;
 
         // Object is a pedestrian.
         //
-        TYPE_PEDESTRIAN = 2;
+        TYPE_PEDESTRIAN = 3;
 
         // Object is an animal.
         //
-        TYPE_ANIMAL = 3;
-
-        // Object is a vehicle.
-        //
-        TYPE_VEHICLE = 4;
+        TYPE_ANIMAL = 4;    
     }
 
     //
@@ -277,18 +273,18 @@ message MovingObject
             // Definition: Hatchback car with maximum length 4 m.
             //
             TYPE_SMALL_CAR = 2;
+            
+            // Vehicle is a compact car.
+            //
+            // Definition: Hatchback car with length between 4 and 4.5 m.
+            //
+            TYPE_COMPACT_CAR = 3;
 
             // Vehicle is a medium car.
             //
             // Definition: Hatchback or sedan with lenght between 4.5 and 5 m.
             //
-            TYPE_MEDIUM_CAR = 3;
-
-            // Vehicle is a compact car.
-            //
-            // Definition: Hatchback car with length between 4 and 4.5 m.
-            //
-            TYPE_COMPACT_CAR = 4;
+            TYPE_MEDIUM_CAR = 4;
 
             // Vehicle is a luxury  car.
             //
