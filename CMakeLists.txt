@@ -19,7 +19,7 @@ endif()
 
 # Offer the user the choice of overriding the installation directories
 set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
-set(INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
+set(INSTALL_INCLUDE_DIR include/osi CACHE PATH "Installation directory for header files")
 
 if(WIN32 AND NOT CYGWIN)
   set(DEF_INSTALL_CMAKE_DIR CMake)
@@ -67,10 +67,12 @@ set(OSI_PROTO_FILES
     osi_featuredata.proto
     osi_object.proto
     osi_occupant.proto
+    osi_road.proto
     osi_sensordata.proto
     osi_sensorviewconfiguration.proto
     osi_sensorspecific.proto
     osi_sensorview.proto
+    osi_worldinterface.proto
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
@@ -80,7 +82,7 @@ target_include_directories(${PROJECT_NAME}_static
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+#        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
 )
 target_link_libraries(${PROJECT_NAME}_static PUBLIC ${PROTOBUF_LIBRARY})
 install(TARGETS ${PROJECT_NAME}_static
@@ -93,7 +95,7 @@ target_include_directories(${PROJECT_NAME}_obj
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+#        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
 )
 set_property(TARGET ${PROJECT_NAME}_obj PROPERTY POSITION_INDEPENDENT_CODE ON)
 
@@ -103,7 +105,7 @@ target_include_directories(${PROJECT_NAME}_pic
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+#        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
 )
 target_link_libraries(${PROJECT_NAME}_pic PUBLIC ${PROTOBUF_LIBRARY})
 set_property(TARGET ${PROJECT_NAME}_pic PROPERTY POSITION_INDEPENDENT_CODE ON)
@@ -116,7 +118,7 @@ target_include_directories(${PROJECT_NAME}
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+#        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
 install(TARGETS ${PROJECT_NAME}
@@ -130,7 +132,7 @@ set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
 configure_file(open_simulation_interface-config.cmake.in
                "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config.cmake" @ONLY)
 # ... for the install tree
-set(CONF_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${INSTALL_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIR})
+set(CONF_INCLUDE_DIRS ${PROTOBUF_INCLUDE_DIR})
 configure_file(open_simulation_interface-config.cmake.in
                "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/open_simulation_interface-config.cmake" @ONLY)
 # ... for both
@@ -141,7 +143,7 @@ configure_file(open_simulation_interface-config-version.cmake.in
 install(FILES
         "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/open_simulation_interface-config.cmake"
         "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake"
-        DESTINATION "${INSTALL_CMAKE_DIR}"
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/${INSTALL_CMAKE_DIR}"
         COMPONENT dev)
 
 # Header files

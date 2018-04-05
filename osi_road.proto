@@ -1,0 +1,305 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_lane.proto";
+
+package osi3.world;
+
+//
+// \brief A road in the road network.
+//
+// A road can connect to other roads either directly or via an \c Intersection. It can contain one or more \c Sections, which in
+// turn contain the \c Lanes.
+message Road
+{
+    // The id of the road.
+    //
+    optional Identifier id = 1;
+
+    // The type of the lane.
+    // Example: Road::Type::HIGHWAY
+    optional Type type = 2;
+
+    // Link to antecessor road or intersection.
+    // The terms of antecessor, successor, start and end of road are arbitrary in the scope of the road network
+    // and have no implications on the intended driving direction.
+    optional RoadLink antecessor_road = 3;
+
+    // Link to successor road or intersection.
+    // The terms of antecessor, successor, start and end of road are arbitrary in the scope of the road network
+    // and have no implications on the intended driving direction.
+    optional RoadLink successor_road = 4;
+
+    // Framing describing the surrounding of the road.
+    //
+    optional RoadFraming framing = 5;
+
+    // Sections inside this road.
+    //
+    repeated RoadSection section = 6;
+
+    // Definition of available lane types.
+    //
+    enum Type
+    {
+        // Road of unknown type (must not be used in ground truth).
+        //
+        TYPE_UNKNOWN = 0;
+
+        // Rural road
+        //
+        TYPE_RURAL = 1;
+
+        // A highway.
+        //
+        TYPE_HIGHWAY = 2;
+
+        // A road within town or city boundaries.
+        //
+        TYPE_TOWN = 3;
+
+        // A low speed zone (i. e. 30 km/h zone in Germany).
+        //
+        TYPE_LOWSPEED = 4;
+
+        // Pedestrian walkway.
+        //
+        TYPE_PEDESTRIAN = 5;
+
+        // A bikeway.
+        //
+        TYPE_BIKEWAY = 6;
+    }
+
+    // Definition of available road framing types.
+    //
+    enum RoadFraming
+    {
+        // Road of unknown framing (must not be used in ground truth).
+        //
+        ROAD_FRAMING_UNKNOWN = 0;
+
+        // Other (unspecified but known) road framing.
+        //
+        ROAD_FRAMING_OTHER = 1;
+
+        // The road is not framed.
+        //
+        ROAD_FRAMING_OPEN = 2;
+
+        // The road is inside of a tunnel.
+        //
+        ROAD_FRAMING_TUNNEL = 3;
+
+        // The road is on a bridge.
+        //
+        ROAD_FRAMING_BRIDGE = 4;
+    }
+}
+
+// \brief A link to antecessor/successor road or intersection.
+//
+message RoadLink
+{
+    // The Id of the target road or intersection.
+    // \note Only one of \c road_id and \c intersection_id must be set to a
+    // valid value. The other one has to be -1 (invalid Identifier).
+    //
+    optional Identifier road_id = 1;
+
+    // The successor lane.
+    // \note Only one of \c road_id and \c intersection_id must be set to a
+    // valid value. The other one has to be -1 (invalid Identifier).
+    //
+    optional Identifier intersection_id = 2;
+}
+
+//
+// \brief One node of a lane geometry.
+//
+// A geometry joint is described by a reference point as well as left and right
+// boundary points. A series of \c LaneGeometryJoints forms a reference line for
+// the lane along \c LaneGeometryJoint::reference. All three location elements
+// (\c reference, \c left and \c right) have to be aligned on a line
+// perpendicular to the reference line at the \c reference point.
+message LaneGeometryJoint
+{
+    // The reference point of the node.
+    //
+    optional Vector2d reference = 1;
+
+    // The left point of the node.
+    //
+    optional Vector2d left = 2;
+
+    // The right point of the node.
+    //
+    optional Vector2d right = 3;
+
+    // The s-component of the unit vector at the lane reference line.
+    //
+    optional Vector2d s_axis = 4;
+
+    // The t-component of the unit vector at the lane reference line.
+    //
+    optional Vector2d t_axis = 5;
+
+    // s-coordinate offset from start of road.
+    //
+    optional double s_offset = 6;
+
+    // The heading of the lane reference line (global, 0.0 is east).
+    //
+    optional double heading = 7;
+
+    // The curvature of the lane reference line at this joint.
+    //
+    optional double curvature = 8;
+}
+
+//
+// \brief A section of a \c Road.
+//
+// A section is a segment of a \c Road, where the number of \c Lanes is
+// constant along the road's s-coordinate. A section starts at a given
+// s-coordinate and contains one or more \c Lanes.
+//
+message RoadSection
+{
+    // The id of the section.
+    //
+    optional Identifier id = 1;
+
+    // The starting s-coordinate.
+    //
+    optional double s_offset = 2;
+
+    // The length of this section.
+    // \todo Specify how the length is measured. May require a road reference
+    // line in addition to lane reference lines.
+    //
+    optional double length = 3;
+
+    // Link to the antecessor section. This can cross \c RoadSection borders.
+    //
+    optional Identifier antecessor_section = 4;
+
+    // Link to the successor section. This can cross \c RoadSection borders.
+    //
+    optional Identifier successor_section = 5;
+
+    // \c Lanes in this section.
+    //
+    repeated RoadLane lane = 6;
+}
+
+//
+// \brief An intersection connecting \c Roads.
+//
+// Intersections provide the ability to connect more than two \c Roads (two
+// \c Roads can also be directly connected).
+//
+message Intersection
+{
+    // The id of the intersection.
+    //
+    optional Identifier id = 1;
+
+    // Lanes inside the intersection.
+    //
+    repeated IntersectionLane lanes = 2;
+}
+
+//
+// \brief Connection lanes inside an \c Intersection
+//
+// Inside of intersections there are \c IntersectionLanes which connect
+// incoming and outgoing \c Lanes of the connected \c Roads.
+// \c IntersectionLanes are allowed to overlap.
+//
+message IntersectionLane
+{
+    // Base properties of the intersection lane.
+    //
+    optional Lane base_lane = 1;
+
+    // Connection to incoming \c RoadLane.
+    //
+    optional Identifier incoming_lane = 2;
+
+    // Connection to outgoing \c RoadLane.
+    //
+    optional Identifier outgoing_lane = 3;
+}
+
+
+//
+// \brief A lane inside a road.
+//
+// A \c RoadLane is part of a \c RoadSection. Its geometry is specified by a series of
+// \c LaneGeometryJoints.
+//
+message RoadLane
+{
+    // The id of the \c RoadLane.
+    //
+    optional Identifier id = 1;
+
+    // Base properties of the lane.
+    //
+    optional Lane base_lane = 2;
+
+    // The lane's geometry information.
+    //
+    repeated LaneGeometryJoint geometry = 3;
+
+    // Definition of the intended driving direction.
+    //
+    // \c false means driving direction is corresponding to the order of \c LaneGeometryJoint::center points.
+    // \c true means driving direction is corresponding to the reverse order of \c LaneGeometryJoint::center points.
+    //
+    optional bool reverse_direction = 4;
+
+    // The length of the lane. Measured along the reference line.
+    //
+    optional double length = 5;
+
+    // Left adjacent lane (w.r.t. intended driving direction). Note that \c Lanes
+    // begin and end at \c RoadSection boundaries and therefore there are exactly
+    // zero or one left adjacent lanes.
+    //
+    optional Identifier left_adjacent_lane_id = 6;
+
+    // Right adjacent lane (w.r.t. intended driving direction). Note that \c Lanes
+    // begin and end at \c RoadSection boundaries and therefore there are exactly
+    // zero or one right adjacent lanes.
+    //
+    optional Identifier right_adjacent_lane_id = 7;
+
+    // The antecessor/successor lane pairings of this lane. There can be multiple
+    // pairings with the same antecessor and different successor lanes and vice versa.
+    // The antecessor lanes end in the same point that this lane starts from.
+    // The successor lanes start in the same point that this lane ends in.
+    // The first entry of this field shall represent the path for keeping a lane
+    // from a driver's point of view.
+    //
+    // \todo provide different reference lines for each pairing?
+    //
+    repeated RoadLanePairing lane_pairing = 8;
+}
+
+// \brief The lane id pairings of antecessor and successor lanes.
+//
+message RoadLanePairing
+{
+    // The antecessor lane.
+    //
+    optional Identifier antecessor_lane_id = 1;
+
+    // The successor lane.
+    //
+    optional Identifier successor_lane_id = 2;
+}
+
