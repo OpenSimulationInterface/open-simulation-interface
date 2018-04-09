@@ -8,6 +8,17 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
   set(default_build_type "Debug")
 endif()
 
+# read the version number from the file "VERSION"
+file(STRINGS "VERSION" VERSION_CONTENTS)
+foreach(LINE ${VERSION_CONTENTS})
+  string(REGEX REPLACE " |\t" "" LINE ${LINE})
+  string(REGEX MATCH "^[^=]+" VERSION_NAME ${LINE})
+  string(REPLACE "${VERSION_NAME}=" "" VERSION_VALUE ${LINE})
+  set(${VERSION_NAME} "${VERSION_VALUE}")
+endforeach()
+set(OPEN_SIMULATION_INTERFACE_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
+
+# configure build version
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "Setting build type to '${default_build_type}' as none was specified.")
   set(CMAKE_BUILD_TYPE "${default_build_type}" CACHE
@@ -22,22 +33,12 @@ set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
 set(INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
 
 if(WIN32 AND NOT CYGWIN)
-  set(DEF_INSTALL_CMAKE_DIR CMake)
+  set(DEF_INSTALL_CMAKE_DIR CMake/${PROJECT_NAME}-${VERSION_MAJOR})
 else()
-  set(DEF_INSTALL_CMAKE_DIR lib/cmake/${PROJECT_NAME})
+  set(DEF_INSTALL_CMAKE_DIR lib/cmake/${PROJECT_NAME}-${VERSION_MAJOR})
 endif()
 set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH 
     "Installation directory for CMake files")
-
-# read the version number from the file "VERSION" 
-file(STRINGS "VERSION" VERSION_CONTENTS)
-foreach(LINE ${VERSION_CONTENTS})
-  string(REGEX REPLACE " |\t" "" LINE ${LINE})
-  string(REGEX MATCH "^[^=]+" VERSION_NAME ${LINE})
-  string(REPLACE "${VERSION_NAME}=" "" VERSION_VALUE ${LINE})
-  set(${VERSION_NAME} "${VERSION_VALUE}")
-endforeach()
-set(OPEN_SIMULATION_INTERFACE_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
 set(INSTALL_LIB_DIR ${INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
 set(INSTALL_INCLUDE_DIR ${INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
