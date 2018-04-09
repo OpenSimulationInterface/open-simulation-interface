@@ -8,27 +8,6 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
   set(default_build_type "Debug")
 endif()
 
-if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-  message(STATUS "Setting build type to '${default_build_type}' as none was specified.")
-  set(CMAKE_BUILD_TYPE "${default_build_type}" CACHE
-      STRING "Choose the type of build." FORCE)
-  # Set the possible values of build type for cmake-gui
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
-    "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
-endif()
-
-# Offer the user the choice of overriding the installation directories
-set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
-set(INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
-
-if(WIN32 AND NOT CYGWIN)
-  set(DEF_INSTALL_CMAKE_DIR CMake)
-else()
-  set(DEF_INSTALL_CMAKE_DIR lib/cmake/${PROJECT_NAME})
-endif()
-set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH
-    "Installation directory for CMake files")
-
 # read the version number from the file "VERSION"
 file(STRINGS "VERSION" VERSION_CONTENTS)
 foreach(LINE ${VERSION_CONTENTS})
@@ -38,6 +17,28 @@ foreach(LINE ${VERSION_CONTENTS})
   set(${VERSION_NAME} "${VERSION_VALUE}")
 endforeach()
 set(OPEN_SIMULATION_INTERFACE_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
+
+# configure build version
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  message(STATUS "Setting build type to '${default_build_type}' as none was specified.")
+  set(CMAKE_BUILD_TYPE "${default_build_type}" CACHE
+      STRING "Choose the type of build." FORCE)
+  # Set the possible values of build type for cmake-gui
+  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
+               "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+endif()
+
+# Offer the user the choice of overriding the installation directories
+set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
+set(INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
+
+if(WIN32 AND NOT CYGWIN)
+  set(DEF_INSTALL_CMAKE_DIR CMake/${PROJECT_NAME}-${VERSION_MAJOR})
+else()
+  set(DEF_INSTALL_CMAKE_DIR lib/cmake/${PROJECT_NAME}-${VERSION_MAJOR})
+endif()
+set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH
+    "Installation directory for CMake files")
 
 set(INSTALL_LIB_DIR ${INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
 set(INSTALL_INCLUDE_DIR ${INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
