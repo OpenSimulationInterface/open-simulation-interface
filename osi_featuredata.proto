@@ -60,7 +60,7 @@ message SensorDetectionHeader
 
     // Mounting position of the sensor (origin and orientation of the sensor
     // frame). Both origin and orientation are given in and with respect to the
-    // host vehicle coordinate system (see: \c MovingObject.Vehicle vehicle
+    // host vehicle coordinate system (see: \c MovingObject::Vehicle vehicle
     // reference point) [1].
     //
     // The sensor frame's x-axis is pointing in the central viewing direction of

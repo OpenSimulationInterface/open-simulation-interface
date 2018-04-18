@@ -321,7 +321,7 @@ message LaneBoundary
     // \c BoundaryPoint position has to define each Botts' dot.
     //
     // \attention For \c BoundaryPoint the same rule for the approximation
-    // error applies as for \c Lane::centerline.
+    // error applies as for \c Lane::Classification::centerline.
     //
     repeated BoundaryPoint boundary_line = 2;
 
@@ -370,9 +370,9 @@ message LaneBoundary
         //
         optional Color color = 2;
 
-        // The ids of \c StationaryObjects which limit the corresponding lane.
-        // This field must be set if the \c LaneBoundary.type is set to
-        // #TYPE_STRUCTURE
+        // The ids of \c StationaryObject which limit the corresponding lane.
+        // This field must be set if the \c #type is set to
+        // \c #TYPE_STRUCTURE
         //
         repeated Identifier limiting_structure_id = 3;
 
