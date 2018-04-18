@@ -98,10 +98,12 @@ message SensorViewConfiguration
     // \li [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base \c. \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base \c. \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base \c. 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -243,10 +245,12 @@ message GenericSensorViewConfiguration
     // \li [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base \c. \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base \c. \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base \c. 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -310,10 +314,12 @@ message RadarSensorViewConfiguration
     // \li [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base \c. \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base \c. \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base \c. 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -442,10 +448,12 @@ message LidarSensorViewConfiguration
     // \li [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base \c. \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base \c. \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base \c. 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -538,10 +546,12 @@ message CameraSensorViewConfiguration
     // \li [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base \c. \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base \c. \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base \c. 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -599,6 +609,8 @@ message CameraSensorViewConfiguration
     //
     repeated ChannelFormat channel_format = 8;
 
+    // Channel format.
+    //
     enum ChannelFormat
     {
         // Type of channel format is unknown (must not be used).
@@ -698,10 +710,12 @@ message UltrasonicSensorViewConfiguration
     // \li [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base \c. \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base \c. \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base \c. 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid

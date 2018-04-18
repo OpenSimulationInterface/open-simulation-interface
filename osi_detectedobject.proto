@@ -124,7 +124,7 @@ message DetectedStationaryObject
         //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
-        // \c #DetectedItemHeader.existence_probability.
+        // \c DetectedItemHeader::existence_probability.
         //
         // Range: [0,1]
         //
@@ -163,7 +163,7 @@ message DetectedMovingObject
     // estimation) as used by the sensor (model).
     //
     // \note Note that the value of this field has no impact on the value of
-    // object.position, which always references the center of the object /
+    // object::position, which always references the center of the object /
     // bounding box.
     //
     optional ReferencePoint reference_point = 4;
@@ -229,7 +229,7 @@ message DetectedMovingObject
         //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
-        // \c #DetectedItemHeader.existence_probability.
+        // \c DetectedItemHeader::existence_probability.
         //
         // Range: [0,1]
         //
@@ -242,8 +242,8 @@ message DetectedMovingObject
         // Specific information about the classification of the vehicle.
         //
         //
-        // \note This field is mandatory if the \c CandidateMovingObject.type is
-        // #TYPE_VEHICLE .
+        // \note This field is mandatory if the \c CandidateMovingObject::type is
+        // \c MovingObject::TYPE_VEHICLE .
         //
         optional MovingObject.VehicleClassification vehicle_classification = 3;
 
@@ -256,7 +256,7 @@ message DetectedMovingObject
         // <tt>View_normal_base_coord_system = Inverse_Rotation(#head_pose)*Unit_vector_x</tt>
         //
         // \note This field is mandatory if the \c CandidateMovingObject.type is
-        // #TYPE_PEDESTRIAN
+        // \c MovingObject::TYPE_PEDESTRIAN
         //
         // \par References:
         // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
@@ -272,8 +272,8 @@ message DetectedMovingObject
         //
         // <tt>View_normal_base_coord_system = Inverse_Rotation(#upper_body_pose)*Unit_vector_x</tt>
         //
-        // \note This field is mandatory if the \c CandidateMovingObject.type is
-        // #TYPE_PEDESTRIAN
+        // \note This field is mandatory if the \c CandidateMovingObject::type is
+        // \c MovingObject::TYPE_PEDESTRIAN
         //
         // \par References:
         // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
