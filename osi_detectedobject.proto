@@ -259,7 +259,7 @@ message DetectedMovingObject
         // \c MovingObject::TYPE_PEDESTRIAN
         //
         // \par References:
-        // \li [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+        // - [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
         //
         optional Orientation3d head_pose = 4;
 
@@ -276,7 +276,7 @@ message DetectedMovingObject
         // \c MovingObject::TYPE_PEDESTRIAN
         //
         // \par References:
-        // \li [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+        // - [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
         //
         optional Orientation3d upper_body_pose = 5;
     }

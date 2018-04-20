@@ -21,8 +21,8 @@ package osi3;
 // \c SensorView::mounting_position, except for the individual physical
 // technology-specific data, which is given with respect to the physical
 // sensor coordinate system specified in the corresponding physical sensor's
-// mounting_position, and the global_ground_truth, which is given in global
-// coordinates.
+// \c #mounting_position, and the \c #global_ground_truth, which is given in
+// global coordinates.
 //
 // When simulating multiple distinct sensors, each sensor can consume an
 // individual copy of the \c SensorView interface. This allows an independent
@@ -50,7 +50,7 @@ message SensorView
     //
     optional Timestamp timestamp = 2;
 
-    // The ID of the sensor at host vehicle's mounting_position.
+    // The ID of the sensor at host vehicle's \c #mounting_position.
     //
     // This is the ID of the virtual sensor, to be used in its detected
     // object output; it is distinct from the IDs of its physical detectors,
@@ -73,7 +73,7 @@ message SensorView
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z right hand system
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     // \note This field is usually static during the simulation.
     // \note The origin of vehicle's coordinate system in world frame is
@@ -102,7 +102,7 @@ message SensorView
     //
     // This is the ground truth that is provided to the sensor model by the
     // simulation environment. It is filtered as per the requirements of the
-    // sensor model as expressed by the SensorViewConfiguration message(s)
+    // sensor model as expressed by the \c SensorViewConfiguration message(s)
     // that where exchanged during the simulation initialization phase.
     //
     // \note The host vehicle is always contained in the ground truth provided,
@@ -110,7 +110,7 @@ message SensorView
     //
     optional GroundTruth global_ground_truth = 7;
 
-    // The ID of the host vehicle in the ground_truth data.
+    // The ID of the host vehicle in the \c #global_ground_truth data.
     //
     optional Identifier host_vehicle_id = 8;
 
@@ -184,7 +184,7 @@ message RadarSensorView
     {
         // Relative signal level of the reflection.
         //
-        // This takes the combined_antenna_diagram (losses in TX and RX)
+        // This takes the combined antenna diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
         // into account, and will, when multiplied by TX power yield the
         // actual RX power.
@@ -257,7 +257,7 @@ message LidarSensorView
     {
         // Relative signal level of the reflection.
         //
-        // This takes the combined_antenna_diagram (losses in TX and RX)
+        // This takes the combined antenna diagram (losses in TX and RX)
         // as well as the signal losses due to scattering and absorption
         // into account, and will, when multiplied by TX power yield the
         // actual RX power.
