@@ -21,7 +21,7 @@ comment.
 
 Compatibility
 --------------
-Defintion: FAITHFULLY "All recorded data is correctly interpreted by the interface"
+Definition: FAITHFULLY "All recorded data is correctly interpreted by the interface"
 
 Forward compatibility:
 Definition: "An older version of the code can be used to read new files"
@@ -56,9 +56,9 @@ The version number is defined in InterfaceVersion::version_number in osi_common.
 Major:
 A change of the major version results in an incompatibility of code and recorded proto messages.
 - An existing field with a number changes its meaning
-  optional double field = 1; -> repeated double field = 1;
-  Changing the definition of units of a field
-- Deleting a field  and reusing the field number
+  ```optional double field = 1;``` -> ```repeated double field = 1;```
+  Changing the definition of units or interpretation of a field
+- Deleting a field and reusing the field number
 - Changing the technology
   ProtoBuffer -> FlatBuffer
 
@@ -90,8 +90,9 @@ Detailed information about installation and usage of OSI can be found in the [Wi
 
 In order to generate the doxygen documentation for OSI, please follow the following steps:
 1. Install [Doxygen](http://www.stack.nl/~dimitri/doxygen/download.html), set an environmental variable 'doxygen' with the path to the binary file and add it to the PATH variable: `PATH += %doxygen%`.
-2. Download the [vg-1.5.0.zip](https://github.com/vgteam/vg/releases/tag/v1.5.0). Unpack and copy the content of folder /vg-1.5.0/contrib/proto2cpp to your desired `<path-to-proto2cpp.py>`
-3. Install [graphviz-2.38](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), set an environmental variable 'graphviz' with the path to the binary file and add it to the PATH variable: `PATH += %graphviz%`.
+2. Download the [proto2cpp](https://github.com/OpenSimulationInterface/proto2cpp) repo.
+Copy the content of the repo proto2cpp to your desired `<path-to-proto2cpp.py>`
+3. Install [graphviz](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), set an environmental variable 'graphviz' with the path to the binary file and add it to the PATH variable: `PATH += %graphviz%`.
 4. From the cmd navigate to the build directory and run:
 ```cmd
 cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
