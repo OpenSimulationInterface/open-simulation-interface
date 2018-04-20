@@ -327,12 +327,12 @@ message MovingObject
     // This is an extension to the \c MovingObject with additional attributes,
     // such as type and lights. The origin of the rear (front) axis coordinate
     // system in world coordinates is calculated as:
-    // \c MovingObject::base \c. \c BaseMoving::position + R * \c MovingObject::VehicleAttributes::bbcenter_to_rear (front)
+    // \c MovingObject::base . \c BaseMoving::position + R * \c MovingObject::VehicleAttributes::bbcenter_to_rear (front)
     // for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
-    // orientation of \c MovingObject::base \c. \c BaseMoving::orientation).
+    // orientation of \c MovingObject::base . \c BaseMoving::orientation).
     //
     // For all vehicles, including host vehicles, the position given in
-    //  \c MovingObject::base \c. \c BaseMoving::position points to the center of the vehicle's bounding box.
+    //  \c MovingObject::base . \c BaseMoving::position points to the center of the vehicle's bounding box.
     //
     // The vehicle object coordinates are defined as x-axis is the direction from
     // rear to front of the vehicle, y-axis corresponds to rear axle and z-axis
@@ -364,13 +364,13 @@ message MovingObject
         //
         optional uint32 number_wheels = 3;
 
-        // The vector pointing from the bounding box center point (\c MovingObject::base \c. \c BaseMoving::position) to
+        // The vector pointing from the bounding box center point (\c MovingObject::base . \c BaseMoving::position) to
         // the middle (in x, y and z) of the rear axle under neutral load
         // conditions. In object coordinates.
         //
         optional Vector3d bbcenter_to_rear = 4;
 
-        // The vector pointing from the bounding box center point (\c MovingObject::base \c. \c BaseMoving::position) to
+        // The vector pointing from the bounding box center point (\c MovingObject::base . \c BaseMoving::position) to
         // the middle (in x, y and z) of the front axle under neutral load
         // conditions. In object coordinates.
         //
