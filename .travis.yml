@@ -38,8 +38,6 @@ install:
     - |
         PROTO2CPP_URL="https://github.com/OpenSimulationInterface/proto2cpp.git"
         if [ ! -f ${DEPS_DIR}/proto2cpp ] ; then mkdir -p proto2cpp ; git clone ${PROTO2CPP_URL} ${DEPS_DIR}/proto2cpp ; cd ${DEPS_DIR}/proto2cpp ; git checkout Python2/3-compatibility ; fi
-
-    #    export PATH=${DEPS_DIR}/proto2cpp:${PATH}
         
 addons:
     apt:
@@ -49,7 +47,6 @@ addons:
         - doxygen-latex
         - doxygen-gui
         - graphviz
-        - python3
 
 # Change directory back to default build directory.
 before_script:
@@ -59,7 +56,7 @@ before_script:
 script:
     - mkdir -p build
     - cd build
-    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
+    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
     - cmake --build .
     - cd ..
     - python test_cases.py
@@ -67,7 +64,6 @@ script:
     - python setup.py sdist
     - cd build
     - cmake --build . --target install
-    - cmake -DFILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
     - doxygen
 
 deploy:
@@ -75,5 +71,5 @@ deploy:
     skip_cleanup: true
     local_dir: "html"
     github_token: "$GH_REPO_TOKEN"
-#    on: 
-#branch: master
+    on: 
+branch: master
