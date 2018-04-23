@@ -49,6 +49,7 @@ addons:
         - doxygen-latex
         - doxygen-gui
         - graphviz
+        - python3
 
 # Change directory back to default build directory.
 before_script:
@@ -69,3 +70,11 @@ script:
     - cmake -DFILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
     - doxygen
     - cd ..
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    local_dir: "html"
+    github_token: "$GH_REPO_TOKEN"
+#    on: 
+#branch: master
