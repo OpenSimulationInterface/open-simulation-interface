@@ -37,7 +37,7 @@ install:
     # Install proto2cpp for doxygen
     - |
         PROTO2CPP_URL="https://github.com/OpenSimulationInterface/proto2cpp.git"
-        if [ ! -f ${DEPS_DIR}/proto2cpp ] ; then mkdir -p proto2cpp ; git clone ${PROTO2CPP_URL} ${DEPS_DIR}/proto2cpp ; fi
+        if [ ! -f ${DEPS_DIR}/proto2cpp ] ; then mkdir -p proto2cpp ; git clone ${PROTO2CPP_URL} ${DEPS_DIR}/proto2cpp ; cd ${DEPS_DIR}/proto2cpp ; git checkout Bugfix/TravisCI_Python ; fi
 
     #    export PATH=${DEPS_DIR}/proto2cpp:${PATH}
         
