@@ -67,5 +67,5 @@ script:
     - cd build
     - cmake --build . --target install
     - cmake -DFILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
-    - cd ..
     - doxygen
+    - cd ..
