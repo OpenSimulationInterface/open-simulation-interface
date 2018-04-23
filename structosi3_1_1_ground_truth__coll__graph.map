@@ -1,0 +1,28 @@
+<map id="osi3::GroundTruth" name="osi3::GroundTruth">
+<area shape="rect" id="node2" href="$structosi3_1_1_environmental_conditions.html" title="The conditions of the environment. " alt="" coords="787,376,983,403"/>
+<area shape="rect" id="node6" href="$structosi3_1_1_environmental_conditions_1_1_time_of_day.html" title="The time of day at the location of the vehicle. " alt="" coords="396,335,592,377"/>
+<area shape="rect" id="node14" href="$structosi3_1_1_timestamp.html" title="A timestamp. " alt="" coords="435,57,553,84"/>
+<area shape="rect" id="node16" href="$structosi3_1_1_interface_version.html" title="The interface version number. " alt="" coords="616,127,763,153"/>
+<area shape="rect" id="node28" href="$structosi3_1_1_moving_object_1_1_vehicle_attributes.html" title="The vehicle attributes for MovingObject (host or other). " alt="" coords="428,545,560,586"/>
+<area shape="rect" id="node22" href="$structosi3_1_1_lane_boundary_1_1_boundary_point.html" title="A single point of a lane boundary. " alt="" coords="425,725,563,766"/>
+<area shape="rect" id="node24" href="$structosi3_1_1_traffic_light_1_1_classification.html" title="Classification data for a traffic light. " alt="" coords="436,1070,552,1111"/>
+<area shape="rect" id="node9" href="$structosi3_1_1_traffic_sign.html" title="A traffic sign. " alt="" coords="827,1871,942,1897"/>
+<area shape="rect" id="node10" href="$structosi3_1_1_traffic_sign_1_1_main_sign.html" title="Main sign of the traffic sign. " alt="" coords="433,1985,555,2026"/>
+<area shape="rect" id="node11" href="$structosi3_1_1_base_stationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="31,1747,174,1773"/>
+<area shape="rect" id="node13" href="$structosi3_1_1_traffic_sign_1_1_supplementary_sign.html" title="Additional supplementary sign modifying the main sign. " alt="" coords="427,1919,561,1961"/>
+<area shape="rect" id="node23" href="$structosi3_1_1_traffic_light.html" title="A traffic light. " alt="" coords="827,1359,943,1385"/>
+<area shape="rect" id="node29" href="$structosi3_1_1_stationary_object.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g. pedestrian, animal, or vehicle) nor a traffic related object (TrafficLight, TrafficSign). " alt="" coords="809,1437,960,1464"/>
+<area shape="rect" id="node31" href="$structosi3_1_1_road_marking.html" title="A road surface marking. " alt="" coords="819,1545,950,1572"/>
+<area shape="rect" id="node12" href="$structosi3_1_1_identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="51,1329,154,1356"/>
+<area shape="rect" id="node17" href="$structosi3_1_1_occupant.html" title="An occupant of a host vehicle, especially the driver of the vehicle. " alt="" coords="439,1868,549,1895"/>
+<area shape="rect" id="node19" href="$structosi3_1_1_lane_boundary.html" title="A lane boundary defining the border of a lane. " alt="" coords="816,1059,953,1085"/>
+<area shape="rect" id="node20" href="$structosi3_1_1_lane_boundary_1_1_classification.html" title="Classification data of a lane boundary. " alt="" coords="425,921,563,962"/>
+<area shape="rect" id="node25" href="$structosi3_1_1_moving_object.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). " alt="" coords="819,731,951,757"/>
+<area shape="rect" id="node26" href="$structosi3_1_1_moving_object_1_1_vehicle_classification.html" title="Information for the classification of vehicles regarding MovingObject (host or other). " alt="" coords="419,790,569,831"/>
+<area shape="rect" id="node32" href="$structosi3_1_1_road_marking_1_1_classification.html" title="Classification data for a road surface marking. " alt="" coords="425,1250,563,1291"/>
+<area shape="rect" id="node33" href="$structosi3_1_1_lane.html" title="A lane in the road network. " alt="" coords="843,1221,926,1248"/>
+<area shape="rect" id="node34" href="$structosi3_1_1_lane_1_1_classification.html" title="Classification of a lane. " alt="" coords="411,1136,577,1163"/>
+<area shape="rect" id="node18" href="$structosi3_1_1_occupant_1_1_classification.html" title="Information regarding the classification of the occupant. " alt="" coords="5,1868,200,1895"/>
+<area shape="rect" id="node30" href="$structosi3_1_1_stationary_object_1_1_classification.html" title="Classification data for a stationary object. " alt="" coords="419,855,569,897"/>
+<area shape="rect" id="node27" href="$structosi3_1_1_base_moving.html" title="The base attributes of an object that is moving. " alt="" coords="432,673,556,700"/>
+</map>
