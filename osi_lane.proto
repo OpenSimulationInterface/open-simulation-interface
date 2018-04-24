@@ -37,7 +37,7 @@ message Lane
     optional Classification classification = 2;
 
     //
-    // \brief Classification of a lane.
+    // \brief \c Classification of a lane.
     //
     message Classification
     {
@@ -257,7 +257,7 @@ message Lane
             // Unit: [mm/m]
             //
             // \par References:
-            // \li [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
+            // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
             // University of Michigan Transportation Research Institute, 1998.
             //
             optional double surface_roughness = 5;
@@ -272,9 +272,9 @@ message Lane
             // Unit: [m]
             //
             // \par References:
-            // \li [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
+            // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
             // University of Michigan Transportation Research Institute, 1998.
-            // \li [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung fuer
+            // - [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung fuer
             // ein bildgebendes Kfz-Radar, Dissertation, Universitaet Karlsruhe,
             // Mai 1998.
             //
@@ -315,10 +315,16 @@ message LaneBoundary
     // Since a \c BoundaryPoint is part of a sequence, only the position
     // attribute has to be set for each instance. All other values will be
     // reused from the previous \c BoundaryPoint in the sequence or set to
-    // default values if there is none or it was never set. For dashed lines,
-    // one \c BoundaryPoint has to be at the start and another at the end
-    // of each dashed line segment. For Botts' dots lines, one
-    // \c BoundaryPoint position has to define each Botts' dot.
+    // default values if there is none or it was never set. 
+    //
+    // \note For dashed lines, one \c BoundaryPoint has to be at the start and
+    // another at the end of each dashed line segment. The first 
+    // \c BoundaryPoint defines the beginning of the first dashed lane marking.
+    // The last \c BoundaryPoint defines the end of the last dashed lane 
+    // marking. For example, the area between the second and third 
+    // \c BoundaryPoint has no lane marking, and so on.
+    // \note For Botts' dots lines, one \c BoundaryPoint position has to define
+    // each Botts' dot.
     //
     // \attention For \c BoundaryPoint the same rule for the approximation
     // error applies as for \c Lane::Classification::centerline.
@@ -358,7 +364,7 @@ message LaneBoundary
     }
 
     //
-    // \brief Classification data of a lane boundary.
+    // \brief \c Classification data of a lane boundary.
     //
     message Classification
     {

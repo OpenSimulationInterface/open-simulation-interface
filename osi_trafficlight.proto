@@ -25,12 +25,12 @@ message TrafficLight
     //
     optional BaseStationary base = 2;
 
-    // Classification data for the traffic light.
+    // The classification data for the traffic light.
     //
     optional Classification classification = 3;
 
     //
-    // \brief Classification data for a traffic light.
+    // \brief \c Classification data for a traffic light.
     //
     message Classification
     {

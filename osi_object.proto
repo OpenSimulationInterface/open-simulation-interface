@@ -340,7 +340,7 @@ message MovingObject
     // Therefore the positive y-axis points to the left of the vehicle.
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     message VehicleAttributes
     {
