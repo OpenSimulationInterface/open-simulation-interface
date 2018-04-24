@@ -37,7 +37,7 @@ message Lane
     optional Classification classification = 2;
 
     //
-    // \brief Classification of a lane.
+    // \brief \c Classification of a lane.
     //
     message Classification
     {
@@ -364,7 +364,7 @@ message LaneBoundary
     }
 
     //
-    // \brief Classification data of a lane boundary.
+    // \brief \c Classification data of a lane boundary.
     //
     message Classification
     {
