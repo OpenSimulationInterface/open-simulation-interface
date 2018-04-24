@@ -40,9 +40,14 @@ for file in glob("*.*"):
 
                 # --------------------------------------------------------------
                 # Test case 5 is checking if there is an "Umlaut" etc.
-                if line != unicodedata.normalize('NFKD', line).encode('ASCII', 'ignore').decode():
-                    print(file + " in line " + str(i) + ": a none ASCII char is present")
-                    state = 1
+                if (sys.version_info > (3, 0)):
+                    if line != unicodedata.normalize('NFKD', line).encode('ASCII', 'ignore').decode():
+                        print(file + " in line " + str(i) + ": a none ASCII char is present")
+                        state = 1
+                else:
+                    if line != unicodedata.normalize('NFKD', line).encode('ASCII', 'ignore').decode('ASCII'):
+                        print(file + " in line " + str(i) + ": a none ASCII char is present")
+                        state = 1
                 
                 # --------------------------------------------------------------
                 
