@@ -63,6 +63,7 @@ before_script:
 
 # Run the build script.
 script:
+    - cat (echo) "VERSION_PATCH = MasterBranch" >> VERSION
     - mkdir -p build
     - cd build
     - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
