@@ -63,10 +63,9 @@ before_script:
 
 # Run the build script.
 script:
-    - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
     - mkdir -p build
     - cd build
-    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
+    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
     - cmake --build .
     - cd ..
     - python test_cases.py
@@ -74,7 +73,12 @@ script:
     - python setup.py sdist
     - cd build
     - cmake --build . --target install
+    - cd ..
+    - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
+    - cd build
+    - cmake -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
     - doxygen
+    - cd ..
 
 deploy:
     provider: pages
