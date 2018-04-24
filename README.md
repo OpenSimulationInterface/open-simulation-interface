@@ -56,7 +56,7 @@ The version number is defined in InterfaceVersion::version_number in osi_common.
 Major:
 A change of the major version results in an incompatibility of code and recorded proto messages.
 - An existing field with a number changes its meaning
-  ```optional double field = 1;``` -> ```repeated double field = 1;```
+  `optional double field = 1;` -> `repeated double field = 1;`
   Changing the definition of units or interpretation of a field
 - Deleting a field and reusing the field number
 - Changing the technology
@@ -93,10 +93,7 @@ In order to generate the doxygen documentation for OSI, please follow the follow
 2. Download the [proto2cpp](https://github.com/OpenSimulationInterface/proto2cpp) repo.
 Copy the content of the repo proto2cpp to your desired `<path-to-proto2cpp.py>`
 3. Install [graphviz](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), set an environmental variable 'graphviz' with the path to the binary file and add it to the PATH variable: `PATH += %graphviz%`.
-4. From the cmd navigate to the build directory and run:
-```cmd
-cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>
-```
+4. From the cmd navigate to the build directory and run: `cmd cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>`
 5. The build process will then generate the doxygen documentation under the directory doc.
 
 
@@ -105,12 +102,10 @@ Citing
 
 Use the following citation for referencing the OSI interface in your scientific work:
 
-```
-@misc{osi.2017,
+`@misc{osi.2017,
         author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
         year = {2017},
         title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
         url = {http://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
         note = {{Accessed: 2017-08-28}}
-}
-```
+}`
