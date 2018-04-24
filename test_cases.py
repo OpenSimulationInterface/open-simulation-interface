@@ -45,7 +45,7 @@ for file in glob("*.*"):
                         print(file + " in line " + str(i) + ": a none ASCII char is present")
                         state = 1
                 else:
-                    if line != unicodedata.normalize('NFKD', line).encode('ASCII', 'ignore'):
+                    if line != unicodedata.normalize('NFKD', unicode(line, 'ISO-8859-1')).encode('ASCII', 'ignore'):
                         print(file + " in line " + str(i) + ": a none ASCII char is present")
                         state = 1
                 
