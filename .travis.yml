@@ -71,5 +71,5 @@ deploy:
     skip_cleanup: true
     local_dir: "html"
     github_token: "$GH_REPO_TOKEN"
-    on: 
-branch: master
+#    on: 
+#branch: master
