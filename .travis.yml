@@ -81,5 +81,5 @@ deploy:
     local_dir: docs/html
     keep-history: true
     github_token: ${GH_REPO_TOKEN}
-#    on: 
-#      branch: master
+    on: 
+      branch: Documenation/github_pages 
