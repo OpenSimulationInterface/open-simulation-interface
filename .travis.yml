@@ -22,6 +22,7 @@ before_install:
     - mkdir -p "${DEPS_DIR}"
     - cd "${DEPS_DIR}"
 
+# Install necessary 
 install:
     # Install a recent version of CMake
     - |
@@ -77,7 +78,8 @@ script:
 deploy:
     provider: pages
     skip_cleanup: true
-    local_dir: $TRAVIS_BUILD_DIR/docs/html
-    github_token: $GH_REPO_TOKEN
+    local_dir: docs/html
+    keep-history: true
+    github_token: ${GH_REPO_TOKEN}
 #    on: 
 #      branch: master
