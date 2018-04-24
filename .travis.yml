@@ -12,7 +12,7 @@ cache:
     directories:
         - ${HOME}/deps/cmake
         - ${HOME}/deps/protobuf
-        - ${HOME}/deps/proto2cpp
+#        - ${HOME}/deps/proto2cpp
 
 # Handle dependencies in separate directory.
 before_install:
