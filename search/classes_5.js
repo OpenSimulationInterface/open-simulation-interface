@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['featuredata',['FeatureData',['../structosi3_1_1_feature_data.html',1,'osi3']]],
-  ['fileoptions',['FileOptions',['../structosi3_1_1_file_options.html',1,'osi3']]]
+  ['featuredata',['FeatureData',['../structosi3_1_1FeatureData.html',1,'osi3']]],
+  ['fileoptions',['FileOptions',['../structosi3_1_1FileOptions.html',1,'osi3']]]
 ];
