@@ -95,13 +95,15 @@ message SensorViewConfiguration
     // right hand system
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base . \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base . \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base . 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -118,7 +120,7 @@ message SensorViewConfiguration
     //
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
-    // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
+    // Viewing range: [- \c #field_of_view_horizontal/2,  \c #field_of_view_horizontal/2]
     // azimuth in the sensor frame as defined in \c Spherical3d.
     // Unit: [rad]
     optional double field_of_view_horizontal = 5;
@@ -127,7 +129,7 @@ message SensorViewConfiguration
     //
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
-    // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
+    // Viewing range: [- \c #field_of_view_vertical/2,  \c #field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
     // \c Spherical3d.
     //
@@ -181,31 +183,31 @@ message SensorViewConfiguration
     // Unit: [s]
     optional Timestamp simulation_start_time = 10;
 
-    // Generic SensorView Configuration(s).
+    // Generic Sensor View Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated GenericSensorViewConfiguration generic_sensor_view_configuration = 1000;
 
-    // Radar-specific SensorView Configuration(s).
+    // Radar-specific Sensor View Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RadarSensorViewConfiguration radar_sensor_view_configuration = 1001;
 
-    // Lidar-specific SensorView Configuration(s).
+    // Lidar-specific Sensor View Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated LidarSensorViewConfiguration lidar_sensor_view_configuration = 1002;
 
-    // Camera-specific SensorView Configuration(s).
+    // Camera-specific Sensor View Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CameraSensorViewConfiguration camera_sensor_view_configuration = 1003;
 
-    // Ultrasonic-specific SensorView Configuration(s).
+    // Ultrasonic-specific Sensor View Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -240,13 +242,15 @@ message GenericSensorViewConfiguration
     // right hand system
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base . \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base . \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base . 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -261,7 +265,7 @@ message GenericSensorViewConfiguration
 
     // Field of View in horizontal orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
+    // Viewing range: [- \c #field_of_view_horizontal/2,  \c #field_of_view_horizontal/2]
     // azimuth in the sensor frame as defined in \c Spherical3d.
     //
     // Unit: [rad]
@@ -269,7 +273,7 @@ message GenericSensorViewConfiguration
 
     // Field of View in vertical orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
+    // Viewing range: [- \c #field_of_view_vertical/2,  \c #field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
     // \c Spherical3d.
     //
@@ -307,13 +311,15 @@ message RadarSensorViewConfiguration
     // right hand system
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base . \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base . \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base . 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -328,7 +334,7 @@ message RadarSensorViewConfiguration
 
     // Field of View in horizontal orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
+    // Viewing range: [- \c #field_of_view_horizontal/2,  \c #field_of_view_horizontal/2]
     // azimuth in the sensor frame as defined in \c Spherical3d.
     //
     // Unit: [rad]
@@ -336,7 +342,7 @@ message RadarSensorViewConfiguration
 
     // Field of View in vertical orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
+    // Viewing range: [- \c #field_of_view_vertical/2,  \c #field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
     // \c Spherical3d.
     //
@@ -439,13 +445,15 @@ message LidarSensorViewConfiguration
     // right hand system
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base . \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base . \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base . 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -460,7 +468,7 @@ message LidarSensorViewConfiguration
 
     // Field of View in horizontal orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
+    // Viewing range: [- \c #field_of_view_horizontal/2,  \c #field_of_view_horizontal/2]
     // azimuth in the sensor frame as defined in \c Spherical3d.
     //
     // Unit: [rad]
@@ -468,7 +476,7 @@ message LidarSensorViewConfiguration
 
     // Field of View in vertical orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
+    // Viewing range: [- \c #field_of_view_vertical/2,  \c #field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
     // \c Spherical3d.
     //
@@ -535,13 +543,15 @@ message CameraSensorViewConfiguration
     // right hand system
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base . \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base . \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base . 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -556,7 +566,7 @@ message CameraSensorViewConfiguration
 
     // Field of View in horizontal orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
+    // Viewing range: [- \c #field_of_view_horizontal/2,  \c #field_of_view_horizontal/2]
     // azimuth in the sensor frame as defined in \c Spherical3d.
     //
     // Unit: [rad]
@@ -564,7 +574,7 @@ message CameraSensorViewConfiguration
 
     // Field of View in vertical orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
+    // Viewing range: [- \c #field_of_view_vertical/2,  \c #field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
     // \c Spherical3d.
     //
@@ -599,6 +609,8 @@ message CameraSensorViewConfiguration
     //
     repeated ChannelFormat channel_format = 8;
 
+    // Channel format.
+    //
     enum ChannelFormat
     {
         // Type of channel format is unknown (must not be used).
@@ -695,13 +707,15 @@ message UltrasonicSensorViewConfiguration
     // right hand system
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject.Vehicle::base.position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject.Vehicle::base.orientation) * \c MovingObject.Vehicle::bbcenter_to_rear ).
+    // ( \c MovingObject::base . \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
+    // \c MovingObject::base . \c BaseMoving::orientation) * 
+    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
     // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject.Vehicle::base.orientation.
+    // orientation of the vehicle's bounding box \c MovingObject::base . 
+    // \c BaseMoving::orientation.
     // \note A default position can be provided by the sensor model (e.g. to
     // indicate the position the model was validated for),
     // but this is optional; the environment simulation must provide a valid
@@ -716,7 +730,7 @@ message UltrasonicSensorViewConfiguration
 
     // Field of View in horizontal orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_horizontal/2, field_of_view_horizontal/2]
+    // Viewing range: [- \c #field_of_view_horizontal/2,  \c #field_of_view_horizontal/2]
     // azimuth in the sensor frame as defined in \c Spherical3d.
     //
     // Unit: [rad]
@@ -724,7 +738,7 @@ message UltrasonicSensorViewConfiguration
 
     // Field of View in vertical orientation of the physical sensor.
     //
-    // Viewing range: [-field_of_view_vertical/2, field_of_view_vertical/2]
+    // Viewing range: [- \c #field_of_view_vertical/2,  \c #field_of_view_vertical/2]
     // elevation in the sensor frame at zero azimuth as defined in
     // \c Spherical3d.
     //

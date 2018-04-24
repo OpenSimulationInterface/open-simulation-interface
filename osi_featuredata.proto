@@ -60,7 +60,7 @@ message SensorDetectionHeader
 
     // Mounting position of the sensor (origin and orientation of the sensor
     // frame). Both origin and orientation are given in and with respect to the
-    // host vehicle coordinate system (see: \c MovingObject.Vehicle vehicle
+    // host vehicle coordinate system (see: \c MovingObject::Vehicle vehicle
     // reference point) [1].
     //
     // The sensor frame's x-axis is pointing in the central viewing direction of
@@ -79,7 +79,7 @@ message SensorDetectionHeader
     // the sensor detection frame which uses e.g. spherical coordinates.
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     optional MountingPosition mounting_position = 3;
 
@@ -211,7 +211,7 @@ message RadarDetection
 
     // The signal to noise ratio (SNR) of the radar detection.
     //
-    // Unit: [dB m^2]
+    // Unit: [dB]
     //
     optional double snr = 8;
 

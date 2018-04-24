@@ -119,7 +119,7 @@ message TrafficSignValue
         UNIT_DAY = 13;
 
         // Percentage.
-        // .
+        // Value.
         //
         // Unit: [%]
         //
@@ -174,7 +174,7 @@ message TrafficSign
         optional Classification classification = 2;
 
         //
-        // \brief Classification data for a traffic sign.
+        // \brief \c Classification data for a traffic sign.
         //
         message Classification
         {
@@ -936,7 +936,7 @@ message TrafficSign
         optional Classification classification = 2;
 
         //
-        // \brief Classification data for a supplementary traffic sign.
+        // \brief \c Classification data for a supplementary traffic sign.
         //
         message Classification
         {

@@ -135,14 +135,14 @@ message Dimension3d
 //
 // <tt>Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw</tt>
 //
-// <tt>vector_global_coord_system := Inverse_Rotation_yaw_pitch_roll(</tt><tt>Orientation3d</tt><tt>)*(vector_local_coord_system) + local_origin.position</tt>
+// <tt>vector_global_coord_system := Inverse_Rotation_yaw_pitch_roll(</tt><tt>Orientation3d</tt><tt>)*(vector_local_coord_system) + local_origin::position</tt>
 
 //
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
 //
 // \par References:
-// \li [1] DIN ISO 8855:2013-11
+// - [1] DIN ISO 8855:2013-11
 //
 message Orientation3d
 {
@@ -249,7 +249,7 @@ message Spherical3d
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
 // from detected objects are relative to the host vehicle frame (see:
-// \c MovingObject.Vehicle vehicle reference point).
+// \c MovingObject::Vehicle vehicle reference point).
 //
 message BaseStationary
 {
@@ -304,7 +304,7 @@ message BaseStationary
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
 // from detected objects are relative to the host vehicle frame
-// (see: \c MovingObject.Vehicle vehicle reference point).
+// (see: \c MovingObject::Vehicle vehicle reference point).
 //
 message BaseMoving
 {
