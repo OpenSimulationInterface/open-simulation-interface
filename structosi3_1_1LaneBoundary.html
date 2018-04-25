@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">3.0.MasterBranch</span>
+   &#160;<span id="projectnumber">3.0.GitHub_MasterBranch</span>
    </div>
   </td>
  </tr>
@@ -110,7 +110,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single point of a lane boundary.  <a href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">Classification</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification data of a lane boundary. ">Classification</a> data of a lane boundary.  <a href="structosi3_1_1LaneBoundary_1_1Classification.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code><a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification data of a lane boundary. ">Classification</a></code> data of a lane boundary.  <a href="structosi3_1_1LaneBoundary_1_1Classification.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -136,7 +136,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The list of individual points defining the location of the lane boundary (as a list of segments).</p>
-<p>Since a <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> is part of a sequence, only the position attribute has to be set for each instance. All other values will be reused from the previous <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> in the sequence or set to default values if there is none or it was never set. For dashed lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> has to be at the start and another at the end of each dashed line segment. For Botts' dots lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> position has to define each Botts' dot.</p>
+<p>Since a <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> is part of a sequence, only the position attribute has to be set for each instance. All other values will be reused from the previous <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> in the sequence or set to default values if there is none or it was never set.</p>
+<dl class="section note"><dt>Note</dt><dd>For dashed lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> has to be at the start and another at the end of each dashed line segment. The first <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> defines the beginning of the first dashed lane marking. The last <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> defines the end of the last dashed lane marking. For example, the area between the second and third <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> has no lane marking, and so on. </dd>
+<dd>
+For Botts' dots lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> position has to define each Botts' dot.</dd></dl>
 <dl class="section attention"><dt>Attention</dt><dd>For <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> the same rule for the approximation error applies as for <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42">Lane::Classification::centerline</a></code>. </dd></dl>
 
 </div>
@@ -173,7 +176,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 24 2018 09:43:51 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 25 2018 16:49:35 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
