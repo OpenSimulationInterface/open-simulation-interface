@@ -281,6 +281,7 @@ message GenericSensorViewConfiguration
     optional double field_of_view_vertical = 5;
 
     // TBD: Generic sensor specific configuration.
+    //
 }
 
 //
@@ -677,6 +678,7 @@ message CameraSensorViewConfiguration
     }
 
     // TBD: Optical (and other) effects to apply to image, etc.
+    //
 }
 
 //
@@ -746,4 +748,5 @@ message UltrasonicSensorViewConfiguration
     optional double field_of_view_vertical = 5;
 
     // TBD: Ultrasonic Sensor specific configuration.
+    //
 }

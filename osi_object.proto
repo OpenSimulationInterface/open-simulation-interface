@@ -185,15 +185,19 @@ message StationaryObject
             DENSITY_SOLID = 2;
 
             // Perforation max. ]0; 100] [mm]
+            //
             DENSITY_SMALL_MESH = 3;
 
             // Perforation max. ]100; 500] [mm]
+            //
             DENSITY_MEDIAN_MESH = 4;
 
             // Perforation max. ]500; 5000] [mm]
+            //
             DENSITY_LARGE_MESH = 5;
 
             // Perforation max. ]5000; infinity] [mm]
+            //
             DENSITY_OPEN = 6;
         }
 
