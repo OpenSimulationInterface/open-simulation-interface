@@ -24,7 +24,7 @@ for file in glob("*.*"):
 
             # --------------------------------------------------------------
             # Test case 2 is checking if there is an "Umlaut" etc.
-            if (sys.version_info > (3, 0)):
+            if (sys.version_info >= (3, 0)):
                 if line != unicodedata.normalize('NFKD', line).encode('ASCII', 'ignore').decode():
                     print(file + " in line " + str(i) + ": a none ASCII char is present")
                     state = 1
@@ -33,7 +33,7 @@ for file in glob("*.*"):
                     print(file + " in line " + str(i) + ": a none ASCII char is present")
                     state = 1
 
-            if file.find(".proto") != -1:                        
+            if file.find(".proto") != -1:
                 # --------------------------------------------------------------
                 # Test case 3 is checking if there are more than the two allowed '/'
                 if line.find("///") != -1:
@@ -53,7 +53,7 @@ for file in glob("*.*"):
                     state = 1
 
                 # --------------------------------------------------------------
-                
+
                 # Search for comment ("//") and add one more slash character ("/") to the comment
                 # block to make Doxygen detect it.
                 matchComment = re.search("//", line)
@@ -61,10 +61,10 @@ for file in glob("*.*"):
                     statement = line[:matchComment.start()]
                 else:
                     statement = line
-        
+
                 # --------------------------------------------------------------
-                # Test case 6-8 camelcase for enums and check enum name? 
-                
+                # Test case 6-8 camelcase for enums and check enum name?
+
                 # .
                 if isEnum is True:
                     matchName = re.search(r"\b\w[\S:]+\b", statement)
@@ -92,13 +92,13 @@ for file in glob("*.*"):
                             print(file + " in line " + str(i) + ": enum name wrong. '"+endOfLine[matchName.start():matchName.end()]+"'")
                             state = 1
                         enumName = convert(endOfLine[matchName.start():matchName.end()])+"_"
-        
+
                 # Search for a closing brace.
                 matchClosingBrace = re.search("}", statement)
                 if isEnum is True and matchClosingBrace is not None:
                     isEnum = False
                     enumName = ""
-            
+
                 def convert(name):
                     s1 = re.sub(r'(.)([A-Z][a-z]+)', r'\1_\2', name)
                     return re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', s1).upper()
@@ -113,31 +113,35 @@ for file in glob("*.*"):
                 # Test case 10-12 check message name, field type and field name
                 #
                 # Check (nested) messages
-                
+
                 if isEnum is False:
- 
+                    # Check if not inside an enum.
+
                     # Search for "message".
                     matchMessage = re.search(r"\bmessage\b", statement)
                     if matchMessage is not None:
+                        # a new message or a new nested message
                         noMessage += 1
                         endOfLine = statement[matchMessage.end():]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         if matchName is not None:
-                            # Test case 10: Check name - no special char
+                            # Test case 10: Check name - no special char -
+                            # start with a capital letter
                             matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b",endOfLine[matchName.start():matchName.end()])
                             if matchNameConv is None:
                                 print(file + " in line " + str(i) + ": message name wrong. '"+endOfLine[matchName.start():matchName.end()]+"'")
                                 state = 1
                     else:
-                        # .
+                        # Check field names
                         if noMessage > 0:
                             matchName = re.search(r"\b\w[\S]*\b\s*=", statement)
                             if matchName is not None:
                                 checkName = statement[matchName.start():matchName.end()-1]
-                                # Test case 11: Check lower case for field names
+                                # Test case 11: Check lowercase letters for field names
                                 if checkName != checkName.lower():
                                     print(file + " in line " + str(i) + ": field name wrong. '"+checkName+"' should use lower case")
                                     state = 1
+                                # Check field message type (remove field name)
                                 type = statement.replace(checkName, "")
                                 matchName = re.search(r"\b\w[\S\.]*\s*=", type)
                                 if matchName is not None:
@@ -145,7 +149,7 @@ for file in glob("*.*"):
                                     # Test case 12: Check nested message type
                                     matchNameConv = re.search(r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",checkType)
                                     if matchNameConv is None:
-                                        print(file + " in line " + str(i) + ": field type wrong. '"+checkType+"' not correct")
+                                        print(file + " in line " + str(i) + ": field message type wrong. Check: '"+checkType+"'")
                                         state = 1
 
                     # Search for a closing brace.
@@ -154,12 +158,12 @@ for file in glob("*.*"):
                         noMessage -= 1
 
                 # --------------------------------------------------------------
-                # Test case 13 is checking if comment is min 2 lines
+                # Test case 13 is checking if comment is min. 2 lines
                 if line.find("//") != -1:
                     noComment += 1;
                 else:
                     if noComment == 1:
-                        print(file + " in line " + str(i-1) + ": short comment - min 2 lines.")
+                        print(file + " in line " + str(i-1) + ": short comment - min. 2 lines.")
                         state = 1
                     noComment = 0
 
