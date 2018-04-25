@@ -86,6 +86,8 @@ is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-
 Documentation
 -------------
 
+The actual documentation of the GitHub master branch is [online](https://opensimulationinterface.github.io/open-simulation-interface/) available.
+
 Detailed information about installation and usage of OSI can be found in the [Wiki](https://github.com/OpenSimulationInterface/open-simulation-interface/wiki)
 
 In order to generate the doxygen documentation for OSI, please follow the following steps:
