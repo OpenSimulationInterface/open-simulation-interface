@@ -117,7 +117,7 @@ for file in glob("*.*"):
                     state = 1
 
                 # --------------------------------------------------------------
-                # Test case 10-12 check message name, field type and field name
+                # Test case 10-12,18 check message name, field type and field name
                 #
                 # Check (nested) messages
 
@@ -161,6 +161,11 @@ for file in glob("*.*"):
                                     if matchNameConv is None:
                                         print(file + " in line " + str(i) + ": field message type wrong. Check: '"+checkType+"'")
                                         state = 1
+                                        
+                                if re.search(r"\boptional\b",type) is None and re.search(r"\brepeated\b",type) is None:
+                                    # Test 18 has every field the multiplicity "repeated" or "optional"
+                                    print(file + " in line " + str(i) + ": field multiplicity (\"optional\" or \"repeated\") is missing. Check: '"+statement+"'")
+                                    state = 1
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
@@ -205,6 +210,7 @@ for file in glob("*.*"):
                     hasBrief = False
                     
                 # --------------------------------------------------------------
+                # Next Test 19
 
 
 sys.exit(state)
