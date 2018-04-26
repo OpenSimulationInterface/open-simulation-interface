@@ -64,6 +64,10 @@ for file in glob("*.*"):
                 else:
                     statement = line
                     comment = ""
+                    
+                # New line is not necessary. Remove for a better output.
+                statement = statement.replace("\n", "")
+                comment = comment.replace("\n", "")
 
                 # --------------------------------------------------------------
                 # Test case 6-8 camelcase for enums and check enum name?
