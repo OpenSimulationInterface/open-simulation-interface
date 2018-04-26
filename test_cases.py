@@ -13,9 +13,11 @@ for file in glob("*.*"):
         noMessage = 0
         noComment = 0
         hasBrief = False
+        hasNewLine = True
 
         for line in fin:
             i = i + 1
+            hasNewLine = line.endswith("\n")
 
             # --------------------------------------------------------------
             # Test case 1 is checking if there are illegal tabulators in the code
@@ -210,8 +212,12 @@ for file in glob("*.*"):
                     hasBrief = False
                     
                 # --------------------------------------------------------------
-                # Next Test 19
-
+                # Next Test 20
+                
+                
+        # Test case 19 last line must end with a new line.
+        if hasNewLine == False:
+            print(file + " has no new line at the end of the file.")
+            state = 1
 
 sys.exit(state)
-
