@@ -12,6 +12,7 @@ for file in glob("*.*"):
         enumName = ""
         noMessage = 0
         noComment = 0
+        hasBrief = False
 
         for line in fin:
             i = i + 1
@@ -59,8 +60,10 @@ for file in glob("*.*"):
                 matchComment = re.search("//", line)
                 if matchComment is not None:
                     statement = line[:matchComment.start()]
+                    comment = line[matchComment.end():]
                 else:
                     statement = line
+                    comment = ""
 
                 # --------------------------------------------------------------
                 # Test case 6-8 camelcase for enums and check enum name?
@@ -131,6 +134,9 @@ for file in glob("*.*"):
                             if matchNameConv is None:
                                 print(file + " in line " + str(i) + ": message name wrong. '"+endOfLine[matchName.start():matchName.end()]+"'")
                                 state = 1
+                    elif re.search(r"\bextend\b", statement) is not None:
+                        # treat extend as message
+                        noMessage += 1
                     else:
                         # Check field names
                         if noMessage > 0:
@@ -158,15 +164,42 @@ for file in glob("*.*"):
                         noMessage -= 1
 
                 # --------------------------------------------------------------
-                # Test case 13 is checking if comment is min. 2 lines
+                # Test case 13-17 is checking comment
                 if line.find("//") != -1:
                     noComment += 1;
+                    if comment.find("\\brief") != -1:
+                        hasBrief = True;
                 else:
+                    # Test case 13 is checking if comment is min. 2 lines
                     if noComment == 1:
                         print(file + " in line " + str(i-1) + ": short comment - min. 2 lines.")
                         state = 1
-                    noComment = 0
+                    if re.search(r"\bmessage\b", statement) is not None or re.search(r"\bextend\b", statement) is not None:
+                        if hasBrief == False:
+                            # Test case 14 each message and extend has a \brief comment
+                            print(file + " in line " + str(i-1) + ": \\brief section in comment is missing for: '"+statement+"'")
+                            state = 1
+                    elif hasBrief == True:
+                        # Test case 15 only message and extend has a \brief comment
+                        print(file + " in line " + str(i-1) + ": \\brief section in comment is not necessary for: '"+statement+"'")
+                        state = 1
+                            
+                    if re.search(r"\bmessage\b", statement) is not None or re.search(r"\bextend\b", statement) is not None or re.search(r"\benum\b", statement) is not None:
+                        if noComment == 0:
+                            # Test case 16 every message, extend or enum has a comment
+                            print(file + " in line " + str(i) + ": comment is missing for: '"+statement+"'")
+                            state = 1
 
+                    if noMessage > 0 or isEnum == True:
+                        if statement.find(";") != -1:
+                            if noComment == 0:
+                                # Test case 17 every statement has a comment
+                                print(file + " in line " + str(i) + ": comment is missing for: '"+statement+"'")
+                                state = 1
+                        
+                    noComment = 0
+                    hasBrief = False
+                    
                 # --------------------------------------------------------------
 
 

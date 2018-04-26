@@ -39,7 +39,7 @@ message DetectedEntityHeader
     optional DataQualifier data_qualifier = 3;
 
     //
-    // \brief Data qualifier communicates the overall availability of the
+    // Data qualifier communicates the overall availability of the
     // interface.
     //
     enum DataQualifier
