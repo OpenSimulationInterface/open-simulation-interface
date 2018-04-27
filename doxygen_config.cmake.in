@@ -21,6 +21,7 @@ INPUT_FILTER           = "python @FILTER_PROTO2CPP_PY_PATH@/proto2cpp.py"
 HAVE_DOT               = YES
 HIDE_UNDOC_RELATIONS   = NO
 MAX_DOT_GRAPH_DEPTH    = 2
+SORT_MEMBER_DOCS       = YES
 
 # If someone wants UML diagrams in the documentation, the next parameter must 
 # be commented in.

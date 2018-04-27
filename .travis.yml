@@ -81,6 +81,7 @@ script:
     - cmake -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
     - doxygen
     - cd ..
+    - python test_cases_doc.py
 
 # Deploy the documentation on github (only for master branch).
 deploy:

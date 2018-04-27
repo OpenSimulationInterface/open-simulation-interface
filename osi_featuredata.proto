@@ -112,7 +112,7 @@ message SensorDetectionHeader
     optional Identifier sensor_id = 7;
 
     //
-    // \brief Data qualifier communicates the overall availability of the
+    // Data qualifier communicates the overall availability of the
     // interface.
     //
     enum DataQualifier
