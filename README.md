@@ -102,9 +102,7 @@ Copy the content of the repo proto2cpp to your desired `<path-to-proto2cpp.py>`
 Citing
 ------
 
-Use the following citation for referencing the OSI interface in your scientific work:
-
-`@misc{osi.2017,
+Use the following citation for referencing the OSI interface in your scientific work: `@misc{osi.2017,
         author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
         year = {2017},
         title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
