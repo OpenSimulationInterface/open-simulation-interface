@@ -11,5 +11,6 @@ var searchData=
   ['color',['color',['../structosi3_1_1LaneBoundary_1_1Classification.html#a4e5960e264ee7a681ae86fd7fea2f455',1,'osi3::LaneBoundary::Classification::color()'],['../structosi3_1_1StationaryObject_1_1Classification.html#ae22a9a0e707d85d8883ddccf0cb4f32f',1,'osi3::StationaryObject::Classification::color()'],['../structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034',1,'osi3::TrafficLight::Classification::color()']]],
   ['counter',['counter',['../structosi3_1_1TrafficLight_1_1Classification.html#a3e26403ad1b31fe8392c15b2efe78f3a',1,'osi3::TrafficLight::Classification']]],
   ['country_5fcode',['country_code',['../structosi3_1_1GroundTruth.html#a162349535ee11aee7b68aaa61f1dc661',1,'osi3::GroundTruth']]],
+  ['current_5finterface_5fversion',['current_interface_version',['../structosi3_1_1FileOptions.html#a0f5d907af93f7e7ee0ce42cdac0221e1',1,'osi3::FileOptions']]],
   ['cycle_5fcounter',['cycle_counter',['../structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92',1,'osi3::SensorDetectionHeader::cycle_counter()'],['../structosi3_1_1DetectedEntityHeader.html#a189ceeaab3390c89f13442df1a70563f',1,'osi3::DetectedEntityHeader::cycle_counter()']]]
 ];
