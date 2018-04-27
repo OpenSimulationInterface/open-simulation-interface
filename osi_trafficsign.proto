@@ -838,7 +838,8 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIAN_CROSSING_INFO = 87;
 
-                // Pole indicating highways exit in e.g. 100m (StVO 450).
+                // Pole indicating highways exit in e.g. 100m (StVO 450, 
+                // StVO 451, StVO 452).
                 // \c TrafficSignValue::value and \c TrafficSignValue::value_unit .
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/450-51.png
