@@ -45,10 +45,10 @@ message InterfaceVersion
 }
 
 //
-// \brief Extension of FileOptions for OSI
+// \brief Extension of \c FileOptions for OSI
 //
 extend google.protobuf.FileOptions {
-    // Extend FileOptions with current interface version of OSI
+    // Extend \c FileOptions with current interface version of OSI
     //
     optional InterfaceVersion current_interface_version = 81000;
 }

@@ -109,9 +109,9 @@ message RoadMarking
             //
             TYPE_PAINTED_TRAFFIC_SIGN = 2;
 
-            // Paint on the road surface indicating a monochrome logical symbol of a
-            // traffic sign (e.g. digits 50 as start of speed limit 50 or stop line
-            // for stop sign).
+            // Paint on the road surface indicating a monochrome logical symbol
+            // of a traffic sign (e.g. digits 50 as start of speed limit 50 or
+            // stop line for stop sign).
             //
             TYPE_SYMBOLIC_TRAFFIC_SIGN = 3;
 
