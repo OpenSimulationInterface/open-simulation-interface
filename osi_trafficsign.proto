@@ -720,12 +720,23 @@ message TrafficSign
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/283.png
                 //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 299)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/299.png
                 TYPE_NO_STOPPING = 63;
 
                 // No parking sign
                 // (StVO 286).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/286.png
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 299)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/299.png
                 //
                 TYPE_NO_PARKING = 64;
 
@@ -911,6 +922,12 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297.1-21)
+                //
+                // See e.g.: 
+                //
                 // \note No speed limitation
                 //
                 TYPE_ANNOUNCE_LEFT_LANE_END = 89;
@@ -919,6 +936,12 @@ message TrafficSign
                 // (StVO 531.1x).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/531-10.png
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297.1-21)
+                //
+                // See e.g.: 
                 //
                 // \note No speed limitation
                 //
