@@ -259,28 +259,28 @@ message TrafficSign
                 TYPE_RIGHT_BEFORE_LEFT_NEXT_INTERSECTION = 3;
 
                 // Warning sign for a left turn
-                // (StVO 103.1). Right: #TYPE_TURN_RIGHT
+                // (StVO 103.1). Right: \c #TYPE_TURN_RIGHT
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/103-10.png
                 //
                 TYPE_TURN_LEFT = 4;
 
                 // Warning sign for a right turn
-                // (StVO 103.2). Left: #TYPE_TURN_LEFT
+                // (StVO 103.2). Left: \c #TYPE_TURN_LEFT
                 //
                 // See e.g.:
                 //
                 TYPE_TURN_RIGHT = 5;
 
                 // Warning sign for a double turn (first left turn)
-                // (StVO 105.1). Right: #TYPE_DOUBLE_TURN_RIGHT
+                // (StVO 105.1). Right: \c #TYPE_DOUBLE_TURN_RIGHT
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/105-10.png
                 //
                 TYPE_DOUBLE_TURN_LEFT = 6;
 
                 // Warning sign for a double turn (first right turn)
-                // (StVO 105.2). Left: #TYPE_DOUBLE_TURN_LEFT
+                // (StVO 105.2). Left: \c #TYPE_DOUBLE_TURN_LEFT
                 //
                 // See e.g.:
                 //
@@ -347,6 +347,12 @@ message TrafficSign
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/205.png
                 //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 341)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/341.png
+                //
                 TYPE_GIVE_WAY = 16;
 
                 // Stop sign
@@ -354,33 +360,51 @@ message TrafficSign
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/206.png
                 //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 294)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/294.png
+                //
                 TYPE_STOP = 17;
 
                 // Priority must be given to vehicles from the opposite direction
-                // (StVO 208). Or: #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
+                // (StVO 208). Or: \c #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/208.png
                 //
                 TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 18;
 
                 // Priority must be given to vehicles from the opposite direction
-                // (StVO 208 Upside down). Or: #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
+                // (StVO 208 Upside down). Or: \c #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
                 //
                 // See e.g.:
                 //
                 TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 19;
 
                 // Prescribed left turn
-                // (StVO 209.1). Right: #TYPE_PRESCRIBED_RIGHT_TURN
+                // (StVO 209.1). Right: \c #TYPE_PRESCRIBED_RIGHT_TURN
                 //
                 // See e.g.:
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/297.png
                 //
                 TYPE_PRESCRIBED_LEFT_TURN = 20;
 
                 // Prescribed right turn
-                // (StVO 209.2). Left: #TYPE_PRESCRIBED_LEFT_TURN
+                // (StVO 209.2). Left: \c #TYPE_PRESCRIBED_LEFT_TURN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/209.png
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/297.png
                 //
                 TYPE_PRESCRIBED_RIGHT_TURN = 21;
 
@@ -389,40 +413,64 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/297.png
+                //
                 TYPE_PRESCRIBED_STRAIGHT_AHEAD = 22;
 
                 // Prescribed left way
-                // (StVO 211.1). Right: #TYPE_PRESCRIBED_RIGHT_WAY
-                //
+                // (StVO 211.1). Right: \c #TYPE_PRESCRIBED_RIGHT_WAY
+                // 
                 // See e.g.:
                 //
                 TYPE_PRESCRIBED_LEFT_WAY = 23;
 
                 // Prescribed right way
-                // (StVO 211.2). Left: #TYPE_PRESCRIBED_LEFT_WAY
+                // (StVO 211.2). Left: \c #TYPE_PRESCRIBED_LEFT_WAY
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/211.png
                 //
                 TYPE_PRESCRIBED_RIGHT_WAY = 24;
 
                 // Prescribed left turn and driving straight ahead
-                // (StVO 214.1).
+                // (StVO 214.1). Right: \c #TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT_AHEAD
                 //
                 // See e.g.:
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/297.png
                 //
                 TYPE_PRESCRIBED_LEFT_TURN_AND_STRAIGHT_AHEAD = 25;
 
                 // Prescribed right turn and driving straight ahead
-                // (StVO 214.2). Right: #TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN
+                // (StVO 214.2). Left: \c #TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/214.png
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/297.png
                 //
                 TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT_AHEAD = 26;
 
                 // Prescribed left and right turn
-                // (StVO 214.3). Left: #TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT_AHEAD
+                // (StVO 214.3).
                 //
                 // See e.g.:
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/297.png
                 //
                 TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN = 27;
 
@@ -430,6 +478,12 @@ message TrafficSign
                 // for logical signs as road marking).
                 //
                 // See e.g.:
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 297)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/297.png
                 //
                 TYPE_PRESCRIBED_LEFT_TURN_RIGHT_TURN_AND_STRAIGHT_AHEAD = 28;
 
@@ -441,28 +495,28 @@ message TrafficSign
                 TYPE_ROUNDABOUT = 29;
 
                 // One-way road to the left
-                // (StVO 220.1). Right: #TYPE_ONEWAY_RIGHT
+                // (StVO 220.1). Right: \c #TYPE_ONEWAY_RIGHT
                 //
                 // See e.g.:
                 //
                 TYPE_ONEWAY_LEFT = 30;
 
                 // One-way road to the right
-                // (StVO 220.2). Left: #TYPE_ONEWAY_LEFT
+                // (StVO 220.2). Left: \c #TYPE_ONEWAY_LEFT
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/220-20.png
                 //
                 TYPE_ONEWAY_RIGHT = 31;
 
                 // Drive past on the left side
-                // (StVO 222.1). Right: #TYPE_PASS_RIGHT
+                // (StVO 222.1). Right: \c #TYPE_PASS_RIGHT
                 //
                 // See e.g.:
                 //
                 TYPE_PASS_LEFT = 32;
 
                 // Drive past on the right side
-                // (StVO 222.2). Left: #TYPE_PASS_LEFT
+                // (StVO 222.2). Left: \c #TYPE_PASS_LEFT
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/222.png
                 //
@@ -476,12 +530,12 @@ message TrafficSign
                 TYPE_BUS_LANE = 34;
 
                 // Bus only lane begin ().
-                // End: #TYPE_BUS_LANE_END
+                // End: \c #TYPE_BUS_LANE_END
                 //
                 TYPE_BUS_LANE_BEGIN = 35;
 
                 // Bus only lane end ().
-                // Begin: #TYPE_BUS_LANE_BEGIN
+                // Begin: \c #TYPE_BUS_LANE_BEGIN
                 //
                 TYPE_BUS_LANE_END = 36;
 
@@ -542,38 +596,38 @@ message TrafficSign
                 TYPE_DO_NOT_ENTER = 44;
 
                 // Start of area without traffic to reduce harmful air pollution
-                // (StVO 270.1). End: #TYPE_ENVIRONMENTAL_ZONE_END
+                // (StVO 270.1). End: \c #TYPE_ENVIRONMENTAL_ZONE_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/270.1.png
                 //
                 TYPE_ENVIRONMENTAL_ZONE_BEGIN = 45;
 
                 // End of area without traffic to reduce harmful air pollution
-                // (StVO 270.2). Begin: #TYPE_ENVIRONMENTAL_ZONE_BEGIN
+                // (StVO 270.2). Begin: \c #TYPE_ENVIRONMENTAL_ZONE_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/270.2.png
                 //
                 TYPE_ENVIRONMENTAL_ZONE_END = 46;
 
                 // No U turn left
-                // (StVO 272). Right: #TYPE_NO_U_TURN_RIGHT
+                // (StVO 272). Right: \c #TYPE_NO_U_TURN_RIGHT
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/272.png
                 //
                 TYPE_NO_U_TURN_LEFT = 47;
 
                 // No U turn right ().
-                // Left: #TYPE_NO_U_TURN_LEFT
+                // Left: \c #TYPE_NO_U_TURN_LEFT
                 //
                 TYPE_NO_U_TURN_RIGHT = 48;
 
                 // Prescribed U turn left ().
-                // Right: #TYPE_PRESCRIBED_U_TURN_RIGHT
+                // Right: \c #TYPE_PRESCRIBED_U_TURN_RIGHT
                 //
                 TYPE_PRESCRIBED_U_TURN_LEFT = 49;
 
                 // Prescribed U turn right ().
-                // Left: #TYPE_PRESCRIBED_U_TURN_LEFT
+                // Left: \c #TYPE_PRESCRIBED_U_TURN_LEFT
                 //
                 TYPE_PRESCRIBED_U_TURN_RIGHT = 50;
 
@@ -585,70 +639,70 @@ message TrafficSign
                 TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 51;
 
                 // Start of speed limit (StVO 274) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . End: #TYPE_SPEED_LIMIT_END
+                // \c TrafficSignValue::value_unit . End: \c #TYPE_SPEED_LIMIT_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/274-60.png
                 //
                 TYPE_SPEED_LIMIT_BEGIN = 52;
 
                 // Start of zone with speed limit (StVO 274.1) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . End: #TYPE_SPEED_LIMIT_ZONE_END
+                // \c TrafficSignValue::value_unit . End: \c #TYPE_SPEED_LIMIT_ZONE_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/274.1.png
                 //
                 TYPE_SPEED_LIMIT_ZONE_BEGIN = 53;
 
                 // End of zone with speed limit (StVO 274.2) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . Begin: #TYPE_SPEED_LIMIT_ZONE_BEGIN
+                // \c TrafficSignValue::value_unit . Begin: \c #TYPE_SPEED_LIMIT_ZONE_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/274.2.png
                 //
                 TYPE_SPEED_LIMIT_ZONE_END = 54;
 
                 // Start of mandatory minimum speed (StVO 275) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . End: #TYPE_MINIMUM_SPEED_END
+                // \c TrafficSignValue::value_unit . End: \c #TYPE_MINIMUM_SPEED_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/275.png
                 //
                 TYPE_MINIMUM_SPEED_BEGIN = 55;
 
                 // Start of overtaking ban
-                // (StVO 276). End: #TYPE_OVERTAKING_BAN_END
+                // (StVO 276). End: \c #TYPE_OVERTAKING_BAN_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/276.png
                 //
                 TYPE_OVERTAKING_BAN_BEGIN = 56;
 
                 // Start of overtaking ban for trucks
-                // (StVO 277). End: #TYPE_OVERTAKING_BAN_FOR_TRUCKS_END
+                // (StVO 277). End: \c #TYPE_OVERTAKING_BAN_FOR_TRUCKS_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/277.png
                 //
                 TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN = 57;
 
                 // End of speed limit (StVO 278) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . Begin: #TYPE_SPEED_LIMIT_BEGIN
+                // \c TrafficSignValue::value_unit . Begin: \c #TYPE_SPEED_LIMIT_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/278-60.png
                 //
                 TYPE_SPEED_LIMIT_END = 58;
 
                 // End of mandatory minimum speed (StVO 279) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . Begin: #TYPE_MINIMUM_SPEED_BEGIN
+                // \c TrafficSignValue::value_unit . Begin: \c #TYPE_MINIMUM_SPEED_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/279.png
                 //
                 TYPE_MINIMUM_SPEED_END = 59;
 
                 // End of overtaking ban
-                // (StVO 280). Begin: #TYPE_OVERTAKING_BAN_BEGIN
+                // (StVO 280). Begin: \c #TYPE_OVERTAKING_BAN_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/280.png
                 //
                 TYPE_OVERTAKING_BAN_END = 60;
 
                 // End of overtaking ban for trucks
-                // (StVO 281). Begin: #TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN
+                // (StVO 281). Begin: \c #TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/281.png
                 //
@@ -676,14 +730,14 @@ message TrafficSign
                 TYPE_NO_PARKING = 64;
 
                 // Begin of no parking zone
-                // (StVO 290.1). End: #TYPE_NO_PARKING_ZONE_END
+                // (StVO 290.1). End: \c #TYPE_NO_PARKING_ZONE_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/290.1.png
                 //
                 TYPE_NO_PARKING_ZONE_BEGIN = 65;
 
                 // End of no parking zone
-                // (StVO 290.2). Begin: #TYPE_NO_PARKING_ZONE_BEGIN
+                // (StVO 290.2). Begin: \c #TYPE_NO_PARKING_ZONE_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/290.2.png
                 //
@@ -697,42 +751,42 @@ message TrafficSign
                 TYPE_RIGHT_OF_WAY_NEXT_INTERSECTION = 67;
 
                 // Begin of priority road with right of way
-                // (StVO 306). End: #TYPE_RIGHT_OF_WAY_END
+                // (StVO 306). End: \c #TYPE_RIGHT_OF_WAY_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/306.png
                 //
                 TYPE_RIGHT_OF_WAY_BEGIN = 68;
 
                 // End of priority road with right of way
-                // (StVO 307). Begin: #TYPE_RIGHT_OF_WAY_BEGIN
+                // (StVO 307). Begin: \c #TYPE_RIGHT_OF_WAY_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/307.png
                 //
                 TYPE_RIGHT_OF_WAY_END = 69;
 
                 // Traffic has priority over vehicles from the opposite direction
-                // (StVO 308). Or: #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
+                // (StVO 308). Or: \c #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/308.png
                 //
                 TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 70;
 
                 // Traffic has priority over vehicles from the opposite direction
-                // (StVO 308 Upside down). Or: #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
+                // (StVO 308 Upside down). Or: \c #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
                 //
                 // See e.g.:
                 //
                 TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 71;
 
                 // Town entrance
-                // (StVO 310). End: #TYPE_TOWN_END
+                // (StVO 310). End: \c #TYPE_TOWN_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/310.png
                 //
                 TYPE_TOWN_BEGIN = 72;
 
                 // Town exit
-                // (StVO 311). Begin: #TYPE_TOWN_BEGIN
+                // (StVO 311). Begin: \c #TYPE_TOWN_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/311.png
                 //
@@ -746,14 +800,14 @@ message TrafficSign
                 TYPE_CAR_PARKING = 74;
 
                 // Begin of parking zone
-                // (StVO 314.1). End: #TYPE_CAR_PARKING_ZONE_END
+                // (StVO 314.1). End: \c #TYPE_CAR_PARKING_ZONE_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/314.1.png
                 //
                 TYPE_CAR_PARKING_ZONE_BEGIN = 75;
 
                 // End of parking zone
-                // (StVO 314.2). Begin: #TYPE_CAR_PARKING_ZONE_BEGIN
+                // (StVO 314.2). Begin: \c #TYPE_CAR_PARKING_ZONE_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/314.2.png
                 //
@@ -761,7 +815,7 @@ message TrafficSign
 
                 // Start of area with calmed / reduced traffic
                 // (verkehrsberuhigter Bereich - StVO 325.1).
-                // End: #TYPE_TRAFFIC_CALMED_DISTRICT_END
+                // End: \c #TYPE_TRAFFIC_CALMED_DISTRICT_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/325.1.png
                 //
@@ -769,7 +823,7 @@ message TrafficSign
 
                 // End of area with calmed / reduced traffic
                 // (verkehrsberuhigter Bereich - StVO 325.2).
-                // Begin: #TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN
+                // Begin: \c #TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/325.2.png
                 //
@@ -783,42 +837,42 @@ message TrafficSign
                 TYPE_TUNNEL = 79;
 
                 // Emergency stopping place left
-                // (). Right: #TYPE_EMERGENCY_STOPPING_RIGHT
+                // (). Right: \c #TYPE_EMERGENCY_STOPPING_RIGHT
                 //
                 // See e.g.:
                 //
                 TYPE_EMERGENCY_STOPPING_LEFT = 80;
 
                 // Emergency stopping place right
-                // (StVO 328). Left: #TYPE_EMERGENCY_STOPPING_LEFT
+                // (StVO 328). Left: \c #TYPE_EMERGENCY_STOPPING_LEFT
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/328.png
                 //
                 TYPE_EMERGENCY_STOPPING_RIGHT = 81;
 
                 // Begin of highway
-                // (StVO 330.1). End: #TYPE_HIGHWAY_END
+                // (StVO 330.1). End: \c #TYPE_HIGHWAY_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/330.1.png
                 //
                 TYPE_HIGHWAY_BEGIN = 82;
 
                 // End of highway
-                // (StVO 330.2). Begin: #TYPE_HIGHWAY_BEGIN
+                // (StVO 330.2). Begin: \c #TYPE_HIGHWAY_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/330.2.png
                 //
                 TYPE_HIGHWAY_END = 83;
 
                 // Begin of expressway for motor vehicles
-                // (StVO 331.1). End: #TYPE_EXPRESSWAY_END
+                // (StVO 331.1). End: \c #TYPE_EXPRESSWAY_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/331.1.png
                 //
                 TYPE_EXPRESSWAY_BEGIN = 84;
 
                 // End of expressways for motor vehicles
-                // (StVO 331.2). Begin: #TYPE_EXPRESSWAY_BEGIN
+                // (StVO 331.2). Begin: \c #TYPE_EXPRESSWAY_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/331.2.png
                 //
@@ -835,6 +889,12 @@ message TrafficSign
                 // (StVO 350) - crosswalk.
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/350-10.png
+                //
+                // As symbolic road marking
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // (StVO 293)
+                //
+                // See e.g.: https://www.dvr.de/bilder/stvo/gt/293.png
                 //
                 TYPE_PEDESTRIAN_CROSSING_INFO = 87;
 
