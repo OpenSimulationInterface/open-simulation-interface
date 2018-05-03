@@ -40,8 +40,8 @@ install:
     # Install a recent version of doxygen
     - |
         DOXYGEN_URL="https://github.com/doxygen/doxygen/archive/Release_1_8_14.tar.gz"
-        if [ ! -f ${DEPS_DIR}/doxygen/ ] ; then mkdir -p doxygen ; travis_retry wget --no-check-certificate --quiet -O - ${DOXYGEN_URL} | tar --strip-components=1 -xz -C doxygen ; cd doxygen ; ./configure ; make ; make install ; fi
-        export PATH=${DEPS_DIR}/protobuf/install/bin:${PATH}
+        if [ ! -f ${DEPS_DIR}/doxygen/ ] ; then mkdir -p doxygen ; travis_retry wget --no-check-certificate --quiet -O - ${DOXYGEN_URL} | tar --strip-components=1 -xz -C doxygen ; cd doxygen ; cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=${DEPS_DIR}/doxygen/install ; make ; make install ; fi
+        export PATH=${DEPS_DIR}/doxygen/install/bin:${PATH}
 
     # Install proto2cpp for doxygen
     - |
