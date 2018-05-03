@@ -135,7 +135,9 @@ message Dimension3d
 //
 // <tt>Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw</tt>
 //
-// <tt>vector_global_coord_system := Inverse_Rotation_yaw_pitch_roll(</tt><tt>Orientation3d</tt><tt>)*(vector_local_coord_system) + local_origin::position</tt>
+// <tt>vector_global_coord_system :=
+// Inverse_Rotation_yaw_pitch_roll(</tt><tt>Orientation3d</tt><tt>)*(vector_local_coord_system)
+// + local_origin::position</tt>
 //
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
@@ -198,7 +200,9 @@ message MountingPosition
 
     // Orientation offset relative to the specified reference coordinate system.
     //
-    // <tt>Origin_sensor := Rotation_yaw_pitch_roll(#orientation)*(Origin_reference_coordinate_system - #position)</tt>
+    // <tt>Origin_sensor :=
+    // Rotation_yaw_pitch_roll(#orientation)*(Origin_reference_coordinate_system
+    // - #position)</tt>
     //
     optional Orientation3d orientation = 2;
 }
@@ -210,13 +214,14 @@ message MountingPosition
 //
 // Azimuth and elevation are defined as the rotations that would have to be
 // applied to the local frame (e.g sensor frame definition in
-// \c SensorDetectionHeader) to make its x-axis point towards the referenced point
-// or to align it with the referenced vector. The rotations are to be performed
-// \b azimuth \b first (around the z-axis) and \b elevation \b second (around
-// the new y-axis) to follow the definition of \c Orientation3d. For the
+// \c SensorDetectionHeader) to make its x-axis point towards the referenced
+// point or to align it with the referenced vector. The rotations are to be
+// performed \b azimuth \b first (around the z-axis) and \b elevation \b second
+// (around the new y-axis) to follow the definition of \c Orientation3d. For the
 // sense of each rotation, the right-hand rule applies.
 //
-// <tt>vector_cartesian := Rotation(#elevation)*Rotation(#azimuth)*Unit_vector_x*#distance</tt>
+// <tt>vector_cartesian :=
+// Rotation(#elevation)*Rotation(#azimuth)*Unit_vector_x*#distance</tt>
 //
 message Spherical3d
 {
@@ -265,7 +270,9 @@ message BaseStationary
     // The relative orientation of the stationary object w.r.t. its parent
     // frame.
     //
-    // <tt>Origin_base_stationary_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
+    // <tt>Origin_base_stationary_entity :=
+    // Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system -
+    // #position)</tt>
     //
     // \note There may be some constraints how to align the orientation w.r.t.
     // to some stationary object's or entity's definition.
@@ -274,8 +281,8 @@ message BaseStationary
 
     // Usage as ground truth:
     // The two dimensional (flat) contour of the object. This is an extension of
-    // the concept of a bounding box as defined by \c Dimension3d. The contour is
-    // the projection of the object's outline onto the z-plane in the object
+    // the concept of a bounding box as defined by \c Dimension3d. The contour
+    // is the projection of the object's outline onto the z-plane in the object
     // frame (independent of its current position and orientation). The height
     // is the same as the height of the bounding box.
     //
@@ -318,7 +325,9 @@ message BaseMoving
 
     // The relative orientation of the moving object w.r.t. its parent frame.
     //
-    // <tt>Origin_base_moving_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
+    // <tt>Origin_base_moving_entity :=
+    // Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system -
+    // #position)</tt>
     //
     // \note There may be some constraints how to align the orientation w.r.t.
     // to some stationary object's or entity's definition.
@@ -338,7 +347,8 @@ message BaseMoving
     // The acceleration becomes global/absolute if the parent frame is not
     // accelerating.
     //
-    // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration /2*dt^2</tt>
+    // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration
+    // /2*dt^2</tt>
     //
     // <tt> #velocity (t) := #velocity (t-dt)+ #acceleration *dt</tt>
     //
@@ -348,16 +358,19 @@ message BaseMoving
     // frame and parent orientation rate in the center point of the bounding box
     // (origin of the bounding box frame).
     //
-    // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
+    // <tt>Rotation_yaw_pitch_roll(#orientation (t)) :=
+    // Rotation_yaw_pitch_roll(#orientation_rate
+    // *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
     //
-    // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation (t-dt)+#orientation_rate *dt</tt>
+    // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation
+    // (t-dt)+#orientation_rate *dt</tt>
     //
     optional Orientation3d orientation_rate = 6;
 
     // Usage as ground truth:
     // The two dimensional (flat) contour of the object. This is an extension of
-    // the concept of a bounding box as defined by \c Dimension3d. The contour is
-    // the projection of the object's outline onto the z-plane in the object
+    // the concept of a bounding box as defined by \c Dimension3d. The contour
+    // is the projection of the object's outline onto the z-plane in the object
     // frame (independent of its current position and orientation). The height
     // is the same as the height of the bounding box.
     //

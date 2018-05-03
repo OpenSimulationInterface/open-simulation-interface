@@ -12,6 +12,7 @@ cache:
     directories:
         - ${HOME}/deps/cmake
         - ${HOME}/deps/protobuf
+        - ${HOME}/deps/doxygen
 #        - ${HOME}/deps/proto2cpp
 
 # Handle dependencies in separate directory.
@@ -30,12 +31,18 @@ install:
         if [ ! -f ${DEPS_DIR}/cmake/bin/cmake ] ; then mkdir -p cmake ; travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake ; fi
         export PATH=${DEPS_DIR}/cmake/bin:${PATH}
 
-    # Install a recent version of the Protobuf
+    # Install a recent version of protobuf
     - |
         PROTOBUF_URL="https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz"
         if [ ! -f ${DEPS_DIR}/protobuf/install/bin/protoc ] ; then mkdir -p protobuf ; travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf ; cd protobuf ; ./configure --prefix=${DEPS_DIR}/protobuf/install ; make ; make install ; fi
         export PATH=${DEPS_DIR}/protobuf/install/bin:${PATH}
-        
+
+    # Install a recent version of doxygen
+    - |
+        DOXYGEN_URL="https://github.com/doxygen/doxygen/archive/Release_1_8_14.tar.gz"
+        if [ ! -f ${DEPS_DIR}/doxygen/ ] ; then mkdir -p doxygen ; travis_retry wget --no-check-certificate --quiet -O - ${DOXYGEN_URL} | tar --strip-components=1 -xz -C doxygen ; cd doxygen ; ./configure ; make ; make install ; fi
+        export PATH=${DEPS_DIR}/protobuf/install/bin:${PATH}
+
     # Install proto2cpp for doxygen
     - |
         PROTO2CPP_URL="https://github.com/OpenSimulationInterface/proto2cpp.git"
@@ -52,11 +59,12 @@ env:
 addons:
     apt:
         packages:
-        - doxygen
-        - doxygen-doc
-        - doxygen-latex
-        - doxygen-gui
+#        - doxygen
+#        - doxygen-doc
+#        - doxygen-latex
+#        - doxygen-gui
         - graphviz
+        - clang
 
 # Change directory back to default build directory.
 before_script:
@@ -82,6 +90,7 @@ script:
     - doxygen
     - cd ..
     - python test_cases_doc.py
+    - clang-format
 
 # Deploy the documentation on github (only for master branch).
 deploy:
