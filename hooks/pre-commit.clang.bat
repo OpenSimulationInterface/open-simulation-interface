@@ -1,0 +1,1 @@
+@echo Writing text to dblank.txt> C:\tmp\dblank.txt
