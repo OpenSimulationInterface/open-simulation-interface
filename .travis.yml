@@ -91,7 +91,7 @@ script:
     - cd ..
     - python test_cases_doc.py
     - clang-format -i *.proto
-
+ 
 # Deploy the documentation on github (only for master branch).
 deploy:
     provider: pages
