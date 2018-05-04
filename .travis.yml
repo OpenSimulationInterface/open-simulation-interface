@@ -102,12 +102,12 @@ deploy:
     on: 
       branch: master 
 
-deploy:
-    provider: releases
-    github_token: ${GH_REPO_TOKEN}
-    file_glob: true
-    file: *.proto
-    skip_cleanup: true
-    on:
-        all_branches: true
+#deploy:
+#    provider: releases
+#    github_token: ${GH_REPO_TOKEN}
+#    file_glob: true
+#    file: *.proto
+#    skip_cleanup: true
+#    on:
+#        all_branches: true
         
