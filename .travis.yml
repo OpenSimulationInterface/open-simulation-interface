@@ -101,3 +101,12 @@ deploy:
     github_token: ${GH_REPO_TOKEN}
     on: 
       branch: master 
+
+deploy:
+    provider: releases
+    github_token: ${GH_REPO_TOKEN}
+    file_glob: true
+    file: *.proto
+    skip_cleanup: true
+    on:
+        tags: true
