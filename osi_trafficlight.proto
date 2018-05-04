@@ -39,9 +39,9 @@ message TrafficLight
         // \note If the color of the traffic light is known (from history or
         // geometrical arrangement) and the state \c #mode is
         // \c #MODE_OFF then \c #color could remain unchanged.
-        // If traffic light displays images in different colors and traffic light
-        // is off ( \c #mode =  \c #MODE_OFF), then
-        // \c #color = \c #COLOR_OTHER .
+        // If traffic light displays images in different colors and traffic
+        // light is off ( \c #mode =  \c #MODE_OFF), then \c #color = \c
+        // #COLOR_OTHER .
         //
         optional Color color = 1;
 
@@ -130,8 +130,8 @@ message TrafficLight
             //
             ICON_ARROW_DIAG_LEFT = 5;
 
-            // This traffic light applies to a lane allowing to drive straight ahead
-            // or to turn left.
+            // This traffic light applies to a lane allowing to drive straight
+            // ahead or to turn left.
             //
             ICON_ARROW_STRAIGHT_AHEAD_LEFT = 6;
 
@@ -143,12 +143,13 @@ message TrafficLight
             //
             ICON_ARROW_DIAG_RIGHT = 8;
 
-            // This traffic light applies to a lane allowing to drive straight ahead
-            // or to turn right.
+            // This traffic light applies to a lane allowing to drive straight
+            // ahead or to turn right.
             //
             ICON_ARROW_STRAIGHT_AHEAD_RIGHT = 9;
 
-            // This traffic light applies to a lane allowing to turn left or right.
+            // This traffic light applies to a lane allowing to turn left or
+            // right.
             //
             ICON_ARROW_LEFT_RIGHT = 10;
 
@@ -167,8 +168,8 @@ message TrafficLight
             //
             ICON_ARROW_DOWN_RIGHT = 13;
 
-            // This traffic light indicates that the assigned lane is not open for
-            // driving.
+            // This traffic light indicates that the assigned lane is not open
+            // for driving.
             //
             ICON_ARROW_CROSS = 14;
 
@@ -204,24 +205,24 @@ message TrafficLight
             // This traffic light is valid for
             // trams.
             //
-            // \note There is no detailed traffic light specification for trams and
-            // buses at the moment.
+            // \note There is no detailed traffic light specification for trams
+            // and buses at the moment.
             //
             ICON_TRAM = 22;
 
             // This traffic light is valid for
             // buses.
             //
-            // \note There is no detailed traffic light specification for trams and
-            // buses at the moment.
+            // \note There is no detailed traffic light specification for trams
+            // and buses at the moment.
             //
             ICON_BUS = 23;
 
             // This traffic light is valid for
             // buses and trams.
             //
-            // \note There is no detailed traffic light specification for trams and
-            // buses at the moment.
+            // \note There is no detailed traffic light specification for trams
+            // and buses at the moment.
             //
             ICON_BUS_AND_TRAM = 24;
         }
