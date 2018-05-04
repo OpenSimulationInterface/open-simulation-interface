@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# 1. This git hook requires an installation of the clang framework.
+#    http://releases.llvm.org/download.html
+# 2. Copy this script to .git/hooks to activate the git hook
+#    (Please do not rename the script or add a file suffix)
+
+clang-format -i *.proto
