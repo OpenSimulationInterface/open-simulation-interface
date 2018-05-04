@@ -14,6 +14,7 @@ for file in glob("*.*"):
         noComment = 0
         hasBrief = False
         hasNewLine = True
+        saveStatement = ""
 
         for line in fin:
             i = i + 1
@@ -56,9 +57,15 @@ for file in glob("*.*"):
                     state = 1
 
                 # --------------------------------------------------------------
+                # Test case 9 is checking if there is '__'
+                if line.find("__") != -1:
+                    print(file + " in line " + str(i) + ": not permitted use of '__' ")
+                    state = 1
 
-                # Search for comment ("//") and add one more slash character ("/") to the comment
-                # block to make Doxygen detect it.
+                # --------------------------------------------------------------
+                # Divide statement and comment. Concatenate multi line statements.
+
+                # Search for comment ("//").
                 matchComment = re.search("//", line)
                 if matchComment is not None:
                     statement = line[:matchComment.start()]
@@ -66,11 +73,24 @@ for file in glob("*.*"):
                 else:
                     statement = line
                     comment = ""
-                    
+                
+                # Add part of the statement from last line.
+                statement = saveStatement + " " + statement
+                saveStatement = ""
+                
                 # New line is not necessary. Remove for a better output.
                 statement = statement.replace("\n", "")
                 comment = comment.replace("\n", "")
 
+                # Is statement complete 
+                matchSep = re.search(r"[{};]", statement)
+                if matchSep is None:
+                    saveStatement = statement
+                    statement = ""
+                else:
+                    saveStatement = statement[matchSep.end():]
+                    statement = statement[:matchSep.end()]
+                    
                 # --------------------------------------------------------------
                 # Test case 6-8 camelcase for enums and check enum name?
 
@@ -111,12 +131,6 @@ for file in glob("*.*"):
                 def convert(name):
                     s1 = re.sub(r'(.)([A-Z][a-z]+)', r'\1_\2', name)
                     return re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', s1).upper()
-
-                # --------------------------------------------------------------
-                # Test case 9 is checking if there is '__'
-                if line.find("__") != -1:
-                    print(file + " in line " + str(i) + ": not permitted use of '__' ")
-                    state = 1
 
                 # --------------------------------------------------------------
                 # Test case 10-12,18 check message name, field type and field name
@@ -176,11 +190,11 @@ for file in glob("*.*"):
 
                 # --------------------------------------------------------------
                 # Test case 13-17 is checking comment
-                if line.find("//") != -1:
+                if matchComment is not None:
                     noComment += 1;
                     if comment.find("\\brief") != -1:
                         hasBrief = True;
-                else:
+                elif len(saveStatement) == 0:
                     # Test case 13 is checking if comment is min. 2 lines
                     if noComment == 1:
                         print(file + " in line " + str(i-1) + ": short comment - min. 2 lines.")
@@ -207,7 +221,8 @@ for file in glob("*.*"):
                                 # Test case 17 every statement has a comment
                                 print(file + " in line " + str(i) + ": comment is missing for: '"+statement+"'")
                                 state = 1
-                        
+                    
+                
                     noComment = 0
                     hasBrief = False
                     

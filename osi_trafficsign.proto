@@ -164,8 +164,8 @@ message TrafficSign
         // (Normally it is equal to the ground truth z-axis.)
         // The x-axis of the given \c BaseStationary::orientation is view
         // normal of the traffic sign's image.
-        // This x-axis points from the traffic sign's image in the direction from
-        // where a 'viewer' could see the traffic sign image.
+        // This x-axis points from the traffic sign's image in the direction
+        // from where a 'viewer' could see the traffic sign image.
         //
         optional BaseStationary base = 1;
 
@@ -187,39 +187,42 @@ message TrafficSign
             //
             optional Type type = 2;
 
-            // Additional value associated with the traffic sign, e.g. value of the
-            // speed limit.
+            // Additional value associated with the traffic sign, e.g. value of
+            // the speed limit.
             //
-            // \note Field need not be set if traffic sign type does not require it.
+            // \note Field need not be set if traffic sign type does not require
+            // it.
             //
             optional TrafficSignValue value = 3;
 
-            // Some traffic signs have an additional arrow symbol as an additional
-            // constraint for their scope (e.g. no parking to the right).
-            // The arrow direction is given relative to the sign's 2D image plane, i.e.
-            // as a viewer standing right in front of the sign and looking straight
-            // towards it would interpret the arrow.
+            // Some traffic signs have an additional arrow symbol as an
+            // additional constraint for their scope (e.g. no parking to the
+            // right). The arrow direction is given relative to the sign's 2D
+            // image plane, i.e. as a viewer standing right in front of the sign
+            // and looking straight towards it would interpret the arrow.
             //
             // The definition for left and right is according to the following
             // temporarily constructed right-handed local coordinate system:
-            // Set z-axis to match the z-axis of the ground truth coordinate system.
-            // Set x-axis to the view normal of the traffic sign's image
+            // Set z-axis to match the z-axis of the ground truth coordinate
+            // system. Set x-axis to the view normal of the traffic sign's image
             // (\c #base \c BaseStationary::orientation x-axis).
-            // Right: direction of the local coordinate system's positive y-axis.
-            // Left: opposite direction of the local coordinate system's y-axis i.e.
-            // negative y-axis',
+            // Right: direction of the local coordinate system's positive
+            // y-axis. Left: opposite direction of the local coordinate system's
+            // y-axis i.e. negative y-axis',
             //
-            // \note If a traffic sign image is on the ground (there is no definition
-            // for right or left). Normally, this is a road marking and not a traffic
-            // sign. Actual traffic signs lying on the ground might have been
-            // intentionally unmounted and, hence, not be in effect.
+            // \note If a traffic sign image is on the ground (there is no
+            // definition for right or left). Normally, this is a road marking
+            // and not a traffic sign. Actual traffic signs lying on the ground
+            // might have been intentionally unmounted and, hence, not be in
+            // effect.
             //
             optional DirectionScope direction_scope = 4;
 
             // The IDs of the lanes that the sign is assigned to.
             // May be multiple if the sign is valid for multiple lanes.
             //
-            // \note OSI uses singular instead of plural for repeated field names.
+            // \note OSI uses singular instead of plural for repeated field
+            // names.
             //
             repeated Identifier assigned_lane_id = 5;
 
@@ -227,16 +230,22 @@ message TrafficSign
             // Numbers are given according to German StVO.
             //
             // For an overview see:
-            // \arg https://www.dvr.de/publikationen/downloads/verkehrszeichen.html (Images)
-            // \arg https://www.gesetze-im-internet.de/stvo_2013/anlage_1.html (Allgemeine und Besondere Gefahrenzeichen)
-            // \arg https://www.gesetze-im-internet.de/stvo_2013/anlage_2.html (Vorschriftzeichen)
-            // \arg https://www.gesetze-im-internet.de/stvo_2013/anlage_3.html (Richtzeichen)
-            // \arg https://www.gesetze-im-internet.de/stvo_2013/anlage_4.html (Verkehrseinrichtungen)
-            // \arg https://traffic-rules.com/
+            // \arg
+            // https://www.dvr.de/publikationen/downloads/verkehrszeichen.html
+            // (Images) \arg
+            // https://www.gesetze-im-internet.de/stvo_2013/anlage_1.html
+            // (Allgemeine und Besondere Gefahrenzeichen) \arg
+            // https://www.gesetze-im-internet.de/stvo_2013/anlage_2.html
+            // (Vorschriftzeichen) \arg
+            // https://www.gesetze-im-internet.de/stvo_2013/anlage_3.html
+            // (Richtzeichen) \arg
+            // https://www.gesetze-im-internet.de/stvo_2013/anlage_4.html
+            // (Verkehrseinrichtungen) \arg https://traffic-rules.com/
             //
             enum Type
             {
-                // Type of traffic sign is unknown (must not be used in ground truth).
+                // Type of traffic sign is unknown (must not be used in ground
+                // truth).
                 //
                 TYPE_UNKNOWN = 0;
 
@@ -286,8 +295,8 @@ message TrafficSign
                 //
                 TYPE_DOUBLE_TURN_RIGHT = 7;
 
-                // Steep hill downwards (StVO 108) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit .
+                // Steep hill downwards (StVO 108) \c TrafficSignValue::value
+                // and \c TrafficSignValue::value_unit .
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/108-10.png
                 //
@@ -368,15 +377,17 @@ message TrafficSign
                 //
                 TYPE_STOP = 17;
 
-                // Priority must be given to vehicles from the opposite direction
-                // (StVO 208). Or: \c #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
+                // Priority must be given to vehicles from the opposite
+                // direction (StVO 208). Or: \c
+                // #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/208.png
                 //
                 TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 18;
 
-                // Priority must be given to vehicles from the opposite direction
-                // (StVO 208 Upside down). Or: \c #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
+                // Priority must be given to vehicles from the opposite
+                // direction (StVO 208 Upside down). Or: \c
+                // #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
                 //
                 // See e.g.:
                 //
@@ -436,7 +447,8 @@ message TrafficSign
                 TYPE_PRESCRIBED_RIGHT_WAY = 24;
 
                 // Prescribed left turn and driving straight ahead
-                // (StVO 214.1). Right: \c #TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT_AHEAD
+                // (StVO 214.1). Right: \c
+                // #TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT_AHEAD
                 //
                 // See e.g.:
                 //
@@ -449,7 +461,8 @@ message TrafficSign
                 TYPE_PRESCRIBED_LEFT_TURN_AND_STRAIGHT_AHEAD = 25;
 
                 // Prescribed right turn and driving straight ahead
-                // (StVO 214.2). Left: \c #TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN
+                // (StVO 214.2). Left: \c
+                // #TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/214.png
                 //
@@ -474,8 +487,8 @@ message TrafficSign
                 //
                 TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN = 27;
 
-                // Prescribed left turn, right turn and driving straight ahead (required
-                // for logical signs as road marking).
+                // Prescribed left turn, right turn and driving straight ahead
+                // (required for logical signs as road marking).
                 //
                 // See e.g.:
                 //
@@ -632,35 +645,40 @@ message TrafficSign
                 TYPE_PRESCRIBED_U_TURN_RIGHT = 50;
 
                 // Minimum safety distance for trucks (StVO 273).
-                // \c TrafficSignValue::value and \c TrafficSignValue::value_unit .
+                // \c TrafficSignValue::value and \c
+                // TrafficSignValue::value_unit .
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/273.png
                 //
                 TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 51;
 
-                // Start of speed limit (StVO 274) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . End: \c #TYPE_SPEED_LIMIT_END
+                // Start of speed limit (StVO 274) \c TrafficSignValue::value
+                // and \c TrafficSignValue::value_unit . End: \c
+                // #TYPE_SPEED_LIMIT_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/274-60.png
                 //
                 TYPE_SPEED_LIMIT_BEGIN = 52;
 
-                // Start of zone with speed limit (StVO 274.1) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . End: \c #TYPE_SPEED_LIMIT_ZONE_END
+                // Start of zone with speed limit (StVO 274.1) \c
+                // TrafficSignValue::value and \c TrafficSignValue::value_unit .
+                // End: \c #TYPE_SPEED_LIMIT_ZONE_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/274.1.png
                 //
                 TYPE_SPEED_LIMIT_ZONE_BEGIN = 53;
 
-                // End of zone with speed limit (StVO 274.2) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . Begin: \c #TYPE_SPEED_LIMIT_ZONE_BEGIN
+                // End of zone with speed limit (StVO 274.2) \c
+                // TrafficSignValue::value and \c TrafficSignValue::value_unit .
+                // Begin: \c #TYPE_SPEED_LIMIT_ZONE_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/274.2.png
                 //
                 TYPE_SPEED_LIMIT_ZONE_END = 54;
 
-                // Start of mandatory minimum speed (StVO 275) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . End: \c #TYPE_MINIMUM_SPEED_END
+                // Start of mandatory minimum speed (StVO 275) \c
+                // TrafficSignValue::value and \c TrafficSignValue::value_unit .
+                // End: \c #TYPE_MINIMUM_SPEED_END
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/275.png
                 //
@@ -681,14 +699,16 @@ message TrafficSign
                 TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN = 57;
 
                 // End of speed limit (StVO 278) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . Begin: \c #TYPE_SPEED_LIMIT_BEGIN
+                // \c TrafficSignValue::value_unit . Begin: \c
+                // #TYPE_SPEED_LIMIT_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/278-60.png
                 //
                 TYPE_SPEED_LIMIT_END = 58;
 
-                // End of mandatory minimum speed (StVO 279) \c TrafficSignValue::value and
-                // \c TrafficSignValue::value_unit . Begin: \c #TYPE_MINIMUM_SPEED_BEGIN
+                // End of mandatory minimum speed (StVO 279) \c
+                // TrafficSignValue::value and \c TrafficSignValue::value_unit .
+                // Begin: \c #TYPE_MINIMUM_SPEED_BEGIN
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/279.png
                 //
@@ -775,15 +795,17 @@ message TrafficSign
                 //
                 TYPE_RIGHT_OF_WAY_END = 69;
 
-                // Traffic has priority over vehicles from the opposite direction
-                // (StVO 308). Or: \c #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
+                // Traffic has priority over vehicles from the opposite
+                // direction (StVO 308). Or: \c
+                // #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/308.png
                 //
                 TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 70;
 
-                // Traffic has priority over vehicles from the opposite direction
-                // (StVO 308 Upside down). Or: \c #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
+                // Traffic has priority over vehicles from the opposite
+                // direction (StVO 308 Upside down). Or: \c
+                // #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION
                 //
                 // See e.g.:
                 //
@@ -909,9 +931,10 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIAN_CROSSING_INFO = 87;
 
-                // Pole indicating highways exit in e.g. 100m (StVO 450, 
+                // Pole indicating highways exit in e.g. 100m (StVO 450,
                 // StVO 451, StVO 452).
-                // \c TrafficSignValue::value and \c TrafficSignValue::value_unit .
+                // \c TrafficSignValue::value and \c
+                // TrafficSignValue::value_unit .
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/450-51.png
                 //
@@ -926,7 +949,7 @@ message TrafficSign
                 // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
                 // (StVO 297.1-21)
                 //
-                // See e.g.: 
+                // See e.g.:
                 //
                 // \note No speed limitation
                 //
@@ -941,7 +964,7 @@ message TrafficSign
                 // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
                 // (StVO 297.1-21)
                 //
-                // See e.g.: 
+                // See e.g.:
                 //
                 // \note No speed limitation
                 //
@@ -963,13 +986,13 @@ message TrafficSign
             }
 
             // Definition of the direction of the traffic sign's scope.
-            // Signs marked with additional arrows. (E.g. No parking sign (StVO 286) to
-            // the left.)
+            // Signs marked with additional arrows. (E.g. No parking sign (StVO
+            // 286) to the left.)
             //
             enum DirectionScope
             {
-                // Direction of the sign's scope is unknown (must not be used in ground
-                // truth).
+                // Direction of the sign's scope is unknown (must not be used in
+                // ground truth).
                 //
                 DIRECTION_SCOPE_UNKNOWN = 0;
 
@@ -989,7 +1012,8 @@ message TrafficSign
                 //
                 DIRECTION_SCOPE_RIGHT = 4;
 
-                // Direction of the sign's scope for its viewer is to both sides.
+                // Direction of the sign's scope for its viewer is to both
+                // sides.
                 //
                 DIRECTION_SCOPE_LEFT_RIGHT = 5;
             }
@@ -1006,12 +1030,12 @@ message TrafficSign
         // The orientation of the bounding box \c SupplementarySign::base
         // ( \c BaseStationary::orientation ) is defined as follows:
         // The z-axis of the given \c BaseStationary::orientation is the vector
-        // from the bottom to the top of the supplementary traffic sign's 2D image
-        // plate. (Normally it is equal to the ground truth z-axis.)
-        // The x-axis of the given \c BaseStationary::orientation is view
-        // normal of the supplementary traffic sign's image.
-        // This x-axis points from the supplementary traffic sign's image in the
-        // direction from where a 'viewer' could see the supplementary traffic sign image.
+        // from the bottom to the top of the supplementary traffic sign's 2D
+        // image plate. (Normally it is equal to the ground truth z-axis.) The
+        // x-axis of the given \c BaseStationary::orientation is view normal of
+        // the supplementary traffic sign's image. This x-axis points from the
+        // supplementary traffic sign's image in the direction from where a
+        // 'viewer' could see the supplementary traffic sign image.
         //
         optional BaseStationary base = 1;
 
@@ -1032,19 +1056,22 @@ message TrafficSign
             //
             optional Type type = 2;
 
-            // Additional value(s) associated with the traffic sign, e.g. length, mass
-            // or starting time in time range.
+            // Additional value(s) associated with the traffic sign, e.g.
+            // length, mass or starting time in time range.
             //
-            // \note Field need not be set if traffic sign type does not require it.
+            // \note Field need not be set if traffic sign type does not require
+            // it.
             //
-            // \note OSI uses singular instead of plural for repeated field names.
+            // \note OSI uses singular instead of plural for repeated field
+            // names.
             //
             repeated TrafficSignValue value = 3;
 
             // The IDs of the lanes that the sign is assigned to.
             // May be multiple if the sign is valid for multiple lanes.
             //
-            // \note OSI uses singular instead of plural for repeated field names.
+            // \note OSI uses singular instead of plural for repeated field
+            // names.
             //
             repeated Identifier assigned_lane_id = 4;
 
@@ -1053,8 +1080,8 @@ message TrafficSign
             //
             enum Type
             {
-                // Type of supplementary sign is unknown (must not be used in ground
-                // truth).
+                // Type of supplementary sign is unknown (must not be used in
+                // ground truth).
                 //
                 TYPE_UNKNOWN = 0;
 
@@ -1062,51 +1089,61 @@ message TrafficSign
                 //
                 TYPE_OTHER = 1;
 
-                // There is no supplementary sign (must not be used in ground truth).
+                // There is no supplementary sign (must not be used in ground
+                // truth).
                 //
                 TYPE_NO_SIGN = 2;
 
-                // Traffic sign is valid for a certain distance (given by \c TrafficSignValue::value in
-                // e.g. meter - \c TrafficSignValue::value_unit).
+                // Traffic sign is valid for a certain distance (given by \c
+                // TrafficSignValue::value in e.g. meter - \c
+                // TrafficSignValue::value_unit).
                 //
                 TYPE_VALID_FOR_DISTANCE = 3;
 
-                // Distance to the start of validity of the traffic sign (given by
-                // \c TrafficSignValue::value in e.g. meter - \c TrafficSignValue::value_unit).
+                // Distance to the start of validity of the traffic sign (given
+                // by \c TrafficSignValue::value in e.g. meter - \c
+                // TrafficSignValue::value_unit).
                 //
                 TYPE_VALID_IN_DISTANCE = 4;
 
-                // Time range for validity of traffic sign (starting from first \c TrafficSignValue::value
-                // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
-                // minutes since midnight - first \c TrafficSignValue::value_unit and second \c TrafficSignValue::value_unit).
-                // Day of the week starting from third \c TrafficSignValue::value and ending with
-                // fourth \c TrafficSignValue::value with third \c TrafficSignValue::value_unit and fourth \c TrafficSignValue::value_unit).
+                // Time range for validity of traffic sign (starting from first
+                // \c TrafficSignValue::value and ending with second \c
+                // TrafficSignValue::value, both defining e.g. time of day in
+                // minutes since midnight - first \c
+                // TrafficSignValue::value_unit and second \c
+                // TrafficSignValue::value_unit). Day of the week starting from
+                // third \c TrafficSignValue::value and ending with fourth \c
+                // TrafficSignValue::value with third \c
+                // TrafficSignValue::value_unit and fourth \c
+                // TrafficSignValue::value_unit).
                 //
                 TYPE_TIME_RANGE = 5;
 
-                // Restriction of the validity of the traffic sign depending on the
-                // vehicle's weight (more than \c TrafficSignValue::value e.g. in kilogram -
-                // \c TrafficSignValue::value_unit).
+                // Restriction of the validity of the traffic sign depending on
+                // the vehicle's weight (more than \c TrafficSignValue::value
+                // e.g. in kilogram - \c TrafficSignValue::value_unit).
                 //
                 TYPE_WEIGHT = 6;
 
-                // Restriction of the validity of the traffic sign to wet / rainy
-                // conditions.
+                // Restriction of the validity of the traffic sign to wet /
+                // rainy conditions.
                 //
                 TYPE_RAIN = 7;
 
-                // Restriction of the validity of the traffic sign to foggy conditions.
+                // Restriction of the validity of the traffic sign to foggy
+                // conditions.
                 //
                 TYPE_FOG = 8;
 
-                // Restriction of the validity of the traffic sign to snowy / icy
-                // conditions.
+                // Restriction of the validity of the traffic sign to snowy /
+                // icy conditions.
                 //
                 TYPE_SNOW = 9;
 
-                // Combined restriction of the validity of the traffic sign to rainy or
-                // snowy conditions denoted by a single supplementary sign (instead of
-                // two signs of \c #TYPE_RAIN and \c #TYPE_SNOW respectively).
+                // Combined restriction of the validity of the traffic sign to
+                // rainy or snowy conditions denoted by a single supplementary
+                // sign (instead of two signs of \c #TYPE_RAIN and \c #TYPE_SNOW
+                // respectively).
                 //
                 TYPE_SNOW_RAIN = 10;
 
@@ -1166,8 +1203,8 @@ message TrafficSign
                 //
                 TYPE_CAR = 24;
 
-                // Ends in e.g. .. meter (given by \c TrafficSignValue::value in e.g. meter -
-                // \c TrafficSignValue::value_unit).
+                // Ends in e.g. .. meter (given by \c TrafficSignValue::value in
+                // e.g. meter - \c TrafficSignValue::value_unit).
                 //
                 TYPE_STOP_IN = 25;
             }

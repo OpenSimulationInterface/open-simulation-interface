@@ -55,8 +55,8 @@ message RoadMarking
         //
         optional Type type = 1;
 
-        // Traffic sign as road marking (color image, monochrome image or character
-        // string).
+        // Traffic sign as road marking (color image, monochrome image or
+        // character string).
         //
         // \note Field is set if ( \c #type == \c #TYPE_PAINTED_TRAFFIC_SIGN or
         // \c #TYPE_SYMBOLIC_TRAFFIC_SIGN or \c #TYPE_TEXTUAL_TRAFFIC_SIGN ).
@@ -64,7 +64,8 @@ message RoadMarking
         // \note Field need not be set (or set to \c #TYPE_OTHER)
         // if road marking type (\c #type) does not require it.
         //
-        optional TrafficSign.MainSign.Classification.Type traffic_main_sign_type = 2;
+        optional TrafficSign.MainSign.Classification.Type
+            traffic_main_sign_type = 2;
 
         // The monochrome color of the road marking.
         // \note Field need not be set (or set to \c #COLOR_OTHER)
@@ -97,7 +98,7 @@ message RoadMarking
         //
         enum Type
         {
-            // Type of road marking is unknown (must not be used in ground 
+            // Type of road marking is unknown (must not be used in ground
             // truth).
             //
             TYPE_UNKNOWN = 0;
@@ -106,7 +107,8 @@ message RoadMarking
             //
             TYPE_OTHER = 1;
 
-            // Paint on the road surface indicating a color image of a traffic sign.
+            // Paint on the road surface indicating a color image of a traffic
+            // sign.
             //
             TYPE_PAINTED_TRAFFIC_SIGN = 2;
 
@@ -116,8 +118,8 @@ message RoadMarking
             //
             TYPE_SYMBOLIC_TRAFFIC_SIGN = 3;
 
-            // Paint on the road surface as a character string (e.g. BUS as bus only
-            // lane).
+            // Paint on the road surface as a character string (e.g. BUS as bus
+            // only lane).
             //
             TYPE_TEXTUAL_TRAFFIC_SIGN = 4;
 
@@ -138,7 +140,8 @@ message RoadMarking
         //
         enum Color
         {
-            // Color of road marking is unknown (must not be used in ground truth).
+            // Color of road marking is unknown (must not be used in ground
+            // truth).
             //
             COLOR_UNKNOWN = 0;
 
