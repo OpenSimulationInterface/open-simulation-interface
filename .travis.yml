@@ -104,7 +104,7 @@ deploy:
 
 deploy:
     provider: releases
-    github_token: ${GH_REPO_TOKEN}
+    api_key: ${GH_REPO_TOKEN}
 #    file_glob: true
     file: osi_common.proto
     skip_cleanup: true
