@@ -91,6 +91,8 @@ script:
     - cd ..
     - python test_cases_doc.py
     - clang-format -i *.proto
+    - git add *.proto
+    - git commit
 
 # Deploy the documentation on github (only for master branch).
 deploy:
@@ -101,13 +103,3 @@ deploy:
     github_token: ${GH_REPO_TOKEN}
     on: 
       branch: master 
-
-deploy:
-    provider: releases
-    api_key: ${GH_REPO_TOKEN}
-#    file_glob: true
-    file: osi_common.proto
-    skip_cleanup: true
-    on:
-        all_branches: true
-        
