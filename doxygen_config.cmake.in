@@ -15,8 +15,14 @@ IMAGE_PATH             = "@CMAKE_CURRENT_SOURCE_DIR@/doc/images"
 # A Doxygen filter for .proto files has to be added under the directory doc/.
 # proto2cpp.py is an external script. See README.md for more informations.
 JAVADOC_AUTOBRIEF      = NO
-EXTENSION_MAPPING      = proto=C
+EXTENSION_MAPPING      = proto=C++
 FILE_PATTERNS          = *.proto
 INPUT_FILTER           = "python @FILTER_PROTO2CPP_PY_PATH@/proto2cpp.py"
 HAVE_DOT               = YES
 HIDE_UNDOC_RELATIONS   = NO
+MAX_DOT_GRAPH_DEPTH    = 2
+SORT_MEMBER_DOCS       = YES
+
+# If someone wants UML diagrams in the documentation, the next parameter must 
+# be commented in.
+#UML_LOOK               = YES

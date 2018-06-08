@@ -185,15 +185,19 @@ message StationaryObject
             DENSITY_SOLID = 2;
 
             // Perforation max. ]0; 100] [mm]
+            //
             DENSITY_SMALL_MESH = 3;
 
             // Perforation max. ]100; 500] [mm]
+            //
             DENSITY_MEDIAN_MESH = 4;
 
             // Perforation max. ]500; 5000] [mm]
+            //
             DENSITY_LARGE_MESH = 5;
 
             // Perforation max. ]5000; infinity] [mm]
+            //
             DENSITY_OPEN = 6;
         }
 
@@ -253,8 +257,8 @@ message StationaryObject
 // moving object (animal, pedestrian, etc), but not a stationary
 // object (\c TrafficLight, \c TrafficSign, or \c StationaryObject).
 //
-// \note The field \c MovingObject.vehicle_extension has to be
-// filled if the \c MovingObject.Type is a vehicle.
+// \note The field \c MovingObject::vehicle_extension has to be
+// filled if the \c MovingObject::Type is a vehicle.
 //
 message MovingObject
 {
@@ -283,7 +287,7 @@ message MovingObject
 
     // Specific information about the vehicle.
     //
-    // \note This field is mandatory if the \c MovingObject.type is
+    // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
     //
     optional VehicleAttributes vehicle_attributes = 5;
@@ -291,7 +295,7 @@ message MovingObject
     // Specific information about the classification of the vehicle.
     //
     //
-    // \note This field is mandatory if the \c MovingObject.type is
+    // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
     //
     optional VehicleClassification vehicle_classification = 6;
@@ -327,12 +331,12 @@ message MovingObject
     // This is an extension to the \c MovingObject with additional attributes,
     // such as type and lights. The origin of the rear (front) axis coordinate
     // system in world coordinates is calculated as:
-    // base.position + R * bbcenter_to_rear (front)
+    // \c MovingObject::base . \c BaseMoving::position + R * \c MovingObject::VehicleAttributes::bbcenter_to_rear (front)
     // for the host vehicle (R rotates from vehicle to world frame, i.e. inverse
-    // orientation of base.orientation).
+    // orientation of \c MovingObject::base . \c BaseMoving::orientation).
     //
     // For all vehicles, including host vehicles, the position given in
-    // base.position points to the center of the vehicle's bounding box.
+    //  \c MovingObject::base . \c BaseMoving::position points to the center of the vehicle's bounding box.
     //
     // The vehicle object coordinates are defined as x-axis is the direction from
     // rear to front of the vehicle, y-axis corresponds to rear axle and z-axis
@@ -340,7 +344,7 @@ message MovingObject
     // Therefore the positive y-axis points to the left of the vehicle.
     //
     // \par References:
-    // \li [1] DIN ISO 8855:2013-11
+    // - [1] DIN ISO 8855:2013-11
     //
     message VehicleAttributes
     {
@@ -364,13 +368,13 @@ message MovingObject
         //
         optional uint32 number_wheels = 3;
 
-        // The vector pointing from the bounding box center point (base.position) to
+        // The vector pointing from the bounding box center point (\c MovingObject::base . \c BaseMoving::position) to
         // the middle (in x, y and z) of the rear axle under neutral load
         // conditions. In object coordinates.
         //
         optional Vector3d bbcenter_to_rear = 4;
 
-        // The vector pointing from the bounding box center point (base.position) to
+        // The vector pointing from the bounding box center point (\c MovingObject::base . \c BaseMoving::position) to
         // the middle (in x, y and z) of the front axle under neutral load
         // conditions. In object coordinates.
         //

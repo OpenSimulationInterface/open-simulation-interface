@@ -32,7 +32,7 @@ message DetectedLane
         //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
-        // \c #DetectedItemHeader.existence_probability.
+        // \c DetectedItemHeader::existence_probability.
         //
         // Range: [0,1]
         //
@@ -70,27 +70,26 @@ message DetectedLaneBoundary
     // attribute has to be set for each instance. All other values will be
     // reused from the previous \c BoundaryPoint in the sequence or set to
     // default values if there is none or it was never set. For dashed lines,
-    // one \c BoundaryPoint has to be at the start and another at the end
+    // one \c LaneBoundary::BoundaryPoint has to be at the start and another at the end
     // of each dashed line segment. For Botts' dots lines, one
-    // \c BoundaryPoint position has to define each Botts' dot.
+    // \c LaneBoundary::BoundaryPoint position has to define each Botts' dot.
     //
-    // \attention For \c BoundaryPoint the same rules regarding maximum
-    // distance and approximation error apply as for \c Lane::centerline.
+    // \attention For \c LaneBoundary::BoundaryPoint the same rules regarding maximum
+    // distance and approximation error apply as for \c Lane::Classification::centerline.
     //
     repeated LaneBoundary.BoundaryPoint boundary_line = 3;
 
-    // The root mean squared error of the \c LaneBoundary.BoundaryPoint
-    // information from a \c LaneBoundary.
-    // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
-    // one \c #boundary_line_rmse rmse information exist.
+    // The root mean squared error of the \c LaneBoundary::BoundaryPoint.
+    // Each \c #candidate has the same \c #boundary_line points and exact
+    // one \c #boundary_line_rmse rmse confidence value is
+    // specified which is suitable for all candidates.
     //
     repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 4;
 
-    // Confidence of the segments of the \c LaneBoundary.BoundaryPoint
-    // information from a \c LaneBoundary.
-    // For each \c #lane_boundary \c LaneBoundary::boundary_line point exact
+    // Confidence of the segments of the \c LaneBoundary::BoundaryPoint.
+    // Each \c #candidate has the same \c #boundary_line points and exact
     // one \c #boundary_line_confidences confidence value is
-    // specified.
+    // specified which is suitable for all candidates.
     //
     // Range: [0,1]
     //
@@ -106,7 +105,7 @@ message DetectedLaneBoundary
         //
         // \note The sum of all \c #probability must be one. This probability is
         // given under the condition of
-        // \c #DetectedItemHeader.existence_probability.
+        // \c DetectedItemHeader::existence_probability.
         //
         // Range: [0,1]
         //

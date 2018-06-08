@@ -42,12 +42,12 @@ message RoadMarking
     //
     optional BaseStationary base = 2;
 
-    // Classification data for the road marking.
+    // The classification data for the road marking.
     //
     optional Classification classification = 3;
 
     //
-    // \brief Classification data for a road surface marking.
+    // \brief \c Classification data for a road surface marking.
     //
     message Classification
     {
@@ -97,7 +97,8 @@ message RoadMarking
         //
         enum Type
         {
-            // Type of road marking is unknown (must not be used in ground truth).
+            // Type of road marking is unknown (must not be used in ground 
+            // truth).
             //
             TYPE_UNKNOWN = 0;
 
@@ -109,9 +110,9 @@ message RoadMarking
             //
             TYPE_PAINTED_TRAFFIC_SIGN = 2;
 
-            // Paint on the road surface indicating a monochrome logical symbol of a
-            // traffic sign (e.g. digits 50 as start of speed limit 50 or stop line
-            // for stop sign).
+            // Paint on the road surface indicating a monochrome logical symbol
+            // of a traffic sign (e.g. digits 50 as start of speed limit 50 or
+            // stop line for stop sign).
             //
             TYPE_SYMBOLIC_TRAFFIC_SIGN = 3;
 
