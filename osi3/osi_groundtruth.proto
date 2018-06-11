@@ -2,15 +2,15 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_version.proto";
-import "osi_common.proto";
-import "osi_environment.proto";
-import "osi_trafficsign.proto";
-import "osi_trafficlight.proto";
-import "osi_roadmarking.proto";
-import "osi_lane.proto";
-import "osi_object.proto";
-import "osi_occupant.proto";
+import "osi3/osi_version.proto";
+import "osi3/osi_common.proto";
+import "osi3/osi_environment.proto";
+import "osi3/osi_trafficsign.proto";
+import "osi3/osi_trafficlight.proto";
+import "osi3/osi_roadmarking.proto";
+import "osi3/osi_lane.proto";
+import "osi3/osi_object.proto";
+import "osi3/osi_occupant.proto";
 
 package osi3;
 

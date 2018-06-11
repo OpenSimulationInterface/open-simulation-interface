@@ -2,11 +2,11 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_version.proto";
-import "osi_common.proto";
-import "osi_groundtruth.proto";
-import "osi_sensorviewconfiguration.proto";
-import "osi_hostvehicledata.proto";
+import "osi3/osi_version.proto";
+import "osi3/osi_common.proto";
+import "osi3/osi_groundtruth.proto";
+import "osi3/osi_sensorviewconfiguration.proto";
+import "osi3/osi_hostvehicledata.proto";
 
 package osi3;
 

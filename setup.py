@@ -6,23 +6,52 @@ import subprocess
 import sys
 from distutils.spawn import find_executable
 
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.command.install import install
+import configparser
 
-# configure the version number
-from shutil import copyfile
-copyfile('VERSION', 'version.py')
-from version import *
-with open("osi_version.proto.in", "rt") as fin:
-    with open("osi_version.proto", "wt") as fout:
+def convert_version_file():
+    """ Convert OSI VERSION file python config (ini) file
+    String '[VERSION]' is inseted as a first line
+    """
+    with open('VERSION','r') as f:
+        with open('version.ini','w') as f2: 
+            f2.write('[VERSION]\n')
+            f2.write(f.read())
+
+# Read OSI Version informations
+convert_version_file()
+config = configparser.ConfigParser()
+config.read('version.ini')
+version_major = config['VERSION']['VERSION_MAJOR']
+version_minor = config['VERSION']['VERSION_MINOR']
+version_patch = config['VERSION']['VERSION_PATCH']
+
+
+# Define package name and package path
+generated_dir_name = os.path.join(os.getcwd(),'osi3')
+
+try:
+    os.mkdir(generated_dir_name)
+except Exception:
+    pass
+
+try:
+    open(os.path.join(generated_dir_name, '__init__.py'), 'a').close()
+except Exception:
+    pass
+
+
+
+# Modify write to osi_version.proto
+with open("./osi3/osi_version.proto.in", "rt") as fin:
+    with open("./osi3/osi_version.proto", "wt") as fout:
         for line in fin:
-            lineConfigured = line.replace('@VERSION_MAJOR@',str(VERSION_MAJOR))
-            lineConfigured = lineConfigured.replace('@VERSION_MINOR@',str(VERSION_MINOR))
-            lineConfigured = lineConfigured.replace('@VERSION_PATCH@',str(VERSION_PATCH))
+            lineConfigured = line.replace('@VERSION_MAJOR@',str(version_major))
+            lineConfigured = lineConfigured.replace('@VERSION_MINOR@',str(version_minor))
+            lineConfigured = lineConfigured.replace('@VERSION_PATCH@',str(version_patch))
             fout.write(lineConfigured)
 
-package_name = 'osi3'
-package_path = os.path.join(os.getcwd(), package_name)
 
 class GenerateProtobuf(install):
 
@@ -43,6 +72,7 @@ class GenerateProtobuf(install):
             sys.exit(1)
         return protoc
 
+    """ Generate Protobuf Messages """
     osi_files = (
         'osi_version.proto',
         'osi_common.proto',
@@ -75,24 +105,13 @@ class GenerateProtobuf(install):
             sys.stdout.write('Protobuf-compiling ' + source + '\n')
             subprocess.check_call([self.find_protoc(),
                                    '--proto_path=.',
-                                   '--python_out=' + package_path,
-                                   './' + source])
-
+                                   '--python_out=' + os.getcwd(),
+                                   './osi3/' + source])
         install.run(self)
-
-try:
-    os.mkdir(package_path)
-except Exception:
-    pass
-
-try:
-    open(os.path.join(package_path, '__init__.py'), 'a').close()
-except Exception:
-    pass
 
 setup(
     name='open-simulation-interface',
-    version=str(VERSION_MAJOR)+'.'+str(VERSION_MINOR)+'.'+str(VERSION_PATCH),
+    version=str(version_major)+'.'+str(version_minor)+'.'+str(version_patch),
     description='A generic interface for the environmental perception of'
     'automated driving functions in virtual scenarios.',
     author='Carlo van Driesten, Timo Hanke, Nils Hirsenkorn,'
@@ -100,7 +119,7 @@ setup(
     author_email='Carlo.van-Driesten@bmw.de, Timo.Hanke@bmw.de,'
     'Nils.Hirsenkorn@tum.de, Pilar.Garcia-Ramos@bmw.de,'
     'Mark.Schiementz@bmw.de, Sebastian.SB.Schneider@bmw.de',
-    packages=[package_name],
+    packages=find_packages(),
     install_requires=['protobuf'],
     cmdclass={
         'install': GenerateProtobuf,
