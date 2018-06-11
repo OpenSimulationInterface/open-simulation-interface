@@ -2,7 +2,7 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_sensordata.proto";
+import "osi3/osi_sensordata.proto";
 
 package osi3;
 

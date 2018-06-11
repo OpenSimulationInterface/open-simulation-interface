@@ -2,8 +2,8 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
-import "osi_occupant.proto";
-import "osi_detectedobject.proto";
+import "osi3/osi_occupant.proto";
+import "osi3/osi_detectedobject.proto";
 
 package osi3;
 
