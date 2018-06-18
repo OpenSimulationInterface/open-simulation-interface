@@ -75,6 +75,16 @@ The compatibility of both recorded files and code remains.
 - Clarification of text passages explaining the message content
 
 
+Proto3 Support
+--------------
+
+For users that need to use proto3 syntax, for example because the language
+binding of choice only supports proto3 syntax out of the box, a shell script
+called `convert-to-proto3.sh` is supplied that converts all proto files to
+proto3 syntax. If this is run prior to building, the resulting libaries will
+use proto3, with the on-the-wire format remaining compatible between proto2
+and proto3 libraries.
+
 Packaging
 ---------
 
@@ -102,10 +112,12 @@ Copy the content of the repo proto2cpp to your desired `<path-to-proto2cpp.py>`
 Citing
 ------
 
-Use the following citation for referencing the OSI interface in your scientific work: `@misc{osi.2017,
+Use the following citation for referencing the OSI interface in your scientific work: `
+@misc{osi.2017,
         author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
         year = {2017},
         title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
         url = {http://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
         note = {{Accessed: 2017-08-28}}
-}`
+} 
+`

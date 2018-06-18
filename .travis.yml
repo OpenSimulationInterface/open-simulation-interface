@@ -75,6 +75,7 @@ script:
     - cd build
     - cmake --build . --target install
     - cd ..
+    - cp VERSION VERSION.SAVED
     - echo "" >> VERSION
     - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
     - cd build
@@ -82,6 +83,13 @@ script:
     - doxygen
     - cd ..
     - python test_cases_doc.py
+    - mv VERSION.SAVED VERSION
+    - sh convert-to-proto3.sh
+    - mkdir -p build3
+    - cd build3
+    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
+    - cmake --build .
+    - cd ..
 
 # Deploy the documentation on github (only for master branch).
 deploy:
