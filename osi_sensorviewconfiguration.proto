@@ -410,8 +410,8 @@ message RadarSensorViewConfiguration
         // Unit: [rad]
         optional double vertical_angle = 2;
 
-        // Combined response of emitter and receiver antenna at this
-        // point (positive dB is gain, negative dB is attenuation).
+        // Response of antenna at this point (positive dB is gain,
+        // negative dB is attenuation).
         //
         // Unit: [dB]
         optional double response = 3;
