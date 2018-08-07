@@ -225,6 +225,10 @@ message RadarDetection
     // indicated by an identical ambiguity ID.
     //
     // \note Unambiguous measurements have the ambiguity ID 0.
+    // \note Multiple seperate detections from e.g. a large object do not
+    // on their own necessarily create any ambiguity, i.e. they do not
+    // usually share an an ambiguity ID.  They can however be ambiguous
+    // with other detections.
     //
     optional Identifier ambiguity_id = 10;
 
