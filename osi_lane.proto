@@ -54,8 +54,8 @@ message Lane
 
         // The lane's center line (as a list of segments).
         //
-		// The center line describes the middle of the lane. 
-		//
+        // The center line describes the middle of the lane. 
+        //
         // \image html highway_exit.png "Center lines as yellow dotted lines."
         //
         // \attention The points describing the center line might be set at
@@ -66,10 +66,10 @@ message Lane
         //
         // \image html line_approximation_error.png "Approximation error as green line."
         //
-		// \note The center line is the line that a typical vehicle follows more or 
-		// less (depending on the situation, a little more to the left or right of the 
-		// center line). Thus, if the road narrows (e.g. at a construction site) this 
-		// line is supposed to describe the trajectory that the vehicle should follow. 
+        // \note The center line is the line that a typical vehicle follows more or 
+        // less (depending on the situation, a little more to the left or right of the 
+        // center line). Thus, if the road narrows (e.g. at a construction site) this 
+        // line is supposed to describe the trajectory that the vehicle should follow. 
         // Depending on the size of the vehicle, the vehicle may not be able to 
         // orient itself directly on the center line due to its dimensions, but 
         // may have to deviate from it in order to avoid e.g. a collision.
