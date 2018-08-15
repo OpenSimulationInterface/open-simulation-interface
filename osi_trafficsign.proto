@@ -154,8 +154,8 @@ message TrafficSign
 
     //
     // \brief Main sign of the traffic sign.
-	//
-	// \image html OSI_MainTrafficSign.jpg
+    //
+    // \image html OSI_MainTrafficSign.jpg
     //
     message MainSign
     {
@@ -1026,8 +1026,8 @@ message TrafficSign
 
     //
     // \brief Additional supplementary sign modifying the main sign.
-	//
-	// \image html OSI_SuppSign.jpg
+    //
+    // \image html OSI_SuppSign.jpg
     //
     message SupplementarySign
     {
