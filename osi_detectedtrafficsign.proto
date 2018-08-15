@@ -11,6 +11,8 @@ package osi3;
 //
 // \brief A traffic sign in the environment as detected by the sensor.
 //
+// \image html OSI_DetectedTrafficSigns.jpg
+//
 message DetectedTrafficSign
 {
     // Common information of one detected item.
@@ -29,6 +31,8 @@ message DetectedTrafficSign
 
     //
     // \brief Candidates for a detected main sign as estimated by the sensor.
+	//
+	// \image html OSI_DetectedMainTrafficSign.jpg
     //
     message DetectedMainSign
     {
@@ -48,8 +52,8 @@ message DetectedTrafficSign
         // (Normally it is equal to the ground truth z-axis.)
         // The x-axis of the given \c BaseStationary::orientation is view
         // normal of the traffic sign's image.
-        // This x-axis points from the traffic sign's image in the direction from
-        // where a 'viewer' could see the traffic sign image.
+        // This x-axis points from the traffic sign's image in the direction
+        // from where a 'viewer' could see the traffic sign image.
         //
         optional BaseStationary base = 2;
 
@@ -71,9 +75,9 @@ message DetectedTrafficSign
         {
             // The estimated probability that this candidate is the true value.
             //
-            // \note The sum of all \c #probability must be one. This probability is
-            // given under the condition of
-            // \c DetectedItemHeader::existence_probability.
+            // \note The sum of all \c #probability must be one. This
+            // probability is given under the condition of \c
+            // DetectedItemHeader::existence_probability.
             //
             // Range: [0,1]
             //
@@ -104,11 +108,12 @@ message DetectedTrafficSign
             //
             GEOMETRY_CIRCLE = 2;
 
-            // Traffic sign has a triangular geometry pointing to the top. (3 corners)
+            // Traffic sign has a triangular geometry pointing to the top. (3
+            // corners)
             //
             GEOMETRY_TRIANGLE_TOP = 3;
 
-            //Traffic sign has a triangular geometry pointing down. (3 corners)
+            // Traffic sign has a triangular geometry pointing down. (3 corners)
             //
             GEOMETRY_TRIANGLE_DOWN = 4;
 
@@ -135,11 +140,13 @@ message DetectedTrafficSign
             //
             GEOMETRY_DIAMOND = 9;
 
-            // Traffic sign has a geometry of an arrow pointing to the left. (5 corners)
+            // Traffic sign has a geometry of an arrow pointing to the left. (5
+            // corners)
             //
             GEOMETRY_ARROW_LEFT = 10;
 
-            // Traffic sign has a geometry of an arrow pointing to the right. (5 corners)
+            // Traffic sign has a geometry of an arrow pointing to the right. (5
+            // corners)
             //
             GEOMETRY_ARROW_RIGHT = 11;
 
@@ -152,6 +159,8 @@ message DetectedTrafficSign
     //
     // \brief Candidates for all detected supplementary signs of one traffic
     // sign as estimated by the sensor.
+	//
+	// \image html OSI_DetectedSuppSign.jpg
     //
     message DetectedSupplementarySign
     {
@@ -167,12 +176,12 @@ message DetectedTrafficSign
         // The orientation of the bounding box \c SupplementarySign::base
         // ( \c BaseStationary::orientation ) is defined as follows:
         // The z-axis of the given \c BaseStationary::orientation is the vector
-        // from the bottom to the top of the supplementary traffic sign's 2D image
-        // plate. (Normally it is equal to the ground truth z-axis.)
-        // The x-axis of the given \c BaseStationary::orientation is view
-        // normal of the supplementary traffic sign's image.
-        // This x-axis points from the supplementary traffic sign's image in the
-        // direction from where a 'viewer' could see the supplementary traffic sign image.
+        // from the bottom to the top of the supplementary traffic sign's 2D
+        // image plate. (Normally it is equal to the ground truth z-axis.) The
+        // x-axis of the given \c BaseStationary::orientation is view normal of
+        // the supplementary traffic sign's image. This x-axis points from the
+        // supplementary traffic sign's image in the direction from where a
+        // 'viewer' could see the supplementary traffic sign image.
         //
         optional BaseStationary base = 2;
 
@@ -191,21 +200,22 @@ message DetectedTrafficSign
         {
             // The estimated probability that this candidate is the true value.
             //
-            // \note The sum of all \c #probability must be one. This probability is
-            // given under the condition of
-            // \c DetectedItemHeader::existence_probability.
+            // \note The sum of all \c #probability must be one. This
+            // probability is given under the condition of \c
+            // DetectedItemHeader::existence_probability.
             //
             // Range: [0,1]
             //
             optional double probability = 1;
 
-            // The classification of one of more supplementary signs that together
-            // define this candidate.
+            // The classification of one of more supplementary signs that
+            // together define this candidate.
             //
             // \note IDs, which are referenced in this message, usually
             // reference to \c DetectedXXX::tracking_id IDs.
             //
-            optional TrafficSign.SupplementarySign.Classification classification = 2;
+            optional TrafficSign.SupplementarySign.Classification
+                classification = 2;
         }
     }
 }
