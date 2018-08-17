@@ -325,18 +325,17 @@ message BaseMoving
     //
     optional Orientation3d orientation = 3;
 
-    // The relative velocity of the moving object w.r.t. its parent frame and
-    // parent velocity.
-    // The velocity becomes global/absolute if the parent frame does not move.
+    // The relative velocity of the moving object w.r.t. the parent frame, 
+    // noted in the parent frame. The velocity becomes global/absolute if 
+    // the parent frame does not move."
     //
     // <tt>#position (t) := #position (t-dt)+ #velocity *dt</tt>
     //
     optional Vector3d velocity = 4;
 
-    // The relative acceleration of the moving object w.r.t. its parent frame
-    // and parent acceleration.
-    // The acceleration becomes global/absolute if the parent frame is not
-    // accelerating.
+    // The relative acceleration of the moving object w.r.t. its parent frame,
+    // noted in the parent frame. The acceleration becomes global/absolute if 
+    // the parent frame is not accelerating.
     //
     // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration /2*dt^2</tt>
     //
@@ -346,7 +345,7 @@ message BaseMoving
 
     // The relative orientation rate of the moving object w.r.t. its parent
     // frame and parent orientation rate in the center point of the bounding box
-    // (origin of the bounding box frame).
+    // (origin of the bounding box frame), noted in the parent frame.
     //
     // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
     //

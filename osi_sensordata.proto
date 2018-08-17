@@ -134,6 +134,7 @@ message SensorData
     // \note This value is only set by sensors that are able to
     // provide an own estimation of the host vehicle location.
     // \note Note that dimension and base_polygon need not be set.
+    // \note The parent frame of \c host_vehicle_location is the sensor frame.
     //
     optional BaseMoving host_vehicle_location = 3;
 
@@ -142,6 +143,7 @@ message SensorData
     // \note This value is only set by sensors that are able to
     // provide an own estimation of the host vehicle location.
     // \note Note that dimension and base_polygon need not be set.
+    // \note The parent frame of \c host_vehicle_location_rmse is the sensor frame.
     //
     optional BaseMoving host_vehicle_location_rmse = 4;
 
