@@ -4,10 +4,11 @@
 import os
 import subprocess
 import sys
+import re
 from distutils.spawn import find_executable
 
 from setuptools import setup
-from setuptools.command.install import install
+from setuptools.command.build_py import build_py
 
 # configure the version number
 from shutil import copyfile
@@ -24,7 +25,7 @@ with open("osi_version.proto.in", "rt") as fin:
 package_name = 'osi3'
 package_path = os.path.join(os.getcwd(), package_name)
 
-class GenerateProtobuf(install):
+class GenerateProtobufCommand(build_py):
 
     @staticmethod
     def find_protoc():
@@ -71,14 +72,23 @@ class GenerateProtobuf(install):
     """ Generate Protobuf Messages """
 
     def run(self):
+        if sys.hexversion >= 0x3000000:
+            pattern = re.compile('^import "osi_')
+            for source in self.osi_files:
+                with open(source) as src_file:
+                    with open(os.path.join(package_path, source),"w") as dst_file:
+                        for line in src_file:
+                            dst_file.write(pattern.sub('import "osi3/osi_',line))
         for source in self.osi_files:
             sys.stdout.write('Protobuf-compiling ' + source + '\n')
+            source_path = os.path.join(package_path, source) if sys.hexversion >= 0x3000000 else './' + source
             subprocess.check_call([self.find_protoc(),
+                                   '--proto_path=' + package_path,
                                    '--proto_path=.',
                                    '--python_out=' + package_path,
-                                   './' + source])
+                                   source_path])
 
-        install.run(self)
+        build_py.run(self)
 
 try:
     os.mkdir(package_path)
@@ -103,7 +113,7 @@ setup(
     packages=[package_name],
     install_requires=['protobuf'],
     cmdclass={
-        'install': GenerateProtobuf,
+        'build_py': GenerateProtobufCommand,
     },
     url='https://github.com/OpenSimulationInterface/open-simulation-interface',
     license="MPL 2.0",
