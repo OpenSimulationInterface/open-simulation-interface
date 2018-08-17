@@ -257,10 +257,9 @@ message LidarSensorView
     {
         // Relative signal level of the reflection.
         //
-        // This takes the combined antenna diagram (losses in TX and RX)
-        // as well as the signal losses due to scattering and absorption
+        // This takes the signal losses due to scattering and absorption
         // into account, and will, when multiplied by TX power yield the
-        // actual RX power.
+        // potential RX power (disregarding any other RX/TX losses).
         //
         // Unit: [dB]
         //
