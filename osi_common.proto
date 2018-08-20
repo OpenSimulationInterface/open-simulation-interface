@@ -263,7 +263,8 @@ message BaseStationary
     optional Vector3d position = 2;
 
     // The relative orientation of the stationary object w.r.t. its parent
-    // frame.
+    // frame, noted in the parent frame. The orientation becomes global/absolute 
+	// if the parent frame is inertial (all parent frames up to ground truth).
     //
     // <tt>Origin_base_stationary_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
     //
@@ -316,8 +317,10 @@ message BaseMoving
     //
     optional Vector3d position = 2;
 
-    // The relative orientation of the moving object w.r.t. its parent frame.
-    //
+    // The relative orientation of the moving object w.r.t. its parent frame,
+    // noted in the parent frame. The orientation becomes global/absolute if 
+	// the parent frame is inertial (all parent frames up to ground truth).
+	//
     // <tt>Origin_base_moving_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
     //
     // \note There may be some constraints how to align the orientation w.r.t.
@@ -327,7 +330,7 @@ message BaseMoving
 
     // The relative velocity of the moving object w.r.t. the parent frame, 
     // noted in the parent frame. The velocity becomes global/absolute if 
-    // the parent frame does not move."
+    // the parent frame does is inertial (all parent frames up to ground truth).
     //
     // <tt>#position (t) := #position (t-dt)+ #velocity *dt</tt>
     //
@@ -335,7 +338,7 @@ message BaseMoving
 
     // The relative acceleration of the moving object w.r.t. its parent frame,
     // noted in the parent frame. The acceleration becomes global/absolute if 
-    // the parent frame is not accelerating.
+    // the parent frame is inertial (all parent frames up to ground truth).
     //
     // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration /2*dt^2</tt>
     //
@@ -346,6 +349,8 @@ message BaseMoving
     // The relative orientation rate of the moving object w.r.t. its parent
     // frame and parent orientation rate in the center point of the bounding box
     // (origin of the bounding box frame), noted in the parent frame.
+	// The orientation becomes global/absolute if the parent frame is inertial 
+	// (all parent frames up to ground truth).
     //
     // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
     //
