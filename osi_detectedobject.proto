@@ -151,12 +151,15 @@ message DetectedMovingObject
     // The base parameters of the moving object.
     //
     // \note The bounding box does NOT includes mirrors for vehicles.
+    // \note The parent frame of \c base is the sensor's vehicle frame.
     //
     optional BaseMoving base = 2;
 
     // The root mean squared error of the base parameters of the detected
     // moving object (e.g. car). \c MovingObject::base has to be
     // identical for all \c #candidate moving objects.
+    //
+    // \note The parent frame of \c base is the sensor's vehicle frame.
     //
     optional BaseMoving base_rmse = 3;
 
