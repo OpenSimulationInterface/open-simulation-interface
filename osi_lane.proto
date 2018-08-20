@@ -54,11 +54,7 @@ message Lane
 
         // The lane's center line (as a list of segments).
         //
-        // This is the line, that a typical vehicle is supposed to follow. Thus,
-        // if the road narrows (e.g. at a construction site) this line is
-        // supposed to describe the trajectory that the vehicle should follow.
-        // The intended direction of travel on the lane is given by the
-        // direction defined by the sequence of points forming the center line.
+        // The center line describes the middle of the lane.
         //
         // \image html highway_exit.png "Center lines as yellow dotted lines."
         //
@@ -71,8 +67,18 @@ message Lane
         // \image html line_approximation_error.png "Approximation error as
         // green line."
         //
+        // \note The center line is the line that a typical vehicle follows more
+        // or less (depending on the situation, a little more to the left or
+        // right of the center line). The intended direction of travel on the
+        // lane is given by the direction defined by the sequence of points
+        // forming the \c #centerline w.r.t. \c #centerline_is_driving_direction.
+        //
         // \note The \c #centerline is defined only for \c #type =
         // \c #TYPE_DRIVING and one \c #lane_pairing pair.
+        //
+        // \note Intersections and non-driving lanes do not have a center line.
+        // A vehicle must calculate this individually and depending on the
+        // situation.
         //
         repeated Vector3d centerline = 3;
 
