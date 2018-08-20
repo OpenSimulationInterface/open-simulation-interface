@@ -11,6 +11,8 @@ package osi3;
 //
 // \brief A traffic light in the environment as detected by the sensor.
 //
+// \image html OSI_DetectedTrafficLight.jpg
+//
 message DetectedTrafficLight
 {
     // Common information of one detected item.
