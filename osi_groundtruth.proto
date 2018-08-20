@@ -125,7 +125,9 @@ message GroundTruth
     // Unit: []
     //
     // \par References:
-    // - [1] [International Standard ISO 3166-1: Codes for the representation of names of countries and their subdivisions - Part 1: Country codes, third ed., 2013] (https://www.iso.org/obp/ui/)
+    // - [1] [International Standard ISO 3166-1: Codes for the representation of
+    // names of countries and their subdivisions - Part 1: Country codes, third
+    // ed., 2013] (https://www.iso.org/obp/ui/)
     // - [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
     //
     optional uint32 country_code = 13;

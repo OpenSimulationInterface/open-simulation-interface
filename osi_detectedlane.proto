@@ -70,12 +70,13 @@ message DetectedLaneBoundary
     // attribute has to be set for each instance. All other values will be
     // reused from the previous \c BoundaryPoint in the sequence or set to
     // default values if there is none or it was never set. For dashed lines,
-    // one \c LaneBoundary::BoundaryPoint has to be at the start and another at the end
-    // of each dashed line segment. For Botts' dots lines, one
-    // \c LaneBoundary::BoundaryPoint position has to define each Botts' dot.
+    // one \c LaneBoundary::BoundaryPoint has to be at the start and another at
+    // the end of each dashed line segment. For Botts' dots lines, one \c
+    // LaneBoundary::BoundaryPoint position has to define each Botts' dot.
     //
-    // \attention For \c LaneBoundary::BoundaryPoint the same rules regarding maximum
-    // distance and approximation error apply as for \c Lane::Classification::centerline.
+    // \attention For \c LaneBoundary::BoundaryPoint the same rules regarding
+    // maximum distance and approximation error apply as for \c
+    // Lane::Classification::centerline.
     //
     repeated LaneBoundary.BoundaryPoint boundary_line = 3;
 

@@ -24,8 +24,9 @@ message DetectedEntityHeader
     // was processed or at which it is transmitted) in the global synchronized
     // time.
     //
-    // \note See \c SensorData::timestamp and \c SensorData::last_measurement_time
-    // for detailed discussions on the semantics of time-related fields.
+    // \note See \c SensorData::timestamp and \c
+    // SensorData::last_measurement_time for detailed discussions on the
+    // semantics of time-related fields.
     //
     optional Timestamp measurement_time = 1;
 
@@ -167,19 +168,21 @@ message SensorData
     //
     // \arg \b x-direction of sensor coordinate system: sensor viewing direction
     // \arg \b z-direction of sensor coordinate system: sensor (up)
-    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z right hand system
+    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
+    // right hand system
     //
     // \par References:
     // - [1] DIN ISO 8855:2013-11
     //
     // \note This field is usually static during the simulation.
     // \note The origin of vehicle's coordinate system in world frame is
-    // ( \c MovingObject::base . \c BaseMoving::position + Inverse_Rotation_yaw_pitch_roll(
-    // \c MovingObject::base . \c BaseMoving::orientation) * 
-    // \c MovingObject::VehicleAttributes::bbcenter_to_rear) .
-    // The orientation of the vehicle's coordinate system is equal to the
-    // orientation of the vehicle's bounding box \c MovingObject::base . 
-    // \c BaseMoving::orientation.
+    // ( \c MovingObject::base . \c BaseMoving::position +
+    // Inverse_Rotation_yaw_pitch_roll( \c MovingObject::base . \c
+    // BaseMoving::orientation) * \c
+    // MovingObject::VehicleAttributes::bbcenter_to_rear) . The orientation of
+    // the vehicle's coordinate system is equal to the orientation of the
+    // vehicle's bounding box \c MovingObject::base . \c
+    // BaseMoving::orientation.
     //
     optional MountingPosition mounting_position = 6;
 
