@@ -261,7 +261,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The base parameters of the moving object.</p>
-<dl class="section note"><dt>Note</dt><dd>The bounding box does NOT includes mirrors for vehicles. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The bounding box does NOT includes mirrors for vehicles. </dd>
+<dd>
+The parent frame of <code>base</code> is the sensor's vehicle frame. </dd></dl>
 
 </div>
 </div>
@@ -274,7 +276,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The root mean squared error of the base parameters of the detected moving object (e.g. car). <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedMovingObject.html#a34576520312191febc4a5c5878a492a4">candidate</a></code> moving objects. </p>
+<p>The root mean squared error of the base parameters of the detected moving object (e.g. car). <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedMovingObject.html#a34576520312191febc4a5c5878a492a4">candidate</a></code> moving objects.</p>
+<dl class="section note"><dt>Note</dt><dd>The parent frame of <code>base</code> is the sensor's vehicle frame. </dd></dl>
 
 </div>
 </div>
@@ -422,7 +425,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 20 2018 10:51:08 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 20 2018 13:55:27 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

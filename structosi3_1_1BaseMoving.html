@@ -134,7 +134,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The relative acceleration of the moving object w.r.t. its parent frame and parent acceleration. The acceleration becomes global/absolute if the parent frame is not accelerating.</p>
+<p>The relative acceleration of the moving object w.r.t. its parent frame, noted in the parent frame. The acceleration becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
 <p><code> <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t) := <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t-dt)+ <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> *dt+ <a class="el" href="structosi3_1_1BaseMoving.html#a88af69f98a0768fe9d38189ea5d4fb25">acceleration</a> /2*dt^2</code></p>
 <p><code> <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> (t) := <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> (t-dt)+ <a class="el" href="structosi3_1_1BaseMoving.html#a88af69f98a0768fe9d38189ea5d4fb25">acceleration</a> *dt</code> </p>
 
@@ -177,7 +177,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The relative orientation of the moving object w.r.t. its parent frame.</p>
+<p>The relative orientation of the moving object w.r.t. its parent frame, noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
 <p><code>Origin_base_moving_entity := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a>)*(Origin_parent_coordinate_system - <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a>)</code></p>
 <dl class="section note"><dt>Note</dt><dd>There may be some constraints how to align the orientation w.r.t. to some stationary object's or entity's definition. </dd></dl>
 
@@ -192,7 +192,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The relative orientation rate of the moving object w.r.t. its parent frame and parent orientation rate in the center point of the bounding box (origin of the bounding box frame).</p>
+<p>The relative orientation rate of the moving object w.r.t. its parent frame and parent orientation rate in the center point of the bounding box (origin of the bounding box frame), noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
 <p><code>Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a> (t)) := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a> *dt)*Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a> (t-dt))</code></p>
 <dl class="section note"><dt>Note</dt><dd><code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a> (t)</code> is <b>not</b> equal <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a> (t-dt)+<a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a> *dt</code> </dd></dl>
 
@@ -220,7 +220,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The relative velocity of the moving object w.r.t. its parent frame and parent velocity. The velocity becomes global/absolute if the parent frame does not move.</p>
+<p>The relative velocity of the moving object w.r.t. the parent frame, noted in the parent frame. The velocity becomes global/absolute if the parent frame does is inertial (all parent frames up to ground truth).</p>
 <p><code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t) := <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t-dt)+ <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> *dt</code> </p>
 
 </div>
@@ -231,7 +231,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 20 2018 10:51:08 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 20 2018 13:55:27 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
