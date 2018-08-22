@@ -71,10 +71,12 @@ set(OSI_PROTO_FILES
     osi_featuredata.proto
     osi_object.proto
     osi_occupant.proto
+    osi_road.proto
     osi_sensordata.proto
     osi_sensorviewconfiguration.proto
     osi_sensorspecific.proto
     osi_sensorview.proto
+    osi_worldinterface.proto
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
