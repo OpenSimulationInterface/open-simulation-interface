@@ -2003,19 +2003,19 @@ message TrafficSign
 
                 // Federal highway direction sign, left
                 // (StVO 415-10).
-                // Right: \c #TYPE_FEDERAL_HIGHWAY_DIRECTION_ARROW_RIGHT
+                // Right: \c #TYPE_FEDERAL_HIGHWAY_DIRECTION_RIGHT
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/415-10.png
                 //
-                TYPE_FEDERAL_HIGHWAY_DIRECTION_ARROW_LEFT = 232;
+                TYPE_FEDERAL_HIGHWAY_DIRECTION_LEFT = 232;
 
                 // Federal highway direction sign, right
                 // (StVO 415-20).
-                // Left: \c #TYPE_FEDERAL_HIGHWAY_DIRECTION_ARROW_LEFT
+                // Left: \c #TYPE_FEDERAL_HIGHWAY_DIRECTION_LEFT
                 //
                 // See e.g.:
                 //
-                TYPE_FEDERAL_HIGHWAY_DIRECTION_ARROW_RIGHT = 233;
+                TYPE_FEDERAL_HIGHWAY_DIRECTION_RIGHT = 233;
 
                 // Primary road direction sign, left
                 // (StVO 418-10).
