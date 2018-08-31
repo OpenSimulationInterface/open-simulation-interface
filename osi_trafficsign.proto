@@ -3071,11 +3071,11 @@ message TrafficSign
                 TYPE_ROAD_GRIT = 49;
 
                 // Accident hazard
-                // (StVO 1006-31).
+                // (StVO 1006-31, StVO 1007-50).
                 //
                 // See e.g.:
                 //
-                TYPE_ACCIDENT_HAZARD = 50;
+                TYPE_ACCIDENT = 50;
 
                 // Trail of oil hazard
                 // (StVO 1007-30).
@@ -3098,7 +3098,7 @@ message TrafficSign
                 //
                 TYPE_LOOSE_GRAVEL = 53;
 
-                // Construnction site exit
+                // Construction site exit
                 // (StVO 1007-33).
                 //
                 // See e.g.:
@@ -3147,68 +3147,61 @@ message TrafficSign
                 //
                 TYPE_MISSING_LANE_MARKING = 60;
 
-                // Accident
-                // (StVO 1007-50).
-                //
-                // See e.g.:
-                //
-                TYPE_ACCIDENT = 61;
-
                 // Flood
                 // (StVO 1007-51).
                 //
                 // See e.g.:
                 //
-                TYPE_FLOOD = 62;
+                TYPE_FLOOD = 61;
 
                 // New road surface
                 // (StVO 1007-52).
                 //
                 // See e.g.:
                 //
-                TYPE_NEW_ROAD_SURFACE = 63;
+                TYPE_NEW_ROAD_SURFACE = 62;
 
                 // Wheel ruts
                 // (StVO 1007-53).
                 //
                 // See e.g.:
                 //
-                TYPE_WHEEL_RUTS = 64;
+                TYPE_WHEEL_RUTS = 63;
 
                 // Left-turning driver
                 // (StVO 1007-54).
                 //
                 // See e.g.:
                 //
-                TYPE_LEFT_TURNING_DRIVER = 65;
+                TYPE_LEFT_TURNING_DRIVER = 64;
 
                 // Ski run crosses
                 // (StVO 1007-55).
                 //
                 // See e.g.:
                 //
-                TYPE_SKI_SLOPE = 66;
+                TYPE_SKI_SLOPE = 65;
 
                 // Ski trail
                 // (StVO 1007-56).
                 //
                 // See e.g.:
                 //
-                TYPE_SKI_TRAIL = 67;
+                TYPE_SKI_TRAIL = 66;
 
                 // Hilltop
                 // (StVO 1007-57).
                 //
                 // See e.g.:
                 //
-                TYPE_HILLTOP = 68;
+                TYPE_HILLTOP = 67;
 
                 // Police check
                 // (StVO 1007-58).
                 //
                 // See e.g.:
                 //
-                TYPE_POLICE_CHECK = 69;
+                TYPE_POLICE_CHECK = 68;
 
                 // End of the side strip in 200 m (given by \c TrafficSignValue::value
                 // in e.g. meter - \c TrafficSignValue::value_unit).
@@ -3216,70 +3209,70 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_SIDE_STRIP_END_DISTANCE = 70;
+                TYPE_SIDE_STRIP_END_DISTANCE = 69;
 
                 // Side strips not passable
                 // (StVO 1007-60).
                 //
                 // See e.g.:
                 //
-                TYPE_SIDE_STRIPS_NOT_PASSABLE = 71;
+                TYPE_SIDE_STRIPS_NOT_PASSABLE = 70;
 
                 // Driveway
                 // (StVO 1007-62).
                 //
                 // See e.g.:
                 //
-                TYPE_DRIVEWAY = 72;
+                TYPE_DRIVEWAY = 71;
 
                 // Priority changed
                 // (StVO 1008-30).
                 //
                 // See e.g.:
                 //
-                TYPE_PRIORITY_CHANGED = 73;
+                TYPE_PRIORITY_CHANGED = 72;
 
                 // Routing changed
                 // (StVO 1008-31).
                 //
                 // See e.g.:
                 //
-                TYPE_ROUTING_CHANGED = 74;
+                TYPE_ROUTING_CHANGED = 73;
 
                 // Industrial area (rail traffic have priority)
                 // (StVO 1008-32).
                 //
                 // See e.g.:
                 //
-                TYPE_INDUSTRIAL_AREA = 75;
+                TYPE_INDUSTRIAL_AREA = 74;
 
                 // Port area (rail traffic have priority)
                 // (StVO 1008-33).
                 //
                 // See e.g.:
                 //
-                TYPE_PORT_AREA = 76;
+                TYPE_PORT_AREA = 75;
 
                 // No turning possibility
                 // (StVO 1008-34).
                 //
                 // See e.g.:
                 //
-                TYPE_NO_TURNING_OPPORTUNITY = 77;
+                TYPE_NO_TURNING_OPPORTUNITY = 76;
 
                 // Children only to play on the road and shoulder
                 // (StVO 1010-10).
                 //
                 // See e.g.:
                 //
-                TYPE_CHILDREN_PLAYING = 78;
+                TYPE_CHILDREN_PLAYING = 77;
 
                 // Winter sports allowed
                 // (StVO 1010-11).
                 //
                 // See e.g.:
                 //
-                TYPE_WINTER_SPORTS = 79;
+                TYPE_WINTER_SPORTS = 78;
 
                 // Trailers can park here without the usual two week
                 // temporal parking restriction
@@ -3287,35 +3280,35 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_LONG_TERM_PARKING_TRAILERS = 80;
+                TYPE_LONG_TERM_PARKING_TRAILERS = 79;
 
                 // Caravans only to park for over 2 weeks
                 // (StVO 1010-13).
                 //
                 // See e.g.:
                 //
-                TYPE_LONG_TERM_PARKING_CARAVANS = 81;
+                TYPE_LONG_TERM_PARKING_CARAVANS = 80;
 
                 // Information on rolling highway
                 // (StVO 1010-14).
                 //
                 // See e.g.:
                 //
-                TYPE_ROLLING_HIGHWAY = 82;
+                TYPE_ROLLING_HIGHWAY = 81;
 
                 // Information about services
                 // (StVO 1010-15).
                 //
                 // See e.g.:
                 //
-                TYPE_SERVICES = 83;
+                TYPE_SERVICES = 82;
 
                 // Motor vehicles and other multi-track vehicles
                 // (StVO 1010-50).
                 //
                 // See e.g.:
                 //
-                TYPE_CARS_OTHER_VEHICLES = 84;
+                TYPE_CARS_OTHER_VEHICLES = 83;
 
                 // Only vehicles over 3.5t and their trailers, excluding
                 // passenger cars and buses
@@ -3323,70 +3316,70 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_TRUCKS = 85;
+                TYPE_TRUCKS = 84;
 
                 // Bicycles
                 // (StVO 1010-52).
                 //
                 // See e.g.:
                 //
-                TYPE_BYCYCLES = 86;
+                TYPE_BYCYCLES = 85;
 
                 // Pedestrian
                 // (StVO 1010-53).
                 //
                 // See e.g.:
                 //
-                TYPE_PEDESTRIANS = 87;
+                TYPE_PEDESTRIANS = 86;
 
                 // Riders
                 // (StVO 1010-54).
                 //
                 // See e.g.:
                 //
-                TYPE_RIDERS = 88;
+                TYPE_RIDERS = 87;
 
                 // Cattle
                 // (StVO 1010-55).
                 //
                 // See e.g.:
                 //
-                TYPE_CATTLE = 89;
+                TYPE_CATTLE = 88;
 
                 // Tram only
                 // (StVO 1010-56).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1010-56.png
                 //
-                TYPE_TRAM = 90;
+                TYPE_TRAM = 89;
 
                 // Bus only
                 // (StVO 1010-57).
                 //
                 // See e.g.:
                 //
-                TYPE_BUS = 91;
+                TYPE_BUS = 90;
 
                 // Passenger cars only
                 // (StVO 1010-58).
                 //
                 // See e.g.:
                 //
-                TYPE_CARS = 92;
+                TYPE_CARS = 91;
 
                 // Passenger cars with trailer only
                 // (StVO 1010-59).
                 //
                 // See e.g.:
                 //
-                TYPE_CAR_TRAILER = 93;
+                TYPE_CAR_TRAILER = 92;
 
                 // Truck with trailer only
                 // (StVO 1010-60).
                 //
                 // See e.g.:
                 //
-                TYPE_TRUCKS_TRAILER = 94;
+                TYPE_TRUCKS_TRAILER = 93;
 
                 // Motor vehicles and trains that can not or are not allowed to drive
                 // faster than 25 km/h only (speed defined by
@@ -3395,70 +3388,70 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_SLOW_VEHICLES = 95;
+                TYPE_SLOW_VEHICLES = 94;
 
                 // Mopeds only
                 // (StVO 1010-63).
                 //
                 // See e.g.:
                 //
-                TYPE_SMALL_MOPEDS = 96;
+                TYPE_SMALL_MOPEDS = 95;
 
                 // Trailer wagons only
                 // (StVO 1010-64).
                 //
                 // See e.g.:
                 //
-                TYPE_HORSES_TRAILER = 97;
+                TYPE_HORSES_TRAILER = 96;
 
                 // E-Bikes only
                 // (StVO 1010-65).
                 //
                 // See e.g.:
                 //
-                TYPE_EBIKES = 98;
+                TYPE_EBIKES = 97;
 
                 // Electric powered vehicles only
                 // (StVO 1010-66).
                 //
                 // See e.g.:
                 //
-                TYPE_ELECTRIC_VEHICLES_ALLOWED = 99;
+                TYPE_ELECTRIC_VEHICLES_ALLOWED = 98;
 
                 // Campers only
                 // (StVO 1010-67).
                 //
                 // See e.g.:
                 //
-                TYPE_CAMPERS = 100;
+                TYPE_CAMPERS = 99;
 
                 // Loading zone
                 // (StVO 1012-30).
                 //
                 // See e.g.:
                 //
-                TYPE_LOADING_ZONE = 101;
+                TYPE_LOADING_ZONE = 100;
 
                 // End
                 // (StVO 1012-31).
                 //
                 // See e.g.:
                 //
-                TYPE_END = 102;
+                TYPE_END = 101;
 
                 // Cyclists must walk
                 // (StVO 1012-32).
                 //
                 // See e.g.:
                 //
-                TYPE_CYCLISTS_DISMOUNT = 103;
+                TYPE_CYCLISTS_DISMOUNT = 102;
 
                 // No mopeds only
                 // (StVO 1012-33).
                 //
                 // See e.g.:
                 //
-                TYPE_NO_SMALL_MOPEDS_ALLOWED = 104;
+                TYPE_NO_SMALL_MOPEDS_ALLOWED = 103;
 
                 // All green signals ("green wave") at certain speed (given by
                 // \c TrafficSignValue::value in e.g. kph - \c TrafficSignValue::value_unit).
@@ -3466,77 +3459,77 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_GREEN_WAVE = 105;
+                TYPE_GREEN_WAVE = 104;
 
                 // Stop at red light
                 // (StVO 1012-35).
                 //
                 // See e.g.:
                 //
-                TYPE_STOP_RED_LIGHT = 106;
+                TYPE_STOP_RED_LIGHT = 105;
 
                 // Noise protection
                 // (StVO 1012-36).
                 //
                 // See e.g.:
                 //
-                TYPE_NOISE_PROTECTION = 107;
+                TYPE_NOISE_PROTECTION = 106;
 
                 // Inflow regulation
                 // (StVO 1012-37).
                 //
                 // See e.g.:
                 //
-                TYPE_INFLOW_REGULATION = 108;
+                TYPE_INFLOW_REGULATION = 107;
 
                 // Secondary route
                 // (StVO 1012-38).
                 //
                 // See e.g.:
                 //
-                TYPE_SECONDARY_ROUTE = 109;
+                TYPE_SECONDARY_ROUTE = 108;
 
                 // School
                 // (StVO 1012-50).
                 //
                 // See e.g.:
                 //
-                TYPE_SCHOOL = 110;
+                TYPE_SCHOOL = 109;
 
                 // Kindergarten
                 // (StVO 1012-51).
                 //
                 // See e.g.:
                 //
-                TYPE_KINDERGARTEN = 111;
+                TYPE_KINDERGARTEN = 110;
 
                 // Retirement home
                 // (StVO 1012-52).
                 //
                 // See e.g.:
                 //
-                TYPE_RETIREMENT_HOME = 112;
+                TYPE_RETIREMENT_HOME = 111;
 
                 // Hospital
                 // (StVO 1012-53).
                 //
                 // See e.g.:
                 //
-                TYPE_HOSPITAL = 113;
+                TYPE_HOSPITAL = 112;
 
                 // Driving on side stripes
                 // (StVO 1013-50).
                 //
                 // See e.g.:
                 //
-                TYPE_DRIVING_ON_SIDE_STRIPES = 114;
+                TYPE_DRIVING_ON_SIDE_STRIPES = 113;
 
                 // Vacate side stripes
                 // (StVO 1013-51).
                 //
                 // See e.g.:
                 //
-                TYPE_VACATE_SIDE_STRIPES = 115;
+                TYPE_VACATE_SIDE_STRIPES = 114;
 
                 // End in .. meters (given by
                 // \c TrafficSignValue::value in e.g. m - \c TrafficSignValue::value_unit).
@@ -3544,35 +3537,35 @@ message TrafficSign
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1013-52.png
                 //
-                TYPE_END_IN_DISTANCE = 116;
+                TYPE_END_IN_DISTANCE = 115;
 
                 // Tunnel category according to ADR agreement (B)
                 // (StVO 1014-50).
                 //
                 // See e.g.:
                 //
-                TYPE_TUNNEL_CATEGORY_B = 117;
+                TYPE_TUNNEL_CATEGORY_B = 116;
 
                 // Tunnel category according to ADR agreement (C)
                 // (StVO 1014-51).
                 //
                 // See e.g.:
                 //
-                TYPE_TUNNEL_CATEGORY_C = 118;
+                TYPE_TUNNEL_CATEGORY_C = 117;
 
                 // Tunnel category according to ADR agreement (D)
                 // (StVO 1014-52).
                 //
                 // See e.g.:
                 //
-                TYPE_TUNNEL_CATEGORY_D = 119;
+                TYPE_TUNNEL_CATEGORY_D = 118;
 
                 // Tunnel category according to ADR agreement (E)
                 // (StVO 1014-53).
                 //
                 // See e.g.:
                 //
-                TYPE_TUNNEL_CATEGORY_E = 120;
+                TYPE_TUNNEL_CATEGORY_E = 119;
 
                 // Only parking for disabled persons with parking permit no.
                 // (given by \c TrafficSignValue::value)
@@ -3580,92 +3573,92 @@ message TrafficSign
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1020-11.png
                 //
-                TYPE_DISABLED_PERSONS_PARKING_PERMIT_ALLOWED = 121;
+                TYPE_DISABLED_PERSONS_PARKING_PERMIT_ONLY = 120;
 
                 // Cyclists and residents only
                 // (StVO 1020-12).
                 //
                 // See e.g.:
                 //
-                TYPE_CYCLISTS_AND_RESIDENTS_ONLY = 122;
+                TYPE_CYCLISTS_AND_RESIDENTS_ONLY = 121;
 
                 // Inline skaters only
                 // (StVO 1020-13).
                 //
                 // See e.g.:
                 //
-                TYPE_INLINE_SKATERS_ONLY = 123;
+                TYPE_INLINE_SKATERS_ONLY = 122;
 
                 // Winter sports allowed
                 // (StVO 1020-14).
                 //
                 // See e.g.:
                 //
-                TYPE_WINTER_SPORTS_ALLOWED = 124;
+                TYPE_WINTER_SPORTS_ONLY = 123;
 
                 // Residents and local traffic only
                 // (StVO 1020-30).
                 //
                 // See e.g.:
                 //
-                TYPE_RESIDENTS_ALLOWED = 125;
+                TYPE_RESIDENTS_ONLY = 124;
 
                 // Only for residents or free parking
                 // (StVO 1020-31).
                 //
                 // See e.g.:
                 //
-                TYPE_RESIDENTS_PARKING_ALLOWED = 126;
+                TYPE_RESIDENTS_PARKING_ONLY = 125;
 
                 // Only parking for residents with parking permit no.
                 // (given by \c TrafficSignValue::value)
-                // (StVO 1020-32).
+                // (StVO 1020-32, StVO 1044-30).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1020-32.png
                 //
-                TYPE_RESIDENTS_PARKING_PERMIT_ALLOWED = 127;
+                TYPE_RESIDENTS_PARKING_PERMIT_ONLY = 126;
 
                 // Cyclists only
                 // (StVO 1022-10).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1022-10.png
                 //
-                TYPE_BICYCLES_ALLOWED = 128;
+                TYPE_BICYCLES_ONLY = 127;
 
                 // Mopeds only
                 // (StVO 1022-11).
                 //
                 // See e.g.:
                 //
-                TYPE_SMALL_MOPEDS_ALLOWED = 129;
+                TYPE_SMALL_MOPEDS_ONLY = 128;
 
                 // E-Bikes only
                 // (StVO 1022-13, StVO 1026-63).
                 //
                 // See e.g.:
                 //
-                TYPE_EBIKES_ALLOWED = 130;
+                TYPE_EBIKES_ONLY = 129;
 
                 // Cycling and mopeds only
                 // (StVO 1022-14).
                 //
                 // See e.g.:
                 //
-                TYPE_BICYCLES_SMALL_MOPEDS_ALLOWED = 131;
+                TYPE_BICYCLES_SMALL_MOPEDS_ONLY = 130;
 
-                // E-Bikes and mopeds only
+                // E-Bikes and small mopeds only
                 // (StVO 1022-15).
                 //
                 // See e.g.:
                 //
-                TYPE_EBIKES_SMALL_MOPEDS_ALLOWED = 132;
+                TYPE_EBIKES_SMALL_MOPEDS_ONLY = 131;
 
                 // Passenger cars with trailers only
                 // (SStVO 1024-11).
                 //
                 // See e.g.:
                 //
-                TYPE_CARS_TRAILERS_ALLOWED = 133;
+                TYPE_CARS_TRAILERS_ONLY = 132;
 
                 // Motor vehicles with a maximum allowed mass exceeding 3.5 tones,
                 // including their trailers, excluding passenger cars and buses, only
@@ -3673,35 +3666,35 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_TRUCKS_OVER_WEIGTH_ALLOWED = 134;
+                TYPE_TRUCKS_OVER_WEIGTH_ONLY = 133;
 
                 // Buses only
                 // (StVO 1024-14).
                 //
                 // See e.g.:
                 //
-                TYPE_BUSES_ONLY = 135;
+                TYPE_BUSES_ONLY = 134;
 
                 // Railroad traffic only
-                // (StVO 1024-15).
+                // (StVO 1024-15, StVO 1048-18).
                 //
                 // See e.g.:
                 //
-                TYPE_RAILROAD_TRAFFIC_ONLY = 136;
+                TYPE_RAILROAD_TRAFFIC_ONLY = 135;
 
                 // Tram only
                 // (StVO 1024-16).
                 //
                 // See e.g.:
                 //
-                TYPE_TRAMS_ALLOWED = 137;
+                TYPE_TRAMS_ONLY = 136;
 
                 // Trailer wagons only
                 // (StVO 1024-18).
                 //
                 // See e.g.:
                 //
-                TYPE_HORSES_TRAILER_ALLOWED = 138;
+                TYPE_HORSES_TRAILER_ONLY = 137;
 
                 // Only for motorhomes with a maximum allowed mass of up number
                 // (given by \c TrafficSignValue::value in e.g. t - \c TrafficSignValue::value_unit).
@@ -3709,140 +3702,140 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_CAMPERS_UP_TO_MASS_EXCLUDED = 139;
+                TYPE_CAMPERS_UP_TO_MASS_EXCLUDED = 138;
 
                 // Electricaly powered vehicles only
                 // (StVO 1024-20).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1024-20.png
                 //
-                TYPE_ELECTRICALY_POWERED_VEHICLES_ONLY = 140;
+                TYPE_ELECTRICALLY_POWERED_VEHICLES_ONLY = 139;
 
                 // Taxis only
                 // (StVO 1026-30).
                 //
                 // See e.g.:
                 //
-                TYPE_TAXIS_ONLY = 141;
+                TYPE_TAXIS_ONLY = 140;
 
                 // Buses when providing occasional-service operations only
                 // (StVO 1026-31).
                 //
                 // See e.g.:
                 //
-                TYPE_OCCASIONAL_BUSES_ALLOWED = 142;
+                TYPE_OCCASIONAL_BUSES_ONLY = 141;
 
                 // Public transport vehicles only
                 // (StVO 1026-32).
                 //
                 // See e.g.:
                 //
-                TYPE_PUBLIC_TRANSPORT_ALLOWED = 143;
+                TYPE_PUBLIC_TRANSPORT_ONLY = 142;
 
                 // Emergency vehicles only
                 // (StVO 1026-33).
                 //
                 // See e.g.:
                 //
-                TYPE_EMERGENCY_VEHICLES_ONLY = 144;
+                TYPE_EMERGENCY_VEHICLES_ONLY = 143;
 
                 // Ambulance vehicles only
                 // (StVO 1026-34).
                 //
                 // See e.g.:
                 //
-                TYPE_AMBULANCE_VEHICLES_ONLY = 145;
+                TYPE_AMBULANCE_VEHICLES_ONLY = 144;
 
                 // Delivery vehicles only
                 // (StVO 1026-35).
                 //
                 // See e.g.:
                 //
-                TYPE_DELIVERY_VEHICLES_ONLY = 146;
+                TYPE_DELIVERY_VEHICLES_ONLY = 145;
 
                 // Agricultural vehicles only
                 // (StVO 1026-36).
                 //
                 // See e.g.:
                 //
-                TYPE_AGRICULTURAL_VEHICLES_ONLY = 147;
+                TYPE_AGRICULTURAL_VEHICLES_ONLY = 146;
 
                 // Forestry vehicles only
                 // (StVO 1026-37).
                 //
                 // See e.g.:
                 //
-                TYPE_SILVICULTURAL_VEHICLES_ALLOWED = 148;
+                TYPE_SILVICULTURAL_VEHICLES_ONLY = 147;
 
                 // Agricultural and forestry vehicles only
                 // (StVO 1026-38).
                 //
                 // See e.g.:
                 //
-                TYPE_AGRICULTURAL_AND_SILVICULTURAL_VEHICLES_ALLOWED = 149;
+                TYPE_AGRICULTURAL_AND_SILVICULTURAL_VEHICLES_ONLY = 148;
 
                 // Operational and utility vehicles only
                 // (StVO 1026-39).
                 //
                 // See e.g.:
                 //
-                TYPE_OPERATIONAL_UTILITY_VEHICLES_ALLOWED = 150;
+                TYPE_OPERATIONAL_UTILITY_VEHICLES_ONLY = 149;
 
                 // Only for electric vehicles during charging process
-                // (StVO 1026-60).
+                // (StVO 1026-60, StVO 1050-32).
                 //
                 // See e.g.:
                 //
-                TYPE_ELECTRIC_VEHICLES_CHARGING_ALLOWED = 151;
+                TYPE_ELECTRIC_VEHICLES_CHARGING_ONLY = 150;
 
                 // Electric vehicles only
-                // (StVO 1026-61).
+                // (StVO 1026-61, StVO 1050-33).
                 //
                 // See e.g.:
                 //
-                TYPE_ELECTRIC_VEHICLES_ONLY = 152;
+                TYPE_ELECTRIC_VEHICLES_ONLY = 151;
 
                 // Slurry transport only
                 // (StVO 1026-62).
                 //
                 // See e.g.:
                 //
-                TYPE_SLURRY_TRANSPORT_ONLY = 153;
+                TYPE_SLURRY_TRANSPORT_ONLY = 152;
 
                 // Construction vehicles only
                 // (StVO 1028-30).
                 //
                 // See e.g.:
                 //
-                TYPE_CONSTRUCTION_VEHICLES_ONLY = 154;
+                TYPE_CONSTRUCTION_VEHICLES_ONLY = 153;
 
                 // Access to construction site only
                 // (StVO 1028-31).
                 //
                 // See e.g.:
                 //
-                TYPE_CONSTRUCTION_SITE_ACCESS_ONLY = 155;
+                TYPE_CONSTRUCTION_SITE_ACCESS_ONLY = 154;
 
                 // Access to construction site allowed for residents
                 // (StVO 1028-32).
                 //
                 // See e.g.:
                 //
-                TYPE_CONSTRUCTION_SITE_ACCESS_ALLOWED_RESIDENTS = 156;
+                TYPE_CONSTRUCTION_SITE_ACCESS_RESIDENTS_ONLY = 155;
 
                 // Access to ... only (given by \c TrafficSignValue::value).
                 // (StVO 1028-33).
                 //
                 // See e.g.:
                 //
-                TYPE_ACCESS_ALLOWED = 157;
+                TYPE_ACCESS_ONLY = 156;
 
                 // Ferry users only
                 // (StVO 1028-34).
                 //
                 // See e.g.:
                 //
-                TYPE_FERRY_USERS_ONLY = 158;
+                TYPE_FERRY_USERS_ONLY = 157;
 
                 // Exemption from traffic ban according to 40(1) of the Federal Immission
                 // Control Act - red, yellow and green badge
@@ -3850,7 +3843,7 @@ message TrafficSign
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1031-50.png
                 //
-                TYPE_TRAFFIC_BAN_EXCEPTION_RED_YELLOW_GREEN = 159;
+                TYPE_TRAFFIC_BAN_EXCEPTION_RED_YELLOW_GREEN = 158;
 
                 // Exemption from traffic ban according to 40(1) of the Federal Immission
                 // Control Act - yellow and green badge
@@ -3858,7 +3851,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_TRAFFIC_BAN_EXCEPTION_YELLOW_GREEN = 160;
+                TYPE_TRAFFIC_BAN_EXCEPTION_YELLOW_GREEN = 159;
 
                 // Exemption from traffic ban according to 40(1) of the Federal Immission
                 // Control Act - green badge
@@ -3866,7 +3859,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_TRAFFIC_BAN_EXCEPTION_GREEN = 161;
+                TYPE_TRAFFIC_BAN_EXCEPTION_GREEN = 160;
 
                 // Winter sports along the road restricted to time period (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3875,7 +3868,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_WINTER_SPORTS_TIME_RESTRICTION = 162;
+                TYPE_WINTER_SPORTS_TIME_RESTRICTION = 161;
 
                 // Restricted times with two time intervals (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3885,7 +3878,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_RESTRICTED_TIMES_TWO_RANGES = 163;
+                TYPE_RESTRICTED_TIMES_TWO_RANGES = 162;
 
                 // Parking disc 2hrs (given by \c TrafficSignValue::value
                 // in e.g. minutes - \c TrafficSignValue::value_unit).
@@ -3893,7 +3886,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_PARKING_DISC_TIME_RESTRICTION = 164;
+                TYPE_PARKING_DISC_TIME_RESTRICTION = 163;
 
                 // Parking with parking disc in designated area, 2hrs (given by
                 // \c TrafficSignValue::value in e.g. minutes - \c TrafficSignValue::value_unit).
@@ -3901,7 +3894,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_PARKING_DISC_DESIGNATED_AREA_TIME_RESTRICTION = 165;
+                TYPE_PARKING_DISC_DESIGNATED_AREA_TIME_RESTRICTION = 164;
 
                 // Restricted from date (starting from \c TrafficSignValue::value - day in month,
                 // \c TrafficSignValue::value - month in a year, defining e.g. time of day in
@@ -3910,7 +3903,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_RESTRICTED_DATE_TIME = 166;
+                TYPE_RESTRICTED_DATE_TIME = 165;
 
                 // Noise protection with time (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3919,7 +3912,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_NOISE_PROTECTION_TIME_RESTRICTION = 167;
+                TYPE_NOISE_PROTECTION_TIME_RESTRICTION = 166;
 
                 // Way to or from school with time limit (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3928,14 +3921,14 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_WAY_SCHOOL_TIME_RESTRICTION = 168;
+                TYPE_WAY_SCHOOL_TIME_RESTRICTION = 167;
 
                 // Restricted times (weekdays only)
                 // (StVO 1042-30).
                 //
                 // See e.g.:
                 //
-                TYPE_WEEKDAYS_ONLY = 169;
+                TYPE_WEEKDAYS_ONLY = 168;
 
                 // Working days with time limit (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3944,7 +3937,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_WORKING_DAYS_TIME_RESTRICTION = 170;
+                TYPE_WORKING_DAYS_TIME_RESTRICTION = 169;
 
                 // Restricted to working days with two time intervals (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3954,7 +3947,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_WORKING_DAYS_DUAL_TIME_RESTRICTION = 171;
+                TYPE_WORKING_DAYS_DUAL_TIME_RESTRICTION = 170;
 
                 // Tuesdays, Thursdays and Fridays with time limit (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3963,7 +3956,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_TUE_THU_FRI_TIME_RESTRICTION = 172;
+                TYPE_TUE_THU_FRI_TIME_RESTRICTION = 171;
 
                 // Restricted times, Sundays and public holidays only (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3972,7 +3965,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_SUNDAYS_HOLIDAYS_TIME_RESTRICTION = 173;
+                TYPE_SUNDAYS_HOLIDAYS_TIME_RESTRICTION = 172;
 
                 // School bus, restricted to daytimes (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -3982,28 +3975,28 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_SCHOOL_BUS_DUAL_TIME_RESTRICTION = 174;
+                TYPE_SCHOOL_BUS_DUAL_TIME_RESTRICTION = 173;
 
                 // Parking on Saturdays and Sundays only
                 // (StVO 1042-37).
                 //
                 // See e.g.:
                 //
-                TYPE_PARKING_SATURDAYS_SUNDAYS_ONLY = 175;
+                TYPE_PARKING_SATURDAYS_SUNDAYS_ONLY = 174;
 
                 // Weekdays except Saturdays
                 // (StVO 1042-38).
                 //
                 // See e.g.:
                 //
-                TYPE_WEEKDAYS_EXCEPT_SATURDAYS_ONLY = 176;
+                TYPE_WEEKDAYS_EXCEPT_SATURDAYS_ONLY = 175;
 
                 // Saturdays and Sundays
                 // (StVO 1042-51).
                 //
                 // See e.g.:
                 //
-                TYPE_SATURDAYS_SUNDAYS_ONLY = 177;
+                TYPE_SATURDAYS_SUNDAYS_ONLY = 176;
 
                 // Way to or from school with time limit on weekdays (starting from first \c TrafficSignValue::value
                 // and ending with second \c TrafficSignValue::value, both defining e.g. time of day in
@@ -4012,14 +4005,14 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_WAY_SCHOOL_WEEKDAYS_TIME_RESTRICTION = 178;
+                TYPE_WAY_SCHOOL_WEEKDAYS_TIME_RESTRICTION = 177;
 
                 // Disabled and blind people only
                 // (StVO 1044-10).
                 //
                 // See e.g.:
                 //
-                TYPE_DISABLED_BLIND_ONLY = 179;
+                TYPE_DISABLED_BLIND_ONLY = 178;
 
                 // Only disabled people with parking permit No ...
                 // (given by \c TrafficSignValue::value)
@@ -4027,7 +4020,7 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_DISABLED_PARKING_PERMIT_ONLY = 180;
+                TYPE_DISABLED_PARKING_PERMIT_ONLY = 179;
 
                 // Only handicapped with limited mobility and blind, with number of parking places
                 // (given by \c TrafficSignValue::value)
@@ -4035,36 +4028,21 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_DISABLED_BLIND_PARKING_PLACES = 181;
-
-                // Residents with parking permit no. only
-                // (given by \c TrafficSignValue::value)
-                // (StVO 1044-30).
-                //
-                // See e.g.:
-                //
-                TYPE_RESIDENTS_PARKING_PERMIT_ONLY = 182;
+                TYPE_DISABLED_BLIND_PARKING_PLACES = 180;
 
                 // Only vehicles with semitrailers
                 // (StVO 1048-14).
                 //
                 // See e.g.:
                 //
-                TYPE_SEMITRAILER_TRUCKS_ONLY = 183;
+                TYPE_SEMITRAILER_TRUCKS_ONLY = 181;
 
                 // Only vehicles over 3.5t, also with trailers
                 // (StVO 1048-15).
                 //
                 // See e.g.:
                 //
-                TYPE_TRUCKS_SEMITRAILER_TRAILER_ONLY = 184;
-
-                // Only railroad traffic
-                // (StVO 1048-18).
-                //
-                // See e.g.:
-                //
-                TYPE_RAILROAD_TRAFFIC = 185;
+                TYPE_TRUCKS_SEMITRAILER_TRAILER_ONLY = 182;
 
                 // Only passenger cars with trailers and motor vehicles with a maximum allowed mass
                 // exceeding 3.5 tonnes, including their trailers and tractors, excluding passenger cars and buses
@@ -4072,35 +4050,35 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_CARS_TRAILER_TRUCKS_ONLY = 186;
+                TYPE_CARS_TRAILER_TRUCKS_ONLY = 183;
 
                 // Overtaking of slow-moving vehicles that cannot exceed 25kph
                 // (StVO 1049-11).
                 //
                 // See e.g.:
                 //
-                TYPE_OVERTAKING_SLOW_VEHICLES = 187;
+                TYPE_OVERTAKING_SLOW_VEHICLES = 184;
 
                 // Only for military vehicles
                 // (StVO 1049-12).
                 //
                 // See e.g.:
                 //
-                TYPE_MILITARY_TRACK_VEHICLES_ONLY = 188;
+                TYPE_MILITARY_TRACK_VEHICLES_ONLY = 185;
 
                 // Only vehicles over 3.5t, buses and passenger cars with trailers
                 // (StVO 1049-13).
                 //
                 // See e.g.:
                 //
-                TYPE_CARS_TRAILER_TRUCKS_BUSES_ONLY = 189;
+                TYPE_CARS_TRAILER_TRUCKS_BUSES_ONLY = 186;
 
                 // Taxi
                 // (StVO 1050-30).
                 //
                 // See e.g.:
                 //
-                TYPE_TAXI = 190;
+                TYPE_TAXI_ONLY = 187;
 
                 // Taxi with number
                 // (given by \c TrafficSignValue::value)
@@ -4108,126 +4086,112 @@ message TrafficSign
                 //
                 // See e.g.:
                 //
-                TYPE_TAXI_QUANTITY = 191;
-
-                // Electric vehicles during charging process
-                // (StVO 1050-32).
-                //
-                // See e.g.:
-                //
-                TYPE_ELECTRIC_VEHICLES_CHARGING = 192;
-
-                // Electric vehicles
-                // (StVO 1050-33).
-                //
-                // See e.g.:
-                //
-                TYPE_ELECTRIC_VEHICLES = 193;
+                TYPE_TAXI_QUANTITY_ONLY = 188;
 
                 // Speed and overtaking restrictions for the transport of hazardous goods
                 // (StVO 1052-30).
                 //
                 // See e.g.:
                 //
-                TYPE_HAZARDOUS_GOODS_TRANSPORT_RESTRICTION = 194;
+                TYPE_HAZARDOUS_GOODS_TRANSPORT_RESTRICTION = 189;
 
                 // Speed and overtaking restrictions for vehicles carrying water pollutants
                 // (StVO 1052-31).
                 //
                 // See e.g.:
                 //
-                TYPE_WATER_POLLUTANTS_TRANSPORT_RESTRICTION = 195;
+                TYPE_WATER_POLLUTANTS_TRANSPORT_RESTRICTION = 190;
 
                 // Parking only in marked areas
                 // (StVO 1053-30).
                 //
                 // See e.g.:
                 //
-                TYPE_PARKING_MARKED_AREAS_ONLY = 196;
+                TYPE_PARKING_MARKED_AREAS_ONLY = 191;
 
                 // With parking ticket
                 // (StVO 1053-31).
                 //
                 // See e.g.:
                 //
-                TYPE_PARKING_TICKET = 197;
+                TYPE_PARKING_TICKET_ONLY = 192;
 
                 // Fees apply
                 // (StVO 1053-32).
                 //
                 // See e.g.:
                 //
-                TYPE_FEES_APPLY = 198;
+                TYPE_FEES_APPLY = 193;
 
                 // Side stripe
                 // (StVO 1053-34).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1053-34.png
                 //
-                TYPE_SIDE_STRIPE = 199;
+                TYPE_SIDE_STRIPE = 194;
 
                 // "Wet surface" sign supplementing sign 274
                 // (StVO 1053-35).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1053-35.png
                 //
-                TYPE_WET = 200;
+                TYPE_WET = 195;
 
                 // Transit traffic
                 // (StVO 1053-36).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1053-36.png
                 //
-                TYPE_TRANSIT = 201;
+                TYPE_TRANSIT = 196;
 
                 // Park (pull in straight)
                 // (StVO 1053-38).
                 //
                 // See e.g.:
                 //
-                TYPE_PARK_STRAIGHT = 202;
+                TYPE_PARK_STRAIGHT = 197;
 
                 // Park (pull in diagonally)
                 // (StVO 1053-39).
                 //
                 // See e.g.:
                 //
-                TYPE_PARK_DIAGONAL = 203;
+                TYPE_PARK_DIAGONAL = 198;
 
                 // Only within marked parking areas
                 // (StVO 1053-52).
                 //
                 // See e.g.:
                 //
-                TYPE_MARKED_PARKING_AREAS_ONLY = 204;
+                TYPE_MARKED_PARKING_AREAS_ONLY = 199;
 
                 // No parking on verges/shoulder
                 // (StVO 1060-31).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1060-31.png
                 //
-                TYPE_NO_WAITING_SIDE_STRIPES = 205;
+                TYPE_NO_WAITING_SIDE_STRIPES = 200;
 
                 // Also buses and cars with trailers
                 // (StVO 1060-32).
                 //
                 // See e.g.: https://www.dvr.de/bilder/stvo/gt/1060-32.png
                 //
-                TYPE_CARS_TRAILERS_BUSES_ADDITIONALLY = 206;
+                TYPE_CARS_TRAILERS_BUSES_ADDITIONALLY = 201;
 
                 // Rabies! Endangered area.
                 // (StVO 2531).
                 //
                 // See e.g.:
                 //
-                TYPE_RABIES = 207;
+                TYPE_RABIES = 202;
 
                 // Wild animal rabies! Endangered area.
                 // (StVO 2532).
                 //
                 // See e.g.:
                 //
-                TYPE_WILD_ANIMAL_RABIES = 208;
+                TYPE_WILD_ANIMAL_RABIES = 203;
             }
         }
     }
