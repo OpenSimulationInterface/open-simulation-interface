@@ -310,6 +310,10 @@ message LidarDetection
     // Basic classification of the detection.
     //
     optional DetectionClassification classification = 9;
+
+    // Lambertian reflectivity
+    //
+    optional double reflectivity = 10;
 }
 
 //
