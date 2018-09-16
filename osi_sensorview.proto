@@ -283,6 +283,22 @@ message LidarSensorView
         // Unit: [Hz]
         //
         optional double doppler_shift = 3;
+
+        // normal to surface angle.
+        //
+        // The normal of the transmitted beam to the object, roadmarking etc encounter.
+        // \note data is in Lidar coordinate system
+        //
+        // Unit: [unit vector]
+        //
+        optional Vector3d normal_to_surface = 5;
+
+        // ID of the detected object this reflection is associated to.
+        // can be used for raytracing debug
+        //
+        // \note ID = MAX(uint64) indicates no reference to an object.
+        optional Identifier object_id = 6;
+
     }
 }
 

@@ -523,6 +523,27 @@ message LidarSensorViewConfiguration
     //
     // Unit: [Hz]
     optional double emitter_frequency = 9;
+
+    // Number of pixels in frame.
+    //
+    // This field includes the number of pixels in each frame
+    //
+    optional  uint32 num_of_pixels = 10;
+
+    // Ray tracing data.
+    //
+    // The directions unit vectors describing the Lidar's raster transmission directions.
+    // Length is num_of_pixels
+    // \note data is in Lidar's coordinate system
+    //
+    repeated Vector3d directions = 11;
+
+    // Ray tracing data.
+    //
+    // The time offset in microseconds of every measurement from each frame timestamp.
+    // Length is num_of_pixels
+    //
+    repeated uint32 timings = 12;
 }
 
 //
