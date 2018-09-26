@@ -1,6 +1,8 @@
 var searchData=
 [
   ['nanos',['nanos',['../structosi3_1_1Timestamp.html#aa3937d70fbeef3c023708adc95d81905',1,'osi3::Timestamp']]],
+  ['normal_5fto_5fsurface',['normal_to_surface',['../structosi3_1_1LidarSensorView_1_1Reflection.html#a8c68f21a375a0aa52ad9cc5634dd1aa2',1,'osi3::LidarSensorView::Reflection']]],
+  ['num_5fof_5fpixels',['num_of_pixels',['../structosi3_1_1LidarSensorViewConfiguration.html#a55ae2af0ac4a312ee6eca8d4e28f5b3e',1,'osi3::LidarSensorViewConfiguration']]],
   ['number_5fof_5fpixels_5fhorizontal',['number_of_pixels_horizontal',['../structosi3_1_1CameraSensorViewConfiguration.html#a83447cfc40ac783eda6b33b6d2f920d7',1,'osi3::CameraSensorViewConfiguration']]],
   ['number_5fof_5fpixels_5fvertical',['number_of_pixels_vertical',['../structosi3_1_1CameraSensorViewConfiguration.html#ae71698d9be703a4d372cdaffe60b9c82',1,'osi3::CameraSensorViewConfiguration']]],
   ['number_5fof_5frays_5fhorizontal',['number_of_rays_horizontal',['../structosi3_1_1RadarSensorViewConfiguration.html#af5ff376f2a5f7becdd96ba9d956b3458',1,'osi3::RadarSensorViewConfiguration::number_of_rays_horizontal()'],['../structosi3_1_1LidarSensorViewConfiguration.html#aebe71ed20bb2649c86a6552aa741258a',1,'osi3::LidarSensorViewConfiguration::number_of_rays_horizontal()']]],

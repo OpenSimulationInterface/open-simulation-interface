@@ -6,6 +6,7 @@ var searchData=
   ['timeofday',['TimeOfDay',['../structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html',1,'osi3::EnvironmentalConditions']]],
   ['timestamp',['Timestamp',['../structosi3_1_1Timestamp.html',1,'osi3']]],
   ['timestamp',['timestamp',['../structosi3_1_1GroundTruth.html#a681bc6d9e26aa4603adb4f167bad67fc',1,'osi3::GroundTruth::timestamp()'],['../structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c',1,'osi3::SensorData::timestamp()'],['../structosi3_1_1SensorView.html#ad30bef352de1b64dd211718c18c540f1',1,'osi3::SensorView::timestamp()']]],
+  ['timings',['timings',['../structosi3_1_1LidarSensorViewConfiguration.html#a03f5654d3c86d31c17ab32f3a671e453',1,'osi3::LidarSensorViewConfiguration']]],
   ['tracking_5fid',['tracking_id',['../structosi3_1_1DetectedItemHeader.html#ad86fc569bba59c89720bc84a5ec4a773',1,'osi3::DetectedItemHeader']]],
   ['traffic_5flight',['traffic_light',['../structosi3_1_1GroundTruth.html#ac46f04d9d79b4e3862f2a1640f2d315e',1,'osi3::GroundTruth::traffic_light()'],['../structosi3_1_1SensorData.html#aa371b884e0cd4fd029328aa5615e8c4d',1,'osi3::SensorData::traffic_light()']]],
   ['traffic_5flight_5fheader',['traffic_light_header',['../structosi3_1_1SensorData.html#af3ef59a8b126f125593d36c89b775c92',1,'osi3::SensorData']]],

@@ -31,6 +31,7 @@ var searchData=
   ['reflection',['reflection',['../structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d',1,'osi3::RadarSensorView::reflection()'],['../structosi3_1_1LidarSensorView.html#abd48c19b5ae9ddee52c269b0dbc11686',1,'osi3::LidarSensorView::reflection()']]],
   ['reflection',['Reflection',['../structosi3_1_1LidarSensorView_1_1Reflection.html',1,'osi3::LidarSensorView']]],
   ['reflection',['Reflection',['../structosi3_1_1RadarSensorView_1_1Reflection.html',1,'osi3::RadarSensorView']]],
+  ['reflectivity',['reflectivity',['../structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42',1,'osi3::LidarDetection']]],
   ['relative_5fhumidity',['relative_humidity',['../structosi3_1_1EnvironmentalConditions.html#a05b6f530a842deef881608e131f3b98a',1,'osi3::EnvironmentalConditions']]],
   ['response',['response',['../structosi3_1_1RadarSensorViewConfiguration_1_1AntennaDiagramEntry.html#af52433c9c212034b606903e35c68719a',1,'osi3::RadarSensorViewConfiguration::AntennaDiagramEntry']]],
   ['reversing_5flight',['reversing_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a4ff4d25be361bc831238a27a197503a6',1,'osi3::MovingObject::VehicleClassification::LightState']]],

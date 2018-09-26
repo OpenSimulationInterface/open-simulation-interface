@@ -39,6 +39,7 @@ var searchData=
   ['direction_5fscope_5fother',['DIRECTION_SCOPE_OTHER',['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a274a9a92e6d5a50186876277b5e86dc7a3570fa4785c2957da7cf2901770898e3',1,'osi3::TrafficSign::MainSign::Classification']]],
   ['direction_5fscope_5fright',['DIRECTION_SCOPE_RIGHT',['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a274a9a92e6d5a50186876277b5e86dc7a774ff73590d881576033f0c0189bb811',1,'osi3::TrafficSign::MainSign::Classification']]],
   ['direction_5fscope_5funknown',['DIRECTION_SCOPE_UNKNOWN',['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a274a9a92e6d5a50186876277b5e86dc7ac7cf85c298163608a3f506bd2c7a9b17',1,'osi3::TrafficSign::MainSign::Classification']]],
+  ['directions',['directions',['../structosi3_1_1LidarSensorViewConfiguration.html#a712772005038f231b056111be45fc13c',1,'osi3::LidarSensorViewConfiguration']]],
   ['directionscope',['DirectionScope',['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a274a9a92e6d5a50186876277b5e86dc7',1,'osi3::TrafficSign::MainSign::Classification']]],
   ['distance',['distance',['../structosi3_1_1Spherical3d.html#a3ebbbd58e45298e55e1e88ea67c790c8',1,'osi3::Spherical3d']]],
   ['doppler_5fshift',['doppler_shift',['../structosi3_1_1RadarSensorView_1_1Reflection.html#a58cf8f2eb4f068bda705ef530ca5da1f',1,'osi3::RadarSensorView::Reflection::doppler_shift()'],['../structosi3_1_1LidarSensorView_1_1Reflection.html#a104b08393487c62adf354730f3d16fd6',1,'osi3::LidarSensorView::Reflection::doppler_shift()']]],

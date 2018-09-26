@@ -100,7 +100,7 @@ Collaboration diagram for osi3::LidarSensorViewConfiguration:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1LidarSensorViewConfiguration__coll__graph.png" border="0" usemap="#osi3_1_1LidarSensorViewConfiguration_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1LidarSensorViewConfiguration_coll__map" id="osi3_1_1LidarSensorViewConfiguration_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="128,245,281,272"/><area shape="rect" id="node3" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="67,125,196,152"/><area shape="rect" id="node5" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="221,125,328,152"/><area shape="rect" id="node6" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="325,245,429,272"/></map>
+<area shape="rect" id="node2" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="512,116,667,143"/><area shape="rect" id="node3" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="192,87,323,113"/><area shape="rect" id="node5" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="204,168,311,195"/><area shape="rect" id="node6" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="537,229,641,256"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -123,10 +123,31 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a8320df0e97a09b909f326fde8db60a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac96421ddf19cf73a7fa611abef48766"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarSensorViewConfiguration.html#aac96421ddf19cf73a7fa611abef48766">emitter_frequency</a> = 9</td></tr>
 <tr class="separator:aac96421ddf19cf73a7fa611abef48766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55ae2af0ac4a312ee6eca8d4e28f5b3e"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarSensorViewConfiguration.html#a55ae2af0ac4a312ee6eca8d4e28f5b3e">num_of_pixels</a> = 10</td></tr>
+<tr class="separator:a55ae2af0ac4a312ee6eca8d4e28f5b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712772005038f231b056111be45fc13c"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarSensorViewConfiguration.html#a712772005038f231b056111be45fc13c">directions</a> = 11</td></tr>
+<tr class="separator:a712772005038f231b056111be45fc13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03f5654d3c86d31c17ab32f3a671e453"><td class="memItemLeft" align="right" valign="top">repeated uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarSensorViewConfiguration.html#a03f5654d3c86d31c17ab32f3a671e453">timings</a> = 12</td></tr>
+<tr class="separator:a03f5654d3c86d31c17ab32f3a671e453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The configuration settings for the Lidar Sensor View to be provided by the environment simulation. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a712772005038f231b056111be45fc13c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a> osi3::LidarSensorViewConfiguration::directions = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ray tracing data.</p>
+<p>The directions unit vectors describing the Lidar's raster transmission directions. Length is num_of_pixels </p>
+<dl class="section note"><dt>Note</dt><dd>data is in Lidar's coordinate system </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aac96421ddf19cf73a7fa611abef48766"></a>
 <div class="memitem">
 <div class="memproto">
@@ -224,6 +245,20 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 
 </div>
 </div>
+<a class="anchor" id="a55ae2af0ac4a312ee6eca8d4e28f5b3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional uint32 osi3::LidarSensorViewConfiguration::num_of_pixels = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of pixels in frame.</p>
+<p>This field includes the number of pixels in each frame </p>
+
+</div>
+</div>
 <a class="anchor" id="aebe71ed20bb2649c86a6552aa741258a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -267,13 +302,27 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 
 </div>
 </div>
+<a class="anchor" id="a03f5654d3c86d31c17ab32f3a671e453"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated uint32 osi3::LidarSensorViewConfiguration::timings = 12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ray tracing data.</p>
+<p>The time offset in microseconds of every measurement from each frame timestamp. Length is num_of_pixels </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/travis/build/OpenSimulationInterface/open-simulation-interface/osi_sensorviewconfiguration.proto</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 20 2018 13:55:27 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 26 2018 08:57:41 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
