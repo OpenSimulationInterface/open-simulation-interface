@@ -131,4 +131,14 @@ message GroundTruth
     // - [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
     //
     optional uint32 country_code = 13;
+
+    // Projection string that allows to transform all coordinates in GroundTruth
+    // into a different cartographic projection.
+    //
+    // The string follows the proj.4 project rules [1].
+    //
+    // \par References:
+    // - [1] [Proj.4 Projections] (https://proj4.org/usage/projections.html)
+    //
+    optional string proj_string = 16;
 }
