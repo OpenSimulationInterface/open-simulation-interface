@@ -30,3 +30,8 @@ version.py
 __pycache__/
 *.py[cod]
 proto2cpp.log
+.clang-format
+githooks/pre-commit
+
+# PyCharm specific files
+.idea

@@ -106,11 +106,11 @@ message Occupant
             //
             STEERING_CONTROL_NO_HAND = 2;
 
-            // One hand is on the steering wheel. Whether it is the left or right
-            // hand is unspecified or unknown.
+            // One hand is on the steering wheel. Whether it is the left or
+            // right hand is unspecified or unknown.
             //
-            // \note If there is no differentiation between one or both hands on the
-            // steering wheel, this value should be used.
+            // \note If there is no differentiation between one or both hands on
+            // the steering wheel, this value should be used.
             //
             STEERING_CONTROL_ONE_HAND = 3;
 

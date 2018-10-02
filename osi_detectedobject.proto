@@ -71,8 +71,8 @@ message DetectedItemHeader
         //
         MEASUREMENT_STATE_UNKNOWN = 0;
 
-        // Measurement state is unspecified (but known, i.e. value is not part of
-        // this enum list).
+        // Measurement state is unspecified (but known, i.e. value is not part
+        // of this enum list).
         //
         MEASUREMENT_STATE_OTHER = 1;
 
@@ -90,6 +90,8 @@ message DetectedItemHeader
 //
 // \brief A stationary object (e.g. landmark) in the environment as detected by
 // the sensor.
+//
+// \image html OSI_DetectedStatObject.jpg
 //
 message DetectedStationaryObject
 {
@@ -149,12 +151,15 @@ message DetectedMovingObject
     // The base parameters of the moving object.
     //
     // \note The bounding box does NOT includes mirrors for vehicles.
+    // \note The parent frame of \c base is the sensor's vehicle frame.
     //
     optional BaseMoving base = 2;
 
     // The root mean squared error of the base parameters of the detected
     // moving object (e.g. car). \c MovingObject::base has to be
     // identical for all \c #candidate moving objects.
+    //
+    // \note The parent frame of \c base is the sensor's vehicle frame.
     //
     optional BaseMoving base_rmse = 3;
 
@@ -242,18 +247,20 @@ message DetectedMovingObject
         // Specific information about the classification of the vehicle.
         //
         //
-        // \note This field is mandatory if the \c CandidateMovingObject::type is
-        // \c MovingObject::TYPE_VEHICLE .
+        // \note This field is mandatory if the \c CandidateMovingObject::type
+        // is \c MovingObject::TYPE_VEHICLE .
         //
         optional MovingObject.VehicleClassification vehicle_classification = 3;
 
         // Pedestrian head pose for behavior prediction. Describes the head
         // orientation w.r.t. the host vehicle orientation.
         // The x-axis of the right-handed head frame is pointing along the
-        // pedestrian's straight ahead viewing direction and the z-axis is pointing
-        // upwards (cranial direction [1] i.e. to pedestrian's skull cap).
+        // pedestrian's straight ahead viewing direction and the z-axis is
+        // pointing upwards (cranial direction [1] i.e. to pedestrian's skull
+        // cap).
         //
-        // <tt>View_normal_base_coord_system = Inverse_Rotation(#head_pose)*Unit_vector_x</tt>
+        // <tt>View_normal_base_coord_system =
+        // Inverse_Rotation(#head_pose)*Unit_vector_x</tt>
         //
         // \note This field is mandatory if the \c CandidateMovingObject.type is
         // \c MovingObject::TYPE_PEDESTRIAN
@@ -266,14 +273,15 @@ message DetectedMovingObject
         // Pedestrian upper body pose for behavior prediction. Describes the
         // upper body orientation w.r.t. the host vehicle orientation.
         // The x-axis of the right-handed upper body frame is pointing along the
-        // pedestrian's upper body ventral direction [2] (i.e. usually pedestrian's
-        // intended moving direction) and the z-axis is pointing upwards (to
-        // pedestrian's head).
+        // pedestrian's upper body ventral direction [2] (i.e. usually
+        // pedestrian's intended moving direction) and the z-axis is pointing
+        // upwards (to pedestrian's head).
         //
-        // <tt>View_normal_base_coord_system = Inverse_Rotation(#upper_body_pose)*Unit_vector_x</tt>
+        // <tt>View_normal_base_coord_system =
+        // Inverse_Rotation(#upper_body_pose)*Unit_vector_x</tt>
         //
-        // \note This field is mandatory if the \c CandidateMovingObject::type is
-        // \c MovingObject::TYPE_PEDESTRIAN
+        // \note This field is mandatory if the \c CandidateMovingObject::type
+        // is \c MovingObject::TYPE_PEDESTRIAN
         //
         // \par References:
         // - [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location

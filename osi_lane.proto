@@ -45,7 +45,7 @@ message Lane
         // Example: \c #type = \c #TYPE_DRIVING (see reference picture)
         //
         optional Type type = 1;
-        
+
         // Indicates that the host vehicle travels on this particular lane.
         // The host vehicle may travel on more than one lane at once. This does
         // also apply for the \c CanditateLane in the \c DetectedLane .
@@ -54,47 +54,54 @@ message Lane
 
         // The lane's center line (as a list of segments).
         //
-        // This is the line, that a typical vehicle is supposed to follow. Thus, if
-        // the road narrows (e.g. at a construction site) this line is supposed to
-        // describe the trajectory that the vehicle should follow. The intended
-        // direction of travel on the lane is given by the direction defined by the
-        // sequence of points forming the center line.
+        // The center line describes the middle of the lane.
         //
         // \image html highway_exit.png "Center lines as yellow dotted lines."
         //
         // \attention The points describing the center line might be set at
-        // arbitrary distances. When the points are pairwise linearly connected, the
-        // lateral distance to the real ideal line (as used by the simulation
-        // environment internally) must not exceed 5cm. As shown in the following
-        // image:
+        // arbitrary distances. When the points are pairwise linearly connected,
+        // the lateral distance to the real ideal line (as used by the
+        // simulation environment internally) must not exceed 5cm. As shown in
+        // the following image:
         //
-        // \image html line_approximation_error.png "Approximation error as green line."
+        // \image html line_approximation_error.png "Approximation error as
+        // green line."
+        //
+        // \note The center line is the line that a typical vehicle follows more
+        // or less (depending on the situation, a little more to the left or
+        // right of the center line). The intended direction of travel on the
+        // lane is given by the direction defined by the sequence of points
+        // forming the \c #centerline w.r.t. \c #centerline_is_driving_direction.
         //
         // \note The \c #centerline is defined only for \c #type =
         // \c #TYPE_DRIVING and one \c #lane_pairing pair.
+        //
+        // \note Intersections and non-driving lanes do not have a center line.
+        // A vehicle must calculate this individually and depending on the
+        // situation.
         //
         repeated Vector3d centerline = 3;
 
         // Definition of the intended driving direction.
         //
         // Defined and used for driving lanes.
-        // true means driving direction is according to ascending storage order of
-        // center line points.
-        // false means driving direction is according to descending storage order of
-        // center line points.
+        // true means driving direction is according to ascending storage order
+        // of center line points. false means driving direction is according to
+        // descending storage order of center line points.
         //
-        // \note The \c #centerline_is_driving_direction is defined for \c #type =
-        // \c #TYPE_DRIVING .
+        // \note The \c #centerline_is_driving_direction is defined for \c #type
+        // = \c #TYPE_DRIVING .
         //
         optional bool centerline_is_driving_direction = 4;
 
-        // List of IDs of all lane segments that are directly adjacent to the lane
-        // on the left side (w.r.t. intended driving direction). Note that lengths
-        // of lane segments are not synchronized and therefore there are multiple
-        // adjacent segments if there is a split/merge point in the adjacent lane.
+        // List of IDs of all lane segments that are directly adjacent to the
+        // lane on the left side (w.r.t. intended driving direction). Note that
+        // lengths of lane segments are not synchronized and therefore there are
+        // multiple adjacent segments if there is a split/merge point in the
+        // adjacent lane.
         //
-        // Example: The lane ID 2 is the only left adjacent lane for lane ID 3 in
-        // the reference picture.
+        // Example: The lane ID 2 is the only left adjacent lane for lane ID 3
+        // in the reference picture.
         //
         // \note The \c #left_adjacent_lane_id is undefined for \c #type =
         // \c #TYPE_INTERSECTION .
@@ -103,14 +110,14 @@ message Lane
         //
         repeated Identifier left_adjacent_lane_id = 5;
 
-        // List of IDs of all lane segments that are directly adjacent to the lane
-        // on the right side (w.r.t. intended driving direction). Note that lengths
-        // of lane segments are not synchronized and therefore there are multiple
-        // adjacent segments if there is a split/merge point in the adjacent lane.
-        // Example: The lane IDs 4 and 7 are the right adjacent lane segments for
-        // lane ID 3 in the reference picture due to the lane split. Lane ID 6 is
-        // not a right adjacent lane to lane ID 3 as they are separated by lane ID
-        // 7.
+        // List of IDs of all lane segments that are directly adjacent to the
+        // lane on the right side (w.r.t. intended driving direction). Note that
+        // lengths of lane segments are not synchronized and therefore there are
+        // multiple adjacent segments if there is a split/merge point in the
+        // adjacent lane. Example: The lane IDs 4 and 7 are the right adjacent
+        // lane segments for lane ID 3 in the reference picture due to the lane
+        // split. Lane ID 6 is not a right adjacent lane to lane ID 3 as they
+        // are separated by lane ID 7.
         //
         // \note The \c #right_adjacent_lane_id is undefined for \c #type =
         // \c #TYPE_INTERSECTION .
@@ -120,20 +127,19 @@ message Lane
         repeated Identifier right_adjacent_lane_id = 6;
 
         // The antecessor/successor lane pairings of this lane. There can be
-        // multiple pairings with the same antecessor and different successor lanes
-        // and vice versa.
-        // The antecessor lanes end in the same point that this lane starts from.
-        // The successor lanes start in the same point that this lane ends in.
-        // Example:
+        // multiple pairings with the same antecessor and different successor
+        // lanes and vice versa. The antecessor lanes end in the same point that
+        // this lane starts from. The successor lanes start in the same point
+        // that this lane ends in. Example:
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated LanePairing lane_pairing = 7;
 
-        // The right adjacent lane boundaries \c #right_lane_boundary_id may only be
-        // shared with/as the left adjacent lane boundaries
-        // \c #left_lane_boundary_id of the nearest right adjacent lane
-        // \c #right_adjacent_lane_id.
+        // The right adjacent lane boundaries \c #right_lane_boundary_id may
+        // only be shared with/as the left adjacent lane boundaries \c
+        // #left_lane_boundary_id of the nearest right adjacent lane \c
+        // #right_adjacent_lane_id.
         //
         // \note Empty for intersections.
         //
@@ -144,10 +150,10 @@ message Lane
         //
         repeated Identifier right_lane_boundary_id = 8;
 
-        // The left adjacent lane boundaries \c #left_lane_boundary_id may only be
-        // shared with/as the right adjacent lane boundaries
-        // \c #right_lane_boundary_id of the nearest left adjacent lane
-        // \c #left_adjacent_lane_id.
+        // The left adjacent lane boundaries \c #left_lane_boundary_id may only
+        // be shared with/as the right adjacent lane boundaries \c
+        // #right_lane_boundary_id of the nearest left adjacent lane \c
+        // #left_adjacent_lane_id.
         //
         // \note Empty for intersections.
         //
@@ -184,7 +190,8 @@ message Lane
             TYPE_OTHER = 1;
 
             // A normal lane.
-            // Example: lanes with IDs 1, 2, 3, 4 and 7 of the highway_exit image.
+            // Example: lanes with IDs 1, 2, 3, 4 and 7 of the highway_exit
+            // image.
             //
             TYPE_DRIVING = 2;
 
@@ -227,10 +234,10 @@ message Lane
             //
             optional double surface_ice = 4;
 
-            // The coefficient representing the roughness or unevenness of the road.
-            // International Roughness Index (IRI) [1] values range from 0 = smooth
-            // ground (equivalent to driving on a plate of glass) up to > 20 mm/m
-            // (a very rough road).
+            // The coefficient representing the roughness or unevenness of the
+            // road. International Roughness Index (IRI) [1] values range from 0
+            // = smooth ground (equivalent to driving on a plate of glass) up to
+            // > 20 mm/m (a very rough road).
             //
             // Estimated value ranges (IRI):
             //        0.0 [mm/m] absolutely perfect evenness
@@ -265,9 +272,10 @@ message Lane
             // The surface texture or fine roughness
             //
             // Whereas the IRI-based roughness or unevenness measure only takes
-            // into account road wavelengths around 0.5m - 100m, the surface texture
-            // or fine roughness [2] measures only wavelengths below 0.5m.
-            // It is given as the standard height deviation of fine roughness
+            // into account road wavelengths around 0.5m - 100m, the surface
+            // texture or fine roughness [2] measures only wavelengths below
+            // 0.5m. It is given as the standard height deviation of fine
+            // roughness
             //
             // Unit: [m]
             //
@@ -315,13 +323,13 @@ message LaneBoundary
     // Since a \c BoundaryPoint is part of a sequence, only the position
     // attribute has to be set for each instance. All other values will be
     // reused from the previous \c BoundaryPoint in the sequence or set to
-    // default values if there is none or it was never set. 
+    // default values if there is none or it was never set.
     //
     // \note For dashed lines, one \c BoundaryPoint has to be at the start and
-    // another at the end of each dashed line segment. The first 
+    // another at the end of each dashed line segment. The first
     // \c BoundaryPoint defines the beginning of the first dashed lane marking.
-    // The last \c BoundaryPoint defines the end of the last dashed lane 
-    // marking. For example, the area between the second and third 
+    // The last \c BoundaryPoint defines the end of the last dashed lane
+    // marking. For example, the area between the second and third
     // \c BoundaryPoint has no lane marking, and so on.
     // \note For Botts' dots lines, one \c BoundaryPoint position has to define
     // each Botts' dot.
@@ -383,9 +391,9 @@ message LaneBoundary
         repeated Identifier limiting_structure_id = 3;
 
         // The lane boundary type.
-        // There is no special representation for double lines, e.g. solid / solid
-        // or dashed / solid. In such cases, each lane will define its own side of
-        // the lane boundary.
+        // There is no special representation for double lines, e.g. solid /
+        // solid or dashed / solid. In such cases, each lane will define its own
+        // side of the lane boundary.
         //
         enum Type
         {
@@ -451,12 +459,13 @@ message LaneBoundary
         }
 
         // The color of the lane boundary in case of a lane markings.
-        // Lane markings that alternate in color must be represented by individual
-        // \c LaneBoundary segments.
+        // Lane markings that alternate in color must be represented by
+        // individual \c LaneBoundary segments.
         //
         enum Color
         {
-            // Color of marking is unknown. Value must not be used in ground truth.
+            // Color of marking is unknown. Value must not be used in ground
+            // truth.
             //
             COLOR_UNKNOWN = 0;
 
@@ -464,8 +473,8 @@ message LaneBoundary
             //
             COLOR_OTHER = 1;
 
-            // Marking without color. Used to represent logical boundaries without
-            // actual physical markings at the respective position.
+            // Marking without color. Used to represent logical boundaries
+            // without actual physical markings at the respective position.
             // Value may be used in ground truth only.
             //
             COLOR_NONE = 2;
