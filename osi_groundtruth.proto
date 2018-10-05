@@ -131,4 +131,11 @@ message GroundTruth
     // - [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
     //
     optional uint32 country_code = 13;
+
+    // Relative path to a map file.
+    //
+    // \note Origin and orientation of the map have to coincide with the
+    // inertial coordinate frame of the ground truth.
+    //
+    optional string map_path = 14;
 }
