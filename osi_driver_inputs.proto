@@ -1,0 +1,109 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_common_extension.proto";
+
+package osi3;
+
+//
+// \brief An Interface to describe the inputs from a human driver.
+// Contains a base-set of signals with focus on ADAS-functions.
+// The inputs are divided into states and requests.
+//
+// The first set of signals are states the driver can (usually) directly set.
+//
+message DriverInitializedStates
+{
+	// State of the driver seat-belt. It is often an initial condition to start an ADAS-Function.
+	// 0=Open; 1=Closed
+    //
+    optional bool seat_belt = 1;
+
+	// State of the doors. It is often an initial condition to start an ADAS-Function.
+	// 0=Open; 1=Closed
+    //
+    optional bool doors = 2;
+
+	// Hands-On-Detection.
+	// 0=HandsOff; 1=HandsOn
+    //
+    optional bool hands_on_detection = 3;
+
+	// State of the ignition. It is often an initial condition to start an ADAS-Function.
+	// 0=Off; 1=On
+    //
+    optional bool ignition = 4;
+
+	// State of the warning lights.
+	// 0=Off; 1=On
+    //
+    optional bool warning_lights = 5;
+
+	// Angle, angle-speed and torque.
+	// See osi_common_extension.
+    //
+    optional Steeringwheel steeringwheel = 6;
+
+	// Acceleration-, brakepedal and clutch.
+	// See osi_common_extension.
+    //
+    optional Pedalry pedalry = 7;
+
+	// Position of the handbrake.
+	// 0-100 (percentage of position: Released - fully pressed)
+    //
+    optional double handbrake = 8;
+	
+	// Position of the gearlever.
+	// See osi_common_extension.
+    //
+    optional Gear gearlever = 9;
+}
+
+// 
+// The second set of signals are requests addressed to an external function.
+// The ADAS-function can react to a request by setting its own states.
+// The osi_adas_function.proto is widely complementary to this proto.
+// For e.g. the driver wants to activate a function, but the initial-conditions of the
+// ADAS-function are not fullfilled, the request is without an effect to the driving behaviour.
+//
+message DriverRequests
+{	
+	// Wished states of the driver regarding an ADAS-Function (SAE Level 3).
+    //
+    optional AdasSAELevel3 adas_sae_level_3 = 1;
+
+	// Wished states of the driver regarding the longitudinal control.
+    //
+    optional LongitudinalControl longitudinal_control = 2;
+
+	// Wished states of the driver regarding the lateral control.
+    //
+    optional LateralControl lateral_control = 3;
+
+	// Wished states of the driver regarding the function Emergency-Brake-Assistant.
+    //
+    optional EmergencyBrakeAssistant emergency_brake_assistant = 4;
+
+	// Request to an ADAS-Function for a lane change.
+	// 0=EgoLane; 1=Left; 2=Right
+    //
+    enum lane_change_request
+    {
+        // Stay on the actual lane.
+        //
+        EGO_LANE = 0;
+
+        // Change to the left.
+        //
+        LC_LEFT = 1;
+
+		// Change to the right.
+        //
+        LC_RIGHT = 2;
+	}
+}
+
+

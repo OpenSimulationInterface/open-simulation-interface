@@ -1,0 +1,112 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_common_extension.proto";
+
+package osi3;
+
+//
+// \brief An Interface to describe the communication of an ADAS-function.
+// This proto is in far parts complementary to the osi_driver_inputs.proto.
+// The inputs are divided into states and requests.
+//
+// The first set of signals are states the function sets internally
+// and are relevant for the vehicle state.
+//
+message FunctionStates
+{
+    // States of an ADAS-Function (SAE Level 3).
+    //
+    optional AdasSAELevel3 adas_sae_level_3 = 1;
+
+	// States of the longitudinal control.
+    //
+    optional LongitudinalControl longitudinal_control = 2;
+
+	// States of the lateral control.
+    //
+    optional LateralControl lateral_control = 3;
+
+	// States of function Emergency-Brake-Assistant.
+    //
+    optional EmergencyBrakeAssistant emergency_brake_assistant = 4;
+
+	// State of an ADAS-Function (SAE Level 3).
+    //
+    optional bool pilot_level3_state = 5;
+
+	// Request that the driver has to take over.
+	// 0=Off; 1=On
+    //
+    optional bool driver_take_over_request = 6;
+
+	// Color of the steering wheel (e.g. to show the driving mode).
+	// See osi_common_extension.
+	// 
+    optional ColorformatRGB steering_wheel_lighting_color = 7;
+
+	// Requested state of the blindspot-lights (often in the side mirrors).
+    //
+    enum BlindSpotWarning
+    {
+        NONE = 0;
+
+        LEFT = 1;
+
+		RIGHT = 2;
+
+		BOTH = 3;
+	}
+}
+
+//
+// \brief An Interface to describe the communication of an ADAS-function.
+// This proto is in far parts complementary to the osi_driver_inputs.proto.
+// The inputs are divided into states and requests.
+//
+// The first set of signals are states the function sets internally
+// and are relevant for the vehicle state.
+//
+message FunctionRequests
+{
+	// All information about the trajectory the vehicle should follow.
+	// See osi_common_extension.
+    //
+    optional Trajectory trajectory = 1;
+
+	// Angle, angle-speed and torque.
+	// See osi_common_extension.
+    //
+    optional Steeringwheel steeringwheel = 2;
+
+	// Factor to scale the steeringtorque of the function output.
+	// 0-1 (0 = no force of the function, 0.5 = half the force, 1 = 100% Torque).
+    //
+    optional double steering_override_factor = 3;
+
+	// Acceleration-, brakepedal and clutch.
+	// See osi_common_extension.
+    //
+    optional Pedalry pedalry = 4;
+
+	// Position of the handbrake.
+	// 0-100 (percentage of position: Released - fully pressed)
+    //
+    optional double handbrake = 5;
+	
+	// This is a description of the possible indicatorstates.
+	//
+	enum Indicators
+	{
+		NONE = 0;
+
+		LEFT = 1;
+
+		RIGHT = 2;
+
+		// Warning lights.
+		ALL = 3;
+	}	
+}
