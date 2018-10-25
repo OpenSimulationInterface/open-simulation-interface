@@ -70,7 +70,7 @@ message DriverInitializedStates
 // ADAS-function are not fullfilled, the request is without an effect to the driving behaviour.
 //
 message DriverRequests
-{	
+{
     // Wished states of the driver regarding an ADAS-Function (SAE Level 3).
     //
     optional AdasSAELevel3 adas_sae_level_3 = 1;
