@@ -46,7 +46,7 @@ message VehicleKinematics
     //
     optional Vector3d acceleration = 4;
 
-	// The relative orientation of the moving object w.r.t. its parent frame.
+    // The relative orientation of the moving object w.r.t. its parent frame.
     //
     // <tt>Origin_base_moving_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
     //
@@ -65,7 +65,7 @@ message VehicleKinematics
     //
     optional Orientation3d orientation_rate = 6;
 
-	// The relative orientation rate acceleration of the moving object w.r.t. its parent
+    // The relative orientation rate acceleration of the moving object w.r.t. its parent
     // frame and parent orientation rate in the center point of the bounding box
     // (origin of the bounding box frame).
     //
@@ -76,37 +76,45 @@ message VehicleKinematics
     optional Orientation3d orientation_rate_acceleration = 7;
 }
 
+//
+// \brief Interface for the output of a dynamicmodel.
+// The focus here is on the powertrain.
+//
 message VehiclePowertrain
 {
     // Rounds per minute of the crankshaft.
     //
     optional double engine_rpm = 1;
 
-	// Torque in Nm.
+    // Torque in Nm.
     //
     optional double engine_torque = 2;
 
-	// Consumption in liters per 100 km.
+    // Consumption in liters per 100 km.
     //
     optional double engine_consumption = 3;
 
-	// The actual gear of the car.
+    // The actual gear of the car.
     //
     optional Gear gear = 4;
 }
 
+//
+// \brief Interface for the output of a dynamicmodel.
+// The focus here is on the steeringwheel.
+//
 message VehicleSteeringwheel
 {
-	// Angle, angle-speed and torque.
-	// See osi_common_extension.
+    // Angle, angle-speed and torque.
+    // See osi_common_extension.
     //
     optional Steeringwheel steeringwheel = 1;
 
-    // Spring-stiffness of the steering in Nm/°.
+    // Spring-stiffness of the steering in Nm/Â°.
     //
     optional double stw_springstiffness = 2;
 
-    // Damping of the steering in Nm*s/°.
+    // Damping of the steering in Nm*s/Â°.
     //
     optional double stw_damping = 3;
 
@@ -115,42 +123,66 @@ message VehicleSteeringwheel
     optional double stw_friction = 4;
 }
 
+//
+// \brief Interface for the output of a dynamicmodel.
+// The focus here are the wheels.
+//
 message VehicleWheels
 {
-	// Contains the rotational speed of each wheel per second.
-	// In [Rad/s].
-	optional double speed_frontleft = 1;
-	optional double speed_frontright = 2;
-	optional double speed_rearleft = 3;
-	optional double speed_rearright = 4;
+    // Contains the rotational speed of each wheel per second.
+    // In [Rad/s].
+    // Speed of the front-left-wheel.
+    optional double speed_frontleft = 1;
+    // Speed of the front-right-wheel.
+    optional double speed_frontright = 2;
+    // Speed of the rear-left-wheel.
+    optional double speed_rearleft = 3;
+    // Speed of the rear-right-wheel.
+    optional double speed_rearright = 4;
 
-	// Contains the steering angle of each wheel.
-	// In [Rad].
-	optional double steeringangle_frontleft = 5;
-	optional double steeringangle_frontright = 6;
-	optional double steeringangle_rearleft = 7;
-	optional double steeringangle_rearright = 8;
+    // Contains the steering angle of each wheel.
+    // In [Rad].
+    // Steering angle of the front-left-wheel.
+    optional double steeringangle_frontleft = 5;
+    // Steering angle of the front-right-wheel.
+    optional double steeringangle_frontright = 6;
+    // Steering angle of the rear-left-wheel.
+    optional double steeringangle_rearleft = 7;
+    // Steering angle of the rear-right-wheel.
+    optional double steeringangle_rearright = 8;
 
-	// Contains the camber of each wheel.
-	// In [Rad].
-	// Negative camber if the bottom of the wheel is farther out than the top.
-	// For more information: https://en.wikipedia.org/wiki/Camber_angle
-	optional double camber_frontleft = 9;
-	optional double camber_frontright = 10;
-	optional double camber_rearleft = 11;
-	optional double camber_rearright = 12;
+    // Contains the camber of each wheel.
+    // In [Rad].
+    // Negative camber if the bottom of the wheel is farther out than the top.
+    // For more information: https://en.wikipedia.org/wiki/Camber_angle.
+    // Camber of the front-left-wheel.
+    optional double camber_frontleft = 9;
+    // Camber of the front-right-wheel.
+    optional double camber_frontright = 10;
+    // Camber of the rear-left-wheel.
+    optional double camber_rearleft = 11;
+    // Camber of the rear-right-wheel.
+    optional double camber_rearright = 12;
 
-	// Contains the tirepressure of each tire.
-	// In [Pascal].
-	optional double tirepressure_frontleft = 13;
-	optional double tirepressure_frontright = 14;
-	optional double tirepressure_rearleft = 15;
-	optional double tirepressure_rearright = 16;
+    // Contains the tirepressure of each tire.
+    // In [Pascal].
+    // Tirepressure of the front-left-wheel.
+    optional double tirepressure_frontleft = 13;
+    // Tirepressure of the front-right-wheel.
+    optional double tirepressure_frontright = 14;
+    // Tirepressure of the rear-left-wheel.
+    optional double tirepressure_rearleft = 15;
+    // Tirepressure of the rear-right-wheel.
+    optional double tirepressure_rearright = 16;
 
-	// Contains the springdeflection in z-direction for each wheel.
-	// In [mm].
-	optional double springdeflection_frontleft = 17;
-	optional double springdeflection_frontright = 18;
-	optional double springdeflection_rearleft = 19;
-	optional double springdeflection_rearright = 20;
+    // Contains the springdeflection in z-direction for each wheel.
+    // In [mm].
+    // Springdeflection_z of the front-left-wheel.
+    optional double springdeflection_frontleft = 17;
+    // Springdeflection_z of the front-right-wheel.
+    optional double springdeflection_frontright = 18;
+    // Springdeflection_z of the rear-left-wheel.
+    optional double springdeflection_rearleft = 19;
+    // Springdeflection_z of the rear-right-wheel.
+    optional double springdeflection_rearright = 20;
 }
