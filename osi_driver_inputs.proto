@@ -63,7 +63,7 @@ message DriverInitializedStates
 }
 
 // 
-// The second set of signals are requests addressed to an external function.
+// \brief The second set of signals are requests addressed to an external function.
 // The ADAS-function can react to a request by setting its own states.
 // The osi_adas_function.proto is widely complementary to this proto.
 // For e.g. the driver wants to activate a function, but the initial-conditions of the
