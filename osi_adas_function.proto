@@ -21,44 +21,52 @@ message FunctionStates
     //
     optional AdasSAELevel3 adas_sae_level_3 = 1;
 
-	// States of the longitudinal control.
+    // States of the longitudinal control.
     //
     optional LongitudinalControl longitudinal_control = 2;
 
-	// States of the lateral control.
+    // States of the lateral control.
     //
     optional LateralControl lateral_control = 3;
 
-	// States of function Emergency-Brake-Assistant.
+    // States of function Emergency-Brake-Assistant.
     //
     optional EmergencyBrakeAssistant emergency_brake_assistant = 4;
 
-	// State of an ADAS-Function (SAE Level 3).
+    // State of an ADAS-Function (SAE Level 3).
     //
     optional bool pilot_level3_state = 5;
 
-	// Request that the driver has to take over.
-	// 0=Off; 1=On
+    // Request that the driver has to take over.
+    // 0=Off; 1=On
     //
     optional bool driver_take_over_request = 6;
 
-	// Color of the steering wheel (e.g. to show the driving mode).
-	// See osi_common_extension.
-	// 
+    // Color of the steering wheel (e.g. to show the driving mode).
+    // See osi_common_extension.
+    // 
     optional ColorformatRGB steering_wheel_lighting_color = 7;
 
-	// Requested state of the blindspot-lights (often in the side mirrors).
+    // Requested state of the blindspot-lights (often in the side mirrors).
     //
     enum BlindSpotWarning
     {
-        NONE = 0;
+        // No warning.
+	//
+	BLIND_SPOT_WARNING_NONE = 0;
 
-        LEFT = 1;
+        // Left warning.
+	//
+        BLIND_SPOT_WARNING_LEFT = 1;
 
-		RIGHT = 2;
+        // Right warning.
+	//
+        BLIND_SPOT_WARNING_RIGHT = 2;
 
-		BOTH = 3;
-	}
+        // Warning on both sides.
+	//
+        BLIND_SPOT_WARNING_BOTH = 3;
+    }
 }
 
 //
@@ -71,42 +79,49 @@ message FunctionStates
 //
 message FunctionRequests
 {
-	// All information about the trajectory the vehicle should follow.
-	// See osi_common_extension.
+    // All information about the trajectory the vehicle should follow.
+    // See osi_common_extension.
     //
     optional Trajectory trajectory = 1;
 
-	// Angle, angle-speed and torque.
-	// See osi_common_extension.
+    // Angle, angle-speed and torque.
+    // See osi_common_extension.
     //
     optional Steeringwheel steeringwheel = 2;
 
-	// Factor to scale the steeringtorque of the function output.
-	// 0-1 (0 = no force of the function, 0.5 = half the force, 1 = 100% Torque).
+    // Factor to scale the steeringtorque of the function output.
+    // 0-1 (0 = no force of the function, 0.5 = half the force, 1 = 100% Torque).
     //
     optional double steering_override_factor = 3;
 
-	// Acceleration-, brakepedal and clutch.
-	// See osi_common_extension.
+    // Acceleration-, brakepedal and clutch.
+    // See osi_common_extension.
     //
     optional Pedalry pedalry = 4;
 
-	// Position of the handbrake.
-	// 0-100 (percentage of position: Released - fully pressed)
+    // Position of the handbrake.
+    // 0-100 (percentage of position: Released - fully pressed)
     //
     optional double handbrake = 5;
-	
-	// This is a description of the possible indicatorstates.
+
+    // This is a description of the possible indicatorstates.
+    //
+    enum Indicators
+    {
+        // No indicator.
 	//
-	enum Indicators
-	{
-		NONE = 0;
+	INDICATORS_NONE = 0;
 
-		LEFT = 1;
+        // Left-indicator.
+	//
+        INDICATORS_LEFT = 1;
 
-		RIGHT = 2;
+        // Right-indicator.
+	//
+        INDICATORS_RIGHT = 2;
 
-		// Warning lights.
-		ALL = 3;
-	}	
+        // Warning lights.
+	//
+        INDICATORS_ALL = 3;
+    }	
 }
