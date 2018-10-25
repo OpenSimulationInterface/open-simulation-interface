@@ -10,20 +10,20 @@ package osi3;
 message Steeringwheel
 {
     // Angle of the steeringwheel. 
-	//
-	// Unit in Rad [-pi, pi]: 0=Central (Straight); Left>0; 0>Right.
+    //
+    // Unit in Rad [-pi, pi]: 0=Central (Straight); Left>0; 0>Right.
     //
     optional double angle = 1;
 
     // Angle-speed of the steeringwheel.
-	//
-	// Unit in rad/s [-pi/s, pi/s]: 0=Central (Straight); Left>0; 0>Right.
+    //
+    // Unit in rad/s [-pi/s, pi/s]: 0=Central (Straight); Left>0; 0>Right.
     //
     optional double anglespeed = 2;
 
     // Torque of the steeringwheel to the hand.
-	//
-	// Unit in Nm: 0=Central (Straight); Left>0; 0>Right.
+    //
+    // Unit in Nm: 0=Central (Straight); Left>0; 0>Right.
     //
     optional double torque = 3;
 }
@@ -34,18 +34,18 @@ message Steeringwheel
 //
 message Pedalry
 {
-	// Position of the acceleration-pedal.
-	// 0-100 (percentage of position: Unpressed - fully pressed)
+    // Position of the acceleration-pedal.
+    // 0-100 (percentage of position: Unpressed - fully pressed)
     //
     optional double pedalposition_acceleration = 1;
 
-	// Position of the brake-pedal.
-	// 0-100 (percentage of position: Unpressed - fully pressed)
+    // Position of the brake-pedal.
+    // 0-100 (percentage of position: Unpressed - fully pressed)
     //
     optional double pedalposition_brake = 2;
 	
-	// Position of the clutch-pedal.
-	// 0-100 (percentage of position: Unpressed - fully pressed)
+    // Position of the clutch-pedal.
+    // 0-100 (percentage of position: Unpressed - fully pressed)
     //
     optional double pedalposition_clutch = 3;
 }
@@ -56,56 +56,56 @@ message Pedalry
 //
 message Trajectory
 {
-	// Contains the timestamp where the trajectorypoint should be reached.
-	// In [s].
+    // Contains the timestamp where the trajectorypoint should be reached.
+    // In [s].
     //
     optional double timestamp = 1;
-	
-	// Contains the X-Position the vehicle should be at the timestamp.
-    //
-    optional double targeted_PosX = 2;
 
-	// Contains the Y-Position the vehicle should be at the timestamp.
+    // Contains the X-Position the vehicle should be at the timestamp.
     //
-    optional double targeted_PosY = 3;
+    optional double targeted_pos_x = 2;
 
-	// Direction of the vehicle at the timestamp.
-	// In [Rad].
+    // Contains the Y-Position the vehicle should be at the timestamp.
+    //
+    optional double targeted_pos_y = 3;
+
+    // Direction of the vehicle at the timestamp.
+    // In [Rad].
     //
     optional double trackangle = 4;
 
-	// Contains the curvature at the timestamp.
-	// In [1/m].
+    // Contains the curvature at the timestamp.
+    // In [1/m].
     //
     optional double curvature = 5;
 
-	// Contains the curvaturechange at the timestamp.
-	// In [1/m*s].
+    // Contains the curvaturechange at the timestamp.
+    // In [1/m*s].
     //
     optional double curvaturechange = 6;
 
-	// Contains the velocity of the vehicle at the timestamp.
-	// In [m/s].
+    // Contains the velocity of the vehicle at the timestamp.
+    // In [m/s].
     //
     optional double velocity = 7;
 
-	// Contains the acceleration of the vehicle at the timestamp.
-	// In [m/s^2].
+    // Contains the acceleration of the vehicle at the timestamp.
+    // In [m/s^2].
     //
     optional double acceleration = 8;
 
-	// Contains the interpolation method.
+    // Contains the interpolation method.
     //
-    enum interpolation_method
+    enum InterpolationMethod
     {
         // Stay on the actual lane.
         //
-        LINEAR = 0;
+        INTERPOLATION_METHOD_LINEAR = 0;
 
         // Change to the left.
         //
-        CUBIC = 1;
-	}
+        INTERPOLATION_METHOD_CUBIC = 1;
+    }
 }
 
 //
@@ -114,7 +114,7 @@ message Trajectory
 //
 message Gear
 {
-	// The actual gear of the car.
+    // The actual gear of the car.
     //
     enum Gear
     {
@@ -130,11 +130,11 @@ message Gear
         //
         GEAR_2 = 2;
 
-		// The actual gear is 3.
+        // The actual gear is 3.
         //
         GEAR_3 = 3;
 
-		// The actual gear is 4.
+        // The actual gear is 4.
         //
         GEAR_4 = 4;
 
@@ -142,11 +142,11 @@ message Gear
         //
         GEAR_5 = 5;
 
-		// The actual gear is 6.
+        // The actual gear is 6.
         //
         GEAR_6 = 6;
 
-		// The actual gear is 7.
+        // The actual gear is 7.
         //
         GEAR_7 = 7;
 
@@ -154,42 +154,42 @@ message Gear
         //
         GEAR_8 = 8;
 
-		// The actual gear is 9.
+        // The actual gear is 9.
         //
         GEAR_9 = 9;
-		
-		// The car is in idling-mode.
+
+        // The car is in idling-mode.
         //
         GEAR_IDLING = 10;
 
-		// The car is in reverse-mode.
+        // The car is in reverse-mode.
         //
         GEAR_REVERSE = 11;
 
-		// The car is in automatic-driving-mode.
+        // The car is in automatic-driving-mode.
         //
         GEAR_D = 20;
 
-		// The car is in automatic-idling-mode.
+        // The car is in automatic-idling-mode.
         //
         GEAR_N = 21;
 
-		// The car is in automatic-parking-mode.
+        // The car is in automatic-parking-mode.
         //
         GEAR_P = 22;
 
-		// The car has an automatic transmission, but the driver shifts up by his own.
+        // The car has an automatic transmission, but the driver shifts up by his own.
         //
-        GEAR_Up = 30;
+        GEAR_UP = 30;
 
-		// The car has an automatic transmission, but the driver shifts by his own.
+        // The car has an automatic transmission, but the driver shifts by his own.
         //
         GEAR_MID = 31;
 
-		// The car has an automatic transmission, but the driver shifts down by his own.
+        // The car has an automatic transmission, but the driver shifts down by his own.
         //
         GEAR_DOWN = 32;
-	}
+    }
 }
 
 //
@@ -198,18 +198,18 @@ message Gear
 //
 message ColorformatRGB
 {
-	// The part of red.
-	// Values from 0 to 255.
+    // The part of red.
+    // Values from 0 to 255.
     //
     optional uint32 rgb_red = 1;
 
-	// The part of green.
-	// Values from 0 to 255.
+    // The part of green.
+    // Values from 0 to 255.
     //
     optional uint32 rgb_green = 2;
-	
-	// The part of blue.
-	// Values from 0 to 255.
+
+    // The part of blue.
+    // Values from 0 to 255.
     //
     optional uint32 rgb_blue = 3;
 }
@@ -220,14 +220,14 @@ message ColorformatRGB
 //
 message AdasSAELevel3
 {
-	// Activationstate of the function.
+    // Activationstate of the function.
     //
     optional bool is_activated = 1;
 
-	// This is the speed the function targets.
-	// E.g.: At the point of activation, the actual speed could be 80 km/h, 
-	// but the function tries to accelerate to 130 km/h.
-	// In [km/h].
+    // This is the speed the function targets.
+    // E.g.: At the point of activation, the actual speed could be 80 km/h, 
+    // but the function tries to accelerate to 130 km/h.
+    // In [km/h].
     //
     optional double targeted_speed = 2;
 }
@@ -238,19 +238,19 @@ message AdasSAELevel3
 //
 message LongitudinalControl
 {
-	// Activationstate of the function.
+    // Activationstate of the function.
     //
     optional bool is_activated = 1;
 
-	// This is the speed the function targets.
-	// E.g.: At the point of activation, the actual speed could be 80 km/h, 
-	// but the function tries to accelerate to 130 km/h.
-	// In [km/h].
+    // This is the speed the function targets.
+    // E.g.: At the point of activation, the actual speed could be 80 km/h, 
+    // but the function tries to accelerate to 130 km/h.
+    // In [km/h].
     //
     optional double targeted_speed = 2;
 
-	// The timegap describes the minimumdistance to the next vehicle in front.
-	// In [s].
+    // The timegap describes the minimumdistance to the next vehicle in front.
+    // In [s].
     //
     optional bool timegap = 3;
 }
@@ -261,7 +261,7 @@ message LongitudinalControl
 //
 message LateralControl
 {
-	// Activationstate of the function.
+    // Activationstate of the function.
     //
     optional bool is_activated = 1;
 }
@@ -272,7 +272,7 @@ message LateralControl
 //
 message EmergencyBrakeAssistant
 {
-	// Activationstate of the function.
+    // Activationstate of the function.
     //
     optional bool is_activated = 1;
 }
