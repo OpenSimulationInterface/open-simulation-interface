@@ -52,19 +52,19 @@ message FunctionStates
     enum BlindSpotWarning
     {
         // No warning.
-	//
-	BLIND_SPOT_WARNING_NONE = 0;
+        //
+        BLIND_SPOT_WARNING_NONE = 0;
 
         // Left warning.
-	//
+        //
         BLIND_SPOT_WARNING_LEFT = 1;
 
         // Right warning.
-	//
+        //
         BLIND_SPOT_WARNING_RIGHT = 2;
 
         // Warning on both sides.
-	//
+        //
         BLIND_SPOT_WARNING_BOTH = 3;
     }
 }
@@ -109,19 +109,19 @@ message FunctionRequests
     enum Indicators
     {
         // No indicator.
-	//
-	INDICATORS_NONE = 0;
+        //
+        INDICATORS_NONE = 0;
 
         // Left-indicator.
-	//
+        //
         INDICATORS_LEFT = 1;
 
         // Right-indicator.
-	//
+        //
         INDICATORS_RIGHT = 2;
 
         // Warning lights.
-	//
+        //
         INDICATORS_ALL = 3;
     }	
 }
