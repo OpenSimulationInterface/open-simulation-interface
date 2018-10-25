@@ -43,7 +43,7 @@ message Pedalry
     // 0-100 (percentage of position: Unpressed - fully pressed)
     //
     optional double pedalposition_brake = 2;
-	
+
     // Position of the clutch-pedal.
     // 0-100 (percentage of position: Unpressed - fully pressed)
     //
