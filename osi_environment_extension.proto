@@ -10,36 +10,52 @@ package osi3;
 //
 message Environment
 {
-	// Contains the friction-coefficient of each wheel.
-	// Dimensionless.
-	//
-	optional double friction_coefficient_frontleft = 1;
-	optional double friction_coefficient_frontright = 2;
-	optional double friction_coefficient_rearleft = 3;
-	optional double friction_coefficient_rearright = 4;
+    // Contains the friction-coefficient of each wheel.
+    // Dimensionless.
+    //
+    // Friction at the tyre front-left.
+    //
+    optional double friction_coefficient_frontleft = 1;
+    // Friction at the tyre front-left.
+    //
+    optional double friction_coefficient_frontright = 2;
+    // Friction at the tyre front-left.
+    //
+    optional double friction_coefficient_rearleft = 3;
+    // Friction at the tyre front-left.
+    //
+    optional double friction_coefficient_rearright = 4;
 
-	// Contains the z-coordinate (contact-point) of each wheel.
-	// Dimensionless.
-	//
-	optional double tyre_contact_point_frontleft = 5;
-	optional double tyre_contact_point_frontright = 6;
-	optional double tyre_contact_point_rearleft = 7;
-	optional double tyre_contact_point_rearright = 8;
+    // Contains the z-coordinate (contact-point) of each wheel.
+    // Dimensionless.
+    //
+    // Contact-point at the tyre front-left.
+    //
+    optional double tyre_contact_point_frontleft = 5;
+    // Contact-point at the tyre front-right.
+    //
+    optional double tyre_contact_point_frontright = 6;
+    // Contact-point at the tyre rear-left.
+    //
+    optional double tyre_contact_point_rearleft = 7;
+    // Contact-point at the tyre rear-right.
+    //
+    optional double tyre_contact_point_rearright = 8;
 
-	// Contains the ambienttemperature.
-	// In [K].
-	//
-	optional double ambienttemperature = 9;
+    // Contains the ambienttemperature.
+    // In [K].
+    //
+    optional double ambienttemperature = 9;
 
-	// Contains the velocity of the wind.
-	// In [m/s].
-	//
-	optional double windvelocity = 10;
-	
-	// Contains the direction of the wind.
-	// In [°]. Wind direction is measured in degrees clockwise from due north.
-	// E.g.: A wind blowing from the north has a wind direction of 0°.
-	// More information: https://en.wikipedia.org/wiki/Wind_direction
-	//
-	optional double winddirection = 11;
+    // Contains the velocity of the wind.
+    // In [m/s].
+    //
+    optional double windvelocity = 10;
+
+    // Contains the direction of the wind.
+    // In [Degree]. Wind direction is measured in degrees clockwise from due north.
+    // E.g.: A wind blowing from the north has a wind direction of 0 Degree.
+    // More information: https://en.wikipedia.org/wiki/Wind_direction
+    //
+    optional double winddirection = 11;
 }
