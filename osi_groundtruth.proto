@@ -132,6 +132,16 @@ message GroundTruth
     //
     optional uint32 country_code = 13;
 
+    // Projection string that allows to transform all coordinates in GroundTruth
+    // into a different cartographic projection.
+    //
+    // The string follows the PROJ.4 project rules for projections [1].
+    //
+    // \par References:
+    // - [1] [Proj.4 Projections] (https://proj4.org/usage/projections.html)
+    //
+    optional string proj_string = 14;
+
     // Opaque reference of a map.
     //
     // \note Origin and orientation of the map have to coincide with the
@@ -139,5 +149,5 @@ message GroundTruth
     //    
     // \note It is implementation-specific how map_reference is resolved.
     //
-    optional string map_reference = 14;
+    optional string map_reference = 15;
 }
