@@ -132,10 +132,12 @@ message GroundTruth
     //
     optional uint32 country_code = 13;
 
-    // Relative path to a map file.
+    // Opaque reference of a map.
     //
     // \note Origin and orientation of the map have to coincide with the
     // inertial coordinate frame of the ground truth.
+    //    
+    // \note It is implementation-specific how map_reference is resolved.
     //
-    optional string map_path = 14;
+    optional string map_reference = 14;
 }
