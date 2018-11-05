@@ -140,5 +140,5 @@ message GroundTruth
     // \par References:
     // - [1] [Proj.4 Projections] (https://proj4.org/usage/projections.html)
     //
-    optional string proj_string = 16;
+    optional string proj_string = 14;
 }
