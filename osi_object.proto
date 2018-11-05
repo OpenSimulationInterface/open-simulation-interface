@@ -29,11 +29,11 @@ message StationaryObject
     //
     optional Classification classification = 3;
 
-    // Relative path of an associated 3D model of the stationary object.
+    // Opaque reference of an associated 3D model of the stationary object.
     //
-    // \note File path of the 3D model relative to the user code.
+    // \note It is implementation-specific how model_references are resolved to 3d models.
     //
-    optional string model_path = 4;
+    optional string model_reference = 4;
 
     //
     // \brief Classification data for a stationary object.
@@ -310,11 +310,11 @@ message MovingObject
     //
     optional VehicleClassification vehicle_classification = 6;
 
-    // Relative path of an associated 3D model of the moving object.
+    // Opaque reference of an associated 3D model of the moving object.
     //
-    // \note File path of the 3D model relative to the user code.
+    // \note It is implementation-specific how model_references are resolved to 3d models.
     //
-    optional string model_path = 7;
+    optional string model_reference = 7;
 
     // Definition of object types.
     //
