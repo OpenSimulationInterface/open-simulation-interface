@@ -196,9 +196,9 @@ message RadarSensorView
         // Time of flight.
         //
         // This is the time of flight of the reflection, which is directly
-        // proportional to the distance traveled.
+        // proportional to the distance traveled in number of ns.
         //
-        // Unit: [s]
+        // Unit: [ns]
         //
         optional double time_of_flight = 2;
 
