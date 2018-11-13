@@ -10,6 +10,7 @@ USE_MDFILE_AS_MAINPAGE = "@CMAKE_CURRENT_SOURCE_DIR@/README.md"
 
 OUTPUT_DIRECTORY       = "@CMAKE_CURRENT_SOURCE_DIR@/doc"
 IMAGE_PATH             = "@CMAKE_CURRENT_SOURCE_DIR@/doc/images"
+RECURSIVE              = YES
 
 # There is no standard configuration for .proto files documentation.
 # A Doxygen filter for .proto files has to be added under the directory doc/.
