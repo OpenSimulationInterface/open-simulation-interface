@@ -6,7 +6,7 @@ package osi3;
 
 //
 // \brief Interface for the description of the environment.
-// Can be used as Input for a dynamicmodel (also known as VehicleModell or ISARModell).
+// Can be used as input for a dynamic-model (also known as vehicle-model).
 //
 message Environment
 {
@@ -42,20 +42,15 @@ message Environment
     //
     optional double tyre_contact_point_rearright = 8;
 
-    // Contains the ambienttemperature.
-    // In [K].
-    //
-    optional double ambienttemperature = 9;
-
     // Contains the velocity of the wind.
     // In [m/s].
     //
-    optional double windvelocity = 10;
+    optional double windvelocity = 9;
 
     // Contains the direction of the wind.
     // In [Degree]. Wind direction is measured in degrees clockwise from due north.
     // E.g.: A wind blowing from the north has a wind direction of 0 Degree.
-    // More information: https://en.wikipedia.org/wiki/Wind_direction
+    // More information: https://de.windfinder.com/wind/windspeed.htm
     //
-    optional double winddirection = 11;
+    optional double winddirection = 10;
 }
