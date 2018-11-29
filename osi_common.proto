@@ -395,4 +395,19 @@ message BaseMoving
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 7;
+    
+    // The relative orientation acceleration of the moving object w.r.t. its parent
+    // frame and parent orientation acceleration in the center point of the bounding box
+    // (origin of the bounding box frame), noted in the parent frame.
+    // The orientation becomes global/absolute if the parent frame is inertial
+    // (all parent frames up to ground truth).
+    //
+    // <tt>Rotation_yaw_pitch_roll(#orientation (t)) :=
+    // Rotation_yaw_pitch_roll(#orientation_rate
+    // *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
+    //
+    // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation
+    // (t-dt)+#orientation_rate *dt</tt>
+    //
+    optional Orientation3d orientation_acceleration = 8;
 }
