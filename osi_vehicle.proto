@@ -8,10 +8,9 @@ import "osi_common_extension.proto";
 package osi3;
 
 //
-// \brief Interface for the output of a dynamicmodel (also known as vehiclemodell).
-// Contains a base-set of signals that can be used by a simulation-environment.
-//
-// Consists of three messages: DynamicKinematics, DynamicPowertrain and DynamicSteering.
+// \brief Interface to the vehicle-model. So where the movement of a car is calculated, 
+// but also the behaviour of some components of the car itself.
+// Consists of four messages: VehicleKinematics, VehiclePowertrain, VehicleSteeringwheel and VehicleWheels.
 //
 // All coordinates and orientations are relative to the global ground truth
 // coordinate system.
@@ -77,34 +76,34 @@ message VehicleKinematics
 }
 
 //
-// \brief Interface for to the vehicle-model.
+// \brief Interface to the vehicle-model.
 // The focus here is on the powertrain.
 //
 message VehiclePowertrain
 {
     // The positions of the pedals.
     //
-    optional Pedalry pedalry = 4;
+    optional Pedalry pedalry = 1;
     
     // Rounds per minute of the crankshaft.
     //
-    optional double engine_rpm = 1;
+    optional double engine_rpm = 2;
 
     // Torque in Nm.
     //
-    optional double engine_torque = 2;
+    optional double engine_torque = 3;
 
     // Consumption in liters per 100 km.
     //
-    optional double engine_consumption = 3;
+    optional double engine_consumption = 4;
 
     // The actual gear of the car.
     //
-    optional Gear gear = 4;
+    optional Gear gear = 5;
 }
 
 //
-// \brief Interface for the output of a dynamicmodel.
+// \brief Interface to the vehicle-model.
 // The focus here is on the steeringwheel.
 //
 message VehicleSteeringwheel
@@ -128,127 +127,46 @@ message VehicleSteeringwheel
 }
 
 //
-// \brief Interface for the output of a dynamicmodel.
-// The focus here are the wheels.
+// \brief Interface to the vehicle-model.
+// The focus here is on the wheels.
+// It is made usage of the Wheels-message in osi_common to shorten the code.
 //
 message VehicleWheels
 {
     // Contains the friction-coefficient of each wheel.
     // Dimensionless.
     //
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_frontleft = 1;
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_frontright = 2;
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_rearleft = 3;
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_rearright = 4;
+    optional Wheels friction_coefficient = 1;
 
     // Contains the z-coordinate (contact-point) of each wheel.
     // Dimensionless.
     //
-    // Contact-point at the tyre front-left.
-    //
-    optional double tyre_contact_point_frontleft = 5;
-    // Contact-point at the tyre front-right.
-    //
-    optional double tyre_contact_point_frontright = 6;
-    // Contact-point at the tyre rear-left.
-    //
-    optional double tyre_contact_point_rearleft = 7;
-    // Contact-point at the tyre rear-right.
-    //
-    optional double tyre_contact_point_rearright = 8;
-    
+    optional Wheels contact_point = 2;
+
     // Contains the rotational speed of each wheel per second.
     // In [Rad/s].
-    // Speed of the front-left-wheel.
-    optional double speed_frontleft = 9;
-    
-    // Speed of the front-right-wheel.
     //
-    optional double speed_frontright = 10;
+    optional Wheels speed = 3;
     
-    // Speed of the rear-left-wheel.
-    //
-    optional double speed_rearleft = 11;
-    
-    // Speed of the rear-right-wheel.
-    //
-    optional double speed_rearright = 12;
-
     // Contains the steering angle of each wheel.
     // In [Rad].
-    // Steering angle of the front-left-wheel.
-    optional double steeringangle_frontleft = 13;
-    
-    // Steering angle of the front-right-wheel.
     //
-    optional double steeringangle_frontright = 14;
-    
-    // Steering angle of the rear-left-wheel.
-    //
-    optional double steeringangle_rearleft = 15;
-    
-    // Steering angle of the rear-right-wheel.
-    //
-    optional double steeringangle_rearright = 16;
+    optional Wheels steeringangle = 4;
 
     // Contains the camber of each wheel.
     // In [Rad].
     // Negative camber if the bottom of the wheel is farther out than the top.
     // For more information: https://en.wikipedia.org/wiki/Camber_angle.
-    // Camber of the front-left-wheel.
-    optional double camber_frontleft = 17;
-    
-    // Camber of the front-right-wheel.
     //
-    optional double camber_frontright = 18;
-    
-    // Camber of the rear-left-wheel.
-    //
-    optional double camber_rearleft = 19;
-    
-    // Camber of the rear-right-wheel.
-    //
-    optional double camber_rearright = 20;
+    optional Wheels camber = 5;
 
     // Contains the tirepressure of each tire.
     // In [Pascal].
-    // Tirepressure of the front-left-wheel.
-    optional double tirepressure_frontleft = 21;
-    
-    // Tirepressure of the front-right-wheel.
-    //
-    optional double tirepressure_frontright = 22;
-    
-    // Tirepressure of the rear-left-wheel.
-    //
-    optional double tirepressure_rearleft = 23;
-    
-    // Tirepressure of the rear-right-wheel.
-    //
-    optional double tirepressure_rearright = 24;
+    // 
+    optional Wheels tirepressure = 6;
 
     // Contains the springdeflection in z-direction for each wheel.
     // In [mm].
-    // Springdeflection_z of the front-left-wheel.
-    optional double springdeflection_frontleft = 25;
-    
-    // Springdeflection_z of the front-right-wheel.
     //
-    optional double springdeflection_frontright = 26;
-    
-    // Springdeflection_z of the rear-left-wheel.
-    //
-    optional double springdeflection_rearleft = 27;
-    
-    // Springdeflection_z of the rear-right-wheel.
-    //
-    optional double springdeflection_rearright = 28;
+    optional Wheels springdeflection = 7;
 }
