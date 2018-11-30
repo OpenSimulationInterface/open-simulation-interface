@@ -5,52 +5,18 @@ option optimize_for = SPEED;
 package osi3;
 
 //
-// \brief Interface for the description of the environment.
-// Can be used as input for a dynamic-model (also known as vehicle-model).
+// \brief Just a small extension.
 //
 message Environment
 {
-    // Contains the friction-coefficient of each wheel.
-    // Dimensionless.
-    //
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_frontleft = 1;
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_frontright = 2;
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_rearleft = 3;
-    // Friction at the tyre front-left.
-    //
-    optional double friction_coefficient_rearright = 4;
-
-    // Contains the z-coordinate (contact-point) of each wheel.
-    // Dimensionless.
-    //
-    // Contact-point at the tyre front-left.
-    //
-    optional double tyre_contact_point_frontleft = 5;
-    // Contact-point at the tyre front-right.
-    //
-    optional double tyre_contact_point_frontright = 6;
-    // Contact-point at the tyre rear-left.
-    //
-    optional double tyre_contact_point_rearleft = 7;
-    // Contact-point at the tyre rear-right.
-    //
-    optional double tyre_contact_point_rearright = 8;
-
-    // Contains the velocity of the wind.
+    // Contains the velocity of the wind (global weather).
     // In [m/s].
     //
-    optional double windvelocity = 9;
+    optional double windvelocity = 1;
 
-    // Contains the direction of the wind.
+    // Contains the direction of the wind (global weather).
     // In [Degree]. Wind direction is measured in degrees clockwise from due north.
-    // E.g.: A wind blowing from the north has a wind direction of 0 Degree.
-    // More information: https://de.windfinder.com/wind/windspeed.htm
+    // Like on a windrose. E.g.: A wind blowing from the north has a wind direction of 0 Degree.
     //
-    optional double winddirection = 10;
+    optional double winddirection = 2;
 }
