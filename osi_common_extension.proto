@@ -51,6 +51,33 @@ message Pedalry
 }
 
 //
+// \brief This message-format is thought as placeholder for different
+// values that every wheel has.
+//
+message Wheels
+{
+    // Placeholder for the front-left-wheel.
+    // Dimensionless.
+    //
+    optional double frontleft = 1;
+
+    // Placeholder for the front-right-wheel.
+    // Dimensionless.
+    //
+    optional double frontright = 2;
+
+    // Placeholder for the rear-left-wheel.
+    // Dimensionless.
+    //
+    optional double rearleft = 3;
+    
+    // Placeholder for the rear-right-wheel.
+    // Dimensionless.
+    //
+    optional double rearright = 4;
+}
+
+//
 // \brief This is a message to describe, which trajectory the vehicle should follow.
 //
 //
