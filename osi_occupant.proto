@@ -37,6 +37,8 @@ message Occupant
         // wheel (mostly driver).
         //
         optional SteeringControl steering_control = 4;
+        
+        optional State state = 5;
 
         // Definition of seat positions.
         //
@@ -125,6 +127,54 @@ message Occupant
             // Only right hand is on the steering wheel.
             //
             STEERING_CONTROL_RIGHT_HAND = 6;
+        }
+        
+        //
+        // \brief An occupants state consists of physiological data like head pose,
+        // eye states and gaze.
+        //
+        message State
+        {
+            // Occupant's head pose.
+            //
+            optional HeadPose head_pose = 1;
+            
+            // Occupant's eye state(s).
+            //
+            optional EyeState eye_state = 2;
+            
+            //
+            // \brief An occupant's head pose, including position and orientation.
+            //
+            message HeadPose
+            {
+                // Head's position within the ego vehicle's coordinate system.
+                //
+                optional Vector3d position = 1;
+                
+                // Head's orientation.
+                //
+                optional Orientation3d orientation = 2;
+            }
+            
+            //
+            // \brief The eye state comprised informtion regarding both eyes' gaze,
+            // position and opening.
+            //
+            message EyeState
+            {
+                // Gaze vectors (left and right).
+                //
+                repeated Orientation3d gaze = 1;
+                
+                // Eye positions (left and right).
+                //
+                repeated Vector3d position = 2;
+                
+                // Eye openings in [m] (left and right).
+                //
+                repeated double opening = 3;
+            }
         }
     }
 }
