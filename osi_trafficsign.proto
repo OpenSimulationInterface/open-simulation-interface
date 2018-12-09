@@ -1260,7 +1260,7 @@ message TrafficSign
                 //
                 TYPE_BUS_LANE_END = 36;
 
-                // Entry prohibited for all types of vehicles
+                // Entry prohibited for all types of vehicles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 250.png </td>
@@ -1476,7 +1476,9 @@ message TrafficSign
                 TYPE_VEHICLES_EXCESS_WIDTH_PROHIBITED = 167;
 
                 // Vertical clearance (entry prohibited for vehicles higher than
-                // the height shown) <table cellspacing="0" cellpadding="0">
+                // the height shown)
+                //
+                // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 265.png </td>
                 //   <td> StVO 265 </td>
@@ -1489,8 +1491,9 @@ message TrafficSign
                 TYPE_VEHICLES_EXCESS_HEIGHT_PROHIBITED = 168;
 
                 // Length restriction (entry prohibited for vehicles or
-                // combinations of vehicles longer than the length shown) <table
-                // cellspacing="0" cellpadding="0"> <tr>
+                // combinations of vehicles longer than the length shown)
+                //
+                // <table cellspacing="0" cellpadding="0"> <tr>
                 //   <td> \image html 266.png </td>
                 //   <td> StVO 266 </td>
                 // </tr>
@@ -1502,6 +1505,8 @@ message TrafficSign
                 TYPE_VEHICLES_EXCESS_LENGTH_PROHIBITED = 169;
 
                 // Entry not allowed
+                // \n
+                //
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 267.png </td>
@@ -5752,27 +5757,28 @@ message TrafficSign
                 //
                 TYPE_TIME_RANGE = 5;
 
-                // Parking disc
+                // Parking disc restrictions
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1040-32.png </td>
                 //   <td> StVO 1040-32 </td>
+                //   <td> Parking disc restriction </td>
+                //   <td> Use \c TrafficSignValue::value and \c
+                //        TrafficSignValue::value_unit (e.g. [min]) to indicate
+                //        the allowed duration of parking. </td>
                 // </tr>
-                // </table>
-                //
-                // Use \c TrafficSignValue::value and \c
-                // TrafficSignValue::value_unit (e.g. [min]) to indicate the
-                // allowed duration of parking.
-                // \n
-                // To represent
-                // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1040-33.png </td>
                 //   <td> StVO 1040-33 </td>
+                //   <td> Parking disc restriction for marked parking areas</td>
+                //   <td> Use \c TrafficSignValue::value and \c
+                //        TrafficSignValue::value_unit (e.g. [min]) to indicate
+                //        the allowed duration of parking. Set \c
+                //        TrafficSignValue::text to \"in gekennzeichneten
+                //        Fl&auml;chen\"</td>
                 // </tr>
                 // </table>
-                // set \c TrafficSignValue::text to \"in gekennzeichneten
-                // Fl&auml;chen\"
+                //
                 TYPE_PARKING_DISC_TIME_RESTRICTION = 43;
 
                 // Restriction of the validity of the traffic sign depending on
