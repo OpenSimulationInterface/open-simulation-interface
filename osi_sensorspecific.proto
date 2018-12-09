@@ -2,6 +2,8 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_common.proto";
+
 package osi3;
 
 //
@@ -43,6 +45,102 @@ message CameraSpecificObjectData
 //
 message UltrasonicSpecificObjectData
 {
-    // currently no fields.
+    // Maximum measured distance from one sensor which leads to the calculation
+    // of this object.
     //
+    // Unit: [m]
+    //
+    optional double maximum_measurement_distance_sensor = 1;
+
+    // This value indicates the propability height for the classification in the
+    // calculated object.
+    //
+    // Unit: [%]
+    //
+    optional double probability = 2;
+
+    // This indicates if the feature was calculated based on one or multiple
+    // sensors.
+    //
+    optional TrilaterationStatus trilateration_status = 3;
+
+    // Describes the general moving direction of the feature.
+    //
+    optional Trend trend = 4;
+
+    // Ultrasonic signalway. Snder to receiver.
+    //
+    // \note This information can also be derived from the corresponding \c
+    // UltrasonicDetection. \c UltrasonicDetection refer to DetectedXXX by \c
+    // UltrasonicDetection::object_id.
+    //
+    repeated Signalway singalway = 5;
+
+    //
+    // This indicates if the object was calculated based on one or multiple
+    // sensors.
+    //
+    enum TrilaterationStatus
+    {
+        // Unknown (must not be used in ground truth).
+        //
+        TRILATERATION_STATUS_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        TRILATERATION_STATUS_OTHER = 1;
+
+        // No trilateration used
+        //
+        TRILATERATION_STATUS_NOT_TRILATERATED = 2;
+
+        // Trilateration used
+        //
+        TRILATERATION_STATUS_TRILATERATED = 3;
+    }
+
+    //
+    // Describes the general moving direction of the feature.
+    //
+    enum Trend
+    {
+        // Unknown (must not be used in ground truth).
+        //
+        TREND_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        TREND_OTHER = 1;
+
+        // \note There is no definition
+        //
+        TREND_CONSTANT_APPROACHING = 2;
+
+        // \note There is no definition
+        //
+        TREND_CONSTANT = 3;
+
+        // \note There is no definition
+        //
+        TREND_APPROACHING = 4;
+
+        // \note There is no definition
+        //
+        TREND_DEPARTING = 5;
+    }
+
+    //
+    // \brief Message encapsulates all data for detected objects that is
+    // specific to ultrasonic sensors.
+    //
+    message Signalway
+    {
+        // The ID of the ultrasonic sensor's sender.
+        //
+        optional Identifier sender_id = 1;
+
+        // The ID of the ultrasonic sensor's receiver.
+        //
+        optional Identifier receiver_id = 2;
+    }
 }
