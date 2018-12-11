@@ -146,7 +146,7 @@ message VehicleWheels
     // Contains the rotational speed of each wheel per second.
     // In [Rad/s].
     //
-    optional Wheels speed = 3;
+    optional Wheels rotational_speed = 3;
     
     // Contains the steering angle of each wheel.
     // In [Rad].
