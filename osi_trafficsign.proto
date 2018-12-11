@@ -302,7 +302,7 @@ message TrafficSign
                 //
                 TYPE_OTHER = 1;
 
-                // Danger sign
+                // Danger sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 101.png  </td>
@@ -311,7 +311,7 @@ message TrafficSign
                 //
                 TYPE_DANGER_SPOT = 2;
 
-                // Danger: low-flying aircraft or sudden aircraft noise
+                // Danger: low-flying aircraft or sudden aircraft noise.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 101-10.png </td>
@@ -328,7 +328,7 @@ message TrafficSign
                 //
                 TYPE_DANGER_FLIGHT = 110;
 
-                // Danger: Pedestrians crossing
+                // Danger: Pedestrians crossing.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 101-11.png </td>
@@ -344,7 +344,7 @@ message TrafficSign
                 // </table>
                 TYPE_DANGER_ZEBRA_CROSSING = 199;
 
-                // Danger: cattle crossing
+                // Danger: cattle crossing.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 101-12.png </td>
@@ -360,7 +360,7 @@ message TrafficSign
                 // </table>
                 TYPE_DANGER_CATTLE = 200;
 
-                // Danger: horse riders
+                // Danger: horse riders.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 101-13.png </td>
@@ -376,7 +376,7 @@ message TrafficSign
                 // </table>
                 TYPE_DANGER_HORSE_RIDERS = 197;
 
-                // Danger: amphibian migration
+                // Danger: amphibian migration.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 101-14.png </td>
@@ -392,7 +392,7 @@ message TrafficSign
                 // </table>
                 TYPE_DANGER_AMPHIBIANS = 188;
 
-                // Danger: falling rocks
+                // Danger: falling rocks.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 101-15.png </td>
@@ -408,7 +408,7 @@ message TrafficSign
                 // </table>
                 TYPE_DANGER_FALLING_ROCKS = 96;
 
-                // Risk of snow or ice
+                // Risk of snow or ice.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 101-51.png </td>
@@ -418,7 +418,7 @@ message TrafficSign
                 //
                 TYPE_SNOW_OR_ICE = 94;
 
-                // Danger: crushed stones
+                // Danger: crushed stones.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 101-52.png </td>
@@ -428,7 +428,7 @@ message TrafficSign
                 //
                 TYPE_DANGER_LOOSE_GRAVEL = 97;
 
-                // Danger: waterside
+                // Danger: waterside.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 101-53.png </td>
@@ -438,7 +438,7 @@ message TrafficSign
                 //
                 TYPE_DANGER_WATERSIDE = 102;
 
-                // Danger: not enough clearance
+                // Danger: not enough clearance.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 101-54.png </td>
@@ -448,7 +448,7 @@ message TrafficSign
                 //
                 TYPE_DANGER_CLEARANCE = 210;
 
-                // Danger: movable bridge
+                // Danger: movable bridge.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 101-55.png </td>
@@ -458,7 +458,7 @@ message TrafficSign
                 //
                 TYPE_DANGER_MOVABLE_BRIDGE = 101;
 
-                // "Right before left" rule at the next intersection
+                // "Right before left" rule at the next intersection.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 102.png </td>
@@ -468,7 +468,7 @@ message TrafficSign
                 //
                 TYPE_RIGHT_BEFORE_LEFT_NEXT_INTERSECTION = 3;
 
-                // Warning sign for a left turn
+                // Warning sign for a left turn.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 103-10.png </td>
@@ -478,7 +478,7 @@ message TrafficSign
                 //
                 TYPE_TURN_LEFT = 4;
 
-                // Warning sign for a right turn
+                // Warning sign for a right turn.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 103-20.png </td>
@@ -488,7 +488,7 @@ message TrafficSign
                 //
                 TYPE_TURN_RIGHT = 5;
 
-                // Warning sign for a double turn (first left turn)
+                // Warning sign for a double turn (first left turn).
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 105-10.png </td>
@@ -498,7 +498,7 @@ message TrafficSign
                 //
                 TYPE_DOUBLE_TURN_LEFT = 6;
 
-                // Warning sign for a double turn (first right turn)
+                // Warning sign for a double turn (first right turn).
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 105-20.png </td>
@@ -508,7 +508,7 @@ message TrafficSign
                 //
                 TYPE_DOUBLE_TURN_RIGHT = 7;
 
-                // Steep hill downwards
+                // Steep hill downwards.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 108-4.png </td>
@@ -520,7 +520,7 @@ message TrafficSign
                 //
                 TYPE_HILL_DOWNWARDS = 8;
 
-                // Steep hill upwards
+                // Steep hill upwards.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 110-4.png </td>
@@ -532,7 +532,7 @@ message TrafficSign
                 //
                 TYPE_HILL_UPWARDS = 9;
 
-                // Uneven road
+                // Uneven road.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 112.png </td>
@@ -542,7 +542,7 @@ message TrafficSign
                 //
                 TYPE_UNEVEN_ROAD = 93;
 
-                // Road slippery when wet or dirty
+                // Road slippery when wet or dirty.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 114.png </td>
@@ -552,7 +552,7 @@ message TrafficSign
                 //
                 TYPE_ROAD_SLIPPERY_WET_OR_DIRTY = 95;
 
-                // Side winds
+                // Side winds.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 117-10.png </td>
@@ -569,7 +569,7 @@ message TrafficSign
 
                 TYPE_SIDE_WINDS = 98;
 
-                // Warning for road narrowing
+                // Warning for road narrowing.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 120.png </td>
@@ -579,7 +579,7 @@ message TrafficSign
                 //
                 TYPE_WARNING_ROAD_NARROWING = 10;
 
-                // Warning for road narrowing on the right
+                // Warning for road narrowing on the right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 121-10.png </td>
@@ -589,7 +589,7 @@ message TrafficSign
                 //
                 TYPE_WARNING_ROAD_NARROWING_RIGHT = 12;
 
-                // Warning for road narrowing on the left
+                // Warning for road narrowing on the left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 121-20.png </td>
@@ -599,7 +599,7 @@ message TrafficSign
                 //
                 TYPE_WARNING_ROAD_NARROWING_LEFT = 11;
 
-                // Road works sign
+                // Road works sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 123.png </td>
@@ -609,7 +609,7 @@ message TrafficSign
                 //
                 TYPE_ROAD_WORKS = 13;
 
-                // Traffic queues likely
+                // Traffic queues likely.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 124.png </td>
@@ -619,7 +619,7 @@ message TrafficSign
                 //
                 TYPE_TRAFFIC_QUEUES = 100;
 
-                // Warning for two-way-traffic (after one-way lane)
+                // Warning for two-way-traffic (after one-way lane).
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 125.png </td>
@@ -629,7 +629,7 @@ message TrafficSign
                 //
                 TYPE_WARNING_TWO_WAY_TRAFFIC = 14;
 
-                // Traffic light ahead sign
+                // Traffic light ahead sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 131.png </td>
@@ -639,7 +639,7 @@ message TrafficSign
                 //
                 TYPE_ATTENTION_TRAFFIC_LIGHT = 15;
 
-                // Pedestrians
+                // Pedestrians.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 133-10.png </td>
@@ -655,7 +655,7 @@ message TrafficSign
                 // </table>
                 TYPE_PEDESTRIANS = 103;
 
-                // Children crossing
+                // Children crossing.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 136-10.png </td>
@@ -671,7 +671,7 @@ message TrafficSign
                 // </table>
                 TYPE_CHILDREN_CROSSING = 106;
 
-                // Pedal cycle route crossing or joining road sign
+                // Pedal cycle route crossing or joining road sign.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 138-10.png </td>
@@ -687,7 +687,7 @@ message TrafficSign
                 // </table>
                 TYPE_CYCLE_ROUTE = 107;
 
-                // Deer crossing
+                // Deer crossing.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 142-10.png </td>
@@ -703,7 +703,7 @@ message TrafficSign
                 // </table>
                 TYPE_DEER_CROSSING = 109;
 
-                // Level crossing without barrier or gate
+                // Level crossing without barrier or gate.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 151.png </td>
@@ -786,7 +786,7 @@ message TrafficSign
                 //
                 TYPE_LEVEL_CROSSING_MARKER = 112;
 
-                // St.Andrew's cross, railway traffic has priority
+                // St.Andrew's cross, railway traffic has priority.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 201-50.png <td> StVO 201-50
@@ -797,7 +797,7 @@ message TrafficSign
                 TYPE_RAILWAY_TRAFFIC_PRIORITY = 135;
 
                 // St. Andrew's cross, with lightning bolt indicating
-                // voltage-carrying overhead line. Railway traffic has priority
+                // voltage-carrying overhead line. Railway traffic has priority.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 205.png </td>
@@ -817,7 +817,7 @@ message TrafficSign
                 //
                 TYPE_GIVE_WAY = 16;
 
-                // Stop sign
+                // Stop sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 206.png </td>
@@ -837,7 +837,7 @@ message TrafficSign
                 TYPE_STOP = 17;
 
                 // Priority must be given to vehicles from the opposite
-                // direction
+                // direction.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 208.png </td>
@@ -849,7 +849,7 @@ message TrafficSign
                 TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 18;
 
                 // Priority must be given to vehicles from the opposite
-                // direction
+                // direction.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:rotate(180deg)"> \image html 208.png
@@ -860,7 +860,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 19;
 
-                // Prescribed left turn
+                // Prescribed left turn.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 209-10.png </td>
@@ -874,7 +874,7 @@ message TrafficSign
                 //
                 TYPE_PRESCRIBED_LEFT_TURN = 20;
 
-                // Prescribed right turn
+                // Prescribed right turn.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:scaleX(-1)"> \image html 209-10.png
@@ -888,7 +888,7 @@ message TrafficSign
                 //
                 TYPE_PRESCRIBED_RIGHT_TURN = 21;
 
-                // Prescribed driving straight ahead
+                // Prescribed driving straight ahead.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 209-30.png </td>
@@ -902,7 +902,7 @@ message TrafficSign
                 //
                 TYPE_PRESCRIBED_STRAIGHT_AHEAD = 22;
 
-                // Prescribed right way
+                // Prescribed right way.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 211.png </td>
@@ -912,7 +912,7 @@ message TrafficSign
                 //
                 TYPE_PRESCRIBED_RIGHT_WAY = 24;
 
-                // Prescribed left way
+                // Prescribed left way.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 211-10.png </td>
@@ -922,7 +922,7 @@ message TrafficSign
                 //
                 TYPE_PRESCRIBED_LEFT_WAY = 23;
 
-                // Prescribed right turn and driving straight ahead
+                // Prescribed right turn and driving straight ahead.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 214.png </td>
@@ -933,11 +933,11 @@ message TrafficSign
                 //
                 // As symbolic road marking
                 // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
-                // (StVO 297)
+                // (StVO 297).
                 //
                 TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT_AHEAD = 26;
 
-                // Prescribed left turn and driving straight ahead
+                // Prescribed left turn and driving straight ahead.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 214-10.png </td>
@@ -948,11 +948,11 @@ message TrafficSign
                 //
                 // As symbolic road marking
                 // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
-                // (StVO 297)
+                // (StVO 297).
                 //
                 TYPE_PRESCRIBED_LEFT_TURN_AND_STRAIGHT_AHEAD = 25;
 
-                // Prescribed left and right turn
+                // Prescribed left and right turn.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 214-30.png </td>
@@ -962,7 +962,7 @@ message TrafficSign
                 //
                 // As symbolic road marking
                 // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
-                // (StVO 297)
+                // (StVO 297).
                 //
                 TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN = 27;
 
@@ -971,11 +971,11 @@ message TrafficSign
                 //
                 // As symbolic road marking
                 // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
-                // (StVO 297)
+                // (StVO 297).
                 //
                 TYPE_PRESCRIBED_LEFT_TURN_RIGHT_TURN_AND_STRAIGHT_AHEAD = 28;
 
-                // Roundabout
+                // Roundabout.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 215.png </td>
@@ -984,10 +984,10 @@ message TrafficSign
                 // </table>
                 //
                 // \note The direction of driving (clockwise, counterclockwise)
-                // is country-specific
+                // is country-specific.
                 TYPE_ROUNDABOUT = 29;
 
-                // One-way road to the left
+                // One-way road to the left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 220-10.png </td>
@@ -997,7 +997,7 @@ message TrafficSign
                 //
                 TYPE_ONEWAY_LEFT = 30;
 
-                // One-way road to the right
+                // One-way road to the right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 220-20.png </td>
@@ -1007,7 +1007,7 @@ message TrafficSign
                 //
                 TYPE_ONEWAY_RIGHT = 31;
 
-                // Drive past on the left side
+                // Drive past on the left side.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 222.png </td>
@@ -1017,7 +1017,7 @@ message TrafficSign
                 //
                 TYPE_PASS_LEFT = 32;
 
-                // Drive past on the right side
+                // Drive past on the right side.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 222-10.png </td>
@@ -1093,7 +1093,7 @@ message TrafficSign
                 //
                 TYPE_SIDE_LANE_CLOSING_FOR_TRAFFIC = 130;
 
-                // Bus stop or tramway stop
+                // Bus stop or tramway stop.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 224.png </td>
@@ -1103,7 +1103,7 @@ message TrafficSign
                 //
                 TYPE_BUS_STOP = 137;
 
-                // Taxi rank
+                // Taxi rank.
                 // <table border="0">
                 // <tr>
                 //   <td colspan="2"> \image html 229.png "StVO 229" </td>
@@ -1134,7 +1134,7 @@ message TrafficSign
                 // </table>
                 TYPE_TAXI_STAND = 138;
 
-                // Route for bicycles only
+                // Route for bicycles only.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 237.png </td>
@@ -1144,7 +1144,7 @@ message TrafficSign
                 //
                 TYPE_BICYCLES_ONLY = 145;
 
-                // Route for horse riders only
+                // Route for horse riders only.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 238.png </td>
@@ -1154,7 +1154,7 @@ message TrafficSign
                 //
                 TYPE_HORSE_RIDERS_ONLY = 146;
 
-                // Route for pedestrians only
+                // Route for pedestrians only.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 239.png </td>
@@ -1164,7 +1164,7 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIANS_ONLY = 147;
 
-                // Unsegregated route for use by bicycles and pedestrians only
+                // Unsegregated route for use by bicycles and pedestrians only.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 240.png </td>
@@ -1175,7 +1175,7 @@ message TrafficSign
                 TYPE_BICYCLES_PEDESTRIANS_SHARED_ONLY = 148;
 
                 // Segregated route for use by bicycles and pedestrians only,
-                // bicycles on the left
+                // bicycles on the left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 241-30.png </td>
@@ -1187,7 +1187,7 @@ message TrafficSign
                 TYPE_BICYCLES_PEDESTRIANS_SEPARATED_LEFT_ONLY = 149;
 
                 // Segregated route for use by bicycles and pedestrians only,
-                // bicycles on the right
+                // bicycles on the right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 241-31.png </td>
@@ -1198,7 +1198,7 @@ message TrafficSign
                 // Left: \c #TYPE_BICYCLES_PEDESTRIANS_SEPARATED_LEFT_ONLY
                 TYPE_BICYCLES_PEDESTRIANS_SEPARATED_RIGHT_ONLY = 150;
 
-                // Beginning of the pedestrian zone
+                // Beginning of the pedestrian zone.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 242.1.png </td>
@@ -1208,7 +1208,7 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIAN_ZONE_BEGIN = 151;
 
-                // End of the pedestrian zone
+                // End of the pedestrian zone.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 242.2.png </td>
@@ -1218,7 +1218,7 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIAN_ZONE_END = 152;
 
-                // Beginning of bicycle road
+                // Beginning of bicycle road.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 244.1.png </td>
@@ -1228,7 +1228,7 @@ message TrafficSign
                 //
                 TYPE_BICYCLE_ROAD_BEGIN = 153;
 
-                // End of bicycle road
+                // End of bicycle road.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 244.2.png </td>
@@ -1238,7 +1238,7 @@ message TrafficSign
                 //
                 TYPE_BICYCLE_ROAD_END = 154;
 
-                // Lane for buses
+                // Lane for buses.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 245.png </td>
@@ -1248,13 +1248,13 @@ message TrafficSign
                 //
                 TYPE_BUS_LANE = 34;
 
-                // Bus only lane begin
+                // Bus only lane begin.
                 // \n
                 // End: \c #TYPE_BUS_LANE_END
                 //
                 TYPE_BUS_LANE_BEGIN = 35;
 
-                // Bus only lane end
+                // Bus only lane end.
                 // \n
                 // Begin: \c #TYPE_BUS_LANE_BEGIN
                 //
@@ -1271,7 +1271,7 @@ message TrafficSign
                 TYPE_ALL_PROHIBITED = 37;
 
                 // Entry prohibited for cars, trucks, and other motorized
-                // multi-track vehicles <table cellspacing="0" cellpadding="0">
+                // multi-track vehicles. <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 251.png </td>
                 //   <td> StVO 251 </td>
@@ -1280,7 +1280,7 @@ message TrafficSign
                 //
                 TYPE_MOTORIZED_MULTITRACK_PROHIBITED = 38;
 
-                // Entry prohibited for trucks
+                // Entry prohibited for trucks.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 253.png </td>
@@ -1289,11 +1289,11 @@ message TrafficSign
                 // </table>
                 //
                 // \note In the German StVO, trucks are defined as
-                // motorized vehicles that are heavier than 3.5 [t]
+                // motorized vehicles that are heavier than 3.5 [t].
                 //
                 TYPE_TRUCKS_PROHIBITED = 39;
 
-                // Entry prohibited for bicycles
+                // Entry prohibited for bicycles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 254.png </td>
@@ -1303,7 +1303,7 @@ message TrafficSign
                 //
                 TYPE_BICYCLES_PROHIBITED = 40;
 
-                // Entry prohibited for motorcycles
+                // Entry prohibited for motorcycles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 255.png </td>
@@ -1313,7 +1313,7 @@ message TrafficSign
                 //
                 TYPE_MOTORCYCLES_PROHIBITED = 41;
 
-                // Entry prohibited for mopeds
+                // Entry prohibited for mopeds.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-50.png </td>
@@ -1323,7 +1323,7 @@ message TrafficSign
                 //
                 TYPE_MOPEDS_PROHIBITED = 155;
 
-                // Entry prohibited for horse riders
+                // Entry prohibited for horse riders.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-51.png </td>
@@ -1333,7 +1333,7 @@ message TrafficSign
                 //
                 TYPE_HORSE_RIDERS_PROHIBITED = 156;
 
-                // Entry prohibited for horse carriages
+                // Entry prohibited for horse carriages.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-52.png </td>
@@ -1343,7 +1343,7 @@ message TrafficSign
                 //
                 TYPE_HORSE_CARRIAGES_PROHIBITED = 157;
 
-                // Entry prohibited for cattle
+                // Entry prohibited for cattle.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-53.png </td>
@@ -1353,7 +1353,7 @@ message TrafficSign
                 //
                 TYPE_CATTLE_PROHIBITED = 158;
 
-                // Entry prohibited for buses
+                // Entry prohibited for buses.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-54.png </td>
@@ -1363,7 +1363,7 @@ message TrafficSign
                 //
                 TYPE_BUSES_PROHIBITED = 159;
 
-                // Entry prohibited for passenger cars
+                // Entry prohibited for passenger cars.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-55.png </td>
@@ -1373,7 +1373,7 @@ message TrafficSign
                 //
                 TYPE_CARS_PROHIBITED = 160;
 
-                // Entry prohibited for passenger cars with trailers
+                // Entry prohibited for passenger cars with trailers.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-56.png </td>
@@ -1383,8 +1383,7 @@ message TrafficSign
                 //
                 TYPE_CARS_TRAILERS_PROHIBITED = 161;
 
-                // Entry prohibited for trucks with trailers
-                // .
+                // Entry prohibited for trucks with trailers.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-57.png </td>
@@ -1394,7 +1393,7 @@ message TrafficSign
                 //
                 TYPE_TRUCKS_TRAILERS_PROHIBITED = 162;
 
-                // Entry prohibited for tractors
+                // Entry prohibited for tractors.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 257-58.png </td>
@@ -1404,11 +1403,11 @@ message TrafficSign
                 //
                 // \note In the German StVO, tractors are defined as
                 // motorized vehicles that are not allowed to, or cannot,
-                // drive faster than 25 [km/h]
+                // drive faster than 25 [km/h].
                 //
                 TYPE_TRACTORS_PROHIBITED = 163;
 
-                // Entry prohibited for pedestrians
+                // Entry prohibited for pedestrians.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 259.png </td>
@@ -1418,7 +1417,7 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIANS_PROHIBITED = 42;
 
-                // Entry prohibited for all motor vehicles
+                // Entry prohibited for all motor vehicles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 260.png </td>
@@ -1429,7 +1428,7 @@ message TrafficSign
                 TYPE_MOTOR_VEHICLES_PROHIBITED = 43;
 
                 // Entry prohibited for marked vehicles transporting hazardous
-                // goods <table cellspacing="0" cellpadding="0"> <tr>
+                // goods. <table cellspacing="0" cellpadding="0"> <tr>
                 //   <td> \image html 261.png </td>
                 //   <td> StVO 261 </td>
                 // </tr>
@@ -1438,7 +1437,7 @@ message TrafficSign
                 TYPE_HAZARDOUS_GOODS_VEHICLES_PROHIBITED = 164;
 
                 // Weight limit (entry prohibited for vehicles over maximum
-                // gross weight shown) <table cellspacing="0" cellpadding="0">
+                // gross weight shown). <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 262.png </td>
                 //   <td> StVO 262 </td>
@@ -1451,7 +1450,7 @@ message TrafficSign
                 TYPE_OVER_WEIGHT_VEHICLES_PROHIBITED = 165;
 
                 // Axle weight limit (entry prohibited for vehicles over weight
-                // on axle shown) <table cellspacing="0" cellpadding="0"> <tr>
+                // on axle shown). <table cellspacing="0" cellpadding="0"> <tr>
                 //   <td> \image html 263.png </td>
                 //   <td> StVO 263 </td>
                 // </tr>
@@ -1463,7 +1462,7 @@ message TrafficSign
                 TYPE_VEHICLES_AXLE_OVER_WEIGHT_PROHIBITED = 166;
 
                 // Horizontal clearance (entry prohibited for vehicles wider
-                // than the width shown) <table cellspacing="0" cellpadding="0">
+                // than the width shown). <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html "264-2,3.png" </td>
                 //   <td> StVO 264 </td>
@@ -1476,8 +1475,7 @@ message TrafficSign
                 TYPE_VEHICLES_EXCESS_WIDTH_PROHIBITED = 167;
 
                 // Vertical clearance (entry prohibited for vehicles higher than
-                // the height shown)
-                //
+                // the height shown).
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 265.png </td>
@@ -1491,8 +1489,7 @@ message TrafficSign
                 TYPE_VEHICLES_EXCESS_HEIGHT_PROHIBITED = 168;
 
                 // Length restriction (entry prohibited for vehicles or
-                // combinations of vehicles longer than the length shown)
-                //
+                // combinations of vehicles longer than the length shown).
                 // <table cellspacing="0" cellpadding="0"> <tr>
                 //   <td> \image html 266.png </td>
                 //   <td> StVO 266 </td>
@@ -1504,9 +1501,7 @@ message TrafficSign
                 //
                 TYPE_VEHICLES_EXCESS_LENGTH_PROHIBITED = 169;
 
-                // Entry not allowed
-                // \n
-                //
+                // Entry not allowed.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 267.png </td>
@@ -1516,7 +1511,7 @@ message TrafficSign
                 //
                 TYPE_DO_NOT_ENTER = 44;
 
-                // Snow chains required
+                // Snow chains required.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 268.png </td>
@@ -1526,7 +1521,7 @@ message TrafficSign
                 //
                 TYPE_SNOW_CHAINS_REQUIRED = 170;
 
-                // Entry prohibited for vehicles carrying water pollutants
+                // Entry prohibited for vehicles carrying water pollutants.
                 // <table cellspacing="0" cellpadding="0"> <tr>
                 //   <td> \image html 269.png </td>
                 //   <td> StVO 269 </td>
@@ -1535,7 +1530,7 @@ message TrafficSign
                 //
                 TYPE_WATER_POLLUTANT_VEHICLES_PROHIBITED = 171;
 
-                // Start of area without traffic to reduce harmful air pollution
+                // Start of area without traffic to reduce harmful air pollution.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 270.1.png </td>
@@ -1545,7 +1540,7 @@ message TrafficSign
                 //
                 TYPE_ENVIRONMENTAL_ZONE_BEGIN = 45;
 
-                // End of area without traffic to reduce harmful air pollution
+                // End of area without traffic to reduce harmful air pollution.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 270.2.png </td>
@@ -1556,7 +1551,7 @@ message TrafficSign
                 //
                 TYPE_ENVIRONMENTAL_ZONE_END = 46;
 
-                // No U turn left
+                // No U turn left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 272.png </td>
@@ -1566,29 +1561,29 @@ message TrafficSign
                 //
                 TYPE_NO_U_TURN_LEFT = 47;
 
-                // No U turn right
+                // No U turn right.
                 // \n
-                // \note This type is to be applied in left-driving countries
+                // \note This type is to be applied in left-driving countries.
                 //
                 // Left: \c #TYPE_NO_U_TURN_LEFT
                 //
                 TYPE_NO_U_TURN_RIGHT = 48;
 
-                // Prescribed U turn left
+                // Prescribed U turn left.
                 // \n
                 // Right: \c #TYPE_PRESCRIBED_U_TURN_RIGHT
                 //
                 TYPE_PRESCRIBED_U_TURN_LEFT = 49;
 
-                // Prescribed U turn right
+                // Prescribed U turn right.
                 // \n
-                // \note This type is to be applied in left-driving countries
+                // \note This type is to be applied in left-driving countries.
                 //
                 // Left: \c #TYPE_PRESCRIBED_U_TURN_LEFT
                 //
                 TYPE_PRESCRIBED_U_TURN_RIGHT = 50;
 
-                // Minimum safety distance for trucks
+                // Minimum safety distance for trucks.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 273.png </td>
@@ -1601,7 +1596,7 @@ message TrafficSign
                 //
                 TYPE_MINIMUM_DISTANCE_FOR_TRUCKS = 51;
 
-                // Start of speed limit
+                // Start of speed limit.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 274-30.png </td>
@@ -1615,7 +1610,7 @@ message TrafficSign
                 // End: \c #TYPE_SPEED_LIMIT_END
                 TYPE_SPEED_LIMIT_BEGIN = 52;
 
-                // Start of zone with speed limit
+                // Start of zone with speed limit.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 274.1.png </td>
@@ -1630,7 +1625,7 @@ message TrafficSign
                 //
                 TYPE_SPEED_LIMIT_ZONE_BEGIN = 53;
 
-                // End of zone with speed limit
+                // End of zone with speed limit.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 274.2.png </td>
@@ -1645,7 +1640,7 @@ message TrafficSign
                 //
                 TYPE_SPEED_LIMIT_ZONE_END = 54;
 
-                // Start of mandatory minimum speed
+                // Start of mandatory minimum speed.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 275.png </td>
@@ -1660,7 +1655,7 @@ message TrafficSign
                 //
                 TYPE_MINIMUM_SPEED_BEGIN = 55;
 
-                // Start of overtaking ban
+                // Start of overtaking ban.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 276.png </td>
@@ -1670,7 +1665,7 @@ message TrafficSign
                 //
                 TYPE_OVERTAKING_BAN_BEGIN = 56;
 
-                // Start of overtaking ban for trucks
+                // Start of overtaking ban for trucks.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 277.png </td>
@@ -1681,7 +1676,7 @@ message TrafficSign
                 //
                 TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN = 57;
 
-                // End of speed limit
+                // End of speed limit.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 278-60.png </td>
@@ -1696,7 +1691,7 @@ message TrafficSign
                 //
                 TYPE_SPEED_LIMIT_END = 58;
 
-                // End of mandatory minimum speed
+                // End of mandatory minimum speed.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 279.png </td>
@@ -1711,7 +1706,7 @@ message TrafficSign
                 //
                 TYPE_MINIMUM_SPEED_END = 59;
 
-                // End of overtaking ban
+                // End of overtaking ban.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 280.png </td>
@@ -1721,7 +1716,7 @@ message TrafficSign
                 //
                 TYPE_OVERTAKING_BAN_END = 60;
 
-                // End of overtaking ban for trucks
+                // End of overtaking ban for trucks.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 281.png </td>
@@ -1732,7 +1727,7 @@ message TrafficSign
                 //
                 TYPE_OVERTAKING_BAN_FOR_TRUCKS_END = 61;
 
-                // End of all speed and overtaking restrictions
+                // End of all speed and overtaking restrictions.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 282.png </td>
@@ -1742,7 +1737,7 @@ message TrafficSign
                 //
                 TYPE_ALL_RESTRICTIONS_END = 62;
 
-                // No stopping sign
+                // No stopping sign.
                 // <table border="0">
                 // <tr>
                 //   <td colspan="2"> \image html 283.png "StVO 283" </td>
@@ -1774,7 +1769,7 @@ message TrafficSign
                 // </table>
                 TYPE_NO_STOPPING = 63;
 
-                // No parking sign
+                // No parking sign.
                 // <table border="0">
                 // <tr>
                 //   <td colspan="2"> \image html 286.png "StVO 286" </td>
@@ -1806,7 +1801,7 @@ message TrafficSign
                 // </table>
                 //
                 // As symbolic road marking
-                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN.
                 //
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
@@ -1817,7 +1812,7 @@ message TrafficSign
                 //
                 TYPE_NO_PARKING = 64;
 
-                // Begin of no parking zone
+                // Begin of no parking zone.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 290.1.png </td>
@@ -1827,7 +1822,7 @@ message TrafficSign
                 //
                 TYPE_NO_PARKING_ZONE_BEGIN = 65;
 
-                // End of no parking zone
+                // End of no parking zone.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 290.2.png </td>
@@ -1837,7 +1832,7 @@ message TrafficSign
                 //
                 TYPE_NO_PARKING_ZONE_END = 66;
 
-                // Right of way at the next intersection
+                // Right of way at the next intersection.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 301.png </td>
@@ -1847,7 +1842,7 @@ message TrafficSign
                 //
                 TYPE_RIGHT_OF_WAY_NEXT_INTERSECTION = 67;
 
-                // Begin of priority road with right of way
+                // Begin of priority road with right of way.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 306.png </td>
@@ -1857,7 +1852,7 @@ message TrafficSign
                 //
                 TYPE_RIGHT_OF_WAY_BEGIN = 68;
 
-                // End of priority road with right of way
+                // End of priority road with right of way.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 307.png </td>
@@ -1868,7 +1863,7 @@ message TrafficSign
                 TYPE_RIGHT_OF_WAY_END = 69;
 
                 // Traffic has priority over vehicles from the opposite
-                // direction
+                // direction.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 308.png </td>
@@ -1882,7 +1877,7 @@ message TrafficSign
                 TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION = 70;
 
                 // Traffic has priority over vehicles from the opposite
-                // direction
+                // direction.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:rotate(180deg)"> \image html 308.png
@@ -1895,7 +1890,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN = 71;
 
-                // Town entrance
+                // Town entrance.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 310.png </td>
@@ -1903,13 +1898,13 @@ message TrafficSign
                 // </tr>
                 // </table>
                 // Use \c TrafficSignValue::text to denote the town's name
-                // and district, e.g. "Wilster, Kreis Steinburg"
+                // and district, e.g. "Wilster, Kreis Steinburg".
                 //
                 // End: \c #TYPE_TOWN_END
                 //
                 TYPE_TOWN_BEGIN = 72;
 
-                // Town exit
+                // Town exit.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 311.png </td>
@@ -1919,7 +1914,7 @@ message TrafficSign
                 //
                 TYPE_TOWN_END = 73;
 
-                // Parking space
+                // Parking space.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 314.png </td>
@@ -1990,7 +1985,7 @@ message TrafficSign
                 //
                 TYPE_CAR_PARKING = 74;
 
-                // Begin of parking zone
+                // Begin of parking zone.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 314.1.png </td>
@@ -2000,7 +1995,7 @@ message TrafficSign
                 //
                 TYPE_CAR_PARKING_ZONE_BEGIN = 75;
 
-                // End of parking zone
+                // End of parking zone.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 314.2.png </td>
@@ -2010,7 +2005,7 @@ message TrafficSign
                 //
                 TYPE_CAR_PARKING_ZONE_END = 76;
 
-                // Parking on sidewalks half in the direction of travel left
+                // Parking on sidewalks half in the direction of travel left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 315-50.png --> </td>
@@ -2021,7 +2016,7 @@ message TrafficSign
                 //
                 TYPE_SIDEWALK_HALF_PARKING_LEFT = 172;
 
-                // Parking on sidewalks half in the direction of travel right
+                // Parking on sidewalks half in the direction of travel right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 315-55.png </td>
@@ -2033,7 +2028,7 @@ message TrafficSign
                 TYPE_SIDEWALK_HALF_PARKING_RIGHT = 173;
 
                 // Parking on sidewalks completely in the direction of
-                // travel left
+                // travel left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 315-60.png --> </td>
@@ -2045,7 +2040,7 @@ message TrafficSign
                 //
                 TYPE_SIDEWALK_PARKING_LEFT = 174;
 
-                // Parking on sidewalks completely in direction of travel right
+                // Parking on sidewalks completely in direction of travel right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 315-65.png --> </td>
@@ -2057,7 +2052,7 @@ message TrafficSign
                 TYPE_SIDEWALK_PARKING_RIGHT = 175;
 
                 // Parking on sidewalks half, perpendicular, in the direction of
-                // travel left
+                // travel left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 315-70.png --> </td>
@@ -2071,7 +2066,7 @@ message TrafficSign
                 TYPE_SIDEWALK_PERPENDICULAR_HALF_PARKING_LEFT = 176;
 
                 // Parking on sidewalks half, perpendicular, in the direction of
-                // travel right
+                // travel right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 315-75.png --> </td>
@@ -2085,7 +2080,7 @@ message TrafficSign
                 TYPE_SIDEWALK_PERPENDICULAR_HALF_PARKING_RIGHT = 177;
 
                 // Parking on sidewalks, perpendicular, in the direction of
-                // travel left
+                // travel left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 315-80.png --> </td>
@@ -2099,7 +2094,7 @@ message TrafficSign
                 TYPE_SIDEWALK_PERPENDICULAR_PARKING_LEFT = 178;
 
                 // Parking on sidewalks, perpendicular, in the direction of
-                // travel right
+                // travel right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 315-85.png --> </td>
@@ -2112,7 +2107,7 @@ message TrafficSign
                 //
                 TYPE_SIDEWALK_PERPENDICULAR_PARKING_RIGHT = 179;
 
-                // Start of area with calmed / reduced traffic
+                // Start of area with calmed / reduced traffic.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 325.1.png </td>
@@ -2124,7 +2119,7 @@ message TrafficSign
                 //
                 TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN = 77;
 
-                // End of area with calmed / reduced traffic
+                // End of area with calmed / reduced traffic.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 325.2.png </td>
@@ -2135,7 +2130,7 @@ message TrafficSign
                 // Begin: \c #TYPE_TRAFFIC_CALMED_DISTRICT_BEGIN
                 TYPE_TRAFFIC_CALMED_DISTRICT_END = 78;
 
-                // Tunnel ahead
+                // Tunnel ahead.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 327.png </td>
@@ -2171,7 +2166,7 @@ message TrafficSign
                 //
                 TYPE_EMERGENCY_STOPPING_RIGHT = 81;
 
-                // Begin of highway
+                // Begin of highway.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 330.1.png </td>
@@ -2182,7 +2177,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_BEGIN = 82;
 
-                // End of highway
+                // End of highway.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 330.2.png </td>
@@ -2193,7 +2188,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_END = 83;
 
-                // Begin of expressway for motor vehicles
+                // Begin of expressway for motor vehicles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 331.1.png </td>
@@ -2203,7 +2198,7 @@ message TrafficSign
                 //
                 TYPE_EXPRESSWAY_BEGIN = 84;
 
-                // End of expressways for motor vehicles
+                // End of expressways for motor vehicles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 331.2.png </td>
@@ -2213,7 +2208,7 @@ message TrafficSign
                 //
                 TYPE_EXPRESSWAY_END = 85;
 
-                // Highway exit
+                // Highway exit.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 332.png </td>
@@ -2225,7 +2220,7 @@ message TrafficSign
                 //
                 TYPE_NAMED_HIGHWAY_EXIT = 183;
 
-                // Expressway exit
+                // Expressway exit.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 332.1.png </td>
@@ -2237,7 +2232,7 @@ message TrafficSign
                 //
                 TYPE_NAMED_EXPRESSWAY_EXIT = 184;
 
-                // Exit sign on other roads
+                // Exit sign on other roads.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 332.1-20.png </td>
@@ -2249,7 +2244,7 @@ message TrafficSign
                 //
                 TYPE_NAMED_ROAD_EXIT = 185;
 
-                // Highway exit sign
+                // Highway exit sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 333.png </td>
@@ -2259,7 +2254,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_EXIT = 86;
 
-                // Exit from expressway (arrow sign)
+                // Exit from expressway (arrow sign).
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 333.1.png </td>
@@ -2269,7 +2264,7 @@ message TrafficSign
                 //
                 TYPE_EXPRESSWAY_EXIT = 186;
 
-                // Zebra crossing
+                // Zebra crossing.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 350-10.png </td>
@@ -2284,7 +2279,7 @@ message TrafficSign
                 // </table>
                 //
                 // As symbolic road marking
-                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
+                // \c RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN.
                 //
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
@@ -2294,7 +2289,7 @@ message TrafficSign
                 //
                 TYPE_ZEBRA_CROSSING = 87;
 
-                // One-way street
+                // One-way street.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 353.png --> </td>
@@ -2304,7 +2299,7 @@ message TrafficSign
                 //
                 TYPE_ONEWAY_STREET = 187;
 
-                // Crossing guards
+                // Crossing guards.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 356.png </td>
@@ -2314,7 +2309,7 @@ message TrafficSign
                 //
                 TYPE_CROSSING_GUARDS = 189;
 
-                // Dead-end street
+                // Dead-end street.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 357.png </td>
@@ -2324,7 +2319,7 @@ message TrafficSign
                 //
                 TYPE_DEADEND = 190;
 
-                // Dead-end street excluding pedestrians and bicycles
+                // Dead-end street excluding pedestrians and bicycles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 357-50.png </td>
@@ -2348,7 +2343,7 @@ message TrafficSign
                 //
                 TYPE_DEADEND_EXCLUDING_DESIGNATED_ACTORS = 191;
 
-                // First aid station
+                // First aid station.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 358.png </td>
@@ -2358,7 +2353,7 @@ message TrafficSign
                 //
                 TYPE_FIRST_AID_STATION = 194;
 
-                // Police station
+                // Police station.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 363.png </td>
@@ -2368,7 +2363,7 @@ message TrafficSign
                 //
                 TYPE_POLICE_STATION = 195;
 
-                // Telephone service
+                // Telephone service.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-50.png </td>
@@ -2386,7 +2381,7 @@ message TrafficSign
                 //
                 TYPE_TELEPHONE = 196;
 
-                // Filling station
+                // Filling station.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-52.png </td>
@@ -2422,7 +2417,7 @@ message TrafficSign
                 //
                 TYPE_FILLING_STATION = 198;
 
-                // Highway hotel
+                // Highway hotel.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-55.png </td>
@@ -2432,7 +2427,7 @@ message TrafficSign
                 //
                 TYPE_HOTEL = 201;
 
-                // Highway inn
+                // Highway inn.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-56.png </td>
@@ -2442,7 +2437,7 @@ message TrafficSign
                 //
                 TYPE_INN = 202;
 
-                // Highway kiosk
+                // Highway kiosk.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-57.png </td>
@@ -2452,7 +2447,7 @@ message TrafficSign
                 //
                 TYPE_KIOSK = 203;
 
-                // Toilets
+                // Toilets.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-58.png </td>
@@ -2462,7 +2457,7 @@ message TrafficSign
                 //
                 TYPE_TOILET = 204;
 
-                // Highway chapel
+                // Highway chapel.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-59.png </td>
@@ -2472,7 +2467,7 @@ message TrafficSign
                 //
                 TYPE_CHAPEL = 205;
 
-                // Tourist information
+                // Tourist information.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-61.png </td>
@@ -2482,7 +2477,7 @@ message TrafficSign
                 //
                 TYPE_TOURIST_INFO = 206;
 
-                // Roadside assistance
+                // Roadside assistance.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-62.png </td>
@@ -2492,7 +2487,7 @@ message TrafficSign
                 //
                 TYPE_REPAIR_SERVICE = 207;
 
-                // Underpass for pedestrians
+                // Underpass for pedestrians.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-63.png </td>
@@ -2502,7 +2497,7 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIAN_UNDERPASS = 208;
 
-                // Pedestrian bridge
+                // Pedestrian bridge.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-64.png </td>
@@ -2512,7 +2507,7 @@ message TrafficSign
                 //
                 TYPE_PEDESTRIAN_BRIDGE = 209;
 
-                // Camper place
+                // Camper place.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 365-67.png </td>
@@ -2529,7 +2524,7 @@ message TrafficSign
                 //
                 TYPE_CAMPER_PLACE = 213;
 
-                // Advisory speed limit beginning
+                // Advisory speed limit beginning.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 380.png --> </td>
@@ -2541,7 +2536,7 @@ message TrafficSign
                 //
                 TYPE_ADVISORY_SPEED_LIMIT_BEGIN = 214;
 
-                // Advisory speed limit end
+                // Advisory speed limit end.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 381.png --> </td>
@@ -2565,7 +2560,7 @@ message TrafficSign
                 //
                 TYPE_PLACE_NAME = 216;
 
-                // Tourist attraction
+                // Tourist attraction.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 386.1.png </td>
@@ -2577,7 +2572,7 @@ message TrafficSign
                 //
                 TYPE_TOURIST_ATTRACTION = 217;
 
-                // Tourist route
+                // Tourist route.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 386.2.png </td>
@@ -2589,7 +2584,7 @@ message TrafficSign
                 //
                 TYPE_TOURIST_ROUTE = 218;
 
-                // Geographical area containing several tourist attractions
+                // Geographical area containing several tourist attractions.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 386.3.png </td>
@@ -2601,7 +2596,7 @@ message TrafficSign
                 //
                 TYPE_TOURIST_AREA = 219;
 
-                // Shoulder unsafe for multi-track motor vehicles
+                // Shoulder unsafe for multi-track motor vehicles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 388.png --> </td>
@@ -2612,7 +2607,7 @@ message TrafficSign
                 TYPE_SHOULDER_NOT_PASSABLE_MOTOR_VEHICLES = 220;
 
                 // Shoulder unsafe for vehicles with a permitted gross weight
-                // over 3.5 [t] and for tractors
+                // over 3.5 [t] and for tractors.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 389.png --> </td>
@@ -2622,7 +2617,7 @@ message TrafficSign
                 //
                 TYPE_SHOULDER_UNSAFE_TRUCKS_TRACTORS = 221;
 
-                // Toll highway beginning
+                // Toll highway beginning.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 390.png </td>
@@ -2632,7 +2627,7 @@ message TrafficSign
                 //
                 TYPE_TOLL_BEGIN = 222;
 
-                // Toll highway end
+                // Toll highway end.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 390.2.png </td>
@@ -2642,7 +2637,7 @@ message TrafficSign
                 //
                 TYPE_TOLL_END = 223;
 
-                // Toll road
+                // Toll road.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 391.png </td>
@@ -2652,7 +2647,7 @@ message TrafficSign
                 //
                 TYPE_TOLL_ROAD = 224;
 
-                // Customs post
+                // Customs post.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 392.png --> </td>
@@ -2662,7 +2657,7 @@ message TrafficSign
                 //
                 TYPE_CUSTOMS = 225;
 
-                // Information sign posted at international borders
+                // Information sign posted at international borders.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 393.png </td>
@@ -2673,7 +2668,7 @@ message TrafficSign
                 TYPE_INTERNATIONAL_BORDER_INFO = 226;
 
                 // Red band on lamp posts indicate that streetlight does not
-                // stay on all night
+                // stay on all night.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 394.png    <td> StVO 394
@@ -2683,7 +2678,7 @@ message TrafficSign
                 //
                 TYPE_STREETLIGHT_RED_BAND = 227;
 
-                // Federal Highway route number
+                // Federal Highway route number.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 401.png </td>
@@ -2693,7 +2688,7 @@ message TrafficSign
                 //
                 TYPE_FEDERAL_HIGHWAY_ROUTE_NUMBER = 228;
 
-                // Highway route number
+                // Highway route number.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 405.png </td>
@@ -2706,7 +2701,7 @@ message TrafficSign
                 TYPE_HIGHWAY_ROUTE_NUMBER = 229;
 
                 // Highway interchange number (exits, three and four-way
-                // interchanges)
+                // interchanges).
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 406-50.png <td> StVO 406-50
@@ -2718,7 +2713,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_INTERCHANGE_NUMBER = 230;
 
-                // European route number
+                // European route number.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 410.png </td>
@@ -2730,7 +2725,7 @@ message TrafficSign
                 //
                 TYPE_EUROPEAN_ROUTE_NUMBER = 231;
 
-                // Federal highway direction sign, left
+                // Federal highway direction sign, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 415-10.png </td>
@@ -2741,7 +2736,7 @@ message TrafficSign
                 //
                 TYPE_FEDERAL_HIGHWAY_DIRECTION_LEFT = 232;
 
-                // Federal highway direction sign, right
+                // Federal highway direction sign, right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 415-20.png --> </td>
@@ -2752,7 +2747,7 @@ message TrafficSign
                 //
                 TYPE_FEDERAL_HIGHWAY_DIRECTION_RIGHT = 233;
 
-                // Primary road direction sign, left
+                // Primary road direction sign, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 418-10.png </td>
@@ -2763,7 +2758,7 @@ message TrafficSign
                 //
                 TYPE_PRIMARY_ROAD_DIRECTION_LEFT = 234;
 
-                // Primary road direction sign, right
+                // Primary road direction sign, right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 418-20.png --> </td>
@@ -2774,7 +2769,7 @@ message TrafficSign
                 //
                 TYPE_PRIMARY_ROAD_DIRECTION_RIGHT = 235;
 
-                // Secondary road direction sign, left
+                // Secondary road direction sign, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 419-10.png </td>
@@ -2788,7 +2783,7 @@ message TrafficSign
                 //
                 TYPE_SECONDARY_ROAD_DIRECTION_LEFT = 236;
 
-                // Secondary road direction sign, right
+                // Secondary road direction sign, right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 419-20.png </td>
@@ -2802,7 +2797,7 @@ message TrafficSign
                 //
                 TYPE_SECONDARY_ROAD_DIRECTION_RIGHT = 237;
 
-                // Advance direction sign for designated type of vehicle, left
+                // Advance direction sign for designated type of vehicle, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 421-10.png <td> StVO 421-10
@@ -2814,7 +2809,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_DESIGNATED_ACTORS_LEFT = 238;
 
-                // Advance direction sign for designated type of vehicle, right
+                // Advance direction sign for designated type of vehicle, right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:scaleX(-1)"> \image html 421-10.png
@@ -2834,7 +2829,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_DESIGNATED_ACTORS_RIGHT = 239;
 
-                // Routing for designated type of vehicle, left
+                // Routing for designated type of vehicle, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 422-10.png <td> StVO 422-10
@@ -2917,7 +2912,7 @@ message TrafficSign
                 //
                 TYPE_ROUTING_DESIGNATED_ACTORS = 240;
 
-                // Direction to highway, left
+                // Direction to highway, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 430-10.png </td>
@@ -2928,7 +2923,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_TO_HIGHWAY_LEFT = 143;
 
-                // Direction to highway, right
+                // Direction to highway, right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 430-20.png --> </td>
@@ -2939,7 +2934,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_TO_HIGHWAY_RIGHT = 108;
 
-                // Direction sign to important local destinations, left
+                // Direction sign to important local destinations, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 432-10.png </td>
@@ -2953,7 +2948,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_TO_LOCAL_DESTINATION_LEFT = 127;
 
-                // Direction sign to important local destinations, right
+                // Direction sign to important local destinations, right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 432-20.png --> </td>
@@ -2967,7 +2962,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_TO_LOCAL_DESTINATION_RIGHT = 136;
 
-                // Consolidated direction sign
+                // Consolidated direction sign.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 434-50.png <td> StVO 434-50
@@ -2979,7 +2974,7 @@ message TrafficSign
                 //
                 TYPE_CONSOLIDATED_DIRECTIONS = 118;
 
-                // Street name sign
+                // Street name sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 437.png </td>
@@ -2991,7 +2986,7 @@ message TrafficSign
                 //
                 TYPE_STREET_NAME = 119;
 
-                // Direction preannouncement sign
+                // Direction preannouncement sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 438.png </td>
@@ -3001,7 +2996,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_PREANNOUNCEMENT = 120;
 
-                // Direction preannouncement sign including lane configuration
+                // Direction preannouncement sign including lane configuration.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 439.png </td>
@@ -3011,7 +3006,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_PREANNOUNCEMENT_LANE_CONFIG = 121;
 
-                // Direction preannouncement sign including highway entries
+                // Direction preannouncement sign including highway entries.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 440.png </td>
@@ -3021,7 +3016,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTION_PREANNOUNCEMENT_HIGHWAY_ENTRIES = 122;
 
-                // Highway announcement board
+                // Highway announcement board.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 448.png </td>
@@ -3037,7 +3032,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_ANNOUNCEMENT = 123;
 
-                // Announcement board on other roads outside of highways
+                // Announcement board on other roads outside of highways.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 448-50.png </td>
@@ -3052,7 +3047,7 @@ message TrafficSign
                 //
                 TYPE_OTHER_ROAD_ANNOUNCEMENT = 124;
 
-                // Announcement highway truck stop
+                // Announcement highway truck stop.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 448.1.png </td>
@@ -3062,7 +3057,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_ANNOUNCEMENT_TRUCK_STOP = 125;
 
-                // Highway interchange advance directional sign
+                // Highway interchange advance directional sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 449.png </td>
@@ -3072,7 +3067,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_PREANNOUNCEMENT_DIRECTIONS = 126;
 
-                // Pole indicating highways exit in ... [m]
+                // Pole indicating highways exit in ... [m].
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 450-50.png <td> StVO 450-50
@@ -3091,7 +3086,7 @@ message TrafficSign
                 //
                 TYPE_POLE_EXIT = 88;
 
-                // Highway distance board
+                // Highway distance board.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 453.png <td> StVO 453
@@ -3101,7 +3096,7 @@ message TrafficSign
                 //
                 TYPE_HIGHWAY_DISTANCE_BOARD = 180;
 
-                // Detour sign, pointing left
+                // Detour sign, pointing left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 454-10.png </td>
@@ -3112,7 +3107,7 @@ message TrafficSign
                 //
                 TYPE_DETOUR_LEFT = 181;
 
-                // Detour sign, pointing right
+                // Detour sign, pointing right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 454-20.png --> </td>
@@ -3123,7 +3118,7 @@ message TrafficSign
                 //
                 TYPE_DETOUR_RIGHT = 182;
 
-                // Numbered detour route
+                // Numbered detour route.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 455.1.png </td>
@@ -3138,7 +3133,7 @@ message TrafficSign
                 //
                 TYPE_NUMBERED_DETOUR = 131;
 
-                // Announcement; begin of detour
+                // Announcement; begin of detour.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 457.1.png </td>
@@ -3148,7 +3143,7 @@ message TrafficSign
                 //
                 TYPE_DETOUR_BEGIN = 132;
 
-                // End of detour
+                // End of detour.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 457.2.png </td>
@@ -3158,7 +3153,7 @@ message TrafficSign
                 //
                 TYPE_DETOUR_END = 133;
 
-                // Diversion routing board
+                // Diversion routing board.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 458.png </td>
@@ -3226,7 +3221,7 @@ message TrafficSign
                 //
                 TYPE_OPTIONAL_DETOUR = 111;
 
-                // Provisional diversion route schematic
+                // Provisional diversion route schematic.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 466.png </td>
@@ -3236,7 +3231,7 @@ message TrafficSign
                 //
                 TYPE_OPTIONAL_DETOUR_ROUTING = 241;
 
-                // Recommended alternate route
+                // Recommended alternate route.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 467.1-10.png </td>
@@ -3254,7 +3249,7 @@ message TrafficSign
                 //
                 TYPE_ROUTE_RECOMMENDATION = 211;
 
-                // End of recommended alternate route
+                // End of recommended alternate route.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 467.2.png </td>
@@ -3264,7 +3259,7 @@ message TrafficSign
                 //
                 TYPE_ROUTE_RECOMMENDATION_END = 212;
 
-                // X lanes transition, left
+                // X lanes transition, left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 501-10.png --> </td>
@@ -3299,7 +3294,7 @@ message TrafficSign
                 //
                 TYPE_ANNOUNCE_LANE_TRANSITION_LEFT = 192;
 
-                // X lanes transition, right
+                // X lanes transition, right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 501-20.png --> </td>
@@ -3398,8 +3393,7 @@ message TrafficSign
                 //
                 TYPE_ANNOUNCE_LEFT_LANE_BEGIN = 116;
 
-                // Announce lane consolidation
-                //
+                // Announce lane consolidation.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 551-20.png --> </td>
@@ -3435,7 +3429,7 @@ message TrafficSign
                 //
                 TYPE_ANNOUNCE_LANE_CONSOLIDATION = 117;
 
-                // Detour around city block
+                // Detour around city block.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 590-10.png </td>
@@ -3460,7 +3454,7 @@ message TrafficSign
                 //
                 TYPE_DETOUR_CITY_BLOCK = 142;
 
-                // Boom gate
+                // Boom gate.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 600-25.png </td>
@@ -3472,7 +3466,6 @@ message TrafficSign
 
                 // Pole for warning and guiding purposes
                 // (red/white stripes - StVO 605, also StVO 628 and StVO 629).
-                //
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 605-10.png <td> StVO 605
@@ -3505,7 +3498,7 @@ message TrafficSign
                 //
                 TYPE_POLE_WARNING = 91;
 
-                // Traffic cone
+                // Traffic cone.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 610-41.png </td>
@@ -3515,7 +3508,7 @@ message TrafficSign
                 //
                 TYPE_TRAFFIC_CONE = 140;
 
-                // Mobile lane closure board
+                // Mobile lane closure board.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 615.png </td>
@@ -3539,7 +3532,7 @@ message TrafficSign
                 //
                 TYPE_MOBILE_LANE_CLOSURE = 139;
 
-                // Reflector guide posts
+                // Reflector guide posts.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 620-40.png </td>
@@ -3594,7 +3587,7 @@ message TrafficSign
                 //
                 TYPE_DIRECTIONAL_BOARD_WARNING = 113;
 
-                // Guiding plate
+                // Guiding plate.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 626-10.png </td>
@@ -3611,7 +3604,7 @@ message TrafficSign
                 //
                 TYPE_GUIDING_PLATE = 104;
 
-                // Guiding plate, wedges
+                // Guiding plate, wedges.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 626-30.png </td>
@@ -3621,7 +3614,7 @@ message TrafficSign
                 //
                 TYPE_GUIDING_PLATE_WEDGES = 105;
 
-                // Parking hazard
+                // Parking hazard.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 630.png </td>
@@ -3636,7 +3629,7 @@ message TrafficSign
                 // </table>
                 TYPE_PARKING_HAZARD = 99;
 
-                // Green arrow sign at a traffic light
+                // Green arrow sign at a traffic light.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 720.png </td>
@@ -3730,7 +3723,7 @@ message TrafficSign
         //
         message Classification
         {
-            // Variability
+            // Variability.
             //
             optional Variability variability = 1;
 
@@ -3763,7 +3756,7 @@ message TrafficSign
             //
             repeated Actor actor = 5;
 
-            // A direction arrow shown on the supplementary sign
+            // A direction arrow shown on the supplementary sign.
             //
             repeated Arrow arrow = 6;
 
@@ -3796,7 +3789,7 @@ message TrafficSign
                 //
                 TYPE_NO_SIGN = 2;
 
-                // Text sign
+                // Text sign.
                 // \n
                 // Use it as a canvas for text-only signs
                 // - Use \c TrafficSignValue::value to indicate a numerical
@@ -4149,7 +4142,7 @@ message TrafficSign
                 //
                 TYPE_TEXT = 41;
 
-                // Text sign with distance indication
+                // Text sign with distance indication.
                 // \n
                 // Use it as a canvas for text signs that make
                 // reference to a point or area in space
@@ -4217,19 +4210,19 @@ message TrafficSign
                 // </table>
                 TYPE_SPACE = 39;
 
-                // Text sign with time indication
+                // Text sign with time indication.
                 // \n
                 // Use it as a canvas for text signs that make
-                // reference to a point in time or a time range
+                // reference to a point in time or a time range.
                 // - Use one or more \c TrafficSignValue messages to include
                 // the times indicated in the sign. Accompany each value with an
                 // indication of its unit of measure given by \c
-                // TrafficSignValue::value_unit, e.g. [h]
+                // TrafficSignValue::value_unit, e.g. [h].
                 // - For each \c TrafficSignValue, \c TrafficSignValue::value
-                // indicates the time elapsed since midnight every day
+                // indicates the time elapsed since midnight every day.
                 // - Use the \c TrafficSignValue::text member of the
                 // first \c TrafficSignValue message to indicate the sign's
-                // specific text
+                // specific text.
                 //
                 // \note
                 //  - Time interval need two \c TrafficSignValue messages,
@@ -4240,9 +4233,9 @@ message TrafficSign
                 //  the first interval, the \c TrafficSignValue::value member of
                 //  the second \c TrafficSignValue message is interpreted as the
                 //  end of the first interval, and so on.
-                // .
+                // 
                 // The following table summarizes possible configurations for
-                // this kind of supplementary signs
+                // this kind of supplementary signs.
                 //
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
@@ -4413,7 +4406,7 @@ message TrafficSign
                 //
                 TYPE_TIME = 26;
 
-                // A supplementary sign showing a direction alone
+                // A supplementary sign showing a direction alone.
                 // \n
                 // Use together with the message \c Classification::arrow. The
                 // following signs can be built <table cellspacing="0"
@@ -4482,7 +4475,7 @@ message TrafficSign
                 // regulation is constrained to \n Use as many members of the \c
                 // Actor enumerator as needed to denote the related traffic
                 // actors. \n The following tables summarize possible
-                // configurations for this kind of supplementary signs. \n
+                // configurations for this kind of supplementary signs. 
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <th> Image    </th>
@@ -5049,17 +5042,17 @@ message TrafficSign
                 TYPE_CONSTRAINED_TO = 46;
 
                 // The list of traffic actors for which the main sign's
-                // regulation does not apply or have a special driving allowance
+                // regulation does not apply or have a special driving allowance.
                 // \n
                 // Use as many members of the \c
                 // Actor enumerator as needed to denote the excepted traffic
-                // actors
+                // actors.
                 //
                 // \note
-                // In the German StVO, these signs include the word \"frei\"
+                // In the German StVO, these signs include the word \"frei\".
                 //
                 // The following table summarizes possible configurations for
-                // this kind of supplementary signs
+                // this kind of supplementary signs.
                 //
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
@@ -5473,7 +5466,7 @@ message TrafficSign
                 //
                 TYPE_EXCEPT = 45;
 
-                // Traffic sign is valid for a certain distance
+                // Traffic sign is valid for a certain distance.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 1001-30.png <td> StVO 1001-30
@@ -5491,7 +5484,7 @@ message TrafficSign
                 //
                 TYPE_VALID_FOR_DISTANCE = 3;
 
-                // Priority road from bottom to left in the intersection
+                // Priority road from bottom to left in the intersection.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1002-10.png </td>
@@ -5501,7 +5494,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_BOTTOM_LEFT_FOUR_WAY = 27;
 
-                // Priority road from top to left in the intersection
+                // Priority road from top to left in the intersection.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:scaleY(-1)"> \image html 1002-10.png
@@ -5511,7 +5504,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_TOP_LEFT_FOUR_WAY = 28;
 
-                // Priority road from bottom to left, junction from above
+                // Priority road from bottom to left, junction from above.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1002-12.png </td>
@@ -5521,7 +5514,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_BOTTOM_LEFT_THREE_WAY_STRAIGHT = 32;
 
-                // Priority road from bottom to left, junction from the right
+                // Priority road from bottom to left, junction from the right.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:scaleX(-1) rotate(-90deg)">
@@ -5532,8 +5525,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_BOTTOM_LEFT_THREE_WAY_SIDEWAYS = 33;
 
-                // Priority road from top to left, junction from below
-                // .
+                // Priority road from top to left, junction from below.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:scaleY(-1)">
@@ -5544,7 +5536,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_TOP_LEFT_THREE_WAY_STRAIGHT = 34;
 
-                // Priority road from bottom to right in the intersection
+                // Priority road from bottom to right in the intersection.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:rotate(270deg)">
@@ -5555,7 +5547,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_BOTTOM_RIGHT_FOUR_WAY = 29;
 
-                // Priority road from top to right in the intersection
+                // Priority road from top to right in the intersection.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:rotate(180deg)">
@@ -5566,7 +5558,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_TOP_RIGHT_FOUR_WAY = 31;
 
-                // Priority road from bottom to right, junction from above
+                // Priority road from bottom to right, junction from above.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:scaleX(-1)">
@@ -5577,7 +5569,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_BOTTOM_RIGHT_THREE_WAY_STRAIGHT = 35;
 
-                // Priority road from bottom to right, junction from the left
+                // Priority road from bottom to right, junction from the left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:rotate(-90deg)">
@@ -5588,7 +5580,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_BOTTOM_RIGHT_THREE_WAY_SIDEWAY = 36;
 
-                // Priority road from top to right, junction from below
+                // Priority road from top to right, junction from below.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td style="transform:rotate(180deg)">
@@ -5599,7 +5591,7 @@ message TrafficSign
                 //
                 TYPE_PRIORITY_ROAD_TOP_RIGHT_THREE_WAY_STRAIGHT = 37;
 
-                // Distance to the start of validity of the traffic sign
+                // Distance to the start of validity of the traffic sign.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1004-30.png <td> StVO 1004-30
@@ -5612,7 +5604,7 @@ message TrafficSign
                 // \note Deprecated. Use \c #TYPE_SPACE instead.
                 TYPE_VALID_IN_DISTANCE = 4;
 
-                // Stop in e.g. .. [m]
+                // Stop in e.g. .. [m].
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1004-32.png </td>
@@ -5670,7 +5662,7 @@ message TrafficSign
                 //
                 TYPE_RIGHT_BEND_ARROW = 14;
 
-                // Accident hazard
+                // Accident hazard.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 1006-31.png </td>
@@ -5682,7 +5674,7 @@ message TrafficSign
                 TYPE_ACCIDENT = 40;
 
                 // Restriction of the validity of the traffic sign to snowy /
-                // icy conditions
+                // icy conditions.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> <!-- \image html 1007-30.png --> </td>
@@ -5711,7 +5703,7 @@ message TrafficSign
                 //
                 TYPE_FOG = 8;
 
-                // Information on rolling highway
+                // Information on rolling highway.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1010-14.png </td>
@@ -5721,7 +5713,7 @@ message TrafficSign
                 //
                 TYPE_ROLLING_HIGHWAY_INFORMATION = 48;
 
-                // Information about services
+                // Information about services.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1010-15.png </td>
@@ -5731,7 +5723,7 @@ message TrafficSign
                 //
                 TYPE_SERVICES = 47;
 
-                // Time range for validity of traffic sign
+                // Time range for validity of traffic sign.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 1040-30.png <td> StVO 1040-30
@@ -5757,7 +5749,7 @@ message TrafficSign
                 //
                 TYPE_TIME_RANGE = 5;
 
-                // Parking disc restrictions
+                // Parking disc restrictions.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1040-32.png </td>
@@ -5782,7 +5774,7 @@ message TrafficSign
                 TYPE_PARKING_DISC_TIME_RESTRICTION = 43;
 
                 // Restriction of the validity of the traffic sign depending on
-                // the vehicle's weight
+                // the vehicle's weight.
                 // <table border="0">
                 // <tr>
                 //   <td> \image html 1053-33.png <td> StVO 1053-33
@@ -5796,7 +5788,7 @@ message TrafficSign
                 // weight.
                 TYPE_WEIGHT = 6;
 
-                // If "wet surface"
+                // If "wet surface".
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1053-35.png </td>
@@ -5806,8 +5798,7 @@ message TrafficSign
                 //
                 TYPE_WET = 44;
 
-                // Parking constraints
-                // .
+                // Parking constraints.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1053-38.png </td>
@@ -5823,7 +5814,7 @@ message TrafficSign
                 //
                 TYPE_PARKING_CONSTRAINT = 42;
 
-                // No parking, also on verges/shoulder
+                // No parking, also on verges/shoulder.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <td> \image html 1060-31.png </td>
@@ -5836,7 +5827,7 @@ message TrafficSign
                 // Restriction of the validity of the traffic sign to wet /
                 // rainy conditions.
                 //
-                // (No German StVO-Nr., Austrian StVO 1960 supplementary sign g)
+                // (No German StVO-Nr., Austrian StVO 1960 supplementary sign g).
                 //
                 TYPE_RAIN = 7;
 
@@ -5857,44 +5848,44 @@ message TrafficSign
                 //
                 TYPE_STOP_4_WAY = 21;
 
-                // Trucks
+                // Trucks.
                 // \n
-                // \note Deprecated. Use the message \c Actor instead
+                // \note Deprecated. Use the message \c Actor instead.
                 TYPE_TRUCK = 15;
 
-                // Tractors may be passed
+                // Tractors may be passed.
                 // \n
-                // \note Deprecated. Use the message \c Actor instead
+                // \note Deprecated. Use the message \c Actor instead.
                 TYPE_TRACTORS_MAY_BE_PASSED = 16;
 
-                // Vehicles transporting hazardous goods
+                // Vehicles transporting hazardous goods.
                 // \n
-                // \note Deprecated. Use the message \c Actor instead
+                // \note Deprecated. Use the message \c Actor instead.
                 TYPE_HAZARDOUS = 17;
 
-                // Trailers
+                // Trailers.
                 // \n
-                // \note Deprecated. Use the message \c Actor instead
+                // \note Deprecated. Use the message \c Actor instead.
                 TYPE_TRAILER = 18;
 
-                // Zone
+                // Zone.
                 // \n
                 // \note Deprecated.
                 TYPE_ZONE = 20;
 
-                // Motorcycles
+                // Motorcycles.
                 // \n
-                // \note Deprecated. Use the message \c Actor instead
+                // \note Deprecated. Use the message \c Actor instead.
                 TYPE_MOTORCYCLE = 22;
 
-                // Motorcycles allowed
+                // Motorcycles allowed.
                 // \n
-                // \note Deprecated. Use the message \c Actor instead
+                // \note Deprecated. Use the message \c Actor instead.
                 TYPE_MOTORCYCLE_ALLOWED = 23;
 
-                // Cars
+                // Cars.
                 // \n
-                // \note Deprecated. Use the message \c Actor instead
+                // \note Deprecated. Use the message \c Actor instead.
                 TYPE_CAR = 24;
 
                 // last_counter = 48
@@ -6138,80 +6129,80 @@ message TrafficSign
                     DIRECTION_NO_DIRECTION = 2;
 
                     // An arrow pointing straight ahead in the direction of
-                    // driving
+                    // driving.
                     //
                     DIRECTION_DIRECT_0_DEG = 3;
 
                     // A straight arrow pointing 45 degrees to the right in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_DIRECT_45_DEG_RIGHT = 4;
 
                     // A straight arrow pointing 45 degrees to the left in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_DIRECT_45_DEG_LEFT = 5;
 
                     // A straight arrow pointing 90 degrees to the right in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_DIRECT_90_DEG_RIGHT = 6;
 
                     // A straight arrow pointing 90 degrees to the left in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_DIRECT_90_DEG_LEFT = 7;
 
                     // A straight arrow pointing 135 degrees to the right in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_DIRECT_135_DEG_RIGHT = 8;
 
                     // A straight arrow pointing 135 degrees to the left in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_DIRECT_135_DEG_LEFT = 9;
 
                     // A straight arrow pointing oposite to the direction of
-                    // driving
+                    // driving.
                     //
                     DIRECTION_DIRECT_180_DEG = 10;
 
                     // A curved arrow pointing 45 degrees to the right in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_TURN_45_DEG_RIGHT = 11;
 
                     // A curved arrow pointing 45 degrees to the left in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_TURN_45_DEG_LEFT = 12;
 
                     // A curved arrow pointing 90 degrees to the right in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_TURN_90_DEG_RIGHT = 13;
 
                     // A curved arrow pointing 90 degrees to the left in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_TURN_90_DEG_LEFT = 14;
 
                     // A curved arrow pointing 135 degrees to the right in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_TURN_135_DEG_RIGHT = 15;
 
                     // A curved arrow pointing 135 degrees to the left in the
-                    // direction of driving
+                    // direction of driving.
                     //
                     DIRECTION_TURN_135_DEG_LEFT = 16;
 
-                    // A u-turn arrow towards the right
+                    // A u-turn arrow towards the right.
                     //
                     DIRECTION_TURN_180_DEG_RIGHT = 17;
 
-                    // A u-turn arrow towards the left
+                    // A u-turn arrow towards the left.
                     //
                     DIRECTION_TURN_180_DEG_LEFT = 18;
 
