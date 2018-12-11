@@ -279,7 +279,7 @@ message LongitudinalControl
     // The timegap describes the minimumdistance to the next vehicle in front.
     // In [s].
     //
-    optional bool timegap = 3;
+    optional double timegap = 3;
 }
 
 //
