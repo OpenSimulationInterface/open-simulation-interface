@@ -1462,8 +1462,8 @@ message TrafficSign
                 TYPE_VEHICLES_AXLE_OVER_WEIGHT_PROHIBITED = 166;
 
                 // Horizontal clearance (entry prohibited for vehicles wider
-                // than the width shown). <table cellspacing="0" cellpadding="0">
-                // <tr>
+                // than the width shown). <table cellspacing="0"
+                // cellpadding="0"> <tr>
                 //   <td> \image html "264-2,3.png" </td>
                 //   <td> StVO 264 </td>
                 // </tr>
@@ -1530,9 +1530,8 @@ message TrafficSign
                 //
                 TYPE_WATER_POLLUTANT_VEHICLES_PROHIBITED = 171;
 
-                // Start of area without traffic to reduce harmful air pollution.
-                // <table cellspacing="0" cellpadding="0">
-                // <tr>
+                // Start of area without traffic to reduce harmful air
+                // pollution. <table cellspacing="0" cellpadding="0"> <tr>
                 //   <td> \image html 270.1.png </td>
                 //   <td> StVO 270.1 </td>
                 // </tr>
@@ -4233,7 +4232,7 @@ message TrafficSign
                 //  the first interval, the \c TrafficSignValue::value member of
                 //  the second \c TrafficSignValue message is interpreted as the
                 //  end of the first interval, and so on.
-                // 
+                //
                 // The following table summarizes possible configurations for
                 // this kind of supplementary signs.
                 //
@@ -4475,7 +4474,7 @@ message TrafficSign
                 // regulation is constrained to \n Use as many members of the \c
                 // Actor enumerator as needed to denote the related traffic
                 // actors. \n The following tables summarize possible
-                // configurations for this kind of supplementary signs. 
+                // configurations for this kind of supplementary signs.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 //   <th> Image    </th>
@@ -5042,11 +5041,9 @@ message TrafficSign
                 TYPE_CONSTRAINED_TO = 46;
 
                 // The list of traffic actors for which the main sign's
-                // regulation does not apply or have a special driving allowance.
-                // \n
-                // Use as many members of the \c
-                // Actor enumerator as needed to denote the excepted traffic
-                // actors.
+                // regulation does not apply or have a special driving
+                // allowance. \n Use as many members of the \c Actor enumerator
+                // as needed to denote the excepted traffic actors.
                 //
                 // \note
                 // In the German StVO, these signs include the word \"frei\".
@@ -5827,7 +5824,8 @@ message TrafficSign
                 // Restriction of the validity of the traffic sign to wet /
                 // rainy conditions.
                 //
-                // (No German StVO-Nr., Austrian StVO 1960 supplementary sign g).
+                // (No German StVO-Nr., Austrian StVO 1960 supplementary sign
+                // g).
                 //
                 TYPE_RAIN = 7;
 
