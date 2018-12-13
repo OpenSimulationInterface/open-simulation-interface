@@ -19,7 +19,7 @@ message FunctionStates
 {
     // States of an ADAS-Function (SAE Level 3).
     //
-    optional AdasSAELevel3 adas_sae_level_3 = 1;
+    optional AdasSAELevel3 adas_saelevel3 = 1;
 
     // States of the longitudinal control.
     //
@@ -33,19 +33,15 @@ message FunctionStates
     //
     optional EmergencyBrakeAssistant emergency_brake_assistant = 4;
 
-    // State of an ADAS-Function (SAE Level 3).
-    //
-    optional bool pilot_level3_state = 5;
-
     // Request that the driver has to take over.
     // 0=Off; 1=On
     //
-    optional bool driver_take_over_request = 6;
+    optional bool driver_take_over_request = 5;
 
     // Color of the steering wheel (e.g. to show the driving mode).
     // See osi_common_extension.
     // 
-    optional ColorformatRGB steering_wheel_lighting_color = 7;
+    optional ColorformatRGB steering_wheel_lighting_color = 6;
 
     // Requested state of the blindspot-lights (often in the side mirrors).
     //
