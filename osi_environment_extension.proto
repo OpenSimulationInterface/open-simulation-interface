@@ -5,7 +5,8 @@ option optimize_for = SPEED;
 package osi3;
 
 //
-// \brief Just a small extension.
+// \brief Just a small extension of osi_environment, so this is not a standalone .proto.
+// It was thought to be one, but this changed.
 //
 message Environment
 {
