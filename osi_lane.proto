@@ -71,7 +71,8 @@ message Lane
         // or less (depending on the situation, a little more to the left or
         // right of the center line). The intended direction of travel on the
         // lane is given by the direction defined by the sequence of points
-        // forming the \c #centerline w.r.t. \c #centerline_is_driving_direction.
+        // forming the \c #centerline w.r.t. \c
+        // #centerline_is_driving_direction.
         //
         // \note The \c #centerline is defined only for \c #type =
         // \c #TYPE_DRIVING and one \c #lane_pairing pair.
