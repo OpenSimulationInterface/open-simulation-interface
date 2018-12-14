@@ -130,8 +130,6 @@ message TrafficSignValue
 //
 // \brief A traffic sign.
 //
-// \image html OSI_TrafficSigns.jpg
-//
 // All coordinates and orientations are relative to the global ground truth
 // coordinate system.
 //
@@ -155,7 +153,7 @@ message TrafficSign
     //
     // \brief Main sign of the traffic sign.
     //
-    // \image html OSI_MainTrafficSign.jpg
+    // \image html OSI_MainSign.svg
     //
     message MainSign
     {
@@ -179,6 +177,8 @@ message TrafficSign
 
         //
         // \brief \c Classification data for a traffic sign.
+        //
+        // \image html OSI_DirectionScope.svg
         //
         message Classification
         {
@@ -1027,7 +1027,7 @@ message TrafficSign
     //
     // \brief Additional supplementary sign modifying the main sign.
     //
-    // \image html OSI_SuppSign.jpg
+    // \image html OSI_SupplementarySign.svg
     //
     message SupplementarySign
     {

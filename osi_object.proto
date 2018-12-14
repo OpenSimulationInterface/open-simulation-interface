@@ -11,7 +11,7 @@ package osi3;
 // \c MovingObject e.g. pedestrian, animal, or vehicle) nor a traffic related
 // object (\c TrafficLight, \c TrafficSign).
 //
-// \image html OSI_StatObject.jpg
+// \image html OSI_BaseStationary.svg
 //
 // \c StationaryObject excludes traffic lights, traffic signs and road marking
 //
@@ -260,6 +260,10 @@ message StationaryObject
 // \brief A simulated object that is either a vehicle or another
 // moving object (animal, pedestrian, etc), but not a stationary
 // object (\c TrafficLight, \c TrafficSign, or \c StationaryObject).
+//
+// \image html OSI_MovingObject.svg
+//
+// \image html OSI_HostVehicle.svg
 //
 // \note The field \c MovingObject::vehicle_extension has to be
 // filled if the \c MovingObject::Type is a vehicle.

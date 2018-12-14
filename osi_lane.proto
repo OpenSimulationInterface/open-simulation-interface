@@ -15,7 +15,9 @@ package osi3;
 // l4 in image HighwayExit is used  as reference if not mentioned otherwise.
 //
 // <table border=0>
-//   <tr> <td> \image html OSI_Lane.jpg "HighwayExit" width=650px
+//   <tr> <td> \image html OSI_Highway_Exit.svg "" width=550px
+//        <td> \image html OSI_LaneIntersection.svg "" width=550px
+//   <tr> <td> \image html OSI_Highway_Exit.jpg "HighwayExit" width=650px
 //        <td> \image html OSI_LaneIntersection.jpg "Intersection" width=650px
 // </table>
 //
@@ -43,8 +45,9 @@ message Lane
     //
     // <table border = 0>
     // <tr>
-    //   <td> \anchor HighwayExit \image html OSI_LaneClassification.jpg
-    //   "HighwayExit" width=800px </td> <td> <table border=0>
+    //   <td> \anchor HighwayExit
+    // \image html OSI_LaneClassification.jpg "HighwayExit" width=800px
+    //   </td> <td> <table border=0>
     //          <tr> <td> <b> \c Classification for lane l4 in image
     //          HighwayExit: </b> <tr> <td> \c #type = \c #TYPE_DRIVING <tr>
     //          <td> \c #centerline = (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5) <tr>
@@ -56,8 +59,9 @@ message Lane
     //        </table>
     //   </td>
     // </tr>
-    // <tr><td> \anchor Intersection \image html OSI_LaneIntersection.jpg
-    // "Intersection" width=800px </td>
+    // <tr><td> \anchor Intersection
+    // \image html OSI_LaneIntersection.jpg "Intersection" width=800px
+    // </td>
     //   <td> <table border=0>
     //          <tr> <td> <b> \c Classification for lane l7 in image
     //          Intersection: </b> </td> </tr> <tr> <td> \c #type = \c
@@ -111,8 +115,8 @@ message Lane
         // simulation environment internally) must not exceed 5cm. As shown in
         // the following image:
         //
-        // \image html line_approximation_error.png "Approximation error as
-        // green line."
+        // \image html line_approximation_error.svg "Approximation error"
+        // Approximation error green line.
         //
         // \note The center line is the line that a typical vehicle follows more
         // or less (depending on the situation, a little more to the left or
@@ -267,6 +271,8 @@ message Lane
             // An intersection as a lane.
             // Example: Lane with ID l7 in image \ref Intersection.
             //
+            //  \image html OSI_X-Junction.svg "" width=600px
+            //
             TYPE_INTERSECTION = 4;
         }
 
@@ -358,7 +364,7 @@ message Lane
         // \brief The lane ID pairings of antecessor and successor lanes.
         //
         // <table border = 0>
-        //   <tr><td> \image html OSI_LanePairing.jpg width=600px </td>
+        //   <tr><td> \image html OSI_LaneIntersection.svg "" width=600px </td>
         //       <td> <table border=0>
         //          <tr> <td> <b> \c LanePairing for lane l7: </b> </td> </tr>
         //          <tr> <td>  <table border = 0>
@@ -397,15 +403,15 @@ message Lane
 // across multiple lanes may be defined multiple times for all affected lanes.
 //
 // <table border=0>
-//   <tr> <td> \image html OSI_LaneBoundary.jpg width=900px
+//   <tr> <td> \image html OSI_LaneBoundary.svg "" width=800px
+//   </tr>
+//   <tr> <td> \image html OSI_LaneBoundary.jpg "LaneBoundary" width=900px
 //   </tr>
 // </table>
 //
 // \note In the example, the symbols l1, l2, ... and lb1, lb2, ...
 //       stand for the lane ids and lane boundary ids respectively, i.e. for
-//       integers (uint64). The symbols cl1, cl2, ... represent the
-//       osi3::Lane::Classification::centerline elements of the lanes with
-//       the respective ids. The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
+//       integers (uint64). The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
 //       for \c #osi3::LaneBoundary::BoundaryPoint elements.
 //
 message LaneBoundary
@@ -446,7 +452,7 @@ message LaneBoundary
     //
     // \brief A single point of a lane boundary.
     //
-    // \image html OSI_LaneBoundary.jpg width=800px
+    // \image html OSI_LaneBoundary.jpg "" width=800px
     //
     // The lane boundary point bp2_{i} is one of the points of lane boundary
     // lb2.
@@ -468,7 +474,7 @@ message LaneBoundary
         // \c BoundaryPoint .
         // Used for lines forming lane markings.
         //
-        // \image html OSI_LaneBoundaryWidth.jpg width=300px
+        // \image html OSI_LaneBoundaryWidth.svg "" width=600px
         //
         // \note Field need not be set if it is defined previous.
         // See \c LaneBoundary.
@@ -479,7 +485,7 @@ message LaneBoundary
         // \c BoundaryPoint .
         // Used for guard rails, curbstone, or similar.
         //
-        // \image html OSI_LaneBoundaryHeight.jpg width=300px
+        // \image html OSI_LaneBoundaryHeight.svg "" width=600px
         //
         // \note Field need not be set if it is previously defined.
         // See \c LaneBoundary .
@@ -515,7 +521,14 @@ message LaneBoundary
     //                     </table> </td> </tr>
     //           </table>
     //       </td>
-    //     <td> \image html OSI_LaneBoundaryClassification.jpg width=700px </td>
+    //     <td>
+    //       <table border=0>
+    //          <tr> <td>
+    // \image html OSI_LaneIntersection.svg "" width=500px
+    //     </td> <tr> <td>
+    // \image html OSI_LaneBoundaryClassification.jpg "" width=600px
+    //     </td>
+    //     </table> </td>
     //   </tr>
     // </table>
     //
