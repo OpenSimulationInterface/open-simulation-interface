@@ -1,6 +1,7 @@
 var searchData=
 [
   ['main_5fsign',['main_sign',['../structosi3_1_1DetectedTrafficSign.html#add2780cd12b4c4b67e820f04d32db927',1,'osi3::DetectedTrafficSign::main_sign()'],['../structosi3_1_1TrafficSign.html#ac5df9ce9ecf42f190e3f4b0cf2d29a12',1,'osi3::TrafficSign::main_sign()']]],
+  ['map_5freference',['map_reference',['../structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e',1,'osi3::GroundTruth']]],
   ['material',['material',['../structosi3_1_1StationaryObject_1_1Classification.html#af7041eb960ee28815dbf9ca469f65832',1,'osi3::StationaryObject::Classification']]],
   ['max_5fnumber_5fof_5finteractions',['max_number_of_interactions',['../structosi3_1_1RadarSensorViewConfiguration.html#ac63f51438a226eeb48b3e34c6a8b62da',1,'osi3::RadarSensorViewConfiguration::max_number_of_interactions()'],['../structosi3_1_1LidarSensorViewConfiguration.html#a8320df0e97a09b909f326fde8db60a0c',1,'osi3::LidarSensorViewConfiguration::max_number_of_interactions()']]],
   ['max_5frange',['max_range',['../structosi3_1_1UltrasonicDetectionSpecificHeader.html#a8609fb5f62d6d2e2d8c95bfba5c4eadf',1,'osi3::UltrasonicDetectionSpecificHeader']]],
