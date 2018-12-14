@@ -8,8 +8,8 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief Interface for sensor data, in contrast to interpreted data after
-// object hypothesis and tracking.
+// \brief Interface for sensor data containing information without a history
+// in contrast to interpreted data after object hypothesis and tracking.
 //
 // All information regarding the environment is given with respect to the sensor
 // coordinate system specified in \c SensorDetectionHeader::mounting_position.
@@ -40,8 +40,9 @@ message FeatureData
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    // \note Required for ultrasonic sensors. Detections will be send by the
-    // sending ultrasonic sensor, including all indirect detections.
+    // \note Required for ultrasonic sensors: Detections will be send by the
+    // emitting ultrasonic sensor, including all indirect detections received
+    // by neighbouring sensors.
     //
     repeated UltrasonicDetectionData ultrasonic_sensor = 4;
 }
@@ -62,7 +63,7 @@ message SensorDetectionHeader
     optional Timestamp measurement_time = 1;
 
     // Monotonous counter to identify the exact cycle.
-    // Generally the detection function is called periodic and
+    // In general the detection function is called periodically and
     // \c #cycle_counter corresponds to the number of periods.
     //
     optional uint64 cycle_counter = 2;
@@ -121,11 +122,10 @@ message SensorDetectionHeader
     optional Identifier sensor_id = 7;
 
     // The extended qualifier describes the reason (not the effect) why the
-    // event data qualifier \c #data_qualifier, is reduced or not available.
+    // event data qualifier, \c #data_qualifier, is reduced or not available.
     //
     optional ExtendedQualifier extended_qualifier = 8;
-
-    //
+    
     // Data qualifier communicates the overall availability of the
     // interface.
     //
@@ -164,9 +164,8 @@ message SensorDetectionHeader
         DATA_QUALIFIER_INVALID = 7;
     }
 
-    //
-    // Extended qualifier describes the reason (not the effect) why the event
-    // data qualifier \c #data_qualifier, is reduced or not available.
+    // The extended qualifier describes the reason (not the effect) why the event
+    // data qualifier, \c #data_qualifier, is reduced or not available.
     //
     enum ExtendedQualifier
     {
@@ -249,6 +248,8 @@ message RadarDetection
     // Existence probability of the detection not based on history. Value does
     // not depend on any past experience with similar detections.
     //
+    // Range: [0.0, 1.0]
+    //
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
@@ -260,7 +261,7 @@ message RadarDetection
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in the
+    // Measured position of the detection given in spherical coordinates in the
     // sensor coordinate system.
     //
     optional Spherical3d position = 3;
@@ -296,6 +297,8 @@ message RadarDetection
     // Describes the possibility whether more than one object may have led to
     // this detection.
     //
+    // Range: [0.0, 1.0]
+    //
     optional double point_target_probability = 9;
 
     // Ambiguity Information:
@@ -303,9 +306,10 @@ message RadarDetection
     // indicated by an identical ambiguity ID.
     //
     // \note Unambiguous measurements have the ambiguity ID 0.
-    // \note Multiple seperate detections from e.g. a large object do not
-    // on their own necessarily create any ambiguity, i.e. they do not
-    // usually share an an ambiguity ID.  They can however be ambiguous
+    //
+    // \note Multiple seperate detections, from e.g. a large object, do not
+    // necessarily on their own create any ambiguity. Therefore they do not
+    // usually share an ambiguity ID. They can however be ambiguous
     // with other detections.
     //
     optional Identifier ambiguity_id = 10;
@@ -339,6 +343,8 @@ message LidarDetection
     // Existence probability of the detection not based on history. Value does
     // not depend on any past experience with similar detections.
     //
+    // Range: [0.0, 1.0]
+    //
     // \note Used as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
@@ -350,7 +356,7 @@ message LidarDetection
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in the
+    // Measured position of the detection given in spherical coordinates in the
     // sensor coordinate system.
     //
     optional Spherical3d position = 3;
@@ -359,8 +365,8 @@ message LidarDetection
     //
     optional Spherical3d position_rmse = 4;
 
-    // Height value, which is required when multiple scan points are vertically
-    // clustered. Only vertical clustering is allowed (z-axis).
+    // The height value which is required when multiple scan points are
+    // vertically clustered. Only vertical clustering is allowed (z-axis).
     //
     // Unit: [m]
     //
@@ -389,7 +395,7 @@ message LidarDetection
     //
     optional DetectionClassification classification = 9;
 
-    // Lambertian reflectivity
+    // Lambertian reflectivity.
     //
     optional double reflectivity = 10;
 }
@@ -406,7 +412,7 @@ message UltrasonicDetectionSpecificHeader
     optional double max_range = 1;
 
     // The current number of valid indirect detections in the detections list.
-    // The detections are measured with a virtual sensor (i.e. sender and
+    // The detections are measured by a virtual sensor (i.e. sender and
     // receiver are different sensors).
     //
     // \note This value has to be set if the list contains invalid detections.
@@ -416,17 +422,20 @@ message UltrasonicDetectionSpecificHeader
 
 //
 // \brief Data from one ultrasonic sensor including a list of detections.
-// This list is generated by the sending ultrasonic sensor. Indirect received
+// This list is generated by the sending ultrasonic sensor. Indirectly received
 // signals from other ultrasonic sensors are included in this message.
 //
 // Direct detections:
 //
 // Sending: Ultrasonic Sensor ID 1
+// Receiving: Ultrasonic Sensor ID 1
+// \image html OSI_USSensor_direct.png
 //
-// Receiving: Ultrasonic Sensor ID 1 (direct), Ultrasonic Sensor ID 2
-// (indirect), Ultrasonic Sensor ID 3 (indirect)
+// Indirect detections:
 //
-// \image html OSI_USSensor.svg
+// Sending: Ultrasonic Sensor ID 1
+// Receiving: Ultrasonic Sensor ID 2 or/and 3
+// \image html OSI_USSensor_indirect.png
 //
 message UltrasonicDetectionData
 {
@@ -460,15 +469,15 @@ message UltrasonicDetectionData
 // Direct detections:
 //
 // Sending: Ultrasonic Sensor ID 1
-//
 // Receiving: Ultrasonic Sensor ID 1
-//
-// \image html OSI_USSensor_direct.svg
+// \image html OSI_USSensor_direct.png
 //
 message UltrasonicDetection
 {
     // Existence probability of the detection not based on history. Value does
     // not depend on any past experience with similar detections.
+    //
+    // Range: [0.0, 1.0]
     //
     // \note Used as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
@@ -495,15 +504,15 @@ message UltrasonicDetection
 // Indirect detections:
 //
 // Sending: Ultrasonic Sensor ID 1
-//
 // Receiving: Ultrasonic Sensor ID 2 or/and 3
-//
-// \image html OSI_USSensor_indirect.svg
+// \image html OSI_USSensor_indirect.png
 //
 message UltrasonicIndirectDetection
 {
     // Existence probability of the detection not based on history. Value does
     // not depend on any past experience with similar detections.
+    //
+    // Range: [0.0, 1.0]
     //
     // \note Used as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
@@ -539,7 +548,6 @@ message UltrasonicIndirectDetection
     optional Vector3d receiver_origin = 6;
 }
 
-//
 // Definition of a basic detection classifications.
 //
 enum DetectionClassification
