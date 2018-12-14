@@ -422,14 +422,11 @@ message UltrasonicDetectionSpecificHeader
 // Direct detections:
 //
 // Sending: Ultrasonic Sensor ID 1
-// Receiving: Ultrasonic Sensor ID 1
-// \image html OSI_USSensor_direct.png
 //
-// Indirect detections:
+// Receiving: Ultrasonic Sensor ID 1 (direct), Ultrasonic Sensor ID 2
+// (indirect), Ultrasonic Sensor ID 3 (indirect)
 //
-// Sending: Ultrasonic Sensor ID 1
-// Receiving: Ultrasonic Sensor ID 2 or/and 3
-// \image html OSI_USSensor_indirect.png
+// \image html OSI_USSensor.svg
 //
 message UltrasonicDetectionData
 {
@@ -463,8 +460,10 @@ message UltrasonicDetectionData
 // Direct detections:
 //
 // Sending: Ultrasonic Sensor ID 1
+//
 // Receiving: Ultrasonic Sensor ID 1
-// \image html OSI_USSensor_direct.png
+//
+// \image html OSI_USSensor_direct.svg
 //
 message UltrasonicDetection
 {
@@ -496,8 +495,10 @@ message UltrasonicDetection
 // Indirect detections:
 //
 // Sending: Ultrasonic Sensor ID 1
+//
 // Receiving: Ultrasonic Sensor ID 2 or/and 3
-// \image html OSI_USSensor_indirect.png
+//
+// \image html OSI_USSensor_indirect.svg
 //
 message UltrasonicIndirectDetection
 {
