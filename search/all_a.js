@@ -2,7 +2,7 @@ var searchData=
 [
   ['main_5fsign',['main_sign',['../structosi3_1_1DetectedTrafficSign.html#add2780cd12b4c4b67e820f04d32db927',1,'osi3::DetectedTrafficSign::main_sign()'],['../structosi3_1_1TrafficSign.html#ac5df9ce9ecf42f190e3f4b0cf2d29a12',1,'osi3::TrafficSign::main_sign()']]],
   ['mainsign',['MainSign',['../structosi3_1_1TrafficSign_1_1MainSign.html',1,'osi3::TrafficSign']]],
-  ['material',['Material',['../structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4',1,'osi3::StationaryObject::Classification::Material()'],['../structosi3_1_1StationaryObject_1_1Classification.html#af7041eb960ee28815dbf9ca469f65832',1,'osi3::StationaryObject::Classification::material()']]],
+  ['material',['material',['../structosi3_1_1StationaryObject_1_1Classification.html#af7041eb960ee28815dbf9ca469f65832',1,'osi3::StationaryObject::Classification::material()'],['../structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4',1,'osi3::StationaryObject::Classification::Material()']]],
   ['material_5fconcrete',['MATERIAL_CONCRETE',['../structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4ac02c570046810c81a71d358fd57111ac',1,'osi3::StationaryObject::Classification']]],
   ['material_5fglas',['MATERIAL_GLAS',['../structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a9b7b0c2a85c54037c848a221e32c303d',1,'osi3::StationaryObject::Classification']]],
   ['material_5fmetal',['MATERIAL_METAL',['../structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a8182937780718e0db0de8be97e581336',1,'osi3::StationaryObject::Classification']]],
@@ -13,6 +13,8 @@ var searchData=
   ['material_5funknown',['MATERIAL_UNKNOWN',['../structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a9d881ed34e57899fd95299993f7ec1fe',1,'osi3::StationaryObject::Classification']]],
   ['material_5fwood',['MATERIAL_WOOD',['../structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a473b09acad506f1492cc4845b927ec0e',1,'osi3::StationaryObject::Classification']]],
   ['max_5fnumber_5fof_5finteractions',['max_number_of_interactions',['../structosi3_1_1RadarSensorViewConfiguration.html#ac63f51438a226eeb48b3e34c6a8b62da',1,'osi3::RadarSensorViewConfiguration::max_number_of_interactions()'],['../structosi3_1_1LidarSensorViewConfiguration.html#a8320df0e97a09b909f326fde8db60a0c',1,'osi3::LidarSensorViewConfiguration::max_number_of_interactions()']]],
+  ['max_5frange',['max_range',['../structosi3_1_1UltrasonicDetectionSpecificHeader.html#a8609fb5f62d6d2e2d8c95bfba5c4eadf',1,'osi3::UltrasonicDetectionSpecificHeader']]],
+  ['maximum_5fmeasurement_5fdistance_5fsensor',['maximum_measurement_distance_sensor',['../structosi3_1_1UltrasonicSpecificObjectData.html#a3624cf06ea54e19d95aed5b12764b2a6',1,'osi3::UltrasonicSpecificObjectData']]],
   ['measurement_5fstate',['measurement_state',['../structosi3_1_1DetectedItemHeader.html#a5556c0f162259f9ee834056b8f867726',1,'osi3::DetectedItemHeader']]],
   ['measurement_5fstate_5fmeasured',['MEASUREMENT_STATE_MEASURED',['../structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078af1c7aa4e3a4fc4a5865e632eb7e33ed7',1,'osi3::DetectedItemHeader']]],
   ['measurement_5fstate_5fother',['MEASUREMENT_STATE_OTHER',['../structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078a7a78875601e1f5ad28305cf27afdec55',1,'osi3::DetectedItemHeader']]],

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['seat',['Seat',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6',1,'osi3::Occupant::Classification']]],
-  ['steeringcontrol',['SteeringControl',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4eca',1,'osi3::Occupant::Classification']]]
+  ['referencepoint',['ReferencePoint',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602a',1,'osi3::DetectedMovingObject']]]
 ];

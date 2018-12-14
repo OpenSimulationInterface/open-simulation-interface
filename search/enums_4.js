@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fog',['Fog',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4',1,'osi3::EnvironmentalConditions']]]
+  ['extendedqualifier',['ExtendedQualifier',['../structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b',1,'osi3::SensorDetectionHeader']]]
 ];

@@ -1,20 +1,13 @@
 var searchData=
 [
-  ['generic_5flight_5fstate_5foff',['GENERIC_LIGHT_STATE_OFF',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587daf5d89e74830906c84eb2eb444ce4a050',1,'osi3::MovingObject::VehicleClassification::LightState']]],
-  ['generic_5flight_5fstate_5fon',['GENERIC_LIGHT_STATE_ON',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da2d22a92bf57be5d2c56d07e3976783b7',1,'osi3::MovingObject::VehicleClassification::LightState']]],
-  ['generic_5flight_5fstate_5fother',['GENERIC_LIGHT_STATE_OTHER',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da05b41944a0fbc5748137828b08002737',1,'osi3::MovingObject::VehicleClassification::LightState']]],
-  ['generic_5flight_5fstate_5funknown',['GENERIC_LIGHT_STATE_UNKNOWN',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da4ce61d0e9902880c562e3d0e6d4f191f',1,'osi3::MovingObject::VehicleClassification::LightState']]],
-  ['geometry_5farrow_5fleft',['GEOMETRY_ARROW_LEFT',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a4dd8c54c079acc600507717778353824',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5farrow_5fright',['GEOMETRY_ARROW_RIGHT',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4ade68481572cbce82d8332b9f71bcb9fb',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5fcircle',['GEOMETRY_CIRCLE',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a06c8997c0cb513095caea99dc0bf5a9e',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5fdiamond',['GEOMETRY_DIAMOND',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a371987d082221e84c8e75e5ba7744267',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5foctagon',['GEOMETRY_OCTAGON',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4ae380d43348e2ad74d083f8c33b420b3d',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5fother',['GEOMETRY_OTHER',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a767c44c3c50282e8927e94365ea481b8',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5fplate',['GEOMETRY_PLATE',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4af4e66631e74699f3011eb65521569a93',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5fpole',['GEOMETRY_POLE',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a36dc95163d2c734674fb1758b1b3192c',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5frectangle',['GEOMETRY_RECTANGLE',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a165216b4cb8b3316b24efc40004b17ff',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5fsquare',['GEOMETRY_SQUARE',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a4e958cd9048fcccc54f8218047a5b8d9',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5ftriangle_5fdown',['GEOMETRY_TRIANGLE_DOWN',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4ac3a990e249acc8a1fec95533db3213b2',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5ftriangle_5ftop',['GEOMETRY_TRIANGLE_TOP',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a2e2129948535c1da95ab01e7f7ad92cd',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
-  ['geometry_5funknown',['GEOMETRY_UNKNOWN',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4aa7d89e65e156e128c64d8f980c619756',1,'osi3::DetectedTrafficSign::DetectedMainSign']]]
+  ['fog_5fdense',['FOG_DENSE',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a3110adaed0ef6a9b781a966572cd3704',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5fexcellent_5fvisibility',['FOG_EXCELLENT_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a480ecd3afd0430f70ccbd2d5c34b4ce6',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5fgood_5fvisibility',['FOG_GOOD_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a1061424400aefb3aee499dae20be6eed',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5flight',['FOG_LIGHT',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4ad3af4dd0b30e77b68680999104cebb1e',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5fmist',['FOG_MIST',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a751b95b0ed5df6bbdd35867fd2edede9',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5fmoderate_5fvisibility',['FOG_MODERATE_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4ae8fa9915fbbb4ba955d424eed28527aa',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5fother',['FOG_OTHER',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a09d5d6482981492d8c48fb259b31edb2',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5fpoor_5fvisibility',['FOG_POOR_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a8a9f171205a8b9ab0e87b3e53ec04491',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5fthick',['FOG_THICK',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a5387a537ed7986d142604a3f3f6f3544',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5funkown',['FOG_UNKOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4adc9f3cb9e3ded620db00bb2757a53d20',1,'osi3::EnvironmentalConditions']]]
 ];

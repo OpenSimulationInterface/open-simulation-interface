@@ -1,8 +1,12 @@
 <map id="osi3::FeatureData" name="osi3::FeatureData">
-<area shape="rect" id="node2" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="547,20,696,47"/>
-<area shape="rect" id="node5" href="$structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list. " alt="" coords="329,113,522,140"/>
-<area shape="rect" id="node4" href="$structosi3_1_1RadarDetectionData.html" title="Data from one radar sensor including a list of detections. " alt="" coords="720,153,893,180"/>
-<area shape="rect" id="node7" href="$structosi3_1_1LidarDetectionData.html" title="Data from one lidar sensor including a list of detections. " alt="" coords="723,92,890,119"/>
-<area shape="rect" id="node6" href="$structosi3_1_1RadarDetection.html" title="A radar detection. " alt="" coords="353,199,498,225"/>
-<area shape="rect" id="node8" href="$structosi3_1_1LidarDetection.html" title="A point or vertical line in a lidar point cloud. " alt="" coords="356,63,495,89"/>
+<area shape="rect" id="node2" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="547,15,696,41"/>
+<area shape="rect" id="node5" href="$structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list. " alt="" coords="329,297,522,324"/>
+<area shape="rect" id="node10" href="$structosi3_1_1UltrasonicDetectionSpecificHeader.html" title="Specific header extension for ultrasonic sensors. " alt="" coords="341,109,510,150"/>
+<area shape="rect" id="node4" href="$structosi3_1_1RadarDetectionData.html" title="Data from one radar sensor including a list of detections. " alt="" coords="732,145,905,172"/>
+<area shape="rect" id="node7" href="$structosi3_1_1UltrasonicDetectionData.html" title="Data from one ultrasonic sensor including a list of detections. " alt="" coords="720,196,917,223"/>
+<area shape="rect" id="node11" href="$structosi3_1_1LidarDetectionData.html" title="Data from one lidar sensor including a list of detections. " alt="" coords="735,329,902,356"/>
+<area shape="rect" id="node6" href="$structosi3_1_1RadarDetection.html" title="A radar detection. " alt="" coords="353,57,498,84"/>
+<area shape="rect" id="node8" href="$structosi3_1_1UltrasonicIndirectDetection.html" title="Ultrasonic detection received by another ultrasonic sensor (different sensors as sender and receiver)..." alt="" coords="347,231,503,273"/>
+<area shape="rect" id="node9" href="$structosi3_1_1UltrasonicDetection.html" title="Ultrasonic detection from the sensor (same sensor as sender and receiver). " alt="" coords="341,180,510,207"/>
+<area shape="rect" id="node12" href="$structosi3_1_1LidarDetection.html" title="A point or vertical line in a lidar point cloud. " alt="" coords="356,375,495,401"/>
 </map>

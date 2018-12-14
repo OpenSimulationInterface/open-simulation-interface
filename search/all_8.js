@@ -37,6 +37,7 @@ var searchData=
   ['indicator_5fstate_5funknown',['INDICATOR_STATE_UNKNOWN',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9e26233cf49cf0efcadac87e9cb90aa6a3f350db2d89db857956581ff0dbe0910',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['indicator_5fstate_5fwarning',['INDICATOR_STATE_WARNING',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9e26233cf49cf0efcadac87e9cb90aa6ab94161490fa612e6401a47c82e0f7dd5',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['indicatorstate',['IndicatorState',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9e26233cf49cf0efcadac87e9cb90aa6',1,'osi3::MovingObject::VehicleClassification::LightState']]],
+  ['indirect_5fdetection',['indirect_detection',['../structosi3_1_1UltrasonicDetectionData.html#aec69e18a0401e37c7cdaca6b6fe7ecff',1,'osi3::UltrasonicDetectionData']]],
   ['intensity',['intensity',['../structosi3_1_1LidarDetection.html#a1c2ea1eb70a1d1c31d5bc1481572f4e7',1,'osi3::LidarDetection']]],
   ['interfaceversion',['InterfaceVersion',['../structosi3_1_1InterfaceVersion.html',1,'osi3']]],
   ['is_5fdriver',['is_driver',['../structosi3_1_1Occupant_1_1Classification.html#a11253875c26faa04aa090e3ef3e7303a',1,'osi3::Occupant::Classification']]],

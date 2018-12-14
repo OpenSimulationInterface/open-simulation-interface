@@ -15,6 +15,8 @@ var searchData=
   ['range',['range',['../structosi3_1_1SensorViewConfiguration.html#a9bced36ba45eadc92c0b56e7f88ccf15',1,'osi3::SensorViewConfiguration']]],
   ['rcs',['rcs',['../structosi3_1_1RadarDetection.html#ac3d2984048cbe1994a379bc9be004799',1,'osi3::RadarDetection::rcs()'],['../structosi3_1_1RadarSpecificObjectData.html#a21d46477523a111803fb55d4edf59cab',1,'osi3::RadarSpecificObjectData::rcs()']]],
   ['rear_5ffog_5flight',['rear_fog_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9151ebc0e2515f3a58f743ff193b7936',1,'osi3::MovingObject::VehicleClassification::LightState']]],
+  ['receiver_5fid',['receiver_id',['../structosi3_1_1UltrasonicIndirectDetection.html#a3e131efae88dbf40eadfd43ba4e444df',1,'osi3::UltrasonicIndirectDetection::receiver_id()'],['../structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html#a7a103be3a48bd9a1331085f107a400bc',1,'osi3::UltrasonicSpecificObjectData::Signalway::receiver_id()']]],
+  ['receiver_5forigin',['receiver_origin',['../structosi3_1_1UltrasonicIndirectDetection.html#a2ed15dee2e9e49c36d8bb61639de4a8a',1,'osi3::UltrasonicIndirectDetection']]],
   ['reference_5fpoint',['reference_point',['../structosi3_1_1DetectedMovingObject.html#a77c7170535d578fc84de22e4a52f6a93',1,'osi3::DetectedMovingObject']]],
   ['reference_5fpoint_5fcenter',['REFERENCE_POINT_CENTER',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aab2a14323c6f6439b740a6098d0818b7c',1,'osi3::DetectedMovingObject']]],
   ['reference_5fpoint_5ffront_5fleft',['REFERENCE_POINT_FRONT_LEFT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa83e02fdb86f71da9dabc87e94d9a4d38',1,'osi3::DetectedMovingObject']]],

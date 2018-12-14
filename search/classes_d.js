@@ -6,6 +6,7 @@ var searchData=
   ['sensordetectionheader',['SensorDetectionHeader',['../structosi3_1_1SensorDetectionHeader.html',1,'osi3']]],
   ['sensorview',['SensorView',['../structosi3_1_1SensorView.html',1,'osi3']]],
   ['sensorviewconfiguration',['SensorViewConfiguration',['../structosi3_1_1SensorViewConfiguration.html',1,'osi3']]],
+  ['signalway',['Signalway',['../structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html',1,'osi3::UltrasonicSpecificObjectData']]],
   ['spherical3d',['Spherical3d',['../structosi3_1_1Spherical3d.html',1,'osi3']]],
   ['stationaryobject',['StationaryObject',['../structosi3_1_1StationaryObject.html',1,'osi3']]],
   ['supplementarysign',['SupplementarySign',['../structosi3_1_1TrafficSign_1_1SupplementarySign.html',1,'osi3::TrafficSign']]]

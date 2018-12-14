@@ -101,7 +101,7 @@ Collaboration diagram for osi3::SensorDetectionHeader:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1SensorDetectionHeader__coll__graph.png" border="0" usemap="#osi3_1_1SensorDetectionHeader_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1SensorDetectionHeader_coll__map" id="osi3_1_1SensorDetectionHeader_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="275,43,394,69"/><area shape="rect" id="node6" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="257,207,412,233"/><area shape="rect" id="node7" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="5,160,136,187"/><area shape="rect" id="node8" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="17,211,124,237"/><area shape="rect" id="node9" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="283,320,387,347"/></map>
+<area shape="rect" id="node2" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="279,43,398,69"/><area shape="rect" id="node7" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="261,257,416,284"/><area shape="rect" id="node8" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="5,211,136,237"/><area shape="rect" id="node9" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="17,261,124,288"/><area shape="rect" id="node10" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="287,371,391,397"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,11 +114,33 @@ Public Types</h2></td></tr>
 <br/>
 &#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a08034bdafd4addf571e029cd63c25d44">DATA_QUALIFIER_NOT_AVAILABLE</a> = 4, 
 <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127aebdbffb1e4e61501920a78f89b87bb69">DATA_QUALIFIER_BLINDNESS</a> = 5, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a63d0a0a05db267f137b5f69ed0d2fec5">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a63d0a0a05db267f137b5f69ed0d2fec5">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a5e3aa51a219efd61c8fdafffbcaa738c">DATA_QUALIFIER_INVALID</a> = 7
 <br/>
  }</td></tr>
 <tr class="memdesc:a1ba6030af7bcf887d6e4c377861c5127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data qualifier communicates the overall availability of the interface.  <a href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">More...</a><br/></td></tr>
 <tr class="separator:a1ba6030af7bcf887d6e4c377861c5127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379b9a86453a52b37af32f08a6dc636b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b">ExtendedQualifier</a> { <br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6">EXTENDED_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba51ac4d4cb3c0a770771f563cd0dc85c9">EXTENDED_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba02eb3c322eebc779bfda9c5f5cc0a30c">EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</a> = 2, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba11e11b1062cf42c7379de969b0a91411">EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154">EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bac0c56b0d3c8f387fc06cf8fa85b427de">EXTENDED_QUALIFIER_SENSOR_BLOCKED</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baf9fa590c755364be3c7a307bdebf77f9">EXTENDED_QUALIFIER_SENSOR_MISALIGNED</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8d9126ec3008db318aec64dc4b64d41c">EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</a> = 7, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba2e7833c77cc2cb3c8f57b12542f1bb65">EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</a> = 8, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba9b274acacd19847eb783da3141aaad09">EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</a> = 9, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bad665251175861447e0c23f51e157182b">EXTENDED_QUALIFIER_INTERNAL_REASON</a> = 10, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bad37357a35d2de54083d98be935fbb9b7">EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</a> = 11, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bab2f08e9e0e7d35d0390e03a26164da07">EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</a> = 12
+<br/>
+ }</td></tr>
+<tr class="memdesc:a379b9a86453a52b37af32f08a6dc636b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The extended qualifier describes the reason (not the effect) why the event data qualifier, <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb" title="Data Qualifier expresses to what extent the content of this event can be relied on. ">data_qualifier</a></code>, is reduced or not available.  <a href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b">More...</a><br/></td></tr>
+<tr class="separator:a379b9a86453a52b37af32f08a6dc636b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -142,8 +164,12 @@ optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af
 <tr class="memdesc:a49fcf349c4dbda9b88d5784cd3cdb078"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current number of valid detections in the detections list.  <a href="#a49fcf349c4dbda9b88d5784cd3cdb078">More...</a><br/></td></tr>
 <tr class="separator:a49fcf349c4dbda9b88d5784cd3cdb078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c13b81d1462b146286921ca41f3661b"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a9c13b81d1462b146286921ca41f3661b">sensor_id</a> = 7</td></tr>
-<tr class="memdesc:a9c13b81d1462b146286921ca41f3661b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the sensor at host vehicle's mounting_position.  <a href="#a9c13b81d1462b146286921ca41f3661b">More...</a><br/></td></tr>
+<tr class="memdesc:a9c13b81d1462b146286921ca41f3661b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the sensor at host vehicle's <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a3b73ec96c144a7e32094ddebe37cc4a8" title="Mounting position of the sensor (origin and orientation of the sensor frame). ">mounting_position</a></code>.  <a href="#a9c13b81d1462b146286921ca41f3661b">More...</a><br/></td></tr>
 <tr class="separator:a9c13b81d1462b146286921ca41f3661b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3048b910775f81bb7628db42562f841f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3048b910775f81bb7628db42562f841f"></a>
+optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b">ExtendedQualifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a3048b910775f81bb7628db42562f841f">extended_qualifier</a> = 8</td></tr>
+<tr class="memdesc:a3048b910775f81bb7628db42562f841f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The extended qualifier describes the reason (not the effect) why the event data qualifier, <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb" title="Data Qualifier expresses to what extent the content of this event can be relied on. ">data_qualifier</a></code>, is reduced or not available. <br/></td></tr>
+<tr class="separator:a3048b910775f81bb7628db42562f841f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The header attributes of each sensor's detection list. </p>
@@ -181,6 +207,67 @@ optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af
 <tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a63d0a0a05db267f137b5f69ed0d2fec5"></a>DATA_QUALIFIER_TEMPORARY_AVAILABLE</em>&#160;</td><td class="fielddoc">
 <p>Sensor temporary available. </p>
 </td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a5e3aa51a219efd61c8fdafffbcaa738c"></a>DATA_QUALIFIER_INVALID</em>&#160;</td><td class="fielddoc">
+<p>Sensor invalid. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a379b9a86453a52b37af32f08a6dc636b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b">osi3::SensorDetectionHeader::ExtendedQualifier</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The extended qualifier describes the reason (not the effect) why the event data qualifier, <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb" title="Data Qualifier expresses to what extent the content of this event can be relied on. ">data_qualifier</a></code>, is reduced or not available. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6"></a>EXTENDED_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba51ac4d4cb3c0a770771f563cd0dc85c9"></a>EXTENDED_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba02eb3c322eebc779bfda9c5f5cc0a30c"></a>EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</em>&#160;</td><td class="fielddoc">
+<p>Normal operation mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba11e11b1062cf42c7379de969b0a91411"></a>EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</em>&#160;</td><td class="fielddoc">
+<p>Power up or down. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154"></a>EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</em>&#160;</td><td class="fielddoc">
+<p>Sensor not calibrated. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bac0c56b0d3c8f387fc06cf8fa85b427de"></a>EXTENDED_QUALIFIER_SENSOR_BLOCKED</em>&#160;</td><td class="fielddoc">
+<p>Sensor blocked. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636baf9fa590c755364be3c7a307bdebf77f9"></a>EXTENDED_QUALIFIER_SENSOR_MISALIGNED</em>&#160;</td><td class="fielddoc">
+<p>Sensor misaligned. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba8d9126ec3008db318aec64dc4b64d41c"></a>EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</em>&#160;</td><td class="fielddoc">
+<p>Bad sensor environmental condition (e.g. </p>
+<p>Darkness for vision). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba2e7833c77cc2cb3c8f57b12542f1bb65"></a>EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</em>&#160;</td><td class="fielddoc">
+<p>Reduced field of view. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba9b274acacd19847eb783da3141aaad09"></a>EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Input not available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bad665251175861447e0c23f51e157182b"></a>EXTENDED_QUALIFIER_INTERNAL_REASON</em>&#160;</td><td class="fielddoc">
+<p>Internal reason (e.g. </p>
+<p>an internal HW or SW error has occurred). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bad37357a35d2de54083d98be935fbb9b7"></a>EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</em>&#160;</td><td class="fielddoc">
+<p>External disturbance, sensor specific for front radar (e.g. </p>
+<p>Interference of different radar sensors). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bab2f08e9e0e7d35d0390e03a26164da07"></a>EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</em>&#160;</td><td class="fielddoc">
+<p>Beginning blockage, sensor specific for front radar. </p>
+</td></tr>
 </table>
 
 </div>
@@ -197,7 +284,7 @@ optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af
 </div><div class="memdoc">
 
 <p>Monotonous counter to identify the exact cycle. </p>
-<p>Generally the detection function is called periodic and <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92" title="Monotonous counter to identify the exact cycle. ">cycle_counter</a></code> corresponds to the number of periods. </p>
+<p>In general the detection function is called periodically and <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92" title="Monotonous counter to identify the exact cycle. ">cycle_counter</a></code> corresponds to the number of periods. </p>
 
 </div>
 </div>
@@ -277,7 +364,7 @@ optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af
       </table>
 </div><div class="memdoc">
 
-<p>The ID of the sensor at host vehicle's mounting_position. </p>
+<p>The ID of the sensor at host vehicle's <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a3b73ec96c144a7e32094ddebe37cc4a8" title="Mounting position of the sensor (origin and orientation of the sensor frame). ">mounting_position</a></code>. </p>
 <p>This ID can equal <code><a class="el" href="structosi3_1_1SensorData.html#aba1532205c5abef2f8b439fc4c54d983" title="The ID of the sensor at host vehicle&#39;s mounting_position. ">SensorData::sensor_id</a></code>, if <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models. ">SensorData</a></code> holds only data from one sensor/sensor model. </p>
 
 </div>
@@ -288,7 +375,7 @@ optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 15:15:43 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

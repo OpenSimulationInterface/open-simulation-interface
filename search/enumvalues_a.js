@@ -1,21 +1,14 @@
 var searchData=
 [
-  ['seat_5fback_5fleft',['SEAT_BACK_LEFT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a180b96846f3f08de04f0005d5e35899f',1,'osi3::Occupant::Classification']]],
-  ['seat_5fback_5fmiddle',['SEAT_BACK_MIDDLE',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6ac56343821f504d722f98304f43fa1a0d',1,'osi3::Occupant::Classification']]],
-  ['seat_5fback_5fright',['SEAT_BACK_RIGHT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6ae3ff9a0d11ef547e0fd42539c37aea2b',1,'osi3::Occupant::Classification']]],
-  ['seat_5ffront_5fleft',['SEAT_FRONT_LEFT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a00f308af4fe18c8054d81c872c17031a',1,'osi3::Occupant::Classification']]],
-  ['seat_5ffront_5fmiddle',['SEAT_FRONT_MIDDLE',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6af23b7bc617a26bbdaf548a10731d4db2',1,'osi3::Occupant::Classification']]],
-  ['seat_5ffront_5fright',['SEAT_FRONT_RIGHT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6aa5635e4a5000da26958cd2316df91254',1,'osi3::Occupant::Classification']]],
-  ['seat_5fother',['SEAT_OTHER',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a7bfaa10ee0ab6678d489674cec1559c8',1,'osi3::Occupant::Classification']]],
-  ['seat_5fthird_5frow_5fleft',['SEAT_THIRD_ROW_LEFT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a59820d9ac7d3487ff4ed61fb64be3c57',1,'osi3::Occupant::Classification']]],
-  ['seat_5fthird_5frow_5fmiddle',['SEAT_THIRD_ROW_MIDDLE',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a1448fb1f791c8bb2d8da78919de415e4',1,'osi3::Occupant::Classification']]],
-  ['seat_5fthird_5frow_5fright',['SEAT_THIRD_ROW_RIGHT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6aeb650be86852bd56249051ff05232f45',1,'osi3::Occupant::Classification']]],
-  ['seat_5funknown',['SEAT_UNKNOWN',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6ac7db97a4727bd3cf32ed5789c85f6c80',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5fboth_5fhands',['STEERING_CONTROL_BOTH_HANDS',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa515ed479f21ae37cf2a51e1853ae8249',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5fleft_5fhand',['STEERING_CONTROL_LEFT_HAND',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaacbae42e9034a8f4181193cc9decf825d',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5fno_5fhand',['STEERING_CONTROL_NO_HAND',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa03386aaea7e2a91a1206cbef5912e91b',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5fone_5fhand',['STEERING_CONTROL_ONE_HAND',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaafd105c3e974e9f2dc12026289049fc99',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5fother',['STEERING_CONTROL_OTHER',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa52d5fb7e4f04983819a43f759da791c0',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5fright_5fhand',['STEERING_CONTROL_RIGHT_HAND',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa7acf13ccbc57597e9708df895cbeb958',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5funknown',['STEERING_CONTROL_UNKNOWN',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa0d47b5fdef206b0a3c09cb6dbadd687c',1,'osi3::Occupant::Classification']]]
+  ['reference_5fpoint_5fcenter',['REFERENCE_POINT_CENTER',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aab2a14323c6f6439b740a6098d0818b7c',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5ffront_5fleft',['REFERENCE_POINT_FRONT_LEFT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa83e02fdb86f71da9dabc87e94d9a4d38',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5ffront_5fmiddle',['REFERENCE_POINT_FRONT_MIDDLE',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa77c3b47e965ce23828b82a8d317e19ba',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5ffront_5fright',['REFERENCE_POINT_FRONT_RIGHT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa829bb6d7abfb547c66cd58d8eb517b54',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5fmiddle_5fleft',['REFERENCE_POINT_MIDDLE_LEFT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aae9277417c8401f773d607fb28b1ca831',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5fmiddle_5fright',['REFERENCE_POINT_MIDDLE_RIGHT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aaff75477b04bc27b13c7ed3b4b01f7318',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5fother',['REFERENCE_POINT_OTHER',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa4a6328ac82e22e23b7e046e34bcef9a5',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5frear_5fleft',['REFERENCE_POINT_REAR_LEFT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa872e4fc68085494dfe424e5655e73003',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5frear_5fmiddle',['REFERENCE_POINT_REAR_MIDDLE',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa231b49bc4489076438861d6a9bdb8c16',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5frear_5fright',['REFERENCE_POINT_REAR_RIGHT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa0e572bf2a3ea3e0b57e4d1fea60adef2',1,'osi3::DetectedMovingObject']]],
+  ['reference_5fpoint_5funknown',['REFERENCE_POINT_UNKNOWN',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aadfb68f359b585fb5948c5fcd715544a0',1,'osi3::DetectedMovingObject']]]
 ];
