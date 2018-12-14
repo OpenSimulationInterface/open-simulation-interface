@@ -125,7 +125,7 @@ message SensorDetectionHeader
     // event data qualifier, \c #data_qualifier, is reduced or not available.
     //
     optional ExtendedQualifier extended_qualifier = 8;
-    
+
     // Data qualifier communicates the overall availability of the
     // interface.
     //
@@ -164,8 +164,8 @@ message SensorDetectionHeader
         DATA_QUALIFIER_INVALID = 7;
     }
 
-    // The extended qualifier describes the reason (not the effect) why the event
-    // data qualifier, \c #data_qualifier, is reduced or not available.
+    // The extended qualifier describes the reason (not the effect) why the
+    // event data qualifier, \c #data_qualifier, is reduced or not available.
     //
     enum ExtendedQualifier
     {
@@ -428,14 +428,14 @@ message UltrasonicDetectionSpecificHeader
 // Direct detections:
 //
 // Sending: Ultrasonic Sensor ID 1
-// Receiving: Ultrasonic Sensor ID 1
-// \image html OSI_USSensor_direct.png
 //
-// Indirect detections:
+// Receiving:
+// - Direct: Ultrasonic Sensor ID 1
+// - Indirect: Ultrasonic Sensor ID 2 and 3
 //
-// Sending: Ultrasonic Sensor ID 1
-// Receiving: Ultrasonic Sensor ID 2 or/and 3
-// \image html OSI_USSensor_indirect.png
+// \image html OSI_USSensor.svg
+//
+// \note Direct detecions lies on circles with the sending sensor as centre.
 //
 message UltrasonicDetectionData
 {
@@ -469,8 +469,12 @@ message UltrasonicDetectionData
 // Direct detections:
 //
 // Sending: Ultrasonic Sensor ID 1
+//
 // Receiving: Ultrasonic Sensor ID 1
-// \image html OSI_USSensor_direct.png
+//
+// \image html OSI_USSensor_direct.svg
+//
+// \note Direct detecions lies on circles with the sensor as centre.
 //
 message UltrasonicDetection
 {
@@ -504,8 +508,13 @@ message UltrasonicDetection
 // Indirect detections:
 //
 // Sending: Ultrasonic Sensor ID 1
-// Receiving: Ultrasonic Sensor ID 2 or/and 3
-// \image html OSI_USSensor_indirect.png
+//
+// Receiving: Ultrasonic Sensor ID 2 and 3
+//
+// \image html OSI_USSensor_indirect.svg
+//
+// \note Indirect detecions lies on ellipses with the sending resp. receiving
+// sensor in the focal points.
 //
 message UltrasonicIndirectDetection
 {
