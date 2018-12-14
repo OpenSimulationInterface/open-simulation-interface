@@ -112,19 +112,21 @@ message UltrasonicSpecificObjectData
         //
         TREND_OTHER = 1;
 
-        // \note There is no definition.
+        // Distance (object, sensor) is constant. The object has approached in
+        // the past before it was constant.
         //
         TREND_CONSTANT_APPROACHING = 2;
 
-        // \note There is no definition.
+        // Distance (object, sensor) is constant. The object has departed in the
+        // past before it was constant or there is no history.
         //
         TREND_CONSTANT = 3;
 
-        // \note There is no definition.
+        // Distance (object, sensor) is degreasing.
         //
         TREND_APPROACHING = 4;
 
-        // \note There is no definition.
+        // Distance (object, sensor) is increasing.
         //
         TREND_DEPARTING = 5;
     }
