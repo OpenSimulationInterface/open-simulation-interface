@@ -69,9 +69,9 @@ message Lane
     //          #is_host_vehicle_lane = \c false </td> </tr> <tr> <td> \c
     //          #free_lane_boundary_id = lb11 </td> </tr> <tr> <td>  <table
     //          border = 0>
-    //                        <tr> <td> \c #lane_pairing = (<td>(l2,l1),
+    //           <tr> <td> \c #lane_pairing = (<td>(l2,l1),
     //                        (l2,l3), (l2,l5), <tr> <td> <td> (l4,l1), (l4,l3),
-    //                        (l4,l5), <tr> <td>                      <td>
+    //                        (l4,l5), <tr> <td> <td>
     //                        (l6,l1), (l6,l3), (l6,l5) )
     //                    </table> </td> </tr>
     //        </table>
@@ -104,6 +104,8 @@ message Lane
         // The lane's center line (as a list of segments).
         //
         // The centerline describes the middle of the lane.
+        //
+        // \image html OSI_LaneCenterline.svg "Centerline" width=500px
         //
         // Example: In image \ref HighwayExit,
         // the centerline of lane l4 (black line) is given by
@@ -402,12 +404,7 @@ message Lane
 // free markings can be defined, e.g. at construction sites. Free markings
 // across multiple lanes may be defined multiple times for all affected lanes.
 //
-// <table border=0>
-//   <tr> <td> \image html OSI_LaneBoundary.svg "" width=800px
-//   </tr>
-//   <tr> <td> \image html OSI_LaneBoundary.jpg "LaneBoundary" width=900px
-//   </tr>
-// </table>
+// \image html OSI_LaneBoundary.svg "LaneBoundary" width=800px
 //
 // \note In the example, the symbols l1, l2, ... and lb1, lb2, ...
 //       stand for the lane ids and lane boundary ids respectively, i.e. for
@@ -427,6 +424,8 @@ message LaneBoundary
     // attribute has to be set for each instance. All other values will be
     // reused from the previous \c BoundaryPoint in the sequence or set to
     // default values if there is none or it was never set.
+    //
+    // \image html OSI_LaneBoundary.svg "" width=800px
     //
     // Example: The boundary_line of the \c LaneBoundary with id lb2 is given by
     //          (bp2_1, ..., bp2_{i-1}, bp2_{i}, bp2_{i+1}, ...).
@@ -452,16 +451,14 @@ message LaneBoundary
     //
     // \brief A single point of a lane boundary.
     //
-    // \image html OSI_LaneBoundary.jpg "" width=800px
+    // \image html OSI_LaneBoundary.svg "" width=800px
     //
     // The lane boundary point bp2_{i} is one of the points of lane boundary
     // lb2.
     //
     // \note In the example, the symbols l1, l2, ... and lb1, lb2, ...
     //       stand for the lane ids and lane boundary ids respectively, i.e. for
-    //       integers (uint64). The symbols cl1, cl2, ... represent the
-    //       osi3::Lane::Classification::centerline elements of the lanes with
-    //       the respective ids. The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
+    //       integers (uint64). The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
     //       for \c #osi3::LaneBoundary::BoundaryPoint elements.
     //
     message BoundaryPoint

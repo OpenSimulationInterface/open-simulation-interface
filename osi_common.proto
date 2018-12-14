@@ -255,9 +255,9 @@ message Spherical3d
 // \image html OSI_BaseStationary.svg
 //
 // All coordinates and orientations from ground truth objects are relative to
-// the global ground truth frame (see image). All coordinates and orientations
+// the global ground truth frame (see image). (All coordinates and orientations
 // from detected objects are relative to the host vehicle frame (see:
-// \c MovingObject::Vehicle vehicle reference point).
+// \c Vehicle vehicle reference point).)
 //
 message BaseStationary
 {
@@ -319,7 +319,7 @@ message BaseStationary
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
 // from detected objects are relative to the host vehicle frame
-// (see: \c MovingObject::Vehicle vehicle reference point).
+// (see: \c MovingObject vehicle reference point).
 //
 message BaseMoving
 {
