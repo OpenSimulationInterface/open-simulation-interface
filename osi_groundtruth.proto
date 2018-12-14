@@ -38,6 +38,8 @@ package osi3;
 // In enums (e.g. types) the unknown (first / default) value is not allowed to
 // be used in the ground truth interface.
 //
+// \image html OSI_GroundTruth.svg "Ground Truth"
+//
 message GroundTruth
 {
     // The interface version used by the sender (i.e. the simulation
