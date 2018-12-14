@@ -101,7 +101,7 @@ Collaboration diagram for osi3::SensorDetectionHeader:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1SensorDetectionHeader__coll__graph.png" border="0" usemap="#osi3_1_1SensorDetectionHeader_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1SensorDetectionHeader_coll__map" id="osi3_1_1SensorDetectionHeader_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="275,43,394,69"/><area shape="rect" id="node6" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="257,207,412,233"/><area shape="rect" id="node7" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="5,160,136,187"/><area shape="rect" id="node8" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="17,211,124,237"/><area shape="rect" id="node9" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="283,320,387,347"/></map>
+<area shape="rect" id="node2" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="275,43,394,69"/><area shape="rect" id="node6" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="257,207,412,233"/><area shape="rect" id="node7" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="5,160,136,187"/><area shape="rect" id="node8" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="17,211,124,237"/><area shape="rect" id="node9" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="283,320,387,347"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -117,23 +117,32 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a63d0a0a05db267f137b5f69ed0d2fec5">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6
 <br/>
  }</td></tr>
+<tr class="memdesc:a1ba6030af7bcf887d6e4c377861c5127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data qualifier communicates the overall availability of the interface.  <a href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">More...</a><br/></td></tr>
 <tr class="separator:a1ba6030af7bcf887d6e4c377861c5127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7276bbdf40b2da4fed4397df62f167aa"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a7276bbdf40b2da4fed4397df62f167aa">measurement_time</a> = 1</td></tr>
+<tr class="memdesc:a7276bbdf40b2da4fed4397df62f167aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time.  <a href="#a7276bbdf40b2da4fed4397df62f167aa">More...</a><br/></td></tr>
 <tr class="separator:a7276bbdf40b2da4fed4397df62f167aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66bcd17ab25dda7d4545e10472188e92"><td class="memItemLeft" align="right" valign="top">optional uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92">cycle_counter</a> = 2</td></tr>
+<tr class="memdesc:a66bcd17ab25dda7d4545e10472188e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monotonous counter to identify the exact cycle.  <a href="#a66bcd17ab25dda7d4545e10472188e92">More...</a><br/></td></tr>
 <tr class="separator:a66bcd17ab25dda7d4545e10472188e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b73ec96c144a7e32094ddebe37cc4a8"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MountingPosition.html">MountingPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a3b73ec96c144a7e32094ddebe37cc4a8">mounting_position</a> = 3</td></tr>
+<tr class="memdesc:a3b73ec96c144a7e32094ddebe37cc4a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mounting position of the sensor (origin and orientation of the sensor frame).  <a href="#a3b73ec96c144a7e32094ddebe37cc4a8">More...</a><br/></td></tr>
 <tr class="separator:a3b73ec96c144a7e32094ddebe37cc4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5087f8e26b2b52d6b2d9f727cf7e5684"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MountingPosition.html">MountingPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a5087f8e26b2b52d6b2d9f727cf7e5684">mounting_position_rmse</a> = 4</td></tr>
+<tr class="memdesc:a5087f8e26b2b52d6b2d9f727cf7e5684"><td class="mdescLeft">&#160;</td><td class="mdescRight">The origin/orientation of the sensor frame represents the current mounting pose to the best knowledge of the sensor.  <a href="#a5087f8e26b2b52d6b2d9f727cf7e5684">More...</a><br/></td></tr>
 <tr class="separator:a5087f8e26b2b52d6b2d9f727cf7e5684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f3c5dfbf1e4a04dd12c884a3f67cdb"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">DataQualifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb">data_qualifier</a> = 5</td></tr>
+<tr class="memitem:a58f3c5dfbf1e4a04dd12c884a3f67cdb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58f3c5dfbf1e4a04dd12c884a3f67cdb"></a>
+optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">DataQualifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb">data_qualifier</a> = 5</td></tr>
+<tr class="memdesc:a58f3c5dfbf1e4a04dd12c884a3f67cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Qualifier expresses to what extent the content of this event can be relied on. <br/></td></tr>
 <tr class="separator:a58f3c5dfbf1e4a04dd12c884a3f67cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49fcf349c4dbda9b88d5784cd3cdb078"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a49fcf349c4dbda9b88d5784cd3cdb078">number_of_valid_detections</a> = 6</td></tr>
+<tr class="memdesc:a49fcf349c4dbda9b88d5784cd3cdb078"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current number of valid detections in the detections list.  <a href="#a49fcf349c4dbda9b88d5784cd3cdb078">More...</a><br/></td></tr>
 <tr class="separator:a49fcf349c4dbda9b88d5784cd3cdb078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c13b81d1462b146286921ca41f3661b"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a9c13b81d1462b146286921ca41f3661b">sensor_id</a> = 7</td></tr>
+<tr class="memdesc:a9c13b81d1462b146286921ca41f3661b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the sensor at host vehicle's mounting_position.  <a href="#a9c13b81d1462b146286921ca41f3661b">More...</a><br/></td></tr>
 <tr class="separator:a9c13b81d1462b146286921ca41f3661b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -148,6 +157,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Data qualifier communicates the overall availability of the interface. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a81105c88383e132fece393d327e92acf"></a>DATA_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
@@ -185,20 +195,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Monotonous counter to identify the exact cycle. Generally the detection function is called periodic and <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92">cycle_counter</a></code> corresponds to the number of periods. </p>
 
-</div>
-</div>
-<a class="anchor" id="a58f3c5dfbf1e4a04dd12c884a3f67cdb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">DataQualifier</a> osi3::SensorDetectionHeader::data_qualifier = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Data Qualifier expresses to what extent the content of this event can be relied on. </p>
+<p>Monotonous counter to identify the exact cycle. </p>
+<p>Generally the detection function is called periodic and <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92" title="Monotonous counter to identify the exact cycle. ">cycle_counter</a></code> corresponds to the number of periods. </p>
 
 </div>
 </div>
@@ -211,8 +210,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time.</p>
-<dl class="section note"><dt>Note</dt><dd>See <code><a class="el" href="structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c">SensorData::timestamp</a></code> and <code><a class="el" href="structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d">SensorData::last_measurement_time</a></code> for detailed discussions on the semantics of time-related fields. </dd></dl>
+
+<p>Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time. </p>
+<dl class="section note"><dt>Note</dt><dd>See <code><a class="el" href="structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c" title="The timestamp of the sensor data. ">SensorData::timestamp</a></code> and <code><a class="el" href="structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d" title="The timestamp of the last real-world measurement (e.g. ">SensorData::last_measurement_time</a></code> for detailed discussions on the semantics of time-related fields. </dd></dl>
 
 </div>
 </div>
@@ -225,7 +225,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Mounting position of the sensor (origin and orientation of the sensor frame). Both origin and orientation are given in and with respect to the host vehicle coordinate system (see: <code>MovingObject::Vehicle</code> vehicle reference point) [1].</p>
+
+<p>Mounting position of the sensor (origin and orientation of the sensor frame). </p>
+<p>Both origin and orientation are given in and with respect to the host vehicle coordinate system (see: <code>MovingObject::Vehicle</code> vehicle reference point) [1].</p>
 <p>The sensor frame's x-axis is pointing in the central viewing direction of the sensor. It is the angle bisector of the sensor's horizontal and vertical field of view. The terms horizontal and vertical must be understood as names for the two principal planes of the sensor's field of view (relative to the sensor frame's orientation), which do not have to be horizontal or vertical in the strict sense of being parallel or perpendicular to the local gravitational vector. The horizontal field of view defines the sensor frame's xy-plane and the vertical field of view defines the xz-plane. The sensor frame is right-handed and the z-axis is pointing in an upward direction.</p>
 <p>The sensor frame uses cartesian coordinates. The sensor frame's origin is identical to sensor detection frame's origin. Detections are defined in the sensor detection frame which uses e.g. spherical coordinates.</p>
 <dl class="section user"><dt>References:</dt><dd><ul>
@@ -244,7 +246,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The origin/orientation of the sensor frame represents the current mounting pose to the best knowledge of the sensor. The estimation of the 6D pose given by the calibration. The uncertainty of this estimation is given with the corresponding 6D root mean squared error. The estimation of the current origin does not include effects due to short-time dynamics, such as pitch angles from braking, but includes long-time calibration values, such as pitch angles from luggage in the trunk. </p>
+
+<p>The origin/orientation of the sensor frame represents the current mounting pose to the best knowledge of the sensor. </p>
+<p>The estimation of the 6D pose given by the calibration. The uncertainty of this estimation is given with the corresponding 6D root mean squared error. The estimation of the current origin does not include effects due to short-time dynamics, such as pitch angles from braking, but includes long-time calibration values, such as pitch angles from luggage in the trunk. </p>
 
 </div>
 </div>
@@ -257,7 +261,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The current number of valid detections in the detections list.</p>
+
+<p>The current number of valid detections in the detections list. </p>
 <dl class="section note"><dt>Note</dt><dd>This value has to be set if the list contains invalid detections. </dd></dl>
 
 </div>
@@ -271,8 +276,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID of the sensor at host vehicle's mounting_position.</p>
-<p>This ID can equal <code><a class="el" href="structosi3_1_1SensorData.html#aba1532205c5abef2f8b439fc4c54d983">SensorData::sensor_id</a></code>, if <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models. ">SensorData</a></code> holds only data from one sensor/sensor model. </p>
+
+<p>The ID of the sensor at host vehicle's mounting_position. </p>
+<p>This ID can equal <code><a class="el" href="structosi3_1_1SensorData.html#aba1532205c5abef2f8b439fc4c54d983" title="The ID of the sensor at host vehicle&#39;s mounting_position. ">SensorData::sensor_id</a></code>, if <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models. ">SensorData</a></code> holds only data from one sensor/sensor model. </p>
 
 </div>
 </div>
@@ -282,7 +288,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

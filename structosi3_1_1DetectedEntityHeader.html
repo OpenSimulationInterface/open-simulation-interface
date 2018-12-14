@@ -117,15 +117,21 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1DetectedEntityHeader.html#a7946c4afc93bf2afe3cdd484c568bcfea50b746e7072ed9aafb217aeac36b86fb">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6
 <br/>
  }</td></tr>
+<tr class="memdesc:a7946c4afc93bf2afe3cdd484c568bcfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data qualifier communicates the overall availability of the interface.  <a href="structosi3_1_1DetectedEntityHeader.html#a7946c4afc93bf2afe3cdd484c568bcfe">More...</a><br/></td></tr>
 <tr class="separator:a7946c4afc93bf2afe3cdd484c568bcfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5c5b85a1ce129d83a3a7858a44eeb11f"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedEntityHeader.html#a5c5b85a1ce129d83a3a7858a44eeb11f">measurement_time</a> = 1</td></tr>
+<tr class="memdesc:a5c5b85a1ce129d83a3a7858a44eeb11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time.  <a href="#a5c5b85a1ce129d83a3a7858a44eeb11f">More...</a><br/></td></tr>
 <tr class="separator:a5c5b85a1ce129d83a3a7858a44eeb11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a189ceeaab3390c89f13442df1a70563f"><td class="memItemLeft" align="right" valign="top">optional uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedEntityHeader.html#a189ceeaab3390c89f13442df1a70563f">cycle_counter</a> = 2</td></tr>
+<tr class="memitem:a189ceeaab3390c89f13442df1a70563f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a189ceeaab3390c89f13442df1a70563f"></a>
+optional uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedEntityHeader.html#a189ceeaab3390c89f13442df1a70563f">cycle_counter</a> = 2</td></tr>
+<tr class="memdesc:a189ceeaab3390c89f13442df1a70563f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Continuous up counter to identify the cycle. <br/></td></tr>
 <tr class="separator:a189ceeaab3390c89f13442df1a70563f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0b3e722056efe4b51e28ef82ad9db82"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1DetectedEntityHeader.html#a7946c4afc93bf2afe3cdd484c568bcfe">DataQualifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedEntityHeader.html#af0b3e722056efe4b51e28ef82ad9db82">data_qualifier</a> = 3</td></tr>
+<tr class="memitem:af0b3e722056efe4b51e28ef82ad9db82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0b3e722056efe4b51e28ef82ad9db82"></a>
+optional <a class="el" href="structosi3_1_1DetectedEntityHeader.html#a7946c4afc93bf2afe3cdd484c568bcfe">DataQualifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedEntityHeader.html#af0b3e722056efe4b51e28ef82ad9db82">data_qualifier</a> = 3</td></tr>
+<tr class="memdesc:af0b3e722056efe4b51e28ef82ad9db82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Qualifier expresses to what extent the content of this event can be relied on. <br/></td></tr>
 <tr class="separator:af0b3e722056efe4b51e28ef82ad9db82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -140,6 +146,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Data qualifier communicates the overall availability of the interface. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a7946c4afc93bf2afe3cdd484c568bcfea111c39cf240498606d2d0bfbda65f7bd"></a>DATA_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
@@ -168,32 +175,6 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a189ceeaab3390c89f13442df1a70563f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional uint64 osi3::DetectedEntityHeader::cycle_counter = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Continuous up counter to identify the cycle. </p>
-
-</div>
-</div>
-<a class="anchor" id="af0b3e722056efe4b51e28ef82ad9db82"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1DetectedEntityHeader.html#a7946c4afc93bf2afe3cdd484c568bcfe">DataQualifier</a> osi3::DetectedEntityHeader::data_qualifier = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Data Qualifier expresses to what extent the content of this event can be relied on. </p>
-
-</div>
-</div>
 <a class="anchor" id="a5c5b85a1ce129d83a3a7858a44eeb11f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -203,8 +184,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time.</p>
-<dl class="section note"><dt>Note</dt><dd>See <code><a class="el" href="structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c">SensorData::timestamp</a></code> and <code><a class="el" href="structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d">SensorData::last_measurement_time</a></code> for detailed discussions on the semantics of time-related fields. </dd></dl>
+
+<p>Time stamp at which the measurement was taken (not the time at which it was processed or at which it is transmitted) in the global synchronized time. </p>
+<dl class="section note"><dt>Note</dt><dd>See <code><a class="el" href="structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c" title="The timestamp of the sensor data. ">SensorData::timestamp</a></code> and <code><a class="el" href="structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d" title="The timestamp of the last real-world measurement (e.g. ">SensorData::last_measurement_time</a></code> for detailed discussions on the semantics of time-related fields. </dd></dl>
 
 </div>
 </div>
@@ -214,7 +196,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

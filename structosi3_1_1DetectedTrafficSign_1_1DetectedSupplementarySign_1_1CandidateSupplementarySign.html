@@ -100,15 +100,17 @@ Collaboration diagram for osi3::DetectedTrafficSign::DetectedSupplementarySign::
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign__coll__graph.png" border="0" usemap="#osi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign_coll__map" id="osi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html" title="Classification data for a supplementary traffic sign. " alt="" coords="225,187,447,229"/><area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="5,96,109,123"/><area shape="rect" id="node6" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking and its unit. " alt="" coords="410,96,560,123"/></map>
+<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html" title="Classification data for a supplementary traffic sign. " alt="" coords="545,179,767,221"/><area shape="rect" id="node3" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html" title="An arrow denoting a direction shown on the traffic sign. " alt="" coords="209,56,431,112"/><area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="8,23,112,49"/><area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="245,136,395,163"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a23794e0b6b82ea82a1bfbf2ec177e049"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign.html#a23794e0b6b82ea82a1bfbf2ec177e049">probability</a> = 1</td></tr>
+<tr class="memdesc:a23794e0b6b82ea82a1bfbf2ec177e049"><td class="mdescLeft">&#160;</td><td class="mdescRight">The estimated probability that this candidate is the true value.  <a href="#a23794e0b6b82ea82a1bfbf2ec177e049">More...</a><br/></td></tr>
 <tr class="separator:a23794e0b6b82ea82a1bfbf2ec177e049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a614edf93f082d4d766b69a246be63e96"><td class="memItemLeft" align="right" valign="top">optional <br class="typebreak"/>
 <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html">TrafficSign::SupplementarySign::Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign.html#a614edf93f082d4d766b69a246be63e96">classification</a> = 2</td></tr>
+<tr class="memdesc:a614edf93f082d4d766b69a246be63e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of one of more supplementary signs that together define this candidate.  <a href="#a614edf93f082d4d766b69a246be63e96">More...</a><br/></td></tr>
 <tr class="separator:a614edf93f082d4d766b69a246be63e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -123,7 +125,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The classification of one of more supplementary signs that together define this candidate.</p>
+
+<p>The classification of one of more supplementary signs that together define this candidate. </p>
 <dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
 
 </div>
@@ -137,8 +140,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The estimated probability that this candidate is the true value.</p>
-<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign.html#a23794e0b6b82ea82a1bfbf2ec177e049">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
+
+<p>The estimated probability that this candidate is the true value. </p>
+<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign.html#a23794e0b6b82ea82a1bfbf2ec177e049" title="The estimated probability that this candidate is the true value. ">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
 <p>Range: [0,1] </p>
 
 </div>
@@ -149,7 +153,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

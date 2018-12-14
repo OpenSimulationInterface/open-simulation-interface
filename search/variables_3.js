@@ -4,6 +4,7 @@ var searchData=
   ['density',['density',['../structosi3_1_1StationaryObject_1_1Classification.html#afeb7027b4c8d6098f1fed2ce5f065467',1,'osi3::StationaryObject::Classification']]],
   ['detection',['detection',['../structosi3_1_1RadarDetectionData.html#ab43214f3069072d8a7a2e9e0b50f265b',1,'osi3::RadarDetectionData::detection()'],['../structosi3_1_1LidarDetectionData.html#acd72cf3ea8e50ed566e075834b678a5a',1,'osi3::LidarDetectionData::detection()']]],
   ['dimension',['dimension',['../structosi3_1_1BaseStationary.html#aa4f3a1c316bfa13aa805195630bb08e8',1,'osi3::BaseStationary::dimension()'],['../structosi3_1_1BaseMoving.html#ae94115590d3fc9691a4364007bc11f31',1,'osi3::BaseMoving::dimension()']]],
+  ['direction',['direction',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a1a613da05972035a56d89f9b010617ae',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
   ['direction_5fscope',['direction_scope',['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#aef21f38caa61148c2417f0c1e62a3872',1,'osi3::TrafficSign::MainSign::Classification']]],
   ['directions',['directions',['../structosi3_1_1LidarSensorViewConfiguration.html#a712772005038f231b056111be45fc13c',1,'osi3::LidarSensorViewConfiguration']]],
   ['distance',['distance',['../structosi3_1_1Spherical3d.html#a3ebbbd58e45298e55e1e88ea67c790c8',1,'osi3::Spherical3d']]],

@@ -112,17 +112,23 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a22473acb719c74d6d2daa8556a9deedf"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a22473acb719c74d6d2daa8556a9deedf">header</a> = 1</td></tr>
+<tr class="memitem:a22473acb719c74d6d2daa8556a9deedf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22473acb719c74d6d2daa8556a9deedf"></a>
+optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a22473acb719c74d6d2daa8556a9deedf">header</a> = 1</td></tr>
+<tr class="memdesc:a22473acb719c74d6d2daa8556a9deedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common information of one detected item. <br/></td></tr>
 <tr class="separator:a22473acb719c74d6d2daa8556a9deedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec65ce160b8def1f9c7621e0d2c94391"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html">CandidateLaneBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aec65ce160b8def1f9c7621e0d2c94391">candidate</a> = 2</td></tr>
+<tr class="memdesc:aec65ce160b8def1f9c7621e0d2c94391"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of candidates for this lane boundary as estimated by the sensor.  <a href="#aec65ce160b8def1f9c7621e0d2c94391">More...</a><br/></td></tr>
 <tr class="separator:aec65ce160b8def1f9c7621e0d2c94391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad023da83f979508a2b8436d757b6ba6"><td class="memItemLeft" align="right" valign="top">repeated <br class="typebreak"/>
 <a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html">LaneBoundary::BoundaryPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aad023da83f979508a2b8436d757b6ba6">boundary_line</a> = 3</td></tr>
+<tr class="memdesc:aad023da83f979508a2b8436d757b6ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of individual points defining the location of the lane boundary (as a list of segments).  <a href="#aad023da83f979508a2b8436d757b6ba6">More...</a><br/></td></tr>
 <tr class="separator:aad023da83f979508a2b8436d757b6ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fa345c67f974ea15c71acb24ef6e5d6"><td class="memItemLeft" align="right" valign="top">repeated <br class="typebreak"/>
 <a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html">LaneBoundary::BoundaryPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a3fa345c67f974ea15c71acb24ef6e5d6">boundary_line_rmse</a> = 4</td></tr>
+<tr class="memdesc:a3fa345c67f974ea15c71acb24ef6e5d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root mean squared error of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code>.  <a href="#a3fa345c67f974ea15c71acb24ef6e5d6">More...</a><br/></td></tr>
 <tr class="separator:a3fa345c67f974ea15c71acb24ef6e5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51bce9c2256d87f9c72c229be92386a1"><td class="memItemLeft" align="right" valign="top">repeated double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a51bce9c2256d87f9c72c229be92386a1">boundary_line_confidences</a> = 5</td></tr>
+<tr class="memdesc:a51bce9c2256d87f9c72c229be92386a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confidence of the segments of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code>.  <a href="#a51bce9c2256d87f9c72c229be92386a1">More...</a><br/></td></tr>
 <tr class="separator:a51bce9c2256d87f9c72c229be92386a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -137,9 +143,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The list of individual points defining the location of the lane boundary (as a list of segments).</p>
+
+<p>The list of individual points defining the location of the lane boundary (as a list of segments). </p>
 <p>Since a <code>BoundaryPoint</code> is part of a sequence, only the position attribute has to be set for each instance. All other values will be reused from the previous <code>BoundaryPoint</code> in the sequence or set to default values if there is none or it was never set. For dashed lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code> has to be at the start and another at the end of each dashed line segment. For Botts' dots lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code> position has to define each Botts' dot.</p>
-<dl class="section attention"><dt>Attention</dt><dd>For <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code> the same rules regarding maximum distance and approximation error apply as for <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42">Lane::Classification::centerline</a></code>. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>For <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code> the same rules regarding maximum distance and approximation error apply as for <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42" title="The lane&#39;s center line (as a list of segments). ">Lane::Classification::centerline</a></code>. </dd></dl>
 
 </div>
 </div>
@@ -152,7 +159,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Confidence of the segments of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code>. Each <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aec65ce160b8def1f9c7621e0d2c94391">candidate</a></code> has the same <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aad023da83f979508a2b8436d757b6ba6">boundary_line</a></code> points and exact one <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a51bce9c2256d87f9c72c229be92386a1">boundary_line_confidences</a></code> confidence value is specified which is suitable for all candidates.</p>
+
+<p>Confidence of the segments of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code>. </p>
+<p>Each <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aec65ce160b8def1f9c7621e0d2c94391" title="A list of candidates for this lane boundary as estimated by the sensor. ">candidate</a></code> has the same <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aad023da83f979508a2b8436d757b6ba6" title="The list of individual points defining the location of the lane boundary (as a list of segments)...">boundary_line</a></code> points and exact one <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a51bce9c2256d87f9c72c229be92386a1" title="Confidence of the segments of the LaneBoundary::BoundaryPoint. ">boundary_line_confidences</a></code> confidence value is specified which is suitable for all candidates.</p>
 <p>Range: [0,1] </p>
 
 </div>
@@ -166,7 +175,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The root mean squared error of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code>. Each <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aec65ce160b8def1f9c7621e0d2c94391">candidate</a></code> has the same <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aad023da83f979508a2b8436d757b6ba6">boundary_line</a></code> points and exact one <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a3fa345c67f974ea15c71acb24ef6e5d6">boundary_line_rmse</a></code> rmse confidence value is specified which is suitable for all candidates. </p>
+
+<p>The root mean squared error of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">LaneBoundary::BoundaryPoint</a></code>. </p>
+<p>Each <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aec65ce160b8def1f9c7621e0d2c94391" title="A list of candidates for this lane boundary as estimated by the sensor. ">candidate</a></code> has the same <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#aad023da83f979508a2b8436d757b6ba6" title="The list of individual points defining the location of the lane boundary (as a list of segments)...">boundary_line</a></code> points and exact one <code><a class="el" href="structosi3_1_1DetectedLaneBoundary.html#a3fa345c67f974ea15c71acb24ef6e5d6" title="The root mean squared error of the LaneBoundary::BoundaryPoint. ">boundary_line_rmse</a></code> rmse confidence value is specified which is suitable for all candidates. </p>
 
 </div>
 </div>
@@ -179,21 +190,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A list of candidates for this lane boundary as estimated by the sensor.</p>
-<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="a22473acb719c74d6d2daa8556a9deedf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a> osi3::DetectedLaneBoundary::header = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Common information of one detected item. </p>
+<p>A list of candidates for this lane boundary as estimated by the sensor. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>
@@ -203,7 +202,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

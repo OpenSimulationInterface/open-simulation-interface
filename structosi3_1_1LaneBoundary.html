@@ -115,11 +115,16 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac5457eacc69aea20409a8b0e895c65b1"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary.html#ac5457eacc69aea20409a8b0e895c65b1">id</a> = 1</td></tr>
+<tr class="memitem:ac5457eacc69aea20409a8b0e895c65b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5457eacc69aea20409a8b0e895c65b1"></a>
+optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary.html#ac5457eacc69aea20409a8b0e895c65b1">id</a> = 1</td></tr>
+<tr class="memdesc:ac5457eacc69aea20409a8b0e895c65b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the lane boundary. <br/></td></tr>
 <tr class="separator:ac5457eacc69aea20409a8b0e895c65b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a682939954b5e9c43e1a51dd2f0d9f625"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html">BoundaryPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary.html#a682939954b5e9c43e1a51dd2f0d9f625">boundary_line</a> = 2</td></tr>
+<tr class="memdesc:a682939954b5e9c43e1a51dd2f0d9f625"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of individual points defining the location of the lane boundary (as a list of segments).  <a href="#a682939954b5e9c43e1a51dd2f0d9f625">More...</a><br/></td></tr>
 <tr class="separator:a682939954b5e9c43e1a51dd2f0d9f625"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06534c672364c43293f01b86d6ea5e44"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary.html#a06534c672364c43293f01b86d6ea5e44">classification</a> = 3</td></tr>
+<tr class="memitem:a06534c672364c43293f01b86d6ea5e44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06534c672364c43293f01b86d6ea5e44"></a>
+optional <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary.html#a06534c672364c43293f01b86d6ea5e44">classification</a> = 3</td></tr>
+<tr class="memdesc:a06534c672364c43293f01b86d6ea5e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of the lane boundary. <br/></td></tr>
 <tr class="separator:a06534c672364c43293f01b86d6ea5e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -135,38 +140,13 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The list of individual points defining the location of the lane boundary (as a list of segments).</p>
+
+<p>The list of individual points defining the location of the lane boundary (as a list of segments). </p>
 <p>Since a <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> is part of a sequence, only the position attribute has to be set for each instance. All other values will be reused from the previous <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> in the sequence or set to default values if there is none or it was never set.</p>
 <dl class="section note"><dt>Note</dt><dd>For dashed lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> has to be at the start and another at the end of each dashed line segment. The first <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> defines the beginning of the first dashed lane marking. The last <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> defines the end of the last dashed lane marking. For example, the area between the second and third <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> has no lane marking, and so on. </dd>
 <dd>
 For Botts' dots lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> position has to define each Botts' dot.</dd></dl>
-<dl class="section attention"><dt>Attention</dt><dd>For <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> the same rule for the approximation error applies as for <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42">Lane::Classification::centerline</a></code>. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a06534c672364c43293f01b86d6ea5e44"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">Classification</a> osi3::LaneBoundary::classification = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The classification of the lane boundary. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac5457eacc69aea20409a8b0e895c65b1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a> osi3::LaneBoundary::id = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The ID of the lane boundary. </p>
+<dl class="section attention"><dt>Attention</dt><dd>For <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> the same rule for the approximation error applies as for <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42" title="The lane&#39;s center line (as a list of segments). ">Lane::Classification::centerline</a></code>. </dd></dl>
 
 </div>
 </div>
@@ -176,7 +156,7 @@ For Botts' dots lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

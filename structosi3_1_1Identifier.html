@@ -105,34 +105,22 @@ Collaboration diagram for osi3::Identifier:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a96d2bdfa66d7a220cf65b389ee82a473"><td class="memItemLeft" align="right" valign="top">optional uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Identifier.html#a96d2bdfa66d7a220cf65b389ee82a473">value</a> = 1</td></tr>
+<tr class="memitem:a96d2bdfa66d7a220cf65b389ee82a473"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96d2bdfa66d7a220cf65b389ee82a473"></a>
+optional uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Identifier.html#a96d2bdfa66d7a220cf65b389ee82a473">value</a> = 1</td></tr>
+<tr class="memdesc:a96d2bdfa66d7a220cf65b389ee82a473"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identifier's value. <br/></td></tr>
 <tr class="separator:a96d2bdfa66d7a220cf65b389ee82a473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A common identifier (ID), represented as an integer. </p>
 <p>Has to be unique among all simulated items at any given time. For ground truth, the identifier of an item (object, lane, sign, etc.) must remain stable over its lifetime. <code><a class="el" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. ">Identifier</a></code> values may be only be reused if the available address space is exhausted and the specific values have not been in use for several timesteps. Sensor specific tracking IDs have no restrictions and should behave according to the sensor specifications.</p>
 <p>The value MAX(uint64) = 2^(64) -1 = 0b1111111111111111111111111111111111111111111111111111111111111111 is reserved and indicates an invalid ID or error. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a96d2bdfa66d7a220cf65b389ee82a473"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional uint64 osi3::Identifier::value = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The identifier's value. </p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/travis/build/OpenSimulationInterface/open-simulation-interface/osi_common.proto</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -106,17 +106,20 @@ Collaboration diagram for osi3::Spherical3d:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a3ebbbd58e45298e55e1e88ea67c790c8"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Spherical3d.html#a3ebbbd58e45298e55e1e88ea67c790c8">distance</a> = 1</td></tr>
+<tr class="memdesc:a3ebbbd58e45298e55e1e88ea67c790c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The radial distance.  <a href="#a3ebbbd58e45298e55e1e88ea67c790c8">More...</a><br/></td></tr>
 <tr class="separator:a3ebbbd58e45298e55e1e88ea67c790c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92c6f939b6f1771be727b5b94efa0037"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Spherical3d.html#a92c6f939b6f1771be727b5b94efa0037">azimuth</a> = 2</td></tr>
+<tr class="memdesc:a92c6f939b6f1771be727b5b94efa0037"><td class="mdescLeft">&#160;</td><td class="mdescRight">The azimuth (horizontal) angle.  <a href="#a92c6f939b6f1771be727b5b94efa0037">More...</a><br/></td></tr>
 <tr class="separator:a92c6f939b6f1771be727b5b94efa0037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a440c7dfe0d994e5168de2cafa75ba851"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Spherical3d.html#a440c7dfe0d994e5168de2cafa75ba851">elevation</a> = 3</td></tr>
+<tr class="memdesc:a440c7dfe0d994e5168de2cafa75ba851"><td class="mdescLeft">&#160;</td><td class="mdescRight">The elevation (vertical) angle.  <a href="#a440c7dfe0d994e5168de2cafa75ba851">More...</a><br/></td></tr>
 <tr class="separator:a440c7dfe0d994e5168de2cafa75ba851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A spherical representation for a point or vector in 3D space. </p>
 <p>Used e.g., for low level representations of radar detections.</p>
-<p>Azimuth and elevation are defined as the rotations that would have to be applied to the local frame (e.g sensor frame definition in <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list. ">SensorDetectionHeader</a></code>) to make its x-axis point towards the referenced point or to align it with the referenced vector. The rotations are to be performed <b>azimuth</b> <b>first</b> (around the z-axis) and <b>elevation</b> <b>second</b> (around the new y-axis) to follow the definition of <code><a class="el" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie...">Orientation3d</a></code>. For the sense of each rotation, the right-hand rule applies.</p>
-<p><code>vector_cartesian := Rotation(<a class="el" href="structosi3_1_1Spherical3d.html#a440c7dfe0d994e5168de2cafa75ba851">elevation</a>)*Rotation(<a class="el" href="structosi3_1_1Spherical3d.html#a92c6f939b6f1771be727b5b94efa0037">azimuth</a>)*Unit_vector_x*<a class="el" href="structosi3_1_1Spherical3d.html#a3ebbbd58e45298e55e1e88ea67c790c8">distance</a></code> </p>
+<p>Azimuth and elevation are defined as the rotations that would have to be applied to the local frame (e.g sensor frame definition in <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list. ">SensorDetectionHeader</a></code>) to make its x-axis point towards the referenced point or to align it with the referenced vector. The rotations are to be performed <b>azimuth</b> <b>first</b> (around the z-axis) and <b>elevation</b> <b>second</b> (around the new y-axis) to follow the definition of <code><a class="el" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. ">Orientation3d</a></code>. For the sense of each rotation, the right-hand rule applies.</p>
+<p><code>vector_cartesian := Rotation(<a class="el" href="structosi3_1_1Spherical3d.html#a440c7dfe0d994e5168de2cafa75ba851" title="The elevation (vertical) angle. ">elevation</a>)*Rotation(<a class="el" href="structosi3_1_1Spherical3d.html#a92c6f939b6f1771be727b5b94efa0037" title="The azimuth (horizontal) angle. ">azimuth</a>)*Unit_vector_x*<a class="el" href="structosi3_1_1Spherical3d.html#a3ebbbd58e45298e55e1e88ea67c790c8" title="The radial distance. ">distance</a></code> </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a92c6f939b6f1771be727b5b94efa0037"></a>
 <div class="memitem">
@@ -127,7 +130,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The azimuth (horizontal) angle.</p>
+
+<p>The azimuth (horizontal) angle. </p>
 <p>Unit: [rad] </p>
 
 </div>
@@ -141,7 +145,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The radial distance.</p>
+
+<p>The radial distance. </p>
 <p>Unit: [m] </p>
 
 </div>
@@ -155,7 +160,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The elevation (vertical) angle.</p>
+
+<p>The elevation (vertical) angle. </p>
 <p>Unit: [rad] </p>
 
 </div>
@@ -166,7 +172,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

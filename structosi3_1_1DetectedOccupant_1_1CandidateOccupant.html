@@ -106,8 +106,10 @@ Collaboration diagram for osi3::DetectedOccupant::CandidateOccupant:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5cde7ba099295ec4f639f683c101ee83"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedOccupant_1_1CandidateOccupant.html#a5cde7ba099295ec4f639f683c101ee83">probability</a> = 1</td></tr>
+<tr class="memdesc:a5cde7ba099295ec4f639f683c101ee83"><td class="mdescLeft">&#160;</td><td class="mdescRight">The estimated probability that this candidate is the true value.  <a href="#a5cde7ba099295ec4f639f683c101ee83">More...</a><br/></td></tr>
 <tr class="separator:a5cde7ba099295ec4f639f683c101ee83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83b1f6b589b8feddfadf7f3dde861034"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Occupant_1_1Classification.html">Occupant::Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedOccupant_1_1CandidateOccupant.html#a83b1f6b589b8feddfadf7f3dde861034">classification</a> = 2</td></tr>
+<tr class="memdesc:a83b1f6b589b8feddfadf7f3dde861034"><td class="mdescLeft">&#160;</td><td class="mdescRight">The detected vehicle occupant classification.  <a href="#a83b1f6b589b8feddfadf7f3dde861034">More...</a><br/></td></tr>
 <tr class="separator:a83b1f6b589b8feddfadf7f3dde861034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -122,7 +124,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The detected vehicle occupant classification.</p>
+
+<p>The detected vehicle occupant classification. </p>
 <dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
 
 </div>
@@ -136,8 +139,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The estimated probability that this candidate is the true value.</p>
-<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedOccupant_1_1CandidateOccupant.html#a5cde7ba099295ec4f639f683c101ee83">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
+
+<p>The estimated probability that this candidate is the true value. </p>
+<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedOccupant_1_1CandidateOccupant.html#a5cde7ba099295ec4f639f683c101ee83" title="The estimated probability that this candidate is the true value. ">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
 <p>Range: [0,1] </p>
 
 </div>
@@ -148,7 +152,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

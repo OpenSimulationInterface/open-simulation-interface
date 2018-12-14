@@ -100,14 +100,17 @@ Collaboration diagram for osi3::MountingPosition:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1MountingPosition__coll__graph.png" border="0" usemap="#osi3_1_1MountingPosition_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1MountingPosition_coll__map" id="osi3_1_1MountingPosition_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="5,125,135,152"/><area shape="rect" id="node4" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="160,125,267,152"/></map>
+<area shape="rect" id="node2" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="5,125,135,152"/><area shape="rect" id="node4" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="160,125,267,152"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a66a34477f66f316c6ca98b29df06fd12"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MountingPosition.html#a66a34477f66f316c6ca98b29df06fd12">position</a> = 1</td></tr>
+<tr class="memitem:a66a34477f66f316c6ca98b29df06fd12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66a34477f66f316c6ca98b29df06fd12"></a>
+optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MountingPosition.html#a66a34477f66f316c6ca98b29df06fd12">position</a> = 1</td></tr>
+<tr class="memdesc:a66a34477f66f316c6ca98b29df06fd12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset position relative to the specified reference coordinate system. <br/></td></tr>
 <tr class="separator:a66a34477f66f316c6ca98b29df06fd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf6b60bab37c064061d5591ceb82b13c"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MountingPosition.html#abf6b60bab37c064061d5591ceb82b13c">orientation</a> = 2</td></tr>
+<tr class="memdesc:abf6b60bab37c064061d5591ceb82b13c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation offset relative to the specified reference coordinate system.  <a href="#abf6b60bab37c064061d5591ceb82b13c">More...</a><br/></td></tr>
 <tr class="separator:abf6b60bab37c064061d5591ceb82b13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -123,25 +126,13 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Orientation offset relative to the specified reference coordinate system.</p>
-<p><code>Origin_sensor := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1MountingPosition.html#abf6b60bab37c064061d5591ceb82b13c">orientation</a>)*(Origin_reference_coordinate_system</p>
+
+<p>Orientation offset relative to the specified reference coordinate system. </p>
+<p><code>Origin_sensor := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1MountingPosition.html#abf6b60bab37c064061d5591ceb82b13c" title="Orientation offset relative to the specified reference coordinate system. ">orientation</a>)*(Origin_reference_coordinate_system</p>
 <ul>
-<li><a class="el" href="structosi3_1_1MountingPosition.html#a66a34477f66f316c6ca98b29df06fd12">position</a>) </li>
+<li><a class="el" href="structosi3_1_1MountingPosition.html#a66a34477f66f316c6ca98b29df06fd12" title="Offset position relative to the specified reference coordinate system. ">position</a>) </li>
 </ul>
 <p></code></p>
-
-</div>
-</div>
-<a class="anchor" id="a66a34477f66f316c6ca98b29df06fd12"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a> osi3::MountingPosition::position = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Offset position relative to the specified reference coordinate system. </p>
 
 </div>
 </div>
@@ -151,7 +142,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

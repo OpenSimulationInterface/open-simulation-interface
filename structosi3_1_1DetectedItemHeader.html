@@ -111,21 +111,29 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078af1c7aa4e3a4fc4a5865e632eb7e33ed7">MEASUREMENT_STATE_MEASURED</a> = 2, 
 <a class="el" href="structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078ab99ec0a9f0b0c83bd1095b5b3d945851">MEASUREMENT_STATE_PREDICTED</a> = 3
  }</td></tr>
+<tr class="memdesc:a3da007473f8976d9ae650a9b8a835078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of measurement states.  <a href="structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078">More...</a><br/></td></tr>
 <tr class="separator:a3da007473f8976d9ae650a9b8a835078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad86fc569bba59c89720bc84a5ec4a773"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedItemHeader.html#ad86fc569bba59c89720bc84a5ec4a773">tracking_id</a> = 1</td></tr>
+<tr class="memdesc:ad86fc569bba59c89720bc84a5ec4a773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specific ID of the detected item as assigned by the sensor internally.  <a href="#ad86fc569bba59c89720bc84a5ec4a773">More...</a><br/></td></tr>
 <tr class="separator:ad86fc569bba59c89720bc84a5ec4a773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eebf86e3e489299119402dc9b3b87a3"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedItemHeader.html#a0eebf86e3e489299119402dc9b3b87a3">ground_truth_id</a> = 2</td></tr>
+<tr class="memdesc:a0eebf86e3e489299119402dc9b3b87a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the original detected item in the ground truth.  <a href="#a0eebf86e3e489299119402dc9b3b87a3">More...</a><br/></td></tr>
 <tr class="separator:a0eebf86e3e489299119402dc9b3b87a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2238e55c8b92bf6310bce3c0c228e2"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">existence_probability</a> = 3</td></tr>
+<tr class="memdesc:a8d2238e55c8b92bf6310bce3c0c228e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The estimated probability that this detected item really exists, not based on history.  <a href="#a8d2238e55c8b92bf6310bce3c0c228e2">More...</a><br/></td></tr>
 <tr class="separator:a8d2238e55c8b92bf6310bce3c0c228e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6313d96ce10b7772f20bdce77fb18f5d"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedItemHeader.html#a6313d96ce10b7772f20bdce77fb18f5d">age</a> = 4</td></tr>
+<tr class="memdesc:a6313d96ce10b7772f20bdce77fb18f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount of time that this detected object has been continuously observed/tracked.  <a href="#a6313d96ce10b7772f20bdce77fb18f5d">More...</a><br/></td></tr>
 <tr class="separator:a6313d96ce10b7772f20bdce77fb18f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5556c0f162259f9ee834056b8f867726"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078">MeasurementState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedItemHeader.html#a5556c0f162259f9ee834056b8f867726">measurement_state</a> = 5</td></tr>
+<tr class="memitem:a5556c0f162259f9ee834056b8f867726"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5556c0f162259f9ee834056b8f867726"></a>
+optional <a class="el" href="structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078">MeasurementState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedItemHeader.html#a5556c0f162259f9ee834056b8f867726">measurement_state</a> = 5</td></tr>
+<tr class="memdesc:a5556c0f162259f9ee834056b8f867726"><td class="mdescLeft">&#160;</td><td class="mdescRight">The measurement state. <br/></td></tr>
 <tr class="separator:a5556c0f162259f9ee834056b8f867726"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e6dad14b3dadef536d29dcd848b9acb"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedItemHeader.html#a0e6dad14b3dadef536d29dcd848b9acb">sensor_id</a> = 6</td></tr>
+<tr class="memdesc:a0e6dad14b3dadef536d29dcd848b9acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of physical sensors which detected this detected item.  <a href="#a0e6dad14b3dadef536d29dcd848b9acb">More...</a><br/></td></tr>
 <tr class="separator:a0e6dad14b3dadef536d29dcd848b9acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -140,19 +148,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Definition of measurement states. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a3da007473f8976d9ae650a9b8a835078a1d7b339baf5280a9239a50776fe71542"></a>MEASUREMENT_STATE_UNKNOWN</em>&#160;</td><td class="fielddoc">
 <p>Measurement state is unknown (must not be used in ground truth). </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a3da007473f8976d9ae650a9b8a835078a7a78875601e1f5ad28305cf27afdec55"></a>MEASUREMENT_STATE_OTHER</em>&#160;</td><td class="fielddoc">
-<p>Measurement state is unspecified (but known, i.e. value is not part of this enum list). </p>
+<p>Measurement state is unspecified (but known, i.e. </p>
+<p>value is not part of this enum list). </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a3da007473f8976d9ae650a9b8a835078af1c7aa4e3a4fc4a5865e632eb7e33ed7"></a>MEASUREMENT_STATE_MEASURED</em>&#160;</td><td class="fielddoc">
 <p>Entity has been measured by the sensor in the current timestep. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a3da007473f8976d9ae650a9b8a835078ab99ec0a9f0b0c83bd1095b5b3d945851"></a>MEASUREMENT_STATE_PREDICTED</em>&#160;</td><td class="fielddoc">
-<p>Entity has not been measured by the sensor in the current timestep. Values provided by tracking only. </p>
+<p>Entity has not been measured by the sensor in the current timestep. </p>
+<p>Values provided by tracking only. </p>
 </td></tr>
 </table>
 
@@ -168,7 +179,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The amount of time that this detected object has been continuously observed/tracked.</p>
+
+<p>The amount of time that this detected object has been continuously observed/tracked. </p>
 <dl class="section note"><dt>Note</dt><dd>: 'Time stamp' - Age := 'point in time' when the object has been observed for the first time.</dd></dl>
 <p>Unit: [s] </p>
 
@@ -183,7 +195,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The estimated probability that this detected item really exists, not based on history.</p>
+
+<p>The estimated probability that this detected item really exists, not based on history. </p>
 <dl class="section note"><dt>Note</dt><dd>Use as confidence measure where a low value means less confidence and a high value indicates strong confidence.</dd></dl>
 <p>Range: [0,1] </p>
 
@@ -198,21 +211,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID of the original detected item in the ground truth.</p>
-<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="a5556c0f162259f9ee834056b8f867726"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html#a3da007473f8976d9ae650a9b8a835078">MeasurementState</a> osi3::DetectedItemHeader::measurement_state = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The measurement state. </p>
+<p>The ID of the original detected item in the ground truth. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>
@@ -225,8 +226,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A list of physical sensors which detected this detected item.</p>
-<p>If <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models. ">SensorData</a></code> has detected entities and all detections are missing, then e.g. the number of sensors can confirm the <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">existence_probability</a></code>.</p>
+
+<p>A list of physical sensors which detected this detected item. </p>
+<p>If <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models. ">SensorData</a></code> has detected entities and all detections are missing, then e.g. the number of sensors can confirm the <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">existence_probability</a></code>.</p>
 <dl class="section note"><dt>Note</dt><dd>This information can be determined via the detected entities' detections ( <code></code>...Detection::object_id = 'this detected item' ) and the sensors (their IDs) to which these detections belong.</dd>
 <dd>
 OSI uses singular instead of plural for repeated field names. </dd></dl>
@@ -242,7 +244,9 @@ OSI uses singular instead of plural for repeated field names. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Specific ID of the detected item as assigned by the sensor internally. Need not match with <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a0eebf86e3e489299119402dc9b3b87a3">ground_truth_id</a></code>. </p>
+
+<p>Specific ID of the detected item as assigned by the sensor internally. </p>
+<p>Need not match with <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a0eebf86e3e489299119402dc9b3b87a3" title="The ID of the original detected item in the ground truth. ">ground_truth_id</a></code>. </p>
 
 </div>
 </div>
@@ -252,7 +256,7 @@ OSI uses singular instead of plural for repeated field names. </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

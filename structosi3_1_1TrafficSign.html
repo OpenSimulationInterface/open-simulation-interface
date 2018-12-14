@@ -121,15 +121,20 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1TrafficSign.html#aa7984d515e5e930dca3a590244e0f953afefedd8e851b7faa51eeef45053ab30f">VARIABILITY_FIXED</a> = 2, 
 <a class="el" href="structosi3_1_1TrafficSign.html#aa7984d515e5e930dca3a590244e0f953acb3e62cf5a9ec18e554c16b72bb20fe9">VARIABILITY_VARIABLE</a> = 3
  }</td></tr>
+<tr class="memdesc:aa7984d515e5e930dca3a590244e0f953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of the variability of a traffic sign.  <a href="structosi3_1_1TrafficSign.html#aa7984d515e5e930dca3a590244e0f953">More...</a><br/></td></tr>
 <tr class="separator:aa7984d515e5e930dca3a590244e0f953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac0461abd93dc4ee20f1adfdfb1a0d995"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign.html#ac0461abd93dc4ee20f1adfdfb1a0d995">id</a> = 1</td></tr>
+<tr class="memitem:ac0461abd93dc4ee20f1adfdfb1a0d995"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0461abd93dc4ee20f1adfdfb1a0d995"></a>
+optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign.html#ac0461abd93dc4ee20f1adfdfb1a0d995">id</a> = 1</td></tr>
+<tr class="memdesc:ac0461abd93dc4ee20f1adfdfb1a0d995"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the traffic sign. <br/></td></tr>
 <tr class="separator:ac0461abd93dc4ee20f1adfdfb1a0d995"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5df9ce9ecf42f190e3f4b0cf2d29a12"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html">MainSign</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign.html#ac5df9ce9ecf42f190e3f4b0cf2d29a12">main_sign</a> = 2</td></tr>
+<tr class="memdesc:ac5df9ce9ecf42f190e3f4b0cf2d29a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main sign, e.g.  <a href="#ac5df9ce9ecf42f190e3f4b0cf2d29a12">More...</a><br/></td></tr>
 <tr class="separator:ac5df9ce9ecf42f190e3f4b0cf2d29a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5718625d51398169c808e93adb9f7374"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign.html">SupplementarySign</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign.html#a5718625d51398169c808e93adb9f7374">supplementary_sign</a> = 3</td></tr>
+<tr class="memdesc:a5718625d51398169c808e93adb9f7374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional supplementary signs, e.g.  <a href="#a5718625d51398169c808e93adb9f7374">More...</a><br/></td></tr>
 <tr class="separator:a5718625d51398169c808e93adb9f7374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -148,6 +153,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Definition of the variability of a traffic sign. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="aa7984d515e5e930dca3a590244e0f953a1a1e7dd0e6fa2791a117164b75f355d6"></a>VARIABILITY_UNKNOWN</em>&#160;</td><td class="fielddoc">
@@ -157,29 +163,18 @@ Public Attributes</h2></td></tr>
 <p>Other (unspecified but known) variability. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa7984d515e5e930dca3a590244e0f953afefedd8e851b7faa51eeef45053ab30f"></a>VARIABILITY_FIXED</em>&#160;</td><td class="fielddoc">
-<p>Fixed sign, i.e. always present. </p>
+<p>Fixed sign, i.e. </p>
+<p>always present. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa7984d515e5e930dca3a590244e0f953acb3e62cf5a9ec18e554c16b72bb20fe9"></a>VARIABILITY_VARIABLE</em>&#160;</td><td class="fielddoc">
-<p>Temporary or variable sign, e.g. on a sign bridge. </p>
+<p>Temporary or variable sign, e.g. </p>
+<p>on a sign bridge. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ac0461abd93dc4ee20f1adfdfb1a0d995"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a> osi3::TrafficSign::id = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The ID of the traffic sign. </p>
-
-</div>
-</div>
 <a class="anchor" id="ac5df9ce9ecf42f190e3f4b0cf2d29a12"></a>
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +184,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Main sign, e.g. speed limit 30 [km/h] </p>
+
+<p>Main sign, e.g. </p>
+<p>speed limit 30 [km/h] </p>
 
 </div>
 </div>
@@ -202,7 +199,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Additional supplementary signs, e.g. time limits, modifying the traffic sign.</p>
+
+<p>Additional supplementary signs, e.g. </p>
+<p>time limits, modifying the traffic sign.</p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
@@ -213,7 +212,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

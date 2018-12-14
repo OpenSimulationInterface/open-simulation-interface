@@ -101,7 +101,7 @@ Collaboration diagram for osi3::RoadMarking::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1RoadMarking_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1RoadMarking_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1RoadMarking_1_1Classification_coll__map" id="osi3_1_1RoadMarking_1_1Classification_coll__map">
-<area shape="rect" id="node3" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="251,56,355,83"/><area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking and its unit. " alt="" coords="227,259,378,285"/></map>
+<area shape="rect" id="node3" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="251,56,355,83"/><area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="227,220,378,247"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -118,6 +118,7 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbab6918d84634cb10b458042a5bcf90788">TYPE_GENERIC_TEXT</a> = 7
 <br/>
  }</td></tr>
+<tr class="memdesc:af73299847f0cbcd33b492d8e8b6427cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of road marking types.  <a href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cb">More...</a><br/></td></tr>
 <tr class="separator:af73299847f0cbcd33b492d8e8b6427cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac87385b6a2a1bc79f828f22e1c36e4b4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4">Color</a> { <br/>
 &#160;&#160;<a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4aed65449ce5b10e829213eef58b01cff6">COLOR_UNKNOWN</a> = 0, 
@@ -131,22 +132,30 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4a1b3b2a646e9b35278f581ab738c8998c">COLOR_VIOLET</a> = 8
 <br/>
  }</td></tr>
+<tr class="memdesc:ac87385b6a2a1bc79f828f22e1c36e4b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of road marking colors.  <a href="structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4">More...</a><br/></td></tr>
 <tr class="separator:ac87385b6a2a1bc79f828f22e1c36e4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a6fd9cb8216af8321e341e8b79c6f916e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cb">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a> = 1</td></tr>
+<tr class="memitem:a6fd9cb8216af8321e341e8b79c6f916e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6fd9cb8216af8321e341e8b79c6f916e"></a>
+optional <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cb">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a> = 1</td></tr>
+<tr class="memdesc:a6fd9cb8216af8321e341e8b79c6f916e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the road marking. <br/></td></tr>
 <tr class="separator:a6fd9cb8216af8321e341e8b79c6f916e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71de4ec9d93175a6b2b02a7a4326cb98"><td class="memItemLeft" align="right" valign="top">optional <br class="typebreak"/>
 <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88d">TrafficSign::MainSign::Classification::Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a71de4ec9d93175a6b2b02a7a4326cb98">traffic_main_sign_type</a> = 2</td></tr>
+<tr class="memdesc:a71de4ec9d93175a6b2b02a7a4326cb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traffic sign as road marking (color image, monochrome image or character string).  <a href="#a71de4ec9d93175a6b2b02a7a4326cb98">More...</a><br/></td></tr>
 <tr class="separator:a71de4ec9d93175a6b2b02a7a4326cb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0997fbbe7cd0afaeaf2c3b2079cfca9"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#aa0997fbbe7cd0afaeaf2c3b2079cfca9">monochrome_color</a> = 3</td></tr>
+<tr class="memdesc:aa0997fbbe7cd0afaeaf2c3b2079cfca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The monochrome color of the road marking.  <a href="#aa0997fbbe7cd0afaeaf2c3b2079cfca9">More...</a><br/></td></tr>
 <tr class="separator:aa0997fbbe7cd0afaeaf2c3b2079cfca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43378b96a36ae45b3e692bd0fcb6ff22"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficSignValue.html">TrafficSignValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a43378b96a36ae45b3e692bd0fcb6ff22">value</a> = 4</td></tr>
+<tr class="memdesc:a43378b96a36ae45b3e692bd0fcb6ff22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional value associated with the road marking, e.g.  <a href="#a43378b96a36ae45b3e692bd0fcb6ff22">More...</a><br/></td></tr>
 <tr class="separator:a43378b96a36ae45b3e692bd0fcb6ff22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a161c83ff42cad24a1cdd412cf682d5bc"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a161c83ff42cad24a1cdd412cf682d5bc">value_text</a> = 5</td></tr>
+<tr class="memdesc:a161c83ff42cad24a1cdd412cf682d5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional text value as road marking, e.g.  <a href="#a161c83ff42cad24a1cdd412cf682d5bc">More...</a><br/></td></tr>
 <tr class="separator:a161c83ff42cad24a1cdd412cf682d5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a482fa85b781bebc662550ae8e3213e30"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a482fa85b781bebc662550ae8e3213e30">assigned_lane_id</a> = 6</td></tr>
+<tr class="memdesc:a482fa85b781bebc662550ae8e3213e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID(s) of the lane(s) that the road marking is assigned to.  <a href="#a482fa85b781bebc662550ae8e3213e30">More...</a><br/></td></tr>
 <tr class="separator:a482fa85b781bebc662550ae8e3213e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -161,7 +170,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Definition of road marking colors </p>
+
+<p>Definition of road marking colors. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ac87385b6a2a1bc79f828f22e1c36e4b4aed65449ce5b10e829213eef58b01cff6"></a>COLOR_UNKNOWN</em>&#160;</td><td class="fielddoc">
 <p>Color of road marking is unknown (must not be used in ground truth). </p>
@@ -200,6 +210,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Definition of road marking types. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="af73299847f0cbcd33b492d8e8b6427cba9005ae9c0364fa3c8e74b262184a625b"></a>TYPE_UNKNOWN</em>&#160;</td><td class="fielddoc">
@@ -212,10 +223,12 @@ Public Attributes</h2></td></tr>
 <p>Paint on the road surface indicating a color image of a traffic sign. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af73299847f0cbcd33b492d8e8b6427cbaf32447c2168fbb5d9baf48f650a80b9d"></a>TYPE_SYMBOLIC_TRAFFIC_SIGN</em>&#160;</td><td class="fielddoc">
-<p>Paint on the road surface indicating a monochrome logical symbol of a traffic sign (e.g. digits 50 as start of speed limit 50 or stop line for stop sign). </p>
+<p>Paint on the road surface indicating a monochrome logical symbol of a traffic sign (e.g. </p>
+<p>digits 50 as start of speed limit 50 or stop line for stop sign). </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af73299847f0cbcd33b492d8e8b6427cba4a5a31878399051eefbcd7f7dd58836c"></a>TYPE_TEXTUAL_TRAFFIC_SIGN</em>&#160;</td><td class="fielddoc">
-<p>Paint on the road surface as a character string (e.g. BUS as bus only lane). </p>
+<p>Paint on the road surface as a character string (e.g. </p>
+<p>BUS as bus only lane). </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af73299847f0cbcd33b492d8e8b6427cba9fa3fdb907caae7ac59be15889cf2acd"></a>TYPE_GENERIC_SYMBOL</em>&#160;</td><td class="fielddoc">
 <p>Paint on the road surface indicating a generic symbol. </p>
@@ -240,7 +253,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID(s) of the lane(s) that the road marking is assigned to. May be multiple if the road marking goes across multiple lanes.</p>
+
+<p>The ID(s) of the lane(s) that the road marking is assigned to. </p>
+<p>May be multiple if the road marking goes across multiple lanes.</p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
@@ -254,8 +269,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The monochrome color of the road marking. </p>
-<dl class="section note"><dt>Note</dt><dd>Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4aeb0cfbe193165fc4dd16ff7797666029">COLOR_OTHER</a></code>) if road marking type does not require it (e.g. for <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4">TYPE_PAINTED_TRAFFIC_SIGN</a></code>). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4aeb0cfbe193165fc4dd16ff7797666029" title="Marking with another (unspecified but known) color. ">COLOR_OTHER</a></code>) if road marking type does not require it (e.g. for <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e" title="The type of the road marking. ">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4" title="Paint on the road surface indicating a color image of a traffic sign. ">TYPE_PAINTED_TRAFFIC_SIGN</a></code>). </dd></dl>
 
 </div>
 </div>
@@ -268,23 +284,11 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Traffic sign as road marking (color image, monochrome image or character string).</p>
-<dl class="section note"><dt>Note</dt><dd>Field is set if ( <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4">TYPE_PAINTED_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaf32447c2168fbb5d9baf48f650a80b9d">TYPE_SYMBOLIC_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba4a5a31878399051eefbcd7f7dd58836c">TYPE_TEXTUAL_TRAFFIC_SIGN</a></code> ).</dd>
-<dd>
-Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331">TYPE_OTHER</a></code>) if road marking type (<code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code>) does not require it. </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="a6fd9cb8216af8321e341e8b79c6f916e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cb">Type</a> osi3::RoadMarking::Classification::type = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The type of the road marking. </p>
+<p>Traffic sign as road marking (color image, monochrome image or character string). </p>
+<dl class="section note"><dt>Note</dt><dd>Field is set if ( <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e" title="The type of the road marking. ">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4" title="Paint on the road surface indicating a color image of a traffic sign. ">TYPE_PAINTED_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaf32447c2168fbb5d9baf48f650a80b9d" title="Paint on the road surface indicating a monochrome logical symbol of a traffic sign (e...">TYPE_SYMBOLIC_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba4a5a31878399051eefbcd7f7dd58836c" title="Paint on the road surface as a character string (e.g. ">TYPE_TEXTUAL_TRAFFIC_SIGN</a></code> ).</dd>
+<dd>
+Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331" title="Other (unspecified but known) type of road marking. ">TYPE_OTHER</a></code>) if road marking type (<code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e" title="The type of the road marking. ">type</a></code>) does not require it. </dd></dl>
 
 </div>
 </div>
@@ -297,7 +301,9 @@ Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMar
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Additional value associated with the road marking, e.g. value of the speed limit.</p>
+
+<p>Additional value associated with the road marking, e.g. </p>
+<p>value of the speed limit.</p>
 <dl class="section note"><dt>Note</dt><dd>Field need not be set if road marking type does not require it. </dd></dl>
 
 </div>
@@ -311,7 +317,9 @@ Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMar
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Additional text value as road marking, e.g. BUS, TAXI etc.</p>
+
+<p>Additional text value as road marking, e.g. </p>
+<p>BUS, TAXI etc.</p>
 <dl class="section note"><dt>Note</dt><dd>Field need not be set if road marking type does not require it. </dd></dl>
 
 </div>
@@ -322,7 +330,7 @@ Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMar
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

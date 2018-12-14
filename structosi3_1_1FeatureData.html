@@ -106,15 +106,18 @@ Collaboration diagram for osi3::FeatureData:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ade80540b30bd7e077a5b94416e5a6d23"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1FeatureData.html#ade80540b30bd7e077a5b94416e5a6d23">version</a> = 1</td></tr>
+<tr class="memdesc:ade80540b30bd7e077a5b94416e5a6d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">The interface version used by the sender (i.e.  <a href="#ade80540b30bd7e077a5b94416e5a6d23">More...</a><br/></td></tr>
 <tr class="separator:ade80540b30bd7e077a5b94416e5a6d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3a918f4021c8f994ba8f2408814d7b5"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1RadarDetectionData.html">RadarDetectionData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1FeatureData.html#aa3a918f4021c8f994ba8f2408814d7b5">radar_sensor</a> = 2</td></tr>
+<tr class="memdesc:aa3a918f4021c8f994ba8f2408814d7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radar detections for multiple radar sensors (sensor fusion).  <a href="#aa3a918f4021c8f994ba8f2408814d7b5">More...</a><br/></td></tr>
 <tr class="separator:aa3a918f4021c8f994ba8f2408814d7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a7161d4a1d68b248f6c33bd28541998"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LidarDetectionData.html">LidarDetectionData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1FeatureData.html#a4a7161d4a1d68b248f6c33bd28541998">lidar_sensor</a> = 3</td></tr>
+<tr class="memdesc:a4a7161d4a1d68b248f6c33bd28541998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lidar detections for multiple lidar sensors (sensor fusion).  <a href="#a4a7161d4a1d68b248f6c33bd28541998">More...</a><br/></td></tr>
 <tr class="separator:a4a7161d4a1d68b248f6c33bd28541998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for sensor data, in contrast to interpreted data after object hypothesis and tracking. </p>
-<p>All information regarding the environment is given with respect to the sensor coordinate system specified in <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a3b73ec96c144a7e32094ddebe37cc4a8">SensorDetectionHeader::mounting_position</a></code>. When simulating multiple sensors, each sensor has an individual copy of <code><a class="el" href="structosi3_1_1FeatureData.html" title="Interface for sensor data, in contrast to interpreted data after object hypothesis and tracking...">FeatureData</a></code> in its own reference frame. This allows an independent treatment of the sensors. </p>
+<p>All information regarding the environment is given with respect to the sensor coordinate system specified in <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a3b73ec96c144a7e32094ddebe37cc4a8" title="Mounting position of the sensor (origin and orientation of the sensor frame). ">SensorDetectionHeader::mounting_position</a></code>. When simulating multiple sensors, each sensor has an individual copy of <code><a class="el" href="structosi3_1_1FeatureData.html" title="Interface for sensor data, in contrast to interpreted data after object hypothesis and tracking...">FeatureData</a></code> in its own reference frame. This allows an independent treatment of the sensors. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a4a7161d4a1d68b248f6c33bd28541998"></a>
 <div class="memitem">
@@ -125,7 +128,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Lidar detections for multiple lidar sensors (sensor fusion).</p>
+
+<p>Lidar detections for multiple lidar sensors (sensor fusion). </p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
@@ -139,7 +143,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Radar detections for multiple radar sensors (sensor fusion).</p>
+
+<p>Radar detections for multiple radar sensors (sensor fusion). </p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
@@ -153,7 +158,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The interface version used by the sender (i.e. the simulation environment). </p>
+
+<p>The interface version used by the sender (i.e. </p>
+<p>the simulation environment). </p>
 
 </div>
 </div>
@@ -163,7 +170,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 21 2018 13:26:42 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 14:50:11 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
