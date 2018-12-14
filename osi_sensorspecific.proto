@@ -59,22 +59,22 @@ message UltrasonicSpecificObjectData
     //
     optional double probability = 2;
 
-    // This indicates if the feature was calculated based on one or multiple
+    // This indicates if the detection was calculated based on one or multiple
     // sensors.
     //
     optional TrilaterationStatus trilateration_status = 3;
 
-    // Describes the general moving direction of the feature.
+    // Describes the general moving direction of the detection.
     //
     optional Trend trend = 4;
 
-    // Ultrasonic signalway. Snder to receiver.
+    // Ultrasonic signalway. Sender to receiver.
     //
     // \note This information can also be derived from the corresponding \c
     // UltrasonicDetection. \c UltrasonicDetection refer to DetectedXXX by \c
     // UltrasonicDetection::object_id.
     //
-    repeated Signalway singalway = 5;
+    repeated Signalway signalway = 5;
 
     //
     // This indicates if the object was calculated based on one or multiple
@@ -90,17 +90,17 @@ message UltrasonicSpecificObjectData
         //
         TRILATERATION_STATUS_OTHER = 1;
 
-        // No trilateration used
+        // No trilateration used.
         //
         TRILATERATION_STATUS_NOT_TRILATERATED = 2;
 
-        // Trilateration used
+        // Trilateration used.
         //
         TRILATERATION_STATUS_TRILATERATED = 3;
     }
 
     //
-    // Describes the general moving direction of the feature.
+    // Describes the general moving direction of the detection.
     //
     enum Trend
     {
@@ -112,19 +112,19 @@ message UltrasonicSpecificObjectData
         //
         TREND_OTHER = 1;
 
-        // \note There is no definition
+        // \note There is no definition.
         //
         TREND_CONSTANT_APPROACHING = 2;
 
-        // \note There is no definition
+        // \note There is no definition.
         //
         TREND_CONSTANT = 3;
 
-        // \note There is no definition
+        // \note There is no definition.
         //
         TREND_APPROACHING = 4;
 
-        // \note There is no definition
+        // \note There is no definition.
         //
         TREND_DEPARTING = 5;
     }

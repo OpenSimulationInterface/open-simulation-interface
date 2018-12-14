@@ -121,9 +121,7 @@ message SensorDetectionHeader
     optional Identifier sensor_id = 7;
 
     // The extended qualifier describes the reason (not the effect) why the
-    // event data qualifier \c #data_qualifier is reduced or not available.
-    //
-    // \note required for USS
+    // event data qualifier \c #data_qualifier, is reduced or not available.
     //
     optional ExtendedQualifier extended_qualifier = 8;
 
@@ -163,16 +161,12 @@ message SensorDetectionHeader
 
         // Sensor invalid.
         //
-        // \note required for USS
-        //
         DATA_QUALIFIER_INVALID = 7;
     }
 
     //
     // Extended qualifier describes the reason (not the effect) why the event
-    // data qualifier \c #data_qualifier is reduced or not available.
-    //
-    // \note required for USS
+    // data qualifier \c #data_qualifier, is reduced or not available.
     //
     enum ExtendedQualifier
     {
@@ -184,50 +178,50 @@ message SensorDetectionHeader
         //
         EXTENDED_QUALIFIER_OTHER = 1;
 
-        // Normal operation mode
+        // Normal operation mode.
         //
         EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE = 2;
 
-        // Power up or down
+        // Power up or down.
         //
         EXTENDED_QUALIFIER_POWER_UP_OR_DOWN = 3;
 
-        // Sensor not calibrated
+        // Sensor not calibrated.
         //
         EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED = 4;
 
-        // Sensor blocked
+        // Sensor blocked.
         //
         EXTENDED_QUALIFIER_SENSOR_BLOCKED = 5;
 
-        // Sensor misaligned
+        // Sensor misaligned.
         //
         EXTENDED_QUALIFIER_SENSOR_MISALIGNED = 6;
 
-        // Bad sensor environmental condition (e.g. Darkness for vision)
+        // Bad sensor environmental condition (e.g. Darkness for vision).
         //
         EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION = 7;
 
-        // Reduced field of view
+        // Reduced field of view.
         //
         EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW = 8;
 
-        // Input not available
+        // Input not available.
         //
         EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE = 9;
 
-        // Internal reason (e.g. an internal HW or SW error has occurred)
+        // Internal reason (e.g. an internal HW or SW error has occurred).
         //
         EXTENDED_QUALIFIER_INTERNAL_REASON = 10;
 
         // External disturbance, sensor specific for front radar (e.g.
-        // Interference of different radar sensors)
+        // Interference of different radar sensors).
         //
         EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE = 11;
 
-        // Beginning blockage, sensor specific for front radar
+        // Beginning blockage, sensor specific for front radar.
         //
-        EXTENDED_QUALIFIER_BEBINNING_BLOCKAGE = 12;
+        EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE = 12;
     }
 }
 
@@ -403,8 +397,6 @@ message LidarDetection
 //
 // \brief Specific header extension for ultrasonic sensors.
 //
-// \note required for USS
-//
 message UltrasonicDetectionSpecificHeader
 {
     // Maximal range of the ultrasonic sensor.
@@ -438,8 +430,6 @@ message UltrasonicDetectionSpecificHeader
 // Sending: Ultrasonic Sensor ID 1
 // Receiving: Ultrasonic Sensor ID 2 or/and 3
 // \image html OSI_USSensor_indirect.png
-//
-// \note required for USS
 //
 message UltrasonicDetectionData
 {
