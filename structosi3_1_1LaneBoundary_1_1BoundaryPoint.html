@@ -118,6 +118,11 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A single point of a lane boundary. </p>
+<div class="image">
+<img src="OSI_LaneBoundary.svg" alt="OSI_LaneBoundary.svg"/>
+</div>
+<p>The lane boundary point bp2_{i} is one of the points of lane boundary lb2.</p>
+<dl class="section note"><dt>Note</dt><dd>In the example, the symbols l1, l2, ... and lb1, lb2, ... stand for the lane ids and lane boundary ids respectively, i.e. for integers (uint64). The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand for <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">osi3::LaneBoundary::BoundaryPoint</a></code> elements. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="ae8687f50d44774617a8ad44269266d74"></a>
 <div class="memitem">
@@ -131,6 +136,9 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 
 <p>The overall height of the lane boundary at the position of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> . </p>
 <p>Used for guard rails, curbstone, or similar.</p>
+<div class="image">
+<img src="OSI_LaneBoundaryHeight.svg" alt="OSI_LaneBoundaryHeight.svg"/>
+</div>
 <dl class="section note"><dt>Note</dt><dd>Field need not be set if it is previously defined. See <code><a class="el" href="structosi3_1_1LaneBoundary.html" title="A lane boundary defining the border of a lane. ">LaneBoundary</a></code> . </dd></dl>
 
 </div>
@@ -147,6 +155,9 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 
 <p>The overall width of the lane boundary at the position of the <code><a class="el" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. ">BoundaryPoint</a></code> . </p>
 <p>Used for lines forming lane markings.</p>
+<div class="image">
+<img src="OSI_LaneBoundaryWidth.svg" alt="OSI_LaneBoundaryWidth.svg"/>
+</div>
 <dl class="section note"><dt>Note</dt><dd>Field need not be set if it is defined previous. See <code><a class="el" href="structosi3_1_1LaneBoundary.html" title="A lane boundary defining the border of a lane. ">LaneBoundary</a></code>. </dd></dl>
 
 </div>
@@ -157,7 +168,7 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 14 2018 15:52:05 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 20:43:10 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

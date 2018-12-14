@@ -122,11 +122,28 @@ optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html">Classifi
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A lane in the road network. </p>
-<p>A lane is part of a road and mainly characterized by its center line. It also knows about any adjacent lanes, antecessor and successor lanes. The following image will be referred to by later comments. We'll use the lane with ID 3 as reference if not mentioned otherwise.</p>
-<div class="image">
-<img src="highway_exit.png" alt="highway_exit.png"/>
+<p>A lane is part of a road and mainly characterized by its center line. It also knows about any adjacent lanes, antecessor and successor lanes. The following images will be referred to by later comments. The lane l4 in image HighwayExit is used as reference if not mentioned otherwise.</p>
+<table  border="0">
+<tr>
+<td><div class="image">
+<img src="OSI_Highway_Exit.svg" alt="OSI_Highway_Exit.svg"/>
 </div>
-<p>For lane a to be the antecessor of lane b, the last point of a's center line has to be identical to the first point of b's center line (although both points might lie outside the simulated region, the relationship remains). Any lane starts or ends at such a split/merge point. No lane can ever keep its ID after such a split point, i.e. lane 4 has to change its ID after lane 6 splits off of lane 4, thus in the example it becomes a new lane with ID 7. </p>
+ </td><td><div class="image">
+<img src="OSI_LaneIntersection.svg" alt="OSI_LaneIntersection.svg"/>
+</div>
+ </td></tr>
+<tr>
+<td><div class="image">
+<img src="OSI_Highway_Exit.jpg" alt="OSI_Highway_Exit.jpg"/>
+<div class="caption">
+HighwayExit</div></div>
+ </td><td><div class="image">
+<img src="OSI_LaneIntersection.jpg" alt="OSI_LaneIntersection.jpg"/>
+<div class="caption">
+Intersection</div></div>
+ </td></tr>
+</table>
+<dl class="section note"><dt>Note</dt><dd>In the examples, the symbols l1, l2, ... and lb1, lb2, ... stand for the lane ids and lane boundary ids respectively, i.e. for integers (uint64). The symbols cl1, cl2, ... represent the <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42" title="The lane&#39;s center line (as a list of segments). ">osi3::Lane::Classification::centerline</a> elements of the lanes with the respective ids. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a385f1fbc783753cbb5e1f8c3a5f095f0"></a>
 <div class="memitem">
@@ -139,7 +156,7 @@ optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html">Classifi
 </div><div class="memdoc">
 
 <p>The ID of the lane. </p>
-<p>Example: 3 (see reference picture).</p>
+<p>Example: l4 (see reference picture HighwayExit).</p>
 <dl class="section note"><dt>Note</dt><dd>Note ID is global unique. </dd></dl>
 
 </div>
@@ -150,7 +167,7 @@ optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html">Classifi
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 14 2018 15:52:05 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 20:43:10 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

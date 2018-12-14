@@ -132,7 +132,11 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base attributes of an object that is moving. </p>
 <p>This includes the <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> messages.</p>
-<p>All coordinates and orientations from ground truth objects are relative to the global ground truth frame. All coordinates and orientations from detected objects are relative to the host vehicle frame (see: <code>MovingObject::Vehicle</code> vehicle reference point). </p>
+<div class="image">
+<img src="OSI_BaseMoving.svg" alt="OSI_BaseMoving.svg"/>
+</div>
+<p>E.g. a vehicle is a base moving object.</p>
+<p>All coordinates and orientations from ground truth objects are relative to the global ground truth frame. All coordinates and orientations from detected objects are relative to the host vehicle frame (see: <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> vehicle reference point). </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a88af69f98a0768fe9d38189ea5d4fb25"></a>
 <div class="memitem">
@@ -224,7 +228,7 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 14 2018 15:52:05 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 14 2018 20:43:10 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
