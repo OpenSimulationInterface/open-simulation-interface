@@ -3,6 +3,7 @@ var searchData=
   ['elevation',['elevation',['../structosi3_1_1Spherical3d.html#a440c7dfe0d994e5168de2cafa75ba851',1,'osi3::Spherical3d']]],
   ['ellipsoid_5faxial',['ellipsoid_axial',['../structosi3_1_1UltrasonicIndirectDetection.html#a486263493b3eea64c92cd607c86bc7f4',1,'osi3::UltrasonicIndirectDetection']]],
   ['ellipsoid_5fradial',['ellipsoid_radial',['../structosi3_1_1UltrasonicIndirectDetection.html#ae27488fe133f3e50b4894c7616466989',1,'osi3::UltrasonicIndirectDetection']]],
+  ['emergency_5fvehicle_5fillumination',['emergency_vehicle_illumination',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a27a9f18b2697ae7d2c13f0cd31085997',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['emitter_5ffrequency',['emitter_frequency',['../structosi3_1_1RadarSensorViewConfiguration.html#a16bcecae0130a7770ede9fcb934dc3c1',1,'osi3::RadarSensorViewConfiguration::emitter_frequency()'],['../structosi3_1_1LidarSensorViewConfiguration.html#aac96421ddf19cf73a7fa611abef48766',1,'osi3::LidarSensorViewConfiguration::emitter_frequency()']]],
   ['environmental_5fconditions',['environmental_conditions',['../structosi3_1_1GroundTruth.html#aee1873cbe2ed79701c6790ddcb14b420',1,'osi3::GroundTruth']]],
   ['environmentalconditions',['EnvironmentalConditions',['../structosi3_1_1EnvironmentalConditions.html',1,'osi3']]],

@@ -1,5 +1,8 @@
 var searchData=
 [
+  ['generic_5flight_5fstate_5fflashing_5famber',['GENERIC_LIGHT_STATE_FLASHING_AMBER',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da7b919374c9e6334b73697b5c8cb8054e',1,'osi3::MovingObject::VehicleClassification::LightState']]],
+  ['generic_5flight_5fstate_5fflashing_5fblue',['GENERIC_LIGHT_STATE_FLASHING_BLUE',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da26de2f33082a8ab84946f2a6b277cf30',1,'osi3::MovingObject::VehicleClassification::LightState']]],
+  ['generic_5flight_5fstate_5fflashing_5fblue_5fand_5fred',['GENERIC_LIGHT_STATE_FLASHING_BLUE_AND_RED',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da724c7456169c9afbe30d21b5ba3b3560',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['generic_5flight_5fstate_5foff',['GENERIC_LIGHT_STATE_OFF',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587daf5d89e74830906c84eb2eb444ce4a050',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['generic_5flight_5fstate_5fon',['GENERIC_LIGHT_STATE_ON',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da2d22a92bf57be5d2c56d07e3976783b7',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['generic_5flight_5fstate_5fother',['GENERIC_LIGHT_STATE_OTHER',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da05b41944a0fbc5748137828b08002737',1,'osi3::MovingObject::VehicleClassification::LightState']]],
