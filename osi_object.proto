@@ -539,16 +539,16 @@ message MovingObject
             //
             optional BrakeLightState brake_light_state = 7;
 
-            // State of the (rear) license plate illumination
+            // State of the (rear) license plate illumination.
             //
             optional GenericLightState license_plate_illumination_rear = 8;
 
-            // Lighting of Emergency Vehicles (Ambulances, Fire Engines, Police, etc.) 
+            // Lighting of emergency vehicles (ambulance, fire engine, police car, etc.).
             // Must be set only if a vehicle is allowed to use this illumination type. 
             // 
             optional GenericLightState emergency_vehicle_illumination = 9;
 
-            // Lighting of Service Vehicles (Snow removal, garbage trucks, towing vehicles, slow or wide vehicles) 
+            // Lighting of service vehicles (snow removal, garbage truck, towing vehicle, slow or wide vehicle, etc.). 
             // Must be set only if a vehicle is allowed to use this illumination type. 
             // 
             optional GenericLightState service_vehicle_illumination = 10;
@@ -604,18 +604,18 @@ message MovingObject
                 //
                 GENERIC_LIGHT_STATE_ON = 3;
                 
-                // Light is flashing blue
-                // To be used for emergency vehicles
+                // Light is flashing blue.
+                // To be used for emergency vehicles.
                 //
                 GENERIC_LIGHT_STATE_FLASHING_BLUE = 4;
 
-                // Light is flashing blue and red
-                // To be used for emergency vehicles 
+                // Light is flashing blue and red.
+                // To be used for emergency vehicles.
                 //
                 GENERIC_LIGHT_STATE_FLASHING_BLUE_AND_RED = 5;
 
                 // Light is flashing amber. 
-                // To be used for service vehicles 
+                // To be used for service vehicles.
                 //
                 GENERIC_LIGHT_STATE_FLASHING_AMBER = 6;
             }
