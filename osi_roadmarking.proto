@@ -10,7 +10,13 @@ package osi3;
 //
 // \brief A road surface marking.
 //
-// \image html OSI_RoadMarking.jpg
+// \image html OSI_RoadMarking.svg
+//
+// The figure shows two STOP road markings. STOP \c
+// RoadMarking::Classification::type == \c
+// RoadMarking::Classification::TYPE_TEXTUAL_TRAFFIC_SIGN is marked, STOP \c
+// RoadMarking::Classification::type == \c
+// RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN is not marked.
 //
 // All coordinates and orientations are relative to the global ground truth
 // coordinate system.
@@ -81,6 +87,9 @@ message RoadMarking
         // speed limit.
         //
         // \note Field need not be set if road marking type does not require it.
+        //
+        // \note OSI 3 uses \c #value_text and not \c TrafficSignValue for
+        // simple chars.
         //
         optional TrafficSignValue value = 4;
 

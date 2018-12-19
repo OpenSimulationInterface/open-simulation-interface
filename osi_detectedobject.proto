@@ -91,7 +91,7 @@ message DetectedItemHeader
 // \brief A stationary object (e.g. landmark) in the environment as detected by
 // the sensor.
 //
-// \image html OSI_DetectedStatObject.jpg
+// \image html OSI_DetectedStationaryObject.svg
 //
 message DetectedStationaryObject
 {

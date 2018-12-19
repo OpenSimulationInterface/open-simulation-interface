@@ -87,7 +87,7 @@ message Timestamp
 // \brief The dimension of a 3D box, e.g. the size of a 3D bounding box or its
 // uncertainties.
 //
-// \image html OSI_Dimension3d.jpg
+// \image html OSI_Dimension3D.svg
 //
 // The dimensions are positive. Uncertainties are negative or positive.
 //
@@ -252,12 +252,12 @@ message Spherical3d
 // This includes the \c StationaryObject , \c TrafficSign ,
 // \c TrafficLight , \c RoadMarking messages.
 //
-// \image html OSI_BaseStationary.jpg
+// \image html OSI_BaseStationary.svg
 //
 // All coordinates and orientations from ground truth objects are relative to
-// the global ground truth frame (see image). All coordinates and orientations
+// the global ground truth frame (see image). (All coordinates and orientations
 // from detected objects are relative to the host vehicle frame (see:
-// \c MovingObject::Vehicle vehicle reference point).
+// \c Vehicle vehicle reference point).)
 //
 message BaseStationary
 {
@@ -312,10 +312,14 @@ message BaseStationary
 //
 // This includes the \c MovingObject messages.
 //
+// \image html OSI_BaseMoving.svg
+//
+// E.g. a vehicle is a base moving object.
+//
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
 // from detected objects are relative to the host vehicle frame
-// (see: \c MovingObject::Vehicle vehicle reference point).
+// (see: \c MovingObject vehicle reference point).
 //
 message BaseMoving
 {
