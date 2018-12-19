@@ -11,7 +11,14 @@ package osi3;
 //
 // \brief A road marking in the environment as detected by the sensor.
 //
-// \image html OSI_DetectedRoadMarking.jpg
+// \image html OSI_DetectedRoadMarking.svg
+//
+// The figure shows two STOP road markings (\c
+// DetectedRoadMarking::CandidateRoadMarking::classification). STOP \c
+// RoadMarking::Classification::type == \c
+// RoadMarking::Classification::TYPE_TEXTUAL_TRAFFIC_SIGN is marked, STOP \c
+// RoadMarking::Classification::type == \c
+// RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN is not marked.
 //
 message DetectedRoadMarking
 {

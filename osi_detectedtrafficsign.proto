@@ -11,7 +11,7 @@ package osi3;
 //
 // \brief A traffic sign in the environment as detected by the sensor.
 //
-// \image html OSI_DetectedTrafficSigns.jpg
+// \image html OSI_DetectedSign.svg
 //
 message DetectedTrafficSign
 {
@@ -32,7 +32,7 @@ message DetectedTrafficSign
     //
     // \brief Candidates for a detected main sign as estimated by the sensor.
     //
-    // \image html OSI_DetectedMainTrafficSign.jpg
+    // \image html OSI_DetectedMainSign.svg
     //
     message DetectedMainSign
     {
@@ -160,7 +160,7 @@ message DetectedTrafficSign
     // \brief Candidates for all detected supplementary signs of one traffic
     // sign as estimated by the sensor.
     //
-    // \image html OSI_DetectedSuppSign.jpg
+    // \image html OSI_DetectedSupplementarySign.svg
     //
     message DetectedSupplementarySign
     {

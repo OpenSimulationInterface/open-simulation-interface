@@ -38,6 +38,8 @@ package osi3;
 // In enums (e.g. types) the unknown (first / default) value is not allowed to
 // be used in the ground truth interface.
 //
+// \image html OSI_GroundTruth.svg "Ground Truth"
+//
 message GroundTruth
 {
     // The interface version used by the sender (i.e. the simulation
@@ -141,4 +143,13 @@ message GroundTruth
     // - [1] [Proj.4 Projections] (https://proj4.org/usage/projections.html)
     //
     optional string proj_string = 14;
+
+    // Opaque reference of a map.
+    //
+    // \note Origin and orientation of the map have to coincide with the
+    // inertial coordinate frame of the ground truth.
+    //    
+    // \note It is implementation-specific how map_reference is resolved.
+    //
+    optional string map_reference = 15;
 }
