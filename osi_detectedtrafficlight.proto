@@ -11,7 +11,11 @@ package osi3;
 //
 // \brief A traffic light in the environment as detected by the sensor.
 //
-// \image html OSI_DetectedTrafficLight.jpg
+// \image html OSI_DetectedTrafficLight.svg
+//
+// One detected traffic light message defines a single 'bulb' and not a box of
+// several bulbs, e.g. red, yellow, green are three separate detected traffic
+// lights.
 //
 message DetectedTrafficLight
 {
