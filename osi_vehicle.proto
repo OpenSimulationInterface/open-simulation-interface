@@ -96,10 +96,18 @@ message VehiclePowertrain
     // Consumption in liters per 100 km.
     //
     optional double engine_consumption = 4;
+       
+    // Consumption in liters per 100 km.
+    //
+    optional double fuel_consumption = 4;
+    
+    // Consumption of electrical or hybrid vehicle 
+    //
+    optional double electrical_energy_consumption = 5;
 
     // The actual gear of the car.
     //
-    optional Gear gear = 5;
+    optional Gear gear = 6;
 }
 
 //
