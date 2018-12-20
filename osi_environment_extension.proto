@@ -5,7 +5,7 @@ option optimize_for = SPEED;
 package osi3;
 
 //
-// \brief Just a small extension of osi_environment, so this is not a standalone .proto.
+// \brief Just a small extension of osi_environment (Environmental conditions), so this is not a standalone .proto.
 // It was thought to be one, but this changed.
 //
 message Environment
@@ -13,11 +13,11 @@ message Environment
     // Contains the velocity of the wind (global weather).
     // In [m/s].
     //
-    optional double windvelocity = 1;
+    optional double wind_speed = 1;
 
     // Contains the direction of the wind (global weather).
     // In [Degree]. Wind direction is measured in degrees clockwise from due north.
     // Like on a windrose. E.g.: A wind blowing from the north has a wind direction of 0 Degree.
     //
-    optional double winddirection = 2;
+    optional double wind_direction = 2;
 }
