@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -124,11 +130,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Orientation offset relative to the specified reference coordinate system.</p>
-<p><code>Origin_sensor := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1MountingPosition.html#abf6b60bab37c064061d5591ceb82b13c">orientation</a>)*(Origin_reference_coordinate_system</p>
-<ul>
-<li><a class="el" href="structosi3_1_1MountingPosition.html#a66a34477f66f316c6ca98b29df06fd12">position</a>) </li>
-</ul>
-<p></code></p>
+<p>\( Origin_{sensor} := Rotation_{yaw,pitch,roll}( \) <code><a class="el" href="structosi3_1_1MountingPosition.html#abf6b60bab37c064061d5591ceb82b13c">orientation</a></code> \( )*(Origin_{\text{reference coord system}} - \) <code><a class="el" href="structosi3_1_1MountingPosition.html#a66a34477f66f316c6ca98b29df06fd12">position</a></code> \( )\) </p>
 
 </div>
 </div>
@@ -151,7 +153,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 19:08:06 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:15:40 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

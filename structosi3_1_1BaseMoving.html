@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -117,10 +123,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a88af69f98a0768fe9d38189ea5d4fb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cfdbe7e278814652a96b85b2c909df3"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a> = 6</td></tr>
 <tr class="separator:a8cfdbe7e278814652a96b85b2c909df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a584e39108fe12db4933390975a172c63"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Vector2d.html">Vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseMoving.html#a584e39108fe12db4933390975a172c63">base_polygon</a> = 7</td></tr>
-<tr class="separator:a584e39108fe12db4933390975a172c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae042af32022871003d8abeeb284577bf"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseMoving.html#ae042af32022871003d8abeeb284577bf">orientation_acceleration</a> = 8</td></tr>
 <tr class="separator:ae042af32022871003d8abeeb284577bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584e39108fe12db4933390975a172c63"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Vector2d.html">Vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseMoving.html#a584e39108fe12db4933390975a172c63">base_polygon</a> = 7</td></tr>
+<tr class="separator:a584e39108fe12db4933390975a172c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base attributes of an object that is moving. </p>
@@ -141,8 +147,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The relative acceleration of the moving object w.r.t. its parent frame, noted in the parent frame. The acceleration becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
-<p><code> <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t) := <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t-dt)+ <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> *dt+ <a class="el" href="structosi3_1_1BaseMoving.html#a88af69f98a0768fe9d38189ea5d4fb25">acceleration</a> /2*dt^2</code></p>
-<p><code> <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> (t) := <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> (t-dt)+ <a class="el" href="structosi3_1_1BaseMoving.html#a88af69f98a0768fe9d38189ea5d4fb25">acceleration</a> *dt</code> </p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a></code> \( (t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a></code> \( (t-dt)+ \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a></code> \( *dt+ \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a88af69f98a0768fe9d38189ea5d4fb25">acceleration</a></code> \( /2*dt^2\)</p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a></code> \( (t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a></code> \( (t-dt)+ \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a88af69f98a0768fe9d38189ea5d4fb25">acceleration</a></code> \( *dt \) </p>
 
 </div>
 </div>
@@ -184,7 +190,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The relative orientation of the moving object w.r.t. its parent frame, noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
-<p><code>Origin_base_moving_entity := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a>)*(Origin_parent_coordinate_system - <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a>)</code></p>
+<p>\( Origin_{\text{base moving entity}} := Rotation_{yaw,pitch,roll}( \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a></code> \( )* (Origin_{\text{parent coord system}} - \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a></code> \( ) \)</p>
 <dl class="section note"><dt>Note</dt><dd>There may be some constraints how to align the orientation w.r.t. to some stationary object's or entity's definition. </dd></dl>
 
 </div>
@@ -199,9 +205,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The relative orientation acceleration of the moving object w.r.t. its parent frame and parent orientation acceleration in the center point of the bounding box (origin of the bounding box frame), noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
-<p><code>orientation_rate.yaw(t) := orientation_acceleration.yaw(t) * dt + orientation_rate.yaw(t-dt)</code></p>
-<p><code>orientation_rate.pitch(t) := orientation_acceleration.pitch(t) * dt + orientation_rate.pitch(t-dt)</code></p>
-<p><code>orientation_rate.roll(t) := orientation_acceleration.roll(t) * dt + orientation_rate.roll(t-dt)</code> </p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .yaw(t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#ae042af32022871003d8abeeb284577bf">orientation_acceleration</a></code> \( .yaw(t) * dt + \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .yaw(t-dt) \)</p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .pitch(t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#ae042af32022871003d8abeeb284577bf">orientation_acceleration</a></code> \( .pitch(t) * dt + \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .pitch(t-dt) \)</p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .roll(t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#ae042af32022871003d8abeeb284577bf">orientation_acceleration</a></code> \( .roll(t) * dt + \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .roll(t-dt) \) </p>
 
 </div>
 </div>
@@ -215,9 +221,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The relative orientation rate of the moving object w.r.t. its parent frame and parent orientation rate in the center point of the bounding box (origin of the bounding box frame), noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
-<p><code>orientation.yaw(t) := orientation_rate.yaw(t) * dt + orientation.yaw(t-dt)</code></p>
-<p><code>orientation.pitch(t) := orientation_rate.pitch(t) * dt + orientation.pitch(t-dt)</code></p>
-<p><code>orientation.roll(t) := orientation_rate.roll(t) * dt + orientation.roll(t-dt)</code> </p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a></code> \( .yaw(t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .yaw(t) * dt + \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a></code> \( .yaw(t-dt) \)</p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a></code> \( .pitch(t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .pitch(t) * dt + \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a></code> \( .pitch(t-dt) \)</p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a></code> \( .roll(t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3">orientation_rate</a></code> \( .roll(t) * dt + \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">orientation</a></code> \( .roll(t-dt)\) </p>
 
 </div>
 </div>
@@ -244,7 +250,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The relative velocity of the moving object w.r.t. the parent frame, noted in the parent frame. The velocity becomes global/absolute if the parent frame does is inertial (all parent frames up to ground truth).</p>
-<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t) := <a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a> (t-dt)+ <a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a> *dt</code> </p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a></code> \( (t) := \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">position</a></code> \( (t-dt)+ \) <code><a class="el" href="structosi3_1_1BaseMoving.html#a2a3e348c07ff1cfcef3ba104f2f10112">velocity</a></code> \( *dt \) </p>
 
 </div>
 </div>
@@ -254,7 +260,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 19:08:06 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:15:40 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

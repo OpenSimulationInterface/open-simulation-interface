@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -119,19 +125,13 @@ Public Attributes</h2></td></tr>
 <p>The rotations are to be performed <b>yaw</b> <b>first</b> (around the z-axis), <b>pitch</b> <b>second</b> (around the new y-axis) and <b>roll</b> <b>third</b> (around the new x-axis) to follow the definition according to <a href="Tait-Bryan / Euler
 convention z-y" title="-x&apos;">1</a>.</p>
 <p>Roll/Pitch are 0 if the objects xy-plane is parallel to its parent's xy-plane. Yaw is 0 if the object's local x-axis is parallel to its parent's x-axis.</p>
-<p><code>Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw</code></p>
-<p><code>vector_global_coord_system := Inverse_Rotation_yaw_pitch_roll(</code><code><a class="el" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie...">Orientation3d</a></code><code>)*(vector_local_coord_system)</p>
-<ul>
-<li>local_origin::position</li>
-</ul>
-<p></code></p>
-<p><code></p>
+<p>\( Rotation_{yaw,pitch,roll} = Rotation_{roll}*Rotation_{pitch}*Rotation_{yaw} \)</p>
+<p>\( vector_{\text{global coord system}} := Rotation_{yaw,pitch,roll}^{-1}( \) <code><a class="el" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie...">Orientation3d</a></code> \( )*vector_{\text{local coord system}} + local_{origin}\text{::position} \)</p>
 <dl class="section attention"><dt>Attention</dt><dd>This definition changed in OSI version 3.0.0. Previous OSI versions (V2.xx) had an other definition.</dd></dl>
 <dl class="section user"><dt>References:</dt><dd><ul>
 <li>[1] DIN ISO 8855:2013-11 </li>
 </ul>
 </dd></dl>
-<p></code></p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a1f855b7cd2ecc13fee682b13d174759a"></a>
 <div class="memitem">
@@ -181,7 +181,7 @@ convention z-y" title="-x&apos;">1</a>.</p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 19:08:06 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:15:40 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

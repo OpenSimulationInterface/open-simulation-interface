@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -160,7 +166,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The relative orientation of the stationary object w.r.t. its parent frame, noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
-<p><code>Origin_base_stationary_entity := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">orientation</a>)*(Origin_parent_coordinate_system - <a class="el" href="structosi3_1_1BaseStationary.html#a2378991a1c0c9f65e9fd274b6e07318e">position</a>)</code></p>
+<p>\( Origin_{\text{base stationary entity}} := Rotation_{yaw,pitch,roll}( \) <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">orientation</a></code> \( )* (Origin_{\text{parent coord system}} - \) <code><a class="el" href="structosi3_1_1BaseStationary.html#a2378991a1c0c9f65e9fd274b6e07318e">position</a></code> \( )\)</p>
 <dl class="section note"><dt>Note</dt><dd>There may be some constraints how to align the orientation w.r.t. to some stationary object's or entity's definition. </dd></dl>
 
 </div>
@@ -184,7 +190,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 19:08:06 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:15:40 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
