@@ -1,45 +1,45 @@
 <map id="osi3::SensorData" name="osi3::SensorData">
-<area shape="rect" id="node2" href="$structosi3_1_1FeatureData.html" title="Interface for sensor data containing information without a history in contrast to interpreted data af..." alt="" coords="1602,104,1729,131"/>
-<area shape="rect" id="node3" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="1189,176,1339,203"/>
-<area shape="rect" id="node46" href="$structosi3_1_1SensorView.html" title="The sensor view is derived from GroundTruth and used as input to sensor models. " alt="" coords="1603,904,1727,931"/>
-<area shape="rect" id="node4" href="$structosi3_1_1RadarDetectionData.html" title="Data from one radar sensor including a list of detections. " alt="" coords="1177,56,1351,83"/>
-<area shape="rect" id="node5" href="$structosi3_1_1UltrasonicDetectionData.html" title="Data from one ultrasonic sensor including a list of detections. " alt="" coords="1165,107,1363,133"/>
-<area shape="rect" id="node6" href="$structosi3_1_1LidarDetectionData.html" title="Data from one lidar sensor including a list of detections. " alt="" coords="1181,5,1347,32"/>
-<area shape="rect" id="node7" href="$structosi3_1_1DetectedLaneBoundary.html" title="A lane boundary segment as detected by the sensor. " alt="" coords="1169,521,1359,548"/>
-<area shape="rect" id="node8" href="$structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html" title="A candidate for a detected lane boundary as estimated by the sensor. " alt="" coords="510,393,701,434"/>
-<area shape="rect" id="node10" href="$structosi3_1_1DetectedItemHeader.html" title="The common information for a detected item as estimated by the sensor. " alt="" coords="761,744,935,771"/>
-<area shape="rect" id="node13" href="$structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. " alt="" coords="779,503,917,545"/>
-<area shape="rect" id="node14" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="335,1024,441,1051"/>
-<area shape="rect" id="node17" href="$structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html" title="A candidate for a detected stationary object as estimated by the sensor. " alt="" coords="493,798,717,839"/>
-<area shape="rect" id="node19" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="323,1412,453,1439"/>
-<area shape="rect" id="node20" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="323,1099,453,1125"/>
-<area shape="rect" id="node21" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="335,1247,441,1273"/>
-<area shape="rect" id="node24" href="$structosi3_1_1DetectedLane_1_1CandidateLane.html" title="A candidate for a detected lane as estimated by the sensor. " alt="" coords="538,605,673,646"/>
-<area shape="rect" id="node27" href="$structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html" title="A candidate for a detected traffic light as estimated by the sensor. " alt="" coords="519,893,691,934"/>
-<area shape="rect" id="node35" href="$structosi3_1_1DetectedOccupant_1_1CandidateOccupant.html" title="A candidate for a detected occupant as estimated by the sensor. " alt="" coords="307,669,469,710"/>
-<area shape="rect" id="node37" href="$structosi3_1_1DetectedRoadMarking_1_1CandidateRoadMarking.html" title="A candidate for a detected road marking as estimated by the sensor. " alt="" coords="513,941,697,982"/>
-<area shape="rect" id="node38" href="$structosi3_1_1DetectedMovingObject.html" title="Moving object in the environment as detected and perceived by the sensor. " alt="" coords="1171,1625,1357,1652"/>
-<area shape="rect" id="node39" href="$structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html" title="A candidate for a detected moving object as estimated by the sensor. " alt="" coords="755,1559,941,1601"/>
-<area shape="rect" id="node40" href="$structosi3_1_1UltrasonicSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to ultrasonic sensors..." alt="" coords="525,1819,685,1861"/>
-<area shape="rect" id="node45" href="$structosi3_1_1RadarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to radar sensors. " alt="" coords="504,1709,707,1736"/>
-<area shape="rect" id="node16" href="$structosi3_1_1DetectedStationaryObject.html" title="A stationary object (e.g. " alt="" coords="1181,726,1347,767"/>
-<area shape="rect" id="node23" href="$structosi3_1_1DetectedLane.html" title="A lane segment as detected by the sensor. " alt="" coords="1197,588,1331,615"/>
-<area shape="rect" id="node26" href="$structosi3_1_1DetectedTrafficLight.html" title="A traffic light in the environment as detected by the sensor. " alt="" coords="1178,792,1350,819"/>
-<area shape="rect" id="node31" href="$structosi3_1_1DetectedTrafficSign.html" title="A traffic sign in the environment as detected by the sensor. " alt="" coords="1580,1179,1751,1205"/>
-<area shape="rect" id="node34" href="$structosi3_1_1DetectedOccupant.html" title="A vehicle occupant as detected and perceived by an interior sensor. " alt="" coords="1183,655,1345,681"/>
-<area shape="rect" id="node36" href="$structosi3_1_1DetectedRoadMarking.html" title="A road marking in the environment as detected by the sensor. " alt="" coords="1172,843,1356,869"/>
-<area shape="rect" id="node11" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="336,313,440,340"/>
-<area shape="rect" id="node28" href="$structosi3_1_1DetectedEntityHeader.html" title="The header attributes of each detected entity. " alt="" coords="1574,295,1757,321"/>
-<area shape="rect" id="node18" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="777,1063,919,1089"/>
-<area shape="rect" id="node22" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="785,1363,911,1389"/>
-<area shape="rect" id="node30" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="983,1407,1137,1433"/>
-<area shape="rect" id="node32" href="$structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html" title="Candidates for a detected main sign as estimated by the sensor. " alt="" coords="1179,1190,1349,1231"/>
-<area shape="rect" id="node33" href="$structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign.html" title="Candidates for all detected supplementary signs of one traffic sign as estimated by the sensor..." alt="" coords="1166,1255,1362,1297"/>
-<area shape="rect" id="node50" href="$structosi3_1_1HostVehicleData.html" title="Interface for host vehicle data that is available to sensors and other functions due to host vehicle&#39;..." alt="" coords="1187,1139,1341,1165"/>
-<area shape="rect" id="node25" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="1205,357,1323,384"/>
-<area shape="rect" id="node41" href="$structosi3_1_1CameraSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to camera sensors. " alt="" coords="741,1508,955,1535"/>
-<area shape="rect" id="node42" href="$structosi3_1_1LidarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to lidar sensors. " alt="" coords="751,1676,945,1703"/>
-<area shape="rect" id="node47" href="$structosi3_1_1UltrasonicSensorView.html" title="Definition of the ultrasonic sensor view. " alt="" coords="1173,944,1355,971"/>
-<area shape="rect" id="node48" href="$structosi3_1_1RadarSensorView.html" title="Definition of the radar sensor view. " alt="" coords="1185,995,1343,1021"/>
-<area shape="rect" id="node49" href="$structosi3_1_1GenericSensorView.html" title="Definition of the generic sensor view. " alt="" coords="1179,893,1349,920"/>
+<area shape="rect" id="node2" href="$structosi3_1_1FeatureData.html" title="Interface for sensor data containing information without a history in contrast to interpreted data af..." alt="" coords="1602,129,1729,156"/>
+<area shape="rect" id="node3" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="1189,224,1339,251"/>
+<area shape="rect" id="node47" href="$structosi3_1_1SensorView.html" title="The sensor view is derived from GroundTruth and used as input to sensor models. " alt="" coords="1603,651,1727,677"/>
+<area shape="rect" id="node4" href="$structosi3_1_1RadarDetectionData.html" title="Data from one radar sensor including a list of detections. " alt="" coords="1177,5,1351,32"/>
+<area shape="rect" id="node5" href="$structosi3_1_1CameraDetectionData.html" title="Data from one camera sensor including a list of detections. " alt="" coords="1172,56,1356,83"/>
+<area shape="rect" id="node6" href="$structosi3_1_1UltrasonicDetectionData.html" title="Data from one ultrasonic sensor including a list of detections. This list is generated by the sending..." alt="" coords="1165,107,1363,133"/>
+<area shape="rect" id="node7" href="$structosi3_1_1LidarDetectionData.html" title="Data from one lidar sensor including a list of detections. " alt="" coords="1181,157,1347,184"/>
+<area shape="rect" id="node8" href="$structosi3_1_1DetectedLaneBoundary.html" title="A lane boundary segment as detected by the sensor. " alt="" coords="1169,572,1359,599"/>
+<area shape="rect" id="node9" href="$structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html" title="A candidate for a detected lane boundary as estimated by the sensor. " alt="" coords="510,586,701,627"/>
+<area shape="rect" id="node11" href="$structosi3_1_1DetectedItemHeader.html" title="The common information for a detected item as estimated by the sensor. " alt="" coords="761,923,935,949"/>
+<area shape="rect" id="node14" href="$structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. " alt="" coords="779,794,917,835"/>
+<area shape="rect" id="node15" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="335,1208,441,1235"/>
+<area shape="rect" id="node18" href="$structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html" title="A candidate for a detected stationary object as estimated by the sensor. " alt="" coords="493,1010,717,1051"/>
+<area shape="rect" id="node20" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="323,1629,453,1656"/>
+<area shape="rect" id="node21" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="323,1283,453,1309"/>
+<area shape="rect" id="node22" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="335,1344,441,1371"/>
+<area shape="rect" id="node25" href="$structosi3_1_1DetectedLane_1_1CandidateLane.html" title="A candidate for a detected lane as estimated by the sensor. " alt="" coords="538,703,673,745"/>
+<area shape="rect" id="node28" href="$structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html" title="A candidate for a detected traffic light as estimated by the sensor. " alt="" coords="519,1113,691,1154"/>
+<area shape="rect" id="node36" href="$structosi3_1_1DetectedOccupant_1_1CandidateOccupant.html" title="A candidate for a detected occupant as estimated by the sensor. " alt="" coords="307,889,469,930"/>
+<area shape="rect" id="node38" href="$structosi3_1_1DetectedRoadMarking_1_1CandidateRoadMarking.html" title="A candidate for a detected road marking as estimated by the sensor. " alt="" coords="513,1065,697,1106"/>
+<area shape="rect" id="node39" href="$structosi3_1_1DetectedMovingObject.html" title="Moving object in the environment as detected and perceived by the sensor. " alt="" coords="1171,1729,1357,1756"/>
+<area shape="rect" id="node40" href="$structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html" title="A candidate for a detected moving object as estimated by the sensor. " alt="" coords="755,1894,941,1935"/>
+<area shape="rect" id="node41" href="$structosi3_1_1UltrasonicSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to ultrasonic sensors..." alt="" coords="525,1854,685,1895"/>
+<area shape="rect" id="node46" href="$structosi3_1_1RadarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to radar sensors. " alt="" coords="504,2000,707,2027"/>
+<area shape="rect" id="node17" href="$structosi3_1_1DetectedStationaryObject.html" title="A stationary object (e.g. landmark) in the environment as detected by the sensor. ..." alt="" coords="1181,965,1347,1006"/>
+<area shape="rect" id="node24" href="$structosi3_1_1DetectedLane.html" title="A lane segment as detected by the sensor. " alt="" coords="1197,775,1331,801"/>
+<area shape="rect" id="node27" href="$structosi3_1_1DetectedTrafficLight.html" title="A traffic light in the environment as detected by the sensor. " alt="" coords="1178,1088,1350,1115"/>
+<area shape="rect" id="node32" href="$structosi3_1_1DetectedTrafficSign.html" title="A traffic sign in the environment as detected by the sensor. " alt="" coords="1580,1133,1751,1160"/>
+<area shape="rect" id="node35" href="$structosi3_1_1DetectedOccupant.html" title="A vehicle occupant as detected and perceived by an interior sensor. " alt="" coords="1183,825,1345,852"/>
+<area shape="rect" id="node37" href="$structosi3_1_1DetectedRoadMarking.html" title="A road marking in the environment as detected by the sensor. " alt="" coords="1172,1033,1356,1060"/>
+<area shape="rect" id="node12" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="336,485,440,512"/>
+<area shape="rect" id="node29" href="$structosi3_1_1DetectedEntityHeader.html" title="The header attributes of each detected entity. " alt="" coords="1574,356,1757,383"/>
+<area shape="rect" id="node19" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="777,1253,919,1280"/>
+<area shape="rect" id="node23" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="785,1527,911,1553"/>
+<area shape="rect" id="node31" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="983,1511,1137,1537"/>
+<area shape="rect" id="node33" href="$structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html" title="Candidates for a detected main sign as estimated by the sensor. " alt="" coords="1179,1231,1349,1273"/>
+<area shape="rect" id="node34" href="$structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign.html" title="Candidates for all detected supplementary signs of one traffic sign as estimated by the sensor..." alt="" coords="1166,1149,1362,1190"/>
+<area shape="rect" id="node26" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="1205,408,1323,435"/>
+<area shape="rect" id="node42" href="$structosi3_1_1CameraSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to camera sensors. " alt="" coords="741,1960,955,1987"/>
+<area shape="rect" id="node43" href="$structosi3_1_1LidarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to lidar sensors. " alt="" coords="751,1628,945,1655"/>
+<area shape="rect" id="node48" href="$structosi3_1_1UltrasonicSensorView.html" title="Definition of the ultrasonic sensor view. " alt="" coords="1173,673,1355,700"/>
+<area shape="rect" id="node49" href="$structosi3_1_1RadarSensorView.html" title="Definition of the radar sensor view. " alt="" coords="1185,724,1343,751"/>
+<area shape="rect" id="node50" href="$structosi3_1_1GenericSensorView.html" title="Definition of the generic sensor view. " alt="" coords="1179,623,1349,649"/>
 </map>

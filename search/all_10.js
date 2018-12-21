@@ -2,6 +2,7 @@ var searchData=
 [
   ['temperature',['temperature',['../structosi3_1_1EnvironmentalConditions.html#afb975ad7dddedd8bfac0a38664ab908e',1,'osi3::EnvironmentalConditions']]],
   ['text',['text',['../structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90',1,'osi3::TrafficSignValue']]],
+  ['time_5fdifference',['time_difference',['../structosi3_1_1CameraDetection.html#abc39a3545ba1dd62d8740cc18727f24c',1,'osi3::CameraDetection']]],
   ['time_5fof_5fday',['time_of_day',['../structosi3_1_1EnvironmentalConditions.html#aebd011399675b0a3582e5a64a5f93be2',1,'osi3::EnvironmentalConditions']]],
   ['time_5fof_5fflight',['time_of_flight',['../structosi3_1_1RadarSensorView_1_1Reflection.html#ac66401f3e6e296a3133d12681161e537',1,'osi3::RadarSensorView::Reflection::time_of_flight()'],['../structosi3_1_1LidarSensorView_1_1Reflection.html#a0747cfd174a577b0061ebe7ff9ccfd4c',1,'osi3::LidarSensorView::Reflection::time_of_flight()']]],
   ['timeofday',['TimeOfDay',['../structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html',1,'osi3::EnvironmentalConditions']]],
@@ -18,7 +19,7 @@ var searchData=
   ['trafficsign',['TrafficSign',['../structosi3_1_1TrafficSign.html',1,'osi3']]],
   ['trafficsignvalue',['TrafficSignValue',['../structosi3_1_1TrafficSignValue.html',1,'osi3']]],
   ['trailer_5fid',['trailer_id',['../structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482',1,'osi3::MovingObject::VehicleClassification']]],
-  ['trend',['Trend',['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61',1,'osi3::UltrasonicSpecificObjectData::Trend()'],['../structosi3_1_1UltrasonicSpecificObjectData.html#a74c14595948c2dd7dba6f2efcaea15ad',1,'osi3::UltrasonicSpecificObjectData::trend()']]],
+  ['trend',['trend',['../structosi3_1_1UltrasonicSpecificObjectData.html#a74c14595948c2dd7dba6f2efcaea15ad',1,'osi3::UltrasonicSpecificObjectData::trend()'],['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61',1,'osi3::UltrasonicSpecificObjectData::Trend()']]],
   ['trend_5fapproaching',['TREND_APPROACHING',['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61a781c99e513742356298a50c414c467ab',1,'osi3::UltrasonicSpecificObjectData']]],
   ['trend_5fconstant',['TREND_CONSTANT',['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61ab67925d336e05704dc1670b5b109dab0',1,'osi3::UltrasonicSpecificObjectData']]],
   ['trend_5fconstant_5fapproaching',['TREND_CONSTANT_APPROACHING',['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61ad8fefcbe24fe3cf394d88ec385bb6bbb',1,'osi3::UltrasonicSpecificObjectData']]],

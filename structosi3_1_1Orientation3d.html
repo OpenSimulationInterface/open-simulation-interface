@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>A 3D orientation, orientation rate or orientation acceleration (i.e.  
+<p>A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertainties denoted in euler angles.  
  <a href="structosi3_1_1Orientation3d.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::Orientation3d:</div>
@@ -106,25 +106,21 @@ Collaboration diagram for osi3::Orientation3d:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a68b9d059dc5f98668f88cf0879e814ba"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba">roll</a> = 1</td></tr>
-<tr class="memdesc:a68b9d059dc5f98668f88cf0879e814ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The roll angle/rate/acceleration.  <a href="#a68b9d059dc5f98668f88cf0879e814ba">More...</a><br/></td></tr>
 <tr class="separator:a68b9d059dc5f98668f88cf0879e814ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f855b7cd2ecc13fee682b13d174759a"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Orientation3d.html#a1f855b7cd2ecc13fee682b13d174759a">pitch</a> = 2</td></tr>
-<tr class="memdesc:a1f855b7cd2ecc13fee682b13d174759a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pitch angle/rate/acceleration.  <a href="#a1f855b7cd2ecc13fee682b13d174759a">More...</a><br/></td></tr>
 <tr class="separator:a1f855b7cd2ecc13fee682b13d174759a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8926d20dd01c344c45f5670fa791fb21"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Orientation3d.html#a8926d20dd01c344c45f5670fa791fb21">yaw</a> = 3</td></tr>
-<tr class="memdesc:a8926d20dd01c344c45f5670fa791fb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">The yaw angle/rate/acceleration.  <a href="#a8926d20dd01c344c45f5670fa791fb21">More...</a><br/></td></tr>
 <tr class="separator:a8926d20dd01c344c45f5670fa791fb21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A 3D orientation, orientation rate or orientation acceleration (i.e. </p>
-<p>derivatives) or its uncertainties denoted in euler angles.</p>
+<div class="textblock"><p>A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertainties denoted in euler angles. </p>
 <p>Units are [rad] for orientation [rad/s] for rates and [rad/s^2] for accelerations</p>
 <p>The preferred angular range is (-pi, pi]. The coordinate system is defined as right-handed. For the sense of each rotation, the right-hand rule applies.</p>
 <p>The rotations are to be performed <b>yaw</b> <b>first</b> (around the z-axis), <b>pitch</b> <b>second</b> (around the new y-axis) and <b>roll</b> <b>third</b> (around the new x-axis) to follow the definition according to <a href="Tait-Bryan / Euler
 convention z-y" title="-x&apos;">1</a>.</p>
 <p>Roll/Pitch are 0 if the objects xy-plane is parallel to its parent's xy-plane. Yaw is 0 if the object's local x-axis is parallel to its parent's x-axis.</p>
 <p><code>Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw</code></p>
-<p><code>vector_global_coord_system := Inverse_Rotation_yaw_pitch_roll(</code><code><a class="el" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. ">Orientation3d</a></code><code>)*(vector_local_coord_system)</p>
+<p><code>vector_global_coord_system := Inverse_Rotation_yaw_pitch_roll(</code><code><a class="el" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie...">Orientation3d</a></code><code>)*(vector_local_coord_system)</p>
 <ul>
 <li>local_origin::position</li>
 </ul>
@@ -146,8 +142,7 @@ convention z-y" title="-x&apos;">1</a>.</p>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The pitch angle/rate/acceleration. </p>
+<p>The pitch angle/rate/acceleration.</p>
 <p>Unit: [rad] [rad/s] or [rad/s^2] </p>
 
 </div>
@@ -161,8 +156,7 @@ convention z-y" title="-x&apos;">1</a>.</p>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The roll angle/rate/acceleration. </p>
+<p>The roll angle/rate/acceleration.</p>
 <p>Unit: [rad] [rad/s] or [rad/s^2] </p>
 
 </div>
@@ -176,8 +170,7 @@ convention z-y" title="-x&apos;">1</a>.</p>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The yaw angle/rate/acceleration. </p>
+<p>The yaw angle/rate/acceleration.</p>
 <p>Unit: [rad] [rad/s] or [rad/s^2] </p>
 
 </div>
@@ -188,7 +181,7 @@ convention z-y" title="-x&apos;">1</a>.</p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 10:28:25 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:08:06 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

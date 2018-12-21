@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Additional value associated with a traffic sign or road marking, its unit and its text.  
+<p>Additional value associated with a traffic sign or road marking, its unit and its text. The interpretation of this text is left to a user-defined procedure.  
  <a href="structosi3_1_1TrafficSignValue.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::TrafficSignValue:</div>
@@ -127,25 +127,19 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a7df3d3de74257eb7f44e515404c5a16f">UNIT_PERCENTAGE</a> = 14
 <br/>
  }</td></tr>
-<tr class="memdesc:a8f1c180e36af26e5a9192f81f0020ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit for values on traffic sign.  <a href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1">More...</a><br/></td></tr>
 <tr class="separator:a8f1c180e36af26e5a9192f81f0020ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a22b163aa13b94ffa2082f710703260cc"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSignValue.html#a22b163aa13b94ffa2082f710703260cc">value</a> = 1</td></tr>
-<tr class="memdesc:a22b163aa13b94ffa2082f710703260cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional value associated with a traffic sign or road marking, e.g.  <a href="#a22b163aa13b94ffa2082f710703260cc">More...</a><br/></td></tr>
 <tr class="separator:a22b163aa13b94ffa2082f710703260cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add3c5ccd1eea35e546fab4d488479dea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add3c5ccd1eea35e546fab4d488479dea"></a>
-optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSignValue.html#add3c5ccd1eea35e546fab4d488479dea">value_unit</a> = 2</td></tr>
-<tr class="memdesc:add3c5ccd1eea35e546fab4d488479dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit for additional value. <br/></td></tr>
+<tr class="memitem:add3c5ccd1eea35e546fab4d488479dea"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSignValue.html#add3c5ccd1eea35e546fab4d488479dea">value_unit</a> = 2</td></tr>
 <tr class="separator:add3c5ccd1eea35e546fab4d488479dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f8d043b645a8766fea28f0f7d68be90"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90">text</a> = 3</td></tr>
-<tr class="memdesc:a0f8d043b645a8766fea28f0f7d68be90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text associated with a sign, e.g.  <a href="#a0f8d043b645a8766fea28f0f7d68be90">More...</a><br/></td></tr>
 <tr class="separator:a0f8d043b645a8766fea28f0f7d68be90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Additional value associated with a traffic sign or road marking, its unit and its text. </p>
-<p>The interpretation of this text is left to a user-defined procedure </p>
+<div class="textblock"><p>Additional value associated with a traffic sign or road marking, its unit and its text. The interpretation of this text is left to a user-defined procedure. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1"></a>
 <div class="memitem">
@@ -156,8 +150,7 @@ optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Unit for values on traffic sign. </p>
+<p>Unit for values on traffic sign </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a9f1126817a8d6891ed35efaa85853416"></a>UNIT_UNKNOWN</em>&#160;</td><td class="fielddoc">
 <p>Unit of the sign's value is unknown (must not be used in ground truth). </p>
@@ -166,67 +159,55 @@ optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26
 <p>Other (unspecified but known) unit of the sign's value. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1ab845cd39d36c7ff39940e64728e3f5e1"></a>UNIT_NO_UNIT</em>&#160;</td><td class="fielddoc">
-<p>Value without unit. </p>
+<p>Value without unit.</p>
 <p>Unit: [] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a0fa9e9b769cb9eceb75cb7e77de7a89c"></a>UNIT_KILOMETER_PER_HOUR</em>&#160;</td><td class="fielddoc">
-<p>Velocity. </p>
-<p>Kilometers per hour.</p>
+<p>Velocity. Kilometers per hour.</p>
 <p>Unit: [km/h] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a550036c48511274bfa6edf4de58ab090"></a>UNIT_MILE_PER_HOUR</em>&#160;</td><td class="fielddoc">
-<p>Velocity . </p>
-<p>Miles per hour.</p>
+<p>Velocity . Miles per hour.</p>
 <p>Unit: [mph] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a5208506ebf35202ab0f7b56fc56bbb28"></a>UNIT_METER</em>&#160;</td><td class="fielddoc">
-<p>Length. </p>
-<p>Meter.</p>
+<p>Length. Meter.</p>
 <p>Unit: [m] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a54a102c42356efdbc3ebfbd4a0c0d9d1"></a>UNIT_KILOMETER</em>&#160;</td><td class="fielddoc">
-<p>Length. </p>
-<p>Kilometer.</p>
+<p>Length. Kilometer.</p>
 <p>Unit: [km] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a60fcf966b245a9ca528c3e726b45545a"></a>UNIT_FEET</em>&#160;</td><td class="fielddoc">
-<p>Length. </p>
-<p>Feet.</p>
+<p>Length. Feet.</p>
 <p>Unit: [ft] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a6168e97950bcc031d96161065bd18d85"></a>UNIT_MILE</em>&#160;</td><td class="fielddoc">
-<p>Length. </p>
-<p>Mile.</p>
+<p>Length. Mile.</p>
 <p>Unit: [mile] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1acba4285844675cdae50df64ca2e892cb"></a>UNIT_METRIC_TON</em>&#160;</td><td class="fielddoc">
-<p>Weight. </p>
-<p>Ton.</p>
+<p>Weight. Ton.</p>
 <p>Unit: [t] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1ac7d086ae4c5feb92cdeed8049fbf1367"></a>UNIT_LONG_TON</em>&#160;</td><td class="fielddoc">
-<p>Weight. </p>
-<p>Long ton UK 1,016.047 [kg].</p>
+<p>Weight. Long ton UK 1,016.047 [kg].</p>
 <p>Unit: [tn. l.] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1af8d034841eb8ceab5133315c2b15c158"></a>UNIT_SHORT_TON</em>&#160;</td><td class="fielddoc">
-<p>Weight. </p>
-<p>Short ton USA 907.1847 [kg].</p>
+<p>Weight. Short ton USA 907.1847 [kg].</p>
 <p>Unit: [tn. sh.] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a741678e7a56ef0e29e0c7e40d1e7e966"></a>UNIT_MINUTES</em>&#160;</td><td class="fielddoc">
-<p>Time of day. </p>
-<p>Hour since midnight.</p>
+<p>Time of day. Hour since midnight.</p>
 <p>Unit: [min] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a38720316e6afa3d74a0b24dfbdec13a4"></a>UNIT_DAY</em>&#160;</td><td class="fielddoc">
-<p>Day of the week. </p>
-<p>Days since Monday. Monday = 0; Tuesday = 1; ...</p>
+<p>Day of the week. Days since Monday. Monday = 0; Tuesday = 1; ...</p>
 <p>Unit: [] </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a8f1c180e36af26e5a9192f81f0020ae1a7df3d3de74257eb7f44e515404c5a16f"></a>UNIT_PERCENTAGE</em>&#160;</td><td class="fielddoc">
-<p>Percentage. </p>
-<p>Value.</p>
+<p>Percentage. Value.</p>
 <p>Unit: [%] </p>
 </td></tr>
 </table>
@@ -243,9 +224,7 @@ optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Text associated with a sign, e.g. </p>
-<p>the name of a location whose distance to the sign is indicated therein. The interpretation of this text is left to a user-defined procedure. </p>
+<p>Text associated with a sign, e.g. the name of a location whose distance to the sign is indicated therein. The interpretation of this text is left to a user-defined procedure. </p>
 
 </div>
 </div>
@@ -258,9 +237,20 @@ optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Additional value associated with a traffic sign or road marking, e.g. value of a speed limit. </p>
 
-<p>Additional value associated with a traffic sign or road marking, e.g. </p>
-<p>value of a speed limit. </p>
+</div>
+</div>
+<a class="anchor" id="add3c5ccd1eea35e546fab4d488479dea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1">Unit</a> osi3::TrafficSignValue::value_unit = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Unit for additional value. </p>
 
 </div>
 </div>
@@ -270,7 +260,7 @@ optional <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 10:28:25 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:08:07 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

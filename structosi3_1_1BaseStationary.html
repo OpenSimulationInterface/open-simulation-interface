@@ -100,27 +100,23 @@ Collaboration diagram for osi3::BaseStationary:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1BaseStationary__coll__graph.png" border="0" usemap="#osi3_1_1BaseStationary_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1BaseStationary_coll__map" id="osi3_1_1BaseStationary_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="5,125,135,152"/><area shape="rect" id="node4" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="160,125,289,152"/><area shape="rect" id="node5" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="315,125,421,152"/><area shape="rect" id="node6" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="445,125,552,152"/></map>
+<area shape="rect" id="node2" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="5,125,135,152"/><area shape="rect" id="node4" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="160,125,289,152"/><area shape="rect" id="node5" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="315,125,421,152"/><area shape="rect" id="node6" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="445,125,552,152"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa4f3a1c316bfa13aa805195630bb08e8"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Dimension3d.html">Dimension3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseStationary.html#aa4f3a1c316bfa13aa805195630bb08e8">dimension</a> = 1</td></tr>
-<tr class="memdesc:aa4f3a1c316bfa13aa805195630bb08e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The 3D dimensions of the stationary object (bounding box), e.g.  <a href="#aa4f3a1c316bfa13aa805195630bb08e8">More...</a><br/></td></tr>
 <tr class="separator:aa4f3a1c316bfa13aa805195630bb08e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2378991a1c0c9f65e9fd274b6e07318e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseStationary.html#a2378991a1c0c9f65e9fd274b6e07318e">position</a> = 2</td></tr>
-<tr class="memdesc:a2378991a1c0c9f65e9fd274b6e07318e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference point for position and orientation, i.e.  <a href="#a2378991a1c0c9f65e9fd274b6e07318e">More...</a><br/></td></tr>
 <tr class="separator:a2378991a1c0c9f65e9fd274b6e07318e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a811a76e0a95abc696f60bfc0f3987826"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">orientation</a> = 3</td></tr>
-<tr class="memdesc:a811a76e0a95abc696f60bfc0f3987826"><td class="mdescLeft">&#160;</td><td class="mdescRight">The relative orientation of the stationary object w.r.t.  <a href="#a811a76e0a95abc696f60bfc0f3987826">More...</a><br/></td></tr>
 <tr class="separator:a811a76e0a95abc696f60bfc0f3987826"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1db348acaac2d5a2ba0883903d962cd"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Vector2d.html">Vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseStationary.html#aa1db348acaac2d5a2ba0883903d962cd">base_polygon</a> = 4</td></tr>
-<tr class="memdesc:aa1db348acaac2d5a2ba0883903d962cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usage as ground truth: The two dimensional (flat) contour of the object.  <a href="#aa1db348acaac2d5a2ba0883903d962cd">More...</a><br/></td></tr>
 <tr class="separator:aa1db348acaac2d5a2ba0883903d962cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base attributes of a stationary object or entity. </p>
-<p>This includes the <code><a class="el" href="structosi3_1_1StationaryObject.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g. ">StationaryObject</a></code> , <code><a class="el" href="structosi3_1_1TrafficSign.html" title="A traffic sign. ">TrafficSign</a></code> , <code><a class="el" href="structosi3_1_1TrafficLight.html" title="A traffic light. ">TrafficLight</a></code> , <code><a class="el" href="structosi3_1_1RoadMarking.html" title="A road surface marking. ">RoadMarking</a></code> messages.</p>
+<p>This includes the <code><a class="el" href="structosi3_1_1StationaryObject.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g. pedestrian, animal, or vehicle) nor a traffic related object (TrafficLight, TrafficSign). ">StationaryObject</a></code> , <code><a class="el" href="structosi3_1_1TrafficSign.html" title="A traffic sign. ">TrafficSign</a></code> , <code><a class="el" href="structosi3_1_1TrafficLight.html" title="A traffic light. ">TrafficLight</a></code> , <code><a class="el" href="structosi3_1_1RoadMarking.html" title="A road surface marking. ">RoadMarking</a></code> messages.</p>
 <div class="image">
 <img src="OSI_BaseStationary.svg" alt="OSI_BaseStationary.svg"/>
 </div>
@@ -135,9 +131,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Usage as ground truth: The two dimensional (flat) contour of the object. </p>
-<p>This is an extension of the concept of a bounding box as defined by <code><a class="el" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. ">Dimension3d</a></code>. The contour is the projection of the object's outline onto the z-plane in the object frame (independent of its current position and orientation). The height is the same as the height of the bounding box.</p>
+<p>Usage as ground truth: The two dimensional (flat) contour of the object. This is an extension of the concept of a bounding box as defined by <code><a class="el" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. ">Dimension3d</a></code>. The contour is the projection of the object's outline onto the z-plane in the object frame (independent of its current position and orientation). The height is the same as the height of the bounding box.</p>
 <p>Usage as sensor data: The polygon describes the visible part of the object's contour.</p>
 <p>General definitions: The polygon is defined in the local object frame: x pointing forward and y to the left. The origin is the center of the bounding box. As ground truth, the polygon is closed by connecting the last with the first point. Therefore these two points must be different. The polygon must consist of at least three points. As sensor data, however, the polygon is open. The polygon is defined counter-clockwise. </p>
 
@@ -152,9 +146,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The 3D dimensions of the stationary object (bounding box), e.g. </p>
-<p>a landmark. </p>
+<p>The 3D dimensions of the stationary object (bounding box), e.g. a landmark. </p>
 
 </div>
 </div>
@@ -167,10 +159,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The relative orientation of the stationary object w.r.t. </p>
-<p>its parent frame, noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
-<p><code>Origin_base_stationary_entity := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826" title="The relative orientation of the stationary object w.r.t. ">orientation</a>)*(Origin_parent_coordinate_system - <a class="el" href="structosi3_1_1BaseStationary.html#a2378991a1c0c9f65e9fd274b6e07318e" title="The reference point for position and orientation, i.e. ">position</a>)</code></p>
+<p>The relative orientation of the stationary object w.r.t. its parent frame, noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
+<p><code>Origin_base_stationary_entity := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">orientation</a>)*(Origin_parent_coordinate_system - <a class="el" href="structosi3_1_1BaseStationary.html#a2378991a1c0c9f65e9fd274b6e07318e">position</a>)</code></p>
 <dl class="section note"><dt>Note</dt><dd>There may be some constraints how to align the orientation w.r.t. to some stationary object's or entity's definition. </dd></dl>
 
 </div>
@@ -184,9 +174,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The reference point for position and orientation, i.e. </p>
-<p>the center (x,y,z) of the bounding box. </p>
+<p>The reference point for position and orientation, i.e. the center (x,y,z) of the bounding box. </p>
 
 </div>
 </div>
@@ -196,7 +184,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 10:28:25 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:08:06 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

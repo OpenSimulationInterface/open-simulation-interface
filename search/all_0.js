@@ -64,7 +64,7 @@ var searchData=
   ['ambient_5fillumination_5fother',['AMBIENT_ILLUMINATION_OTHER',['../structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4ba79d0a203e727523fb7b1454af6209fb6',1,'osi3::EnvironmentalConditions']]],
   ['ambient_5fillumination_5funknown',['AMBIENT_ILLUMINATION_UNKNOWN',['../structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4baded1d25e5eeb1b37dd6db4924995f11e',1,'osi3::EnvironmentalConditions']]],
   ['ambientillumination',['AmbientIllumination',['../structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4b',1,'osi3::EnvironmentalConditions']]],
-  ['ambiguity_5fid',['ambiguity_id',['../structosi3_1_1RadarDetection.html#a863eb66f96f5a64aa0989fcbe360ae4a',1,'osi3::RadarDetection']]],
+  ['ambiguity_5fid',['ambiguity_id',['../structosi3_1_1RadarDetection.html#a863eb66f96f5a64aa0989fcbe360ae4a',1,'osi3::RadarDetection::ambiguity_id()'],['../structosi3_1_1CameraDetection.html#a14fb94173024a3ec07233bc35a63979b',1,'osi3::CameraDetection::ambiguity_id()']]],
   ['antecessor_5flane_5fid',['antecessor_lane_id',['../structosi3_1_1Lane_1_1Classification_1_1LanePairing.html#aad3a4f155fe17140317054f3270a27eb',1,'osi3::Lane::Classification::LanePairing']]],
   ['antennadiagramentry',['AntennaDiagramEntry',['../structosi3_1_1RadarSensorViewConfiguration_1_1AntennaDiagramEntry.html',1,'osi3::RadarSensorViewConfiguration']]],
   ['arrow',['arrow',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a3e1ffc78063cd690ec681b6ad343c62f',1,'osi3::TrafficSign::SupplementarySign::Classification']]],

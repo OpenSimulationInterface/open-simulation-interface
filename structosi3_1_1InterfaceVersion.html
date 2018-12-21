@@ -105,17 +105,11 @@ Collaboration diagram for osi3::InterfaceVersion:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a06e82a725ac6ea051d93fdd5026913bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06e82a725ac6ea051d93fdd5026913bf"></a>
-optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1InterfaceVersion.html#a06e82a725ac6ea051d93fdd5026913bf">version_major</a> = 1</td></tr>
-<tr class="memdesc:a06e82a725ac6ea051d93fdd5026913bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Major version number. <br/></td></tr>
+<tr class="memitem:a06e82a725ac6ea051d93fdd5026913bf"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1InterfaceVersion.html#a06e82a725ac6ea051d93fdd5026913bf">version_major</a> = 1</td></tr>
 <tr class="separator:a06e82a725ac6ea051d93fdd5026913bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a819873f71735621c8603ffc873d7fb2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a819873f71735621c8603ffc873d7fb2a"></a>
-optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1InterfaceVersion.html#a819873f71735621c8603ffc873d7fb2a">version_minor</a> = 2</td></tr>
-<tr class="memdesc:a819873f71735621c8603ffc873d7fb2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minor version number. <br/></td></tr>
+<tr class="memitem:a819873f71735621c8603ffc873d7fb2a"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1InterfaceVersion.html#a819873f71735621c8603ffc873d7fb2a">version_minor</a> = 2</td></tr>
 <tr class="separator:a819873f71735621c8603ffc873d7fb2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a232ff2f32c117f3131015e736be9147d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a232ff2f32c117f3131015e736be9147d"></a>
-optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1InterfaceVersion.html#a232ff2f32c117f3131015e736be9147d">version_patch</a> = 3</td></tr>
-<tr class="memdesc:a232ff2f32c117f3131015e736be9147d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Patch version number. <br/></td></tr>
+<tr class="memitem:a232ff2f32c117f3131015e736be9147d"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1InterfaceVersion.html#a232ff2f32c117f3131015e736be9147d">version_patch</a> = 3</td></tr>
 <tr class="separator:a232ff2f32c117f3131015e736be9147d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -126,13 +120,53 @@ optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 </div><!-- fragment --><p>If a message with all components set to the default value 0 is received, this indicates that either that the message was sent by a version 2.2.0 or earlier release, or that the sender did not properly set the version components prior to sending.</p>
 <p>Increments will happen as part of changes to the whole interface. The meaning of different InterfaceVersions is defined [1].</p>
 <dl class="section user"><dt>References:</dt><dd>[1] Open Simulation Interface: README.md </dd></dl>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a06e82a725ac6ea051d93fdd5026913bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional uint32 osi3::InterfaceVersion::version_major = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Major version number. </p>
+
+</div>
+</div>
+<a class="anchor" id="a819873f71735621c8603ffc873d7fb2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional uint32 osi3::InterfaceVersion::version_minor = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Minor version number. </p>
+
+</div>
+</div>
+<a class="anchor" id="a232ff2f32c117f3131015e736be9147d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional uint32 osi3::InterfaceVersion::version_patch = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Patch version number. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/travis/build/OpenSimulationInterface/open-simulation-interface/osi_version.proto</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 21 2018 10:28:26 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 19:08:07 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

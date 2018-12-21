@@ -2,6 +2,7 @@ var searchData=
 [
   ['temperature',['temperature',['../structosi3_1_1EnvironmentalConditions.html#afb975ad7dddedd8bfac0a38664ab908e',1,'osi3::EnvironmentalConditions']]],
   ['text',['text',['../structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90',1,'osi3::TrafficSignValue']]],
+  ['time_5fdifference',['time_difference',['../structosi3_1_1CameraDetection.html#abc39a3545ba1dd62d8740cc18727f24c',1,'osi3::CameraDetection']]],
   ['time_5fof_5fday',['time_of_day',['../structosi3_1_1EnvironmentalConditions.html#aebd011399675b0a3582e5a64a5f93be2',1,'osi3::EnvironmentalConditions']]],
   ['time_5fof_5fflight',['time_of_flight',['../structosi3_1_1RadarSensorView_1_1Reflection.html#ac66401f3e6e296a3133d12681161e537',1,'osi3::RadarSensorView::Reflection::time_of_flight()'],['../structosi3_1_1LidarSensorView_1_1Reflection.html#a0747cfd174a577b0061ebe7ff9ccfd4c',1,'osi3::LidarSensorView::Reflection::time_of_flight()']]],
   ['timestamp',['timestamp',['../structosi3_1_1GroundTruth.html#a681bc6d9e26aa4603adb4f167bad67fc',1,'osi3::GroundTruth::timestamp()'],['../structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c',1,'osi3::SensorData::timestamp()'],['../structosi3_1_1SensorView.html#ad30bef352de1b64dd211718c18c540f1',1,'osi3::SensorView::timestamp()']]],
