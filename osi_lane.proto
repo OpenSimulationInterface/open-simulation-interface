@@ -15,17 +15,23 @@ package osi3;
 // l4 in image HighwayExit is used  as reference if not mentioned otherwise.
 //
 // <table border=0>
-//   <tr> <td> \image html OSI_Highway_Exit.svg "" width=550px
-//        <td> \image html OSI_LaneIntersection.svg "" width=550px
-//   <tr> <td> \image html OSI_Highway_Exit.jpg "HighwayExit" width=650px
-//        <td> \image html OSI_LaneIntersection.jpg "Intersection" width=650px
+// <tr>
+// <td>
+// \image html OSI_Highway_Exit.svg "" width=550px
+// <td>
+// \image html OSI_LaneIntersection.svg "" width=550px
+// <tr>
+// <td>
+// \image html OSI_Highway_Exit.jpg "HighwayExit" width=650px
+// <td>
+// \image html OSI_LaneIntersection.jpg "Intersection" width=650px
 // </table>
 //
 // \note In the examples, the symbols l1, l2, ... and lb1, lb2, ...
-//       stand for the lane ids and lane boundary ids respectively, i.e. for
-//       integers (uint64). The symbols cl1, cl2, ... represent the
-//       osi3::Lane::Classification::centerline elements of the lanes with
-//       the respective ids.
+// stand for the lane ids and lane boundary ids respectively, i.e. for
+// integers (uint64). The symbols cl1, cl2, ... represent the
+// osi3::Lane::Classification::centerline elements of the lanes with
+// the respective ids.
 //
 message Lane
 {
@@ -45,46 +51,103 @@ message Lane
     //
     // <table border = 0>
     // <tr>
-    //   <td> \anchor HighwayExit
+    // <td>
+    // \anchor HighwayExit
     // \image html OSI_LaneClassification.jpg "HighwayExit" width=800px
-    //   </td> <td> <table border=0>
-    //          <tr> <td> <b> \c Classification for lane l4 in image
-    //          HighwayExit: </b> <tr> <td> \c #type = \c #TYPE_DRIVING <tr>
-    //          <td> \c #centerline = (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5) <tr>
-    //          <td> \c #centerline_is_driving_direction = \c true <tr> <td> \c
-    //          #is_host_vehicle_lane = \c true <tr> <td> \c
-    //          #left_adjacent_lane_id = l3 <tr> <td> \c #right_adjacent_lane_id
-    //          = (l5,l6) <tr> <td> \c #left_lane_boundary_id = lb5 <tr> <td> \c
-    //          #right_lane_boundary_id = (lb9, lb6)
-    //        </table>
-    //   </td>
+    // </td>
+    // <td>
+    // <table border=0>
+    // <tr>
+    // <td>
+    // <b>
+    // \c Classification for lane l4 in image HighwayExit:
+    // </b>
+    // <tr>
+    // <td>
+    // \c #type = \c #TYPE_DRIVING
+    // <tr>
+    // <td>
+    // \c #centerline = (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5)
+    // <tr>
+    // <td>
+    // \c #centerline_is_driving_direction = \c true
+    // <tr>
+    // <td>
+    // \c #is_host_vehicle_lane = \c true
+    // <tr>
+    // <td>
+    // \c #left_adjacent_lane_id = l3
+    // <tr>
+    // <td>
+    // \c #right_adjacent_lane_id  = (l5,l6)
+    // <tr>
+    // <td>
+    // \c #left_lane_boundary_id = lb5
+    // <tr>
+    // <td>
+    // \c #right_lane_boundary_id = (lb9, lb6)
+    // </table>
+    // </td>
     // </tr>
-    // <tr><td> \anchor Intersection
+    // <tr>
+    // <td>
+    // \anchor Intersection
     // \image html OSI_LaneIntersection.jpg "Intersection" width=800px
     // </td>
-    //   <td> <table border=0>
-    //          <tr> <td> <b> \c Classification for lane l7 in image
-    //          Intersection: </b> </td> </tr> <tr> <td> \c #type = \c
-    //          #TYPE_INTERSECTION </td> </tr> <tr> <td> \c
-    //          #is_host_vehicle_lane = \c false </td> </tr> <tr> <td> \c
-    //          #free_lane_boundary_id = lb11 </td> </tr> <tr> <td>  <table
-    //          border = 0>
-    //           <tr> <td> \c #lane_pairing = (<td>(l2,l1),
-    //                        (l2,l3), (l2,l5), <tr> <td> <td> (l4,l1), (l4,l3),
-    //                        (l4,l5), <tr> <td> <td>
-    //                        (l6,l1), (l6,l3), (l6,l5) )
-    //                    </table> </td> </tr>
-    //        </table>
-    //   </td>
+    // <td>
+    // <table border=0>
+    // <tr>
+    // <td>
+    // <b>
+    // \c Classification for lane l7 in image Intersection:
+    // </b>
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // \c #type = \c #TYPE_INTERSECTION
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // \c #is_host_vehicle_lane = \c false
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // \c #free_lane_boundary_id = lb11
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // <border = 0>
+    // <tr>
+    // <td>
+    // \c #lane_pairing = (
+    // <td>
+    // (l2,l1), (l2,l3), (l2,l5),
+    // <tr>
+    // <td>
+    // <td>
+    // (l4,l1), (l4,l3), (l4,l5),
+    // <tr>
+    // <td>
+    // <td>
+    // (l6,l1), (l6,l3), (l6,l5) )
+    // </table>
+    // </td>
+    // </tr>
+    // </table>
+    // </td>
     // </tr>
     // </table>
     //
     // \note In the examples, the symbols l1, l2, ... and lb1, lb2, ...
-    //       stand for the lane ids and lane boundary ids respectively, i.e. for
-    //       integers (uint64). The symbols cl1, cl2, ... represent the
-    //       osi3::Lane::Classification::centerline elements of the lanes with
-    //       the respective ids. The symbols cl1_1, cl1_2, ... stand for
-    //       \c #osi3::Vector3d elements.
+    // stand for the lane ids and lane boundary ids respectively, i.e. for
+    // integers (uint64). The symbols cl1, cl2, ... represent the
+    // osi3::Lane::Classification::centerline elements of the lanes with
+    // the respective ids. The symbols cl1_1, cl1_2, ... stand for
+    // \c #osi3::Vector3d elements.
     //
     message Classification
     {
@@ -273,7 +336,7 @@ message Lane
             // An intersection as a lane.
             // Example: Lane with ID l7 in image \ref Intersection.
             //
-            //  \image html OSI_X-Junction.svg "" width=600px
+            // \image html OSI_X-Junction.svg "" width=600px
             //
             TYPE_INTERSECTION = 4;
         }
@@ -311,29 +374,31 @@ message Lane
             // The coefficient representing the roughness or unevenness of the
             // road. International Roughness Index (IRI) [1] values range from 0
             // = smooth ground (equivalent to driving on a plate of glass) up to
-            // > 20 mm/m (a very rough road).
+            // >
+            // 20 mm/m (a very rough road).
             //
             // Estimated value ranges (IRI):
-            //        0.0 [mm/m] absolutely perfect evenness
+            // 0.0 [mm/m] absolutely perfect evenness
             // 0.3 -  1.8 [mm/m] airport runways and superhighways
             // 1.4 -  3.4 [mm/m] new pavements
             // 2.2 -  5.7 [mm/m] older pavements
             // 3.2 -  9.8 [mm/m] maintained unpaved roads
             // 4.0 - 11.0 [mm/m] damaged pavements
-            // 8.0 - > 20 [mm/m] rough unpaved roads
+            // 8.0 - >
+            // 20 [mm/m] rough unpaved roads
             //
             // Speed of normal use (IRI):
-            //  30 [km/h] - 20   [mm/m]
-            //  50 [km/h] - 14.5 [mm/m]
-            //  60 [km/h] - 10.0 [mm/m]
-            //  80 [km/h] -  8.5 [mm/m]
+            // 30 [km/h] - 20   [mm/m]
+            // 50 [km/h] - 14.5 [mm/m]
+            // 60 [km/h] - 10.0 [mm/m]
+            // 80 [km/h] -  8.5 [mm/m]
             // 100 [km/h] -  3.4 [mm/m]
             //
             // Road conditions (IRI);
             // 15 [mm/m] erosion gulleys and deep depressions
             // 11 [mm/m] frequent shallow depressions, some deep
-            //  9 [mm/m] frequent minor depressions
-            //  5 [mm/m] surface imperfections
+            // 9 [mm/m] frequent minor depressions
+            // 5 [mm/m] surface imperfections
             //
             // Unit: [mm/m]
             //
@@ -366,17 +431,37 @@ message Lane
         // \brief The lane ID pairings of antecessor and successor lanes.
         //
         // <table border = 0>
-        //   <tr><td> \image html OSI_LaneIntersection.svg "" width=600px </td>
-        //       <td> <table border=0>
-        //          <tr> <td> <b> \c LanePairing for lane l7: </b> </td> </tr>
-        //          <tr> <td>  <table border = 0>
-        //                        <tr> <td> (l2,l1), (l2,l3), (l2,l5),
-        //                        <tr> <td> (l4,l1), (l4,l3), (l4,l5),
-        //                        <tr> <td> (l6,l1), (l6,l3), (l6,l5)
-        //                     </table> </td> </tr>
-        //           </table>
-        //       </td>
-        //   </tr>
+        // <tr>
+        // <td>
+        // \image html OSI_LaneIntersection.svg "" width=600px
+        // </td>
+        // <td>
+        // <table border=0>
+        // <tr>
+        // <td>
+        // <b>
+        // \c LanePairing for lane l7:
+        // </b>
+        // </td>
+        // </tr>
+        // <tr>
+        // <td>
+        // <table border = 0>
+        // <tr>
+        // <td>
+        // (l2,l1), (l2,l3), (l2,l5),
+        // <tr>
+        // <td>
+        // (l4,l1), (l4,l3), (l4,l5),
+        // <tr>
+        // <td>
+        // (l6,l1), (l6,l3), (l6,l5)
+        // </table>
+        // </td>
+        // </tr>
+        // </table>
+        // </td>
+        // </tr>
         // </table>
         //
         // \note In the example, the symbols l1, l2, ... stand for the
@@ -407,9 +492,9 @@ message Lane
 // \image html OSI_LaneBoundary.svg "LaneBoundary" width=800px
 //
 // \note In the example, the symbols l1, l2, ... and lb1, lb2, ...
-//       stand for the lane ids and lane boundary ids respectively, i.e. for
-//       integers (uint64). The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
-//       for \c #osi3::LaneBoundary::BoundaryPoint elements.
+// stand for the lane ids and lane boundary ids respectively, i.e. for
+// integers (uint64). The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
+// for \c #osi3::LaneBoundary::BoundaryPoint elements.
 //
 message LaneBoundary
 {
@@ -428,7 +513,7 @@ message LaneBoundary
     // \image html OSI_LaneBoundary.svg "" width=800px
     //
     // Example: The boundary_line of the \c LaneBoundary with id lb2 is given by
-    //          (bp2_1, ..., bp2_{i-1}, bp2_{i}, bp2_{i+1}, ...).
+    // (bp2_1, ..., bp2_{i-1}, bp2_{i}, bp2_{i+1}, ...).
     //
     // \note For dashed lines, one \c BoundaryPoint has to be at the start and
     // another at the end of each dashed line segment. The first
@@ -457,9 +542,9 @@ message LaneBoundary
     // lb2.
     //
     // \note In the example, the symbols l1, l2, ... and lb1, lb2, ...
-    //       stand for the lane ids and lane boundary ids respectively, i.e. for
-    //       integers (uint64). The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
-    //       for \c #osi3::LaneBoundary::BoundaryPoint elements.
+    // stand for the lane ids and lane boundary ids respectively, i.e. for
+    // integers (uint64). The symbols bp2_{i+1}, bp2_{i}, bp2_{i-1} stand
+    // for \c #osi3::LaneBoundary::BoundaryPoint elements.
     //
     message BoundaryPoint
     {
@@ -494,46 +579,89 @@ message LaneBoundary
     // \brief \c Classification of a lane boundary.
     //
     // <table border = 0>
-    //   <tr> <td> <table border=0>
-    //          <tr> <td> <b> Image Intersection </b>
-    //          <tr> <td>
-    //          <tr> <td> \c Classification for lane boundaries
-    //                           lb2 and lb9: </td> </tr>
-    //          <tr> <td>  <table border = 0>
-    //                        <tr> <td> \c #type = #TYPE_DASHED_LINE
-    //                        <tr> <td> \c #color = #COLOR_WHITE
-    //                        <tr>
-    //                     </table> </td> </tr>
-    //          <tr> <td> \c Classification for lane boundaries
-    //                           lb1, lb3, lb4, lb7, lb8, lb10, lb11, lb12 and
-    //                           lb14: </td> </tr>
-    //          <tr> <td>  <table border = 0>
-    //                        <tr> <td> \c #type = #TYPE_SOLID_LINE
-    //                        <tr> <td> \c #color = #COLOR_WHITE
-    //                        <tr>
-    //                     </table> </td> </tr>
-    //          <tr> <td> \c Classification for lane boundaries lb5, lb6 and
-    //          lb13: </td> </tr> <tr> <td>  <table border = 0>
-    //                        <tr> <td> \c #type = #TYPE_CURB
-    //                     </table> </td> </tr>
-    //           </table>
-    //       </td>
-    //     <td>
-    //       <table border=0>
-    //          <tr> <td>
+    // <tr>
+    // <td>
+    // <table border=0>
+    // <tr>
+    // <td>
+    // <b>
+    // Image Intersection
+    // </b>
+    // <tr>
+    // <td>
+    // <tr>
+    // <td>
+    // \c Classification for lane boundaries lb2 and lb9:
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // <table border = 0>
+    // <tr>
+    // <td>
+    // \c #type = #TYPE_DASHED_LINE
+    // <tr>
+    // <td>
+    // \c #color = #COLOR_WHITE
+    // <tr>
+    // </table>
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // \c Classification for lane boundaries lb1, lb3, lb4, lb7, lb8, lb10,
+    // lb11, lb12 and lb14:
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // <table border = 0>
+    // <tr>
+    // <td>
+    // \c #type = #TYPE_SOLID_LINE
+    // <tr>
+    // <td>
+    // \c #color = #COLOR_WHITE
+    // <tr>
+    // </table>
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // \c Classification for lane boundaries lb5, lb6 and lb13:
+    // </td>
+    // </tr>
+    // <tr>
+    // <td>
+    // <table border = 0>
+    // <tr>
+    // <td>
+    // \c #type = #TYPE_CURB
+    // </table>
+    // </td>
+    // </tr>
+    // </table>
+    // </td>
+    // <td>
+    // <table border=0>
+    // <tr>
+    // <td>
     // \image html OSI_LaneIntersection.svg "" width=500px
-    //     </td> <tr> <td>
+    // </td>
+    // <tr>
+    // <td>
     // \image html OSI_LaneBoundaryClassification.jpg "" width=600px
-    //     </td>
-    //     </table> </td>
-    //   </tr>
+    // </td>
+    // </table>
+    // </td>
+    // </tr>
     // </table>
     //
     // \note In the example, the symbols l1, l2, ... and lb1, lb2, ...
-    //       stand for the lane ids and lane boundary ids respectively, i.e. for
-    //       integers (uint64). The symbols cl1, cl2, ... represent the
-    //       osi3::Lane::Classification::centerline elements of the lanes with
-    //       the respective ids.
+    // stand for the lane ids and lane boundary ids respectively, i.e. for
+    // integers (uint64). The symbols cl1, cl2, ... represent the
+    // osi3::Lane::Classification::centerline elements of the lanes with
+    // the respective ids.
     //
     message Classification
     {

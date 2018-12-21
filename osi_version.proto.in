@@ -14,10 +14,10 @@ package osi3;
 // access the version number of the OSI code base can access a FileOptions,
 // which has the proper values, like this:
 //
-// @code
+// \code
 // auto currentInterfaceVersion =
 //   InterfaceVersion::descriptor()->file()->options().GetExtension(current_interface_version);
-// @endcode
+// \endcode
 //
 // If a message with all components set to the default value 0 is
 // received, this indicates that either that the message was sent by

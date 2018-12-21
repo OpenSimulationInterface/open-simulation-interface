@@ -135,11 +135,12 @@ message Dimension3d
 // xy-plane. Yaw is 0 if the object's local x-axis is parallel to its parent's
 // x-axis.
 //
-// <tt>Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw</tt>
+// ``Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw``
 //
-// <tt>vector_global_coord_system :=
-// Inverse_Rotation_yaw_pitch_roll(</tt><tt>Orientation3d</tt><tt>)*(vector_local_coord_system)
-// + local_origin::position</tt>
+// ``vector_global_coord_system :=
+// Inverse_Rotation_yaw_pitch_roll(`` ``Orientation3d``
+// ``)*(vector_local_coord_system)
+// + local_origin::position``
 //
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
@@ -202,9 +203,9 @@ message MountingPosition
 
     // Orientation offset relative to the specified reference coordinate system.
     //
-    // <tt>Origin_sensor :=
+    // ``Origin_sensor :=
     // Rotation_yaw_pitch_roll(#orientation)*(Origin_reference_coordinate_system
-    // - #position)</tt>
+    // - #position)``
     //
     optional Orientation3d orientation = 2;
 }
@@ -222,8 +223,8 @@ message MountingPosition
 // (around the new y-axis) to follow the definition of \c Orientation3d. For the
 // sense of each rotation, the right-hand rule applies.
 //
-// <tt>vector_cartesian :=
-// Rotation(#elevation)*Rotation(#azimuth)*Unit_vector_x*#distance</tt>
+// ``vector_cartesian :=
+// Rotation(#elevation)*Rotation(#azimuth)*Unit_vector_x*#distance``
 //
 message Spherical3d
 {
@@ -275,9 +276,9 @@ message BaseStationary
     // frame, noted in the parent frame. The orientation becomes global/absolute
     // if the parent frame is inertial (all parent frames up to ground truth).
     //
-    // <tt>Origin_base_stationary_entity :=
+    // ``Origin_base_stationary_entity :=
     // Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system -
-    // #position)</tt>
+    // #position)``
     //
     // \note There may be some constraints how to align the orientation w.r.t.
     // to some stationary object's or entity's definition.
@@ -336,9 +337,9 @@ message BaseMoving
     // noted in the parent frame. The orientation becomes global/absolute if
     // the parent frame is inertial (all parent frames up to ground truth).
     //
-    // <tt>Origin_base_moving_entity :=
+    // ``Origin_base_moving_entity :=
     // Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system -
-    // #position)</tt>
+    // #position)``
     //
     // \note There may be some constraints how to align the orientation w.r.t.
     // to some stationary object's or entity's definition.
@@ -349,7 +350,7 @@ message BaseMoving
     // noted in the parent frame. The velocity becomes global/absolute if
     // the parent frame does is inertial (all parent frames up to ground truth).
     //
-    // <tt>#position (t) := #position (t-dt)+ #velocity *dt</tt>
+    // ``#position (t) := #position (t-dt)+ #velocity *dt``
     //
     optional Vector3d velocity = 4;
 
@@ -357,10 +358,10 @@ message BaseMoving
     // noted in the parent frame. The acceleration becomes global/absolute if
     // the parent frame is inertial (all parent frames up to ground truth).
     //
-    // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration
-    // /2*dt^2</tt>
+    // ``#position (t) := #position (t-dt)+ #velocity *dt+ #acceleration
+    // /2*dt^2``
     //
-    // <tt> #velocity (t) := #velocity (t-dt)+ #acceleration *dt</tt>
+    // `` #velocity (t) := #velocity (t-dt)+ #acceleration *dt``
     //
     optional Vector3d acceleration = 5;
 
@@ -370,12 +371,12 @@ message BaseMoving
     // The orientation becomes global/absolute if the parent frame is inertial
     // (all parent frames up to ground truth).
     //
-    // <tt>Rotation_yaw_pitch_roll(#orientation (t)) :=
+    // ``Rotation_yaw_pitch_roll(#orientation (t)) :=
     // Rotation_yaw_pitch_roll(#orientation_rate
-    // *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
+    // *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))``
     //
-    // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation
-    // (t-dt)+#orientation_rate *dt</tt>
+    // \note ``#orientation (t)`` is \b not equal ``#orientation
+    // (t-dt)+#orientation_rate *dt``
     //
     optional Orientation3d orientation_rate = 6;
 

@@ -259,8 +259,8 @@ message DetectedMovingObject
         // pointing upwards (cranial direction [1] i.e. to pedestrian's skull
         // cap).
         //
-        // <tt>View_normal_base_coord_system =
-        // Inverse_Rotation(#head_pose)*Unit_vector_x</tt>
+        // ``View_normal_base_coord_system =
+        // Inverse_Rotation(#head_pose)*Unit_vector_x``
         //
         // \note This field is mandatory if the \c CandidateMovingObject.type is
         // \c MovingObject::TYPE_PEDESTRIAN
@@ -277,8 +277,8 @@ message DetectedMovingObject
         // pedestrian's intended moving direction) and the z-axis is pointing
         // upwards (to pedestrian's head).
         //
-        // <tt>View_normal_base_coord_system =
-        // Inverse_Rotation(#upper_body_pose)*Unit_vector_x</tt>
+        // ``View_normal_base_coord_system =
+        // Inverse_Rotation(#upper_body_pose)*Unit_vector_x``
         //
         // \note This field is mandatory if the \c CandidateMovingObject::type
         // is \c MovingObject::TYPE_PEDESTRIAN

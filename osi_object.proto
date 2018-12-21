@@ -543,14 +543,16 @@ message MovingObject
             //
             optional GenericLightState license_plate_illumination_rear = 8;
 
-            // Lighting of emergency vehicles (ambulance, fire engine, police car, etc.).
-            // Must be set only if a vehicle is allowed to use this illumination type. 
-            // 
+            // Lighting of emergency vehicles (ambulance, fire engine, police
+            // car, etc.). Must be set only if a vehicle is allowed to use this
+            // illumination type.
+            //
             optional GenericLightState emergency_vehicle_illumination = 9;
 
-            // Lighting of service vehicles (snow removal, garbage truck, towing vehicle, slow or wide vehicle, etc.). 
-            // Must be set only if a vehicle is allowed to use this illumination type. 
-            // 
+            // Lighting of service vehicles (snow removal, garbage truck, towing
+            // vehicle, slow or wide vehicle, etc.). Must be set only if a
+            // vehicle is allowed to use this illumination type.
+            //
             optional GenericLightState service_vehicle_illumination = 10;
 
             // Definition of indicator states.
@@ -603,7 +605,7 @@ message MovingObject
                 // Light is on.
                 //
                 GENERIC_LIGHT_STATE_ON = 3;
-                
+
                 // Light is flashing blue.
                 // To be used for emergency vehicles.
                 //
@@ -614,7 +616,7 @@ message MovingObject
                 //
                 GENERIC_LIGHT_STATE_FLASHING_BLUE_AND_RED = 5;
 
-                // Light is flashing amber. 
+                // Light is flashing amber.
                 // To be used for service vehicles.
                 //
                 GENERIC_LIGHT_STATE_FLASHING_AMBER = 6;
