@@ -128,6 +128,9 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 <tr class="memitem:a584e39108fe12db4933390975a172c63"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Vector2d.html">Vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseMoving.html#a584e39108fe12db4933390975a172c63">base_polygon</a> = 7</td></tr>
 <tr class="memdesc:a584e39108fe12db4933390975a172c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usage as ground truth: The two dimensional (flat) contour of the object.  <a href="#a584e39108fe12db4933390975a172c63">More...</a><br/></td></tr>
 <tr class="separator:a584e39108fe12db4933390975a172c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae042af32022871003d8abeeb284577bf"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseMoving.html#ae042af32022871003d8abeeb284577bf">orientation_acceleration</a> = 8</td></tr>
+<tr class="memdesc:ae042af32022871003d8abeeb284577bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The relative orientation acceleration of the moving object w.r.t.  <a href="#ae042af32022871003d8abeeb284577bf">More...</a><br/></td></tr>
+<tr class="separator:ae042af32022871003d8abeeb284577bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base attributes of an object that is moving. </p>
@@ -189,6 +192,24 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 
 </div>
 </div>
+<a class="anchor" id="ae042af32022871003d8abeeb284577bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a> osi3::BaseMoving::orientation_acceleration = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The relative orientation acceleration of the moving object w.r.t. </p>
+<p>its parent frame and parent orientation acceleration in the center point of the bounding box (origin of the bounding box frame), noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
+<p><code>orientation_rate.yaw(t) := orientation_acceleration.yaw(t) * dt + orientation_rate.yaw(t-dt)</code></p>
+<p><code>orientation_rate.pitch(t) := orientation_acceleration.pitch(t) * dt + orientation_rate.pitch(t-dt)</code></p>
+<p><code>orientation_rate.roll(t) := orientation_acceleration.roll(t) * dt + orientation_rate.roll(t-dt)</code> </p>
+
+</div>
+</div>
 <a class="anchor" id="a8cfdbe7e278814652a96b85b2c909df3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -201,8 +222,9 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 
 <p>The relative orientation rate of the moving object w.r.t. </p>
 <p>its parent frame and parent orientation rate in the center point of the bounding box (origin of the bounding box frame), noted in the parent frame. The orientation becomes global/absolute if the parent frame is inertial (all parent frames up to ground truth).</p>
-<p><code>Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667" title="The relative orientation of the moving object w.r.t. ">orientation</a> (t)) := Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3" title="The relative orientation rate of the moving object w.r.t. ">orientation_rate</a> *dt)*Rotation_yaw_pitch_roll(<a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667" title="The relative orientation of the moving object w.r.t. ">orientation</a> (t-dt))</code></p>
-<dl class="section note"><dt>Note</dt><dd><code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667" title="The relative orientation of the moving object w.r.t. ">orientation</a> (t)</code> is <b>not</b> equal <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667" title="The relative orientation of the moving object w.r.t. ">orientation</a> (t-dt)+<a class="el" href="structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3" title="The relative orientation rate of the moving object w.r.t. ">orientation_rate</a> *dt</code> </dd></dl>
+<p><code>orientation.yaw(t) := orientation_rate.yaw(t) * dt + orientation.yaw(t-dt)</code></p>
+<p><code>orientation.pitch(t) := orientation_rate.pitch(t) * dt + orientation.pitch(t-dt)</code></p>
+<p><code>orientation.roll(t) := orientation_rate.roll(t) * dt + orientation.roll(t-dt)</code> </p>
 
 </div>
 </div>
@@ -228,7 +250,7 @@ optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 18 2018 19:11:35 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 21 2018 10:10:47 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
