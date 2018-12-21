@@ -377,11 +377,20 @@ message BaseMoving
     // The orientation becomes global/absolute if the parent frame is inertial
     // (all parent frames up to ground truth).
     //
+<<<<<<< HEAD
+    // \f$ Rotation_{yaw,pitch,roll}( \f$ \c #orientation \f$ (t)) :=
+    // Rotation_{yaw,pitch,roll}( \f$ \c #orientation_rate \f$
+    // *dt)*Rotation_{yaw,pitch,roll}(\f$ \c #orientation \f$ (t-dt))\f$
+    //
+    // \note \c #orientation \f$ (t) \f$ is \b not equal \c #orientation
+    // \f$ (t-dt)+ \f$ \c #orientation_rate \f$ *dt\f$
+=======
     // <tt>orientation.yaw(t) := orientation_rate.yaw(t) * dt + orientation.yaw(t-dt)</tt>
     //
     // <tt>orientation.pitch(t) := orientation_rate.pitch(t) * dt + orientation.pitch(t-dt)</tt>
     //
     // <tt>orientation.roll(t) := orientation_rate.roll(t) * dt + orientation.roll(t-dt)</tt>
+>>>>>>> master
     //
     optional Orientation3d orientation_rate = 6;
 
