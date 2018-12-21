@@ -15,7 +15,7 @@ RECURSIVE              = YES
 # There is no standard configuration for .proto files documentation.
 # A Doxygen filter for .proto files has to be added under the directory doc/.
 # proto2cpp.py is an external script. See README.md for more informations.
-JAVADOC_AUTOBRIEF      = YES
+JAVADOC_AUTOBRIEF      = NO
 EXTENSION_MAPPING      = proto=C++
 FILE_PATTERNS          = *.proto
 INPUT_FILTER           = "python @FILTER_PROTO2CPP_PY_PATH@/proto2cpp.py"
