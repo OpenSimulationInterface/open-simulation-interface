@@ -38,7 +38,8 @@ message DetectedItemHeader
     // The amount of time that this detected object has been continuously
     // observed/tracked.
     //
-    // \note: 'Time stamp' - Age := 'point in time' when the object has
+    // \note
+    // \f$ Timestamp - Age := \f$ 'point in time' when the object has
     // been observed for the first time.
     //
     // Unit: [s]
@@ -259,8 +260,8 @@ message DetectedMovingObject
         // pointing upwards (cranial direction [1] i.e. to pedestrian's skull
         // cap).
         //
-        // <tt>View_normal_base_coord_system =
-        // Inverse_Rotation(#head_pose)*Unit_vector_x</tt>
+        // ``View_normal_base_coord_system =
+        // Inverse_Rotation(#head_pose)*Unit_vector_x``
         //
         // \note This field is mandatory if the \c CandidateMovingObject.type is
         // \c MovingObject::TYPE_PEDESTRIAN
@@ -277,8 +278,8 @@ message DetectedMovingObject
         // pedestrian's intended moving direction) and the z-axis is pointing
         // upwards (to pedestrian's head).
         //
-        // <tt>View_normal_base_coord_system =
-        // Inverse_Rotation(#upper_body_pose)*Unit_vector_x</tt>
+        // ``View_normal_base_coord_system =
+        // Inverse_Rotation(#upper_body_pose)*Unit_vector_x``
         //
         // \note This field is mandatory if the \c CandidateMovingObject::type
         // is \c MovingObject::TYPE_PEDESTRIAN

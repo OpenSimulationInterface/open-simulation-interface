@@ -135,11 +135,12 @@ message Dimension3d
 // xy-plane. Yaw is 0 if the object's local x-axis is parallel to its parent's
 // x-axis.
 //
-// <tt>Rotation_yaw_pitch_roll = Rotation_roll*Rotation_pitch*Rotation_yaw</tt>
+// \f$ Rotation_{yaw,pitch,roll} =
+// Rotation_{roll}*Rotation_{pitch}*Rotation_{yaw} \f$
 //
-// <tt>vector_global_coord_system :=
-// Inverse_Rotation_yaw_pitch_roll(</tt><tt>Orientation3d</tt><tt>)*(vector_local_coord_system)
-// + local_origin::position</tt>
+// \f$ vector_{\text{global coord system}} :=
+// Rotation_{yaw,pitch,roll}^{-1}( \f$ \c Orientation3d \f$
+// )*vector_{\text{local coord system}} + local_{origin}\text{::position} \f$
 //
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
@@ -202,9 +203,10 @@ message MountingPosition
 
     // Orientation offset relative to the specified reference coordinate system.
     //
-    // <tt>Origin_sensor :=
-    // Rotation_yaw_pitch_roll(#orientation)*(Origin_reference_coordinate_system
-    // - #position)</tt>
+    // \f$ Origin_{sensor} :=
+    // Rotation_{yaw,pitch,roll}( \f$ \c #orientation \f$
+    // )*(Origin_{\text{reference coord system}}
+    // - \f$ \c #position \f$ )\f$
     //
     optional Orientation3d orientation = 2;
 }
@@ -222,8 +224,9 @@ message MountingPosition
 // (around the new y-axis) to follow the definition of \c Orientation3d. For the
 // sense of each rotation, the right-hand rule applies.
 //
-// <tt>vector_cartesian :=
-// Rotation(#elevation)*Rotation(#azimuth)*Unit_vector_x*#distance</tt>
+// \f$ vector_{cartesian} :=
+// Rotation( \f$ \c #elevation \f$ )*Rotation( \f$ \c #azimuth \f$ )*
+// (Unit_{vector_x}* \f$ \c #distance \f$ ) \f$
 //
 message Spherical3d
 {
@@ -275,9 +278,10 @@ message BaseStationary
     // frame, noted in the parent frame. The orientation becomes global/absolute
     // if the parent frame is inertial (all parent frames up to ground truth).
     //
-    // <tt>Origin_base_stationary_entity :=
-    // Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system -
-    // #position)</tt>
+    // \f$ Origin_{\text{base stationary entity}} :=
+    // Rotation_{yaw,pitch,roll}( \f$ \c #orientation \f$ )*
+    // (Origin_{\text{parent coord system}} -
+    // \f$ \c #position \f$ )\f$
     //
     // \note There may be some constraints how to align the orientation w.r.t.
     // to some stationary object's or entity's definition.
@@ -336,9 +340,10 @@ message BaseMoving
     // noted in the parent frame. The orientation becomes global/absolute if
     // the parent frame is inertial (all parent frames up to ground truth).
     //
-    // <tt>Origin_base_moving_entity :=
-    // Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system -
-    // #position)</tt>
+    // \f$ Origin_{\text{base moving entity}} :=
+    // Rotation_{yaw,pitch,roll}( \f$ \c #orientation \f$ )*
+    // (Origin_{\text{parent coord system}} -
+    // \f$ \c #position \f$ ) \f$
     //
     // \note There may be some constraints how to align the orientation w.r.t.
     // to some stationary object's or entity's definition.
@@ -349,7 +354,8 @@ message BaseMoving
     // noted in the parent frame. The velocity becomes global/absolute if
     // the parent frame does is inertial (all parent frames up to ground truth).
     //
-    // <tt>#position (t) := #position (t-dt)+ #velocity *dt</tt>
+    // \c #position \f$ (t) := \f$ \c #position \f$ (t-dt)+ \f$ \c #velocity \f$
+    // *dt \f$
     //
     optional Vector3d velocity = 4;
 
@@ -357,10 +363,11 @@ message BaseMoving
     // noted in the parent frame. The acceleration becomes global/absolute if
     // the parent frame is inertial (all parent frames up to ground truth).
     //
-    // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration
-    // /2*dt^2</tt>
+    // \c #position \f$ (t) := \f$ \c #position \f$ (t-dt)+ \f$ \c #velocity \f$
+    // *dt+ \f$ \c #acceleration \f$ /2*dt^2\f$
     //
-    // <tt> #velocity (t) := #velocity (t-dt)+ #acceleration *dt</tt>
+    // \c #velocity \f$ (t) := \f$ \c #velocity \f$ (t-dt)+ \f$ \c #acceleration
+    // \f$ *dt \f$
     //
     optional Vector3d acceleration = 5;
 
@@ -370,13 +377,35 @@ message BaseMoving
     // The orientation becomes global/absolute if the parent frame is inertial
     // (all parent frames up to ground truth).
     //
-    // <tt>orientation.yaw(t) := orientation_rate.yaw(t) * dt + orientation.yaw(t-dt)</tt>
+    // \c #orientation \f$ .yaw(t) := \f$ \c #orientation_rate \f$ .yaw(t) * dt
+    // + \f$ \c #orientation \f$ .yaw(t-dt) \f$
     //
-    // <tt>orientation.pitch(t) := orientation_rate.pitch(t) * dt + orientation.pitch(t-dt)</tt>
+    // \c #orientation \f$ .pitch(t) := \f$ \c #orientation_rate \f$ .pitch(t) *
+    // dt + \f$ \c #orientation \f$ .pitch(t-dt) \f$
     //
-    // <tt>orientation.roll(t) := orientation_rate.roll(t) * dt + orientation.roll(t-dt)</tt>
+    // \c #orientation \f$ .roll(t) := \f$ \c #orientation_rate \f$ .roll(t) *
+    // dt + \f$ \c #orientation \f$ .roll(t-dt)\f$
     //
     optional Orientation3d orientation_rate = 6;
+
+    // The relative orientation acceleration of the moving object w.r.t. its
+    // parent frame and parent orientation acceleration in the center point of
+    // the bounding box (origin of the bounding box frame), noted in the parent
+    // frame. The orientation becomes global/absolute if the parent frame is
+    // inertial (all parent frames up to ground truth).
+    //
+    // \c #orientation_rate \f$ .yaw(t) := \f$ \c #orientation_acceleration \f$
+    // .yaw(t) * dt + \f$ \c #orientation_rate \f$ .yaw(t-dt) \f$
+    //
+    // \c #orientation_rate \f$ .pitch(t) := \f$ \c #orientation_acceleration
+    // \f$ .pitch(t) * dt
+    // + \f$ \c #orientation_rate \f$ .pitch(t-dt) \f$
+    //
+    // \c #orientation_rate \f$ .roll(t) := \f$ \c #orientation_acceleration \f$
+    // .roll(t) * dt +
+    //  \f$ \c #orientation_rate \f$ .roll(t-dt) \f$
+    //
+    optional Orientation3d orientation_acceleration = 8;
 
     // Usage as ground truth:
     // The two dimensional (flat) contour of the object. This is an extension of
@@ -398,18 +427,4 @@ message BaseMoving
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 7;
-    
-    // The relative orientation acceleration of the moving object w.r.t. its parent
-    // frame and parent orientation acceleration in the center point of the bounding box
-    // (origin of the bounding box frame), noted in the parent frame.
-    // The orientation becomes global/absolute if the parent frame is inertial
-    // (all parent frames up to ground truth).
-    //
-    // <tt>orientation_rate.yaw(t) := orientation_acceleration.yaw(t) * dt + orientation_rate.yaw(t-dt)</tt>
-    //
-    // <tt>orientation_rate.pitch(t) := orientation_acceleration.pitch(t) * dt + orientation_rate.pitch(t-dt)</tt>
-    //
-    // <tt>orientation_rate.roll(t) := orientation_acceleration.roll(t) * dt + orientation_rate.roll(t-dt)</tt>
-    //
-    optional Orientation3d orientation_acceleration = 8;
 }

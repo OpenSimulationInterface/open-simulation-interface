@@ -23,6 +23,7 @@ HAVE_DOT               = YES
 HIDE_UNDOC_RELATIONS   = NO
 MAX_DOT_GRAPH_DEPTH    = 2
 SORT_MEMBER_DOCS       = YES
+USE_MATHJAX            = YES
 
 # If someone wants UML diagrams in the documentation, the next parameter must 
 # be commented in.

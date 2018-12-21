@@ -148,7 +148,7 @@ message GroundTruth
     //
     // \note Origin and orientation of the map have to coincide with the
     // inertial coordinate frame of the ground truth.
-    //    
+    //
     // \note It is implementation-specific how map_reference is resolved.
     //
     optional string map_reference = 15;
