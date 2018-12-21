@@ -707,7 +707,7 @@ message CameraDetection
     // The probability for this classification is at least
     // \c #shape_classification_probability.
     //
-    optional bool shape_classification_possible_moving_object = 16;
+    optional bool shape_classification_moving_object = 16;
 
     // The defined shape is a landmark.
     // The probability for this classification is at least
