@@ -405,7 +405,7 @@ message TrafficSign
                 //
                 TYPE_FLIGHT = 110;
 
-                // Warning: Cattle crossing.
+                // Warning: Cattles crossing.
                 // <table border="0">
                 // <tr>
                 // <td>
@@ -1200,7 +1200,7 @@ message TrafficSign
                 // </tr>
                 // </table>
                 //
-                // See also \c
+                // See also: \c
                 // #TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION.
                 //
                 TYPE_PRIORITY_TO_OPPOSITE_DIRECTION = 18;
@@ -1218,7 +1218,7 @@ message TrafficSign
                 // </tr>
                 // </table>
                 //
-                // See also \c #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION.
+                // See also: \c #TYPE_PRIORITY_TO_OPPOSITE_DIRECTION.
                 //
                 TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN = 19;
 
@@ -1929,7 +1929,7 @@ message TrafficSign
                 //
                 TYPE_HORSE_CARRIAGES_PROHIBITED = 157;
 
-                // Entry prohibited for cattle.
+                // Entry prohibited for cattles.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
@@ -3873,9 +3873,9 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 394.png StVO 394
+                // \image html 394.png "StVO 394"
                 // <td>
-                // \image html 394-50.png StVO 394-50
+                // \image html 394-50.png "StVO 394-50"
                 // </tr>
                 // </table>
                 //
@@ -3917,9 +3917,9 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 406-50.png StVO 406-50
+                // \image html 406-50.png "StVO 406-50"
                 // <td>
-                // \image html 406-51.png StVO 406-51
+                // \image html 406-51.png "StVO 406-51"
                 // </tr>
                 // </table>
                 //
@@ -4055,11 +4055,11 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 421-10.png StVO 421-10
+                // \image html 421-10.png "StVO 421-10"
                 // <td>
-                // \image html 421-11.png StVO 421-11
+                // \image html 421-11.png "StVO 421-11"
                 // <td>
-                // \image html 421-12.png StVO 421-12
+                // \image html 421-12.png "StVO 421-12"
                 // </tr>
                 // </table>
                 //
@@ -4095,26 +4095,26 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 422-10.png StVO 422-10
+                // \image html 422-10.png "StVO 422-10"
                 // <td>
-                // \image html 422-12.png StVO 422-12
+                // \image html 422-12.png "StVO 422-12"
                 // <td>
-                // \image html 422-14.png StVO 422-14
+                // \image html 422-14.png "StVO 422-14"
                 // <td>
-                // \image html 422-16.png StVO 422-16
+                // \image html 422-16.png "StVO 422-16"
                 // </tr>
                 // </table>
                 // Routing for designated type of vehicle, align left.
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 422-11.png StVO 422-11
+                // \image html 422-11.png "StVO 422-11"
                 // <td>
-                // \image html 422-13.png StVO 422-13
+                // \image html 422-13.png "StVO 422-13"
                 // <td>
-                // \image html 422-15.png StVO 422-15
+                // \image html 422-15.png "StVO 422-15"
                 // <td>
-                // \image html 422-17.png StVO 422-17
+                // \image html 422-17.png "StVO 422-17"
                 // </tr>
                 // </table>
                 // Direction preannouncement sign for designated type of
@@ -4122,11 +4122,11 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 442-10.png StVO 442-10
+                // \image html 442-10.png "StVO 442-10"
                 // <td>
-                // \image html 442-12.png StVO 442-12
+                // \image html 442-12.png "StVO 442-12"
                 // <td>
-                // \image html 442-13.png StVO 442-13
+                // \image html 442-13.png "StVO 442-13"
                 // </tr>
                 // </table>
                 //
@@ -4200,13 +4200,13 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 422-30.png StVO 422-30
+                // \image html 422-30.png "StVO 422-30"
                 // <td>
-                // \image html 422-32.png StVO 422-32
+                // \image html 422-32.png "StVO 422-32"
                 // <td>
-                // \image html 422-34.png StVO 422-34
+                // \image html 422-34.png "StVO 422-34"
                 // <td>
-                // \image html 422-36.png StVO 422-36
+                // \image html 422-36.png "StVO 422-36"
                 // </tr>
                 // </table>
                 //
@@ -4293,13 +4293,13 @@ message TrafficSign
                 // <table border="0">
                 // <tr>
                 // <td>
-                // \image html 434-50.png StVO 434-50
+                // \image html 434-50.png "StVO 434-50"
                 // <td>
-                // \image html 434-51.png StVO 434-51
+                // \image html 434-51.png "StVO 434-51"
                 // <td>
-                // \image html 434-52.png StVO 434-52
+                // \image html 434-52.png "StVO 434-52"
                 // <td>
-                // \image html 434-53.png StVO 434-53
+                // \image html 434-53.png "StVO 434-53"
                 // </tr>
                 // </table>
                 //
@@ -4434,17 +4434,17 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 450-50.png StVO 450-50
+                // \image html 450-50.png "StVO 450-50"
                 // <td>
-                // \image html 450-51.png StVO 450-51
+                // \image html 450-51.png "StVO 450-51"
                 // <td>
-                // \image html 450-52.png StVO 450-52
+                // \image html 450-52.png "StVO 450-52"
                 // <td>
-                // \image html 450-53.png StVO 450-53
+                // \image html 450-53.png "StVO 450-53"
                 // <td>
-                // \image html 450-54.png StVO 450-54
+                // \image html 450-54.png "StVO 450-54"
                 // <td>
-                // \image html 450-55.png StVO 450-55
+                // \image html 450-55.png "StVO 450-55"
                 // </tr>
                 // </table>
                 //
@@ -4460,9 +4460,9 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 453.png StVO 453
+                // \image html 453.png "StVO 453"
                 // <td>
-                // \image html 453-50.png StVO 453-50
+                // \image html 453-50.png "StVO 453-50"
                 // </tr>
                 // </table>
                 //
@@ -5122,11 +5122,11 @@ message TrafficSign
                 // <table border="0">
                 // <tr>
                 // <td>
-                // \image html 605-10.png StVO 605
+                // \image html 605-10.png "StVO 605"
                 // <td>
-                // \image html 628-10.png StVO 628
+                // \image html 628-10.png "StVO 628"
                 // <td>
-                // \image html 629-10.png StVO 629
+                // \image html 629-10.png "StVO 629"
                 // </tr>
                 // </table>
                 //
@@ -5575,7 +5575,7 @@ message TrafficSign
                 // &rdquo;&Ouml;lspur&rdquo;
                 // </td>
                 // <td>
-                // Trail of oil hazard
+                // Trail of oil hazard.
                 // <br>
                 // \note The identifier "StVO 1007-30" is currently used to
                 // denote the hazard of oil trails. Prior to the edition of
@@ -5597,7 +5597,7 @@ message TrafficSign
                 // "Rauch"
                 // </td>
                 // <td>
-                // Smoke hazard
+                // Smoke hazard.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5611,7 +5611,7 @@ message TrafficSign
                 // "Rollsplitt"
                 // </td>
                 // <td>
-                // Loose gravel hazard
+                // Loose gravel hazard.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5625,7 +5625,7 @@ message TrafficSign
                 // "Baustellenausfahrt"
                 // </td>
                 // <td>
-                // Construction site exit
+                // Construction site exit.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5639,7 +5639,7 @@ message TrafficSign
                 // &rdquo;Stra&szlig;enschaden&rdquo;
                 // </td>
                 // <td>
-                // Damaged roadway
+                // Damaged roadway.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5653,7 +5653,7 @@ message TrafficSign
                 // "Verschmutzte Fahrbahn"
                 // </td>
                 // <td>
-                // Dirty roadway
+                // Dirty roadway.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5667,7 +5667,7 @@ message TrafficSign
                 // "Sprengarbeiten"
                 // </td>
                 // <td>
-                // Blasting
+                // Blasting.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5681,7 +5681,7 @@ message TrafficSign
                 // "Ausfahrt"
                 // </td>
                 // <td>
-                // Exit
+                // Exit.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5695,7 +5695,7 @@ message TrafficSign
                 // "Baustellen verkehr"
                 // </td>
                 // <td>
-                // Construction vehicles traffic
+                // Construction vehicles traffic.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5709,7 +5709,7 @@ message TrafficSign
                 // "fehlende Fahrbahnmarkierung"
                 // </td>
                 // <td>
-                // Missing lane marking
+                // Missing lane marking.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5724,7 +5724,7 @@ message TrafficSign
                 // "Unfall"
                 // </td>
                 // <td>
-                // Accident hazard
+                // Accident hazard.
                 // <br>
                 // See \c #TYPE_ACCIDENT
                 // </td>
@@ -5740,7 +5740,7 @@ message TrafficSign
                 // "Hochwasser"
                 // </td>
                 // <td>
-                // Flood
+                // Flood.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5754,7 +5754,7 @@ message TrafficSign
                 // "neuer Fahrbahnbelag"
                 // </td>
                 // <td>
-                // New road surface
+                // New road surface.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5768,7 +5768,7 @@ message TrafficSign
                 // "Spurrinnen"
                 // </td>
                 // <td>
-                // Wheel ruts
+                // Wheel ruts.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5782,7 +5782,7 @@ message TrafficSign
                 // "Linksabbieger"
                 // </td>
                 // <td>
-                // Left-turning drivers
+                // Left-turning drivers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5796,7 +5796,7 @@ message TrafficSign
                 // "Kuppe"
                 // </td>
                 // <td>
-                // Hilltop
+                // Hilltop.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5810,7 +5810,7 @@ message TrafficSign
                 // "Polizeikontrolle"
                 // </td>
                 // <td>
-                // Police check
+                // Police check.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5824,7 +5824,7 @@ message TrafficSign
                 // "Seitenstreifen nicht befahrbar"
                 // </td>
                 // <td>
-                // Side strips not passable
+                // Side strips not passable.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5838,7 +5838,7 @@ message TrafficSign
                 // "NEBEL"
                 // </td>
                 // <td>
-                // Restriction of the validity of the traffic sign to foggy
+                // Restriction of the validity of the traffic sign to foggy.
                 // </td>
                 // <tr>
                 // <td>
@@ -5851,7 +5851,7 @@ message TrafficSign
                 // "Zufahrt"
                 // </td>
                 // <td>
-                // Driveway
+                // Driveway.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5865,7 +5865,7 @@ message TrafficSign
                 // &rdquo;Vorfahrt ge&auml;ndert&rdquo;
                 // </td>
                 // <td>
-                // Priority changed
+                // Priority changed.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5879,7 +5879,7 @@ message TrafficSign
                 // &rdquo;Verkehrsf&uuml;hrung ge&auml;ndert&rdquo;
                 // </td>
                 // <td>
-                // Routing changed
+                // Routing changed.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5893,7 +5893,7 @@ message TrafficSign
                 // "Industriegebiet Schienenfahrzeuge haben Vorweg"
                 // </td>
                 // <td>
-                // Industrial area (rail traffic has priority)
+                // Industrial area (rail traffic has priority).
                 // </td>
                 // </tr>
                 // <tr>
@@ -5907,7 +5907,7 @@ message TrafficSign
                 // "Hafengebiet Schienenfahrzeuge haben Vorweg"
                 // </td>
                 // <td>
-                // Port area (rail traffic has priority)
+                // Port area (rail traffic has priority).
                 // </td>
                 // </tr>
                 // <tr>
@@ -5921,7 +5921,7 @@ message TrafficSign
                 // &rdquo;keine Wendem&ouml;glichkeit&rdquo;
                 // </td>
                 // <td>
-                // No turning possibility
+                // No turning possibility.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5935,14 +5935,15 @@ message TrafficSign
                 // "Ladezone"
                 // </td>
                 // <td>
-                // Loading zone \anchor LOADING_ZONE_TEXT
+                // Loading zone.
+                // \anchor LOADING_ZONE_TEXT
                 // \note The identifier "StVO 1012-30" is currently used to
                 // denote a loading zone. Prior to the edition of 2017 of
                 // the Catalog of Street Signs of the Federal Road Research
                 // Institute of Germany - BASt, it was used to denote
                 // the beginning of the validity of regulation prescribed by
-                // the \c MainSign. See [\c Begin](\ref BEGIN_TEXT).
-                //
+                // the \c MainSign.
+                // See [\c Begin](\ref BEGIN_TEXT).
                 // </td>
                 // </tr>
                 // <tr>
@@ -5956,15 +5957,15 @@ message TrafficSign
                 // "Anfang"
                 // </td>
                 // <td>
-                // Begin \anchor BEGIN_TEXT
+                // Begin
+                // \anchor BEGIN_TEXT
                 // \note The identifier "StVO 1012-30" is currently used to
                 // denote a loading zone. Prior to the edition of 2017 of
                 // the Catalog of Street Signs of the Federal Road Research
                 // Institute of Germany - BASt, it was used to denote
                 // the beginning of the validity of regulation prescribed by
-                // the \c MainSign. See ``[Loading zone](\ref
-                // LOADING_ZONE_TEXT)
-                // ``.
+                // the \c MainSign.
+                // See [\c Loading zone](\ref LOADING_ZONE_TEXT).
                 // </td>
                 // </tr>
                 // <tr>
@@ -5978,7 +5979,7 @@ message TrafficSign
                 // "Ende"
                 // </td>
                 // <td>
-                // End
+                // End.
                 // </td>
                 // </tr>
                 // <tr>
@@ -5992,8 +5993,7 @@ message TrafficSign
                 // &rdquo;Gr&uuml;ne Welle bei XX km/h&rdquo;
                 // </td>
                 // <td>
-                // All green signals ("green wave") at
-                // certain speed
+                // All green signals ("green wave") at certain speed.
                 // <br>
                 // Use \c TrafficSignValue::value and \c
                 // TrafficSignValue::value_unit (e.g. [km/h]) to indicate the
@@ -6011,7 +6011,7 @@ message TrafficSign
                 // "bei Rot hier halten"
                 // </td>
                 // <td>
-                // Stop at red light
+                // Stop at red light.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6026,11 +6026,10 @@ message TrafficSign
                 // &rdquo;L&auml;rmschutz&rdquo;
                 // </td>
                 // <td>
-                // Noise
-                // protection
+                // Noise protection.
                 // <br>
-                // See also ``[Noise protection with time limit]
-                // (\ref NOISE_PROTECTION_TIME_RESTRICTION_TEXT)``
+                // See also:
+                // [\c Noise protection with time limit](\ref NOISE_PROTECTION2)
                 // </td>
                 // </tr>
                 // <tr>
@@ -6044,7 +6043,7 @@ message TrafficSign
                 // "Zuflussregelung"
                 // </td>
                 // <td>
-                // Inflow regulation
+                // Inflow regulation.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6058,7 +6057,7 @@ message TrafficSign
                 // "Nebenstrecke"
                 // </td>
                 // <td>
-                // Secondary route
+                // Secondary route.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6072,7 +6071,7 @@ message TrafficSign
                 // "Schule"
                 // </td>
                 // <td>
-                // School
+                // School.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6086,7 +6085,7 @@ message TrafficSign
                 // "Kindergarten"
                 // </td>
                 // <td>
-                // Kindergarten
+                // Kindergarten.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6100,7 +6099,7 @@ message TrafficSign
                 // "Altenheim"
                 // </td>
                 // <td>
-                // Retirement home
+                // Retirement home.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6114,7 +6113,7 @@ message TrafficSign
                 // "Krankenhaus"
                 // </td>
                 // <td>
-                // Hospital
+                // Hospital.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6128,7 +6127,7 @@ message TrafficSign
                 // "Seitenstreifen befahren"
                 // </td>
                 // <td>
-                // Driving on side stripes
+                // Driving on side stripes.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6142,7 +6141,7 @@ message TrafficSign
                 // &rdquo;Seitenstreifen r&auml;umen&rdquo;
                 // </td>
                 // <td>
-                // Vacate side stripes
+                // Vacate side stripes.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6156,7 +6155,7 @@ message TrafficSign
                 // A letter among B,C,D or E
                 // </td>
                 // <td>
-                // Tunnel category according to ADR agreement
+                // Tunnel category according to ADR agreement.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6170,7 +6169,7 @@ message TrafficSign
                 // "bis Baustelle frei"
                 // </td>
                 // <td>
-                // Exception up to construction site
+                // Exception up to construction site.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6184,7 +6183,7 @@ message TrafficSign
                 // &rdquo;Parken in gekennzeichneten Fl&auml;chen erlaubt&rdquo;
                 // </td>
                 // <td>
-                // Parking in marked areas allowed
+                // Parking in marked areas allowed.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6198,7 +6197,7 @@ message TrafficSign
                 // "mit Parkschein"
                 // </td>
                 // <td>
-                // With parking ticket
+                // With parking ticket.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6212,7 +6211,7 @@ message TrafficSign
                 // &rdquo;geb&uuml;hrenpflichtig&rdquo;
                 // </td>
                 // <td>
-                // Fees apply
+                // Fees apply.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6226,7 +6225,7 @@ message TrafficSign
                 // "auf dem Seitenstreifen"
                 // </td>
                 // <td>
-                // On the shoulder
+                // On the shoulder.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6240,7 +6239,7 @@ message TrafficSign
                 // "Durchgangsverkehr"
                 // </td>
                 // <td>
-                // Transit traffic
+                // Transit traffic.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6254,7 +6253,7 @@ message TrafficSign
                 // &rdquo;nur innerhalb gekennzeichneter Parkfl&auml;chen&rdquo;
                 // </td>
                 // <td>
-                // Only within marked parking areas
+                // Only within marked parking areas.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6269,7 +6268,7 @@ message TrafficSign
                 // fl&auml;chen&rdquo;
                 // </td>
                 // <td>
-                // Parking with parking permit in marked areas
+                // Parking with parking permit in marked areas.
                 // </td>
                 // </tr>
                 // </table>
@@ -6381,7 +6380,7 @@ message TrafficSign
                 // and \c TrafficSignValue::value_unit (e.g. [m]) to indicate
                 // the point as a distance from the sign.
                 // - A text described by \c TrafficSignValue::text in order to
-                // describe the point's location verbally, e.g. "Baugebiet ..."
+                // describe the point's location verbally, e.g. "Baugebiet ...".
                 // </td>
                 // </tr>
                 // </table>
@@ -6441,7 +6440,7 @@ message TrafficSign
                 // Time range
                 // </td>
                 // <td>
-                // Time range for validity of traffic sign
+                // Time range for validity of traffic sign.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6456,10 +6455,10 @@ message TrafficSign
                 // Two time ranges
                 // </td>
                 // <td>
-                // Time range for validity of traffic sign
-                // - two ranges<br>
+                // Time range for validity of traffic sign - two ranges.
+                // <br>
                 // For each time range, include a pair of \c TrafficSignValue
-                // messages according to the [rules above](\ref TYPE_TIME).
+                // messages according to the [\c rules above](\ref TYPE_TIME).
                 // </td>
                 // </tr>
                 // <tr>
@@ -6473,14 +6472,14 @@ message TrafficSign
                 // "ab" + Date + Time of the day
                 // </td>
                 // <td>
-                // Restricted from point in time
+                // Restricted from point in time.
                 // <br>
                 // - Use three \c TrafficSignValue messages to indicate
                 // respectively the day of the month, the month of the year,
                 // and the hour of the day corresponding to the start of the
                 // restriction.
                 // - The first two \c TrafficSignValue::value_unit should be
-                // set to \c TrafficSignValue::UNIT_NO_UNIT
+                // set to \c TrafficSignValue::UNIT_NO_UNIT.
                 // - For the last \c TrafficSignValue, \c
                 // TrafficSignValue::value indicates the time elapsed since
                 // midnight of the corresponding day, and \c
@@ -6494,16 +6493,16 @@ message TrafficSign
                 // </td>
                 // <td>
                 // StVO 1040-35
-                // \anchor NOISE_PROTECTION_TIME_RESTRICTION_TEXT
+                // \anchor NOISE_PROTECTION2
                 // </td>
                 // <td>
                 // &rdquo;L&auml;rmschutz&rdquo; + time range
                 // </td>
                 // <td>
-                // Noise protection with time limit
+                // Noise protection with time limit.
                 // <br>
-                // See also ``[Noise protection] (\ref NOISE_PROTECTION_TEXT)
-                // ``
+                // See [\c Noise protection](\ref NOISE_PROTECTION_TEXT).
+                // </tt>
                 // </td>
                 // </tr>
                 // <tr>
@@ -6517,7 +6516,7 @@ message TrafficSign
                 // "Schulweg" + time range
                 // </td>
                 // <td>
-                // Way to or from school with time limit
+                // Way to or from school with time limit.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6531,7 +6530,7 @@ message TrafficSign
                 // "werktags"
                 // </td>
                 // <td>
-                // Working days
+                // Working days.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6546,7 +6545,7 @@ message TrafficSign
                 // "werktags" + time range
                 // </td>
                 // <td>
-                // Working days with time limit
+                // Working days with time limit.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6560,12 +6559,12 @@ message TrafficSign
                 // "werktags" + two time ranges
                 // </td>
                 // <td>
-                // Restricted to working days with two time intervals
+                // Restricted to working days with two time intervals.
                 // <br>
                 // For each time range, include a pair of \c TrafficSignValue
-                // messages according to the [rules above](\ref TYPE_TIME).
+                // messages according to the [\c rules above](\ref TYPE_TIME).
                 // <br>
-                // See also ``[Two time ranges](\ref StVO_1040-31)``.
+                // See also: [\c Two time ranges](\ref StVO_1040-31).
                 // </td>
                 // </tr>
                 // <tr>
@@ -6579,7 +6578,8 @@ message TrafficSign
                 // "Mo-Fr" + time range
                 // </td>
                 // <td>
-                // Time range for validity of traffic sign with days of the week
+                // Time range for validity of traffic sign with days of the
+                // week.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6593,7 +6593,7 @@ message TrafficSign
                 // "Di,Do,Fr" + time range
                 // </td>
                 // <td>
-                // Tuesdays, Thursdays and Fridays with time limit
+                // Tuesdays, Thursdays and Fridays with time limit.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6607,7 +6607,7 @@ message TrafficSign
                 // "an Sonn- und Feiertagen" + time range
                 // </td>
                 // <td>
-                // Restricted times, Sundays and public holidays only
+                // Restricted times, Sundays and public holidays only.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6626,10 +6626,10 @@ message TrafficSign
                 // <br>
                 // For each time range, include a pair of \c
                 // TrafficSignValue messages according to the
-                // [rules above](\ref TYPE_TIME).
+                // [\c rules above](\ref TYPE_TIME).
                 // <br>
-                // See also `` [Two time ranges](\ref StVO_1040-31)``,
-                // ``[Working days except saturdays](\ref StVO_1042-38)``.
+                // See also: [\c Two time ranges](\ref StVO_1040-31),
+                // [\c Working days except saturdays](\ref StVO_1042-38).
                 // </td>
                 // </tr>
                 // <tr>
@@ -6643,7 +6643,7 @@ message TrafficSign
                 // "Parken Sa und So erlaubt"
                 // </td>
                 // <td>
-                // Parking on Saturdays and Sundays allowed
+                // Parking on Saturdays and Sundays allowed.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6658,7 +6658,7 @@ message TrafficSign
                 // &rdquo;werktags au&szlig;er samstags&rdquo;
                 // </td>
                 // <td>
-                // Working days except saturdays
+                // Working days except saturdays.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6672,7 +6672,7 @@ message TrafficSign
                 // "Sa und So"
                 // </td>
                 // <td>
-                // Saturdays and Sundays
+                // Saturdays and Sundays.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6686,11 +6686,10 @@ message TrafficSign
                 // "werktags Schulweg" + time range
                 // </td>
                 // <td>
-                // Way to or from school with time limit on
-                // working days
+                // Way to or from school with time limit on working days.
                 // <br>
-                // See also ``[Working days with time limit](\ref
-                // StVO_1042-31)``.
+                // See also
+                // [\c Working days with time limit](\ref StVO_1042-31).
                 // </td>
                 // </tr>
                 // </table>
@@ -6721,10 +6720,10 @@ message TrafficSign
                 // StVO 1000-13
                 // </td>
                 // <td>
-                // Detour sign, three-quarter circle
+                // Detour sign, three-quarter circle.
                 // <br>
                 // Set \c Classification::arrow to \c
-                // Arrow::DIRECTION_CIRCLE_90_DEG_LEFT
+                // Arrow::DIRECTION_CIRCLE_90_DEG_LEFT.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6735,10 +6734,10 @@ message TrafficSign
                 // StVO 1000-23
                 // </td>
                 // <td>
-                // Detour sign, one-quarter circle
+                // Detour sign, one-quarter circle.
                 // <br>
                 // Set \c Classification::arrow to \c
-                // Arrow::DIRECTION_CIRCLE_90_DEG_RIGHT
+                // Arrow::DIRECTION_CIRCLE_90_DEG_RIGHT.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6749,11 +6748,11 @@ message TrafficSign
                 // StVO 1000-30
                 // </td>
                 // <td>
-                // Bidirectional traffic sideways
+                // Bidirectional traffic sideways.
                 // <br>
                 // Use two \c Classification::arrow messages. Set one to \c
                 // Arrow::DIRECTION_DIRECT_90_DEG_RIGHT and the other one to \c
-                // Arrow::DIRECTION_DIRECT_90_DEG_LEFT
+                // Arrow::DIRECTION_DIRECT_90_DEG_LEFT.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6764,11 +6763,11 @@ message TrafficSign
                 // StVO 1000-31
                 // </td>
                 // <td>
-                // Bidirectional traffic back and forth
+                // Bidirectional traffic back and forth.
                 // <br>
                 // Use two \c Classification::arrow messages. Set one to \c
                 // Arrow::DIRECTION_DIRECT_0_DEG and the other one to \c
-                // Arrow::DIRECTION_DIRECT_180_DEG
+                // Arrow::DIRECTION_DIRECT_180_DEG.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6779,10 +6778,10 @@ message TrafficSign
                 // StVO 1000-34
                 // </td>
                 // <td>
-                // Detour sign, semicircle
+                // Detour sign, semicircle.
                 // <br>
                 // Set \c Classification::arrow to \c
-                // Arrow::DIRECTION_CIRCLE_0_DEG
+                // Arrow::DIRECTION_CIRCLE_0_DEG.
                 // </td>
                 // </tr>
                 // </table>
@@ -6823,15 +6822,17 @@ message TrafficSign
                 // \c #ACTOR_PEDESTRIANS
                 // </td>
                 // <td>
-                // Use sidewalk on left side of roadway
+                // Use sidewalk on left side of roadway.
                 // <br>
                 // Set \c Classification::arrow to \c
-                // Arrow::DIRECTION_DIRECT_90_DEG_LEFT
+                // Arrow::DIRECTION_DIRECT_90_DEG_LEFT.
                 // </td>
                 // </tr>
                 // <tr>
                 // <td>
+                // <!--
                 // \image html 1000-22.png
+                // -->
                 // </td>
                 // <td>
                 // StVO 1000-22
@@ -6840,10 +6841,10 @@ message TrafficSign
                 // \c #ACTOR_PEDESTRIANS
                 // </td>
                 // <td>
-                // Use sidewalk on right side of roadway
+                // Use sidewalk on right side of roadway.
                 // <br>
                 // Set \c Classification::arrow to \c
-                // Arrow::DIRECTION_DIRECT_90_DEG_RIGHT
+                // Arrow::DIRECTION_DIRECT_90_DEG_RIGHT.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6857,11 +6858,11 @@ message TrafficSign
                 // \c #ACTOR_BICYCLES
                 // </td>
                 // <td>
-                // Bidirectional traffic bicycles sideways
+                // Bidirectional traffic bicycles sideways.
                 // <br>
                 // Use two \c Classification::arrow messages. Set one to \c
                 // Arrow::DIRECTION_DIRECT_90_DEG_RIGHT and the other one to \c
-                // Arrow::DIRECTION_DIRECT_90_DEG_LEFT
+                // Arrow::DIRECTION_DIRECT_90_DEG_LEFT.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6875,11 +6876,11 @@ message TrafficSign
                 // \c #ACTOR_BICYCLES
                 // </td>
                 // <td>
-                // Bidirectional traffic bicyclesback and forth
+                // Bidirectional traffic bicyclesback and forth.
                 // <br>
                 // Use two \c Classification::arrow messages. Set one to \c
                 // Arrow::DIRECTION_DIRECT_0_DEG and the other one to \c
-                // Arrow::DIRECTION_DIRECT_180_DEG
+                // Arrow::DIRECTION_DIRECT_180_DEG.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6893,7 +6894,7 @@ message TrafficSign
                 // \c #ACTOR_MOTORIZED_MULTITRACK_VEHICLES
                 // </td>
                 // <td>
-                // Motorized multi-track vehicles
+                // Motorized multi-track vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6907,15 +6908,14 @@ message TrafficSign
                 // \c #ACTOR_TRUCKS
                 // </td>
                 // <td>
-                // Trucks
-                // <br>
+                // Trucks.
                 // \note
                 // - In the German StVO, trucks are defined as motorized
                 // vehicles that are heavier than 3.5 [t].
                 // - This supplementary sign also denotes the trucks' tractor
                 // units and trailers.
                 // - Cars and buses with a total weight superior to 3.5 [t] are
-                // not denoted by this. sign
+                // not denoted by this. sign.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6929,7 +6929,7 @@ message TrafficSign
                 // \c #ACTOR_BICYCLES
                 // </td>
                 // <td>
-                // Bicycles
+                // Bicycles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6943,7 +6943,7 @@ message TrafficSign
                 // \c #ACTOR_PEDESTRIANS
                 // </td>
                 // <td>
-                // Pedestrians
+                // Pedestrians.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6957,7 +6957,7 @@ message TrafficSign
                 // \c #ACTOR_HORSE_RIDERS
                 // </td>
                 // <td>
-                // Horse riders
+                // Horse riders.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6971,7 +6971,7 @@ message TrafficSign
                 // \c #ACTOR_CATTLE
                 // </td>
                 // <td>
-                // Cattle
+                // Cattles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6985,7 +6985,7 @@ message TrafficSign
                 // \c #ACTOR_TRAMS
                 // </td>
                 // <td>
-                // Trams
+                // Trams.
                 // </td>
                 // </tr>
                 // <tr>
@@ -6999,7 +6999,7 @@ message TrafficSign
                 // \c #ACTOR_BUSES
                 // </td>
                 // <td>
-                // Buses
+                // Buses.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7013,7 +7013,7 @@ message TrafficSign
                 // \c #ACTOR_CARS
                 // </td>
                 // <td>
-                // Passenger cars
+                // Passenger cars.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7027,7 +7027,7 @@ message TrafficSign
                 // \c #ACTOR_CARS_WITH_TRAILERS
                 // </td>
                 // <td>
-                // Passenger cars with trailers
+                // Passenger cars with trailers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7041,7 +7041,7 @@ message TrafficSign
                 // \c #ACTOR_TRUCKS_WITH_TRAILERS
                 // </td>
                 // <td>
-                // Trucks with trailers
+                // Trucks with trailers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7055,11 +7055,10 @@ message TrafficSign
                 // \c #ACTOR_TRACTORS
                 // </td>
                 // <td>
-                // Tractors
-                // <br>
+                // Tractors.
                 // \note In the German StVO, tractors are defined as motorized
                 // vehicles that are not allowed to, or cannot, drive faster
-                // than 25 [km/h]
+                // than 25 [km/h].
                 // </td>
                 // </tr>
                 // <tr>
@@ -7073,7 +7072,7 @@ message TrafficSign
                 // \c #ACTOR_MOTORCYCLES
                 // </td>
                 // <td>
-                // Motorbikes
+                // Motorbikes.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7087,7 +7086,7 @@ message TrafficSign
                 // \c #ACTOR_MOPEDS
                 // </td>
                 // <td>
-                // Mopeds
+                // Mopeds.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7101,7 +7100,7 @@ message TrafficSign
                 // \c #ACTOR_HORSE_CARRIAGES
                 // </td>
                 // <td>
-                // Horse carriages
+                // Horse carriages.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7115,7 +7114,7 @@ message TrafficSign
                 // \c #ACTOR_EBIKES
                 // </td>
                 // <td>
-                // E-bikes
+                // E-bikes.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7129,9 +7128,9 @@ message TrafficSign
                 // \c #ACTOR_ELECTRIC_VEHICLES
                 // </td>
                 // <td>
-                // Electric vehicles
+                // Electric vehicles.
                 // <br>
-                // See also ``[StVO 1050-33](\ref EV_T)``
+                // See also: [\c StVO 1050-33](\ref EV_T).
                 // \anchor EV_I
                 // </td>
                 // </tr>
@@ -7146,7 +7145,7 @@ message TrafficSign
                 // \c #ACTOR_CAMPERS
                 // </td>
                 // <td>
-                // Campers
+                // Campers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7160,9 +7159,9 @@ message TrafficSign
                 // \c #ACTOR_BICYCLES
                 // </td>
                 // <td>
-                // Cyclists must walk
+                // Cyclists must walk.
                 // <br>
-                // Set \c TrafficSignValue::text as "absteigen"
+                // Set \c TrafficSignValue::text as "absteigen".
                 // </td>
                 // </tr>
                 // <tr>
@@ -7176,13 +7175,13 @@ message TrafficSign
                 // \c #ACTOR_TRACTORS
                 // </td>
                 // <td>
-                // Overtaking of tractors allowed
+                // Overtaking of tractors allowed.
                 // <br>
                 // Set \c TrafficSignValue::text as
-                // &rdquo;d&uuml;rfen &uuml;berholt werden&rdquo;
+                // &rdquo;d&uuml;rfen &uuml;berholt werden&rdquo;.
                 // \note In the German StVO, tractors are defined as motorized
                 // vehicles that are not allowed to, or cannot, drive faster
-                // than 25 [km/h]
+                // than 25 [km/h].
                 // </td>
                 // </tr>
                 // <tr>
@@ -7196,7 +7195,7 @@ message TrafficSign
                 // \c #ACTOR_TAXIS
                 // </td>
                 // <td>
-                // Taxis
+                // Taxis.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7210,7 +7209,7 @@ message TrafficSign
                 // \c #ACTOR_TAXIS
                 // </td>
                 // <td>
-                // A number of taxis
+                // A number of taxis.
                 // <br>
                 // Use \c TrafficSignValue::value to indicate the number of
                 // taxis. Set \c TrafficSignValue::value_unit to \c
@@ -7228,10 +7227,10 @@ message TrafficSign
                 // \c #ACTOR_ELECTRIC_VEHICLES
                 // </td>
                 // <td>
-                // Electric vehicles during the charging process
+                // Electric vehicles during the charging process.
                 // <br>
                 // Set \c TrafficSignValue::text as &rdquo;w&auml;hrend des
-                // Ladevorgangs&rdquo;
+                // Ladevorgangs&rdquo;.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7245,9 +7244,9 @@ message TrafficSign
                 // \c #ACTOR_ELECTRIC_VEHICLES
                 // </td>
                 // <td>
-                // Electric vehicles
+                // Electric vehicles.
                 // <br>
-                // See also ``[StVO 1010-66](\ref EV_I)``
+                // See also: [\c StVO 1010-66](\ref EV_I).
                 // \anchor EV_T
                 // </td>
                 // </tr>
@@ -7259,12 +7258,12 @@ message TrafficSign
                 // StVO 1060-32
                 // </td>
                 // <td>
-                // Two actors \c #ACTOR_BUSES and \c #ACTOR_CARS_WITH_TRAILERS
+                // Two actors \c #ACTOR_BUSES and \c #ACTOR_CARS_WITH_TRAILERS.
                 // </td>
                 // <td>
-                // Buses and cars with trailers
+                // Buses and cars with trailers.
                 // <br>
-                // Set \c TrafficSignValue::text as "auch"
+                // Set \c TrafficSignValue::text as "auch".
                 // </td>
                 // </tr>
                 // </table>
@@ -7275,7 +7274,7 @@ message TrafficSign
                 //
                 // \note
                 // In the German StVO, these signs typically include the word
-                // "Nur"
+                // "Nur".
                 //
                 // <table cellspacing="0" ellpadding="0">
                 // <tr>
@@ -7305,7 +7304,7 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Only disabled persons with an exceptional walking disability
-                // and blind persons
+                // and blind persons.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7319,10 +7318,10 @@ message TrafficSign
                 // \c #ACTOR_DISABLED_PERSONS
                 // </td>
                 // <td>
-                // Only disabled persons with parking permit
+                // Only disabled persons with parking permit.
                 // <br>
                 // Set \c TrafficSignValue::text as "mit Parkausweis
-                // Nr. XXXX"
+                // Nr. XXXX".
                 // </td>
                 // </tr>
                 // <tr>
@@ -7337,7 +7336,7 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Only disabled persons with an exceptional walking disability
-                // and blind persons, with number of parking places
+                // and blind persons, with number of parking places.
                 // <br>
                 // Use \c TrafficSignValue::value to indicate the number of
                 // parking places. Set \c TrafficSignValue::value_unit to \c
@@ -7356,7 +7355,7 @@ message TrafficSign
                 // \c #ACTOR_RESIDENTS
                 // </td>
                 // <td>
-                // Only residents with parking permit
+                // Only residents with parking permit.
                 // <br>
                 // Set \c TrafficSignValue::text as "mit Parkausweis Nr. XXXX".
                 // </td>
@@ -7372,7 +7371,7 @@ message TrafficSign
                 // \c #ACTOR_TRUCKS_WITH_SEMITRAILERS
                 // </td>
                 // <td>
-                // Only trucks with semi-trailers
+                // Only trucks with semi-trailers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7384,10 +7383,10 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Two actors: one set to \c #ACTOR_TRUCKS_WITH_SEMITRAILERS
-                // and the other one set to \c #ACTOR_TRUCKS_WITH_TRAILERS
+                // and the other one set to \c #ACTOR_TRUCKS_WITH_TRAILERS.
                 // </td>
                 // <td>
-                // Only trucks with trailers and trucks with semi-trailers
+                // Only trucks with trailers and trucks with semi-trailers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7401,7 +7400,7 @@ message TrafficSign
                 // \c #ACTOR_RAILROAD_TRAFFIC
                 // </td>
                 // <td>
-                // Only railroad traffic
+                // Only railroad traffic.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7413,18 +7412,17 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Two actors: one set to \c #ACTOR_CARS_WITH_TRAILERS
-                // and the other one set to \c #ACTOR_TRUCKS
+                // and the other one set to \c #ACTOR_TRUCKS.
                 // </td>
                 // <td>
-                // Only trucks with trailers and trucks with semi-trailers
-                // <br>
+                // Only trucks with trailers and trucks with semi-trailers.
                 // \note
                 // - In the German StVO, trucks are defined as motorized
-                // vehicles that are heavier than 3.5 [t]
+                // vehicles that are heavier than 3.5 [t].
                 // - This supplementary sign also denotes the trucks'
-                // tractor units and trailers
+                // tractor units and trailers.
                 // - This supplementary sign excludes passenger cars and
-                // buses
+                // buses.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7438,7 +7436,7 @@ message TrafficSign
                 // \c #ACTOR_MILITARY_VEHICLES
                 // </td>
                 // <td>
-                // Only military vehicles
+                // Only military vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7450,16 +7448,16 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Three actors, set to respectively \c #ACTOR_TRUCKS, \c
-                // #ACTOR_BUSES and \c #ACTOR_CARS_WITH_TRAILERS
+                // #ACTOR_BUSES and \c #ACTOR_CARS_WITH_TRAILERS.
                 // </td>
                 // <td>
-                // Only trucks, buses, passenger cars with trailers
+                // Only trucks, buses, passenger cars with trailers.
                 // <br>
                 // \note
                 // - In the German StVO, trucks are defined as motorized
-                // vehicles that are heavier than 3.5 [t]
+                // vehicles that are heavier than 3.5 [t].
                 // - This supplementary sign also denotes the trucks' tractor
-                // units and trailers
+                // units and trailers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7473,7 +7471,7 @@ message TrafficSign
                 // \c #ACTOR_HAZARDOUS_GOODS_VEHICLES
                 // </td>
                 // <td>
-                // Only hazardous goods vehicles
+                // Only hazardous goods vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7487,14 +7485,14 @@ message TrafficSign
                 // \c #ACTOR_WATER_POLLUTANT_VEHICLES
                 // </td>
                 // <td>
-                // Only water pollutant vehicles
+                // Only water pollutant vehicles.
                 // </td>
                 // </tr>
                 // </table>
                 //
                 // In addition, some of the German StVO supplementary signs
                 // with actors that receive an explicit allowance to use
-                // the street or the shoulder can be constructed
+                // the street or the shoulder can be constructed:
                 // <table cellspacing="0" ellpadding="0">
                 // <tr>
                 // <th>
@@ -7521,7 +7519,7 @@ message TrafficSign
                 // \c #ACTOR_CHILDREN
                 // </td>
                 // <td>
-                // Children playing on the road and shoulder allowed
+                // Children playing on the road and shoulder allowed.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7535,7 +7533,7 @@ message TrafficSign
                 // \c #ACTOR_WINTER_SPORTSPEOPLE
                 // </td>
                 // <td>
-                // Winter sports allowed
+                // Winter sports allowed.
                 // <br>
                 // Use \c TrafficSignValue::value to indicate the number
                 // of taxis.
@@ -7554,7 +7552,7 @@ message TrafficSign
                 // \c#ACTOR_TRAILERS
                 // </td>
                 // <td>
-                // Trailers allowed
+                // Trailers allowed.
                 // \note In the German StVO, this sign states that Trailers can
                 // park here without the usual two week temporal parking
                 // restriction.
@@ -7571,7 +7569,7 @@ message TrafficSign
                 // \c #ACTOR_CARAVANS
                 // </td>
                 // <td>
-                // Caravans allowed
+                // Caravans allowed.
                 // \note In the German StVO, this sign states that Caravans can
                 // park here without the usual two week temporal parking
                 // restriction.
@@ -7588,7 +7586,7 @@ message TrafficSign
                 // \c #ACTOR_WINTER_SPORTSPEOPLE
                 // </td>
                 // <td>
-                // Winter sports within time range allowed
+                // Winter sports within time range allowed.
                 // <br>
                 // In order to indicate an allowance limited by a time period,
                 // use one \c TrafficSignValue message to indicate its start and
@@ -7610,9 +7608,9 @@ message TrafficSign
                 // \c #ACTOR_WINTER_SPORTSPEOPLE
                 // </td>
                 // <td>
-                // Ski run crosses
+                // Ski run crosses.
                 // <br>
-                // Set \c TrafficSignValue::text as "kreuzt"
+                // Set \c TrafficSignValue::text as "kreuzt".
                 // </td>
                 // </tr>
                 // <tr>
@@ -7626,9 +7624,9 @@ message TrafficSign
                 // \c #ACTOR_WINTER_SPORTSPEOPLE
                 // </td>
                 // <td>
-                // Ski trail
+                // Ski trail.
                 // <br>
-                // Set \c TrafficSignValue::text as "kreuzt"
+                // Set \c TrafficSignValue::text as "kreuzt".
                 // </td>
                 // </tr>
                 // </table>
@@ -7647,9 +7645,9 @@ message TrafficSign
                 // \c #ACTOR_CARS_WITH_CARAVANS
                 // </td>
                 // <td>
-                // Slide danger for car/caravan combinations under strong winds
+                // Slide danger for car/caravan combinations under strong winds.
                 // <br>
-                // Set \c TrafficSignValue::text as "Schleudergefahr"
+                // Set \c TrafficSignValue::text as "Schleudergefahr".
                 // </td>
                 // </tr>
                 // <tr>
@@ -7664,9 +7662,9 @@ message TrafficSign
                 // \c #ACTOR_MOPEDS
                 // </td>
                 // <td>
-                // No mopeds
+                // No mopeds.
                 // <br>
-                // Set \c TrafficSignValue::text as "keine"
+                // Set \c TrafficSignValue::text as "keine".
                 // </td>
                 // </tr>
                 // </table>
@@ -7713,9 +7711,9 @@ message TrafficSign
                 // \c #ACTOR_DISABLED_PERSONS
                 // </td>
                 // <td>
-                // Except disabled persons with parking permit
+                // Except disabled persons with parking permit.
                 // <br>
-                // Set \c TrafficSignValue::text as "mit Parkausweis Nr. XXXX"
+                // Set \c TrafficSignValue::text as "mit Parkausweis Nr. XXXX".
                 // </td>
                 // </tr>
                 // <tr>
@@ -7727,10 +7725,10 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Two actors: one set to \c #ACTOR_BICYCLES and the other one
-                // set to \c #ACTOR_RESIDENTS
+                // set to \c #ACTOR_RESIDENTS.
                 // </td>
                 // <td>
-                // Except cyclists and residents
+                // Except cyclists and residents.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7744,7 +7742,7 @@ message TrafficSign
                 // \c #ACTOR_WINTER_SPORTSPEOPLE
                 // </td>
                 // <td>
-                // Except winter sportspeople
+                // Except winter sportspeople.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7758,7 +7756,7 @@ message TrafficSign
                 // \c #ACTOR_RESIDENTS
                 // </td>
                 // <td>
-                // Except residents
+                // Except residents.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7772,10 +7770,10 @@ message TrafficSign
                 // \c #ACTOR_RESIDENTS
                 // </td>
                 // <td>
-                // Except residents or free parking
+                // Except residents or free parking.
                 // </td>
                 // <br>
-                // Set \c TrafficSignValue::text as "oder Parken"
+                // Set \c TrafficSignValue::text as "oder Parken".
                 // </td>
                 // </tr>
                 // <tr>
@@ -7789,9 +7787,9 @@ message TrafficSign
                 // \c #ACTOR_RESIDENTS
                 // </td>
                 // <td>
-                // Except residents with parking permit
+                // Except residents with parking permit.
                 // <br>
-                // Set \c TrafficSignValue::text as "mit Parkausweis Nr. XXXX"
+                // Set \c TrafficSignValue::text as "mit Parkausweis Nr. XXXX".
                 // </td>
                 // </tr>
                 // <tr>
@@ -7805,7 +7803,7 @@ message TrafficSign
                 // \c #ACTOR_BICYCLES
                 // </td>
                 // <td>
-                // Except bicycles
+                // Except bicycles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7819,7 +7817,7 @@ message TrafficSign
                 // \c #ACTOR_MOPEDS
                 // </td>
                 // <td>
-                // Except mopeds
+                // Except mopeds.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7833,7 +7831,7 @@ message TrafficSign
                 // \c #ACTOR_MOTORCYCLES
                 // </td>
                 // <td>
-                // Except motorcycles
+                // Except motorcycles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7847,7 +7845,7 @@ message TrafficSign
                 // \c #ACTOR_EBIKES
                 // </td>
                 // <td>
-                // Except e-bikes
+                // Except e-bikes.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7859,10 +7857,10 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Two actors: one set to \c #ACTOR_BICYCLES and the other one
-                // set to \c #ACTOR_MOPEDS
+                // set to \c #ACTOR_MOPEDS.
                 // </td>
                 // <td>
-                // Except bicycles and mopeds
+                // Except bicycles and mopeds.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7874,10 +7872,10 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Two actors: one set to \c #ACTOR_EBIKES and the other one
-                // set to \c #ACTOR_MOPEDS
+                // set to \c #ACTOR_MOPEDS.
                 // </td>
                 // <td>
-                // Except e-bikes and mopeds
+                // Except e-bikes and mopeds.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7891,7 +7889,7 @@ message TrafficSign
                 // \c #ACTOR_CARS
                 // </td>
                 // <td>
-                // Except passenger cars
+                // Except passenger cars.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7905,7 +7903,7 @@ message TrafficSign
                 // \c #ACTOR_CARS_WITH_TRAILERS
                 // </td>
                 // <td>
-                // Except passenger cars with trailers
+                // Except passenger cars with trailers.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7919,7 +7917,7 @@ message TrafficSign
                 // \c #ACTOR_TRUCKS
                 // </td>
                 // <td>
-                // Except trucks, their tractor unit and their trailers
+                // Except trucks, their tractor unit and their trailers.
                 // \note
                 // - In the German StVO, trucks are defined as motorized
                 // vehicles that are heavier than 3.5 [t].
@@ -7940,7 +7938,7 @@ message TrafficSign
                 // \c #ACTOR_TRUCKS_WITH_TRAILERS
                 // </td>
                 // <td>
-                // Except trucks with trailers
+                // Except trucks with trailers.
                 // \note
                 // - In the German StVO, trucks are defined as motorized
                 // vehicles that are heavier than 3.5 [t].
@@ -7961,7 +7959,7 @@ message TrafficSign
                 // \c #ACTOR_BUSES
                 // </td>
                 // <td>
-                // Except buses
+                // Except buses.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7975,7 +7973,7 @@ message TrafficSign
                 // \c #ACTOR_RAILROAD_TRAFFIC
                 // </td>
                 // <td>
-                // Except railroad traffic
+                // Except railroad traffic.
                 // </td>
                 // </tr>
                 // <tr>
@@ -7989,7 +7987,7 @@ message TrafficSign
                 // \c #ACTOR_TRAMS
                 // </td>
                 // <td>
-                // Except trams
+                // Except trams.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8003,7 +8001,7 @@ message TrafficSign
                 // \c #ACTOR_TRACTORS
                 // </td>
                 // <td>
-                // Except tractors
+                // Except tractors.
                 // \note In the German StVO, tractors are defined as motorized
                 // vehicles that are not allowed to, or cannot, drive faster
                 // than 25 [km/h].
@@ -8020,7 +8018,7 @@ message TrafficSign
                 // \c #ACTOR_HORSE_CARRIAGES
                 // </td>
                 // <td>
-                // Except horse carriages
+                // Except horse carriages.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8034,10 +8032,10 @@ message TrafficSign
                 // \c #ACTOR_CAMPERS
                 // </td>
                 // <td>
-                // Except campers with a maximum allowed mass
+                // Except campers with a maximum allowed mass.
                 // <br>
                 // Use \c TrafficSignValue::value and \c
-                // TrafficSignValue::value_unit (e.g. [t]) to indicate the mass
+                // TrafficSignValue::value_unit (e.g. [t]) to indicate the mass.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8051,9 +8049,9 @@ message TrafficSign
                 // \c #ACTOR_ELECTRIC_VEHICLES
                 // </td>
                 // <td>
-                // Except electric vehicles
+                // Except electric vehicles.
                 // <br>
-                // See also ``[StVO 1026-61](\ref EV_EXCEPT_T)``.
+                // See also: [\c StVO 1026-61](\ref EV_EXCEPT_T).
                 // \anchor EV_EXCEPT_I
                 // </td>
                 // </tr>
@@ -8068,7 +8066,7 @@ message TrafficSign
                 // \c #ACTOR_BUSES
                 // </td>
                 // <td>
-                // Except buses in ocasional service
+                // Except buses in ocasional service.
                 // <br>
                 // Set \c TrafficSignValue::text as "im Gelegenheitsverkehr".
                 // </td>
@@ -8084,7 +8082,7 @@ message TrafficSign
                 // \c #ACTOR_PUBLIC_TRANSPORT_VEHICLES
                 // </td>
                 // <td>
-                // Except public transport vehicles
+                // Except public transport vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8098,7 +8096,7 @@ message TrafficSign
                 // \c #ACTOR_EMERGENCY_VEHICLES
                 // </td>
                 // <td>
-                // Except emergency vehicles
+                // Except emergency vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8112,7 +8110,7 @@ message TrafficSign
                 // \c #ACTOR_MEDICAL_VEHICLES
                 // </td>
                 // <td>
-                // Except medical vehicles
+                // Except medical vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8126,7 +8124,7 @@ message TrafficSign
                 // \c #ACTOR_DELIVERY_VEHICLES
                 // </td>
                 // <td>
-                // Except delivery vehicles
+                // Except delivery vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8140,7 +8138,7 @@ message TrafficSign
                 // \c #ACTOR_AGRICULTURAL_VEHICLES
                 // </td>
                 // <td>
-                // Except agricultural vehicles
+                // Except agricultural vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8154,7 +8152,7 @@ message TrafficSign
                 // \c #ACTOR_FORESTRY_VEHICLES
                 // </td>
                 // <td>
-                // Except forestry vehicles
+                // Except forestry vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8166,10 +8164,10 @@ message TrafficSign
                 // </td>
                 // <td>
                 // Two actors: one set to \c #ACTOR_FORESTRY_VEHICLES and
-                // the other one set to \c #ACTOR_AGRICULTURAL_VEHICLES
+                // the other one set to \c #ACTOR_AGRICULTURAL_VEHICLES.
                 // </td>
                 // <td>
-                // Except agricultural and forestry vehicles
+                // Except agricultural and forestry vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8183,7 +8181,7 @@ message TrafficSign
                 // \c #ACTOR_OPERATIONAL_AND_UTILITY_VEHICLES
                 // </td>
                 // <td>
-                // Except operational and utility vehicles
+                // Except operational and utility vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8197,7 +8195,7 @@ message TrafficSign
                 // \c #ACTOR_ELECTRIC_VEHICLES
                 // </td>
                 // <td>
-                // Except electric vehicles during the charging process
+                // Except electric vehicles during the charging process.
                 // <br>
                 // Set \c TrafficSignValue::text as
                 // &rdquo;w&auml;hrend des Ladevorgangs&rdquo;
@@ -8214,9 +8212,9 @@ message TrafficSign
                 // \c #ACTOR_ELECTRIC_VEHICLES
                 // </td>
                 // <td>
-                // Except electric vehicles
+                // Except electric vehicles.
                 // <br>
-                // See also ``[StVO 1024-20](\ref EV_EXCEPT_I)``.
+                // See also: [\c StVO 1024-20](\ref EV_EXCEPT_I).
                 // \anchor EV_EXCEPT_T
                 // </td>
                 // </tr>
@@ -8231,7 +8229,7 @@ message TrafficSign
                 // \c #ACTOR_SLURRY_TRANSPORT
                 // </td>
                 // <td>
-                // Except slurry transport
+                // Except slurry transport.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8245,7 +8243,7 @@ message TrafficSign
                 // \c #ACTOR_EBIKES
                 // </td>
                 // <td>
-                // Except e-bikes
+                // Except e-bikes.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8259,7 +8257,7 @@ message TrafficSign
                 // \c #ACTOR_CONSTRUCTION_VEHICLES
                 // </td>
                 // <td>
-                // Except construction vehicles
+                // Except construction vehicles.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8273,7 +8271,7 @@ message TrafficSign
                 // \c #ACTOR_RESIDENTS
                 // </td>
                 // <td>
-                // Exception for residents up to construction site
+                // Exception for residents up to construction site.
                 // <br>
                 // Set \c TrafficSignValue::text as "bis Baustelle"
                 // </td>
@@ -8289,7 +8287,7 @@ message TrafficSign
                 // \c #ACTOR_FERRY_USERS
                 // </td>
                 // <td>
-                // Except ferry users
+                // Except ferry users.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8353,31 +8351,23 @@ message TrafficSign
                 // <table border="0">
                 // <tr>
                 // <td>
-                // \image html 1001-30.png
-                // <td>
-                // StVO 1001-30
+                // \image html 1001-30.png "StVO 1001-30"
                 // <td>
                 // <!--
                 // \image html 1001-31.png
                 // -->
                 // <td>
+                // <B>
                 // StVO 1001-31
+                // </B>
                 // <td>
-                // \image html 1001-32.png
+                // \image html 1001-32.png "StVO 1001-32"
                 // <td>
-                // StVO 1001-32
+                // \image html 1001-33.png "StVO 1001-33"
                 // <td>
-                // \image html 1001-33.png
+                // \image html 1001-34.png "StVO 1001-34"
                 // <td>
-                // StVO 1001-33
-                // <td>
-                // \image html 1001-34.png
-                // <td>
-                // StVO 1001-34
-                // <td>
-                // \image html 1001-35.png
-                // <td>
-                // StVO 001-35
+                // \image html 1001-35.png "StVO 1001-35"
                 // </tr>
                 // </table>
                 //
@@ -8531,14 +8521,9 @@ message TrafficSign
                 // <table cellspacing="0" cellpadding="0">
                 // <tr>
                 // <td>
-                // \image html 1004-30.png
+                // \image html 1004-30.png "StVO 1004-30"
                 // <td>
-                // StVO
-                // 1004-30
-                // <td>
-                // \image html 1004-31.png
-                // <td>
-                // StVO 1004-31
+                // \image html 1004-31.png "StVO 1004-31"
                 // </table>
                 //
                 // Use \c TrafficSignValue::value and \c
@@ -8644,8 +8629,7 @@ message TrafficSign
                 // </tr>
                 // </table>
                 //
-                // See also [\c TYPE_TEXT](\ref
-                // ACCIDENT_TEXT)
+                // See also: [\c TYPE_TEXT](\ref ACCIDENT_TEXT).
                 //
                 TYPE_ACCIDENT = 40;
 
@@ -8723,14 +8707,9 @@ message TrafficSign
                 // <table border="0">
                 // <tr>
                 // <td>
-                // \image html 1040-30.png
+                // \image html 1040-30.png "StVO 1040-30"
                 // <td>
-                // StVO
-                // 1040-30
-                // <td>
-                // \image html 1042-33.png
-                // <td>
-                // StVO 1042-33
+                // \image html 1042-33.png "StVO 1042-33"
                 // </tr>
                 // </table>
                 //
@@ -8796,18 +8775,11 @@ message TrafficSign
                 // <table border="0">
                 // <tr>
                 // <td>
-                // \image html 1053-33.png
+                // \image html 1053-33.png "StVO 1053-33"
                 // <td>
-                // StVO
-                // 1053-33
+                // \image html 1053-37.png "StVO 1053-37"
                 // <td>
-                // \image html 1053-37.png
-                // <td>
-                // StVO 1053-37
-                // <td>
-                // \image html 1060-33.png
-                // <td>
-                // StVO 1060-33
+                // \image html 1060-33.png "StVO 1060-33"
                 // </tr>
                 // </table>
                 //
@@ -9008,7 +8980,7 @@ message TrafficSign
                 //
                 ACTOR_CARS_WITH_TRAILERS = 10;
 
-                // Cattle
+                // Cattles
                 //
                 ACTOR_CATTLE = 11;
 
