@@ -38,7 +38,8 @@ message DetectedItemHeader
     // The amount of time that this detected object has been continuously
     // observed/tracked.
     //
-    // \note: 'Time stamp' - Age := 'point in time' when the object has
+    // \note
+    // \f$ Timestamp - Age := \f$ 'point in time' when the object has
     // been observed for the first time.
     //
     // Unit: [s]
