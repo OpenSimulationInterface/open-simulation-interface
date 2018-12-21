@@ -87,7 +87,7 @@ message Timestamp
 // \brief The dimension of a 3D box, e.g. the size of a 3D bounding box or its
 // uncertainties.
 //
-// \image html OSI_Dimension3d.jpg
+// \image html OSI_Dimension3D.svg
 //
 // The dimensions are positive. Uncertainties are negative or positive.
 //
@@ -252,12 +252,12 @@ message Spherical3d
 // This includes the \c StationaryObject , \c TrafficSign ,
 // \c TrafficLight , \c RoadMarking messages.
 //
-// \image html OSI_BaseStationary.jpg
+// \image html OSI_BaseStationary.svg
 //
 // All coordinates and orientations from ground truth objects are relative to
-// the global ground truth frame (see image). All coordinates and orientations
+// the global ground truth frame (see image). (All coordinates and orientations
 // from detected objects are relative to the host vehicle frame (see:
-// \c MovingObject::Vehicle vehicle reference point).
+// \c Vehicle vehicle reference point).)
 //
 message BaseStationary
 {
@@ -312,10 +312,14 @@ message BaseStationary
 //
 // This includes the \c MovingObject messages.
 //
+// \image html OSI_BaseMoving.svg
+//
+// E.g. a vehicle is a base moving object.
+//
 // All coordinates and orientations from ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
 // from detected objects are relative to the host vehicle frame
-// (see: \c MovingObject::Vehicle vehicle reference point).
+// (see: \c MovingObject vehicle reference point).
 //
 message BaseMoving
 {
@@ -366,12 +370,11 @@ message BaseMoving
     // The orientation becomes global/absolute if the parent frame is inertial
     // (all parent frames up to ground truth).
     //
-    // <tt>Rotation_yaw_pitch_roll(#orientation (t)) :=
-    // Rotation_yaw_pitch_roll(#orientation_rate
-    // *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
+    // <tt>orientation.yaw(t) := orientation_rate.yaw(t) * dt + orientation.yaw(t-dt)</tt>
     //
-    // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation
-    // (t-dt)+#orientation_rate *dt</tt>
+    // <tt>orientation.pitch(t) := orientation_rate.pitch(t) * dt + orientation.pitch(t-dt)</tt>
+    //
+    // <tt>orientation.roll(t) := orientation_rate.roll(t) * dt + orientation.roll(t-dt)</tt>
     //
     optional Orientation3d orientation_rate = 6;
 
@@ -395,4 +398,18 @@ message BaseMoving
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 7;
+    
+    // The relative orientation acceleration of the moving object w.r.t. its parent
+    // frame and parent orientation acceleration in the center point of the bounding box
+    // (origin of the bounding box frame), noted in the parent frame.
+    // The orientation becomes global/absolute if the parent frame is inertial
+    // (all parent frames up to ground truth).
+    //
+    // <tt>orientation_rate.yaw(t) := orientation_acceleration.yaw(t) * dt + orientation_rate.yaw(t-dt)</tt>
+    //
+    // <tt>orientation_rate.pitch(t) := orientation_acceleration.pitch(t) * dt + orientation_rate.pitch(t-dt)</tt>
+    //
+    // <tt>orientation_rate.roll(t) := orientation_acceleration.roll(t) * dt + orientation_rate.roll(t-dt)</tt>
+    //
+    optional Orientation3d orientation_acceleration = 8;
 }

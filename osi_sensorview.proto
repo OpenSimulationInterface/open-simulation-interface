@@ -286,8 +286,8 @@ message LidarSensorView
 
         // normal to surface angle.
         //
-        // The normal of the transmitted beam to the object, roadmarking etc encounter.
-        // \note data is in Lidar coordinate system
+        // The normal of the transmitted beam to the object, roadmarking etc
+        // encounter. \note data is in Lidar coordinate system
         //
         // Unit: [unit vector]
         //
@@ -298,7 +298,6 @@ message LidarSensorView
         //
         // \note ID = MAX(uint64) indicates no reference to an object.
         optional Identifier object_id = 6;
-
     }
 }
 
