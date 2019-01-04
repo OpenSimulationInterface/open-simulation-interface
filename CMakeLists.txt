@@ -35,6 +35,10 @@ endif()
 set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
 set(INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
 
+if(UNIX)
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif(UNIX)
+
 if(WIN32 AND NOT CYGWIN)
   set(DEF_INSTALL_CMAKE_DIR CMake/${PROJECT_NAME}-${VERSION_MAJOR})
 else()
