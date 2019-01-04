@@ -118,7 +118,7 @@ install(TARGETS ${PROJECT_NAME}_pic
         EXPORT ${PROJECT_NAME}_targets
         ARCHIVE DESTINATION "${INSTALL_LIB_DIR}" COMPONENT lib)
 
-add_library(${PROJECT_NAME} STATIC $<TARGET_OBJECTS:${PROJECT_NAME}_obj>)
+add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:${PROJECT_NAME}_obj>)
 target_include_directories(${PROJECT_NAME}
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
