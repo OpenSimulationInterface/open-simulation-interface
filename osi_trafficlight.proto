@@ -70,6 +70,11 @@ message TrafficLight
         //
         repeated Identifier assigned_lane_id = 5;
 
+        // Boolean flag to indicate that the traffic light is taken out of service.
+        // This can be achieved by visibly crossing the light or covering it completely. 
+        //
+        optional bool is_out_of_service = 6;
+
         // Definition of colors for traffic lights.
         //
         enum Color
