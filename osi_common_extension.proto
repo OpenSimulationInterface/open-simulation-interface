@@ -51,33 +51,6 @@ message Pedalry
 }
 
 //
-// \brief This message-format is thought as placeholder for different
-// values that every wheel has.
-//
-message Wheels
-{
-    // Placeholder for the front-left-wheel.
-    // Dimensionless.
-    //
-    optional double frontleft = 1;
-
-    // Placeholder for the front-right-wheel.
-    // Dimensionless.
-    //
-    optional double frontright = 2;
-
-    // Placeholder for the rear-left-wheel.
-    // Dimensionless.
-    //
-    optional double rearleft = 3;
-    
-    // Placeholder for the rear-right-wheel.
-    // Dimensionless.
-    //
-    optional double rearright = 4;
-}
-
-//
 // \brief This is a message to describe, which trajectory the vehicle should follow.
 //
 //
@@ -120,7 +93,11 @@ message Trajectory
     // In [m/s^2].
     //
     optional double acceleration = 8;
-
+    
+    // Contains the interpolation method.
+    //
+    optional InterpolationMethod interpolation_method = 9;
+    
     // Contains the interpolation method.
     //
     enum InterpolationMethod
@@ -135,88 +112,81 @@ message Trajectory
     }
 }
 
+// The actual gear of the car.
 //
-// \brief This is a description of possible gears.
-//
-//
-message Gear
+enum Gear
 {
-    // The actual gear of the car.
+    // The actual gear was not calculated by the dynamicmodell.
     //
-    enum Gear
-    {
-        // The actual gear was not calculated by the dynamicmodell.
-        //
-        GEAR_UNKNOWN = 0;
+    GEAR_UNKNOWN = 0;
 
-        // The actual gear is 1.
-        //
-        GEAR_1 = 1;
+    // The actual gear is 1.
+    //
+    GEAR_1 = 1;
 
-        // The actual gear is 2.
-        //
-        GEAR_2 = 2;
+    // The actual gear is 2.
+    //
+    GEAR_2 = 2;
 
-        // The actual gear is 3.
-        //
-        GEAR_3 = 3;
+    // The actual gear is 3.
+    //
+    GEAR_3 = 3;
 
-        // The actual gear is 4.
-        //
-        GEAR_4 = 4;
+    // The actual gear is 4.
+    //
+    GEAR_4 = 4;
 
-        // The actual gear is 5.
-        //
-        GEAR_5 = 5;
+    // The actual gear is 5.
+    //
+    GEAR_5 = 5;
 
-        // The actual gear is 6.
-        //
-        GEAR_6 = 6;
+    // The actual gear is 6.
+    //
+    GEAR_6 = 6;
 
-        // The actual gear is 7.
-        //
-        GEAR_7 = 7;
+    // The actual gear is 7.
+    //
+    GEAR_7 = 7;
 
-        // The actual gear is 8.
-        //
-        GEAR_8 = 8;
+    // The actual gear is 8.
+    //
+    GEAR_8 = 8;
 
-        // The actual gear is 9.
-        //
-        GEAR_9 = 9;
+    // The actual gear is 9.
+    //
+    GEAR_9 = 9;
 
-        // The car is in idling-mode.
-        //
-        GEAR_IDLING = 10;
+    // The car is in idling-mode.
+    //
+    GEAR_IDLING = 10;
 
-        // The car is in reverse-mode.
-        //
-        GEAR_REVERSE = 11;
+    // The car is in reverse-mode.
+    //
+    GEAR_REVERSE = 11;
 
-        // The car is in automatic-driving-mode.
-        //
-        GEAR_D = 20;
+    // The car is in automatic-driving-mode.
+    //
+    GEAR_D = 20;
 
-        // The car is in automatic-idling-mode.
-        //
-        GEAR_N = 21;
+    // The car is in automatic-idling-mode.
+    //
+    GEAR_N = 21;
 
-        // The car is in automatic-parking-mode.
-        //
-        GEAR_P = 22;
+    // The car is in automatic-parking-mode.
+    //
+    GEAR_P = 22;
 
-        // The car has an automatic transmission, but the driver shifts up by his own.
-        //
-        GEAR_UP = 30;
+    // The car has an automatic transmission, but the driver shifts up by his own.
+    //
+    GEAR_UP = 30;
 
-        // The car has an automatic transmission, but the driver shifts by his own.
-        //
-        GEAR_MID = 31;
+    // The car has an automatic transmission, but the driver shifts by his own.
+    //
+    GEAR_MID = 31;
 
-        // The car has an automatic transmission, but the driver shifts down by his own.
-        //
-        GEAR_DOWN = 32;
-    }
+    // The car has an automatic transmission, but the driver shifts down by his own.
+    //
+    GEAR_DOWN = 32;
 }
 
 //
