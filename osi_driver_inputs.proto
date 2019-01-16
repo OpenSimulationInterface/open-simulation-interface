@@ -20,12 +20,12 @@ message DriverInputs
     optional DriverInitializedStates driver_initialized_states = 1;
     
     // 
-    // \brief The second set of signals are requests addressed to an external function.
+    // The second set of signals are requests addressed to an external function.
     //
     optional DriverRequests driver_requests = 2;
 
     //
-    // The first set of signals are states the driver can (usually) directly set.
+    // \brief The first set of signals are states the driver can (usually) directly set.
     //
     message DriverInitializedStates
     {
