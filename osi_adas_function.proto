@@ -45,6 +45,10 @@ message FunctionStates
 
     // Requested state of the blindspot-lights (often in the side mirrors).
     //
+    optional BlindSpotWarning blind_spot_warning = 7;
+
+    // Defined states of the possible blind spot warnings.
+    //
     enum BlindSpotWarning
     {
         // No warning.
@@ -99,7 +103,11 @@ message FunctionRequests
     // 0-100 (percentage of position: Released - fully pressed)
     //
     optional double handbrake = 5;
-
+    
+    // This is a description of the possible indicatorstates.
+    //
+    optional Indicators indicators = 6;
+    
     // This is a description of the possible indicatorstates.
     //
     enum Indicators
