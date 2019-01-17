@@ -99,7 +99,12 @@ message DriverInputs
         // Wished states of the driver regarding the function Emergency-Brake-Assistant.
         //
         optional EmergencyBrakeAssistant emergency_brake_assistant = 4;
-
+        
+        // Request to an ADAS-Function for a lane change.
+        // 0=EgoLane; 1=Left; 2=Right
+        //
+        optional LaneChangeRequest lane_change_request = 5;
+        
         // Request to an ADAS-Function for a lane change.
         // 0=EgoLane; 1=Left; 2=Right
         //
