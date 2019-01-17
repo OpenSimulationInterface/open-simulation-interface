@@ -12,124 +12,222 @@ package osi3;
 // but also the behaviour of some components of the car itself.
 // Consists of four messages: VehicleKinematics, VehiclePowertrain, VehicleSteeringwheel and VehicleWheels.
 //
-// All coordinates and orientations are relative to the global ground truth
-// coordinate system.
-//
-message VehicleKinematics
+message OsiVehicle
 {
-    // The 3D dimension of the moving object (its bounding box).
     //
-    optional Dimension3d dimension = 1;
-
-    // The reference point for position and orientation: the center (x,y,z) of
-    // the bounding box.
+    // So this is the interface, that describes how the vehicle is moving.
+    // All coordinates and orientations are relative to the global ground truth
+    // coordinate system.
     //
-    optional Vector3d position = 2;
-
-    // The relative velocity of the moving object w.r.t. its parent frame and
-    // parent velocity.
-    // The velocity becomes global/absolute if the parent frame does not move.
-    //
-    // <tt>#position (t) := #position (t-dt)+ #velocity *dt</tt>
-    //
-    optional Vector3d velocity = 3;
-
-    // The relative acceleration of the moving object w.r.t. its parent frame
-    // and parent acceleration.
-    // The acceleration becomes global/absolute if the parent frame is not
-    // accelerating.
-    //
-    // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration /2*dt^2</tt>
-    //
-    // <tt> #velocity (t) := #velocity (t-dt)+ #acceleration *dt</tt>
-    //
-    optional Vector3d acceleration = 4;
-
-    // The relative orientation of the moving object w.r.t. its parent frame.
-    //
-    // <tt>Origin_base_moving_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
-    //
-    // \note There may be some constraints how to align the orientation w.r.t.
-    // to some stationary object's or entity's definition.
-    //
-    optional Orientation3d orientation = 5;
-
-    // The relative orientation rate of the moving object w.r.t. its parent
-    // frame and parent orientation rate in the center point of the bounding box
-    // (origin of the bounding box frame).
-    //
-    // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
-    //
-    // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation (t-dt)+#orientation_rate *dt</tt>
-    //
-    optional Orientation3d orientation_rate = 6;
-
-    // The relative orientation rate acceleration of the moving object w.r.t. its parent
-    // frame and parent orientation rate in the center point of the bounding box
-    // (origin of the bounding box frame).
-    //
-    // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
-    //
-    // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation (t-dt)+#orientation_rate *dt</tt>
-    //
-    optional Orientation3d orientation_rate_acceleration = 7;
-}
-
-//
-// \brief Interface to the vehicle-model.
-// The focus here is on the powertrain.
-//
-message VehiclePowertrain
-{
-    // The positions of the pedals.
-    //
-    optional Pedalry pedalry = 1;
+    optional VehicleKinematics vehicle_kinematics = 1;
     
-    // Rounds per minute of the crankshaft.
     //
-    optional double engine_rpm = 2;
-
-    // Torque in Nm.
+    // Interface to the vehicle-model.
+    // The focus here is on the powertrain.
     //
-    optional double engine_torque = 3;
-
-    // Consumption in liters per 100 km.
-    //
-    optional double engine_consumption = 4;
-       
-    // Consumption in liters per 100 km.
-    //
-    optional double fuel_consumption = 4;
+    optional VehiclePowertrain vehicle_powertrain = 2;
     
-    // Consumption of electrical or hybrid vehicle 
     //
-    optional double electrical_energy_consumption = 5;
+    // Interface to the vehicle-model.
+    // The focus here is on the steeringwheel.
+    //
+    optional VehicleSteeringwheel vehicle_steeringwheel = 3;
+    
+    //
+    // Interface to the vehicle-model.
+    // The focus here is on the physical description of a wheel.
+    //
+    optional VehicleWheels vehicle_wheels = 4;
 
-    // The actual gear of the car.
     //
-    optional Gear gear = 6;
-}
+    // \brief So this is the interface, that describes how the vehicle is moving.
+    // All coordinates and orientations are relative to the global ground truth
+    // coordinate system.
+    //
+    message VehicleKinematics
+    {
+        // The 3D dimension of the moving object (its bounding box).
+        //
+        optional Dimension3d dimension = 1;
 
-//
-// \brief Interface to the vehicle-model.
-// The focus here is on the steeringwheel.
-//
-message VehicleSteeringwheel
-{
-    // Angle, angle-speed and torque.
-    // See osi_common_extension.
-    //
-    optional Steeringwheel steeringwheel = 1;
+        // The reference point for position and orientation: the center (x,y,z) of
+        // the bounding box.
+        //
+        optional Vector3d position = 2;
 
-    // Spring-stiffness of the steering in Nm/Deg.
-    //
-    optional double stw_springstiffness = 2;
+        // The relative velocity of the moving object w.r.t. its parent frame and
+        // parent velocity.
+        // The velocity becomes global/absolute if the parent frame does not move.
+        //
+        // <tt>#position (t) := #position (t-dt)+ #velocity *dt</tt>
+        //
+        optional Vector3d velocity = 3;
 
-    // Damping of the steering in Nm*s/Deg.
-    //
-    optional double stw_damping = 3;
+        // The relative acceleration of the moving object w.r.t. its parent frame
+        // and parent acceleration.
+        // The acceleration becomes global/absolute if the parent frame is not
+        // accelerating.
+        //
+        // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration /2*dt^2</tt>
+        //
+        // <tt> #velocity (t) := #velocity (t-dt)+ #acceleration *dt</tt>
+        //
+        optional Vector3d acceleration = 4;
 
-    // Friction of the steering in Nm.
+        // The relative orientation of the moving object w.r.t. its parent frame.
+        //
+        // <tt>Origin_base_moving_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
+        //
+        // \note There may be some constraints how to align the orientation w.r.t.
+        // to some stationary object's or entity's definition.
+        //
+        optional Orientation3d orientation = 5;
+
+        // The relative orientation rate of the moving object w.r.t. its parent
+        // frame and parent orientation rate in the center point of the bounding box
+        // (origin of the bounding box frame).
+        //
+        // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
+        //
+        // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation (t-dt)+#orientation_rate *dt</tt>
+        //
+        optional Orientation3d orientation_rate = 6;
+
+        // The relative orientation rate acceleration of the moving object w.r.t. its parent
+        // frame and parent orientation rate in the center point of the bounding box
+        // (origin of the bounding box frame).
+        //
+        // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
+        //
+        // \note <tt>#orientation (t)</tt> is \b not equal <tt>#orientation (t-dt)+#orientation_rate *dt</tt>
+        //
+        optional Orientation3d orientation_rate_acceleration = 7;
+    }
+
     //
-    optional double stw_friction = 4;
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the powertrain.
+    //
+    message VehiclePowertrain
+    {
+        // The positions of the pedals.
+        //
+        optional Pedalry pedalry = 1;
+
+        // Rounds per minute of the crankshaft.
+        //
+        optional double engine_rpm = 2;
+
+        // Torque in Nm.
+        //
+        optional double engine_torque = 3;
+
+        // Consumption in liters per 100 km.
+        //
+        optional double engine_consumption = 4;
+
+        // Consumption in liters per 100 km.
+        //
+        optional double fuel_consumption = 4;
+
+        // Consumption of electrical or hybrid vehicle 
+        //
+        optional double electrical_energy_consumption = 5;
+
+        // The actual gear of the car.
+        //
+        optional Gear gear = 6;
+    }
+
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the steeringwheel.
+    //
+    message VehicleSteeringwheel
+    {
+        // Angle, angle-speed and torque.
+        // See osi_common_extension.
+        //
+        optional Steeringwheel steeringwheel = 1;
+
+        // Spring-stiffness of the steering in Nm/Deg.
+        //
+        optional double stw_springstiffness = 2;
+
+        // Damping of the steering in Nm*s/Deg.
+        //
+        optional double stw_damping = 3;
+
+        // Friction of the steering in Nm.
+        //
+        optional double stw_friction = 4;
+    }
+    
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the wheels.
+    // It is made usage of the wheel-message to shorten the code.
+    //
+    message VehicleWheels
+    {
+        // Contains the physical description of the front-left wheel.
+        //
+        optional Wheel wheel_front_left = 1;
+        
+        // Contains the physical description of the front-right wheel.
+        //
+        optional Wheel wheel_front_right = 2;
+        
+        // Contains the physical description of the rear-left wheel.
+        //
+        optional Wheel wheel_rear_left = 3;
+        
+        // Contains the physical description of the rear-right wheel.
+        //
+        optional Wheel wheel_rear_right = 4;
+    }
+    
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the physical description of a wheel.
+    //
+    message Wheel
+    {
+        // Contains the friction-coefficient of each wheel.
+        // Dimensionless.
+        //
+        optional double friction_coefficient = 1;
+
+        // Contains the z-coordinate (contact-point) of each wheel.
+        // Dimensionless.
+        //
+        optional double contact_point = 2;
+
+        // Contains the rotational speed of each wheel per second.
+        // In [Rad/s].
+        //
+        optional double rotational_speed = 3;
+
+        // Contains the steering angle of each wheel.
+        // In [Rad].
+        //
+        optional double steeringangle = 4;
+
+        // Contains the camber of each wheel.
+        // In [Rad].
+        // Negative camber if the bottom of the wheel is farther out than the top.
+        // For more information: https://en.wikipedia.org/wiki/Camber_angle.
+        //
+        optional double camber = 5;
+
+        // Contains the tirepressure of each tire.
+        // In [Pascal].
+        // 
+        optional double tirepressure = 6;
+
+        // Contains the springdeflection in z-direction for each wheel.
+        // In [mm].
+        //
+        optional double springdeflection = 7;
+    }
 }
