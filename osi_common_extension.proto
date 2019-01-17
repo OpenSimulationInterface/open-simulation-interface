@@ -11,15 +11,15 @@ message Steeringwheel
 {
     // Angle of the steeringwheel. 
     //
-    // Unit in Rad [-pi, pi]: 0=Central (Straight); Left>0; 0>Right.
+    // Unit in rad: 0=Central (Straight); Left>0; 0>Right.
     //
     optional double angle = 1;
 
     // Angle-speed of the steeringwheel.
     //
-    // Unit in rad/s [-pi/s, pi/s]: 0=Central (Straight); Left>0; 0>Right.
+    // Unit in rad/s: 0=Central (Straight); Left>0; 0>Right.
     //
-    optional double anglespeed = 2;
+    optional double angular_speed = 2;
 
     // Torque of the steeringwheel to the hand.
     //
@@ -37,17 +37,17 @@ message Pedalry
     // Position of the acceleration-pedal.
     // 0-100 (percentage of position: Unpressed - fully pressed)
     //
-    optional double pedalposition_acceleration = 1;
+    optional double pedal_position_acceleration = 1;
 
     // Position of the brake-pedal.
     // 0-100 (percentage of position: Unpressed - fully pressed)
     //
-    optional double pedalposition_brake = 2;
+    optional double pedal_position_brake = 2;
 
     // Position of the clutch-pedal.
     // 0-100 (percentage of position: Unpressed - fully pressed)
     //
-    optional double pedalposition_clutch = 3;
+    optional double pedal_position_clutch = 3;
 }
 
 //
@@ -59,7 +59,7 @@ message Trajectory
     // Contains the timestamp where the trajectorypoint should be reached.
     // In [s].
     //
-    optional double timestamp = 1;
+    optional Timestamp timestamp = 1;
 
     // Contains the X-Position the vehicle should be at the timestamp.
     //
