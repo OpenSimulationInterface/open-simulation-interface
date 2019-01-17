@@ -17,12 +17,12 @@ message Adas
     //
     // States the ADAS-function can set.
     //
-    FunctionStates function_states = 1;
+    optional FunctionStates function_states = 1;
     
     //
     // Requests of the ADAS-function.
     //
-    FunctionRequests function_requests = 2;
+    optional FunctionRequests function_requests = 2;
     
     //
     // \brief An Interface to describe the communication of an ADAS-function.
