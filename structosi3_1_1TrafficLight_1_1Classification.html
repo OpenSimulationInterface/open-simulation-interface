@@ -107,7 +107,7 @@ Collaboration diagram for osi3::TrafficLight::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficLight_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1TrafficLight_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficLight_1_1Classification_coll__map" id="osi3_1_1TrafficLight_1_1Classification_coll__map">
-<area shape="rect" id="node3" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="132,96,236,123"/></map>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="200,107,304,133"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -183,6 +183,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3e26403ad1b31fe8392c15b2efe78f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2d2c56139343d677a4eb633b785ed57"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ae2d2c56139343d677a4eb633b785ed57">assigned_lane_id</a> = 5</td></tr>
 <tr class="separator:ae2d2c56139343d677a4eb633b785ed57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee3d096860fd93660d119b9c3a8d5743"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#aee3d096860fd93660d119b9c3a8d5743">is_out_of_service</a> = 6</td></tr>
+<tr class="separator:aee3d096860fd93660d119b9c3a8d5743"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light. ">Classification</a></code> data for a traffic light. </p>
@@ -405,6 +407,19 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aee3d096860fd93660d119b9c3a8d5743"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional bool osi3::TrafficLight::Classification::is_out_of_service = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boolean flag to indicate that the traffic light is taken out of service. This can be achieved by visibly crossing the light, covering it completely or swiching the traffic light off. </p>
+
+</div>
+</div>
 <a class="anchor" id="afc685a8d448f2cabe2e5b92af8229259"></a>
 <div class="memitem">
 <div class="memproto">
@@ -424,7 +439,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 8 2019 09:56:19 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 30 2019 17:54:57 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

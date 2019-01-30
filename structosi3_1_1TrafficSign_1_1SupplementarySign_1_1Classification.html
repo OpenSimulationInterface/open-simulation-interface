@@ -108,7 +108,7 @@ Collaboration diagram for osi3::TrafficSign::SupplementarySign::Classification:<
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_coll__map" id="osi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html" title="An arrow denoting a direction shown on the traffic sign. " alt="" coords="246,13,469,69"/><area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="17,75,121,101"/><area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="282,308,433,335"/></map>
+<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html" title="An arrow denoting a direction shown on the traffic sign. " alt="" coords="246,13,469,69"/><area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="17,75,121,101"/><area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="282,359,433,385"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -262,6 +262,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ae6d89c8343e585f6b2aa50c8cf7b4dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e1ffc78063cd690ec681b6ad343c62f"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html">Arrow</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a3e1ffc78063cd690ec681b6ad343c62f">arrow</a> = 6</td></tr>
 <tr class="separator:a3e1ffc78063cd690ec681b6ad343c62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ba408f133181235f9f5069afd9e00a"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a23ba408f133181235f9f5069afd9e00a">is_out_of_service</a> = 7</td></tr>
+<tr class="separator:a23ba408f133181235f9f5069afd9e00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html" title="Classification data for a supplementary traffic sign. ">Classification</a></code> data for a supplementary traffic sign. </p>
@@ -1905,6 +1907,19 @@ StVO 1060-33</div></div>
 
 </div>
 </div>
+<a class="anchor" id="a23ba408f133181235f9f5069afd9e00a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional bool osi3::TrafficSign::SupplementarySign::Classification::is_out_of_service = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boolean flag to indicate that the supplementary traffic sign is taken out of service. This can be achieved by visibly crossing the sign or covering it completely. </p>
+
+</div>
+</div>
 <a class="anchor" id="aaca540ea9916a9ea3479f25bf8e2f8f7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1953,7 +1968,7 @@ OSI uses singular instead of plural for repeated field names. </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 8 2019 09:56:19 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 30 2019 17:54:58 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

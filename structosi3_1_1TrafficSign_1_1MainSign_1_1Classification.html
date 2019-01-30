@@ -107,7 +107,7 @@ Collaboration diagram for osi3::TrafficSign::MainSign::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map" id="osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map">
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="255,107,359,133"/><area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="231,259,382,285"/></map>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="255,108,359,135"/><area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="231,260,382,287"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -443,6 +443,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1d9621daeb6a09189714e4a525af28ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a820236ac745f034214feac26a1cb8f9d"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a820236ac745f034214feac26a1cb8f9d">vertically_mirrored</a> = 6</td></tr>
 <tr class="separator:a820236ac745f034214feac26a1cb8f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60f453fde017bb893ddf628a5018e86a"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a60f453fde017bb893ddf628a5018e86a">is_out_of_service</a> = 7</td></tr>
+<tr class="separator:a60f453fde017bb893ddf628a5018e86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html" title="Classification data for a traffic sign. ">Classification</a></code> data for a traffic sign. </p>
@@ -3721,6 +3723,19 @@ StVO 629</div></div>
 
 </div>
 </div>
+<a class="anchor" id="a60f453fde017bb893ddf628a5018e86a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional bool osi3::TrafficSign::MainSign::Classification::is_out_of_service = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boolean flag to indicate that a traffic sign is taken out of service. This can be achieved by visibly crossing the sign or covering it completely. </p>
+
+</div>
+</div>
 <a class="anchor" id="a428061f28509c9707b380f8f90be4bf0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -3780,7 +3795,7 @@ StVO 629</div></div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 8 2019 09:56:19 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 30 2019 17:54:58 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

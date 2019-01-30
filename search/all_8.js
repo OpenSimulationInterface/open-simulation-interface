@@ -51,5 +51,6 @@ var searchData=
   ['intensity',['intensity',['../structosi3_1_1LidarDetection.html#a1c2ea1eb70a1d1c31d5bc1481572f4e7',1,'osi3::LidarDetection']]],
   ['interfaceversion',['InterfaceVersion',['../structosi3_1_1InterfaceVersion.html',1,'osi3']]],
   ['is_5fdriver',['is_driver',['../structosi3_1_1Occupant_1_1Classification.html#a11253875c26faa04aa090e3ef3e7303a',1,'osi3::Occupant::Classification']]],
-  ['is_5fhost_5fvehicle_5flane',['is_host_vehicle_lane',['../structosi3_1_1Lane_1_1Classification.html#af83917efaa77a0796f62de8bb2547156',1,'osi3::Lane::Classification']]]
+  ['is_5fhost_5fvehicle_5flane',['is_host_vehicle_lane',['../structosi3_1_1Lane_1_1Classification.html#af83917efaa77a0796f62de8bb2547156',1,'osi3::Lane::Classification']]],
+  ['is_5fout_5fof_5fservice',['is_out_of_service',['../structosi3_1_1RoadMarking_1_1Classification.html#ad7ab5b67d03aaa14c440c5a7125ab186',1,'osi3::RoadMarking::Classification::is_out_of_service()'],['../structosi3_1_1TrafficLight_1_1Classification.html#aee3d096860fd93660d119b9c3a8d5743',1,'osi3::TrafficLight::Classification::is_out_of_service()'],['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a60f453fde017bb893ddf628a5018e86a',1,'osi3::TrafficSign::MainSign::Classification::is_out_of_service()'],['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a23ba408f133181235f9f5069afd9e00a',1,'osi3::TrafficSign::SupplementarySign::Classification::is_out_of_service()']]]
 ];

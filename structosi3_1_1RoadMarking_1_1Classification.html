@@ -107,7 +107,7 @@ Collaboration diagram for osi3::RoadMarking::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1RoadMarking_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1RoadMarking_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1RoadMarking_1_1Classification_coll__map" id="osi3_1_1RoadMarking_1_1Classification_coll__map">
-<area shape="rect" id="node3" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="251,56,355,83"/><area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="227,220,378,247"/></map>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="251,107,355,133"/><area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="227,271,378,297"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -154,6 +154,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a161c83ff42cad24a1cdd412cf682d5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a482fa85b781bebc662550ae8e3213e30"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a482fa85b781bebc662550ae8e3213e30">assigned_lane_id</a> = 6</td></tr>
 <tr class="separator:a482fa85b781bebc662550ae8e3213e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ab5b67d03aaa14c440c5a7125ab186"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ad7ab5b67d03aaa14c440c5a7125ab186">is_out_of_service</a> = 7</td></tr>
+<tr class="separator:ad7ab5b67d03aaa14c440c5a7125ab186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html" title="Classification data for a road surface marking. ">Classification</a></code> data for a road surface marking. </p>
@@ -251,6 +253,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad7ab5b67d03aaa14c440c5a7125ab186"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional bool osi3::RoadMarking::Classification::is_out_of_service = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boolean flag to indicate that the road marking is taken out of service. This can be achieved by visibly crossing the road marking with stripes, or completly covering a road marking making it not visible.</p>
+<div class="image">
+<img src="OSI_RoadMaking_is_out_of_service.jpg" alt="OSI_RoadMaking_is_out_of_service.jpg"/>
+<div class="caption">
+width=800px</div></div>
+ 
+</div>
+</div>
 <a class="anchor" id="aa0997fbbe7cd0afaeaf2c3b2079cfca9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -330,7 +349,7 @@ OSI 3 uses <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 8 2019 09:56:19 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 30 2019 17:54:57 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
