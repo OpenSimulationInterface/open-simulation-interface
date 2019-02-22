@@ -8,8 +8,8 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief Interface for sensor data, in contrast to interpreted data after
-// object hypothesis and tracking.
+// \brief Interface for sensor data containing information without a history
+// in contrast to interpreted data after object hypothesis and tracking.
 //
 // All information regarding the environment is given with respect to the sensor
 // coordinate system specified in \c SensorDetectionHeader::mounting_position.
@@ -35,6 +35,22 @@ message FeatureData
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated LidarDetectionData lidar_sensor = 3;
+
+    // Ultrasonic detections for multiple ultrasonic sensors (sensor fusion).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    // \note Required for ultrasonic sensors: Detections will be send by the
+    // emitting ultrasonic sensor, including all indirect detections received
+    // by neighbouring sensors.
+    //
+    repeated UltrasonicDetectionData ultrasonic_sensor = 4;
+
+    // Camera detections for multiple camera sensors (sensor fusion).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraDetectionData camera_sensor = 5;
 }
 
 //
@@ -53,7 +69,7 @@ message SensorDetectionHeader
     optional Timestamp measurement_time = 1;
 
     // Monotonous counter to identify the exact cycle.
-    // Generally the detection function is called periodic and
+    // In general the detection function is called periodically and
     // \c #cycle_counter corresponds to the number of periods.
     //
     optional uint64 cycle_counter = 2;
@@ -104,14 +120,18 @@ message SensorDetectionHeader
     //
     optional uint32 number_of_valid_detections = 6;
 
-    // The ID of the sensor at host vehicle's mounting_position.
+    // The ID of the sensor at host vehicle's \c #mounting_position.
     //
     // This ID can equal \c SensorData::sensor_id, if \c SensorData holds only
     // data from one sensor/sensor model.
     //
     optional Identifier sensor_id = 7;
 
+    // The extended qualifier describes the reason (not the effect) why the
+    // event data qualifier, \c #data_qualifier, is reduced or not available.
     //
+    optional ExtendedQualifier extended_qualifier = 8;
+
     // Data qualifier communicates the overall availability of the
     // interface.
     //
@@ -144,6 +164,69 @@ message SensorDetectionHeader
         // Sensor temporary available.
         //
         DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
+
+        // Sensor invalid.
+        //
+        DATA_QUALIFIER_INVALID = 7;
+    }
+
+    // The extended qualifier describes the reason (not the effect) why the
+    // event data qualifier, \c #data_qualifier, is reduced or not available.
+    //
+    enum ExtendedQualifier
+    {
+        // Unknown (must not be used in ground truth).
+        //
+        EXTENDED_QUALIFIER_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        EXTENDED_QUALIFIER_OTHER = 1;
+
+        // Normal operation mode.
+        //
+        EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE = 2;
+
+        // Power up or down.
+        //
+        EXTENDED_QUALIFIER_POWER_UP_OR_DOWN = 3;
+
+        // Sensor not calibrated.
+        //
+        EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED = 4;
+
+        // Sensor blocked.
+        //
+        EXTENDED_QUALIFIER_SENSOR_BLOCKED = 5;
+
+        // Sensor misaligned.
+        //
+        EXTENDED_QUALIFIER_SENSOR_MISALIGNED = 6;
+
+        // Bad sensor environmental condition (e.g. Darkness for vision).
+        //
+        EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION = 7;
+
+        // Reduced field of view.
+        //
+        EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW = 8;
+
+        // Input not available.
+        //
+        EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE = 9;
+
+        // Internal reason (e.g. an internal HW or SW error has occurred).
+        //
+        EXTENDED_QUALIFIER_INTERNAL_REASON = 10;
+
+        // External disturbance, sensor specific for front radar (e.g.
+        // Interference of different radar sensors).
+        //
+        EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE = 11;
+
+        // Beginning blockage, sensor specific for front radar.
+        //
+        EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE = 12;
     }
 }
 
@@ -171,6 +254,8 @@ message RadarDetection
     // Existence probability of the detection not based on history. Value does
     // not depend on any past experience with similar detections.
     //
+    // Range: [0.0, 1.0]
+    //
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
@@ -182,7 +267,7 @@ message RadarDetection
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in the
+    // Measured position of the detection given in spherical coordinates in the
     // sensor coordinate system.
     //
     optional Spherical3d position = 3;
@@ -218,6 +303,8 @@ message RadarDetection
     // Describes the possibility whether more than one object may have led to
     // this detection.
     //
+    // Range: [0.0, 1.0]
+    //
     optional double point_target_probability = 9;
 
     // Ambiguity Information:
@@ -225,9 +312,10 @@ message RadarDetection
     // indicated by an identical ambiguity ID.
     //
     // \note Unambiguous measurements have the ambiguity ID 0.
-    // \note Multiple seperate detections from e.g. a large object do not
-    // on their own necessarily create any ambiguity, i.e. they do not
-    // usually share an an ambiguity ID.  They can however be ambiguous
+    //
+    // \note Multiple seperate detections, from e.g. a large object, do not
+    // necessarily on their own create any ambiguity. Therefore they do not
+    // usually share an ambiguity ID. They can however be ambiguous
     // with other detections.
     //
     optional Identifier ambiguity_id = 10;
@@ -261,6 +349,8 @@ message LidarDetection
     // Existence probability of the detection not based on history. Value does
     // not depend on any past experience with similar detections.
     //
+    // Range: [0.0, 1.0]
+    //
     // \note Used as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
@@ -272,7 +362,7 @@ message LidarDetection
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the detection, given in spherical coordinates in the
+    // Measured position of the detection given in spherical coordinates in the
     // sensor coordinate system.
     //
     optional Spherical3d position = 3;
@@ -281,8 +371,8 @@ message LidarDetection
     //
     optional Spherical3d position_rmse = 4;
 
-    // Height value, which is required when multiple scan points are vertically
-    // clustered. Only vertical clustering is allowed (z-axis).
+    // The height value which is required when multiple scan points are
+    // vertically clustered. Only vertical clustering is allowed (z-axis).
     //
     // Unit: [m]
     //
@@ -311,12 +401,560 @@ message LidarDetection
     //
     optional DetectionClassification classification = 9;
 
-    // Lambertian reflectivity
+    // Lambertian reflectivity.
     //
     optional double reflectivity = 10;
 }
 
 //
+// \brief Specific header extension for ultrasonic sensors.
+//
+message UltrasonicDetectionSpecificHeader
+{
+    // Maximal range of the ultrasonic sensor.
+    //
+    // Unit: [m]
+    //
+    optional double max_range = 1;
+
+    // The current number of valid indirect detections in the detections list.
+    // The detections are measured by a virtual sensor (i.e. sender and
+    // receiver are different sensors).
+    //
+    // \note This value has to be set if the list contains invalid detections.
+    //
+    optional uint32 number_of_valid_indirect_detections = 2;
+}
+
+//
+// \brief Data from one ultrasonic sensor including a list of detections.
+// This list is generated by the sending ultrasonic sensor. Indirectly received
+// signals from other ultrasonic sensors are included in this message.
+//
+// Direct detections:
+//
+// Sending: Ultrasonic Sensor ID 1
+//
+// Receiving:
+// - Direct: Ultrasonic Sensor ID 1
+// - Indirect: Ultrasonic Sensor ID 2 and 3
+//
+// \image html OSI_USSensor.svg
+//
+// \note Direct detecions lies on circles with the sending sensor as centre.
+//
+message UltrasonicDetectionData
+{
+    // Header attributes of ultrasonic detection from one ultrasonic sensor.
+    //
+    optional SensorDetectionHeader header = 1;
+
+    // Additional header attributes of ultrasonic detection from one ultrasonic
+    // sensor.
+    //
+    optional UltrasonicDetectionSpecificHeader specific_header = 3;
+
+    // List of ultrasonic detections.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated UltrasonicDetection detection = 2;
+
+    // List of ultrasonic indirect detections (sender and receiver sensors are
+    // not the same).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated UltrasonicIndirectDetection indirect_detection = 4;
+}
+
+//
+// \brief Ultrasonic detection from the sensor (same sensor as sender and
+// receiver).
+//
+// Direct detections:
+//
+// Sending: Ultrasonic Sensor ID 1
+//
+// Receiving: Ultrasonic Sensor ID 1
+//
+// \image html OSI_USSensor_direct.svg
+//
+// \note Direct detecions lies on circles with the sensor as centre.
+//
+message UltrasonicDetection
+{
+    // Existence probability of the detection not based on history. Value does
+    // not depend on any past experience with similar detections.
+    //
+    // Range: [0.0, 1.0]
+    //
+    // \note Used as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    optional double existence_probability = 1;
+
+    // ID of the detected object this detection is associated to.
+    //
+    // \note ID = MAX(uint64) indicates no reference to an object.
+    //
+    optional Identifier object_id = 2;
+
+    // Measured distance (radius) of the detection.
+    //
+    // Unit: [m]
+    //
+    optional double distance = 3;
+}
+
+//
+// \brief Ultrasonic detection received by another ultrasonic sensor (different
+// sensors as sender and receiver).
+//
+// Indirect detections:
+//
+// Sending: Ultrasonic Sensor ID 1
+//
+// Receiving: Ultrasonic Sensor ID 2 and 3
+//
+// \image html OSI_USSensor_indirect.svg
+//
+// \note Indirect detecions lies on ellipses with the sending resp. receiving
+// sensor in the focal points.
+//
+message UltrasonicIndirectDetection
+{
+    // Existence probability of the detection not based on history. Value does
+    // not depend on any past experience with similar detections.
+    //
+    // Range: [0.0, 1.0]
+    //
+    // \note Used as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    optional double existence_probability = 1;
+
+    // ID of the detected object this detection is associated to.
+    //
+    // \note ID = MAX(uint64) indicates no reference to an object.
+    //
+    optional Identifier object_id = 2;
+
+    // First parameter b of an ellipsoid equation.
+    //
+    // Unit: [m]
+    //
+    optional double ellipsoid_radial = 3;
+
+    // Second parameter b of an ellipsoid equation.
+    //
+    // Unit: [m]
+    //
+    optional double ellipsoid_axial = 4;
+
+    // The ID of the sensor's receiver. Sender ID is stored in the header \c
+    // SensorDetectionHeader.
+    //
+    optional Identifier receiver_id = 5;
+
+    // The vector to the receiver's origin in sending ultrasonic sensor frame.
+    // The vector is also the direction of \c #ellipsoid_axial.
+    //
+    optional Vector3d receiver_origin = 6;
+}
+
+//
+// \brief Specific header extension for camera sensors.
+//
+message CameraDetectionSpecificHeader
+{
+    // The current number of points which all detections in the detections list
+    // refer.
+    //
+    // \note This value has to be set if the list contains invalid points.
+    //
+    optional uint32 number_of_valid_points = 1;
+}
+
+//
+// \brief Data from one camera sensor including a list of detections.
+//
+message CameraDetectionData
+{
+    // Header attributes of camera detection from one camera sensor.
+    //
+    optional SensorDetectionHeader header = 1;
+
+    // Additional header attributes of camera detection from one camera sensor.
+    //
+    optional CameraDetectionSpecificHeader specific_header = 3;
+
+    // List of camera detections.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraDetection detection = 2;
+
+    // List of points which are used by detections.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraPoint point = 4;
+}
+
+//
+// \brief Camera detection from the sensor.
+//
+message CameraDetection
+{
+    // Existence probability of the detection not based on history. Value does
+    // not depend on any past experience with similar detections.
+    //
+    // Range: [0.0, 1.0]
+    //
+    // \note Used as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    optional double existence_probability = 1;
+
+    // ID of the detected object this detection is associated to.
+    //
+    // \note ID = MAX(uint64) indicates no reference to an object.
+    //
+    optional Identifier object_id = 2;
+
+    // Difference to the base timestamp \c
+    // SensorDetectionHeader::measurement_time.
+    //
+    // The timestamp of this detection :=
+    // \c SensorDetectionHeader::measurement_time + \c #time_difference.
+    //
+    optional Timestamp time_difference = 3;
+
+    // Definition of the image shape type of this detection.
+    //
+    optional ImageShapeType image_shape_type = 4;
+
+    // The defined shape is background.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    // Range: [0.0, 1.0]
+    //
+    optional bool shape_classification_background = 5;
+
+    // The defined shape is foregroud.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_foreground = 6;
+
+    // The defined shape is flat.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_flat = 7;
+
+    // The defined shape is upright.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_upright = 8;
+
+    // The defined shape is ground.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_ground = 9;
+
+    // The defined shape is sky.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_sky = 10;
+
+    // The defined shape is vegetation.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_vegetation = 11;
+
+    // The defined shape is a road.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_road = 12;
+
+    // The defined shape is a non-driving lane (e.g. sidewalk).
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_non_driving_lane = 13;
+
+    // The defined shape is non-road (e.g. traffic island).
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_non_road = 14;
+
+    // The defined shape is a stationary object.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_stationary_object = 15;
+
+    // The defined shape is a possible moving object.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_moving_object = 16;
+
+    // The defined shape is a landmark.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_landmark = 17;
+
+    // The defined shape is a traffic sign.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_traffic_sign = 18;
+
+    // The defined shape is a traffic light.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_traffic_light = 19;
+
+    // The defined shape is a road marking sign.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_road_marking = 20;
+
+    // The defined shape is a vehicle.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_vehicle = 21;
+
+    // The defined shape is a pedestrian.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian = 22;
+
+    // The defined shape is an animal.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_animal = 23;
+
+    // The defined shape is a pedestrian seen by the sensor from the front.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian_front = 24;
+
+    // The defined shape is a pedestrian seen by the sensor from the side.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian_side = 25;
+
+    // The defined shape is a pedestrian seen by the sensor from the rear.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian_rear = 26;
+
+    // This probability defines the mininimum probability for each selected
+    // shape classification.
+    //
+    // Range: [0.0, 1.0]
+    //
+    optional double shape_classification_probability = 27;
+
+    // The dominant color of the shape.
+    //
+    optional Color color = 28;
+
+    // The probability of the shape's color.
+    //
+    // Range: [0.0, 1.0]
+    //
+    optional double color_probability = 29;
+
+    // If one shape has different shape classifications and shape classification
+    // probability or color and color probability, all detections in this cycle
+    // have the same ambiguity ID.
+    //
+    // \note ID = MAX(uint64) indicates no reference to an object.
+    //
+    optional Identifier ambiguity_id = 30;
+
+    // Index of the first point in the camera detection.
+    //
+    optional uint32 first_point_index = 31;
+
+    // Number of points which defines the shape.
+    // \c #image_shape_type may restrict the number of possible values.
+    //
+    optional uint32 number_of_points = 32;
+
+    // Definition of shape dominant color.
+    //
+    enum Color
+    {
+        // Color of the shape is unknown (must not be used in ground
+        // truth).
+        //
+        COLOR_UNKNOWN = 0;
+
+        // Shape with another (unspecified but known) color.
+        //
+        COLOR_OTHER = 1;
+
+        // Shape with black color.
+        //
+        COLOR_BLACK = 2;
+
+        // Shape with grey color.
+        //
+        COLOR_GREY = 3;
+
+        // Shape with white color.
+        //
+        COLOR_WHITE = 4;
+
+        // Shape with yellow color.
+        //
+        COLOR_YELLOW = 5;
+
+        // Shape with orange color.
+        //
+        COLOR_ORANGE = 6;
+
+        // Shape with red color.
+        //
+        COLOR_RED = 7;
+
+        // Shape with violet color.
+        //
+        COLOR_VIOLET = 8;
+
+        // Shape with blue color.
+        //
+        COLOR_BLUE = 9;
+
+        // Shape with green color.
+        //
+        COLOR_GREEN = 10;
+
+        // Shape with reflective color.
+        //
+        COLOR_REFLECTIVE = 11;
+    }
+
+    // Definition of different image shape types.
+    //
+    enum ImageShapeType
+    {
+        // Shape type is unknown (must not be used in ground truth).
+        //
+        IMAGE_SHAPE_TYPE_UNKNOWN = 0;
+
+        // Other (unspecified but known) shape type.
+        //
+        IMAGE_SHAPE_TYPE_OTHER = 1;
+
+        // Image shape is defined by a single point.
+        //
+        // Allowed number of referenced points: 1
+        //
+        IMAGE_SHAPE_TYPE_POINT = 2;
+
+        // Image shape is defined by a box.
+        //
+        // Allowed number of referenced points: 2 or 3
+        //
+        // Allowed number of referenced points = 2: first and third corner of
+        // the box. Box is alligned horizontal resp. vertical.
+        //
+        // Allowed number of referenced points = 3: first, second and third
+        // corner of the box. fourth corner is calculated by first+third-second
+        // corner.
+        //
+        IMAGE_SHAPE_TYPE_BOX = 3;
+
+        // Image shape is defined by an ellipse.
+        //
+        // Allowed number of referenced points: 2 or 3
+        //
+        // Allowed number of referenced points = 2: center point of circle,
+        // point on circle
+        //
+        // Allowed number of referenced points = 3: center point of ellipse,
+        // point on ellipse at main axis of ellipse, point on ellipse at minor
+        // axis of ellipse
+        //
+        IMAGE_SHAPE_TYPE_ELLIPSE = 4;
+
+        // Image shape is defined by a polygon.
+        //
+        // Allowed number of referenced points: 3 .. n
+        //
+        // Polygon is defined by the first, second, third and so on points. The
+        // polygon shape is closed (last and first point are different).
+        //
+        IMAGE_SHAPE_TYPE_POLYGON = 5;
+
+        // Image shape is defined by a polyline.
+        //
+        // Allowed number of referenced points: 2 .. n
+        //
+        // Polyline is defined by the first, second and so on points. The
+        // polyline shape is open.
+        //
+        IMAGE_SHAPE_TYPE_POLYLINE = 6;
+
+        // Image shape is defined by a point cloud.
+        //
+        // Allowed number of referenced points: 2 .. n
+        //
+        // Point cloud is defined by a number of points. The points are not
+        // connected in the point cloud.
+        //
+        IMAGE_SHAPE_TYPE_POINT_CLOUD = 7;
+    }
+}
+
+//
+// \brief Camera point from the sensor.
+//
+message CameraPoint
+{
+    // Existence probability of the point not based on history. Value does
+    // not depend on any past experience with similar points.
+    //
+    // Range: [0.0, 1.0]
+    //
+    // \note Used as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    optional double existence_probability = 1;
+
+    // Measured point refered by one camera detection given in spherical
+    // coordinates in the sensor coordinate system.
+    //
+    optional Spherical3d point = 2;
+
+    // Root mean squared error of the measured point.
+    //
+    optional Spherical3d point_rmse = 3;
+}
+
 // Definition of a basic detection classifications.
 //
 enum DetectionClassification

@@ -11,7 +11,7 @@ package osi3;
 // \c MovingObject e.g. pedestrian, animal, or vehicle) nor a traffic related
 // object (\c TrafficLight, \c TrafficSign).
 //
-// \image html OSI_StatObject.jpg
+// \image html OSI_BaseStationary.svg
 //
 // \c StationaryObject excludes traffic lights, traffic signs and road marking
 //
@@ -21,13 +21,20 @@ message StationaryObject
     //
     optional Identifier id = 1;
 
-    // The base parameters of the vehicle.
+    // The base parameters of the stationary object.
     //
     optional BaseStationary base = 2;
 
     // The classification of the stationary object.
     //
     optional Classification classification = 3;
+
+    // Opaque reference of an associated 3D model of the stationary object.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models.
+    //
+    optional string model_reference = 4;
 
     //
     // \brief Classification data for a stationary object.
@@ -261,6 +268,10 @@ message StationaryObject
 // moving object (animal, pedestrian, etc), but not a stationary
 // object (\c TrafficLight, \c TrafficSign, or \c StationaryObject).
 //
+// \image html OSI_MovingObject.svg
+//
+// \image html OSI_HostVehicle.svg
+//
 // \note The field \c MovingObject::vehicle_extension has to be
 // filled if the \c MovingObject::Type is a vehicle.
 //
@@ -303,6 +314,13 @@ message MovingObject
     // #TYPE_VEHICLE .
     //
     optional VehicleClassification vehicle_classification = 6;
+
+    // Opaque reference of an associated 3D model of the moving object.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models.
+    //
+    optional string model_reference = 7;
 
     // Definition of object types.
     //
@@ -535,9 +553,21 @@ message MovingObject
             //
             optional BrakeLightState brake_light_state = 7;
 
-            // State of the (rear) license plate illumination
+            // State of the (rear) license plate illumination.
             //
             optional GenericLightState license_plate_illumination_rear = 8;
+
+            // Lighting of emergency vehicles (ambulance, fire engine, police
+            // car, etc.). Must be set only if a vehicle is allowed to use this
+            // illumination type.
+            //
+            optional GenericLightState emergency_vehicle_illumination = 9;
+
+            // Lighting of service vehicles (snow removal, garbage truck, towing
+            // vehicle, slow or wide vehicle, etc.). Must be set only if a
+            // vehicle is allowed to use this illumination type.
+            //
+            optional GenericLightState service_vehicle_illumination = 10;
 
             // Definition of indicator states.
             //
@@ -589,6 +619,21 @@ message MovingObject
                 // Light is on.
                 //
                 GENERIC_LIGHT_STATE_ON = 3;
+
+                // Light is flashing blue.
+                // To be used for emergency vehicles.
+                //
+                GENERIC_LIGHT_STATE_FLASHING_BLUE = 4;
+
+                // Light is flashing blue and red.
+                // To be used for emergency vehicles.
+                //
+                GENERIC_LIGHT_STATE_FLASHING_BLUE_AND_RED = 5;
+
+                // Light is flashing amber.
+                // To be used for service vehicles.
+                //
+                GENERIC_LIGHT_STATE_FLASHING_AMBER = 6;
             }
 
             // Definition of brake light states.
