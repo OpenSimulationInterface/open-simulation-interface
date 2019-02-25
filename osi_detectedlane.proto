@@ -50,6 +50,8 @@ message DetectedLane
 //
 // \brief A lane boundary segment as detected by the sensor.
 //
+// \image html OSI_DetectedLaneBoundary.svg
+//
 message DetectedLaneBoundary
 {
     // Common information of one detected item.

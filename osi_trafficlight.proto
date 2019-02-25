@@ -9,7 +9,7 @@ package osi3;
 //
 // \brief A traffic light.
 //
-// \image html OSI_TrafficLight.jpg
+// \image html OSI_TrafficLight.svg
 //
 // One traffic light message defines a single 'bulb' and not a box of several
 // bulbs, e.g. red, yellow, green are three separate traffic lights.
@@ -69,6 +69,12 @@ message TrafficLight
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated Identifier assigned_lane_id = 5;
+
+        // Boolean flag to indicate that the traffic light is taken out of service.
+        // This can be achieved by visibly crossing the light, covering it completely
+        // or swiching the traffic light off.
+        //
+        optional bool is_out_of_service = 6;
 
         // Definition of colors for traffic lights.
         //

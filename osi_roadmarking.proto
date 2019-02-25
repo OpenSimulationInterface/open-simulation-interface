@@ -10,7 +10,13 @@ package osi3;
 //
 // \brief A road surface marking.
 //
-// \image html OSI_RoadMarking.jpg
+// \image html OSI_RoadMarking.svg
+//
+// The figure shows two STOP road markings. STOP \c
+// RoadMarking::Classification::type == \c
+// RoadMarking::Classification::TYPE_TEXTUAL_TRAFFIC_SIGN is marked, STOP \c
+// RoadMarking::Classification::type == \c
+// RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN is not marked.
 //
 // All coordinates and orientations are relative to the global ground truth
 // coordinate system.
@@ -82,6 +88,9 @@ message RoadMarking
         //
         // \note Field need not be set if road marking type does not require it.
         //
+        // \note OSI 3 uses \c #value_text and not \c TrafficSignValue for
+        // simple chars.
+        //
         optional TrafficSignValue value = 4;
 
         // Additional text value as road marking, e.g. BUS, TAXI etc.
@@ -96,6 +105,15 @@ message RoadMarking
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated Identifier assigned_lane_id = 6;
+
+
+        // Boolean flag to indicate that the road marking is taken out of service.
+        // This can be achieved by visibly crossing the road marking with stripes, 
+        // or completly covering a road marking making it not visible. 
+        //
+        // \image html OSI_RoadMaking_is_out_of_service.jpg width=800px
+        //
+        optional bool is_out_of_service = 7;
 
         // Definition of road marking types.
         //
