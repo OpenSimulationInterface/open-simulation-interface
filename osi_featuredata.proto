@@ -45,6 +45,12 @@ message FeatureData
     // by neighbouring sensors.
     //
     repeated UltrasonicDetectionData ultrasonic_sensor = 4;
+
+    // Camera detections for multiple camera sensors (sensor fusion).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraDetectionData camera_sensor = 5;
 }
 
 //
@@ -555,6 +561,398 @@ message UltrasonicIndirectDetection
     // The vector is also the direction of \c #ellipsoid_axial.
     //
     optional Vector3d receiver_origin = 6;
+}
+
+//
+// \brief Specific header extension for camera sensors.
+//
+message CameraDetectionSpecificHeader
+{
+    // The current number of points which all detections in the detections list
+    // refer.
+    //
+    // \note This value has to be set if the list contains invalid points.
+    //
+    optional uint32 number_of_valid_points = 1;
+}
+
+//
+// \brief Data from one camera sensor including a list of detections.
+//
+message CameraDetectionData
+{
+    // Header attributes of camera detection from one camera sensor.
+    //
+    optional SensorDetectionHeader header = 1;
+
+    // Additional header attributes of camera detection from one camera sensor.
+    //
+    optional CameraDetectionSpecificHeader specific_header = 3;
+
+    // List of camera detections.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraDetection detection = 2;
+
+    // List of points which are used by detections.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraPoint point = 4;
+}
+
+//
+// \brief Camera detection from the sensor.
+//
+message CameraDetection
+{
+    // Existence probability of the detection not based on history. Value does
+    // not depend on any past experience with similar detections.
+    //
+    // Range: [0.0, 1.0]
+    //
+    // \note Used as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    optional double existence_probability = 1;
+
+    // ID of the detected object this detection is associated to.
+    //
+    // \note ID = MAX(uint64) indicates no reference to an object.
+    //
+    optional Identifier object_id = 2;
+
+    // Difference to the base timestamp \c
+    // SensorDetectionHeader::measurement_time.
+    //
+    // The timestamp of this detection :=
+    // \c SensorDetectionHeader::measurement_time + \c #time_difference.
+    //
+    optional Timestamp time_difference = 3;
+
+    // Definition of the image shape type of this detection.
+    //
+    optional ImageShapeType image_shape_type = 4;
+
+    // The defined shape is background.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    // Range: [0.0, 1.0]
+    //
+    optional bool shape_classification_background = 5;
+
+    // The defined shape is foregroud.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_foreground = 6;
+
+    // The defined shape is flat.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_flat = 7;
+
+    // The defined shape is upright.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_upright = 8;
+
+    // The defined shape is ground.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_ground = 9;
+
+    // The defined shape is sky.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_sky = 10;
+
+    // The defined shape is vegetation.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_vegetation = 11;
+
+    // The defined shape is a road.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_road = 12;
+
+    // The defined shape is a non-driving lane (e.g. sidewalk).
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_non_driving_lane = 13;
+
+    // The defined shape is non-road (e.g. traffic island).
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_non_road = 14;
+
+    // The defined shape is a stationary object.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_stationary_object = 15;
+
+    // The defined shape is a possible moving object.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_moving_object = 16;
+
+    // The defined shape is a landmark.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_landmark = 17;
+
+    // The defined shape is a traffic sign.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_traffic_sign = 18;
+
+    // The defined shape is a traffic light.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_traffic_light = 19;
+
+    // The defined shape is a road marking sign.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_road_marking = 20;
+
+    // The defined shape is a vehicle.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_vehicle = 21;
+
+    // The defined shape is a pedestrian.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian = 22;
+
+    // The defined shape is an animal.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_animal = 23;
+
+    // The defined shape is a pedestrian seen by the sensor from the front.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian_front = 24;
+
+    // The defined shape is a pedestrian seen by the sensor from the side.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian_side = 25;
+
+    // The defined shape is a pedestrian seen by the sensor from the rear.
+    // The probability for this classification is at least
+    // \c #shape_classification_probability.
+    //
+    optional bool shape_classification_pedestrian_rear = 26;
+
+    // This probability defines the mininimum probability for each selected
+    // shape classification.
+    //
+    // Range: [0.0, 1.0]
+    //
+    optional double shape_classification_probability = 27;
+
+    // The dominant color of the shape.
+    //
+    optional Color color = 28;
+
+    // The probability of the shape's color.
+    //
+    // Range: [0.0, 1.0]
+    //
+    optional double color_probability = 29;
+
+    // If one shape has different shape classifications and shape classification
+    // probability or color and color probability, all detections in this cycle
+    // have the same ambiguity ID.
+    //
+    // \note ID = MAX(uint64) indicates no reference to an object.
+    //
+    optional Identifier ambiguity_id = 30;
+
+    // Index of the first point in the camera detection.
+    //
+    optional uint32 first_point_index = 31;
+
+    // Number of points which defines the shape.
+    // \c #image_shape_type may restrict the number of possible values.
+    //
+    optional uint32 number_of_points = 32;
+
+    // Definition of shape dominant color.
+    //
+    enum Color
+    {
+        // Color of the shape is unknown (must not be used in ground
+        // truth).
+        //
+        COLOR_UNKNOWN = 0;
+
+        // Shape with another (unspecified but known) color.
+        //
+        COLOR_OTHER = 1;
+
+        // Shape with black color.
+        //
+        COLOR_BLACK = 2;
+
+        // Shape with grey color.
+        //
+        COLOR_GREY = 3;
+
+        // Shape with white color.
+        //
+        COLOR_WHITE = 4;
+
+        // Shape with yellow color.
+        //
+        COLOR_YELLOW = 5;
+
+        // Shape with orange color.
+        //
+        COLOR_ORANGE = 6;
+
+        // Shape with red color.
+        //
+        COLOR_RED = 7;
+
+        // Shape with violet color.
+        //
+        COLOR_VIOLET = 8;
+
+        // Shape with blue color.
+        //
+        COLOR_BLUE = 9;
+
+        // Shape with green color.
+        //
+        COLOR_GREEN = 10;
+
+        // Shape with reflective color.
+        //
+        COLOR_REFLECTIVE = 11;
+    }
+
+    // Definition of different image shape types.
+    //
+    enum ImageShapeType
+    {
+        // Shape type is unknown (must not be used in ground truth).
+        //
+        IMAGE_SHAPE_TYPE_UNKNOWN = 0;
+
+        // Other (unspecified but known) shape type.
+        //
+        IMAGE_SHAPE_TYPE_OTHER = 1;
+
+        // Image shape is defined by a single point.
+        //
+        // Allowed number of referenced points: 1
+        //
+        IMAGE_SHAPE_TYPE_POINT = 2;
+
+        // Image shape is defined by a box.
+        //
+        // Allowed number of referenced points: 2 or 3
+        //
+        // Allowed number of referenced points = 2: first and third corner of
+        // the box. Box is alligned horizontal resp. vertical.
+        //
+        // Allowed number of referenced points = 3: first, second and third
+        // corner of the box. fourth corner is calculated by first+third-second
+        // corner.
+        //
+        IMAGE_SHAPE_TYPE_BOX = 3;
+
+        // Image shape is defined by an ellipse.
+        //
+        // Allowed number of referenced points: 2 or 3
+        //
+        // Allowed number of referenced points = 2: center point of circle,
+        // point on circle
+        //
+        // Allowed number of referenced points = 3: center point of ellipse,
+        // point on ellipse at main axis of ellipse, point on ellipse at minor
+        // axis of ellipse
+        //
+        IMAGE_SHAPE_TYPE_ELLIPSE = 4;
+
+        // Image shape is defined by a polygon.
+        //
+        // Allowed number of referenced points: 3 .. n
+        //
+        // Polygon is defined by the first, second, third and so on points. The
+        // polygon shape is closed (last and first point are different).
+        //
+        IMAGE_SHAPE_TYPE_POLYGON = 5;
+
+        // Image shape is defined by a polyline.
+        //
+        // Allowed number of referenced points: 2 .. n
+        //
+        // Polyline is defined by the first, second and so on points. The
+        // polyline shape is open.
+        //
+        IMAGE_SHAPE_TYPE_POLYLINE = 6;
+
+        // Image shape is defined by a point cloud.
+        //
+        // Allowed number of referenced points: 2 .. n
+        //
+        // Point cloud is defined by a number of points. The points are not
+        // connected in the point cloud.
+        //
+        IMAGE_SHAPE_TYPE_POINT_CLOUD = 7;
+    }
+}
+
+//
+// \brief Camera point from the sensor.
+//
+message CameraPoint
+{
+    // Existence probability of the point not based on history. Value does
+    // not depend on any past experience with similar points.
+    //
+    // Range: [0.0, 1.0]
+    //
+    // \note Used as confidence measure where a low value means less confidence
+    // and a high value indicates strong confidence.
+    //
+    optional double existence_probability = 1;
+
+    // Measured point refered by one camera detection given in spherical
+    // coordinates in the sensor coordinate system.
+    //
+    optional Spherical3d point = 2;
+
+    // Root mean squared error of the measured point.
+    //
+    optional Spherical3d point_rmse = 3;
 }
 
 // Definition of a basic detection classifications.

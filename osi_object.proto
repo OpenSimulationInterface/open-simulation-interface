@@ -21,13 +21,20 @@ message StationaryObject
     //
     optional Identifier id = 1;
 
-    // The base parameters of the vehicle.
+    // The base parameters of the stationary object.
     //
     optional BaseStationary base = 2;
 
     // The classification of the stationary object.
     //
     optional Classification classification = 3;
+
+    // Opaque reference of an associated 3D model of the stationary object.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models.
+    //
+    optional string model_reference = 4;
 
     //
     // \brief Classification data for a stationary object.
@@ -308,6 +315,13 @@ message MovingObject
     //
     optional VehicleClassification vehicle_classification = 6;
 
+    // Opaque reference of an associated 3D model of the moving object.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models.
+    //
+    optional string model_reference = 7;
+
     // Definition of object types.
     //
     enum Type
@@ -543,14 +557,16 @@ message MovingObject
             //
             optional GenericLightState license_plate_illumination_rear = 8;
 
-            // Lighting of emergency vehicles (ambulance, fire engine, police car, etc.).
-            // Must be set only if a vehicle is allowed to use this illumination type. 
-            // 
+            // Lighting of emergency vehicles (ambulance, fire engine, police
+            // car, etc.). Must be set only if a vehicle is allowed to use this
+            // illumination type.
+            //
             optional GenericLightState emergency_vehicle_illumination = 9;
 
-            // Lighting of service vehicles (snow removal, garbage truck, towing vehicle, slow or wide vehicle, etc.). 
-            // Must be set only if a vehicle is allowed to use this illumination type. 
-            // 
+            // Lighting of service vehicles (snow removal, garbage truck, towing
+            // vehicle, slow or wide vehicle, etc.). Must be set only if a
+            // vehicle is allowed to use this illumination type.
+            //
             optional GenericLightState service_vehicle_illumination = 10;
 
             // Definition of indicator states.
@@ -603,7 +619,7 @@ message MovingObject
                 // Light is on.
                 //
                 GENERIC_LIGHT_STATE_ON = 3;
-                
+
                 // Light is flashing blue.
                 // To be used for emergency vehicles.
                 //
@@ -614,7 +630,7 @@ message MovingObject
                 //
                 GENERIC_LIGHT_STATE_FLASHING_BLUE_AND_RED = 5;
 
-                // Light is flashing amber. 
+                // Light is flashing amber.
                 // To be used for service vehicles.
                 //
                 GENERIC_LIGHT_STATE_FLASHING_AMBER = 6;

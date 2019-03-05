@@ -106,6 +106,15 @@ message RoadMarking
         //
         repeated Identifier assigned_lane_id = 6;
 
+
+        // Boolean flag to indicate that the road marking is taken out of service.
+        // This can be achieved by visibly crossing the road marking with stripes, 
+        // or completly covering a road marking making it not visible. 
+        //
+        // \image html OSI_RoadMaking_is_out_of_service.jpg width=800px
+        //
+        optional bool is_out_of_service = 7;
+
         // Definition of road marking types.
         //
         enum Type
