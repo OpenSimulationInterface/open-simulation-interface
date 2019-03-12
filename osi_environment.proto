@@ -48,6 +48,17 @@ message EnvironmentalConditions
     // Description of the fog.
     //
     optional Fog fog = 7;
+    
+    // Contains the velocity of the wind (global weather).
+    // In [m/s].
+    //
+    optional double wind_speed = 8;
+
+    // Contains the direction of the wind (global weather).
+    // In [Degree]. Wind direction is measured in degrees clockwise from due north.
+    // Like on a windrose. E.g.: A wind blowing from the north has a wind direction of 0 Degree.
+    //
+    optional double wind_direction = 9;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour [mm/h])
