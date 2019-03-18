@@ -113,35 +113,120 @@ Collaboration diagram for osi3::SensorDetectionHeader:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a1ba6030af7bcf887d6e4c377861c5127"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">DataQualifier</a> { <br/>
-&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a81105c88383e132fece393d327e92acf">DATA_QUALIFIER_UNKNOWN</a> = 0, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127afa615ee87a5eee217b3593f9ece9f059">DATA_QUALIFIER_OTHER</a> = 1, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a49abe7eef83ff2bc995ec6b23ffe58f6">DATA_QUALIFIER_AVAILABLE</a> = 2, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127af9d0c41a779dddab3852f492f013263e">DATA_QUALIFIER_AVAILABLE_REDUCED</a> = 3, 
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7">DATA_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025">DATA_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5">DATA_QUALIFIER_AVAILABLE</a> = 2, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20">DATA_QUALIFIER_AVAILABLE_REDUCED</a> = 3, 
 <br/>
-&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a08034bdafd4addf571e029cd63c25d44">DATA_QUALIFIER_NOT_AVAILABLE</a> = 4, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127aebdbffb1e4e61501920a78f89b87bb69">DATA_QUALIFIER_BLINDNESS</a> = 5, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a63d0a0a05db267f137b5f69ed0d2fec5">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a5e3aa51a219efd61c8fdafffbcaa738c">DATA_QUALIFIER_INVALID</a> = 7
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9">DATA_QUALIFIER_NOT_AVAILABLE</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975">DATA_QUALIFIER_BLINDNESS</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31">DATA_QUALIFIER_INVALID</a> = 7, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7">DATA_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025">DATA_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5">DATA_QUALIFIER_AVAILABLE</a> = 2, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20">DATA_QUALIFIER_AVAILABLE_REDUCED</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9">DATA_QUALIFIER_NOT_AVAILABLE</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975">DATA_QUALIFIER_BLINDNESS</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31">DATA_QUALIFIER_INVALID</a> = 7
 <br/>
  }</td></tr>
 <tr class="separator:a1ba6030af7bcf887d6e4c377861c5127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a379b9a86453a52b37af32f08a6dc636b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b">ExtendedQualifier</a> { <br/>
-&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6">EXTENDED_QUALIFIER_UNKNOWN</a> = 0, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba51ac4d4cb3c0a770771f563cd0dc85c9">EXTENDED_QUALIFIER_OTHER</a> = 1, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba02eb3c322eebc779bfda9c5f5cc0a30c">EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</a> = 2, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba11e11b1062cf42c7379de969b0a91411">EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</a> = 3, 
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514">EXTENDED_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4">EXTENDED_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2">EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</a> = 2, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2">EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</a> = 3, 
 <br/>
-&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154">EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</a> = 4, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bac0c56b0d3c8f387fc06cf8fa85b427de">EXTENDED_QUALIFIER_SENSOR_BLOCKED</a> = 5, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baf9fa590c755364be3c7a307bdebf77f9">EXTENDED_QUALIFIER_SENSOR_MISALIGNED</a> = 6, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8d9126ec3008db318aec64dc4b64d41c">EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</a> = 7, 
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e">EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7">EXTENDED_QUALIFIER_SENSOR_BLOCKED</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3">EXTENDED_QUALIFIER_SENSOR_MISALIGNED</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12">EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</a> = 7, 
 <br/>
-&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba2e7833c77cc2cb3c8f57b12542f1bb65">EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</a> = 8, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba9b274acacd19847eb783da3141aaad09">EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</a> = 9, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bad665251175861447e0c23f51e157182b">EXTENDED_QUALIFIER_INTERNAL_REASON</a> = 10, 
-<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bad37357a35d2de54083d98be935fbb9b7">EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</a> = 11, 
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae">EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</a> = 8, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc">EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</a> = 9, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b">EXTENDED_QUALIFIER_INTERNAL_REASON</a> = 10, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4">EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</a> = 11, 
 <br/>
-&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bab2f08e9e0e7d35d0390e03a26164da07">EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</a> = 12
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d">EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</a> = 12, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514">EXTENDED_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4">EXTENDED_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2">EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2">EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</a> = 3, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e">EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7">EXTENDED_QUALIFIER_SENSOR_BLOCKED</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3">EXTENDED_QUALIFIER_SENSOR_MISALIGNED</a> = 6, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12">EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</a> = 7, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae">EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</a> = 8, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc">EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</a> = 9, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b">EXTENDED_QUALIFIER_INTERNAL_REASON</a> = 10, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4">EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</a> = 11, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d">EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</a> = 12
+<br/>
+ }</td></tr>
+<tr class="separator:a379b9a86453a52b37af32f08a6dc636b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba6030af7bcf887d6e4c377861c5127"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">DataQualifier</a> { <br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7">DATA_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025">DATA_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5">DATA_QUALIFIER_AVAILABLE</a> = 2, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20">DATA_QUALIFIER_AVAILABLE_REDUCED</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9">DATA_QUALIFIER_NOT_AVAILABLE</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975">DATA_QUALIFIER_BLINDNESS</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31">DATA_QUALIFIER_INVALID</a> = 7, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7">DATA_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025">DATA_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5">DATA_QUALIFIER_AVAILABLE</a> = 2, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20">DATA_QUALIFIER_AVAILABLE_REDUCED</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9">DATA_QUALIFIER_NOT_AVAILABLE</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975">DATA_QUALIFIER_BLINDNESS</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31">DATA_QUALIFIER_INVALID</a> = 7
+<br/>
+ }</td></tr>
+<tr class="separator:a1ba6030af7bcf887d6e4c377861c5127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379b9a86453a52b37af32f08a6dc636b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b">ExtendedQualifier</a> { <br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514">EXTENDED_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4">EXTENDED_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2">EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</a> = 2, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2">EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e">EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7">EXTENDED_QUALIFIER_SENSOR_BLOCKED</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3">EXTENDED_QUALIFIER_SENSOR_MISALIGNED</a> = 6, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12">EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</a> = 7, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae">EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</a> = 8, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc">EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</a> = 9, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b">EXTENDED_QUALIFIER_INTERNAL_REASON</a> = 10, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4">EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</a> = 11, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d">EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</a> = 12, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514">EXTENDED_QUALIFIER_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4">EXTENDED_QUALIFIER_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2">EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2">EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</a> = 3, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e">EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</a> = 4, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7">EXTENDED_QUALIFIER_SENSOR_BLOCKED</a> = 5, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3">EXTENDED_QUALIFIER_SENSOR_MISALIGNED</a> = 6, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12">EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</a> = 7, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae">EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</a> = 8, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc">EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</a> = 9, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b">EXTENDED_QUALIFIER_INTERNAL_REASON</a> = 10, 
+<br/>
+&#160;&#160;<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4">EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</a> = 11, 
+<a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d">EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</a> = 12
 <br/>
  }</td></tr>
 <tr class="separator:a379b9a86453a52b37af32f08a6dc636b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,28 +264,115 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Data qualifier communicates the overall availability of the interface. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a81105c88383e132fece393d327e92acf"></a>DATA_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7"></a>DATA_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
 <p>Unknown (must not be used in ground truth). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127afa615ee87a5eee217b3593f9ece9f059"></a>DATA_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025"></a>DATA_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
 <p>Other (unspecified but known). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a49abe7eef83ff2bc995ec6b23ffe58f6"></a>DATA_QUALIFIER_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5"></a>DATA_QUALIFIER_AVAILABLE</em>&#160;</td><td class="fielddoc">
 <p>Data is available. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127af9d0c41a779dddab3852f492f013263e"></a>DATA_QUALIFIER_AVAILABLE_REDUCED</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20"></a>DATA_QUALIFIER_AVAILABLE_REDUCED</em>&#160;</td><td class="fielddoc">
 <p>Reduced data is available. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a08034bdafd4addf571e029cd63c25d44"></a>DATA_QUALIFIER_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9"></a>DATA_QUALIFIER_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
 <p>Data is not available. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127aebdbffb1e4e61501920a78f89b87bb69"></a>DATA_QUALIFIER_BLINDNESS</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975"></a>DATA_QUALIFIER_BLINDNESS</em>&#160;</td><td class="fielddoc">
 <p>Sensor is blind. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a63d0a0a05db267f137b5f69ed0d2fec5"></a>DATA_QUALIFIER_TEMPORARY_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643"></a>DATA_QUALIFIER_TEMPORARY_AVAILABLE</em>&#160;</td><td class="fielddoc">
 <p>Sensor temporary available. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a5e3aa51a219efd61c8fdafffbcaa738c"></a>DATA_QUALIFIER_INVALID</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31"></a>DATA_QUALIFIER_INVALID</em>&#160;</td><td class="fielddoc">
+<p>Sensor invalid. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7"></a>DATA_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025"></a>DATA_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5"></a>DATA_QUALIFIER_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Data is available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20"></a>DATA_QUALIFIER_AVAILABLE_REDUCED</em>&#160;</td><td class="fielddoc">
+<p>Reduced data is available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9"></a>DATA_QUALIFIER_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Data is not available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975"></a>DATA_QUALIFIER_BLINDNESS</em>&#160;</td><td class="fielddoc">
+<p>Sensor is blind. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643"></a>DATA_QUALIFIER_TEMPORARY_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Sensor temporary available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31"></a>DATA_QUALIFIER_INVALID</em>&#160;</td><td class="fielddoc">
+<p>Sensor invalid. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a1ba6030af7bcf887d6e4c377861c5127">osi3::SensorDetectionHeader::DataQualifier</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Data qualifier communicates the overall availability of the interface. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7"></a>DATA_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025"></a>DATA_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5"></a>DATA_QUALIFIER_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Data is available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20"></a>DATA_QUALIFIER_AVAILABLE_REDUCED</em>&#160;</td><td class="fielddoc">
+<p>Reduced data is available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9"></a>DATA_QUALIFIER_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Data is not available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975"></a>DATA_QUALIFIER_BLINDNESS</em>&#160;</td><td class="fielddoc">
+<p>Sensor is blind. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643"></a>DATA_QUALIFIER_TEMPORARY_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Sensor temporary available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31"></a>DATA_QUALIFIER_INVALID</em>&#160;</td><td class="fielddoc">
+<p>Sensor invalid. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a176ccc32edea807f61050e753a6b52a7"></a>DATA_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a7f87962bc02ba8a1275065079b4cb025"></a>DATA_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a10f4be033e01529be1d4af292eb2d2a5"></a>DATA_QUALIFIER_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Data is available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a3ccbceb93dafa6123024e8239b86be20"></a>DATA_QUALIFIER_AVAILABLE_REDUCED</em>&#160;</td><td class="fielddoc">
+<p>Reduced data is available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a6034ed6fccd62acfe7eb022ced9d59c9"></a>DATA_QUALIFIER_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Data is not available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a050bb0c6d457345f6e75753d8fd67975"></a>DATA_QUALIFIER_BLINDNESS</em>&#160;</td><td class="fielddoc">
+<p>Sensor is blind. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127adf2f8395e55d0e16169fdd0c81ccf643"></a>DATA_QUALIFIER_TEMPORARY_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Sensor temporary available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1ba6030af7bcf887d6e4c377861c5127a052fe56a39b1d79c488ab0286dba6c31"></a>DATA_QUALIFIER_INVALID</em>&#160;</td><td class="fielddoc">
 <p>Sensor invalid. </p>
 </td></tr>
 </table>
@@ -218,43 +390,175 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The extended qualifier describes the reason (not the effect) why the event data qualifier, <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb">data_qualifier</a></code>, is reduced or not available. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6"></a>EXTENDED_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514"></a>EXTENDED_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
 <p>Unknown (must not be used in ground truth). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba51ac4d4cb3c0a770771f563cd0dc85c9"></a>EXTENDED_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4"></a>EXTENDED_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
 <p>Other (unspecified but known). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba02eb3c322eebc779bfda9c5f5cc0a30c"></a>EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2"></a>EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</em>&#160;</td><td class="fielddoc">
 <p>Normal operation mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba11e11b1062cf42c7379de969b0a91411"></a>EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2"></a>EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</em>&#160;</td><td class="fielddoc">
 <p>Power up or down. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154"></a>EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e"></a>EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</em>&#160;</td><td class="fielddoc">
 <p>Sensor not calibrated. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bac0c56b0d3c8f387fc06cf8fa85b427de"></a>EXTENDED_QUALIFIER_SENSOR_BLOCKED</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7"></a>EXTENDED_QUALIFIER_SENSOR_BLOCKED</em>&#160;</td><td class="fielddoc">
 <p>Sensor blocked. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636baf9fa590c755364be3c7a307bdebf77f9"></a>EXTENDED_QUALIFIER_SENSOR_MISALIGNED</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3"></a>EXTENDED_QUALIFIER_SENSOR_MISALIGNED</em>&#160;</td><td class="fielddoc">
 <p>Sensor misaligned. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba8d9126ec3008db318aec64dc4b64d41c"></a>EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12"></a>EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</em>&#160;</td><td class="fielddoc">
 <p>Bad sensor environmental condition (e.g. Darkness for vision). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba2e7833c77cc2cb3c8f57b12542f1bb65"></a>EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae"></a>EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</em>&#160;</td><td class="fielddoc">
 <p>Reduced field of view. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba9b274acacd19847eb783da3141aaad09"></a>EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc"></a>EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
 <p>Input not available. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bad665251175861447e0c23f51e157182b"></a>EXTENDED_QUALIFIER_INTERNAL_REASON</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b"></a>EXTENDED_QUALIFIER_INTERNAL_REASON</em>&#160;</td><td class="fielddoc">
 <p>Internal reason (e.g. an internal HW or SW error has occurred). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bad37357a35d2de54083d98be935fbb9b7"></a>EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4"></a>EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</em>&#160;</td><td class="fielddoc">
 <p>External disturbance, sensor specific for front radar (e.g. Interference of different radar sensors). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636bab2f08e9e0e7d35d0390e03a26164da07"></a>EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d"></a>EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</em>&#160;</td><td class="fielddoc">
+<p>Beginning blockage, sensor specific for front radar. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514"></a>EXTENDED_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4"></a>EXTENDED_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2"></a>EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</em>&#160;</td><td class="fielddoc">
+<p>Normal operation mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2"></a>EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</em>&#160;</td><td class="fielddoc">
+<p>Power up or down. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e"></a>EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</em>&#160;</td><td class="fielddoc">
+<p>Sensor not calibrated. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7"></a>EXTENDED_QUALIFIER_SENSOR_BLOCKED</em>&#160;</td><td class="fielddoc">
+<p>Sensor blocked. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3"></a>EXTENDED_QUALIFIER_SENSOR_MISALIGNED</em>&#160;</td><td class="fielddoc">
+<p>Sensor misaligned. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12"></a>EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</em>&#160;</td><td class="fielddoc">
+<p>Bad sensor environmental condition (e.g. Darkness for vision). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae"></a>EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</em>&#160;</td><td class="fielddoc">
+<p>Reduced field of view. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc"></a>EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Input not available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b"></a>EXTENDED_QUALIFIER_INTERNAL_REASON</em>&#160;</td><td class="fielddoc">
+<p>Internal reason (e.g. an internal HW or SW error has occurred). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4"></a>EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</em>&#160;</td><td class="fielddoc">
+<p>External disturbance, sensor specific for front radar (e.g. Interference of different radar sensors). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d"></a>EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</em>&#160;</td><td class="fielddoc">
+<p>Beginning blockage, sensor specific for front radar. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a379b9a86453a52b37af32f08a6dc636b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b">osi3::SensorDetectionHeader::ExtendedQualifier</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The extended qualifier describes the reason (not the effect) why the event data qualifier, <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb">data_qualifier</a></code>, is reduced or not available. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514"></a>EXTENDED_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4"></a>EXTENDED_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2"></a>EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</em>&#160;</td><td class="fielddoc">
+<p>Normal operation mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2"></a>EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</em>&#160;</td><td class="fielddoc">
+<p>Power up or down. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e"></a>EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</em>&#160;</td><td class="fielddoc">
+<p>Sensor not calibrated. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7"></a>EXTENDED_QUALIFIER_SENSOR_BLOCKED</em>&#160;</td><td class="fielddoc">
+<p>Sensor blocked. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3"></a>EXTENDED_QUALIFIER_SENSOR_MISALIGNED</em>&#160;</td><td class="fielddoc">
+<p>Sensor misaligned. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12"></a>EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</em>&#160;</td><td class="fielddoc">
+<p>Bad sensor environmental condition (e.g. Darkness for vision). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae"></a>EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</em>&#160;</td><td class="fielddoc">
+<p>Reduced field of view. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc"></a>EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Input not available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b"></a>EXTENDED_QUALIFIER_INTERNAL_REASON</em>&#160;</td><td class="fielddoc">
+<p>Internal reason (e.g. an internal HW or SW error has occurred). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4"></a>EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</em>&#160;</td><td class="fielddoc">
+<p>External disturbance, sensor specific for front radar (e.g. Interference of different radar sensors). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d"></a>EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</em>&#160;</td><td class="fielddoc">
+<p>Beginning blockage, sensor specific for front radar. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5b78af41546419c154176de7320b2514"></a>EXTENDED_QUALIFIER_UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba412881699f4d896ed4d5ae8f97ceaff4"></a>EXTENDED_QUALIFIER_OTHER</em>&#160;</td><td class="fielddoc">
+<p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba76ebfc25e5f777b4f6451fb61ec228f2"></a>EXTENDED_QUALIFIER_NORMAL_OPERATION_MODE</em>&#160;</td><td class="fielddoc">
+<p>Normal operation mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badb72cc8764d677e6dd3ced1efbbc77c2"></a>EXTENDED_QUALIFIER_POWER_UP_OR_DOWN</em>&#160;</td><td class="fielddoc">
+<p>Power up or down. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4f19932fb430f50be83ad303f36c377e"></a>EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED</em>&#160;</td><td class="fielddoc">
+<p>Sensor not calibrated. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba8cde4340964f297b6e1cf4bcaa3d79a7"></a>EXTENDED_QUALIFIER_SENSOR_BLOCKED</em>&#160;</td><td class="fielddoc">
+<p>Sensor blocked. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4fbd284eed5a62899c63e8c25bfffcb3"></a>EXTENDED_QUALIFIER_SENSOR_MISALIGNED</em>&#160;</td><td class="fielddoc">
+<p>Sensor misaligned. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636badda4c1543a05242ac7500ee55e589a12"></a>EXTENDED_QUALIFIER_BAD_SENSOR_ENVIRONMENTAL_CONDITION</em>&#160;</td><td class="fielddoc">
+<p>Bad sensor environmental condition (e.g. Darkness for vision). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba4aabb4e0feb112e896d1d20b9717deae"></a>EXTENDED_QUALIFIER_REDUCED_FIELD_OF_VIEW</em>&#160;</td><td class="fielddoc">
+<p>Reduced field of view. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5d5236fb07c14290d2ef04becf838ecc"></a>EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE</em>&#160;</td><td class="fielddoc">
+<p>Input not available. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba5628e1344cd34eacb84af8646c7e1f2b"></a>EXTENDED_QUALIFIER_INTERNAL_REASON</em>&#160;</td><td class="fielddoc">
+<p>Internal reason (e.g. an internal HW or SW error has occurred). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba29693447a85c1964a22eccf1625b91c4"></a>EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE</em>&#160;</td><td class="fielddoc">
+<p>External disturbance, sensor specific for front radar (e.g. Interference of different radar sensors). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a379b9a86453a52b37af32f08a6dc636ba635e7c534186e15bc2d20fa0d303da7d"></a>EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE</em>&#160;</td><td class="fielddoc">
 <p>Beginning blockage, sensor specific for front radar. </p>
 </td></tr>
 </table>
@@ -376,12 +680,12 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/travis/build/OpenSimulationInterface/open-simulation-interface/osi_featuredata.proto</li>
+<li>/home/travis/build/OpenSimulationInterface/open-simulation-interface/osi3/osi_featuredata.proto</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 30 2019 17:54:57 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 18 2019 15:12:28 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
