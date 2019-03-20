@@ -38,6 +38,7 @@ message Occupant
         //
         optional SteeringControl steering_control = 4;
         
+        // Occupant's (physiological) state.
         optional State state = 5;
 
         // Definition of seat positions.
@@ -130,7 +131,7 @@ message Occupant
         }
         
         //
-        // \brief An occupants state consists of physiological data like head pose,
+        // \brief An occupant's state consists of physiological data like head pose,
         // eye states and gaze.
         //
         message State
