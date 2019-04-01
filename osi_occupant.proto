@@ -39,6 +39,7 @@ message Occupant
         optional SteeringControl steering_control = 4;
         
         // Occupant's (physiological) state.
+        //
         optional State state = 5;
 
         // Definition of seat positions.
