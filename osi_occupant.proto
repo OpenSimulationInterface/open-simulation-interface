@@ -136,45 +136,53 @@ message Occupant
         //
         message State
         {
-            // Occupant's head pose.
+            // Head pose.
             //
             optional HeadPose head_pose = 1;
             
-            // Occupant's eye state(s).
+            // Left eye state.
             //
-            optional EyeState eye_state = 2;
+            optional EyeState eye_state_left = 2;
+            
+            // Right eye state.
+            //
+            optional EyeState eye_state_right = 3;
             
             //
             // \brief An occupant's head pose, including position and orientation.
             //
             message HeadPose
             {
-                // Head's position within the ego vehicle's coordinate system.
+                // Position within the ego vehicle's coordinate system.
                 //
                 optional Vector3d position = 1;
                 
-                // Head's orientation.
+                // Orientation.
                 //
                 optional Orientation3d orientation = 2;
             }
             
             //
-            // \brief The eye state comprised informtion regarding both eyes' gaze,
+            // \brief The eye state comprises information regarding an eye's presence, gaze,
             // position and opening.
             //
             message EyeState
             {
-                // Gaze vectors (left and right).
+                // Flag indicating whether the eye is present.
                 //
-                repeated Orientation3d gaze = 1;
+                optional bool present = 1;
                 
-                // Eye positions (left and right).
+                // Gaze vector.
                 //
-                repeated Vector3d position = 2;
+                optional Orientation3d gaze = 2;
                 
-                // Eye openings in [m] (left and right).
+                // Position.
                 //
-                repeated double opening = 3;
+                optional Vector3d position = 3;
+                
+                // Opening in [m].
+                //
+                optional double opening = 4;
             }
         }
     }
