@@ -72,20 +72,17 @@ class GenerateProtobufCommand(build_py):
     """ Generate Protobuf Messages """
 
     def run(self):
-        if sys.hexversion >= 0x3000000:
-            pattern = re.compile('^import "osi_')
-            for source in self.osi_files:
-                with open(source) as src_file:
-                    with open(os.path.join(package_path, source),"w") as dst_file:
-                        for line in src_file:
-                            dst_file.write(pattern.sub('import "osi3/osi_',line))
+        pattern = re.compile('^import "osi_')
+        for source in self.osi_files:
+            with open(source) as src_file:
+                with open(os.path.join(package_path, source),"w") as dst_file:
+                    for line in src_file:
+                        dst_file.write(pattern.sub('import "' + package_name + '/osi_',line))
         for source in self.osi_files:
             sys.stdout.write('Protobuf-compiling ' + source + '\n')
-            source_path = os.path.join(package_path, source) if sys.hexversion >= 0x3000000 else './' + source
+            source_path = os.path.join(package_name, source)
             subprocess.check_call([self.find_protoc(),
-                                   '--proto_path=' + package_path,
-                                   '--proto_path=.',
-                                   '--python_out=' + package_path,
+                                   '--python_out=.',
                                    source_path])
 
         build_py.run(self)

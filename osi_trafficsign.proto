@@ -271,6 +271,11 @@ message TrafficSign
             //
             optional bool vertically_mirrored = 6;
 
+            // Boolean flag to indicate that a traffic sign is taken out of service.
+            // This can be achieved by visibly crossing the sign or covering it completely. 
+            //
+            optional bool is_out_of_service = 7; 
+
             // Definition of traffic sign types.
             // Numbers are given according to German StVO.
             //
@@ -5505,6 +5510,11 @@ message TrafficSign
             // A direction arrow shown on the supplementary sign.
             //
             repeated Arrow arrow = 6;
+
+            // Boolean flag to indicate that the supplementary traffic sign is taken out of service.
+            // This can be achieved by visibly crossing the sign or covering it completely. 
+            //
+            optional bool is_out_of_service = 7;
 
             // Definition of supplementary sign types.
             //
