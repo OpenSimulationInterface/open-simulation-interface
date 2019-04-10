@@ -39,6 +39,7 @@ message EnvironmentalConditions
     // temperature and atmospheric_pressure are known.
     //
     // Unit: [%]
+    //
     optional double relative_humidity = 5;
 
     // Description of the precipitation.
@@ -50,7 +51,8 @@ message EnvironmentalConditions
     optional Fog fog = 7;
     
     // Contains the velocity of the wind (global weather).
-    // In [m/s].
+    //
+    // Unit: [m/s]
     //
     optional double wind_speed = 8;
 
