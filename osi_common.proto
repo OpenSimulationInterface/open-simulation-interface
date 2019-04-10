@@ -436,19 +436,19 @@ message Steeringwheel
 {
     // Angle of the steeringwheel. 
     //
-    // Unit in rad: 0=Central (Straight); Left>0; 0>Right.
+    // Unit: [rad]: 0=Central (Straight); Left>0; 0>Right.
     //
     optional double angle = 1;
 
     // Angle-speed of the steeringwheel.
     //
-    // Unit in rad/s: 0=Central (Straight); Left>0; 0>Right.
+    // Unit: [rad/s]: 0=Central (Straight); Left>0; 0>Right.
     //
     optional double angular_speed = 2;
 
     // Torque of the steeringwheel to the hand.
     //
-    // Unit in Nm: 0=Central (Straight); Left>0; 0>Right.
+    // Unit: [Nm]: 0=Central (Straight); Left>0; 0>Right.
     //
     optional double torque = 3;
 }
@@ -460,17 +460,17 @@ message Steeringwheel
 message Pedalry
 {
     // Position of the acceleration-pedal.
-    // 0-100 (percentage of position: Unpressed - fully pressed)
+    // Unit: [0-1] (Unpressed - fully pressed)
     //
     optional double pedal_position_acceleration = 1;
 
     // Position of the brake-pedal.
-    // 0-100 (percentage of position: Unpressed - fully pressed)
+    // Unit: [0-1] (Unpressed - fully pressed)
     //
     optional double pedal_position_brake = 2;
 
     // Position of the clutch-pedal.
-    // 0-100 (percentage of position: Unpressed - fully pressed)
+    // Unit: [0-1] (Unpressed - fully pressed)
     //
     optional double pedal_position_clutch = 3;
 }
