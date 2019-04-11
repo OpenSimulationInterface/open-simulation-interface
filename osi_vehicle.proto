@@ -133,9 +133,14 @@ message OsiVehicle
         //
         optional double electrical_energy_consumption = 5;
 
-        // The actual gear of the car.
+        // The actual gear of the gear lever.
         //
-        optional Gear gear = 6;
+        optional Gear gear_gear_lever = 6;
+        
+        // The actual gear of the transmission.
+        // E.g. gear_lever can be in "D" and transmission in "4", but not the other way around.
+        //
+        optional Gear gear_transmission = 7;
     }
 
     //
