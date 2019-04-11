@@ -72,7 +72,7 @@ message DriverInputs
         // Position of the gearlever.
         // See osi_common_extension.
         //
-        optional Gear gearlever = 9;
+        optional Gear gear_lever = 9;
     }
 
     // 
