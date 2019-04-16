@@ -435,20 +435,23 @@ message BaseMoving
 message Steeringwheel
 {
     // Angle of the steeringwheel. 
+    // 0=Central (Straight); Left>0; 0>Right.
     //
-    // Unit: [rad]: 0=Central (Straight); Left>0; 0>Right.
+    // Unit: [rad]
     //
     optional double angle = 1;
 
     // Angle-speed of the steeringwheel.
+    // 0=Central (Straight); Left>0; 0>Right.
     //
-    // Unit: [rad/s]: 0=Central (Straight); Left>0; 0>Right.
+    // Unit: [rad/s]
     //
     optional double angular_speed = 2;
 
     // Torque of the steeringwheel to the hand.
+    // 0=Central (Straight); Left>0; 0>Right.
     //
-    // Unit: [Nm]: 0=Central (Straight); Left>0; 0>Right.
+    // Unit: [N*m]
     //
     optional double torque = 3;
 }
@@ -482,7 +485,8 @@ message Pedalry
 message Trajectory
 {
     // Contains the timestamp where the trajectorypoint should be reached.
-    // In [s].
+    //
+    // Unit: [s]
     //
     optional Timestamp timestamp = 1;
 
@@ -495,27 +499,32 @@ message Trajectory
     optional double targeted_pos_y = 3;
 
     // Direction of the vehicle at the timestamp.
-    // In [Rad].
+    //
+    // Unit: [rad]
     //
     optional double trackangle = 4;
 
     // Contains the curvature at the timestamp.
-    // In [1/m].
+    //
+    // Unit: [1/m]
     //
     optional double curvature = 5;
 
     // Contains the curvaturechange at the timestamp.
-    // In [1/m*s].
+    //
+    // Unit: [1/m*s]
     //
     optional double curvaturechange = 6;
 
     // Contains the velocity of the vehicle at the timestamp.
-    // In [m/s].
+    //
+    // Unit: [m/s]
     //
     optional double velocity = 7;
 
     // Contains the acceleration of the vehicle at the timestamp.
-    // In [m/s^2].
+    //
+    // Unit: [m/s^2]
     //
     optional double acceleration = 8;
 

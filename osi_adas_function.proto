@@ -157,7 +157,8 @@ message HadPilot
     // This is the speed the function targets.
     // E.g.: At the point of activation, the actual speed could be 80 km/h, 
     // but the function tries to accelerate to 130 km/h.
-    // In [km/h].
+    //
+    // Unit: [km/h]
     //
     optional double targeted_speed = 2;
 }
@@ -175,12 +176,14 @@ message LongitudinalControl
     // This is the speed the function targets.
     // E.g.: At the point of activation, the actual speed could be 80 km/h, 
     // but the function tries to accelerate to 130 km/h.
-    // In [km/h].
+    //
+    // Unit: [km/h]
     //
     optional double targeted_speed = 2;
 
     // The timegap describes the minimumdistance to the next vehicle in front.
-    // In [s].
+    //
+    // Unit: [s]
     //
     optional double timegap = 3;
 }
