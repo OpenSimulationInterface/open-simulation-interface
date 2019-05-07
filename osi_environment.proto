@@ -287,7 +287,7 @@ message EnvironmentalConditions
         //
         // \note Although it is possible to extract the \c #time_of_day from this
         // message, it is still recommended that this is taken from the explicit
-        // \c #TimeOfData message.
+        // \c #TimeOfDay message.
         //
         optional int64 seconds_since_epoc = 1;
     }
