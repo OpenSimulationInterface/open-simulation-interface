@@ -58,7 +58,7 @@ message EnvironmentalConditions
 
     // Contains the direction of the wind (global weather).
     // Wind direction is measured in degrees clockwise from due north.
-    // Like on a windrose. E.g.: A wind blowing from the north has a wind direction of 0°.
+    // Like on a windrose. E.g.: A wind blowing from the north has a wind direction of 0 Degree.
     //
     // Unit: [deg]
     //
