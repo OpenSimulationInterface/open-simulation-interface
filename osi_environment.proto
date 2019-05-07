@@ -19,7 +19,7 @@ message EnvironmentalConditions
     //
     optional TimeOfDay time_of_day = 2;
     
-    // The date
+    // The date at the host vehicles location.
     //
     optional Date date = 3;
 
@@ -267,8 +267,8 @@ message EnvironmentalConditions
     message TimeOfDay
     {
         // The number of seconds [s] that have passed since midnight local time.
-        // Used for determining the current state of the circadian rhythm of a
-        // driver.
+        // Used e.g. for determining the current state of the circadian rhythm
+        // of a driver.
         //
         // \note No changes of daylight saving time or time zones are
         // considered.
@@ -282,12 +282,12 @@ message EnvironmentalConditions
     message Date
     {
         // The number of seconds [s] that have passed since 00:00 hours, Jan 1,
-        // 1970 UTC. Used to determine on which year, month, and day the vehicle
-        // is driving.
+        // 1970 UTC. Used to determine on which year, month, and day the host
+        // vehicle is driving.
         //
-        // \note Although it is possible to extract the time of day from this
-        // message, it is still reccomended that this is taken from the explicit
-        // TimeOfData message.
+        // \note Although it is possible to extract the \c #time_of_day from this
+        // message, it is still recommended that this is taken from the explicit
+        // \c #TimeOfData message.
         //
         optional int64 seconds_since_epoc = 1;
     }
