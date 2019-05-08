@@ -285,9 +285,9 @@ message EnvironmentalConditions
         // 1970 UTC. Used to determine on which year, month, and day the host
         // vehicle is driving.
         //
-        // \note Although it is possible to extract the \c #time_of_day from this
+        // \note Although it is possible to extract the time of day from this
         // message, it is still recommended that this is taken from the explicit
-        // \c #TimeOfDay message.
+        // \c #time_of_day message.
         //
         optional int64 seconds_since_epoc = 1;
     }
