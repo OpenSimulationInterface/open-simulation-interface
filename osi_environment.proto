@@ -21,20 +21,20 @@ message EnvironmentalConditions
     
     // The date at the host vehicles location.
     //
-    optional Date date = 3;
+    optional Date date = 8;
 
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // [Pa]).
     //
     // Unit: [Pa]
     //
-    optional double atmospheric_pressure = 4;
+    optional double atmospheric_pressure = 3;
 
     // Temperature in Kelvin at z=0.0 in world frame.
     //
     // Unit: [K]
     //
-    optional double temperature = 5;
+    optional double temperature = 4;
 
     // Relative humidity in at z=0.0 in world frame.
     //
@@ -43,15 +43,15 @@ message EnvironmentalConditions
     // temperature and atmospheric_pressure are known.
     //
     // Unit: [%]
-    optional double relative_humidity = 6;
+    optional double relative_humidity = 5;
 
     // Description of the precipitation.
     //
-    optional Precipitation precipitation = 7;
+    optional Precipitation precipitation = 6;
 
     // Description of the fog.
     //
-    optional Fog fog = 8;
+    optional Fog fog = 7;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour [mm/h])
