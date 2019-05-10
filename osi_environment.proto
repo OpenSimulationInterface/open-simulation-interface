@@ -9,6 +9,8 @@ package osi3;
 //
 // Definition of light, weather conditions and other environmental conditions.
 //
+// \note These conditions apply for an area around the host vehicle.
+//
 message EnvironmentalConditions
 {
     // The ambient illumination of the environment.
@@ -17,11 +19,14 @@ message EnvironmentalConditions
 
     // The time of day.
     //
+    // \note This message is deprecated due to the \c #unix_epoch .
+    //
     optional TimeOfDay time_of_day = 2;
     
-    // The date at the host vehicles location.
+    // The unix timestamp in order to derive the date and time at the
+    // host vehicles location.
     //
-    optional Date date = 8;
+    optional UnixEpoch unix_epoch = 8;
 
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // [Pa]).
@@ -264,6 +269,8 @@ message EnvironmentalConditions
     //
     // \brief The time of day at the location of the vehicle.
     //
+    // \note This message is deprecated because of the UnixEpoch.
+    //
     message TimeOfDay
     {
         // The number of seconds [s] that have passed since midnight local time.
@@ -277,17 +284,24 @@ message EnvironmentalConditions
     }
 
     //
-    // \brief The data at the location of the vehicle in UTC format.
+    // \brief The unix epoche to derive date and time at a specified location.
     //
-    message Date
+    message UnixEpoche
     {
-        // The number of seconds [s] that have passed since 00:00 hours, Jan 1,
-        // 1970 UTC. Used to determine on which year, month, and day the host
-        // vehicle is driving.
+        // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
+        // the number of seconds that have elapsed since January 1, 1970
+        // (midnight UTC/GMT), not counting leap seconds
+        // (in ISO 8601: 1970-01-01T00:00:00Z). Literally speaking the epoch
+        // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
+        // a synonym for 'Unix time'. Many Unix systems store epoch dates as
+        // a signed 32-bit integer, which might cause problems on January 19,
+        // 2038 (known as the Year 2038 problem or Y2038). 
         //
-        // \note Although it is possible to extract the time of day from this
-        // message, it is still recommended that this is taken from the explicit
-        // \c #time_of_day message.
+        // \note You can convert the timestamp using the following [routines
+        // sorted by languages](https://www.epochconverter.com/#code)
+        //
+        // \par References:
+        // - [1] [Epoch & Unix Timestamp Conversion Tools](https://www.epochconverter.com/)
         //
         optional int64 seconds_since_epoc = 1;
     }
