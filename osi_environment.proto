@@ -23,10 +23,10 @@ message EnvironmentalConditions
     //
     optional TimeOfDay time_of_day = 2;
     
-    // The unix timestamp in order to derive the date and time at the
+    // The unix epoch in order to derive the date and time at the
     // host vehicles location.
     //
-    optional UnixEpoch unix_epoch = 8;
+    optional UnixEpoch local_unix_epoch = 8;
 
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // [Pa]).
@@ -286,7 +286,7 @@ message EnvironmentalConditions
     //
     // \brief The unix epoche to derive date and time at a specified location.
     //
-    message UnixEpoche
+    message UnixEpoch
     {
         // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
         // the number of seconds that have elapsed since January 1, 1970
@@ -303,6 +303,6 @@ message EnvironmentalConditions
         // \par References:
         // - [1] [Epoch & Unix Timestamp Conversion Tools](https://www.epochconverter.com/)
         //
-        optional int64 seconds_since_epoc = 1;
+        optional int64 unix_timestamp = 1;
     }
 }
