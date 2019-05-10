@@ -67,6 +67,8 @@ message DriverInputs
         // Position of the handbrake.
         // 0-100 (percentage of position: Released - fully pressed)
         //
+        // Unit: [%]
+        //
         optional double handbrake = 8;
 
         // Position of the gearlever.
