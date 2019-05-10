@@ -19,7 +19,7 @@ message EnvironmentalConditions
 
     // The time of day.
     //
-    // \note This message is deprecated due to the \c #unix_epoch .
+    // \note This message is deprecated due to the \c #local_unix_epoch .
     //
     optional TimeOfDay time_of_day = 2;
     
