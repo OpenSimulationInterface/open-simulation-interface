@@ -19,7 +19,7 @@ message EnvironmentalConditions
 
     // The time of day.
     //
-    // \note This message is deprecated due to the \c #local_unix_epoch .
+    // \note This message is deprecated due to the \c #local_date .
     // In general the global position of the parent frame should be
     // obtainable in order to derive the local time.
     //
