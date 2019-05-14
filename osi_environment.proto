@@ -9,7 +9,7 @@ package osi3;
 //
 // Definition of light, weather conditions and other environmental conditions.
 //
-// \note These conditions apply for an area around the host vehicle.
+// \note These conditions apply locally around the host vehicle.
 //
 message EnvironmentalConditions
 {
@@ -20,13 +20,15 @@ message EnvironmentalConditions
     // The time of day.
     //
     // \note This message is deprecated due to the \c #local_unix_epoch .
+    // In general the global position of the parent frame should be
+    // obtainable in order to derive the local time.
     //
     optional TimeOfDay time_of_day = 2;
     
-    // The unix epoch in order to derive the date and time at the
-    // host vehicles location.
+    // The message containing the unix epoch in order to derive the date
+    // and time at the host vehicles location.
     //
-    optional UnixEpoch local_unix_epoch = 8;
+    optional Date local_date = 8;
 
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // [Pa]).
@@ -284,9 +286,10 @@ message EnvironmentalConditions
     }
 
     //
-    // \brief The unix epoche to derive date and time at a specified location.
+    // \brief The necessary information e.g. like the unix epoche to derive date
+    // and time at a specified location.
     //
-    message UnixEpoch
+    message Date
     {
         // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
         // the number of seconds that have elapsed since January 1, 1970
@@ -302,6 +305,7 @@ message EnvironmentalConditions
         //
         // \par References:
         // - [1] [Epoch & Unix Timestamp Conversion Tools](https://www.epochconverter.com/)
+        // - [2] [Wikipedia: Coordinated Universal Time] (https://en.wikipedia.org/wiki/Coordinated_Universal_Time)
         //
         optional int64 unix_timestamp = 1;
     }
