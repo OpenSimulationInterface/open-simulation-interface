@@ -282,7 +282,7 @@ message EnvironmentalConditions
     //
     // \note In general the global position of the parent frame should be
     // obtainable in order to derive the local time.
-    // This information can be calculated from the \c #osi3:unix_timestamp in
+    // This information can be calculated from the \c #osi3::unix_timestamp in
     // combination with \c #osi3::GroundTruth::proj_string and the position of
     // the corresponding \c #osi3::BaseStationary or \c #osi3::BaseMoving .
     //
