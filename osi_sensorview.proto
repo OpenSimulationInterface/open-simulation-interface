@@ -103,12 +103,17 @@ message SensorView
     // Ground truth w.r.t. global coordinate system.
     //
     // This is the ground truth that is provided to the sensor model by the
-    // simulation environment. It is filtered as per the requirements of the
-    // sensor model as expressed by the \c SensorViewConfiguration message(s)
-    // that where exchanged during the simulation initialization phase.
+    // simulation environment. It may be filtered as per the requirements of
+    // the sensor model as expressed by the \c SensorViewConfiguration
+    // message(s) that where exchanged during the simulation initialization
+    // phase.
     //
     // \note The host vehicle is always contained in the ground truth provided,
-    // regardless of any filtering.
+    // regardless of any filtering. The ground truth MUST contain at least as
+    // much of the ground truth data, as is requested by the sensor model, but
+    // MAY always contain more data, since the filtering is intended only as
+    // an optimization mechanism, not as a replacement of a proper sensor
+    // field of view modeling.
     //
     optional GroundTruth global_ground_truth = 7;
 
