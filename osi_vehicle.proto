@@ -7,9 +7,10 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief Interface to the vehicle-model. So where the movement of a car is calculated, 
-// but also the behaviour of some components of the car itself.
-// Consists of four messages: VehicleKinematics, VehiclePowertrain, VehicleSteeringwheel and VehicleWheels.
+// \brief Interface to the vehicle-model. So where the movement of a car is
+// calculated, but also the behaviour of some components of the car itself.
+// Consists of four messages: VehicleKinematics, VehiclePowertrain,
+// VehicleSteeringWheel and VehicleWheels.
 //
 message OsiVehicle
 {
@@ -28,9 +29,9 @@ message OsiVehicle
 
     //
     // Interface to the vehicle-model.
-    // The focus here is on the steeringwheel.
+    // The focus here is on the steering wheel.
     //
-    optional VehicleSteeringwheel vehicle_steeringwheel = 3;
+    optional VehicleSteeringWheel vehicle_steering_wheel = 3;
 
     //
     // Interface to the vehicle-model.
@@ -39,7 +40,8 @@ message OsiVehicle
     optional VehicleWheels vehicle_wheels = 4;
 
     //
-    // \brief So this is the interface, that describes how the vehicle is moving.
+    // \brief So this is the interface, that describes how the vehicle is
+    // moving.
     // All coordinates and orientations are relative to the global ground truth
     // coordinate system.
     //
@@ -49,27 +51,28 @@ message OsiVehicle
         //
         optional Dimension3d dimension = 1;
 
-        // The reference point for position and orientation: the center (x,y,z) of
-        // the bounding box.
+        // The reference point for position and orientation: the center (x,y,z)
+        //of the bounding box.
         //
         optional Vector3d position = 2;
 
-        // The relative velocity of the moving object w.r.t. its parent frame and
-        // parent velocity.
-        // The velocity becomes global/absolute if the parent frame does not move.
+        // The relative velocity of the moving object w.r.t. its parent frame
+        // and parent velocity.
+        // The velocity becomes global/absolute if the parent frame does not
+        // move.
         //
         // <tt>#position (t) := #position (t-dt)+ #velocity *dt</tt>
         //
         optional Vector3d velocity = 3;
 
-        // The relative acceleration of the moving object w.r.t. its parent frame
-        // and parent acceleration.
+        // The relative acceleration of the moving object w.r.t. its parent
+        // frame and parent acceleration.
         // The acceleration becomes global/absolute if the parent frame is not
         // accelerating.
         //
-        // <tt> #position (t) := #position (t-dt)+ #velocity *dt+ #acceleration /2*dt^2</tt>
+        // <tt>#position (t) := #position (t-dt)+ #velocity *dt+ #acceleration /2*dt^2</tt>
         //
-        // <tt> #velocity (t) := #velocity (t-dt)+ #acceleration *dt</tt>
+        // <tt>#velocity (t) := #velocity (t-dt)+ #acceleration *dt</tt>
         //
         optional Vector3d acceleration = 4;
 
@@ -77,14 +80,14 @@ message OsiVehicle
         //
         // <tt>Origin_base_moving_entity := Rotation_yaw_pitch_roll(#orientation)*(Origin_parent_coordinate_system - #position)</tt>
         //
-        // \note There may be some constraints how to align the orientation w.r.t.
-        // to some stationary object's or entity's definition.
+        // \note There may be some constraints how to align the orientation
+        //w.r.t. to some stationary object's or entity's definition.
         //
         optional Orientation3d orientation = 5;
 
         // The relative orientation rate of the moving object w.r.t. its parent
-        // frame and parent orientation rate in the center point of the bounding box
-        // (origin of the bounding box frame).
+        // frame and parent orientation rate in the center point of the bounding
+        // box (origin of the bounding box frame).
         //
         // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
         //
@@ -92,9 +95,9 @@ message OsiVehicle
         //
         optional Orientation3d orientation_rate = 6;
 
-        // The relative orientation rate acceleration of the moving object w.r.t. its parent
-        // frame and parent orientation rate in the center point of the bounding box
-        // (origin of the bounding box frame).
+        // The relative orientation rate acceleration of the moving object
+        // w.r.t. its parent frame and parent orientation rate in the center
+        // point of the bounding box (origin of the bounding box frame).
         //
         // <tt>Rotation_yaw_pitch_roll(#orientation (t)) := Rotation_yaw_pitch_roll(#orientation_rate *dt)*Rotation_yaw_pitch_roll(#orientation (t-dt))</tt>
         //
@@ -148,21 +151,22 @@ message OsiVehicle
         optional Gear gear_gear_lever = 6;
         
         // The actual gear of the transmission.
-        // E.g. gear_lever can be in "D" and transmission in "4", but not the other way around.
+        // E.g. gear_lever can be in "D" and transmission in "4", but not the
+        // other way around.
         //
         optional Gear gear_transmission = 7;
     }
 
     //
     // \brief Interface to the vehicle-model.
-    // The focus here is on the steeringwheel.
+    // The focus here is on the steering wheel.
     //
-    message VehicleSteeringwheel
+    message VehicleSteeringWheel
     {
         // Angle, angle-speed and torque.
         // See osi_common_extension.
         //
-        optional Steeringwheel steeringwheel = 1;
+        optional SteeringWheel steering_wheel = 1;
 
         // Spring-stiffness of the steering in Nm/deg.
         //
@@ -241,7 +245,8 @@ message OsiVehicle
 
         // Contains the camber of each wheel.
         // 
-        // Negative camber if the bottom of the wheel is farther out than the top.
+        // Negative camber if the bottom of the wheel is farther out than the
+        // top.
         // For more information: https://en.wikipedia.org/wiki/Camber_angle.
         //
         // Unit: [rad]

@@ -430,25 +430,25 @@ message BaseMoving
 }
 
 //
-// \brief A description for the steeringwheel.
+// \brief A description for the steering wheel.
 //
-message Steeringwheel
+message SteeringWheel
 {
-    // Angle of the steeringwheel. 
+    // Angle of the steering wheel. 
     // 0=Central (Straight); Left>0; 0>Right.
     //
     // Unit: [rad]
     //
     optional double angle = 1;
 
-    // Angle-speed of the steeringwheel.
+    // Angle-speed of the steering wheel.
     // 0=Central (Straight); Left>0; 0>Right.
     //
     // Unit: [rad/s]
     //
     optional double angular_speed = 2;
 
-    // Torque of the steeringwheel to the hand.
+    // Torque of the steering wheel to the hand.
     // 0=Central (Straight); Left>0; 0>Right.
     //
     // Unit: [N*m]
@@ -479,7 +479,8 @@ message Pedalry
 }
 
 //
-// \brief This is a message to describe, which trajectory the vehicle should follow.
+// \brief This is a message to describe, which trajectory the vehicle should
+// follow.
 //
 //
 message Trajectory
@@ -610,7 +611,8 @@ enum Gear
     //
     GEAR_P = 22;
 
-    // The car has an automatic transmission, but the driver shifts up by his own.
+    // The car has an automatic transmission, but the driver shifts up by his
+    // own.
     //
     GEAR_UP = 30;
 
@@ -618,7 +620,8 @@ enum Gear
     //
     GEAR_MID = 31;
 
-    // The car has an automatic transmission, but the driver shifts down by his own.
+    // The car has an automatic transmission, but the driver shifts down by his
+    // own.
     //
     GEAR_DOWN = 32;
 }

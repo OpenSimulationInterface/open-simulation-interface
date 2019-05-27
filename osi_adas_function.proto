@@ -100,10 +100,12 @@ message AdasFunction
         // Angle, angle-speed and torque.
         // See osi_common_extension.
         //
-        optional Steeringwheel steeringwheel = 2;
+        optional SteeringWheel steering_wheel = 2;
 
         // Factor to scale the steeringtorque of the function output.
-        // 0-1 (0 = no force of the function, 0.5 = half the force, 1 = 100% Torque).
+        // 0 = no force of the function, 0.5 = half the force, 1 = 100% Torque
+        //
+        // Range: [0, 1] 
         //
         optional double steering_override_factor = 3;
 
@@ -113,15 +115,17 @@ message AdasFunction
         optional Pedalry pedalry = 4;
 
         // Position of the handbrake.
-        // 0-100 (percentage of position: Released - fully pressed)
+        // A value of 0% means fully released and 100% means fully pressed
         //
-        optional double handbrake = 5;
+        // Unit: [%]
+        //
+        optional double handbrake_position = 5;
 
-        // This is a description of the possible indicatorstates.
+        // This is a description of the possible indicator states.
         //
         optional Indicators indicators = 6;
 
-        // This is a description of the possible indicatorstates.
+        // Description of the possible indicator states.
         //
         enum Indicators
         {
@@ -150,7 +154,7 @@ message AdasFunction
 //
 message HadPilot
 {
-    // Activationstate of the function.
+    // Activation state of the function.
     //
     optional bool is_activated = 1;
 
@@ -169,7 +173,7 @@ message HadPilot
 //
 message LongitudinalControl
 {
-    // Activationstate of the function.
+    // Activation state of the function.
     //
     optional bool is_activated = 1;
 
@@ -194,7 +198,7 @@ message LongitudinalControl
 //
 message LateralControl
 {
-    // Activationstate of the function.
+    // Activation state of the function.
     //
     optional bool is_activated = 1;
 }
@@ -205,7 +209,7 @@ message LateralControl
 //
 message EmergencyBrakeAssistant
 {
-    // Activationstate of the function.
+    // Activation state of the function.
     //
     optional bool is_activated = 1;
 }
