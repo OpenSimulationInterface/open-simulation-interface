@@ -15,7 +15,8 @@ package osi3;
 message DriverInputs
 {
     //
-    // The first set of signals are states the driver can (usually) directly set.
+    // The first set of signals are states the driver can (usually) directly
+    // set.
     //
     optional DriverInitializedStates driver_initialized_states = 1;
 
@@ -25,64 +26,66 @@ message DriverInputs
     optional DriverRequests driver_requests = 2;
 
     //
-    // \brief The first set of signals are states the driver can (usually) directly set.
+    // \brief The first set of signals are states the driver can (usually)
+    // directly set.
     //
     message DriverInitializedStates
     {
-        // State of the driver seat-belt. It is often an initial condition to start an ADAS-Function.
-        // 0=Open; 1=Closed
+        // State of the driver seat-belt. It is often an initial condition to
+        // start an ADAS-Function.
         //
-        optional bool seat_belt = 1;
+        optional bool is_seat_belt_fastened = 1;
 
-        // State of the doors. It is often an initial condition to start an ADAS-Function.
-        // 0=Open; 1=Closed
+        // State of the doors. It is often an initial condition to start an
+        // ADAS-Function.
         //
-        optional bool doors = 2;
+        optional bool are_doors_closed = 2;
 
-        // Hands-On-Detection.
-        // 0=HandsOff; 1=HandsOn
+        // Hands Off Detection.
         //
-        optional bool hands_on_detection = 3;
+        optional bool are_hands_off = 3;
 
-        // State of the ignition. It is often an initial condition to start an ADAS-Function.
-        // 0=Off; 1=On
+        // State of the ignition. It is often an initial condition to start an
+        // ADAS-Function.
         //
-        optional bool ignition = 4;
+        optional bool is_ignition_on = 4;
 
         // State of the warning lights.
-        // 0=Off; 1=On
         //
-        optional bool warning_lights = 5;
+        optional bool are_warning_lights_on = 5;
 
         // Angle, angle-speed and torque.
         // See osi_common_extension.
         //
-        optional Steeringwheel steeringwheel = 6;
+        optional SteeringWheel steering_wheel = 6;
 
-        // Acceleration-, brakepedal and clutch.
+        // Acceleration-, brake pedal and clutch.
         // See osi_common_extension.
         //
         optional Pedalry pedalry = 7;
 
         // Position of the handbrake.
-        // 0-100 (percentage of position: Released - fully pressed)
+        // A value of 0% means fully released and 100% means fully pressed
         //
         // Unit: [%]
         //
-        optional double handbrake = 8;
+        optional double handbrake_position = 8;
 
-        // Position of the gearlever.
+        // Position of the gear lever.
         // See osi_common_extension.
         //
         optional Gear gear_lever = 9;
     }
 
     // 
-    // \brief The second set of signals are requests addressed to an external function.
+    // \brief The second set of signals are requests addressed to an external
+    // function.
     // The ADAS-function can react to a request by setting its own states.
     // The osi_adas_function.proto is widely complementary to this proto.
-    // For e.g. the driver wants to activate a function, but the initial-conditions of the
-    // ADAS-function are not fullfilled, the request is without an effect to the driving behaviour.
+    // For e.g. the driver wants to activate a function, but the
+    // initial-conditions of the
+    // ADAS-function are not fullfilled, the request is without an effect to the
+    // driving behaviour.
     //
     message DriverRequests
     {
@@ -98,17 +101,16 @@ message DriverInputs
         //
         optional LateralControl lateral_control = 3;
 
-        // Wished states of the driver regarding the function Emergency-Brake-Assistant.
+        // Wished states of the driver regarding the function
+        // Emergency-Brake-Assistant.
         //
         optional EmergencyBrakeAssistant emergency_brake_assistant = 4;
 
         // Request to an ADAS-Function for a lane change.
-        // 0=EgoLane; 1=Left; 2=Right
         //
         optional LaneChangeRequest lane_change_request = 5;
 
         // Request to an ADAS-Function for a lane change.
-        // 0=EgoLane; 1=Left; 2=Right
         //
         enum LaneChangeRequest
         {
