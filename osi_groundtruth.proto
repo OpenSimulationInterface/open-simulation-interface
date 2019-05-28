@@ -51,7 +51,8 @@ message GroundTruth
     // arbitrary but must be identical for all messages.
     // Recommendation: Zero time point for start point of the simulation.
     //
-    // \note Zero time point does not need to coincide with the UNIX epoch.
+    // \note Zero time point does not need to coincide with the
+    // \c #osi3::EnvironmentalConditions::unix_timestamp .
     //
     // \note For ground truth data this timestamp coincides both with the
     // notional simulation time the data applies to and the time it was sent
