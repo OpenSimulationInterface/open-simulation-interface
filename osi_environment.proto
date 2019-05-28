@@ -9,15 +9,35 @@ package osi3;
 //
 // Definition of light, weather conditions and other environmental conditions.
 //
+// \note These conditions apply locally around the host vehicle.
+//
 message EnvironmentalConditions
 {
     // The ambient illumination of the environment.
     //
     optional AmbientIllumination ambient_illumination = 1;
 
-    // The time of day.
+    // The time of day at the host vehicles location.
     //
     optional TimeOfDay time_of_day = 2;
+    
+    // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
+    // the number of seconds that have elapsed since January 1, 1970
+    // (midnight UTC/GMT), not counting leap seconds
+    // (in ISO 8601: 1970-01-01T00:00:00Z). Literally speaking the epoch
+    // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
+    // a synonym for 'Unix time'. Many Unix systems store epoch dates as
+    // a signed 32-bit integer, which might cause problems on January 19,
+    // 2038 (known as the Year 2038 problem or Y2038). 
+    //
+    // \note You can convert the timestamp using the following [routines
+    // sorted by languages](https://www.epochconverter.com/#code)
+    //
+    // \par References:
+    // - [1] [Epoch & Unix Timestamp Conversion Tools](https://www.epochconverter.com/)
+    // - [2] [Wikipedia: Coordinated Universal Time] (https://en.wikipedia.org/wiki/Coordinated_Universal_Time)
+    //
+    optional int64 unix_timestamp = 8;
 
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // [Pa]).
@@ -273,13 +293,19 @@ message EnvironmentalConditions
     }
 
     //
-    // \brief The time of day at the location of the vehicle.
+    // \brief The time of day at a specified location.
+    //
+    // \note In general the global position of the parent frame should be
+    // obtainable in order to derive the local time.
+    // This information can be calculated from the \c #unix_timestamp in
+    // combination with \c #osi3::GroundTruth::proj_string and the position of
+    // the corresponding \c #osi3::BaseStationary or \c #osi3::BaseMoving .
     //
     message TimeOfDay
     {
         // The number of seconds [s] that have passed since midnight local time.
-        // Used for determining the current state of the circadian rhythm of a
-        // driver.
+        // Used e.g. for determining the current state of the circadian rhythm
+        // of a driver.
         //
         // \note No changes of daylight saving time or time zones are
         // considered.
