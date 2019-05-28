@@ -7,24 +7,27 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief An Interface to describe the communication of an ADAS-function.
-// This proto is in far parts complementary to the osi_driver_inputs.proto.
-// The inputs are divided into states and requests.
+// \brief An Interface to describe the communication of
+// driver assistance functions.
 //
-message AdasFunction
+// \note This message is partwise complementary to the \c osi::DriverInputs 
+// message. It is designed for bidirectional communication of driver assistance
+// functions with a simulation environment. Therefore it comprises message
+// elements providing both function states and requests.
+//
+message DriverAssistanceFunctions
 {
-    // States the ADAS-function can set.
+    // Internal states of driver assistance functions.
     //
     optional FunctionStates function_states = 1;
 
-    // Requests of the ADAS-function.
+    // (External) requests of driver assistance functions.
     //
     optional FunctionRequests function_requests = 2;
 
     //
-    // \brief An Interface to describe the communication of an ADAS-function.
-    // The first set of signals are states the function sets internally
-    // and are relevant for the vehicle state.
+    // \brief Internal states of driver assistance functions.  
+    //    
     //
     message FunctionStates
     {
