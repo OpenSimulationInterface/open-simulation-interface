@@ -47,16 +47,20 @@ message AdasFunction
         optional EmergencyBrakeAssistant emergency_brake_assistant = 4;
 
         // Request that the driver has to take over.
-        // 0=Off; 1=On
+        //
+        // \note 0 = off; 1 = on.
         //
         optional bool driver_take_over_request = 5;
 
         // Color of the steering wheel (e.g. to show the driving mode).
-        // See osi_common_extension.
+        //
+        // \note See osi_common_extension.
         // 
         optional ColorformatRGB steering_wheel_lighting_color = 6;
 
-        // Requested state of the blindspot-lights (often in the side mirrors).
+        // Requested state of the blindspot-lights.
+        //
+        // \note Often visible in the side mirrors.
         //
         optional BlindSpotWarning blind_spot_warning = 7;
 
@@ -64,21 +68,30 @@ message AdasFunction
         //
         enum BlindSpotWarning
         {
+            // The state of the blind spot warning is unknown
+            // (must not be unsed in ground truth).
+            //
+            BLIND_SPOT_WARNING_UNKNOWN = 0;
+            
+            // Other (unspecified but known) blind spot warning.
+            //
+            BLIND_SPOT_WARNING_OTHER = 1;
+            
             // No warning.
             //
-            BLIND_SPOT_WARNING_NONE = 0;
+            BLIND_SPOT_WARNING_NONE = 2;
 
             // Left warning.
             //
-            BLIND_SPOT_WARNING_LEFT = 1;
+            BLIND_SPOT_WARNING_LEFT = 3;
 
             // Right warning.
             //
-            BLIND_SPOT_WARNING_RIGHT = 2;
+            BLIND_SPOT_WARNING_RIGHT = 4;
 
             // Warning on both sides.
             //
-            BLIND_SPOT_WARNING_BOTH = 3;
+            BLIND_SPOT_WARNING_BOTH = 5;
         }
     }
 
@@ -93,31 +106,36 @@ message AdasFunction
     message FunctionRequests
     {
         // All information about the trajectory the vehicle should follow.
-        // See osi_common_extension.
+        //
+        // \note See osi_common_extension.
         //
         optional Trajectory trajectory = 1;
 
         // Angle, angle-speed and torque.
-        // See osi_common_extension.
+        //
+        // \note See osi_common_extension.
         //
         optional SteeringWheel steering_wheel = 2;
 
         // Factor to scale the steeringtorque of the function output.
-        // 0 = no force of the function, 0.5 = half the force, 1 = 100% Torque
+        //
+        // \note 0 = no force of the function, 0.5 = half the force, 1 = 100% torque.
         //
         // Range: [0, 1] 
         //
         optional double steering_override_factor = 3;
 
         // Acceleration-, brakepedal and clutch.
-        // See osi_common_extension.
+        //
+        // \note See osi_common_extension.
         //
         optional Pedalry pedalry = 4;
 
         // Position of the handbrake.
-        // A value of 0% means fully released and 100% means fully pressed
         //
-        // Unit: [%]
+        // \note A value of 0.0 means fully released and 1.0 means fully pressed.
+        //
+        // Range: [0, 1] 
         //
         optional double handbrake_position = 5;
 
@@ -129,21 +147,30 @@ message AdasFunction
         //
         enum Indicators
         {
+            // The state of the indicator is unknown
+            // (must not be unsed in ground truth).
+            //
+            INDICATORS_UNKNOWN = 0;
+            
+            // Other (unspecified but known) indicator state.
+            //
+            INDICATORS_OTHER = 1;
+            
             // No indicator.
             //
-            INDICATORS_NONE = 0;
+            INDICATORS_NONE = 2;
 
             // Left-indicator.
             //
-            INDICATORS_LEFT = 1;
+            INDICATORS_LEFT = 3;
 
             // Right-indicator.
             //
-            INDICATORS_RIGHT = 2;
+            INDICATORS_RIGHT = 4;
 
             // Warning lights.
             //
-            INDICATORS_ALL = 3;
+            INDICATORS_ALL = 5;
         }
     }
 }
