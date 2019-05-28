@@ -13,12 +13,10 @@ package osi3;
 //
 message AdasFunction
 {
-    //
     // States the ADAS-function can set.
     //
     optional FunctionStates function_states = 1;
 
-    //
     // Requests of the ADAS-function.
     //
     optional FunctionRequests function_requests = 2;
