@@ -639,8 +639,6 @@ message CameraDetection
     // The probability for this classification is at least
     // \c #shape_classification_probability.
     //
-    // Range: [0.0, 1.0]
-    //
     optional bool shape_classification_background = 5;
 
     // The defined shape is foregroud.
