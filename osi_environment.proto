@@ -70,19 +70,20 @@ message EnvironmentalConditions
     //
     optional Fog fog = 7;
     
-    // Contains the velocity of the wind (global weather).
+    // Contains the velocity of the wind.
     //
     // Unit: [m/s]
     //
-    optional double wind_speed = 8;
+    optional double wind_speed = 9;
 
-    // Contains the direction of the wind (global weather).
-    // Wind direction is measured in degrees clockwise from due north.
-    // Like on a windrose. E.g.: A wind blowing from the north has a wind direction of 0 Degree.
+    // Contains the direction of the wind.
+    //
+    // \note Wind direction is measured in degrees clockwise from due north like on a windrose.
+    // E.g.: A wind blowing from the north has a wind direction of 0 degree.
     //
     // Unit: [deg]
     //
-    optional double wind_direction = 9;
+    optional double wind_direction = 10;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour [mm/h])
