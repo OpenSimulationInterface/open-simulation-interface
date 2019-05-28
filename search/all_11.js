@@ -27,6 +27,7 @@ var searchData=
   ['unit_5fpercentage',['UNIT_PERCENTAGE',['../structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a01ff916b671468616096cecaba11a440',1,'osi3::TrafficSignValue']]],
   ['unit_5fshort_5fton',['UNIT_SHORT_TON',['../structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a8f9804bdd9142bc18f1586bc69cdfb45',1,'osi3::TrafficSignValue']]],
   ['unit_5funknown',['UNIT_UNKNOWN',['../structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1ac72f27a3680432175007ba234d279322',1,'osi3::TrafficSignValue']]],
+  ['unix_5ftimestamp',['unix_timestamp',['../structosi3_1_1EnvironmentalConditions.html#a636bb78627046f34208f42f586ab2086',1,'osi3::EnvironmentalConditions']]],
   ['update_5fcycle_5foffset',['update_cycle_offset',['../structosi3_1_1SensorViewConfiguration.html#af9895d061988127eed3c38df83d48c30',1,'osi3::SensorViewConfiguration']]],
   ['update_5fcycle_5ftime',['update_cycle_time',['../structosi3_1_1SensorViewConfiguration.html#a66ddabd0bd40550da7144204555d9913',1,'osi3::SensorViewConfiguration']]],
   ['upper_5fbody_5fpose',['upper_body_pose',['../structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#a0e976baaa57e7cdcfce6c4e4c9d217a1',1,'osi3::DetectedMovingObject::CandidateMovingObject']]]

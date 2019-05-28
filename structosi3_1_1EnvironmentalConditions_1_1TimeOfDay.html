@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>The time of day at the location of the vehicle.  
+<p>The time of day at a specified location.  
  <a href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::EnvironmentalConditions::TimeOfDay:</div>
@@ -115,7 +115,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a6babaecd5662954155e8a846edbd8b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The time of day at the location of the vehicle. </p>
+<div class="textblock"><p>The time of day at a specified location. </p>
+<dl class="section note"><dt>Note</dt><dd>In general the global position of the parent frame should be obtainable in order to derive the local time. This information can be calculated from the <code><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a636bb78627046f34208f42f586ab2086">unix_timestamp</a></code> in combination with <code><a class="el" href="structosi3_1_1GroundTruth.html#af5f78f308a00d74ece79410eb7913006">osi3::GroundTruth::proj_string</a></code> and the position of the corresponding <code><a class="el" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. ">osi3::BaseStationary</a></code> or <code><a class="el" href="structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. ">osi3::BaseMoving</a></code> . </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a6babaecd5662954155e8a846edbd8b72"></a>
 <div class="memitem">
@@ -126,7 +127,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The number of seconds [s] that have passed since midnight local time. Used for determining the current state of the circadian rhythm of a driver.</p>
+<p>The number of seconds [s] that have passed since midnight local time. Used e.g. for determining the current state of the circadian rhythm of a driver.</p>
 <dl class="section note"><dt>Note</dt><dd>No changes of daylight saving time or time zones are considered. </dd></dl>
 
 </div>
@@ -137,7 +138,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 20 2019 22:14:09 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 28 2019 07:49:01 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

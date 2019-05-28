@@ -108,13 +108,13 @@ Collaboration diagram for osi3::EnvironmentalConditions:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1EnvironmentalConditions__coll__graph.png" border="0" usemap="#osi3_1_1EnvironmentalConditions_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1EnvironmentalConditions_coll__map" id="osi3_1_1EnvironmentalConditions_coll__map">
-<area shape="rect" id="node5" href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html" title="The time of day at the location of the vehicle. " alt="" coords="310,158,509,199"/></map>
+<area shape="rect" id="node6" href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html" title="The time of day at a specified location. " alt="" coords="310,209,509,250"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html">TimeOfDay</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time of day at the location of the vehicle.  <a href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time of day at a specified location.  <a href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -296,6 +296,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3bbc4ecf60a1ec4afa94ed59df1b2f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebd011399675b0a3582e5a64a5f93be2"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html">TimeOfDay</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#aebd011399675b0a3582e5a64a5f93be2">time_of_day</a> = 2</td></tr>
 <tr class="separator:aebd011399675b0a3582e5a64a5f93be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636bb78627046f34208f42f586ab2086"><td class="memItemLeft" align="right" valign="top">optional int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a636bb78627046f34208f42f586ab2086">unix_timestamp</a> = 8</td></tr>
+<tr class="separator:a636bb78627046f34208f42f586ab2086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d9bbc1bd9eea510498792ff09a9b23d"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a6d9bbc1bd9eea510498792ff09a9b23d">atmospheric_pressure</a> = 3</td></tr>
 <tr class="separator:a6d9bbc1bd9eea510498792ff09a9b23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb975ad7dddedd8bfac0a38664ab908e"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#afb975ad7dddedd8bfac0a38664ab908e">temperature</a> = 4</td></tr>
@@ -309,7 +311,8 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The conditions of the environment. </p>
-<p>Definition of light, weather conditions and other environmental conditions. </p>
+<p>Definition of light, weather conditions and other environmental conditions.</p>
+<dl class="section note"><dt>Note</dt><dd>These conditions apply locally around the host vehicle. </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a9af62398fb21a5314539815afa733d4b"></a>
 <div class="memitem">
@@ -903,7 +906,26 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The time of day. </p>
+<p>The time of day at the host vehicles location. </p>
+
+</div>
+</div>
+<a class="anchor" id="a636bb78627046f34208f42f586ab2086"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional int64 osi3::EnvironmentalConditions::unix_timestamp = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00:00:00Z). Literally speaking the epoch is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as a synonym for 'Unix time'. Many Unix systems store epoch dates as a signed 32-bit integer, which might cause problems on January 19, 2038 (known as the Year 2038 problem or Y2038).</p>
+<dl class="section note"><dt>Note</dt><dd>You can convert the timestamp using the following <a href="https://www.epochconverter.com/#code">routines sorted by languages</a></dd></dl>
+<dl class="section user"><dt>References:</dt><dd><ul>
+<li>[1] <a href="https://www.epochconverter.com/">Epoch &amp; Unix Timestamp Conversion Tools</a></li>
+<li>[2] <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Wikipedia: Coordinated Universal Time</a> </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
@@ -913,7 +935,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 20 2019 22:14:09 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 28 2019 07:49:01 for open_simulation_interface by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
