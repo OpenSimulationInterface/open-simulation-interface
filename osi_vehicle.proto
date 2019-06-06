@@ -224,12 +224,12 @@ message OsiVehicle
         //
         optional double friction_coefficient = 1;
 
-        // Contains the z-coordinate (contact-point) of each wheel.
-        // Dimensionless.
+        // Contains the x, y and z-coordinate of the contact point of the wheel, so that walking, torsion and deflation can be visualized.
+        // relative to the center of the wheel.
         //
-        // Unit: []
+        // Unit: [m]
         //
-        optional double contact_point = 2;
+        optional Vector3d contact_point = 2;
 
         // Contains the rotational speed of each wheel per second.
         //
@@ -264,5 +264,31 @@ message OsiVehicle
         // Unit: [mm]
         //
         optional double springdeflection = 7;
+		
+		//Contains the relativ position of the wheel to the center of the car
+		//
+		//Unit: [m]
+		//
+		optional Vector3d position = 8;
+		
+		//Contains the relativ orientation of the wheel to the center of the car
+		//As the rotation of the wheel is also controlled by this value, 
+		//
+		//Unit: [rad]
+		//
+		optional Orientation3d orientation = 9;
+		
+		//Contains the absolute (longitunal) slip of the tire
+		//0-100 percent
+		//
+		//Unit: []
+		//
+		optional double slip = 10;
+		
+		//Contains the slip-angle of the tire
+		//
+		//Unit: [rad]
+		//
+		optional double slipangle = 11;
     }
 }
