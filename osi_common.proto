@@ -503,7 +503,7 @@ message Trajectory
     //
     // Unit: [rad]
     //
-    optional double trackangle = 4;
+    optional double track_angle = 4;
 
     // Contains the curvature at the timestamp.
     //
@@ -511,11 +511,11 @@ message Trajectory
     //
     optional double curvature = 5;
 
-    // Contains the curvaturechange at the timestamp.
+    // Contains the curvature change at the timestamp.
     //
-    // Unit: [1/m*s]
+    // Unit: [1/(m*s)]
     //
-    optional double curvaturechange = 6;
+    optional double curvature_change = 6;
 
     // Contains the velocity of the vehicle at the timestamp.
     //
