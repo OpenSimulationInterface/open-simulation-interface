@@ -71,10 +71,10 @@ message DriverInputs
         //
         optional double handbrake_position = 8;
 
-        // Position of the gear lever.
+        // State of the gear lever.
         // See osi_common_extension.
         //
-        optional Gear gear_lever = 9;
+        optional GearLeverState gear_lever_state = 9;
     }
 
     // 

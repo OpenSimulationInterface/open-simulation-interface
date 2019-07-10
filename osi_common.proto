@@ -549,81 +549,92 @@ message Trajectory
 
 // The actual gear of the car.
 //
-enum Gear
+message GearLeverState
 {
-    // The actual gear was not calculated by the dynamicmodell.
+    // Current set gear of the gear lever. It is optional if none of these
+    // conditions is fulfilled:
+    // - the gear lever controls a manual transmission 
+    // - the gear lever controls an automatic transmission with the manual
+    //   override mode set.
     //
-    GEAR_UNKNOWN = 0;
+    // The sign of this field set the gear's mode as following:
+    // - zero: neutral position
+    // - positive: driving forward mode
+    // - negative: reverse mode (generally -1, but some vehicles have several
+    //   reverse mode gears)
+    //
+    optional integer gear = 0;
 
-    // The actual gear is 1.
+    // This Gear Lever controls an automatic transmission.
     //
-    GEAR_1 = 1;
+    optional bool controls_automatic_transmission = 1;
 
-    // The actual gear is 2.
+    // Transmission mode of an automatic transmission.
     //
-    GEAR_2 = 2;
+    // Optional if the transmission is manual.
+    //
+    optional AutomaticTransmissionMode automatic_transmission_mode = 2;
 
-    // The actual gear is 3.
+    // The request from the driver to shift gear if the transmission mode is
+    // MANUAL_OVERRIDE_MODE.
     //
-    GEAR_3 = 3;
+    optional ManualOverrideRequest manual_override_request = 3;
 
-    // The actual gear is 4.
+    // The all-wheel drive (AWD) mode is engaged by the driver.
     //
-    GEAR_4 = 4;
+    optional bool is_all_wheel_drive_engaged = 4;
 
-    // The actual gear is 5.
+    // Describe the possible mode of an automatic transmission.
     //
-    GEAR_5 = 5;
+    enum AutomaticTransmissionMode
+    {
+        // The gear lever is in automatic parking mode.
+        //
+        PARK_MODE = 0;
 
-    // The actual gear is 6.
-    //
-    GEAR_6 = 6;
+        // The gear lever is in reverse motion mode.
+        //
+        REVERSE_MODE = 1;
 
-    // The actual gear is 7.
-    //
-    GEAR_7 = 7;
+        // The gear lever is in automatic neutral mode.
+        //
+        NEUTRAL_MODE = 2;
 
-    // The actual gear is 8.
-    //
-    GEAR_8 = 8;
+        // The gear lever is in automatic driving mode.
+        //
+        DRIVE_MODE = 3;
 
-    // The actual gear is 9.
-    //
-    GEAR_9 = 9;
+        // The gear lever is in a manual override mode.
+        //
+        MANUAL_OVERRIDE_MODE = 4;
 
-    // The car is in idling-mode.
-    //
-    GEAR_IDLING = 10;
+        // The gear lever is in a non common mode.
+        //
+        OTHER_MODE = 5;
 
-    // The car is in reverse-mode.
-    //
-    GEAR_REVERSE = 11;
+        // The gear lever's position is unknown.
+        //
+        UKNOWN_MODE = 6;
+    }
 
-    // The car is in automatic-driving-mode.
+    // Describe a request for a gear change on automatic transmission vehicle
+    // with a gear shifter.
     //
-    GEAR_D = 20;
+    enum ManualOverrideRequest
+    {
+        // The driver shifts down on his own.
+        //
+        GEAR_DOWN = 0;
 
-    // The car is in automatic-idling-mode.
-    //
-    GEAR_N = 21;
+        // The automatic transmission is in manual override mode but the driver
+        // is not shifting the gear.
+        //
+        GEAR_MID = 1;
 
-    // The car is in automatic-parking-mode.
-    //
-    GEAR_P = 22;
-
-    // The car has an automatic transmission, but the driver shifts up by his
-    // own.
-    //
-    GEAR_UP = 30;
-
-    // The car has an automatic transmission, but the driver shifts by his own.
-    //
-    GEAR_MID = 31;
-
-    // The car has an automatic transmission, but the driver shifts down by his
-    // own.
-    //
-    GEAR_DOWN = 32;
+        // The driver shifts up on his own. 
+        //
+        GEAR_UP = 2;
+    }
 }
 
 //

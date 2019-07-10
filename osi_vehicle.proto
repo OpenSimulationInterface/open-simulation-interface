@@ -148,13 +148,23 @@ message OsiVehicle
 
         // The actual gear of the gear lever.
         //
-        optional Gear gear_gear_lever = 6;
+        optional GearLeverState gear_lever_state = 6;
         
         // The actual gear of the transmission.
         // E.g. gear_lever can be in "D" and transmission in "4", but not the
         // other way around.
         //
-        optional Gear gear_transmission = 7;
+        // The sign of this field is linked to the gear's mode as following:
+        // - zero: neutral position
+        // - positive: driving forward mode
+        // - negative: reverse mode (generally -1, but few vehicles have several
+        //   reverse mode gears)
+        //
+        optional integer gear_transmission = 7;
+
+        // The all-wheel drive (AWD) mode is engaged on the powertrain.
+        //
+        optional bool is_all_wheel_drive_engaged = 8;
     }
 
     //
