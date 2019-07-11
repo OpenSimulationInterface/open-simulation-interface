@@ -138,17 +138,17 @@ message OsiVehicle
         //
         // Unit: [l]
         //
-        optional double fuel_consumption = 4;
+        optional double fuel_consumption = 5;
 
         // Consumption of electrical or hybrid vehicle per 100 km
         //
         // Unit: [kWh]
         //
-        optional double electrical_energy_consumption = 5;
+        optional double electrical_energy_consumption = 6;
 
         // The actual gear of the gear lever.
         //
-        optional GearLeverState gear_lever_state = 6;
+        optional GearLeverState gear_lever_state = 7;
         
         // The actual gear of the transmission.
         // E.g. gear_lever can be in "D" and transmission in "4", but not the
@@ -160,11 +160,11 @@ message OsiVehicle
         // - negative: reverse mode (generally -1, but few vehicles have several
         //   reverse mode gears)
         //
-        optional integer gear_transmission = 7;
+        optional int32 gear_transmission = 8;
 
         // The all-wheel drive (AWD) mode is engaged on the powertrain.
         //
-        optional bool is_all_wheel_drive_engaged = 8;
+        optional bool is_all_wheel_drive_engaged = 9;
     }
 
     //

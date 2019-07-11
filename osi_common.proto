@@ -563,26 +563,26 @@ message GearLeverState
     // - negative: reverse mode (generally -1, but some vehicles have several
     //   reverse mode gears)
     //
-    optional integer gear = 0;
+    optional int32 gear = 1;
 
     // This Gear Lever controls an automatic transmission.
     //
-    optional bool controls_automatic_transmission = 1;
+    optional bool controls_automatic_transmission = 2;
 
     // Transmission mode of an automatic transmission.
     //
     // Optional if the transmission is manual.
     //
-    optional AutomaticTransmissionMode automatic_transmission_mode = 2;
+    optional AutomaticTransmissionMode automatic_transmission_mode = 3;
 
     // The request from the driver to shift gear if the transmission mode is
     // MANUAL_OVERRIDE_MODE.
     //
-    optional ManualOverrideRequest manual_override_request = 3;
+    optional ManualOverrideRequest manual_override_request = 4;
 
     // The all-wheel drive (AWD) mode is engaged by the driver.
     //
-    optional bool is_all_wheel_drive_engaged = 4;
+    optional bool is_all_wheel_drive_engaged = 5;
 
     // Describe the possible mode of an automatic transmission.
     //
