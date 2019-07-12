@@ -12,7 +12,7 @@ package osi3;
 // Consists of four messages: VehicleKinematics, VehiclePowertrain,
 // VehicleSteeringWheel and VehicleWheels.
 //
-message OsiVehicle
+message Vehicle
 {
     //
     // So this is the interface, that describes how the vehicle is moving.
