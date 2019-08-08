@@ -181,7 +181,9 @@ message Occupant
                 //
                 optional Vector3d position = 3;
                 
-                // Opening in [m].
+                // Opening of the eye.
+                //
+                // Unit: [m]
                 //
                 optional double opening = 4;
             }
