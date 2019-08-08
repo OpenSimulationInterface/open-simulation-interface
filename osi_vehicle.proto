@@ -274,7 +274,7 @@ message Vehicle
         // Unit: [mm]
         //
         optional double springdeflection = 7;
-    
+
     //Contains the relativ position of the wheel to the center of the car
     //
     //Unit: [m]

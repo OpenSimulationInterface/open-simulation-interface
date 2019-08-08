@@ -537,17 +537,28 @@ message Trajectory
     //
     enum InterpolationMethod
     {
+        // The interpolation method is unknown (must not be used in ground
+        // truth).
+        //
+        INTERPOLATION_METHOD_UNKNOWN = 0;
+
+        // Other (unspecified but known) interpolation method.
+        //
+        INTERPOLATION_METHOD_OTHER = 1;
+
         // Stay on the actual lane.
         //
-        INTERPOLATION_METHOD_LINEAR = 0;
+        INTERPOLATION_METHOD_LINEAR = 2;
 
         // Change to the left.
         //
-        INTERPOLATION_METHOD_CUBIC = 1;
+        INTERPOLATION_METHOD_CUBIC = 3;
     }
 }
 
-// The actual gear of the car.
+//
+// \brief The actual gear of the car.
+//
 //
 message GearLeverState
 {
@@ -588,33 +599,34 @@ message GearLeverState
     //
     enum AutomaticTransmissionMode
     {
+        // The gear transmission mode is unknown (must not be
+        // used in ground truth).
+        //
+        AUTOMATIC_TRANSMISSION_MODE_UNKNOWN = 0;
+
+        // Other (unspecified but known) transmisson mode.
+        //
+        AUTOMATIC_TRANSMISSION_MODE_OTHER = 1;
+        
         // The gear lever is in automatic parking mode.
         //
-        PARK_MODE = 0;
+        AUTOMATIC_TRANSMISSION_MODE_PARK = 2;
 
         // The gear lever is in reverse motion mode.
         //
-        REVERSE_MODE = 1;
+        AUTOMATIC_TRANSMISSION_MODE_REVERSE = 3;
 
         // The gear lever is in automatic neutral mode.
         //
-        NEUTRAL_MODE = 2;
+        AUTOMATIC_TRANSMISSION_MODE_NEUTRAL = 4;
 
         // The gear lever is in automatic driving mode.
         //
-        DRIVE_MODE = 3;
+        AUTOMATIC_TRANSMISSION_MODE_DRIVE = 5;
 
         // The gear lever is in a manual override mode.
         //
-        MANUAL_OVERRIDE_MODE = 4;
-
-        // The gear lever is in a non common mode.
-        //
-        OTHER_MODE = 5;
-
-        // The gear lever's position is unknown.
-        //
-        UKNOWN_MODE = 6;
+        AUTOMATIC_TRANSMISSION_MODE_MANUAL_OVERRIDE = 6;
     }
 
     // Describe a request for a gear change on automatic transmission vehicle
