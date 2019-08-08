@@ -274,31 +274,31 @@ message Vehicle
         // Unit: [mm]
         //
         optional double springdeflection = 7;
-	
-	//Contains the relativ position of the wheel to the center of the car
-	//
-	//Unit: [m]
-	//
-	optional Vector3d position = 8;
-	
-	//Contains the relativ orientation of the wheel to the center of the car
-	//As the rotation of the wheel is also controlled by this value, 
-	//
-	//Unit: [rad]
-	//
-	optional Orientation3d orientation = 9;
+    
+    //Contains the relativ position of the wheel to the center of the car
+    //
+    //Unit: [m]
+    //
+    optional Vector3d position = 8;
+    
+    //Contains the relativ orientation of the wheel to the center of the car
+    //As the rotation of the wheel is also controlled by this value, 
+    //
+    //Unit: [rad]
+    //
+    optional Orientation3d orientation = 9;
 
-	//Contains the absolute (longitunal) slip of the tire
-	//0-100 percent
-	//
-	//Unit: []
-	//
-	optional double slip = 10;
+    //Contains the absolute (longitunal) slip of the tire
+    //0-100 percent
+    //
+    //Unit: []
+    //
+    optional double slip = 10;
 
-	//Contains the slip-angle of the tire
-	//
-	//Unit: [rad]
-	//
-	optional double slipangle = 11;
+    //Contains the slip-angle of the tire
+    //
+    //Unit: [rad]
+    //
+    optional double slipangle = 11;
     }
 }

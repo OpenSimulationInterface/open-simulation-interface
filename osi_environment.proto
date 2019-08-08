@@ -74,7 +74,7 @@ message EnvironmentalConditions
     //
     // Unit: [m/s]
     //
-    optional double wind_speed = 9;
+    optional double wind_speed = 8;
 
     // Contains the direction of the wind.
     //
@@ -83,7 +83,7 @@ message EnvironmentalConditions
     //
     // Unit: [deg]
     //
-    optional double wind_direction = 10;
+    optional double wind_direction = 9;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour [mm/h])
