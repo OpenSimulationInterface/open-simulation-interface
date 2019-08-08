@@ -634,18 +634,27 @@ message GearLeverState
     //
     enum ManualOverrideRequest
     {
+        // The manual override request is unknown (must not be
+        // used in ground truth).
+        //
+        MANUAL_OVERRIDE_REQUEST_UNKNOWN = 0;
+
+        // Other (unspecified but known) manual override request.
+        //
+        MANUAL_OVERRIDE_REQUEST_OTHER = 1;
+        
         // The driver shifts down on his own.
         //
-        GEAR_DOWN = 0;
+        MANUAL_OVERRIDE_REQUEST_GEAR_DOWN = 2;
 
-        // The automatic transmission is in manual override mode but the driver
-        // is not shifting the gear.
+        // The automatic transmission is in manual override mode
+        // but the driver is not shifting the gear.
         //
-        GEAR_MID = 1;
+        MANUAL_OVERRIDE_REQUEST_GEAR_MID = 3;
 
         // The driver shifts up on his own. 
         //
-        GEAR_UP = 2;
+        MANUAL_OVERRIDE_REQUEST_GEAR_UP = 4;
     }
 }
 
