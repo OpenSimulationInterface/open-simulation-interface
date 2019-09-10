@@ -1,0 +1,35 @@
+---
+name: Question
+about: Ask a question if you don't understand something
+title: ''
+labels: question
+assignees: ''
+
+---
+
+**Problem**
+I want to do ... in my application, but what I'm actually getting is....
+Here is a screenshot that illustrates the problem:
+
+**What I've tried**
+This is the most simplified version of my code that I've been able to get, which still produces the problem I described above.
+
+    // my code
+    ...
+
+Basically, what the code is doing is....
+Changing ... does not work because it gives the following error:
+
+
+    Some error
+
+
+**My Research**
+[The documentation here] mentioned ... but did not provide a clear example of how that is done.
+[This Stack Overflow question] describes a similar problem, but mine is different because....
+
+**Question**
+So my basic question is, how do I...?
+
+**Additional context**
+Add any other context or screenshots about the feature request here.
