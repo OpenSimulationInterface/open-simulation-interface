@@ -7,26 +7,26 @@ assignees: ''
 
 ---
 
-#### Describe the bug.
+#### Describe the bug
 A clear and concise description of what the bug is.
 
-#### To Reproduce
+#### Describe how to reproduce the bug
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-#### Expected behavior
+#### Describe the expected behavior
 A clear and concise description of what you expected to happen.
 
-#### Screenshots
+#### Show some screenshots
 If applicable, add screenshots to help explain your problem.
 
-#### Desktop (please complete the following information):
+#### Describe the OS you are using
  - OS: [e.g. iOS, Ubuntu 18.04, Windows 10, ...]
  - Language: [e.g. C++, Python, ...]
  - Version [e.g. 3.6.8]
 
-#### Additional context:
-Add any other context about the problem here.
+#### Additional context
+Add any other context about the bug here.
