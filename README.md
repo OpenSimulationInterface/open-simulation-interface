@@ -62,7 +62,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Output:
+**Output**:
 ```
 lane_boundary {
   boundary_line {
@@ -76,7 +76,7 @@ lane_boundary {
   }
 }
 ```
-
+See Google's documentation for more tutorials on how to use protocol buffers with [Python](https://developers.google.com/protocol-buffers/docs/pythontutorial) or [C++](https://developers.google.com/protocol-buffers/docs/cpptutorial).
 ## Installation
 ##### Dependencies
 Install `cmake` 3.10.2:
@@ -95,6 +95,7 @@ $ sudo apt-get install libprotobuf-dev protobuf-compiler
 
 ##### Build and install for `C++` usage:
 ```
+$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 $ cd open-simulation-interface
 $ mkdir build
 $ cd build
@@ -103,9 +104,10 @@ $ make
 $ sudo make install
 ```
 
-##### Build and install for `Python` usage:
+##### Install for `Python` usage:
 Local:
 ```
+$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 $ cd open-simulation-interface
 $ sudo pip3 install virtualenv 
 $ virtualenv -p python3 venv
@@ -115,6 +117,7 @@ $ sudo pip install .
 
 Global:
 ```
+$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 $ cd open-simulation-interface
 $ sudo pip3 install .
 ```
