@@ -15,82 +15,49 @@ For more information on OSI see the [official documentation](https://opensimulat
 [[1]](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/) *A generic interface for the environment perception of automated driving functions in virtual scenarios.(Dated 03.02.2017) T. Hanke, N. Hirsenkorn, C. van-Driesten, P. Garcia-Ramos, M. Schiementz, S. Schneider, E. Biebl*
 
 ## Usage
-##### Reading and writing an OSI message in `C++`
+##### Example of writing and reading an OSI message in `Python`
 ```
-#include <iostream>
-#include <string.h>
-#include "osi_sensorview.pb.h"
-#include "osi_sensordata.pb.h"
-using namespace std;
-
-int main(int argc, char* argv[]) {
-
-    // Initialize SensorView and SensorData
-    osi3::SensorView sensorview;
-    osi3::SensorData sensordata;
-
-    // Receive a serialized buffer string (for simplicity here nothing)
-    string string_buffer = "";
-
-    // Parse the received string
-    sensorview.ParseFromString(string_buffer);
-
-    // Clear SensorData
-    sensordata.Clear();
-
-    // Set the timestamp
-    sensordata.mutable_timestamp()->set_seconds((long long int)floor(1000));
-
-    // Iterate through the existing Moving Objects
-    for (auto moving_obj : sensorview.global_ground_truth().moving_object())
-    {
-        // Create a moving object
-        osi3::DetectedMovingObject* detected_moving_obj =  sensordata.add_moving_object();
-
-        // Set the id of the detected moving object
-        detected_moving_obj->mutable_header()->add_ground_truth_id()->set_value(moving_obj.id().value());
-    }
-
-    // Serialize 
-    string new_string_buffer = "";
-    sensordata.SerializeToString(&new_string_buffer);
-
-  return 0;
-}
-```
-
-##### Reading and writing an OSI message in `Python`
-```
-import osi3.osi_sensorview_pb2 as sv
-import osi3.osi_sensordata_pb2 as sd
+from osi3.osi_sensorview_pb2 import SensorView
+from osi3.osi_sensordata_pb2 import SensorData
 
 def main():
-    # Initialize SensorView and SensorData
-    sensorview = sv.SensorView()
-    sensordata = sd.SensorData()
+    """Initialize SensorView and SensorData"""
+    sensorview = SensorView()
+    sensordata = SensorData()
 
-    # Receive a serialized buffer string (for simplicity here nothing)
-    string_buffer = ""
-
-    # Parse the received string
-    sensorview.ParseFromString(string_buffer)
-
-    # Clear SensorData
+    """Clear SensorData"""
     sensordata.Clear()
 
-    # Set the timestamp
-    sensordata.timestamp.seconds = 1000
+    """Get boundary line attributes from SensorView"""
+    sv_ground_truth = sensorview.global_ground_truth
+    sv_lane_boundary = sv_ground_truth.lane_boundary.add()
+    sv_boundary_line = sv_lane_boundary.boundary_line.add()
+    sv_boundary_line.position.x = 1699.20
+    sv_boundary_line.position.y = 100.16
+    sv_boundary_line.position.z = 0.0
+    sv_boundary_line.width = 0.13
+    sv_boundary_line.height = 0.0
 
-    # Iterate through the existing Moving Objects of SensorView from the received string
-    for moving_object in sensorview.global_ground_truth.moving_object:
-        # Create a moving object
-        detected_moving_obj = sensordata.moving_object.add()
+    """Set boundary line attributes to SensorData"""
+    sd_lane_boundary = sensordata.lane_boundary.add()
+    sd_boundary_line = sd_lane_boundary.boundary_line.add()
+    sd_boundary_line.position.x = sv_boundary_line.position.x
+    sd_boundary_line.position.y = sv_boundary_line.position.y
+    sd_boundary_line.position.z = sv_boundary_line.position.z
+    sd_boundary_line.width = sv_boundary_line.width
+    sd_boundary_line.height = sv_boundary_line.height
 
-        # Set the id of the detected moving object
-        detected_moving_obj.header.ground_truth_id.add().value = moving_object.id.value
+    """Serialize SensorData which can be send"""
+    string_buffer = sensordata.SerializeToString()
 
-    # Serialize
-    new_string_buffer = sensordata.SerializeToString()
+    """Clear SensorData to show parsing from string"""
+    sensordata.Clear()
+
+    """The received string buffer can now be parsed"""
+    sensordata.ParseFromString(string_buffer)
+
+    """Print SensorData"""
+    print(sensordata)
 
 if __name__ == "__main__":
     main()
@@ -98,15 +65,15 @@ if __name__ == "__main__":
 
 ## Installation
 ##### Dependencies
-Install cmake 3.10.2:
+Install `cmake` 3.10.2:
 ```
 $ sudo apt-get install cmake
 ```
-Install pip3 and missing python packages:
+Install `pip3` and missing python packages:
 ```
 $ sudo apt-get install python3-pip python-setuptools
 ```
-Install protobuf 3.0.0:
+Install `protobuf` 3.0.0:
 ```
 $ sudo apt-get install libprotobuf-dev protobuf-compiler
 ```
@@ -137,4 +104,4 @@ Global:
 $ cd open-simulation-interface
 $ sudo pip3 install .
 ```
-
+For Windows installation see [here](https://opensimulationinterface.github.io/osi-documentation/osi/windows.html) for more information.
