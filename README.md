@@ -112,7 +112,7 @@ $ cd open-simulation-interface
 $ sudo pip3 install virtualenv 
 $ virtualenv -p python3 venv
 $ source venv/bin/activate
-$ sudo pip install .
+$ pip install .
 ```
 
 Global:
