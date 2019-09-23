@@ -62,6 +62,20 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+Output:
+```
+lane_boundary {
+  boundary_line {
+    position {
+      x: 1699.2
+      y: 100.16
+      z: 0.0
+    }
+    width: 0.13
+    height: 0.0
+  }
+}
+```
 
 ## Installation
 ##### Dependencies
