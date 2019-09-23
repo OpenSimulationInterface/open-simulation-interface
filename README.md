@@ -16,7 +16,7 @@ For more information on OSI see the [official documentation](https://opensimulat
 
 ## Usage
 ##### Example of writing and reading an OSI message in `Python`
-```
+```python
 from osi3.osi_sensorview_pb2 import SensorView
 from osi3.osi_sensordata_pb2 import SensorData
 
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     main()
 ```
 **Output**:
-```
+```bash
 lane_boundary {
   boundary_line {
     position {
@@ -80,21 +80,21 @@ See Google's documentation for more tutorials on how to use protocol buffers wit
 ## Installation
 ##### Dependencies
 Install `cmake` 3.10.2:
-```
+```bash
 $ sudo apt-get install cmake
 ```
 Install `pip3` and missing python packages:
-```
+```bash
 $ sudo apt-get install python3-pip python-setuptools
 ```
 Install `protobuf` 3.0.0:
-```
+```bash
 $ sudo apt-get install libprotobuf-dev protobuf-compiler
 ```
 
 
 ##### Build and install for `C++` usage:
-```
+```bash
 $ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 $ cd open-simulation-interface
 $ mkdir build
@@ -106,7 +106,7 @@ $ sudo make install
 
 ##### Install for `Python` usage:
 Local:
-```
+```bash
 $ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 $ cd open-simulation-interface
 $ sudo pip3 install virtualenv 
@@ -116,7 +116,7 @@ $ pip install .
 ```
 
 Global:
-```
+```bash
 $ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 $ cd open-simulation-interface
 $ sudo pip3 install .
