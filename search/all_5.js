@@ -16,7 +16,7 @@ var searchData=
   ['fog_5fother',['FOG_OTHER',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a09d5d6482981492d8c48fb259b31edb2',1,'osi3::EnvironmentalConditions']]],
   ['fog_5fpoor_5fvisibility',['FOG_POOR_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a8a9f171205a8b9ab0e87b3e53ec04491',1,'osi3::EnvironmentalConditions']]],
   ['fog_5fthick',['FOG_THICK',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a5387a537ed7986d142604a3f3f6f3544',1,'osi3::EnvironmentalConditions']]],
-  ['fog_5funkown',['FOG_UNKOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4adc9f3cb9e3ded620db00bb2757a53d20',1,'osi3::EnvironmentalConditions']]],
+  ['fog_5funknown',['FOG_UNKNOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4afd12ec3453aeecfd945d1fd6896deeaa',1,'osi3::EnvironmentalConditions']]],
   ['free_5flane_5fboundary_5fid',['free_lane_boundary_id',['../structosi3_1_1Lane_1_1Classification.html#a7c49f38d73b09f54a6d94d907e866773',1,'osi3::Lane::Classification']]],
   ['free_5fspace_5fprobability',['free_space_probability',['../structosi3_1_1LidarDetection.html#a211052d77b3fd978c00659d3d1b98a06',1,'osi3::LidarDetection']]],
   ['front_5ffog_5flight',['front_fog_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#ae3defe31384a483f30bf502c7234d894',1,'osi3::MovingObject::VehicleClassification::LightState']]]

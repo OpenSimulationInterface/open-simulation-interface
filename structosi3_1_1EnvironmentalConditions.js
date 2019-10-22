@@ -15,7 +15,7 @@ var structosi3_1_1EnvironmentalConditions =
       [ "AMBIENT_ILLUMINATION_LEVEL9", "structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4bae7c67175f6db7526d05fecdf66f97a6c", null ]
     ] ],
     [ "Fog", "structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4", [
-      [ "FOG_UNKOWN", "structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4adc9f3cb9e3ded620db00bb2757a53d20", null ],
+      [ "FOG_UNKNOWN", "structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4afd12ec3453aeecfd945d1fd6896deeaa", null ],
       [ "FOG_OTHER", "structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a09d5d6482981492d8c48fb259b31edb2", null ],
       [ "FOG_EXCELLENT_VISIBILITY", "structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a480ecd3afd0430f70ccbd2d5c34b4ce6", null ],
       [ "FOG_GOOD_VISIBILITY", "structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a1061424400aefb3aee499dae20be6eed", null ],

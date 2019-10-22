@@ -9,5 +9,5 @@ var searchData=
   ['fog_5fother',['FOG_OTHER',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a09d5d6482981492d8c48fb259b31edb2',1,'osi3::EnvironmentalConditions']]],
   ['fog_5fpoor_5fvisibility',['FOG_POOR_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a8a9f171205a8b9ab0e87b3e53ec04491',1,'osi3::EnvironmentalConditions']]],
   ['fog_5fthick',['FOG_THICK',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a5387a537ed7986d142604a3f3f6f3544',1,'osi3::EnvironmentalConditions']]],
-  ['fog_5funkown',['FOG_UNKOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4adc9f3cb9e3ded620db00bb2757a53d20',1,'osi3::EnvironmentalConditions']]]
+  ['fog_5funknown',['FOG_UNKNOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4afd12ec3453aeecfd945d1fd6896deeaa',1,'osi3::EnvironmentalConditions']]]
 ];
