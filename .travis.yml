@@ -72,7 +72,6 @@ script:
     - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
     - cmake --build .
     - cd ..
-    - python test_cases.py
     - python setup.py build
     - python setup.py sdist
     - cd build
@@ -87,7 +86,7 @@ script:
     - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
     - doxygen
     - cd ..
-    - python test_cases_doc.py
+    - python -m unittest discover tests
     - mv VERSION.SAVED VERSION
     - sh convert-to-proto3.sh
     - mkdir -p build3
