@@ -1,5 +1,8 @@
 # Source: https://github.com/boostorg/hana/blob/master/.travis.yml
 
+# Use distribution Ubuntu 18.04 Bionic
+dist: bionic
+
 # Use C++ build environment.
 language: cpp
 
@@ -80,6 +83,8 @@ script:
     - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
     - cd build
     - cmake -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
+    - echo "EXCLUDE_PATTERNS = */osi3/*" >> Doxyfile
+    - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
     - doxygen
     - cd ..
     - python test_cases_doc.py

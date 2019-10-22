@@ -3,122 +3,122 @@ Open Simulation Interface (OSI)
 
 [![Travis Build Status](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface.svg?branch=master)](https://travis-ci.org/OpenSimulationInterface/open-simulation-interface)
 
-[Online Doxygen Documentation](https://opensimulationinterface.github.io/open-simulation-interface/)
+The Open Simulation Interface <sup>[[1]](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)</sup> (OSI) is a generic interface based on [Google's protocol buffers](https://developers.google.com/protocol-buffers/) for the environmental perception of automated driving functions in virtual scenarios.
 
-General description
--------------------
-[TUM Department of Electrical and Computer Engineering](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)
+As the complexity of automated driving functions rapidly increases, the requirements for test and development methods are growing. Testing in virtual environments offers the advantage of completely controlled and reproducible environment conditions.
 
+In this context, OSI defines generic interfaces to ensure modularity, integrability, and interchangeability of the individual components:
+![](doc/images/osicontextwiki.png)
 
-Global remarks
---------------
-All fields in the interface are set to optional and required is not used. This has been done to allow backward
-compatible changes in the field. Additionally, this is the default behavior in protobuf version 3 that does no longer
-have the required type and therefore ensures update compatibility.
-However, this does not mean that filling the field is optional. For the purpose of providing a complete interface, all
-existing fields should be set, unless not setting a field carries a specific meaning as indicated in the accompanying
-comment.
+For more information on OSI see the [official documentation](https://opensimulationinterface.github.io/osi-documentation/) or the [official reference documentation](https://opensimulationinterface.github.io/open-simulation-interface/) for defined protobuf messages. 
 
+[[1]](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/) *A generic interface for the environment perception of automated driving functions in virtual scenarios.(Dated 03.02.2017) T. Hanke, N. Hirsenkorn, C. van-Driesten, P. Garcia-Ramos, M. Schiementz, S. Schneider, E. Biebl*
 
-Compatibility
---------------
-Definition: FAITHFULLY "All recorded data is correctly interpreted by the interface"
+## Usage
+##### Example of writing and reading an OSI message in `Python`
+```python
+from osi3.osi_sensorview_pb2 import SensorView
+from osi3.osi_sensordata_pb2 import SensorData
 
-Forward compatibility:
-Definition: "An older version of the code can be used to read new files"
-Data recorded with a higher minor or patch version can be interpreted by code built using the same major version of the interface but lower minor and/or patch version.
-In this case, additional fields of a newer minor version are silently ignored. All patch versions of the same major and minor version are FAITHFULLY forward compatible.
+def main():
+    """Initialize SensorView and SensorData"""
+    sensorview = SensorView()
+    sensordata = SensorData()
 
-Backward compatibility:
-Definition: "A newer version of code can be used to read old files"
-All files that have been recorded in the past with a specific major version are FAITHFULLY valid with all combinations of
-higher minor and patch versions of the same major version.
+    """Clear SensorData"""
+    sensordata.Clear()
 
+    """Get boundary line attributes from SensorView"""
+    sv_ground_truth = sensorview.global_ground_truth
+    sv_lane_boundary = sv_ground_truth.lane_boundary.add()
+    sv_boundary_line = sv_lane_boundary.boundary_line.add()
+    sv_boundary_line.position.x = 1699.20
+    sv_boundary_line.position.y = 100.16
+    sv_boundary_line.position.z = 0.0
+    sv_boundary_line.width = 0.13
+    sv_boundary_line.height = 0.0
 
-Fault injection: how-to
-------------------------
-Injection of pre-defined sensor errors should be handled by a specialized "fault injector" component that acts like a
-sensor model component, i.e. it takes a SensorData message as input and returns a modified SensorData message as output.
-Specific errors should be handled as follows:
-- Ghost objects / false positive:
-    An additional SensorDataObject is added to the list of objects in SensorData.object
-    with SensorDataObject.model_internal_object.ground_truth_type set to kTypeGhost.
-- False negative:
-    The object is marked as not seen by the sensor by setting the property
-    SensorDataObject.model_internal_object.is_seen to false. The implementation
-    of field-of-view calculation modules should respect this flag and never reset
-    an object marked as not-seen to seen.
+    """Set boundary line attributes to SensorData"""
+    sd_lane_boundary = sensordata.lane_boundary.add()
+    sd_boundary_line = sd_lane_boundary.boundary_line.add()
+    sd_boundary_line.position.x = sv_boundary_line.position.x
+    sd_boundary_line.position.y = sv_boundary_line.position.y
+    sd_boundary_line.position.z = sv_boundary_line.position.z
+    sd_boundary_line.width = sv_boundary_line.width
+    sd_boundary_line.height = sv_boundary_line.height
 
+    """Serialize SensorData which can be send"""
+    string_buffer = sensordata.SerializeToString()
 
-Versioning
-----------
-The version number is defined in InterfaceVersion::version_number in osi_common.proto as the field's default value.
+    """Clear SensorData to show parsing from string"""
+    sensordata.Clear()
 
-Major:
-A change of the major version results in an incompatibility of code and recorded proto messages.
-- An existing field with a number changes its meaning
-  `optional double field = 1;` -> `repeated double field = 1;`
-  Changing the definition of units or interpretation of a field
-- Deleting a field and reusing the field number
-- Changing the technology
-  ProtoBuffer -> FlatBuffer
+    """The received string buffer can now be parsed"""
+    sensordata.ParseFromString(string_buffer)
 
-Minor:
-A change of the minor version indicates remaining compatibility to previously recorded files. The code on the other hand needs fixing.
-- Renaming of a field without changing the field number
-- Changing the names of messages
-- Adding a new field in a message without changing the numbering of other fields
+    """Print SensorData"""
+    print(sensordata)
 
-Patch:
-The compatibility of both recorded files and code remains.
-- File or folder structure which does not affect including the code in other projects
-- Changing or adding comments
-- Clarification of text passages explaining the message content
-
-
-Proto3 Support
---------------
-
-For users that need to use proto3 syntax, for example because the language
-binding of choice only supports proto3 syntax out of the box, a shell script
-called `convert-to-proto3.sh` is supplied that converts all proto files to
-proto3 syntax. If this is run prior to building, the resulting libaries will
-use proto3, with the on-the-wire format remaining compatible between proto2
-and proto3 libraries.
-
-Packaging
----------
-
-A specification to package sensor models using OSI as (extended)
-Functional Mock-up Units (FMUs) for use in simulation environments
-is available [here](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging).
-
-
-Documentation
--------------
-
-The actual documentation of the GitHub master branch is [online](https://opensimulationinterface.github.io/open-simulation-interface/) available.
-
-Detailed information about installation and usage of OSI can be found in the [Wiki](https://github.com/OpenSimulationInterface/open-simulation-interface/wiki)
-
-In order to generate the doxygen documentation for OSI, please follow the following steps:
-1. Install [Doxygen](http://www.stack.nl/~dimitri/doxygen/download.html), set an environmental variable 'doxygen' with the path to the binary file and add it to the PATH variable: `PATH += %doxygen%`.
-2. Download the [proto2cpp](https://github.com/OpenSimulationInterface/proto2cpp) repo.
-Copy the content of the repo proto2cpp to your desired `<path-to-proto2cpp.py>`
-3. Install [graphviz](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), set an environmental variable 'graphviz' with the path to the binary file and add it to the PATH variable: `PATH += %graphviz%`.
-4. From the cmd navigate to the build directory and run: `cmd cmake -DFILTER_PROTO2CPP_PY_PATH=<path-to-proto2cpp.py> <path-to-CMakeLists.txt>`
-5. The build process will then generate the doxygen documentation under the directory doc.
+if __name__ == "__main__":
+    main()
+```
+**Output**:
+```bash
+lane_boundary {
+  boundary_line {
+    position {
+      x: 1699.2
+      y: 100.16
+      z: 0.0
+    }
+    width: 0.13
+    height: 0.0
+  }
+}
+```
+See Google's documentation for more tutorials on how to use protocol buffers with [Python](https://developers.google.com/protocol-buffers/docs/pythontutorial) or [C++](https://developers.google.com/protocol-buffers/docs/cpptutorial).
+## Installation
+##### Dependencies
+Install `cmake` 3.10.2:
+```bash
+$ sudo apt-get install cmake
+```
+Install `pip3` and missing python packages:
+```bash
+$ sudo apt-get install python3-pip python-setuptools
+```
+Install `protobuf` 3.0.0:
+```bash
+$ sudo apt-get install libprotobuf-dev protobuf-compiler
+```
 
 
-Citing
-------
+##### Build and install for `C++` usage:
+```bash
+$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+$ cd open-simulation-interface
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ sudo make install
+```
 
-Use the following citation for referencing the OSI interface in your scientific work: `
-@misc{osi.2017,
-        author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
-        year = {2017},
-        title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
-        url = {http://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
-        note = {{Accessed: 2017-08-28}}
-} 
-`
+##### Install for `Python` usage:
+Local:
+```bash
+$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+$ cd open-simulation-interface
+$ sudo pip3 install virtualenv 
+$ virtualenv -p python3 venv
+$ source venv/bin/activate
+$ pip install .
+```
+
+Global:
+```bash
+$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+$ cd open-simulation-interface
+$ sudo pip3 install .
+```
+For Windows installation see [here](https://opensimulationinterface.github.io/osi-documentation/osi/windows.html) for more information.
