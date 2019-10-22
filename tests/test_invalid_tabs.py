@@ -10,7 +10,7 @@ class TestInvalidTabs(unittest.TestCase):
 
     def test_invalid_tabs(self):
         ''' Test to check if invalid tabs exist. '''
-        for file in glob("*.*"):
+        for file in glob("*.proto"):
             i = 0  
             
             with open(file, "rt") as fin:
