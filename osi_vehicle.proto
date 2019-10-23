@@ -350,7 +350,7 @@ message Vehicle
         // E.g.: Hadpilot, longitudinal_control, lateral_control or emergency_brake_assistant.
         //
         optional string function_name = 1;
-		
+
         //
         // States of an ad-function.
         //
