@@ -84,20 +84,20 @@ message Vehicle
         // The manufacturer of the car. 
         //
         optional string manufacturer = 2;
-	
+
         // The modelname of the car. 
         //
         optional string modelname = 3;
-	
+
         // The reference_string to the car (e.g. CAD-Modell). 
         //
         optional string reference_string = 4;
-	
+
         // The weight of the car. 
         //
         optional double weight = 5;
-		
-		// The license plate of the car. 
+
+        // The license plate of the car. 
         //
         optional string license_plate = 6;
     }
@@ -176,7 +176,7 @@ message Vehicle
 
         // Description how the powertrain is providing power to the wheels.
         //
-        enum PowertrainMode powertrain_mode = 9;
+        optional PowertrainMode powertrain_mode = 9;
 
         // Definition how the powertrain is providing power to the wheels.
         //
