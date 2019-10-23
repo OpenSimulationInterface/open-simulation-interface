@@ -1,0 +1,692 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_object.proto";
+
+package osi3;
+
+//
+// \brief The vehicle-message is a deeper description of a vehicle.
+// Consists of different messages categorizing the vehicle in:
+// Vehicle-Basics, Vehicle-Kinematics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels,
+// Vehicle-Light-State, Vehicle-Automated-Driving-Functions.
+// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
+// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
+//
+message Vehicle
+{
+    //
+    // The interface version used by the sender (i.e. the simulation
+    // environment).
+    //
+    optional InterfaceVersion version = 1;
+    
+    //
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+    
+    //
+    // The base parameters of the vehicle.
+    //
+    optional VehicleBasics vehicle_basics = 3;
+    
+    //
+    // This is the interface, that describes how the vehicle is moving.
+    // All coordinates and orientations are relative to the global ground truth
+    // coordinate system.
+    //
+    optional VehicleKinematics vehicle_kinematics = 4;
+    
+    //
+    // Interface regarding the powertrain.
+    //
+    optional VehiclePowertrain vehicle_powertrain = 5;
+    
+    //
+    // Interface regarding the SteeringWheel.
+    // The focus here is on the steering wheel.
+    //
+    optional VehicleSteeringWheel vehicle_steering_wheel = 6;
+    
+    //
+    // Interface regarding the wheels.
+    // The focus here is on the physical description of a wheel.
+    //
+    optional VehicleWheels vehicle_wheels = 7;
+    
+    //
+    // Interface regarding the light.
+    // The focus here is on the states of the lights.
+    //
+    optional MovingObject.VehicleClassification.LightState vehicle_light_state = 8;
+    
+    //
+    // Interface regarding automated-driving functions.
+    // The focus here is on states and intentions of a function.
+    //
+    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 9;
+
+    //
+    // \brief The absolut base parameters of the vehicle.
+    //
+    message VehicleBasics
+    {
+        // The id of the car in the simulation. 
+        //
+        optional Identifier id = 1;
+
+        // The manufacturer of the car. 
+        //
+        optional string manufacturer = 2;
+	
+        // The modelname of the car. 
+        //
+        optional string modelname = 3;
+	
+        // The reference_string to the car (e.g. CAD-Modell). 
+        //
+        optional string reference_string = 4;
+	
+        // The weight of the car. 
+        //
+        optional double weight = 5;
+		
+		// The license plate of the car. 
+        //
+        optional string license_plate = 6;
+    }
+
+    //
+    // \brief So this is the interface, that describes how the vehicle is
+    // moving.
+    // All coordinates and orientations are relative to the global ground truth
+    // coordinate system. 
+    //
+    message VehicleKinematics
+    {
+        // The base parameters of the vehicle.
+        //
+        // \note The bounding box does NOT include mirrors for vehicles.
+        //
+        optional BaseMoving base = 1;
+    }
+
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the powertrain.
+    //
+    message VehiclePowertrain
+    {
+        // The positions of the pedals.
+        //
+        optional Pedalry pedalry = 1;
+
+        // Rounds per minute of the crankshaft.
+        //
+        // Unit: [1/min]
+        //
+        optional double engine_rpm = 2;
+
+        // Torque in Nm.
+        //
+        // Unit: [N*m]
+        //
+        optional double engine_torque = 3;
+
+        // Consumption in liters per 100 km.
+        //
+        // Unit: [l]
+        //
+        optional double fuel_consumption = 4;
+
+        // Consumption of electrical or hybrid vehicle per 100 km
+        //
+        // Unit: [kWh]
+        //
+        optional double electrical_energy_consumption = 5;
+
+        // The actual gear of the gear lever.
+        //
+        optional GearLeverState gear_lever_state = 6;
+        
+        // The actual gear of the transmission.
+        // E.g. gear_lever can be in "D" and transmission in "4", but not the
+        // other way around.
+        //
+        // The sign of this field is linked to the gear's mode as following:
+        // - zero: neutral position
+        // - positive: driving forward mode
+        // - negative: reverse mode (generally -1, but few vehicles have several
+        //   reverse mode gears)
+        //
+        optional int32 gear_transmission = 7;
+
+        // Position of the handbrake.
+        // A value of 0% means fully released and 100% means fully pressed
+        //
+        // Unit: [%]
+        //
+        optional double handbrake_position = 8;
+
+        // Description how the powertrain is providing power to the wheels.
+        //
+        enum PowertrainMode powertrain_mode = 9;
+
+        // Definition how the powertrain is providing power to the wheels.
+        //
+        enum PowertrainMode
+        {
+            // All-wheel drive (AWD).
+            //
+            POWERTRAIN_MODE_ALL_WHEEL_DRIVE = 0;
+
+            // Front-wheel drive (FWD).
+            //
+            POWERTRAIN_MODE_FRONT_WHEEL_DRIVE = 1;
+
+            // Rear-wheel drive (RWD).
+            //
+            POWERTRAIN_MODE_REAR_WHEEL_DRIVE = 2;
+        }
+    }
+
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the steering wheel.
+    //
+    message VehicleSteeringWheel
+    {
+        // Angle, angle-speed and torque.
+        // See osi_common_extension.
+        //
+        optional SteeringWheel steering_wheel = 1;
+
+        // Spring-stiffness of the steering in Nm/deg.
+        //
+        // Unit: [N*m/deg]
+        //
+        optional double stw_springstiffness = 2;
+
+        // Damping of the steering in Nm*s/deg.
+        //
+        // Unit: [N*m*s/deg]
+        //
+        optional double stw_damping = 3;
+
+        // Friction of the steering in Nm.
+        //
+        // Unit: [N*m]
+        //
+        optional double stw_friction = 4;
+
+        // Hands Off Detection.
+        //
+        optional bool are_hands_off = 5;
+    }
+
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the wheels.
+    // It is made usage of the wheel-message to shorten the code.
+    //
+    message VehicleWheels
+    {
+        // Contains the physical description of the front-left wheel.
+        //
+        optional Wheel wheel_front_left = 1;
+
+        // Contains the physical description of the front-right wheel.
+        //
+        optional Wheel wheel_front_right = 2;
+
+        // Contains the physical description of the rear-left wheel.
+        //
+        optional Wheel wheel_rear_left = 3;
+
+        // Contains the physical description of the rear-right wheel.
+        //
+        optional Wheel wheel_rear_right = 4;
+    }
+
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the physical description of a wheel.
+    //
+    message Wheel
+    {
+        // Contains the friction-coefficient of each wheel.
+        // Dimensionless.
+        //
+        // Unit: []
+        //
+        optional double friction_coefficient = 1;
+
+        // Contains the x, y and z-coordinate of the contact point of 
+        // the wheel, so that walking, torsion and deflation can be visualized.
+        // relative to the center of the wheel.
+        //
+        // Unit: [m]
+        //
+        optional Vector3d contact_point = 2;
+
+        // Contains the rotational speed of each wheel per second.
+        //
+        // Unit: [rad/s]
+        //
+        optional double rotational_speed = 3;
+
+        // Contains the steering angle of each wheel.
+        //
+        // Unit: [rad]
+        //
+        optional double steeringangle = 4;
+
+        // Contains the camber of each wheel.
+        // 
+        // Negative camber if the bottom of the wheel is farther out than the
+        // top.
+        // For more information: https://en.wikipedia.org/wiki/Camber_angle.
+        //
+        // Unit: [rad]
+        //
+        optional double camber = 5;
+
+        // Contains the tirepressure of each tire.
+        //
+        // Unit: [Pa]
+        // 
+        optional double tirepressure = 6;
+
+        // Contains the springdeflection in z-direction for each wheel.
+        //
+        // Unit: [mm]
+        //
+        optional double springdeflection = 7;
+
+        //Contains the relativ position of the wheel to the center of the car
+        //
+        //Unit: [m]
+        //
+        optional Vector3d position = 8;
+    
+        //Contains the relativ orientation of the wheel to the center of the car
+        //As the rotation of the wheel is also controlled by this value, 
+        //
+        //Unit: [rad]
+        //
+        optional Orientation3d orientation = 9;
+
+        //Contains the absolute (longitunal) slip of the tire
+        //0-100 percent
+        //
+        //Unit: []
+        //
+        optional double slip = 10;
+
+        //Contains the slip-angle of the tire
+        //
+        //Unit: [rad]
+        //
+        optional double slipangle = 11;
+    }
+
+    //
+    // \brief Information about the automated driving system.
+    // Important is the differentiation between states and intentions.
+    // An automated-driving function itself does not have many states. It is more about Intentions,
+    // to change some vehicle states. E.g. a desired acceleration(-pedal-position), but effective is the one in
+    // the powertrain message.
+    //
+    message VehicleAutomatedDrivingFunction
+    {
+        //
+        // Here the name of the function can be chosen.
+        // E.g.: Hadpilot, longitudinal_control, lateral_control or emergency_brake_assistant.
+        //
+        optional string function_name = 1;
+		
+        //
+        // States of an ad-function.
+        //
+        optional States states = 2;
+        
+        // 
+        // Intentions, requests or wishes from the function to change the vehicle-state.
+        //
+        optional Intentions intentions = 3;
+
+        //
+        // \brief Internal states of an automated-driving function.  
+        //    
+        //
+        message States
+        {
+            // Activation state of the function.
+            //
+            optional bool is_activated = 1;
+
+            // This is the speed the function targets.
+            // E.g.: At the point of activation, the actual speed could be 80 km/h, 
+            // but the function tries to accelerate to 130 km/h.
+            //
+            // Unit: [km/h]
+            //
+            optional double targeted_speed = 2;
+
+            // The timegap describes the minimumdistance to the next vehicle in front.
+            //
+            // Unit: [s]
+            //
+            optional double timegap = 3;
+        }
+
+        //
+        // \brief Interface to describe the communication of an automated-driving function.
+        //
+        // Intentions, requests or wishes from the function to change the vehicle-state.
+        //
+        message Intentions
+        {
+            // All information about the trajectory the vehicle should follow.
+            //
+            // \note See osi_common_extension.
+            //
+            optional Trajectory trajectory = 1;
+
+            // Angle, angle-speed and torque.
+            //
+            // \note See osi_common_extension.
+            //
+            optional SteeringWheel steering_wheel = 2;
+
+            // Factor to scale the steeringtorque of the function output.
+            //
+            // \note 0 = no force of the function, 0.5 = half the force, 1 = 100% torque.
+            //
+            // Range: [0, 1] 
+            //
+            optional double steering_override_factor = 3;
+
+            // Acceleration-, brakepedal and clutch.
+            //
+            // \note See osi_common_extension.
+            //
+            optional Pedalry pedalry = 4;
+
+            // Position of the handbrake.
+            //
+            // \note A value of 0.0 means fully released and 1.0 means fully pressed.
+            //
+            // Range: [0, 1] 
+            //
+            optional double handbrake_position = 5;
+
+            // The light state of the vehicle.
+            //
+            optional MovingObject.VehicleClassification.LightState light_state = 6;
+
+            // Request that the driver has to take over.
+            //
+            // \note 0 = off; 1 = on.
+            //
+            optional bool driver_take_over_request = 7;
+
+            // Request to an ADAS-Function for a lane change.
+            //
+            optional LaneChangeRequest lane_change_request = 8;
+
+            // Request to an ADAS-Function for a lane change.
+            //
+            enum LaneChangeRequest
+            {
+                // Stay on the actual lane.
+                //
+                LANE_CHANGE_REQUEST_EGO_LANE = 0;
+
+                // Change to the left.
+                //
+                LANE_CHANGE_REQUEST_LC_LEFT = 1;
+
+                // Change to the right.
+                //
+                LANE_CHANGE_REQUEST_LC_RIGHT = 2;
+            }
+        }
+    }
+}
+
+
+//
+// \brief A description for the steering wheel.
+//
+message SteeringWheel
+{
+    // Angle of the steering wheel. 
+    // 0=Central (Straight); Left>0; 0>Right.
+    //
+    // Unit: [rad]
+    //
+    optional double angle = 1;
+
+    // Angle-speed of the steering wheel.
+    // 0=Central (Straight); Left>0; 0>Right.
+    //
+    // Unit: [rad/s]
+    //
+    optional double angular_speed = 2;
+
+    // Torque of the steering wheel to the hand.
+    // 0=Central (Straight); Left>0; 0>Right.
+    //
+    // Unit: [N*m]
+    //
+    optional double torque = 3;
+}
+
+//
+// \brief A description for the positions of the pedals.
+//
+//
+message Pedalry
+{
+    // Position of the acceleration-pedal.
+    // Unit: [0-1] (Unpressed - fully pressed)
+    //
+    optional double pedal_position_acceleration = 1;
+
+    // Position of the brake-pedal.
+    // Unit: [0-1] (Unpressed - fully pressed)
+    //
+    optional double pedal_position_brake = 2;
+
+    // Position of the clutch-pedal.
+    // Unit: [0-1] (Unpressed - fully pressed)
+    //
+    optional double pedal_position_clutch = 3;
+}
+
+//
+// \brief This is a message to describe, which trajectory the vehicle should
+// follow.
+//
+//
+message Trajectory
+{
+    // Contains the timestamp where the trajectorypoint should be reached.
+    //
+    // Unit: [s]
+    //
+    optional Timestamp timestamp = 1;
+
+    // Contains the X-Position the vehicle should be at the timestamp.
+    //
+    optional double targeted_pos_x = 2;
+
+    // Contains the Y-Position the vehicle should be at the timestamp.
+    //
+    optional double targeted_pos_y = 3;
+
+    // Direction of the vehicle at the timestamp.
+    //
+    // Unit: [rad]
+    //
+    optional double track_angle = 4;
+
+    // Contains the curvature at the timestamp.
+    //
+    // Unit: [1/m]
+    //
+    optional double curvature = 5;
+
+    // Contains the curvature change at the timestamp.
+    //
+    // Unit: [1/(m*s)]
+    //
+    optional double curvature_change = 6;
+
+    // Contains the velocity of the vehicle at the timestamp.
+    //
+    // Unit: [m/s]
+    //
+    optional double velocity = 7;
+
+    // Contains the acceleration of the vehicle at the timestamp.
+    //
+    // Unit: [m/s^2]
+    //
+    optional double acceleration = 8;
+
+    // Contains the interpolation method.
+    //
+    optional InterpolationMethod interpolation_method = 9;
+
+    // Contains the interpolation method.
+    //
+    enum InterpolationMethod
+    {
+        // The interpolation method is unknown (must not be used in ground
+        // truth).
+        //
+        INTERPOLATION_METHOD_UNKNOWN = 0;
+
+        // Other (unspecified but known) interpolation method.
+        //
+        INTERPOLATION_METHOD_OTHER = 1;
+
+        // Stay on the actual lane.
+        //
+        INTERPOLATION_METHOD_LINEAR = 2;
+
+        // Change to the left.
+        //
+        INTERPOLATION_METHOD_CUBIC = 3;
+    }
+}
+
+//
+// \brief The actual gear of the car.
+//
+//
+message GearLeverState
+{
+    // Current set gear of the gear lever. It is optional if none of these
+    // conditions is fulfilled:
+    // - the gear lever controls a manual transmission 
+    // - the gear lever controls an automatic transmission with the manual
+    //   override mode set.
+    //
+    // The sign of this field set the gear's mode as following:
+    // - zero: neutral position
+    // - positive: driving forward mode
+    // - negative: reverse mode (generally -1, but some vehicles have several
+    //   reverse mode gears)
+    //
+    optional int32 gear = 1;
+
+    // This Gear Lever controls an automatic transmission.
+    //
+    optional bool controls_automatic_transmission = 2;
+
+    // Transmission mode of an automatic transmission.
+    //
+    // Optional if the transmission is manual.
+    //
+    optional AutomaticTransmissionMode automatic_transmission_mode = 3;
+
+    // The request from the driver to shift gear if the transmission mode is
+    // MANUAL_OVERRIDE_MODE.
+    //
+    optional ManualOverrideRequest manual_override_request = 4;
+
+    // The all-wheel drive (AWD) mode is engaged by the driver.
+    //
+    optional bool is_all_wheel_drive_engaged = 5;
+
+    // Describe the possible mode of an automatic transmission.
+    //
+    enum AutomaticTransmissionMode
+    {
+        // The gear transmission mode is unknown (must not be
+        // used in ground truth).
+        //
+        AUTOMATIC_TRANSMISSION_MODE_UNKNOWN = 0;
+
+        // Other (unspecified but known) transmisson mode.
+        //
+        AUTOMATIC_TRANSMISSION_MODE_OTHER = 1;
+        
+        // The gear lever is in automatic parking mode.
+        //
+        AUTOMATIC_TRANSMISSION_MODE_PARK = 2;
+
+        // The gear lever is in reverse motion mode.
+        //
+        AUTOMATIC_TRANSMISSION_MODE_REVERSE = 3;
+
+        // The gear lever is in automatic neutral mode.
+        //
+        AUTOMATIC_TRANSMISSION_MODE_NEUTRAL = 4;
+
+        // The gear lever is in automatic driving mode.
+        //
+        AUTOMATIC_TRANSMISSION_MODE_DRIVE = 5;
+
+        // The gear lever is in a manual override mode.
+        //
+        AUTOMATIC_TRANSMISSION_MODE_MANUAL_OVERRIDE = 6;
+    }
+
+    // Describe a request for a gear change on automatic transmission vehicle
+    // with a gear shifter.
+    //
+    enum ManualOverrideRequest
+    {
+        // The manual override request is unknown (must not be
+        // used in ground truth).
+        //
+        MANUAL_OVERRIDE_REQUEST_UNKNOWN = 0;
+
+        // Other (unspecified but known) manual override request.
+        //
+        MANUAL_OVERRIDE_REQUEST_OTHER = 1;
+        
+        // The driver shifts down on his own.
+        //
+        MANUAL_OVERRIDE_REQUEST_GEAR_DOWN = 2;
+
+        // The automatic transmission is in manual override mode
+        // but the driver is not shifting the gear.
+        //
+        MANUAL_OVERRIDE_REQUEST_GEAR_MID = 3;
+
+        // The driver shifts up on his own. 
+        //
+        MANUAL_OVERRIDE_REQUEST_GEAR_UP = 4;
+    }
+}
