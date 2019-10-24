@@ -67,10 +67,15 @@ message Vehicle
     optional MovingObject.VehicleClassification.LightState vehicle_light_state = 8;
     
     //
+    // Interface regarding the navigation.
+    //
+    optional VehicleNavigation vehicle_navigation = 9;
+    
+    //
     // Interface regarding automated-driving functions.
     // The focus here is on states and intentions of a function.
     //
-    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 9;
+    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 10;
 
     //
     // \brief The absolut base parameters of the vehicle.
@@ -81,19 +86,27 @@ message Vehicle
         //
         optional Identifier id = 1;
 
-        // The manufacturer of the car. 
+        // The brand of the car. 
         //
-        optional string manufacturer = 2;
+        // \note It is implementation-specific how the string is filled.
+        //
+        optional string brand = 2;
 
         // The modelname of the car. 
+        //
+        // \note It is implementation-specific how the string is filled.
         //
         optional string modelname = 3;
 
         // The reference_string to the car (e.g. CAD-Modell). 
         //
+        // \note It is implementation-specific how the string is filled.
+        //
         optional string reference_string = 4;
 
-        // The weight of the car. 
+        // The total mass of the vehicle (curb weight). 
+        //
+        // Unit: [kg]
         //
         optional double weight = 5;
 
@@ -141,13 +154,13 @@ message Vehicle
 
         // Consumption in liters per 100 km.
         //
-        // Unit: [l]
+        // Unit: [l/100km]
         //
         optional double fuel_consumption = 4;
 
         // Consumption of electrical or hybrid vehicle per 100 km
         //
-        // Unit: [kWh]
+        // Unit: [kW/100kmh]
         //
         optional double electrical_energy_consumption = 5;
 
@@ -211,19 +224,19 @@ message Vehicle
         //
         // Unit: [N*m/deg]
         //
-        optional double stw_springstiffness = 2;
+        optional double steering_springstiffness = 2;
 
         // Damping of the steering in Nm*s/deg.
         //
         // Unit: [N*m*s/deg]
         //
-        optional double stw_damping = 3;
+        optional double steering_damping = 3;
 
         // Friction of the steering in Nm.
         //
         // Unit: [N*m]
         //
-        optional double stw_friction = 4;
+        optional double steering_friction = 4;
 
         // Hands Off Detection.
         //
@@ -231,8 +244,7 @@ message Vehicle
     }
 
     //
-    // \brief Interface to the vehicle-model.
-    // The focus here is on the wheels.
+    // \brief The focus here is on the wheels.
     // It is made usage of the wheel-message to shorten the code.
     //
     message VehicleWheels
@@ -255,8 +267,7 @@ message Vehicle
     }
 
     //
-    // \brief Interface to the vehicle-model.
-    // The focus here is on the physical description of a wheel.
+    // \brief The focus here is on the physical description of a wheel.
     //
     message Wheel
     {
@@ -334,6 +345,24 @@ message Vehicle
         //Unit: [rad]
         //
         optional double slipangle = 11;
+    }
+    
+    //
+    // \brief This message contains all the necessary information for navigation.
+    //
+    message VehicleNavigation
+    {
+        // Georeferenced data. Longitude in decimal degrees.
+        //
+        // Unit: [°]
+        //
+        optional double longitude = 1;
+        
+        // Georeferenced data. Latitude in decimal degrees.
+        //
+        // Unit: [°]
+        //
+        optional double latitude = 2;
     }
 
     //
