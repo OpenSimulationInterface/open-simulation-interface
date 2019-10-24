@@ -1,0 +1,26 @@
+v2.0.0 - OSI Initial Commit
+============================
+`db6dd3f <https://github.com/OpenSimulationInterface/open-simulation-interface/commit/db6dd3fabcca340e2aaf98c34d4959b63fb2b712>`_
+
+This is the initial version of the Open Simulation Interface (OSI).
+
+Overview:
+-----------
+OSI is a generic interface for the environmental perception of automated driving functions in virtual scenarios. It is primarily conceived to enable easy and straightforward compatibility between automated driving functions and the variety of driving simulation frameworks available. The data description has been derived from the perspective of sensor modeling for automated test and validation of highly automated driving functions.
+
+Implementation:
+----------------
+OSI primarily contains an object based environment description using the message format of the protocol buffers library developed and maintained by Google.
+
+Detailed description:
+---------------------
+
+**Top level interfaces**:
+OSI consists of two individual top level interfaces for object data: The ``OSI::GroundTruth`` and the ``OSI::SensorData`` interface.
+
+
+- The ``OSI::GroundTruth`` interface provides an exact view on the simulated objects in a global coordinate system. This message is populated using the internally available data of the used (driving)-simulation framework and is afterwards published to external subscribers with an exporter plugin.
+- The ``OSI::SensorData`` interface describes the objects in the reference frame of a sensor for environmental perception. It is generated from a ``OSI::GroundTruth`` message and can either be used to directly connect to an automated driving function using ideal simulated data, or may serve as input for a sensor model simulating limited perception as a replication of real world sensor behavior.
+
+**Low level interfaces**:
+Additionally to the two top level interfaces, OSI contains an ``OSI::LowLevelData`` message. This message describes the output of a (physical) model of the measurement process before tracking and object hypothesis. It does not deal with object data, but may comprise the geometrical influence of 3D simulations e.g. generating Lidar point clouds with a ray-tracer plugin. In addition this message supports generic radar reflection lists and will be extended to supporting low level camera data in the future.
