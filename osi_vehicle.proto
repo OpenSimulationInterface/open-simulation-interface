@@ -354,13 +354,13 @@ message Vehicle
     {
         // Georeferenced data. Longitude in decimal degrees.
         //
-        // Unit: [°]
+        // Unit: [degree]
         //
         optional double longitude = 1;
         
         // Georeferenced data. Latitude in decimal degrees.
         //
-        // Unit: [°]
+        // Unit: [degree]
         //
         optional double latitude = 2;
     }
