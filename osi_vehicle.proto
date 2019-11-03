@@ -357,7 +357,7 @@ message Vehicle
         // Unit: [degree]
         //
         optional double longitude = 1;
-        
+
         // Latitude in decimal degrees.
         //
         // Unit: [degree]
@@ -369,19 +369,19 @@ message Vehicle
         // Unit: [m]
         //
         optional double altitude = 3;
-		
+
         // Heading in degrees.
         //
         // Unit: [degree]
         //
         optional double heading = 4;
-        
+
         // Accuracy of localization measurement measured in percentage of the units 
         //
         // Unit: [%]
         //
         optional double localization_accuracy = 5;
-        
+
         // 
         // Number of satellites 
         //
