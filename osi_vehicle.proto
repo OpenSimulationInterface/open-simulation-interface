@@ -69,7 +69,7 @@ message Vehicle
     //
     // Interface regarding the navigation.
     //
-    optional VehicleNavigation vehicle_navigation = 9;
+    optional VehicleLocalization vehicle_localization = 9;
     
     //
     // Interface regarding automated-driving functions.
@@ -348,9 +348,9 @@ message Vehicle
     }
     
     //
-    // \brief This message contains all the necessary information for navigation.
+    // \brief This message contains all the necessary information of the localization solution.
     //
-    message VehicleNavigation
+    message VehicleLocalization
     {
         // Georeferenced data. Longitude in decimal degrees.
         //
@@ -363,6 +363,24 @@ message Vehicle
         // Unit: [degree]
         //
         optional double latitude = 2;
+        
+        // Georeferenced data. Altitude in meters.
+        //
+        // Unit: [m]
+        //
+        optional double altitude = 3;
+        
+        // Accuracy of localization measurement measured in percentage of the units 
+        //
+        // Unit: [%]
+        //
+        optional double localization_accuracy = 4;
+        
+        // 
+        // Number of satellites 
+        //
+        //
+        optional int32 number_of_satellites = 5;    
     }
 
     //
