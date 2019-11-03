@@ -352,35 +352,41 @@ message Vehicle
     //
     message VehicleLocalization
     {
-        // Georeferenced data. Longitude in decimal degrees.
+        // Longitude in decimal degrees.
         //
         // Unit: [degree]
         //
         optional double longitude = 1;
         
-        // Georeferenced data. Latitude in decimal degrees.
+        // Latitude in decimal degrees.
         //
         // Unit: [degree]
         //
         optional double latitude = 2;
         
-        // Georeferenced data. Altitude in meters.
+        // Altitude in meters.
         //
         // Unit: [m]
         //
         optional double altitude = 3;
+		
+        // Heading in degrees.
+        //
+        // Unit: [degree]
+        //
+        optional double heading = 4;
         
         // Accuracy of localization measurement measured in percentage of the units 
         //
         // Unit: [%]
         //
-        optional double localization_accuracy = 4;
+        optional double localization_accuracy = 5;
         
         // 
         // Number of satellites 
         //
         //
-        optional int32 number_of_satellites = 5;    
+        optional int32 number_of_satellites = 6;    
     }
 
     //

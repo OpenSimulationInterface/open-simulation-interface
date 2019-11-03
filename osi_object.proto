@@ -296,7 +296,7 @@ message MovingObject
     // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
     //
-    optional VehicleAttributes vehicle_attributes = 5;
+    optional VehicleAttributes vehicle_attributes = 4;
 
     // Specific information about the classification of the vehicle.
     //
@@ -304,14 +304,14 @@ message MovingObject
     // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
     //
-    optional VehicleClassification vehicle_classification = 6;
+    optional VehicleClassification vehicle_classification = 5;
 
     // Opaque reference of an associated 3D model of the moving object.
     //
     // \note It is implementation-specific how model_references are resolved to
     // 3d models.
     //
-    optional string model_reference = 7;
+    optional string model_reference = 6;
 
     // Definition of object types.
     //
@@ -431,7 +431,7 @@ message MovingObject
         // value for non valid id.
         //
         optional Identifier trailer_id = 4;
-		
+
         // The IDs of the lanes that this object is assigned to.
         //
         // \note Might be multiple if the object is switching lanes or moving from
