@@ -296,6 +296,11 @@ class TestInvalidMessage(unittest.TestCase):
                 saveStatement = ""
 
                 for line in fin:
+
+                    # Skipping test on multiplicity for protobuf 3.0.0
+                    if '"proto3"' in line:
+                        break
+
                     i += 1
 
                     # Divide statement and comment. Concatenate multi line statements.
