@@ -138,13 +138,12 @@ scientific work:
 
 .. code-block:: latex
 
-    @misc{osi.2017, author = {Hanke, Timo and
-    Hirsenkorn, Nils and {van[STRIKEOUT:Driesten}, Carlo and
-    {Garcia]\ Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian},
-    year = {2017}, title = {{Open Simulation Interface: A generic interface
-    for the environment perception of automated driving functions in virtual
-    scenarios.}}, url = {http://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
-    note = {{Accessed: 2017-08-28}} }
+    @misc{osi.2017,
+	author = {Hanke, Timo and Hirsenkorn, Nils and {van~Driesten}, Carlo and {Garcia~Ramos}, Pilar and Schiementz, Mark and Schneider, Sebastian and Biebl, Erwin},
+	year = {2017},
+	title = {{Open Simulation Interface: A generic interface for the environment perception of automated driving functions in virtual scenarios.}},
+	url = {https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/},
+	note = {{Accessed: 2019-11-05}}}
 
 .. _here: https://github.com/OpenSimulationInterface/osi-sensor-model-packaging
 .. _online: https://opensimulationinterface.github.io/open-simulation-interface/
