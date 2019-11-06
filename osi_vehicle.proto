@@ -677,10 +677,6 @@ message GearLeverState
     //
     optional ManualOverrideRequest manual_override_request = 4;
 
-    // The all-wheel drive (AWD) mode is engaged by the driver.
-    //
-    optional bool is_all_wheel_drive_engaged = 5;
-
     // Describe the possible mode of an automatic transmission.
     //
     enum AutomaticTransmissionMode
