@@ -61,46 +61,113 @@ addons:
         - doxygen-gui
         - graphviz
 
-# Change directory back to default build directory.
-before_script:
-    - cd "${TRAVIS_BUILD_DIR}"
 
-# Run the build script and generate documentation.
-script:
-    - mkdir -p build
-    - cd build
-    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
-    - cmake --build .
-    - cd ..
-    - python setup.py build
-    - python setup.py sdist
-    - cd build
-    - cmake --build . --target install
-    - cd ..
-    - cp VERSION VERSION.SAVED
-    - echo "" >> VERSION
-    - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
-    - cd build
-    - cmake -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
-    - echo "EXCLUDE_PATTERNS = */osi3/*" >> Doxyfile
-    - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
-    - doxygen
-    - cd ..
-    - python -m unittest discover tests
-    - mv VERSION.SAVED VERSION
-    - sh convert-to-proto3.sh
-    - mkdir -p build3
-    - cd build3
-    - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
-    - cmake --build .
-    - cd ..
+jobs:
+  include:    
+    # Run the build script and generate documentation.
+    - stage: test OSI protobuf
 
-# Deploy the documentation on github (only for master branch).
-deploy:
-    provider: pages
-    skip_cleanup: true
-    local_dir: doc/html
-    keep-history: true
-    github_token: ${GH_REPO_TOKEN}
-    on: 
-      branch: master 
+      name: 'Test protobuf 2.6.1 syntax'
+      script:
+          - cd "${TRAVIS_BUILD_DIR}"
+          - mkdir -p build
+          - cd build
+          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
+          - cmake --build .
+          - cd ..
+          - python setup.py build
+          - python setup.py sdist
+          - cd build
+          - cmake --build . --target install
+          - cd ..
+          - cp VERSION VERSION.SAVED
+          - echo "" >> VERSION
+          - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
+          - cd build
+          - cmake -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
+          - echo "EXCLUDE_PATTERNS = */osi3/*" >> Doxyfile
+          - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
+          - doxygen
+          - cd ..
+          - python -m unittest discover tests
+          - mv VERSION.SAVED VERSION
+          - sh convert-to-proto3.sh
+          - mkdir -p build3
+          - cd build3
+          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
+          - cmake --build .
+          - cd ..
+      
+    - script:
+          - cd "${TRAVIS_BUILD_DIR}"
+          - bash convert-to-proto3.sh
+          - rm *.pb2
+          - mkdir -p build
+          - cd build
+          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
+          - cmake --build .
+          - cd ..
+          - python setup.py build
+          - python setup.py sdist
+          - cd build
+          - cmake --build . --target install
+          - cd ..
+          - cp VERSION VERSION.SAVED
+          - echo "" >> VERSION
+          - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
+          - cd build
+          - cmake -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
+          - echo "EXCLUDE_PATTERNS = */osi3/*" >> Doxyfile
+          - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
+          - doxygen
+          - cd ..
+          - python -m unittest discover tests
+          - mv VERSION.SAVED VERSION
+          - sh convert-to-proto3.sh
+          - mkdir -p build3
+          - cd build3
+          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
+          - cmake --build .
+          - cd ..
+      name: 'Test protobuf 3.0.0 syntax'
+
+    - stage: deploy
+      script:
+          - cd "${TRAVIS_BUILD_DIR}"
+          - mkdir -p build
+          - cd build
+          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
+          - cmake --build .
+          - cd ..
+          - python setup.py build
+          - python setup.py sdist
+          - cd build
+          - cmake --build . --target install
+          - cd ..
+          - cp VERSION VERSION.SAVED
+          - echo "" >> VERSION
+          - echo "VERSION_PATCH = \"GitHub_MasterBranch\"" >> VERSION
+          - cd build
+          - cmake -D FILTER_PROTO2CPP_PY_PATH=${DEPS_DIR}/proto2cpp ..
+          - echo "EXCLUDE_PATTERNS = */osi3/*" >> Doxyfile
+          - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
+          - doxygen
+          - cd ..
+          - python -m unittest discover tests
+          - mv VERSION.SAVED VERSION
+          - sh convert-to-proto3.sh
+          - mkdir -p build3
+          - cd build3
+          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
+          - cmake --build .
+          - cd ..
+
+    # Deploy the documentation on github (only for master branch).
+      deploy:        
+          provider: pages
+          skip_cleanup: true
+          local_dir: doc/html
+          keep-history: true
+          github_token: ${GH_REPO_TOKEN}
+          on: 
+          branch: master 
