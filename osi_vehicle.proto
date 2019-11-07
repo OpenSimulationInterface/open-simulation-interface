@@ -318,7 +318,7 @@ message Vehicle
 
         // Contains the springdeflection in z-direction for each wheel.
         //
-        // Unit: [mm]
+        // Unit: [m]
         //
         optional double springdeflection = 7;
 
