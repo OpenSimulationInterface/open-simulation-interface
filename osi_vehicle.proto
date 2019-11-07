@@ -5,6 +5,7 @@ option optimize_for = SPEED;
 import "osi_version.proto";
 import "osi_common.proto";
 import "osi_object.proto";
+import "osi_occupant.proto";
 
 package osi3;
 
@@ -238,9 +239,10 @@ message Vehicle
         //
         optional double steering_friction = 4;
 
-        // Hands Off Detection.
+        // Describes the state of the passenger's hands related to the steering
+        // wheel (mostly driver).
         //
-        optional bool are_hands_off = 5;
+        optional Occupant.Classification.SteeringControl steering_control = 5;
     }
 
     //
