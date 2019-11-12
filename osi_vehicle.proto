@@ -412,9 +412,14 @@ message Vehicle
         optional string function_name = 1;
 
         //
-        // States of an ad-function.
+        // Internal states of the ad-function.
         //
-        optional States states = 2;
+        optional StateDefinition states = 2;
+        
+        //
+        // Targeted States of the ad-function from an external participant (e.g. driver pressed activation button).
+        //
+        optional StateDefinition external_state_requests = 2;
         
         // 
         // Intentions, requests or wishes from the function to change the vehicle-state.
@@ -422,14 +427,14 @@ message Vehicle
         optional Intentions intentions = 3;
 
         //
-        // \brief Internal states of an automated-driving function.  
+        // \brief States of an automated-driving function.  
         //    
         //
-        message States
+        message StateDefinition
         {
-            // Activation state of the function.
+            // The (internal/targeted) state of the function.
             //
-            optional bool is_activated = 1;
+            optional FunctionState function_state = 1;
 
             // This is the speed the function targets.
             // E.g.: At the point of activation, the actual speed could be 80 km/h, 
@@ -444,6 +449,52 @@ message Vehicle
             // Unit: [s]
             //
             optional double timegap = 3;
+            
+            // Possibility to inform about an error, warning or just to give an information.
+            //
+            // \note It is implementation-specific which information should be sent.
+            //
+            optional Notification notification = 4;
+
+            // Definition of possible function-states.
+            //
+            enum FunctionState
+            {
+                // The function is not working.
+                //
+                STATE_OFF = 0;
+
+                // The function is initializing.
+                // Transition: STATE_OFF ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
+                //
+                STATE_INITIALIZING = 1;
+                
+                // The function is initialized but not ready to start.
+                //
+                STATE_UNAVAILABLE = 2;
+
+                // The function is initialized and ready to start.
+                //
+                STATE_AVAILABLE = 3;
+
+                // The function is starting.
+                // Transition: STATE_AVAILABLE ==> STATE_RUNNING.
+                //
+                STATE_STARTING = 4;
+
+                // The function is running.
+                //
+                STATE_RUNNING = 5;
+
+                // The function is stopping.
+                // Transition: STATE_RUNNING ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
+                //
+                STATE_STOPPING = 6;
+
+                // An Error occured in the function.
+                //
+                STATE_FAILURE = 7;
+            }
         }
 
         //
@@ -738,5 +789,41 @@ message GearLeverState
         // The driver shifts up on his own. 
         //
         MANUAL_OVERRIDE_REQUEST_GEAR_UP = 4;
+    }
+}
+
+// 
+// \brief Possibility to send a notification.
+// Can be used to send e.g. error-messages.
+//
+message Notification
+{
+    // The content of the notification.
+    //
+    optional string notification = 1;
+
+    // Defines the type of the notification.
+    //
+    optional NotificationType notification_type = 2;
+
+    // Definition of possible notification-types.
+    //
+    enum NotificationType
+    {
+        // An error occurred.
+        //
+        TYPE_ERROR = 0;
+
+        // The notificiation is a warning.
+        //
+        TYPE_WARNING = 1;
+
+        // The notificiation is just an information.
+        //
+        TYPE_INFORMATION = 2;
+
+        // The notificiation is used for debugging.
+        //
+        TYPE_DEBUG = 3;
     }
 }
