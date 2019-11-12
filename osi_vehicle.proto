@@ -273,12 +273,15 @@ message Vehicle
     //
     message Wheel
     {
-        // Contains the friction-coefficient of each wheel.
+        // For surfaces in relative motion the kinetic or sliding friction coefficient is used.
         // Dimensionless.
         //
         // Unit: []
         //
-        optional double friction_coefficient = 1;
+        // \par References:
+        // - https://en.wikipedia.org/wiki/Friction#Coefficient_of_friction
+        //
+        optional double kinetic_friction_coefficient = 1;
 
         // Contains the x, y and z-coordinate of the contact point of 
         // the wheel, so that walking, torsion and deflation can be visualized.
@@ -322,29 +325,29 @@ message Vehicle
         //
         optional double springdeflection = 7;
 
-        //Contains the relativ position of the wheel to the center of the car
+        // Contains the relativ position of the wheel to the center of the car
         //
-        //Unit: [m]
+        // Unit: [m]
         //
         optional Vector3d position = 8;
     
-        //Contains the relativ orientation of the wheel to the center of the car
-        //As the rotation of the wheel is also controlled by this value, 
+        // Contains the relativ orientation of the wheel to the center of the car
+        // As the rotation of the wheel is also controlled by this value, 
         //
-        //Unit: [rad]
+        // Unit: [rad]
         //
         optional Orientation3d orientation = 9;
 
-        //Contains the absolute (longitunal) slip of the tire
-        //0-100 percent
+        // Contains the absolute (longitunal) slip of the tire
+        // 0-100 percent
         //
-        //Unit: []
+        // Unit: []
         //
         optional double slip = 10;
 
-        //Contains the slip-angle of the tire
+        // Contains the slip-angle of the tire
         //
-        //Unit: [rad]
+        // Unit: [rad]
         //
         optional double slipangle = 11;
     }
@@ -450,13 +453,9 @@ message Vehicle
         {
             // All information about the trajectory the vehicle should follow.
             //
-            // \note See osi_common_extension.
-            //
             optional Trajectory trajectory = 1;
 
             // Angle, angle-speed and torque.
-            //
-            // \note See osi_common_extension.
             //
             optional SteeringWheel steering_wheel = 2;
 
@@ -469,8 +468,6 @@ message Vehicle
             optional double steering_override_factor = 3;
 
             // Acceleration-, brakepedal and clutch.
-            //
-            // \note See osi_common_extension.
             //
             optional Pedalry pedalry = 4;
 
