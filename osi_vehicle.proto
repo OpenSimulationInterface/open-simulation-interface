@@ -462,38 +462,38 @@ message Vehicle
             {
                 // The function is not working.
                 //
-                STATE_OFF = 0;
+                FUNCTION_STATE_OFF = 0;
 
                 // The function is initializing.
                 // Transition: STATE_OFF ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
                 //
-                STATE_INITIALIZING = 1;
+                FUNCTION_STATE_INITIALIZING = 1;
                 
                 // The function is initialized but not ready to start.
                 //
-                STATE_UNAVAILABLE = 2;
+                FUNCTION_STATE_UNAVAILABLE = 2;
 
                 // The function is initialized and ready to start.
                 //
-                STATE_AVAILABLE = 3;
+                FUNCTION_STATE_AVAILABLE = 3;
 
                 // The function is starting.
                 // Transition: STATE_AVAILABLE ==> STATE_RUNNING.
                 //
-                STATE_STARTING = 4;
+                FUNCTION_STATE_STARTING = 4;
 
                 // The function is running.
                 //
-                STATE_RUNNING = 5;
+                FUNCTION_STATE_RUNNING = 5;
 
                 // The function is stopping.
                 // Transition: STATE_RUNNING ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
                 //
-                STATE_STOPPING = 6;
+                FUNCTION_STATE_STOPPING = 6;
 
                 // An Error occured in the function.
                 //
-                STATE_FAILURE = 7;
+                FUNCTION_STATE_FAILURE = 7;
             }
         }
 
