@@ -273,13 +273,15 @@ message Vehicle
     //
     message Wheel
     {
-        // For surfaces in relative motion the kinetic or sliding friction coefficient is used.
+        // Dry friction is a force that opposes the relative lateral motion of two solid surfaces in contact. 
+        // It is subdivided into static friction between non-moving surfaces and kinetic friction between moving surfaces.
+        // So used here is the dry friction coefficient of the paired materials (see reference).
         // Dimensionless.
         //
         // Unit: []
         //
         // \par References:
-        // - https://en.wikipedia.org/wiki/Friction#Coefficient_of_friction
+        // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
         //
         optional double kinetic_friction_coefficient = 1;
 
