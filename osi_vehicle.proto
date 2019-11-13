@@ -419,12 +419,12 @@ message Vehicle
         //
         // Targeted States of the ad-function from an external participant (e.g. driver pressed activation button).
         //
-        optional StateDefinition external_state_requests = 2;
+        optional StateDefinition external_state_requests = 3;
         
         // 
         // Intentions, requests or wishes from the function to change the vehicle-state.
         //
-        optional Intentions intentions = 3;
+        optional Intentions intentions = 4;
 
         //
         // \brief States of an automated-driving function.  
