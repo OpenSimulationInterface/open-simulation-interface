@@ -812,18 +812,18 @@ message Notification
     {
         // An error occurred.
         //
-        TYPE_ERROR = 0;
+        NOTIFICATION_TYPE_ERROR = 0;
 
         // The notificiation is a warning.
         //
-        TYPE_WARNING = 1;
+        NOTIFICATION_TYPE_WARNING = 1;
 
         // The notificiation is just an information.
         //
-        TYPE_INFORMATION = 2;
+        NOTIFICATION_TYPE_INFORMATION = 2;
 
         // The notificiation is used for debugging.
         //
-        TYPE_DEBUG = 3;
+        NOTIFICATION_TYPE_DEBUG = 3;
     }
 }
