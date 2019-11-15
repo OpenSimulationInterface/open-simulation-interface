@@ -460,40 +460,48 @@ message Vehicle
             //
             enum FunctionState
             {
+                // The function-state is unknown.
+                //
+                FUNCTION_STATE_UNKNOWN = 0;
+
+                // The function has another state.
+                //
+                FUNCTION_STATE_OTHER = 1;
+                
                 // The function is not working.
                 //
-                FUNCTION_STATE_OFF = 0;
+                FUNCTION_STATE_OFF = 2;
 
                 // The function is initializing.
                 // Transition: STATE_OFF ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
                 //
-                FUNCTION_STATE_INITIALIZING = 1;
+                FUNCTION_STATE_INITIALIZING = 3;
                 
                 // The function is initialized but not ready to start.
                 //
-                FUNCTION_STATE_UNAVAILABLE = 2;
+                FUNCTION_STATE_UNAVAILABLE = 4;
 
                 // The function is initialized and ready to start.
                 //
-                FUNCTION_STATE_AVAILABLE = 3;
+                FUNCTION_STATE_AVAILABLE = 5;
 
                 // The function is starting.
                 // Transition: STATE_AVAILABLE ==> STATE_RUNNING.
                 //
-                FUNCTION_STATE_STARTING = 4;
+                FUNCTION_STATE_STARTING = 6;
 
                 // The function is running.
                 //
-                FUNCTION_STATE_RUNNING = 5;
+                FUNCTION_STATE_RUNNING = 7;
 
                 // The function is stopping.
                 // Transition: STATE_RUNNING ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
                 //
-                FUNCTION_STATE_STOPPING = 6;
+                FUNCTION_STATE_STOPPING = 8;
 
                 // An Error occured in the function.
                 //
-                FUNCTION_STATE_FAILURE = 7;
+                FUNCTION_STATE_FAILURE = 9;
             }
         }
 
@@ -810,20 +818,28 @@ message Notification
     //
     enum NotificationType
     {
+        // The notification has no type.
+        //
+        NOTIFICATION_TYPE_UNKNOWN = 0;
+        
+        // The notification has another type.
+        //
+        NOTIFICATION_TYPE_OTHER = 1;
+        
         // An error occurred.
         //
-        NOTIFICATION_TYPE_ERROR = 0;
+        NOTIFICATION_TYPE_ERROR = 2;
 
         // The notificiation is a warning.
         //
-        NOTIFICATION_TYPE_WARNING = 1;
+        NOTIFICATION_TYPE_WARNING = 3;
 
         // The notificiation is just an information.
         //
-        NOTIFICATION_TYPE_INFORMATION = 2;
+        NOTIFICATION_TYPE_INFORMATION = 4;
 
         // The notificiation is used for debugging.
         //
-        NOTIFICATION_TYPE_DEBUG = 3;
+        NOTIFICATION_TYPE_DEBUG = 5;
     }
 }
