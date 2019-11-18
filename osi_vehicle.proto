@@ -9,74 +9,88 @@ import "osi_occupant.proto";
 
 package osi3;
 
-//
-// \brief The vehicle-message is a deeper description of a vehicle.
-// Consists of different messages categorizing the vehicle in:
-// Vehicle-Basics, Vehicle-Kinematics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels,
-// Vehicle-Light-State, Vehicle-Automated-Driving-Functions.
-// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
-// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
-//
-message Vehicle
+message Traffic
 {
     //
-    // The interface version used by the sender (i.e. the simulation
-    // environment).
+    // The interface version used by the sender (i.e. the simulation environment).
     //
     optional InterfaceVersion version = 1;
-    
+
     //
     // The data timestamp of the simulation environment. The zero time point is
     // arbitrary but must be identical for all messages.
     // Recommendation: Zero time point for start point of the simulation.
     //
     optional Timestamp timestamp = 2;
-    
+
     //
-    // The base parameters of the vehicle.
+    // The ID of the host vehicle object.
     //
-    optional VehicleBasics vehicle_basics = 3;
+    optional Identifier host_vehicle_id = 3;
+
+    //
+    // Deeper going description of one or more vehicle regarding these aspects:
+    // Vehicle-Basics, Vehicle-Kinematics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels,
+    // Vehicle-Light-State, Vehicle-Localization, Vehicle-Automated-Driving-Functions.
+    //
+    repeated VehicleClass vehicle = 4;
+}
+
+//
+// \brief The vehicle-message is a deeper description of a vehicle.
+// Consists of different messages categorizing the vehicle in:
+// Vehicle-Basics, Vehicle-Kinematics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels,
+// Vehicle-Light-State, Vehicle-Localization, Vehicle-Automated-Driving-Functions.
+// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
+// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
+//
+message VehicleClass
+{
+    //
+    // The basic parameters of the vehicle.
+    //
+    optional VehicleBasics vehicle_basics = 1;
     
     //
     // This is the interface, that describes how the vehicle is moving.
     // All coordinates and orientations are relative to the global ground truth
     // coordinate system.
     //
-    optional VehicleKinematics vehicle_kinematics = 4;
+    optional VehicleKinematics vehicle_kinematics = 2;
     
     //
     // Interface regarding the powertrain.
     //
-    optional VehiclePowertrain vehicle_powertrain = 5;
+    optional VehiclePowertrain vehicle_powertrain = 3;
     
     //
     // Interface regarding the SteeringWheel.
     // The focus here is on the steering wheel.
     //
-    optional VehicleSteeringWheel vehicle_steering_wheel = 6;
+    optional VehicleSteeringWheel vehicle_steering_wheel = 4;
     
     //
     // Interface regarding the wheels.
     // The focus here is on the physical description of a wheel.
     //
-    optional VehicleWheels vehicle_wheels = 7;
+    optional VehicleWheels vehicle_wheels = 5;
     
     //
     // Interface regarding the light.
     // The focus here is on the states of the lights.
     //
-    optional MovingObject.VehicleClassification.LightState vehicle_light_state = 8;
+    optional MovingObject.VehicleClassification.LightState vehicle_light_state = 6;
     
     //
     // Interface regarding the navigation.
     //
-    optional VehicleLocalization vehicle_localization = 9;
+    optional VehicleLocalization vehicle_localization = 7;
     
     //
     // Interface regarding automated-driving functions.
     // The focus here is on states and intentions of a function.
     //
-    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 10;
+    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 8;
 
     //
     // \brief The absolut base parameters of the vehicle.
@@ -87,33 +101,19 @@ message Vehicle
         //
         optional Identifier id = 1;
 
-        // The brand of the car. 
-        //
-        // \note It is implementation-specific how the string is filled.
-        //
-        optional string brand = 2;
-
-        // The modelname of the car. 
-        //
-        // \note It is implementation-specific how the string is filled.
-        //
-        optional string modelname = 3;
-
         // The reference_string to the car (e.g. CAD-Modell). 
         //
         // \note It is implementation-specific how the string is filled.
         //
-        optional string reference_string = 4;
+        optional string reference_string = 2;
 
-        // The total mass of the vehicle (curb weight). 
+        // The license plate of the car.
+        // There is no international standardization.
+        // Recommendation: Use the discription in DIN 74069:1996-07.
+        // If single-line: maximum of 8 Characters.
+        // two-line: 9-13 Characters.
         //
-        // Unit: [kg]
-        //
-        optional double weight = 5;
-
-        // The license plate of the car. 
-        //
-        optional string license_plate = 6;
+        optional string license_plate = 3;
     }
 
     //
@@ -129,6 +129,12 @@ message Vehicle
         // \note The bounding box does NOT include mirrors for vehicles.
         //
         optional BaseMoving base = 1;
+        
+        // The total mass of the vehicle (curb weight). 
+        //
+        // Unit: [kg]
+        //
+        optional double weight = 2;
     }
 
     //
