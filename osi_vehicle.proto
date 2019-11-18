@@ -202,17 +202,25 @@ message VehicleClass
         //
         enum PowertrainMode
         {
+            // The powertrain mode is unknown.
+            //
+            POWERTRAIN_MODE_UNKNOWN = 0;
+            
+            // It is another powertrain mode.
+            //
+            POWERTRAIN_MODE_OTHER = 1;
+            
             // All-wheel drive (AWD).
             //
-            POWERTRAIN_MODE_ALL_WHEEL_DRIVE = 0;
+            POWERTRAIN_MODE_ALL_WHEEL_DRIVE = 2;
 
             // Front-wheel drive (FWD).
             //
-            POWERTRAIN_MODE_FRONT_WHEEL_DRIVE = 1;
+            POWERTRAIN_MODE_FRONT_WHEEL_DRIVE = 3;
 
             // Rear-wheel drive (RWD).
             //
-            POWERTRAIN_MODE_REAR_WHEEL_DRIVE = 2;
+            POWERTRAIN_MODE_REAR_WHEEL_DRIVE = 4;
         }
     }
 
@@ -415,7 +423,7 @@ message VehicleClass
         // Here the name of the function can be chosen.
         // E.g.: Hadpilot, longitudinal_control, lateral_control or emergency_brake_assistant.
         //
-        optional string function_name = 1;
+        optional FunctionName function_name = 1;
 
         //
         // Internal states of the ad-function.
@@ -431,6 +439,73 @@ message VehicleClass
         // Intentions, requests or wishes from the function to change the vehicle-state.
         //
         optional Intentions intentions = 4;
+        
+        // The possible functions.
+        // References: 
+        // - https://www.vda.de/en/topics/innovation-and-technology/automated-driving/automated-driving
+        //
+        enum FunctionName
+        {
+            // The function name is unknown.
+            //
+            FUNCTION_NAME_UNKNOWN = 0;
+            
+            // It is another function.
+            //
+            FUNCTION_NAME_OTHER = 1;
+            
+            // Autopilot in urban areas.
+            //
+            FUNCTION_NAME_LEVEL_4_URBAN_DRIVING = 2;
+            
+            // Driverless parking.
+            //
+            FUNCTION_NAME_LEVEL_4_VALET_PARKING = 3;
+            
+            // Autopilot on the highway.
+            //
+            FUNCTION_NAME_LEVEL_3_HIGHWAY_DRIVING = 4;
+            
+            // Autopilot for traffic jams.
+            //
+            FUNCTION_NAME_LEVEL_3_TRAFFIC_JAM_DRIVING = 5;
+            
+            // Parking done by function lateral and longitudinal.
+            //
+            FUNCTION_NAME_LEVEL_2_PARKING_ASSISTANT = 6;
+            
+            // Parking done by function lateral.
+            //
+            FUNCTION_NAME_LEVEL_1_PARKING_STEERING_ASSISTANT = 7;
+            
+            // Longitudinal control with distance keeping by function.
+            //
+            FUNCTION_NAME_LEVEL_1_ADAPTIVE_CRUISE_CONTROL = 8;
+            
+            // Lateral control by function to keep the lane.
+            //
+            FUNCTION_NAME_LEVEL_1_LANE_KEEP_ASSISTANT = 9;
+                        
+            // Longitudinal control by function.
+            //
+            FUNCTION_NAME_LEVEL_1_CRUISE_CONTROL = 10;
+            
+            // The maximum speed is limited by a function.
+            //
+            FUNCTION_NAME_LEVEL_1_LIMIT = 11;
+            
+            // Warning when the vehicle drives over the lane border markings.
+            //
+            FUNCTION_NAME_LEVEL_0_LANE_DEPARTURE_WARNING = 12;
+            
+            // Monitoring of the blind spot.
+            //
+            FUNCTION_NAME_LEVEL_0_BLIND_SPOT_MONITORING = 13;
+            
+            // Warning by the danger of a collision.
+            //
+            FUNCTION_NAME_LEVEL_0_FORWARD_COLLISION_WARNING = 14;
+        }
 
         //
         // \brief States of an automated-driving function.  
