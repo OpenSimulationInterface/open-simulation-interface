@@ -46,7 +46,7 @@ If you want to generate a valid OSI trace file which can be used as an input for
             stationary_object.classification.density = 0
             stationary_object.classification.color = 0
 
-            """Serialize SensorData which can be send"""
+            """Serialize"""
             bytes_buffer = sensorview.SerializeToString()
             f.write(struct.pack("<L", len(bytes_buffer)) + bytes_buffer)   
 
