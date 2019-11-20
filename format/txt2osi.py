@@ -9,7 +9,7 @@ Example usage:
     python3 txt2osi.py -f small_test.txt.lzma
 '''
 
-from decodeOSI import OSIScenario
+from OSITrace import OSITrace
 import struct
 import lzma
 import argparse
@@ -49,10 +49,10 @@ def main():
     # Handling of command line arguments
     args = command_line_arguments()
 
-    # Initialize the scenario class
-    scenario = OSIScenario()
-    scenario.from_file(path=args.file, type_name=args.type)
-    sv = scenario.get_messages() # Create an iterator for messages
+    # Initialize the OSI trace class
+    trace = OSITrace()
+    trace.from_file(path=args.file, type_name=args.type)
+    sv = trace.get_messages() # Create an iterator for messages
 
     args.output = args.output.split('.', 1)[0] + '.osi'
 
