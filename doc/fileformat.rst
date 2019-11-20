@@ -1,7 +1,8 @@
 OSI File Format
 ----------------
 
-To save multiple serialized OSI messages into one trace file we use the length of each OSI message and save it before each OSI message.
+To save multiple serialized OSI messages into one trace file we use the length of each OSI message and save it before each OSI message. 
+The length is represented by the first four bytes which are a little endian unsigned int that represents the length of the followed message, not including the integer itself.
 If you happen to have a trace file which uses ``$$__$$`` separation you can convert it to the official OSI trace file by running ``python3 txt2osi.py trace.txt``.
 
 If you want to generate a valid OSI trace file which can be used as an input for the `osi-validator <https://github.com/OpenSimulationInterface/osi-validation>`_ or the `osi-visualizer <https://github.com/OpenSimulationInterface/osi-visualizer>`_ see the example script in python below:
