@@ -64,6 +64,28 @@ all proto files to proto3 syntax. If this is run prior to building, the
 resulting libraries will use proto3, with the on-the-wire format
 remaining compatible between proto2 and proto3 libraries.
 
+OSI Trace Files
+---------------
+
+If you have a serialized txt trace file which is separating OSI messages by ``$$__$$`` you can convert 
+the trace file to the official OSI file format which uses the length of OSI messages to store and read them in a file.
+Use the script txt2osi.py in the ``format`` directory for that. See usage example below:
+
+.. code-block:: bash
+
+	python3 txt2osi.py -h
+	python3 txt2osi.py -d trace.txt
+	python3 txt2osi.py -d trace.txt -o myfile
+
+To make serialized txt/osi files human readable call the converter osi2read.py. See usage example below:
+
+.. code-block:: bash
+
+	python3 osi2read.py -h
+	python3 osi2read.py -d trace.osi
+	python3 osi2read.py -d trace.txt -f separated -o myfile
+
+
 Packaging
 ---------
 
