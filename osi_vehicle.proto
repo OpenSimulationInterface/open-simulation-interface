@@ -9,6 +9,49 @@ import "osi_occupant.proto";
 
 package osi3;
 
+//
+// \brief The first message describes a single vehicle in a deeper way than the well-known moving_object.
+// That is why it suits perfectly to the in- and output of a vehicle/dynamic-model.
+// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
+// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
+// It is based on the message VehicleClass, which is also defined in this proto.
+// The vehicle can be the host but also another participant.
+//
+message Vehicle
+{
+    //
+    // The interface version used by the sender (i.e. the simulation environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    //
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    //
+    // True, if the following vehicle-object is the host.
+    //
+    optional bool is_host_vehicle = 3;
+
+    //
+    // Deeper going description of one vehicle regarding these aspects:
+    // Vehicle-Basics, Vehicle-Kinematics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels,
+    // Vehicle-Light-State, Vehicle-Localization, Vehicle-Automated-Driving-Functions.
+    //
+    optional VehicleClass vehicle = 4;
+}
+
+//
+// \brief The second message describes all the vehicle.
+// That is why it suits perfectly to the in- and output of a vehicle/dynamic-model.
+// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
+// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
+// It is based on the message VehicleClass, which is also defined in this proto.
+// The vehicle can be the host but also another participant.
+//
 message Traffic
 {
     //
