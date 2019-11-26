@@ -10,12 +10,11 @@ import "osi_occupant.proto";
 package osi3;
 
 //
-// \brief The first message describes a single vehicle in a deeper way than the well-known moving_object.
-// That is why it suits perfectly to the in- and output of a vehicle/dynamic-model.
-// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
-// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
-// It is based on the message VehicleClass, which is also defined in this proto.
-// The vehicle can be the host but also another participant.
+// \brief The first message describes a single vehicle in a deeper way than any other osi-class.
+// As it is an description of the whole vehicle it can be used as interface for various reasons, 
+// e.g. to the vehicle/dynamic-model for kinematics calculation or even for measurements in real cars.
+// It is based on the message VehicleClass, which is also defined later in this proto.
+// The vehicle can be the host but also any other participant.
 //
 message Vehicle
 {
@@ -45,12 +44,9 @@ message Vehicle
 }
 
 //
-// \brief The second message describes all the vehicle.
-// That is why it suits perfectly to the in- and output of a vehicle/dynamic-model.
-// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
-// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
-// It is based on the message VehicleClass, which is also defined in this proto.
-// The vehicle can be the host but also another participant.
+// \brief The second message describes all vehicles on the map.
+// The main-usage so far is the visualisation of traffic in a graphic-engine.
+// It is based on the message VehicleClass, which is also defined next in this proto.
 //
 message Traffic
 {
@@ -80,8 +76,8 @@ message Traffic
 }
 
 //
-// \brief The vehicle-message is a deeper description of a vehicle.
-// Consists of different messages categorizing the vehicle in:
+// \brief The vehicle-class is a deeper description of a vehicle.
+// It consists of different messages categorizing the vehicle in:
 // Vehicle-Basics, Vehicle-Kinematics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels,
 // Vehicle-Light-State, Vehicle-Localization, Vehicle-Automated-Driving-Functions.
 // As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons, 
@@ -349,18 +345,24 @@ message VehicleClass
         // Unit: [m]
         //
         optional Vector3d contact_point = 2;
+        
+        // Median radius of the wheels measured from a center of the wheel including the tire.
+        //
+        // Unit: [m]
+        //
+        optional double radius = 3;
 
         // Contains the rotational speed of each wheel per second.
         //
         // Unit: [rad/s]
         //
-        optional double rotational_speed = 3;
+        optional double rotational_speed = 4;
 
         // Contains the steering angle of each wheel.
         //
         // Unit: [rad]
         //
-        optional double steeringangle = 4;
+        optional double steeringangle = 5;
 
         // Contains the camber of each wheel.
         // 
@@ -370,45 +372,45 @@ message VehicleClass
         //
         // Unit: [rad]
         //
-        optional double camber = 5;
+        optional double camber = 6;
 
         // Contains the tirepressure of each tire.
         //
         // Unit: [Pa]
         // 
-        optional double tirepressure = 6;
+        optional double tirepressure = 7;
 
         // Contains the springdeflection in z-direction for each wheel.
         //
         // Unit: [m]
         //
-        optional double springdeflection = 7;
+        optional double springdeflection = 8;
 
         // Contains the relativ position of the wheel to the center of the car
         //
         // Unit: [m]
         //
-        optional Vector3d position = 8;
+        optional Vector3d position = 9;
     
         // Contains the relativ orientation of the wheel to the center of the car
         // As the rotation of the wheel is also controlled by this value, 
         //
         // Unit: [rad]
         //
-        optional Orientation3d orientation = 9;
+        optional Orientation3d orientation = 10;
 
         // Contains the absolute (longitunal) slip of the tire
         // 0-100 percent
         //
         // Unit: []
         //
-        optional double slip = 10;
+        optional double slip = 11;
 
         // Contains the slip-angle of the tire
         //
         // Unit: [rad]
         //
-        optional double slipangle = 11;
+        optional double slipangle = 12;
     }
     
     //
