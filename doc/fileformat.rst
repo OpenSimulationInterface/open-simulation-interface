@@ -1,10 +1,23 @@
 OSI File Format
-----------------
+===============
+Formats
+--------
 
+\*.osi
+~~~~~~~
 To save multiple serialized OSI messages into one trace file we use the length of each OSI message and save it before the actual OSI message. 
-The length is represented by the first four bytes which are a little endian unsigned int that represents the length of the followed message, not including the integer itself.
-If you happen to have a trace file which uses ``$$__$$`` separation you can convert it to the official OSI trace file by running ``python3 txt2osi.py -d trace.txt``.
+The length is represented by the first four bytes which are a little endian unsigned int that represents the length of the followed message, not including the integer itself. 
 
+\*.txt
+~~~~~~~
+If you happen to have a trace file which uses ``$$__$$`` separation you can convert it to the official OSI trace file by running:
+
+.. code-block:: bash
+
+    python3 txt2osi.py -d trace.txt
+
+\*.txth
+~~~~~~~
 To read to content of a serialized txt/osi trace file we also provide a converter ``osi2read.py``.
 See the usage below:
 
@@ -15,6 +28,16 @@ See the usage below:
 
 which outputs a ``readable_trace.txth`` which can be opened by any text editor.
 
+Summary
+~~~~~~~
+In summary we have currently three types of formats:
+
+1. ``*.osi`` trace files which are length separated.
+2. ``*.txt`` trace files which are ``$$__$$`` separated.
+3. ``*.txth`` files which are human readable trace files for just plausibility checks.
+
+Generate OSI traces
+--------------------
 If you want to generate a valid OSI trace file which can be used as an input for the `osi-validator <https://github.com/OpenSimulationInterface/osi-validation>`_ or the `osi-visualizer <https://github.com/OpenSimulationInterface/osi-visualizer>`_ see the example script in python below:
 
 .. code-block:: python
