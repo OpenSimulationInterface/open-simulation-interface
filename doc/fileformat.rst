@@ -32,34 +32,37 @@ If you want to generate a valid OSI trace file which can be used as an input for
         sv_ground_truth.version.version_minor = 0
         sv_ground_truth.version.version_patch = 0
 
-        sv_ground_truth.timestamp.seconds = 4
-        sv_ground_truth.timestamp.nanos = 54999999
+        sv_ground_truth.timestamp.seconds = 0
+        sv_ground_truth.timestamp.nanos = 0
 
-        stationary_object = sv_ground_truth.stationary_object.add()
-        stationary_object.id.value = 114
+        moving_object = sv_ground_truth.moving_object.add()
+        moving_object.id.value = 114
 
-        for i in range(11):
+        # Generate 10 OSI messages for 9 seconds
+        for i in range(10):
+
+            # Increment the time
+            sv_ground_truth.timestamp.seconds += 1
+            sv_ground_truth.timestamp.nanos += 100000
+
+            moving_object.vehicle_classification.type = 2
             
-            stationary_object.base.dimension.length = 3
-            stationary_object.base.dimension.width = 0.5
-            stationary_object.base.dimension.height = 0.89
+            moving_object.base.dimension.length = 5
+            moving_object.base.dimension.width = 2
+            moving_object.base.dimension.height = 1
 
-            stationary_object.base.position.x = 0.0 + i
-            stationary_object.base.position.y = 0.0 
-            stationary_object.base.position.z = 0.0
+            moving_object.base.position.x = 0.0 + i
+            moving_object.base.position.y = 0.0 
+            moving_object.base.position.z = 0.0
 
-            stationary_object.base.orientation.roll = 0.0
-            stationary_object.base.orientation.pitch = 0.0
-            stationary_object.base.orientation.yaw = 0.0 
-
-            stationary_object.classification.type = 1
-            stationary_object.classification.material = 0
-            stationary_object.classification.density = 0
-            stationary_object.classification.color = 0
+            moving_object.base.orientation.roll = 0.0
+            moving_object.base.orientation.pitch = 0.0
+            moving_object.base.orientation.yaw = 0.0 
+            
 
             """Serialize"""
             bytes_buffer = sensorview.SerializeToString()
-            f.write(struct.pack("<L", len(bytes_buffer)) + bytes_buffer)   
+            f.write(struct.pack("<L", len(bytes_buffer)) + bytes_buffer)
 
         f.close()
     
