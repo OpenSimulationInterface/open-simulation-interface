@@ -215,6 +215,16 @@ class OSITrace:
         self.scenario_file.close()
 
     def make_readable(self, name, interval=None, index=None):
+        self.scenario_file.seek(0)
+        serialized_message = self.scenario_file.read()     
+        message_length = len(serialized_message)
+
+        if message_length > 1000000000:
+            # Throw a warning if trace file is bigger than 1GB
+            gb_size_input = round(message_length/1000000000, 2)
+            gb_size_output = round(3.307692308*message_length/1000000000, 2)
+            warnings.warn(f"The trace file you are trying to make readable has the size {gb_size_input}GB. This will generate a readable file with the size {gb_size_output}GB. Make sure you have enough disc space and memory to read the file with your text editor.", ResourceWarning)
+
         with open(name, 'a') as f:
 
             if interval is None and index is None:

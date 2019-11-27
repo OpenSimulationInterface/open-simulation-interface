@@ -59,7 +59,6 @@ If you want to generate a valid OSI trace file which can be used as an input for
             moving_object.base.orientation.pitch = 0.0
             moving_object.base.orientation.yaw = 0.0 
             
-
             """Serialize"""
             bytes_buffer = sensorview.SerializeToString()
             f.write(struct.pack("<L", len(bytes_buffer)) + bytes_buffer)
