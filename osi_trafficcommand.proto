@@ -1,0 +1,57 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_object.proto";
+
+package osi3;
+
+//
+// \brief The traffic command message is provided by the scenario
+// engine to traffic participant models to provide control commands
+// to them based on the scenario.
+//
+// \note This interface is currently just a placeholder, and will be
+// changed in experimental ways to support basic scenario execution.
+// In the future this interface shall be aligned with the level of
+// atomic actions as described in OpenSCENARIO 1.0 or later.
+//
+message TrafficCommand
+{
+    // The interface version used by the sender (scenario engine).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the UNIX epoch. Recommended is the starting time point of
+    // the simulation.
+    //
+    // \note For traffic command data the timestamp coincides both with
+    // the notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for traffic command data, as opposed
+    // to sensor data).
+    //
+    optional Timestamp timestamp = 2;
+
+    // The ID of this traffic participant.
+    //
+    optional Identifier traffic_participant_id = 3;
+
+    // Commanded Traffic Action(s) if any
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated TrafficAction action = 4;
+
+}
+
+//
+// \brief Atomic Traffic Actions to be performed
+//
+message TrafficAction
+{
+
+}

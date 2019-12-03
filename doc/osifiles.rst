@@ -38,6 +38,9 @@ OSI common provides the building blocks for the OSI field messages.
 `osi_hostvehicledata.proto`_
 ---------------------------------
 
+`osi_trafficcommand.proto`_
+---------------------------------
+
 `osi_trafficupdate.proto`_
 ---------------------------------
 
