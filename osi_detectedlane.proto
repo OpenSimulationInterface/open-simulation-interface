@@ -89,6 +89,8 @@ message DetectedLaneBoundary
     //
     repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 4;
 
+    optional LaneBoundary.BoundaryPolyLineModel boundary_polyline_model = 5;
+
     // Confidence of the segments of the \c LaneBoundary::BoundaryPoint.
     // Each \c #candidate has the same \c #boundary_line points and exact
     // one \c #boundary_line_confidences confidence value is
@@ -96,7 +98,14 @@ message DetectedLaneBoundary
     //
     // Range: [0,1]
     //
-    repeated double boundary_line_confidences = 5;
+    repeated double boundary_line_confidences = 6;
+
+    // The range until where the lane boundary is detected.
+    // 
+    // Unit: [m]
+    // Range: [0,1000]
+    //
+    optional double view_range = 7;
 
     //
     // \brief A candidate for a detected lane boundary as estimated by the

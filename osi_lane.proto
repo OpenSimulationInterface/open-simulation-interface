@@ -529,9 +529,13 @@ message LaneBoundary
     //
     repeated BoundaryPoint boundary_line = 2;
 
+    // The boundary line can be expressed as a polyline of nth order.
+    //
+    optional BoundaryPolyLineModel boundary_poly_line_model = 3;
+
     // The classification of the lane boundary.
     //
-    optional Classification classification = 3;
+    optional Classification classification = 4;
 
     //
     // \brief A single point of a lane boundary.
@@ -573,6 +577,47 @@ message LaneBoundary
         // See \c LaneBoundary .
         //
         optional double height = 3;
+    }
+    
+    message BoundaryPolyLineModel
+    {
+    
+        // A0 parameter of the poly function model that describes the lane boundary.
+        //
+        optional double polyline_parmeter_A0 = 1;
+
+        // A1 parameter of the poly function model that describes the lane boundary.
+        //
+        optional double polyline_parmeter_A1 = 2;
+    
+        // A2 parameter of the poly function model that describes the lane boundary.
+        //
+        optional double polyline_parmeter_A2 = 3;
+    
+        // A3 parameter of the poly function model that describes the lane boundary.
+        //
+        optional double polyline_parmeter_A3 = 4;
+    
+        optional ModelDegree model_degree = 5;
+    
+        enum ModelDegree
+        {
+    
+            // Lane boundary line is represented as a linar model.
+            // y(x) = A1 * x + A0
+            //
+            FIRST_ORDER = 1;
+
+            // Lane boundary line is represented as a parabolic model.
+            // y(x) = A2 * x² + A1 * x + A0
+            //
+            SECOND_ORDER = 2;
+
+            // Lane boundary line is represented as a qubic model.
+            // y(x) = A3 * x³ + A2 * x² + A1 * x + A0
+            //
+            THIRD_ORDER = 3;
+        }
     }
 
     //
