@@ -15,7 +15,7 @@ class TestDoxygenOutput(unittest.TestCase):
                 i = 0
 
                 for line in fin:
-                    i += 1                    
+                    i += 1
                     matchHash = re.search(r"([\s>]|^)#\w(\S)*", line)
 
                     if matchHash is not None:

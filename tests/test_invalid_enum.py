@@ -56,13 +56,13 @@ class TestInvalidEnum(unittest.TestCase):
                         if matchName is not None:
                             checkName = statement[matchName.start():matchName.end()]
 
-                            # Test to check correct ENUM name.                            
+                            # Test to check correct ENUM name.
                             self.assertEqual(checkName.find(enumName), 0, file + " in line " + str(i) + ": enum type wrong. '" + checkName + "' should start with '" + enumName + "'")
 
                             # Test to check ENUM type is in captial letters/upper case.
                             self.assertEqual(checkName, checkName.upper(), file + " in line " + str(i) + ": enum type wrong. '" + checkName + "' should use upper case")
 
-                    
+
                     # Search for "enum".
                     matchEnum = re.search(r"\benum\b", statement)
 

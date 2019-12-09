@@ -6,7 +6,7 @@ import unittest
 
 
 class TestCommentType(unittest.TestCase):
-    ''' Test class for mandatory new line. ''' 
+    ''' Test class for mandatory new line. '''
 
     def test_brief_necessity(self):
         ''' Test the necessity of "brief" comment. '''
@@ -57,7 +57,7 @@ class TestCommentType(unittest.TestCase):
                         noComment += 1;
                         if comment.find("\\brief") != -1:
                             hasBrief = True
-                    
+
                     elif len(saveStatement) == 0:
                         if re.search(r"\bmessage\b", statement) is not None or re.search(r"\bextend\b",statement) is not None:
                             self.assertTrue(hasBrief, file + " in line " + str(i - 1) + ": \\brief section in comment is missing for: '" + statement + "'")
@@ -140,7 +140,7 @@ class TestCommentType(unittest.TestCase):
                 saveStatement = ""
 
                 for line in fin:
-                    i += 1                    
+                    i += 1
 
                     # Divide statement and comment. Concatenate multi line statements.
 

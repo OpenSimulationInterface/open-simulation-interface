@@ -27,16 +27,16 @@ class TestInvalidHtml(unittest.TestCase):
                     else:
                         statement = line
                         comment = ""
-                    
+
                     # Add part of the statement from last line.
                     statement = saveStatement + " " + statement
                     saveStatement = ""
-                    
+
                     # New line is not necessary. Remove for a better output.
                     statement = statement.replace("\n", "")
                     comment = comment.replace("\n", "")
 
-                    # Is statement complete 
+                    # Is statement complete
                     matchSep = re.search(r"[{};]", statement)
                     if matchSep is None:
                         saveStatement = statement
@@ -90,16 +90,16 @@ class TestInvalidHtml(unittest.TestCase):
                     else:
                         statement = line
                         comment = ""
-                    
+
                     # Add part of the statement from last line.
                     statement = saveStatement + " " + statement
                     saveStatement = ""
-                    
+
                     # New line is not necessary. Remove for a better output.
                     statement = statement.replace("\n", "")
                     comment = comment.replace("\n", "")
 
-                    # Is statement complete 
+                    # Is statement complete
                     matchSep = re.search(r"[{};]", statement)
                     if matchSep is None:
                         saveStatement = statement
@@ -131,7 +131,7 @@ class TestInvalidHtml(unittest.TestCase):
                                 htmlblock = False
 
                         self.assertEqual(htmlComment.find("#"), -1, file + " in line " + str(i) + ": doxygen comment #.. reference found: '" + htmlComment + "'")
-                        
+
 
     def test_invalid_at(self):
         ''' Test case to check invalid @ in comments '''
@@ -152,16 +152,16 @@ class TestInvalidHtml(unittest.TestCase):
                     else:
                         statement = line
                         comment = ""
-                    
+
                     # Add part of the statement from last line.
                     statement = saveStatement + " " + statement
                     saveStatement = ""
-                    
+
                     # New line is not necessary. Remove for a better output.
                     statement = statement.replace("\n", "")
                     comment = comment.replace("\n", "")
 
-                    # Is statement complete 
+                    # Is statement complete
                     matchSep = re.search(r"[{};]", statement)
                     if matchSep is None:
                         saveStatement = statement
@@ -193,7 +193,6 @@ class TestInvalidHtml(unittest.TestCase):
                                 htmlblock = False
 
                         self.assertEqual(comment.find("@"), -1, file + " in line " + str(i) + ": @ tag found (please replace with \\): '" + htmlFreeComment + "'")
- 
 
     def test_no_endhtmlonly(self):
         ''' Test case to check no \endhtmlonly in comments '''
@@ -214,16 +213,16 @@ class TestInvalidHtml(unittest.TestCase):
                     else:
                         statement = line
                         comment = ""
-                    
+
                     # Add part of the statement from last line.
                     statement = saveStatement + " " + statement
                     saveStatement = ""
-                    
+
                     # New line is not necessary. Remove for a better output.
                     statement = statement.replace("\n", "")
                     comment = comment.replace("\n", "")
 
-                    # Is statement complete 
+                    # Is statement complete
                     matchSep = re.search(r"[{};]", statement)
                     if matchSep is None:
                         saveStatement = statement
@@ -258,5 +257,3 @@ class TestInvalidHtml(unittest.TestCase):
                     elif htmlblock:
                         self.assertFalse(htmlblock, file + " in line " + str(i - 1) + ": doxygen comment html section without endhtmlonly")
                         htmlblock = False
-
-                    

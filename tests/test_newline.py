@@ -6,7 +6,7 @@ import unittest
 
 
 class TestNewLine(unittest.TestCase):
-    ''' Test class for mandatory new line. ''' 
+    ''' Test class for mandatory new line. '''
 
     def test_newline(self):
         ''' Test to check last line of file must end with a new line. '''
