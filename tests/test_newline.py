@@ -11,11 +11,6 @@ class TestNewLine(unittest.TestCase):
     def test_newline(self):
         ''' Test to check last line of file must end with a new line. '''
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
-                hasNewLine = True
-
-                for line in fin:
-                    hasNewLine = line.endswith("\n")
-
-                self.assertTrue(hasNewLine, file + " has no new line at the end of the file.")
-                
+            with open(file, "rt") as fin, self.subTest(file=file):
+                lastCharacter = fin.read()[-1]
+                self.assertEqual(lastCharacter, "\n", file + " has no new line at the end of the file.")
