@@ -89,42 +89,42 @@ message VehicleClass
     // The basic parameters of the vehicle.
     //
     optional VehicleBasics vehicle_basics = 1;
-    
+
     //
     // This is the interface, that describes how the vehicle is moving.
     // All coordinates and orientations are relative to the global ground truth
     // coordinate system.
     //
     optional VehicleKinematics vehicle_kinematics = 2;
-    
+
     //
     // Interface regarding the powertrain.
     //
     optional VehiclePowertrain vehicle_powertrain = 3;
-    
+
     //
     // Interface regarding the SteeringWheel.
     // The focus here is on the steering wheel.
     //
     optional VehicleSteeringWheel vehicle_steering_wheel = 4;
-    
+
     //
     // Interface regarding the wheels.
     // The focus here is on the physical description of a wheel.
     //
     optional VehicleWheels vehicle_wheels = 5;
-    
+
     //
     // Interface regarding the light.
     // The focus here is on the states of the lights.
     //
     optional MovingObject.VehicleClassification.LightState vehicle_light_state = 6;
-    
+
     //
     // Interface regarding the navigation.
     //
     optional VehicleLocalization vehicle_localization = 7;
-    
+
     //
     // Interface regarding automated-driving functions.
     // The focus here is on states and intentions of a function.
@@ -168,7 +168,7 @@ message VehicleClass
         // \note The bounding box does NOT include mirrors for vehicles.
         //
         optional BaseMoving base = 1;
-        
+
         // The total mass of the vehicle (curb weight). 
         //
         // Unit: [kg]
@@ -213,7 +213,7 @@ message VehicleClass
         // The actual gear of the gear lever.
         //
         optional GearLeverState gear_lever_state = 6;
-        
+
         // The actual gear of the transmission.
         // E.g. gear_lever can be in "D" and transmission in "4", but not the
         // other way around.
@@ -244,11 +244,11 @@ message VehicleClass
             // The powertrain mode is unknown.
             //
             POWERTRAIN_MODE_UNKNOWN = 0;
-            
+
             // It is another powertrain mode.
             //
             POWERTRAIN_MODE_OTHER = 1;
-            
+
             // All-wheel drive (AWD).
             //
             POWERTRAIN_MODE_ALL_WHEEL_DRIVE = 2;
@@ -345,7 +345,7 @@ message VehicleClass
         // Unit: [m]
         //
         optional Vector3d contact_point = 2;
-        
+
         // Median radius of the wheels measured from a center of the wheel including the tire.
         //
         // Unit: [m]
@@ -391,7 +391,7 @@ message VehicleClass
         // Unit: [m]
         //
         optional Vector3d position = 9;
-    
+
         // Contains the relativ orientation of the wheel to the center of the car
         // As the rotation of the wheel is also controlled by this value, 
         //
@@ -412,7 +412,7 @@ message VehicleClass
         //
         optional double slipangle = 12;
     }
-    
+
     //
     // \brief This message contains all the necessary information of the localization solution.
     //
@@ -429,7 +429,7 @@ message VehicleClass
         // Unit: [degree]
         //
         optional double latitude = 2;
-        
+
         // Altitude in meters.
         //
         // Unit: [m]
@@ -448,43 +448,43 @@ message VehicleClass
         //
         optional double localization_accuracy = 5;
 
-        // 
         // Number of satellites 
-        //
         //
         optional int32 number_of_satellites = 6;    
     }
 
     //
-    // \brief Information about the automated driving system.
-    // Important is the differentiation between states and intentions.
-    // An automated-driving function itself does not have many states. It is more about Intentions,
-    // to change some vehicle states. E.g. a desired acceleration(-pedal-position), but effective is the one in
-    // the powertrain message.
+    // \brief Interface to an automated driving system.
+    //
+    // Important is the differentiation between internal states, intentions and external requests:
+    // Internal states: Description of absolute states of an ad-function (e.g. available/unavailable).
+    // Intentions: Description of how the function would like to control the vehicle.
+    // External requests: Description of requests to the function (e.g. driver wants the function to start).
     //
     message VehicleAutomatedDrivingFunction
     {
         //
-        // Here the name of the function can be chosen.
-        // E.g.: Hadpilot, longitudinal_control, lateral_control or emergency_brake_assistant.
+        // Here the name of the function can be chosen out of VDA-based enums.
         //
         optional FunctionName function_name = 1;
 
         //
-        // Internal states of the ad-function.
+        // Internal states of the ad-function (Output).
         //
-        optional StateDefinition states = 2;
-        
-        //
-        // Targeted States of the ad-function from an external participant (e.g. driver pressed activation button).
-        //
-        optional StateDefinition external_state_requests = 3;
-        
+        optional FunctionStates function_states = 2;
+
         // 
-        // Intentions, requests or wishes from the function to change the vehicle-state.
+        // Intentions, requests or wishes from the function to change the vehicle-state (Output).
         //
-        optional Intentions intentions = 4;
-        
+        optional FunctionIntentions function_intentions = 3;
+
+        //
+        // Requests from an external participant to change the internal states of the ad-function (Input).
+        // E.g. driver pressed activation button, but this is just a request. The function itself has to
+        // decide if this is possible.
+        //
+        optional FunctionExternalRequests function_external_requests = 4;
+
         // The possible functions.
         // References: 
         // - https://www.vda.de/en/topics/innovation-and-technology/automated-driving/automated-driving
@@ -494,73 +494,72 @@ message VehicleClass
             // The function name is unknown.
             //
             FUNCTION_NAME_UNKNOWN = 0;
-            
+
             // It is another function.
             //
             FUNCTION_NAME_OTHER = 1;
-            
+
             // Autopilot in urban areas.
             //
             FUNCTION_NAME_LEVEL_4_URBAN_DRIVING = 2;
-            
+
             // Driverless parking.
             //
             FUNCTION_NAME_LEVEL_4_VALET_PARKING = 3;
-            
+
             // Autopilot on the highway.
             //
             FUNCTION_NAME_LEVEL_3_HIGHWAY_DRIVING = 4;
-            
+
             // Autopilot for traffic jams.
             //
             FUNCTION_NAME_LEVEL_3_TRAFFIC_JAM_DRIVING = 5;
-            
+
             // Parking done by function lateral and longitudinal.
             //
             FUNCTION_NAME_LEVEL_2_PARKING_ASSISTANT = 6;
-            
+
             // Parking done by function lateral.
             //
             FUNCTION_NAME_LEVEL_1_PARKING_STEERING_ASSISTANT = 7;
-            
+
             // Longitudinal control with distance keeping by function.
             //
             FUNCTION_NAME_LEVEL_1_ADAPTIVE_CRUISE_CONTROL = 8;
-            
+
             // Lateral control by function to keep the lane.
             //
             FUNCTION_NAME_LEVEL_1_LANE_KEEP_ASSISTANT = 9;
-                        
+
             // Longitudinal control by function.
             //
             FUNCTION_NAME_LEVEL_1_CRUISE_CONTROL = 10;
-            
+
             // The maximum speed is limited by a function.
             //
             FUNCTION_NAME_LEVEL_1_LIMIT = 11;
-            
+
             // Warning when the vehicle drives over the lane border markings.
             //
             FUNCTION_NAME_LEVEL_0_LANE_DEPARTURE_WARNING = 12;
-            
+
             // Monitoring of the blind spot.
             //
             FUNCTION_NAME_LEVEL_0_BLIND_SPOT_MONITORING = 13;
-            
+
             // Warning by the danger of a collision.
             //
             FUNCTION_NAME_LEVEL_0_FORWARD_COLLISION_WARNING = 14;
         }
 
         //
-        // \brief States of an automated-driving function.  
-        //    
+        // \brief Internal states of an automated-driving function.  
         //
-        message StateDefinition
+        message FunctionStates
         {
-            // The (internal/targeted) state of the function.
+            // The state of the function.
             //
-            optional FunctionState function_state = 1;
+            optional State state = 1;
 
             // This is the speed the function targets.
             // E.g.: At the point of activation, the actual speed could be 80 km/h, 
@@ -570,12 +569,12 @@ message VehicleClass
             //
             optional double targeted_speed = 2;
 
-            // The timegap describes the minimumdistance to the next vehicle in front.
+            // The timegap describes the targeted distance to the next vehicle in front.
             //
             // Unit: [s]
             //
-            optional double timegap = 3;
-            
+            optional double targeted_distance = 3;
+
             // Possibility to inform about an error, warning or just to give an information.
             //
             // \note It is implementation-specific which information should be sent.
@@ -584,65 +583,66 @@ message VehicleClass
 
             // Definition of possible function-states.
             //
-            enum FunctionState
+            enum State
             {
                 // The function-state is unknown.
                 //
-                FUNCTION_STATE_UNKNOWN = 0;
+                STATE_UNKNOWN = 0;
 
                 // The function has another state.
                 //
-                FUNCTION_STATE_OTHER = 1;
+                STATE_OTHER = 1;
                 
                 // The function is not working.
                 //
-                FUNCTION_STATE_OFF = 2;
+                STATE_OFF = 2;
 
                 // The function is initializing.
                 // Transition: STATE_OFF ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
                 //
-                FUNCTION_STATE_INITIALIZING = 3;
+                STATE_INITIALIZING = 3;
                 
                 // The function is initialized but not ready to start.
                 //
-                FUNCTION_STATE_UNAVAILABLE = 4;
+                STATE_UNAVAILABLE = 4;
 
                 // The function is initialized and ready to start.
                 //
-                FUNCTION_STATE_AVAILABLE = 5;
+                STATE_AVAILABLE = 5;
 
                 // The function is starting.
                 // Transition: STATE_AVAILABLE ==> STATE_RUNNING.
                 //
-                FUNCTION_STATE_STARTING = 6;
+                STATE_STARTING = 6;
 
                 // The function is running.
                 //
-                FUNCTION_STATE_RUNNING = 7;
+                STATE_RUNNING = 7;
 
                 // The function is stopping.
                 // Transition: STATE_RUNNING ==> STATE_UNAVAILABLE or STATE_AVAILABLE.
                 //
-                FUNCTION_STATE_STOPPING = 8;
+                STATE_STOPPING = 8;
 
                 // An Error occured in the function.
+                // Recommendation: Send an error-description via notification.
                 //
-                FUNCTION_STATE_FAILURE = 9;
+                STATE_FAILURE = 9;
             }
         }
 
         //
-        // \brief Interface to describe the communication of an automated-driving function.
+        // \brief Intentions of the an automated-driving function as output to control the vehicle.
+        // \note There are many ways to control a vehicle e.g. to steer by trajectory or curvature 
+        // or (steering)wheel angle. This interface enables all of them until there is a common sense.
         //
-        // Intentions, requests or wishes from the function to change the vehicle-state.
-        //
-        message Intentions
+        message FunctionIntentions
         {
             // All information about the trajectory the vehicle should follow.
             //
             optional Trajectory trajectory = 1;
 
-            // Angle, angle-speed and torque.
+            // Desired angle, angle-speed and torque.
             //
             optional SteeringWheel steering_wheel = 2;
 
@@ -654,47 +654,107 @@ message VehicleClass
             //
             optional double steering_override_factor = 3;
 
-            // Acceleration-, brakepedal and clutch.
+            // Desired acceleration-, brakepedal and clutch.
             //
             optional Pedalry pedalry = 4;
 
-            // Position of the handbrake.
+            // Intention to change the light state of the vehicle (e.g. indicators for a lane change).
             //
-            // \note A value of 0.0 means fully released and 1.0 means fully pressed.
-            //
-            // Range: [0, 1] 
-            //
-            optional double handbrake_position = 5;
-
-            // The light state of the vehicle.
-            //
-            optional MovingObject.VehicleClassification.LightState light_state = 6;
+            optional MovingObject.VehicleClassification.LightState light_state = 5;
 
             // Request that the driver has to take over.
             //
             // \note 0 = off; 1 = on.
             //
-            optional bool driver_take_over_request = 7;
+            optional bool driver_take_over_request = 6;
+        }
 
-            // Request to an ADAS-Function for a lane change.
+        //
+        // \brief External Requests to an automated-driving function as input.
+        // E.g. Driver presses the function-activation-button a requested state can be send,
+        // the function itself can then decide if an activation can be done and change its internal state.
+        //
+        //
+        message FunctionExternalRequests
+        {
+            // External request to change the state of the function.
             //
-            optional LaneChangeRequest lane_change_request = 8;
+            optional StateCommand state_command = 1;
 
-            // Request to an ADAS-Function for a lane change.
+            // By that signal the targeted speed (e.g. adaptive cruise control) can be reduced or risen.
             //
-            enum LaneChangeRequest
+            // Unit: [km/h]
+            //
+            optional ChangeTargetedValue change_targeted_speed = 2;
+
+            // By that signal the minimum timegap to the next vehicle can be reduced or risen.
+            //
+            // Unit: [s]
+            //
+            optional ChangeTargetedValue change_targeted_distance = 3;
+
+            // Possibility to inform about an error, warning or just to give an information.
+            //
+            // \note It is implementation-specific which information should be sent.
+            //
+            optional Notification notification = 4;
+
+            // Definition of possible inputs to change a targeted value of a function.
+            //
+            enum ChangeTargetedValue
             {
-                // Stay on the actual lane.
+                // The command is unknown.
                 //
-                LANE_CHANGE_REQUEST_EGO_LANE = 0;
+                CHANGE_TARGETED_VALUE_UNKNOWN = 0;
 
-                // Change to the left.
+                // The command is another one.
                 //
-                LANE_CHANGE_REQUEST_LC_LEFT = 1;
+                CHANGE_TARGETED_VALUE_OTHER = 1;
 
-                // Change to the right.
+                // The targeted value should rise by a small step.
                 //
-                LANE_CHANGE_REQUEST_LC_RIGHT = 2;
+                CHANGE_TARGETED_VALUE_RISE_SMALL_STEP = 2;
+
+                // The targeted value should rise by a big step.
+                //
+                CHANGE_TARGETED_VALUE_RISE_BIG_STEP = 3;
+
+                // The targeted value should be reduced by a small step.
+                //
+                CHANGE_TARGETED_VALUE_REDUCE_SMALL_STEP = 4;
+
+                // The targeted value should be reduced by a big step.
+                //
+                CHANGE_TARGETED_VALUE_REDUCE_BIG_STEP = 5;
+            }
+
+            // Definition of possible commands to change the state of a function.
+            //
+            enum StateCommand
+            {
+                // The command is unknown.
+                //
+                STATE_COMMAND_UNKNOWN = 0;
+
+                // The command is another one.
+                //
+                STATE_COMMAND_OTHER = 1;
+
+                // The function should initialize.
+                //
+                STATE_COMMAND_INITIALIZE = 2;
+
+                // The function should reach STATE_RUNNING.
+                //
+                STATE_COMMAND_START = 3;
+
+                // The function should change from STATE_RUNNING to another state.
+                //
+                STATE_COMMAND_STOP = 4;
+
+                // The function should reset.
+                //
+                STATE_COMMAND_RESET = 5;
             }
         }
     }
@@ -809,8 +869,7 @@ message Trajectory
     //
     enum InterpolationMethod
     {
-        // The interpolation method is unknown (must not be used in ground
-        // truth).
+        // The interpolation method is unknown.
         //
         INTERPOLATION_METHOD_UNKNOWN = 0;
 
@@ -837,8 +896,7 @@ message GearLeverState
     // Current set gear of the gear lever. It is optional if none of these
     // conditions is fulfilled:
     // - the gear lever controls a manual transmission 
-    // - the gear lever controls an automatic transmission with the manual
-    //   override mode set.
+    // - the gear lever controls an automatic transmission with the manual override mode set.
     //
     // The sign of this field set the gear's mode as following:
     // - zero: neutral position
@@ -875,7 +933,7 @@ message GearLeverState
         // Other (unspecified but known) transmisson mode.
         //
         AUTOMATIC_TRANSMISSION_MODE_OTHER = 1;
-        
+
         // The gear lever is in automatic parking mode.
         //
         AUTOMATIC_TRANSMISSION_MODE_PARK = 2;
@@ -926,7 +984,7 @@ message GearLeverState
     }
 }
 
-// 
+//
 // \brief Possibility to send a notification.
 // Can be used to send e.g. error-messages.
 //
@@ -947,11 +1005,11 @@ message Notification
         // The notification has no type.
         //
         NOTIFICATION_TYPE_UNKNOWN = 0;
-        
+
         // The notification has another type.
         //
         NOTIFICATION_TYPE_OTHER = 1;
-        
+
         // An error occurred.
         //
         NOTIFICATION_TYPE_ERROR = 2;
