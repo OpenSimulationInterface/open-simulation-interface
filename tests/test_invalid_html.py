@@ -12,13 +12,10 @@ class TestInvalidHtml(unittest.TestCase):
         ''' Test case to check invalid slash in htmlonly sections '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 htmlblock = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Search for comment ("//").
                     matchComment = re.search("//", line)
                     if matchComment is not None:
@@ -75,13 +72,10 @@ class TestInvalidHtml(unittest.TestCase):
         ''' Test case to check invalid # in htmlonly sections '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 htmlblock = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Search for comment ("//").
                     matchComment = re.search("//", line)
                     if matchComment is not None:
@@ -137,13 +131,10 @@ class TestInvalidHtml(unittest.TestCase):
         ''' Test case to check invalid @ in comments '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 htmlblock = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Search for comment ("//").
                     matchComment = re.search("//", line)
                     if matchComment is not None:
@@ -198,13 +189,10 @@ class TestInvalidHtml(unittest.TestCase):
         ''' Test case to check no \endhtmlonly in comments '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 htmlblock = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Search for comment ("//").
                     matchComment = re.search("//", line)
                     if matchComment is not None:

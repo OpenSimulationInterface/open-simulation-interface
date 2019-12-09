@@ -12,11 +12,7 @@ class TestNonAscii(unittest.TestCase):
         ''' Test if there are any non ASCII characters present like an "Umlaut". '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
-
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     if (sys.version_info >= (3, 0)):
                         self.assertEqual(line, unicodedata.normalize('NFKD', line).encode('ASCII', 'ignore').decode(), file + " in line " + str(i) + ": a none ASCII char is present")
                     else:

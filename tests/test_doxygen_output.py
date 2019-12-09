@@ -13,10 +13,7 @@ class TestDoxygenOutput(unittest.TestCase):
         ''' Test case is checking if there are illegal hash chars in the documentation. -> doxygen link not found.  '''
         for file in DOC_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
-
-                for line in fin:
-                    i += 1
+                for i, line in enumerate(fin, start=1):
                     matchHash = re.search(r"([\s>]|^)#\w(\S)*", line)
 
                     if matchHash is not None:
@@ -28,10 +25,7 @@ class TestDoxygenOutput(unittest.TestCase):
 
         for file in DOC_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
-
-                for line in fin:
-                    i += 1
+                for i, line in enumerate(fin, start=1):
                     matchHash = re.search(r"([\s>]|^)///\s*",line)
 
                     if matchHash is not None:
@@ -42,10 +36,7 @@ class TestDoxygenOutput(unittest.TestCase):
         ''' Test case is checking if there are backslash triplets in the documentation. -> doxygen didn't interpret something properly. '''
         for file in DOC_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
-
-                for line in fin:
-                    i += 1
+                for i, line in enumerate(fin, start=1):
                     matchHash = re.search(r"([\s>]|^)\\\\\\\s*",line)
 
                     if matchHash is not None:

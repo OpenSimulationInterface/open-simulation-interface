@@ -14,14 +14,12 @@ class TestCommentType(unittest.TestCase):
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 noMessage = 0
                 noComment = 0
                 hasBrief = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
+                for i, line in enumerate(fin, start=1):
 
                     # Divide statement and comment. Concatenate multi line statements.
 
@@ -76,16 +74,13 @@ class TestCommentType(unittest.TestCase):
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 isEnum = False
                 noMessage = 0
                 noComment = 0
                 hasBrief = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").
@@ -132,16 +127,13 @@ class TestCommentType(unittest.TestCase):
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 isEnum = False
                 noMessage = 0
                 noComment = 0
                 hasBrief = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").

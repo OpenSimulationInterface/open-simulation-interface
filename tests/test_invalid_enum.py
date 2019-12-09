@@ -11,14 +11,11 @@ class TestInvalidEnum(unittest.TestCase):
         ''' Test if enum name is correct. '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 isEnum = False
                 enumName = ""
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").
@@ -86,14 +83,11 @@ class TestInvalidEnum(unittest.TestCase):
         ''' Test invalid enum definition. '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
                 isEnum = False
                 enumName = ""
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").

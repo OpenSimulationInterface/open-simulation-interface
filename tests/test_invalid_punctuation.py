@@ -11,8 +11,5 @@ class TestInvalidPunctuation(unittest.TestCase):
         ''' Test to check invalid punctuation character  '__' '''
         for file in glob("*.proto"):
             with open(file, "rt") as fin, self.subTest(file=file):
-                i = 0
-
-                for line in fin:
-                    i += 1
+                for i, line in enumerate(fin, start=1):
                     self.assertEqual(line.find("__"), -1, file + " in line " + str(i) + ": not permitted use of '__' ")

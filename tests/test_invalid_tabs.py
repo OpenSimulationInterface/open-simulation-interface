@@ -14,6 +14,5 @@ class TestInvalidTabs(unittest.TestCase):
             i = 0
 
             with open(file, "rt") as fin, self.subTest(file=file):
-                for line in fin:
-                    i += 1
+                for i, line in enumerate(fin, start=1):
                     self.assertEqual(line.find("\t"), -1, file + " in line " + str(i) + ": not permitted tab found")
