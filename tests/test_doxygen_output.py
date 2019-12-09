@@ -14,8 +14,7 @@ class TestDoxygenOutput(unittest.TestCase):
                 for i, line in enumerate(fin, start=1):
                     matchHash = re.search(r"([\s>]|^)#\w(\S)*", line)
 
-                    if matchHash is not None:
-                        self.assertIsNone(matchHash, file + " in line " + str(i) + ": not permitted hash found. Search for: '"+ line[matchHash.start():matchHash.end()])
+                    self.assertIsNone(matchHash, file + " in line " + str(i) + ": not permitted hash found. Search for: '"+ line[matchHash.start():matchHash.end()])
 
 
     def test_slash_triplet(self):
@@ -26,8 +25,7 @@ class TestDoxygenOutput(unittest.TestCase):
                 for i, line in enumerate(fin, start=1):
                     matchHash = re.search(r"([\s>]|^)///\s*",line)
 
-                    if matchHash is not None:
-                        self.assertIsNone(matchHash, file + " in line " + str(i) + ": not permitted slash triplet found. Search for: '"+line[matchHash.start():matchHash.end()])
+                    self.assertIsNone(matchHash, file + " in line " + str(i) + ": not permitted slash triplet found. Search for: '"+line[matchHash.start():matchHash.end()])
 
 
     def test_backslash_triplet(self):
@@ -37,5 +35,4 @@ class TestDoxygenOutput(unittest.TestCase):
                 for i, line in enumerate(fin, start=1):
                     matchHash = re.search(r"([\s>]|^)\\\\\\\s*",line)
 
-                    if matchHash is not None:
-                        self.assertIsNone(matchHash, file + " in line " + str(i) + ": not permitted backslash triplet found. Search for: '"+line[matchHash.start():matchHash.end()])
+                    self.assertIsNone(matchHash, file + " in line " + str(i) + ": not permitted backslash triplet found. Search for: '"+line[matchHash.start():matchHash.end()])
