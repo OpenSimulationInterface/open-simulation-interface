@@ -39,8 +39,8 @@ class GenerateProtobufCommand(build_py):
         if protoc is None:
             sys.stderr.write(
                 'protoc not found. Is protobuf-compiler installed? \n'
-                'Alternatively, you can point the PROTOC environment variable'
-                'at a local version.')
+                'Alternatively, you can point the PROTOC environment variable '
+                'to a local version.')
             sys.exit(1)
         return protoc
 
