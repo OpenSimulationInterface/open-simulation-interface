@@ -6,7 +6,7 @@ import unittest
 
 
 class TestCommentType(unittest.TestCase):
-    ''' Test class for mandatory new line. '''
+    ''' Test class for mandatory comments. '''
 
     def test_brief_necessity(self):
         ''' Test the necessity of "brief" comment. '''
