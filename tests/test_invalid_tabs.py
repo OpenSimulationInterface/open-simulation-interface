@@ -11,9 +11,9 @@ class TestInvalidTabs(unittest.TestCase):
     def test_invalid_tabs(self):
         ''' Test to check if invalid tabs exist. '''
         for file in glob("*.proto"):
-            i = 0  
-            
-            with open(file, "rt") as fin:
+            i = 0
+
+            with open(file, "rt") as fin, self.subTest(file=file):
                 for line in fin:
                     i += 1
                     self.assertEqual(line.find("\t"), -1, file + " in line " + str(i) + ": not permitted tab found")

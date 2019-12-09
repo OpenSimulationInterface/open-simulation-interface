@@ -10,7 +10,7 @@ class TestInvalidEnum(unittest.TestCase):
     def test_correct_enum_name(self):
         ''' Test if enum name is correct. '''
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -85,7 +85,7 @@ class TestInvalidEnum(unittest.TestCase):
     def test_invalid_enum(self):
         ''' Test invalid enum definition. '''
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""

@@ -1,16 +1,18 @@
 import sys
 import unicodedata
 import re
-from glob import *
+import glob
 import unittest
+
+PROTO_FILES = glob.glob("*.proto")
 
 class TestInvalidCommentType(unittest.TestCase):
     """Test class for invalid comment types"""
 
     def test_triple_slash(self):
         ''' Test to check if more than two forward slash('/') are present in comment section of proto file. '''
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
 
                 for line in fin:
@@ -19,8 +21,8 @@ class TestInvalidCommentType(unittest.TestCase):
 
     def test_comments_invalid_syntax(self):
         ''' Test to check if comments are given using invalid syntax '/*' or '*/' '''
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
 
                 for line in fin:

@@ -11,7 +11,7 @@ class TestNonAscii(unittest.TestCase):
     def test_non_ascii(self):
         ''' Test if there are any non ASCII characters present like an "Umlaut". '''
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
 
                 for line in fin:

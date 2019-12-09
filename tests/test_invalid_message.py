@@ -12,7 +12,7 @@ class TestInvalidMessage(unittest.TestCase):
         ''' Test to check if message name have any special character. It should not have any special character. '''
 
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -89,7 +89,7 @@ class TestInvalidMessage(unittest.TestCase):
         ''' Test to check if field names are in lower case. '''
 
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -187,7 +187,7 @@ class TestInvalidMessage(unittest.TestCase):
         ''' Test to check nested message type. '''
 
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -288,7 +288,7 @@ class TestInvalidMessage(unittest.TestCase):
 
         for file in glob("*.proto"):
 
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""

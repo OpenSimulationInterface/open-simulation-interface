@@ -10,7 +10,7 @@ class TestInvalidPunctuation(unittest.TestCase):
     def test_invalid_punctuation(self):
         ''' Test to check invalid punctuation character  '__' '''
         for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
 
                 for line in fin:

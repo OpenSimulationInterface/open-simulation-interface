@@ -1,9 +1,10 @@
 import sys
 import unicodedata
 import re
-from glob import *
+import glob
 import unittest
 
+PROTO_FILES = glob.glob("*.proto")
 
 class TestCommentType(unittest.TestCase):
     ''' Test class for mandatory comments. '''
@@ -11,8 +12,8 @@ class TestCommentType(unittest.TestCase):
     def test_brief_necessity(self):
         ''' Test the necessity of "brief" comment. '''
 
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 noMessage = 0
                 noComment = 0
@@ -73,8 +74,8 @@ class TestCommentType(unittest.TestCase):
     def test_min_two_lines(self):
         ''' Test to check if short comment is of minimum two lines. '''
 
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 noMessage = 0
@@ -129,9 +130,8 @@ class TestCommentType(unittest.TestCase):
     def test_comment_existence(self):
         ''' Test to check if every message, extend , statement or enum has a comment. '''
 
-        for file in glob("*.proto"):
-
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 noMessage = 0
