@@ -1,9 +1,8 @@
-import sys
-import unicodedata
 import re
-from glob import *
+import glob
 import unittest
 
+PROTO_FILES = glob.glob("*.proto")
 
 class TestInvalidMessage(unittest.TestCase):
     """ Test class for invalid html comment. """
@@ -11,7 +10,7 @@ class TestInvalidMessage(unittest.TestCase):
     def test_message_name(self):
         ''' Test to check if message name have any special character. It should not have any special character. '''
 
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
@@ -88,7 +87,7 @@ class TestInvalidMessage(unittest.TestCase):
     def test_field_name(self):
         ''' Test to check if field names are in lower case. '''
 
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
@@ -186,7 +185,7 @@ class TestInvalidMessage(unittest.TestCase):
     def test_field_type(self):
         ''' Test to check nested message type. '''
 
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
@@ -286,8 +285,7 @@ class TestInvalidMessage(unittest.TestCase):
     def test_field_multiplicity(self):
         ''' Test to check if every field has the multiplicity "repeated" or "optional". '''
 
-        for file in glob("*.proto"):
-
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False

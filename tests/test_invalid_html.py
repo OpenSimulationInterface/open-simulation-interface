@@ -1,16 +1,15 @@
-import sys
-import unicodedata
 import re
-from glob import *
+import glob
 import unittest
 
+PROTO_FILES = glob.glob("*.proto")
 
 class TestInvalidHtml(unittest.TestCase):
     """ Test class for invalid html comment. """
 
     def test_invalid_slash(self):
         ''' Test case to check invalid slash in htmlonly sections '''
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 htmlblock = False
                 saveStatement = ""
@@ -70,7 +69,7 @@ class TestInvalidHtml(unittest.TestCase):
 
     def test_invalid_hash(self):
         ''' Test case to check invalid # in htmlonly sections '''
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 htmlblock = False
                 saveStatement = ""
@@ -129,7 +128,7 @@ class TestInvalidHtml(unittest.TestCase):
 
     def test_invalid_at(self):
         ''' Test case to check invalid @ in comments '''
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 htmlblock = False
                 saveStatement = ""
@@ -187,7 +186,7 @@ class TestInvalidHtml(unittest.TestCase):
 
     def test_no_endhtmlonly(self):
         ''' Test case to check no \endhtmlonly in comments '''
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 htmlblock = False
                 saveStatement = ""

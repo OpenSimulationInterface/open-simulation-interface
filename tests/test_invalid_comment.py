@@ -1,6 +1,3 @@
-import sys
-import unicodedata
-import re
 import glob
 import unittest
 

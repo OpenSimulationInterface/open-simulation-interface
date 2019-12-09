@@ -1,15 +1,15 @@
-import sys
-import unicodedata
 import re
-from glob import *
+import glob
 import unittest
+
+PROTO_FILES = glob.glob("*.proto")
 
 class TestInvalidEnum(unittest.TestCase):
     ''' Test class to check invalid enum '''
 
     def test_correct_enum_name(self):
         ''' Test if enum name is correct. '''
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 isEnum = False
                 enumName = ""
@@ -81,7 +81,7 @@ class TestInvalidEnum(unittest.TestCase):
 
     def test_invalid_enum(self):
         ''' Test invalid enum definition. '''
-        for file in glob("*.proto"):
+        for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 isEnum = False
                 enumName = ""
