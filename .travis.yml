@@ -60,6 +60,7 @@ addons:
         - doxygen-latex
         - doxygen-gui
         - graphviz
+        - python3-setuptools
 
 
 jobs:
@@ -75,8 +76,8 @@ jobs:
           - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
           - cmake --build .
           - cd ..
-          - python setup.py build
-          - python setup.py sdist
+          - python3 setup.py build
+          - python3 setup.py sdist
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -89,7 +90,7 @@ jobs:
           - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
           - doxygen
           - cd ..
-          - python -m unittest discover tests
+          - python3 -m unittest discover tests
           - mv VERSION.SAVED VERSION
           - sh convert-to-proto3.sh
           - mkdir -p build3
@@ -107,8 +108,8 @@ jobs:
           - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
           - cmake --build .
           - cd ..
-          - python setup.py build
-          - python setup.py sdist
+          - python3 setup.py build
+          - python3 setup.py sdist
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -121,7 +122,7 @@ jobs:
           - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
           - doxygen
           - cd ..
-          - python -m unittest discover tests
+          - python3 -m unittest discover tests
           - mv VERSION.SAVED VERSION
           - sh convert-to-proto3.sh
           - mkdir -p build3
@@ -139,8 +140,8 @@ jobs:
           - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
           - cmake --build .
           - cd ..
-          - python setup.py build
-          - python setup.py sdist
+          - python3 setup.py build
+          - python3 setup.py sdist
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -153,7 +154,7 @@ jobs:
           - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
           - doxygen
           - cd ..
-          - python -m unittest discover tests
+          - python3 -m unittest discover tests
           - mv VERSION.SAVED VERSION
           - sh convert-to-proto3.sh
           - mkdir -p build3
