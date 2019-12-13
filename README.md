@@ -85,7 +85,7 @@ $ sudo apt-get install cmake
 ```
 Install `pip3` and missing python packages:
 ```bash
-$ sudo apt-get install python3-pip python-setuptools
+$ sudo apt-get install python3-pip python3-setuptools
 ```
 Install `protobuf` 3.0.0:
 ```bash
