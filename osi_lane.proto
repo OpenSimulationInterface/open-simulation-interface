@@ -603,20 +603,19 @@ message LaneBoundary
         enum ModelDegree
         {
     
+            LANE_BOUNDARY_POLYLINE_MODEL_UNKNOWN = 0;
+            
             // Lane boundary line is represented as a linar model.
-            // y(x) = A1 * x + A0
             //
-            FIRST_ORDER = 1;
+            LANE_BOUNDARY_POLYLINE_MODEL_FIRST_ORDER = 1;
 
             // Lane boundary line is represented as a parabolic model.
-            // y(x) = A2 * x² + A1 * x + A0
             //
-            SECOND_ORDER = 2;
+            LANE_BOUNDARY_POLYLINE_MODEL_SECOND_ORDER = 2;
 
             // Lane boundary line is represented as a qubic model.
-            // y(x) = A3 * x³ + A2 * x² + A1 * x + A0
             //
-            THIRD_ORDER = 3;
+            LANE_BOUNDARY_POLYLINE_MODEL_THIRD_ORDER = 3;
         }
     }
 
