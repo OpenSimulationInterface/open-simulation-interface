@@ -579,43 +579,46 @@ message LaneBoundary
         optional double height = 3;
     }
     
+    //
+    // \brief The lane boundary as polyline model up to third order.
+    //
     message BoundaryPolyLineModel
     {
     
         // A0 parameter of the poly function model that describes the lane boundary.
         //
-        optional double polyline_parmeter_A0 = 1;
+        optional double polyline_parmeter_a0 = 1;
 
         // A1 parameter of the poly function model that describes the lane boundary.
         //
-        optional double polyline_parmeter_A1 = 2;
+        optional double polyline_parmeter_a1 = 2;
     
         // A2 parameter of the poly function model that describes the lane boundary.
         //
-        optional double polyline_parmeter_A2 = 3;
+        optional double polyline_parmeter_a2 = 3;
     
         // A3 parameter of the poly function model that describes the lane boundary.
         //
-        optional double polyline_parmeter_A3 = 4;
+        optional double polyline_parmeter_a3 = 4;
     
         optional ModelDegree model_degree = 5;
     
         enum ModelDegree
         {
     
-            LANE_BOUNDARY_POLYLINE_MODEL_UNKNOWN = 0;
+            MODEL_DEGREE_UNKNOWN = 0;
             
             // Lane boundary line is represented as a linar model.
             //
-            LANE_BOUNDARY_POLYLINE_MODEL_FIRST_ORDER = 1;
+            MODEL_DEGREE_FIRST_ORDER = 1;
 
             // Lane boundary line is represented as a parabolic model.
             //
-            LANE_BOUNDARY_POLYLINE_MODEL_SECOND_ORDER = 2;
+            MODEL_DEGREE_SECOND_ORDER = 2;
 
             // Lane boundary line is represented as a qubic model.
             //
-            LANE_BOUNDARY_POLYLINE_MODEL_THIRD_ORDER = 3;
+            MODEL_DEGREE_THIRD_ORDER = 3;
         }
     }
 

@@ -89,6 +89,8 @@ message DetectedLaneBoundary
     //
     repeated LaneBoundary.BoundaryPoint boundary_line_rmse = 4;
 
+    // The lane boundary as polyline model up to third order.
+    //
     optional LaneBoundary.BoundaryPolyLineModel boundary_polyline_model = 5;
 
     // Confidence of the segments of the \c LaneBoundary::BoundaryPoint.
