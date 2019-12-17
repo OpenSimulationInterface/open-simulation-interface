@@ -1,26 +1,25 @@
 import sys
 import unicodedata
 import re
-from glob import *
+import glob
 import unittest
 
+PROTO_FILES = glob.glob("*.proto")
 
 class TestCommentType(unittest.TestCase):
-    ''' Test class for mandatory new line. ''' 
+    ''' Test class for mandatory comments. '''
 
     def test_brief_necessity(self):
         ''' Test the necessity of "brief" comment. '''
 
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
-                i = 0
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 noMessage = 0
                 noComment = 0
                 hasBrief = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
+                for i, line in enumerate(fin, start=1):
 
                     # Divide statement and comment. Concatenate multi line statements.
 
@@ -57,7 +56,7 @@ class TestCommentType(unittest.TestCase):
                         noComment += 1;
                         if comment.find("\\brief") != -1:
                             hasBrief = True
-                    
+
                     elif len(saveStatement) == 0:
                         if re.search(r"\bmessage\b", statement) is not None or re.search(r"\bextend\b",statement) is not None:
                             self.assertTrue(hasBrief, file + " in line " + str(i - 1) + ": \\brief section in comment is missing for: '" + statement + "'")
@@ -73,18 +72,15 @@ class TestCommentType(unittest.TestCase):
     def test_min_two_lines(self):
         ''' Test to check if short comment is of minimum two lines. '''
 
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
-                i = 0
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 isEnum = False
                 noMessage = 0
                 noComment = 0
                 hasBrief = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").
@@ -129,19 +125,15 @@ class TestCommentType(unittest.TestCase):
     def test_comment_existence(self):
         ''' Test to check if every message, extend , statement or enum has a comment. '''
 
-        for file in glob("*.proto"):
-
-            with open(file, "rt") as fin:
-                i = 0
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 isEnum = False
                 noMessage = 0
                 noComment = 0
                 hasBrief = False
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1                    
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").

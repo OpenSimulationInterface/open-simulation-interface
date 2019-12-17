@@ -85,7 +85,7 @@ $ sudo apt-get install cmake
 ```
 Install `pip3` and missing python packages:
 ```bash
-$ sudo apt-get install python3-pip python-setuptools
+$ sudo apt-get install python3-pip python3-setuptools
 ```
 Install `protobuf` 3.0.0:
 ```bash
@@ -109,10 +109,10 @@ Local:
 ```bash
 $ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 $ cd open-simulation-interface
-$ sudo pip3 install virtualenv 
+$ sudo pip3 install virtualenv
 $ virtualenv -p python3 venv
 $ source venv/bin/activate
-$ pip install .
+$ python3 -m pip install .
 ```
 
 Global:
