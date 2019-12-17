@@ -64,6 +64,10 @@ all proto files to proto3 syntax. If this is run prior to building, the
 resulting libraries will use proto3, with the on-the-wire format
 remaining compatible between proto2 and proto3 libraries.
 
+.. note::
+	In the current OSI proto2 files there are no "required" fields or "[default = xx] values assigned. 
+	This is intentional since the use is prohibited for now. The reason for that is the conversion from proto2 to proto3 which would require to remove defaults or required attributes and therefore change the meaning of the proto file (and thus also the valid on-the-wire protocol) silently, and is thus dangerous.
+
 OSI Trace Files
 ---------------
 
