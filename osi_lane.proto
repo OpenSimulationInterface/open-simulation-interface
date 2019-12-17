@@ -601,11 +601,16 @@ message LaneBoundary
         //
         optional double polyline_parmeter_a3 = 4;
     
+        // The order of the polyline model of the lane boundary up to third order.
+        //
         optional ModelDegree model_degree = 5;
     
+        // The order of the polyline model of the lane boundary up to third order.
+        //
         enum ModelDegree
         {
-    
+            // Lane boundary line model is unknown.
+            //
             MODEL_DEGREE_UNKNOWN = 0;
             
             // Lane boundary line is represented as a linar model.
