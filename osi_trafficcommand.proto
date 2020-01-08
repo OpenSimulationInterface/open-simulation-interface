@@ -43,6 +43,9 @@ message TrafficCommand
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
+    // \note The current SL425 discussion status: We assume all actions are
+    // executed in parallel.
+    //
     repeated TrafficAction action = 4;
 
 }
@@ -50,19 +53,144 @@ message TrafficCommand
 //
 // \brief Atomic Traffic Actions to be performed
 //
+// \note  This message allows "inheritance", as all TrafficActions can be treated
+// the same, even they have different implementation.
+//
 message TrafficAction
 {
-    // Action to be taken
+    oneof Action {
+
+        // A TrafficAction
+        //
+        optional TrajectoryAction trajectory_action = 1;
+
+        // A PathAction
+        //
+        optional PathAction path_action = 2;
+    }
+}
+
+
+
+//
+// \brief The StatePoint definition
+//
+// \note The StatePoint definition does not define mandatory fields.
+// The context defines how and what fields are used.
+// For example: Path only used xyz of the StatePoint, trajectory also timestamp...
+//
+// A StatePoint contains a BaseMoving (full state with xyz/rpy and the derivatives
+// linear /angular velocity and acceleration).
+// Furthermore it contains a time stamp.
+//
+message StatePoint
+{
+    // The timestamp of a StatePoint
     //
-    // \note This could in the future be a oneof field, rather than multiple
-    // optional fields, only one of which should be set at any time.  From
-    // an API point of view this is the same, but with better enforcement
-    // on the wire.
-    optional AcquireGlobalPositionAction acquire_global_position_action = 1;
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    optional Timestamp time_stamp = 1;
+
+
+    // BaseMoving to describe a state
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    optional BaseMoving state = 2;
 }
 
 //
+// \brief The ActionHeader
+//
+//
+message ActionHeader
+{
+  // The unique id of the command
+  //
+  // \note This field is mandatory.
+  //
+  // \note SL425 discussion: In what context must the id be unique? Global, for
+  // all TrafficCommands or only in TrafficCommand context?
+  //
+  optional Identifier action_id = 1;
+
+  // The start_time can be used to set a starttime of execution
+  //
+  // \note Is optional. If not set, execution must start directly.
+  //
+  // \note Zero time point does not need to coincide with the UNIX epoch.
+  //
+  optional Timestamp start_time = 2;
+
+}
+
+
+
+//
+// \brief The TrajectoryAction. It provides an interface to describe the motion
+// in space as a function of time.
+//
+// \note The StatePoint requires the timestamp to be set.
+//
+// \note The StatePoint requires the pose (xyz/rpy) to be set.
+//
+// \note The velocity and acceleration can be set. If not set, the model must
+// calculate it itself.
+//
+// \note SL425 discussion: We define it to be set in the world frame atm.
+//
+message TrajectoryAction
+{
+    // The action_header
+    //
+    //
+    optional ActionHeader action_header = 1;
+
+    // A list of TrajectoryPoints
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated StatePoint trajectory_point = 2;
+}
+
+
+//
+// \brief The PathAction. It provides an interface to describe a path.
+//
+// \note The StatePoint requires the position to be set. The orientation can be
+// set optional.
+//
+// \note All other StatePoint values are ignored.
+//
+// \note SL425 discussion: We define it to be set in the world frame atm.
+//
+message PathAction
+{
+    // The action_header
+    //
+    //
+    optional ActionHeader action_header = 1;
+
+    // A list of PathPoints
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated StatePoint path_point = 2;
+}
+
+
+
+//
 // \brief Acquire Global Position Action
+//
+// \note This is not discussed in SL425 UAP 2.1.5 and is not part of this
+// proposal. This is temporary for the MS1.
+//
+// \note Remark: The Position6d is a redefinition of a Position + Orientation.
+// Neither the redefinition nore the naming "position" for a pose makes sense.
+//
+// \note Remark: Maybe better to avoid an other redefinition and use a
+// TrajectoryAction with only trajectorypoint.
 //
 message AcquireGlobalPositionAction {
     // Position and orientation relative to the global coordinate system.
