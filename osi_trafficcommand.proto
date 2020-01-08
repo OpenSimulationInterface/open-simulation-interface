@@ -62,11 +62,11 @@ message TrafficAction
 
         // A TrafficAction
         //
-        optional TrajectoryAction trajectory_action = 1;
+        TrajectoryAction trajectory_action = 1;
 
         // A PathAction
         //
-        optional PathAction path_action = 2;
+        PathAction path_action = 2;
     }
 }
 
