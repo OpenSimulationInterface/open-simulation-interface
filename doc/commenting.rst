@@ -146,7 +146,7 @@ Then you describe the field by adding an explanation.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
         optional double atmospheric_pressure = 1;
     }
@@ -165,9 +165,9 @@ Next you decide the unit of the field.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         optional double atmospheric_pressure = 1;
     }
@@ -186,9 +186,9 @@ You can optionally add a note to the field to describe the field better.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
@@ -209,9 +209,9 @@ If you want to provide a reference to a DIN or to web page which helps in unders
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
@@ -235,9 +235,9 @@ Finally you can provide a set of rules which this field needs to be followed. Th
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
