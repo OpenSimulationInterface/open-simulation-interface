@@ -44,11 +44,21 @@ message EnvironmentalConditions
     //
     // Unit: Pa
     //
+    // \rules
+    // is_greater_than_or_equal_to: 80000
+    // is_less_than_or_equal_to: 120000
+    // \endrules
+    //
     optional double atmospheric_pressure = 3;
 
     // Temperature in Kelvin at z=0.0 in world frame.
     //
     // Unit: K
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 170
+    // is_less_than_or_equal_to: 340
+    // \endrules
     //
     optional double temperature = 4;
 
@@ -59,6 +69,12 @@ message EnvironmentalConditions
     // temperature and atmospheric_pressure are known.
     //
     // Unit: %
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 100
+    // \endrules
+    //
     optional double relative_humidity = 5;
 
     // Description of the precipitation.
@@ -294,6 +310,11 @@ message EnvironmentalConditions
         //
         // \note No changes of daylight saving time or time zones are
         // considered.
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // is_less_than: 86400
+        // \endrules
         //
         optional uint32 seconds_since_midnight = 1;
     }

@@ -19,6 +19,10 @@ message StationaryObject
 {
     // The ID of the object.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The base parameters of the stationary object.
@@ -279,6 +283,10 @@ message MovingObject
 {
     // The ID of the object.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The base parameters of the vehicle.
@@ -305,6 +313,10 @@ message MovingObject
     // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
     //
+    // \rules
+    // check_if this.type is_equal_to 2 else do_check is_set
+    // \endrules
+    //
     optional VehicleAttributes vehicle_attributes = 5;
 
     // Specific information about the classification of the vehicle.
@@ -312,6 +324,10 @@ message MovingObject
     //
     // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
+    //
+    // \rules
+    // check_if this.type is_equal_to 2 else do_check is_set
+    // \endrules
     //
     optional VehicleClassification vehicle_classification = 6;
 
@@ -385,9 +401,17 @@ message MovingObject
         //
         // Unit: m
         //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // \endrules
+        //
         optional double radius_wheel = 2;
 
         // Number of independent wheels.
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 1
+        // \endrules
         //
         optional uint32 number_wheels = 3;
 
@@ -436,6 +460,10 @@ message MovingObject
         //
         // \note Field need not be set if has_Trailer is set to false or use
         // value for non valid id.
+        //
+        // \rules
+        // check_if this.has_trailer is_equal_to true else do_check is_set
+        // \endrules
         //
         optional Identifier trailer_id = 4;
 

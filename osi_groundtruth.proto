@@ -64,6 +64,10 @@ message GroundTruth
     //
     // \note This ID has to be filled and is not optional!
     //
+    // \rules
+    // refers_to: MovingObject
+    // \endrules
+    //
     optional Identifier host_vehicle_id = 3;
 
     // The list of stationary objects (excluding traffic signs and traffic
@@ -129,6 +133,10 @@ message GroundTruth
     // names of countries and their subdivisions - Part 1: Country codes, third
     // ed., 2013] (https://www.iso.org/obp/ui/)
     // - [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
+    //
+    // \rules
+    // is_iso_country_code:
+    // \endrules
     //
     optional uint32 country_code = 13;
 
