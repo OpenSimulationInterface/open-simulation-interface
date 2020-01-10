@@ -34,7 +34,10 @@ message DetectedLane
         // given under the condition of
         // \c DetectedItemHeader::existence_probability.
         //
-        // Range: [0,1]
+        // \rules
+        // is_less_than_or_equal_to: 1
+        // is_greater_than_or_equal_to: 0
+        // \endrules
         //
         optional double probability = 1;
 
@@ -94,7 +97,10 @@ message DetectedLaneBoundary
     // one \c #boundary_line_confidences confidence value is
     // specified which is suitable for all candidates.
     //
-    // Range: [0,1]
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 1
+    // \endrules
     //
     repeated double boundary_line_confidences = 5;
 
@@ -110,7 +116,10 @@ message DetectedLaneBoundary
         // given under the condition of
         // \c DetectedItemHeader::existence_probability.
         //
-        // Range: [0,1]
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // is_less_than_or_equal_to: 1
+        // \endrules
         //
         optional double probability = 1;
 
