@@ -572,6 +572,15 @@ message MovingObject
         //
         optional Identifier trailer_id = 4;
 
+        // The IDs of the lanes that this object is assigned to.
+        //
+        // \note Might be multiple if the object is switching lanes or moving from
+        // one lane into another following lane.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 5;
+
         // Definition of vehicle types.
         //
         enum Type
