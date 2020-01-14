@@ -21,7 +21,7 @@ Commenting on messages
 ------------------------
 When writing comments specifying messages please use the following template:
 
-.. code-block:: proto
+.. code-block:: protobuf
 
     // <Add your single line comment like this>
     //
@@ -32,7 +32,7 @@ When writing comments specifying messages please use the following template:
 Doxygen will interpret a comment consisting just of one single line as a brief description.
 However to keep the style of the documentation coherent there should not be any brief description when commenting on fields and enums. That is why adding one more empty line when commenting becomes necessary. There is no need for an extra empty line if you are commenting more than one line anyways.
 
-.. code-block:: proto
+.. code-block:: protobuf
     
     // <If you write two or more lines of comments...>
     // <... you do not need to add an empty line>
@@ -306,7 +306,7 @@ Commenting with doxygen references
 ------------------------------------
 If you need to reference to another message etc., you can achieve that by just using the exact same name of this message (upper and lower case sensitive) in your comment and put '\c' in front of the message name.
 
-.. code-block:: proto
+.. code-block:: protobuf
 
     // A reference to \c GroundTruth message.
 
@@ -314,7 +314,7 @@ If you want to reference a nested message, use '::' instead of '.' as separators
 
 If you want to reference message fields and enums add '#' to the enum/field name.
 
-.. code-block:: proto
+.. code-block:: protobuf
 
     // A reference to a enum e.g. \c #COLOR_GREEN.
 
