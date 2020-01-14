@@ -7,6 +7,10 @@ During the building process of open simulation interface (using the `proto2cpp <
 
 For any additional comment styles see `list <http://www.doxygen.nl/manual/commands.html>`_ of doxygen commands.
 
+Reference for writing values and units: ISO 80000-1: 2009, Quantities and units – Part 1: General
+Nice summary: [Rohde & Schwarz: Der korrekte Umgang mit Größen, Einheiten und Gleichungen ](https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf
+)
+
 
 Commenting with block syntax
 -----------------------------
@@ -17,7 +21,7 @@ Commenting on messages
 ------------------------
 When writing comments specifying messages please use the following template:
 
-.. code-block:: protobuf
+.. code-block:: proto
 
     // <Add your single line comment like this>
     //

@@ -42,7 +42,7 @@ message DetectedItemHeader
     // \f$ Timestamp - Age := \f$ 'point in time' when the object has
     // been observed for the first time.
     //
-    // Unit: [s]
+    // Unit: s
     //
     optional double age = 4;
 
