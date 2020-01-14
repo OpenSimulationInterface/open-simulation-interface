@@ -185,7 +185,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Field of View in horizontal orientation of the sensor.</p>
-<p>This determines the limit of the cone of interest of ground truth that the simulation environment has to provide. Viewing range: [- <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a810da6109811a773dbfc505053c47731">field_of_view_horizontal</a>/2</code>, <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a810da6109811a773dbfc505053c47731">field_of_view_horizontal</a>/2</code>] azimuth in the sensor frame as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>. Unit: [rad] </p>
+<p>This determines the limit of the cone of interest of ground truth that the simulation environment has to provide. Viewing range: [- <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a810da6109811a773dbfc505053c47731">field_of_view_horizontal</a>/2</code>, <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a810da6109811a773dbfc505053c47731">field_of_view_horizontal</a>/2</code>] azimuth in the sensor frame as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>. Unit: rad </p>
 
 </div>
 </div>
@@ -202,7 +202,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Field of View in vertical orientation of the sensor.</p>
 <p>This determines the limit of the cone of interest of ground truth that the simulation environment has to provide. Viewing range: [- <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a27f45a5dd5fecbb632ae0cbcce56b819">field_of_view_vertical</a>/2</code>, <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a27f45a5dd5fecbb632ae0cbcce56b819">field_of_view_vertical</a>/2</code>] elevation in the sensor frame at zero azimuth as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>.</p>
-<p>Unit: [rad] </p>
+<p>Unit: rad </p>
 
 </div>
 </div>
@@ -309,7 +309,7 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 </div><div class="memdoc">
 <p>Maximum range of the sensor</p>
 <p>This determines the limit of the cone of interest of ground truth that the simulation environment has to provide.</p>
-<p>Unit: [m] </p>
+<p>Unit: m </p>
 
 </div>
 </div>
@@ -343,7 +343,7 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 </div><div class="memdoc">
 <p>Simulation Start time</p>
 <p>This specifies the simulation start time that the Simulation has chosen. This field has no defined meaning if provided by the sensor model.</p>
-<p>Unit: [s] </p>
+<p>Unit: s </p>
 
 </div>
 </div>
@@ -376,7 +376,7 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 </div><div class="memdoc">
 <p>Initial update cycle offset of the sensor model.</p>
 <p>This specifies the initial offset (i.e. initial delay) of the sensor model update cycle that the simulation should take into account. It is defined against a simulation start time of 0: i.e. an initial offset of 0.008s would mean, that the initial update of sensor input data to the model should occur at 0+0.008s, and then update_cycle_time after that, etc. If the simulation start time of the simulation is non-zero, then the offset still has to be interpreted against a 0 start time, and not simply added on top of the start time: e.g. if the simulation starts at 0.030s, and the update cycle time is 0.020s, then the first update to the sensor input should happen at 0.048s, or 0.018s after simulation start. This convention is needed to ensure stable phase position of the offset in the case of changing simulation start times, e.g. for partial resimulation.</p>
-<p>Unit: [s] </p>
+<p>Unit: s </p>
 
 </div>
 </div>
@@ -393,7 +393,7 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 </div><div class="memdoc">
 <p>The update cycle time of the sensor model.</p>
 <p>This specifies the rate at which the sensor model is provided with new input data.</p>
-<p>Unit: [s] </p><dl class="section note"><dt>Note</dt><dd>In the case of FMU packaging this will correspond to the communication step size. </dd></dl>
+<p>Unit: s </p><dl class="section note"><dt>Note</dt><dd>In the case of FMU packaging this will correspond to the communication step size. </dd></dl>
 
 </div>
 </div>
