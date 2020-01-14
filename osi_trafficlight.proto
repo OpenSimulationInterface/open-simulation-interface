@@ -56,7 +56,7 @@ message TrafficLight
         optional Mode mode = 3;
 
         // The value of the countdown counter.
-        // Unit: [%] or [s]
+        // Unit: % or s
         //
         // \note Set value only if traffic light bulb is a countdown counter.
         //

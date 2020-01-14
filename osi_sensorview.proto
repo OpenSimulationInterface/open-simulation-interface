@@ -196,7 +196,7 @@ message RadarSensorView
         // into account, and will, when multiplied by TX power yield the
         // actual RX power.
         //
-        // Unit: [dB]
+        // Unit: dB
         //
         optional double signal_strength = 1;
 
@@ -205,7 +205,7 @@ message RadarSensorView
         // This is the time of flight of the reflection, which is directly
         // proportional to the distance traveled.
         //
-        // Unit: [s]
+        // Unit: s
         //
         optional double time_of_flight = 2;
 
@@ -213,7 +213,7 @@ message RadarSensorView
         //
         // Shift in frequency based on the specified TX frequency.
         //
-        // Unit: [Hz]
+        // Unit: Hz
         //
         optional double doppler_shift = 3;
 
@@ -222,7 +222,7 @@ message RadarSensorView
         // Horizontal angle of incidence of the source of the reflection
         // at the TX antenna.
         //
-        // Unit: [rad]
+        // Unit: rad
         //
         optional double source_horizontal_angle = 4;
 
@@ -231,7 +231,7 @@ message RadarSensorView
         // Vertical angle of incidence of the source of the reflection
         // at the TX antenna.
         //
-        // Unit: [rad]
+        // Unit: rad
         //
         optional double source_vertical_angle = 5;
     }
@@ -268,7 +268,7 @@ message LidarSensorView
         // into account, and will, when multiplied by TX power yield the
         // potential RX power (disregarding any other RX/TX losses).
         //
-        // Unit: [dB]
+        // Unit: dB
         //
         optional double signal_strength = 1;
 
@@ -277,7 +277,7 @@ message LidarSensorView
         // This is the time of flight of the reflection, which is directly
         // proportional to the distance traveled.
         //
-        // Unit: [s]
+        // Unit: s
         //
         optional double time_of_flight = 2;
 
@@ -285,7 +285,7 @@ message LidarSensorView
         //
         // Shift in frequency based on the specified TX frequency.
         //
-        // Unit: [Hz]
+        // Unit: Hz
         //
         optional double doppler_shift = 3;
 
@@ -294,7 +294,7 @@ message LidarSensorView
         // The normal of the transmitted beam to the object, roadmarking etc
         // encounter. \note data is in Lidar coordinate system
         //
-        // Unit: [unit vector]
+        // Unit: unit vector
         //
         optional Vector3d normal_to_surface = 5;
 
