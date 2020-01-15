@@ -44,7 +44,8 @@ message Vehicle
 }
 
 //
-// \brief The second message describes all vehicles on the map.
+// \brief The second message describes the traffic on the map (or an implementation-specific area).
+// This can also include the host-vehicle.
 // The main-usage so far is the visualisation of traffic in a graphic-engine.
 // It is based on the message VehicleClass, which is also defined next in this proto.
 //
@@ -299,118 +300,113 @@ message VehicleClass
     }
 
     //
-    // \brief The focus here is on the wheels.
-    // It is made usage of the wheel-message to shorten the code.
+    // \brief The focus here is on the physical description of the wheels.
     //
     message VehicleWheels
     {
-        // Contains the physical description of the front-left wheel.
+        // Contains the physical description of a wheel.
         //
-        optional Wheel wheel_front_left = 1;
+        repeated Wheel wheel = 1;
 
-        // Contains the physical description of the front-right wheel.
+        // The focus here is on the physical description of a wheel.
         //
-        optional Wheel wheel_front_right = 2;
+        message Wheel
+        {
+            // Information about how the wheel is arranged.
+            //
+            optional Arrangement arrangement = 1;
+            
+            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
+            // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
+            // friction between moving surfaces.
+            // Ued here is the dry friction coefficient of the paired materials (see reference).
+            // Dimensionless.
+            //
+            // Unit: []
+            //
+            // \par References:
+            // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
+            //
+            optional double kinetic_friction_coefficient = 2;
 
-        // Contains the physical description of the rear-left wheel.
-        //
-        optional Wheel wheel_rear_left = 3;
+            // Contact point of the mid of the tire tread with the world.
+            // Absolute coordinates (x, y, z).
+            //
+            // Unit: [m]
+            //
+            optional Vector3d contact_point = 3;
 
-        // Contains the physical description of the rear-right wheel.
-        //
-        optional Wheel wheel_rear_right = 4;
-    }
+            // Contains the rotational speed of each wheel per second.
+            //
+            // Unit: [rad/s]
+            //
+            optional double rotational_speed = 4;
+            
+            // Contains the steering angle of each wheel.
+            // Right < 0; 0 = straight; 0 < left.
+            //
+            // Unit: [rad]
+            //
+            optional double steeringangle = 5;
+            
+            // Contains the relativ position of the center of the wheel to the center of the bounding-box.
+            // Possibility to get the spring deflection and the camber (https://en.wikipedia.org/wiki/Camber_angle).
+            //
+            // Unit: [m]
+            //
+            optional MountingPosition mounting_position = 6;
+            
+            // Contains the tirepressure of the tire.
+            //
+            // Unit: [Pa]
+            // 
+            optional double tirepressure = 7;
 
-    //
-    // \brief The focus here is on the physical description of a wheel.
-    //
-    message Wheel
-    {
-        // Dry friction is a force that opposes the relative lateral motion of two solid surfaces in contact. 
-        // It is subdivided into static friction between non-moving surfaces and kinetic friction between moving surfaces.
-        // So used here is the dry friction coefficient of the paired materials (see reference).
-        // Dimensionless.
-        //
-        // Unit: []
-        //
-        // \par References:
-        // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
-        //
-        optional double kinetic_friction_coefficient = 1;
+            // Contains the longitudinal slip of the tire.
+            // \par References:
+            // - https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
+            //
+            // Unit: [%]
+            //
+            optional double slip = 8;
+            
+            // Information about how the wheel is arranged.
+            //
+            enum Arrangement
+            {
+                // The description is about a wheel that has an unknown arrangement.
+                //
+                ARRANGEMENT_UNKNOWN = 0;
 
-        // Contains the x, y and z-coordinate of the contact point of 
-        // the wheel, so that walking, torsion and deflation can be visualized.
-        // relative to the center of the wheel.
-        //
-        // Unit: [m]
-        //
-        optional Vector3d contact_point = 2;
+                // The description is about a wheel that has another arrangement (e.g. more than six wheels).
+                //
+                ARRANGEMENT_OTHER = 1;
 
-        // Median radius of the wheels measured from a center of the wheel including the tire.
-        //
-        // Unit: [m]
-        //
-        optional double radius = 3;
+                // The description is about the front-left wheel.
+                //
+                ARRANGEMENT_FRONT_LEFT = 2;
 
-        // Contains the rotational speed of each wheel per second.
-        //
-        // Unit: [rad/s]
-        //
-        optional double rotational_speed = 4;
+                // The description is about the front-right wheel.
+                //
+                ARRANGEMENT_FRONT_RIGHT = 3;
 
-        // Contains the steering angle of each wheel.
-        //
-        // Unit: [rad]
-        //
-        optional double steeringangle = 5;
+                // The description is about the rear-left wheel.
+                //
+                ARRANGEMENT_REAR_LEFT = 4;
 
-        // Contains the camber of each wheel.
-        // 
-        // Negative camber if the bottom of the wheel is farther out than the
-        // top.
-        // For more information: https://en.wikipedia.org/wiki/Camber_angle.
-        //
-        // Unit: [rad]
-        //
-        optional double camber = 6;
+                // The description is about the rear-right wheel.
+                //
+                ARRANGEMENT_REAR_RIGHT = 5;
 
-        // Contains the tirepressure of each tire.
-        //
-        // Unit: [Pa]
-        // 
-        optional double tirepressure = 7;
+                // The description is about the mid-left wheel.
+                //
+                ARRANGEMENT_MID_LEFT = 6;
 
-        // Contains the springdeflection in z-direction for each wheel.
-        //
-        // Unit: [m]
-        //
-        optional double springdeflection = 8;
-
-        // Contains the relativ position of the wheel to the center of the car
-        //
-        // Unit: [m]
-        //
-        optional Vector3d position = 9;
-
-        // Contains the relativ orientation of the wheel to the center of the car
-        // As the rotation of the wheel is also controlled by this value, 
-        //
-        // Unit: [rad]
-        //
-        optional Orientation3d orientation = 10;
-
-        // Contains the absolute (longitunal) slip of the tire
-        // 0-100 percent
-        //
-        // Unit: []
-        //
-        optional double slip = 11;
-
-        // Contains the slip-angle of the tire
-        //
-        // Unit: [rad]
-        //
-        optional double slipangle = 12;
+                // The description is about the mid-right wheel.
+                //
+                ARRANGEMENT_MID_RIGHT = 7;
+            }
+        }
     }
 
     //
@@ -767,21 +763,21 @@ message VehicleClass
 message SteeringWheel
 {
     // Angle of the steering wheel. 
-    // 0=Central (Straight); Left>0; 0>Right.
+    // Right < 0; 0 = straight; 0 < left.
     //
     // Unit: [rad]
     //
     optional double angle = 1;
 
-    // Angle-speed of the steering wheel.
-    // 0=Central (Straight); Left>0; 0>Right.
+    // Angular-speed of the steering wheel.
+    // Right < 0; 0 = straight; 0 < left.
     //
     // Unit: [rad/s]
     //
     optional double angular_speed = 2;
 
     // Torque of the steering wheel to the hand.
-    // 0=Central (Straight); Left>0; 0>Right.
+    // Right < 0; 0 = straight; 0 < left.
     //
     // Unit: [N*m]
     //
