@@ -354,7 +354,7 @@ message VehicleClass
             //
             // Unit: [m]
             //
-            optional MountingPosition mounting_position = 6;
+            optional MountingPosition position = 6;
             
             // Contains the tirepressure of the tire.
             //
