@@ -308,7 +308,8 @@ message VehicleClass
         //
         repeated Wheel wheel = 1;
 
-        // The focus here is on the physical description of a wheel.
+        //
+        // \brief The focus here is on the physical description of a wheel.
         //
         message Wheel
         {
