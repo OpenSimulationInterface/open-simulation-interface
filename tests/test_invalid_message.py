@@ -1,18 +1,17 @@
-import sys
-import unicodedata
 import re
-from glob import *
+import glob
 import unittest
 
+PROTO_FILES = glob.glob("*.proto")
 
 class TestInvalidMessage(unittest.TestCase):
     """ Test class for invalid html comment. """
 
     def test_message_name(self):
         ''' Test to check if message name have any special character. It should not have any special character. '''
-                
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -88,8 +87,8 @@ class TestInvalidMessage(unittest.TestCase):
     def test_field_name(self):
         ''' Test to check if field names are in lower case. '''
 
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -186,8 +185,8 @@ class TestInvalidMessage(unittest.TestCase):
     def test_field_type(self):
         ''' Test to check nested message type. '''
 
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -255,7 +254,7 @@ class TestInvalidMessage(unittest.TestCase):
                                     if matchName is not None:
                                         checkType = " " + type[matchName.start():matchName.end() - 1] + " "
                                         # Test to check nested message type
-                                        matchNameConv = re.search(r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]", checkType)    
+                                        matchNameConv = re.search(r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]", checkType)
 
                                         checkType = checkType.strip()
                                         self.assertIsNotNone(matchNameConv, file + " in line " + str(i) + ": field message type wrong. Check: '" + checkType + "'")
@@ -286,9 +285,8 @@ class TestInvalidMessage(unittest.TestCase):
     def test_field_multiplicity(self):
         ''' Test to check if every field has the multiplicity "repeated" or "optional". '''
 
-        for file in glob("*.proto"):
-
-            with open(file, "rt") as fin:
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 i = 0
                 isEnum = False
                 enumName = ""
@@ -355,7 +353,7 @@ class TestInvalidMessage(unittest.TestCase):
                                 matchName = re.search(r"\b\w[\S]*\b\s*=", statement)
                                 if matchName is not None:
                                     checkName = statement[matchName.start():matchName.end() - 1]
-                                    
+
                                     # Check field message type (remove field name)
                                     type = statement.replace(checkName, "")
                                     matchName = re.search(r"\b\w[\S\.]*\s*=", type)

@@ -122,7 +122,7 @@ message SensorViewConfiguration
     // that the simulation environment has to provide.
     // Viewing range: [- \c #field_of_view_horizontal/2,  \c
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
-    // Spherical3d. Unit: [rad]
+    // Spherical3d. Unit: rad
     optional double field_of_view_horizontal = 5;
 
     // Field of View in vertical orientation of the sensor.
@@ -133,7 +133,7 @@ message SensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 6;
 
     // Maximum range of the sensor
@@ -141,7 +141,7 @@ message SensorViewConfiguration
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
     //
-    // Unit: [m]
+    // Unit: m
     optional double range = 7;
 
     // The update cycle time of the sensor model.
@@ -149,7 +149,7 @@ message SensorViewConfiguration
     // This specifies the rate at which the sensor model is provided with
     // new input data.
     //
-    // Unit: [s]
+    // Unit: s
     // \note In the case of FMU packaging this will correspond to the
     // communication step size.
     optional Timestamp update_cycle_time = 8;
@@ -171,7 +171,7 @@ message SensorViewConfiguration
     // stable phase position of the offset in the case of changing
     // simulation start times, e.g. for partial resimulation.
     //
-    // Unit: [s]
+    // Unit: s
     optional Timestamp update_cycle_offset = 9;
 
     // Simulation Start time
@@ -180,7 +180,7 @@ message SensorViewConfiguration
     // has chosen. This field has no defined meaning if provided by
     // the sensor model.
     //
-    // Unit: [s]
+    // Unit: s
     optional Timestamp simulation_start_time = 10;
 
     // Generic Sensor View Configuration(s).
@@ -274,7 +274,7 @@ message GenericSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -283,7 +283,7 @@ message GenericSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // TBD: Generic sensor specific configuration.
@@ -345,7 +345,7 @@ message RadarSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -354,7 +354,7 @@ message RadarSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // Number of rays to cast across horizontal field of view (azimuth).
@@ -385,7 +385,7 @@ message RadarSensorViewConfiguration
     // through frequency adjustments. For material and geometry interaction
     // purposes the frequency is also relevant.
     //
-    // Unit: [Hz]
+    // Unit: Hz
     optional double emitter_frequency = 9;
 
     // This represents the TX antenna diagram
@@ -409,19 +409,19 @@ message RadarSensorViewConfiguration
         // Horizontal deflection (azimuth) of entry in sensor/antenna
         // coordinates.
         //
-        // Unit: [rad]
+        // Unit: rad
         optional double horizontal_angle = 1;
 
         // Vertical deflection (elevation) of entry in sensor/antenna
         // coordinates.
         //
-        // Unit: [rad]
+        // Unit: rad
         optional double vertical_angle = 2;
 
         // Response of antenna at this point (positive dB is gain,
         // negative dB is attenuation).
         //
-        // Unit: [dB]
+        // Unit: dB
         optional double response = 3;
     }
 }
@@ -481,7 +481,7 @@ message LidarSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -490,7 +490,7 @@ message LidarSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // Number of rays to cast across horizontal field of view.
@@ -521,7 +521,7 @@ message LidarSensorViewConfiguration
     // through frequency adjustments. For material and geometry interaction
     // purposes the frequency is also relevant.
     //
-    // Unit: [Hz]
+    // Unit: Hz
     optional double emitter_frequency = 9;
 
     // Number of pixels in frame.
@@ -601,7 +601,7 @@ message CameraSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -610,7 +610,7 @@ message CameraSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // Number of pixels to produce across horizontal field of view.
@@ -767,7 +767,7 @@ message UltrasonicSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -776,7 +776,7 @@ message UltrasonicSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // TBD: Ultrasonic Sensor specific configuration.

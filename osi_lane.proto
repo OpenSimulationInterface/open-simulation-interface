@@ -348,26 +348,26 @@ message Lane
         {
             // The temperature of the roads surface in Kelvin.
             //
-            // Unit: [K]
+            // Unit: K
             //
             optional double surface_temperature = 1;
 
             // The height of the water film on top of the surface in mm.
             //
-            // Unit: [mm]
+            // Unit: mm
             //
             optional double surface_water_film = 2;
 
             // The temperature where the water on top of the surface would start
             // to freeze or dew in Kelvin.
             //
-            // Unit: [K]
+            // Unit: K
             //
             optional double surface_freezing_point = 3;
 
             // The percentage of ice covering the road.
             //
-            // Unit: [%]
+            // Unit: %
             //
             optional double surface_ice = 4;
 
@@ -378,29 +378,29 @@ message Lane
             // 20 mm/m (a very rough road).
             //
             // Estimated value ranges (IRI):
-            // 0.0 [mm/m] absolutely perfect evenness
-            // 0.3 -  1.8 [mm/m] airport runways and superhighways
-            // 1.4 -  3.4 [mm/m] new pavements
-            // 2.2 -  5.7 [mm/m] older pavements
-            // 3.2 -  9.8 [mm/m] maintained unpaved roads
-            // 4.0 - 11.0 [mm/m] damaged pavements
+            // 0.0 mm/m absolutely perfect evenness
+            // 0.3 -  1.8 mm/m airport runways and superhighways
+            // 1.4 -  3.4 mm/m new pavements
+            // 2.2 -  5.7 mm/m older pavements
+            // 3.2 -  9.8 mm/m maintained unpaved roads
+            // 4.0 - 11.0 mm/m damaged pavements
             // 8.0 - >
-            // 20 [mm/m] rough unpaved roads
+            // 20 mm/m rough unpaved roads
             //
             // Speed of normal use (IRI):
-            // 30 [km/h] - 20   [mm/m]
-            // 50 [km/h] - 14.5 [mm/m]
-            // 60 [km/h] - 10.0 [mm/m]
-            // 80 [km/h] -  8.5 [mm/m]
-            // 100 [km/h] -  3.4 [mm/m]
+            // 30 km/h - 20   mm/m
+            // 50 km/h - 14.5 mm/m
+            // 60 km/h - 10.0 mm/m
+            // 80 km/h -  8.5 mm/m
+            // 100 km/h -  3.4 mm/m
             //
             // Road conditions (IRI);
-            // 15 [mm/m] erosion gulleys and deep depressions
-            // 11 [mm/m] frequent shallow depressions, some deep
-            // 9 [mm/m] frequent minor depressions
-            // 5 [mm/m] surface imperfections
+            // 15 mm/m erosion gulleys and deep depressions
+            // 11 mm/m frequent shallow depressions, some deep
+            // 9 mm/m frequent minor depressions
+            // 5 mm/m surface imperfections
             //
-            // Unit: [mm/m]
+            // Unit: mm/m
             //
             // \par References:
             // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
@@ -416,7 +416,7 @@ message Lane
             // 0.5m. It is given as the standard height deviation of fine
             // roughness
             //
-            // Unit: [m]
+            // Unit: m
             //
             // \par References:
             // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,

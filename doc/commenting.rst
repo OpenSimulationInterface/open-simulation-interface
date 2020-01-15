@@ -7,6 +7,10 @@ During the building process of open simulation interface (using the `proto2cpp <
 
 For any additional comment styles see `list <http://www.doxygen.nl/manual/commands.html>`_ of doxygen commands.
 
+Reference for writing values and units: ISO 80000-1: 2009, Quantities and units – Part 1: General
+Nice summary: [Rohde & Schwarz: Der korrekte Umgang mit Größen, Einheiten und Gleichungen ](https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf
+)
+
 
 Commenting with block syntax
 -----------------------------
@@ -28,7 +32,7 @@ When writing comments specifying messages please use the following template:
 Doxygen will interpret a comment consisting just of one single line as a brief description.
 However to keep the style of the documentation coherent there should not be any brief description when commenting on fields and enums. That is why adding one more empty line when commenting becomes necessary. There is no need for an extra empty line if you are commenting more than one line anyways.
 
-.. code-block:: proto
+.. code-block:: protobuf
     
     // <If you write two or more lines of comments...>
     // <... you do not need to add an empty line>
@@ -146,7 +150,7 @@ Then you describe the field by adding an explanation.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
         optional double atmospheric_pressure = 1;
     }
@@ -165,9 +169,9 @@ Next you decide the unit of the field.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         optional double atmospheric_pressure = 1;
     }
@@ -186,9 +190,9 @@ You can optionally add a note to the field to describe the field better.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
@@ -209,9 +213,9 @@ If you want to provide a reference to a DIN or to web page which helps in unders
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
@@ -235,9 +239,9 @@ Finally you can provide a set of rules which this field needs to be followed. Th
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 [Pa]).
+        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
         //
-        // Unit: [Pa]
+        // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
@@ -302,7 +306,7 @@ Commenting with doxygen references
 ------------------------------------
 If you need to reference to another message etc., you can achieve that by just using the exact same name of this message (upper and lower case sensitive) in your comment and put '\c' in front of the message name.
 
-.. code-block:: proto
+.. code-block:: protobuf
 
     // A reference to \c GroundTruth message.
 
@@ -310,7 +314,7 @@ If you want to reference a nested message, use '::' instead of '.' as separators
 
 If you want to reference message fields and enums add '#' to the enum/field name.
 
-.. code-block:: proto
+.. code-block:: protobuf
 
     // A reference to a enum e.g. \c #COLOR_GREEN.
 

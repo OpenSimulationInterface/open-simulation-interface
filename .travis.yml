@@ -38,7 +38,7 @@ install:
         PROTOBUF_URL="https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz"
         if [ ! -f ${DEPS_DIR}/protobuf/install/bin/protoc ] ; then mkdir -p protobuf ; travis_retry wget --no-check-certificate --quiet -O - ${PROTOBUF_URL} | tar --strip-components=1 -xz -C protobuf ; cd protobuf ; ./configure --prefix=${DEPS_DIR}/protobuf/install ; make ; make install ; fi
         export PATH=${DEPS_DIR}/protobuf/install/bin:${PATH}
-        
+
     # Install proto2cpp for doxygen
     - |
         PROTO2CPP_URL="https://github.com/OpenSimulationInterface/proto2cpp.git"
@@ -50,7 +50,7 @@ env:
     - GH_REPO_ORG=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 1`
     - GH_REPO_NAME=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 2`
     - GH_REPO_REF="github.com/$GH_REPO_ORG/$GH_REPO_NAME.git"
-    
+
 # Addons necessary for documentation.
 addons:
     apt:
@@ -60,10 +60,11 @@ addons:
         - doxygen-latex
         - doxygen-gui
         - graphviz
+        - python3-setuptools
 
 
 jobs:
-  include:    
+  include:
     # Run the build script and generate documentation.
     - stage: test OSI protobuf
 
@@ -75,8 +76,8 @@ jobs:
           - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
           - cmake --build .
           - cd ..
-          - python setup.py build
-          - python setup.py sdist
+          - python3 setup.py build
+          - python3 setup.py sdist
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -89,15 +90,8 @@ jobs:
           - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
           - doxygen
           - cd ..
-          - python -m unittest discover tests
-          - mv VERSION.SAVED VERSION
-          - sh convert-to-proto3.sh
-          - mkdir -p build3
-          - cd build3
-          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
-          - cmake --build .
-          - cd ..
-      
+          - python3 -m unittest discover tests
+
     - script:
           - cd "${TRAVIS_BUILD_DIR}"
           - bash convert-to-proto3.sh
@@ -107,8 +101,8 @@ jobs:
           - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
           - cmake --build .
           - cd ..
-          - python setup.py build
-          - python setup.py sdist
+          - python3 setup.py build
+          - python3 setup.py sdist
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -121,14 +115,7 @@ jobs:
           - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
           - doxygen
           - cd ..
-          - python -m unittest discover tests
-          - mv VERSION.SAVED VERSION
-          - sh convert-to-proto3.sh
-          - mkdir -p build3
-          - cd build3
-          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
-          - cmake --build .
-          - cd ..
+          - python3 -m unittest discover tests
       name: 'Test protobuf 3.0.0 syntax'
 
     - stage: deploy
@@ -139,8 +126,8 @@ jobs:
           - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install -D CMAKE_INSTALL_PREFIX:PATH=${TESTINST_DIR} ..
           - cmake --build .
           - cd ..
-          - python setup.py build
-          - python setup.py sdist
+          - python3 setup.py build
+          - python3 setup.py sdist
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -153,21 +140,14 @@ jobs:
           - echo "GENERATE_TREEVIEW = YES" >> Doxyfile
           - doxygen
           - cd ..
-          - python -m unittest discover tests
-          - mv VERSION.SAVED VERSION
-          - sh convert-to-proto3.sh
-          - mkdir -p build3
-          - cd build3
-          - cmake -D CMAKE_PREFIX_PATH:PATH=${DEPS_DIR}/protobuf/install ..
-          - cmake --build .
-          - cd ..
+          - python3 -m unittest discover tests
 
     # Deploy the documentation on github (only for master branch).
-      deploy:        
+      deploy:
           provider: pages
           skip_cleanup: true
           local_dir: doc/html
           keep-history: true
           github_token: ${GH_REPO_TOKEN}
-          on: 
-          branch: master 
+          on:
+              branch: master

@@ -1,24 +1,21 @@
-import sys
-import unicodedata
 import re
-from glob import *
+import glob
 import unittest
+
+PROTO_FILES = glob.glob("*.proto")
 
 class TestInvalidEnum(unittest.TestCase):
     ''' Test class to check invalid enum '''
 
     def test_correct_enum_name(self):
         ''' Test if enum name is correct. '''
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
-                i = 0
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 isEnum = False
                 enumName = ""
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").
@@ -56,13 +53,13 @@ class TestInvalidEnum(unittest.TestCase):
                         if matchName is not None:
                             checkName = statement[matchName.start():matchName.end()]
 
-                            # Test to check correct ENUM name.                            
+                            # Test to check correct ENUM name.
                             self.assertEqual(checkName.find(enumName), 0, file + " in line " + str(i) + ": enum type wrong. '" + checkName + "' should start with '" + enumName + "'")
 
                             # Test to check ENUM type is in captial letters/upper case.
                             self.assertEqual(checkName, checkName.upper(), file + " in line " + str(i) + ": enum type wrong. '" + checkName + "' should use upper case")
 
-                    
+
                     # Search for "enum".
                     matchEnum = re.search(r"\benum\b", statement)
 
@@ -84,16 +81,13 @@ class TestInvalidEnum(unittest.TestCase):
 
     def test_invalid_enum(self):
         ''' Test invalid enum definition. '''
-        for file in glob("*.proto"):
-            with open(file, "rt") as fin:
-                i = 0
+        for file in PROTO_FILES:
+            with open(file, "rt") as fin, self.subTest(file=file):
                 isEnum = False
                 enumName = ""
                 saveStatement = ""
 
-                for line in fin:
-                    i += 1
-
+                for i, line in enumerate(fin, start=1):
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").
