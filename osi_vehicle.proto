@@ -12,7 +12,7 @@ package osi3;
 //
 // \brief The first message describes a single vehicle in a deeper way than any other osi-class.
 // As it is an description of the whole vehicle it can be used as interface for various reasons, 
-// e.g. to the vehicle/dynamic-model for kinematics calculation or even for measurements in real cars.
+// e.g. to the vehicle/dynamic-model for kinematics calculation or even for measurements in real vehicles.
 // It is based on the message VehicleClass, which is also defined later in this proto.
 // The vehicle can be the host but also any other participant.
 //
@@ -86,7 +86,7 @@ message Traffic
 //
 message VehicleClass
 {
-    // The identifier of the car in the simulation. 
+    // The identifier of the vehicle in the simulation. 
     //
     optional Identifier vehicle_id = 1;
     
@@ -141,13 +141,13 @@ message VehicleClass
     //
     message VehicleBasics
     {
-        // The reference_string to the car (e.g. CAD-Modell). 
+        // The reference_string to the vehicle (e.g. CAD-Modell). 
         //
         // \note It is implementation-specific how the string is filled.
         //
         optional string reference_string = 1;
 
-        // The license plate of the car.
+        // The license plate of the vehicle.
         // There is no international standardization.
         // Recommendation: Use the discription in DIN 74069:1996-07.
         // If single-line: maximum of 8 Characters.
@@ -889,7 +889,7 @@ message Trajectory
 }
 
 //
-// \brief The actual gear of the car.
+// \brief The actual gear of the vehicle.
 //
 //
 message GearLeverState
