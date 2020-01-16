@@ -86,66 +86,66 @@ message Traffic
 //
 message VehicleClass
 {
+    // The identifier of the car in the simulation. 
+    //
+    optional Identifier vehicle_id = 1;
+    
     //
     // The basic parameters of the vehicle.
     //
-    optional VehicleBasics vehicle_basics = 1;
+    optional VehicleBasics vehicle_basics = 2;
 
     //
     // This is the interface, that describes how the vehicle is moving.
     // All coordinates and orientations are relative to the global ground truth
     // coordinate system.
     //
-    optional VehicleKinematics vehicle_kinematics = 2;
+    optional VehicleKinematics vehicle_kinematics = 3;
 
     //
     // Interface regarding the powertrain.
     //
-    optional VehiclePowertrain vehicle_powertrain = 3;
+    optional VehiclePowertrain vehicle_powertrain = 4;
 
     //
     // Interface regarding the SteeringWheel.
     // The focus here is on the steering wheel.
     //
-    optional VehicleSteeringWheel vehicle_steering_wheel = 4;
+    optional VehicleSteeringWheel vehicle_steering_wheel = 5;
 
     //
     // Interface regarding the wheels.
     // The focus here is on the physical description of a wheel.
     //
-    optional VehicleWheels vehicle_wheels = 5;
+    optional VehicleWheels vehicle_wheels = 6;
 
     //
     // Interface regarding the light.
     // The focus here is on the states of the lights.
     //
-    optional MovingObject.VehicleClassification.LightState vehicle_light_state = 6;
+    optional MovingObject.VehicleClassification.LightState vehicle_light_state = 7;
 
     //
     // Interface regarding the navigation.
     //
-    optional VehicleLocalization vehicle_localization = 7;
+    optional VehicleLocalization vehicle_localization = 8;
 
     //
     // Interface regarding automated-driving functions.
     // The focus here is on states and intentions of a function.
     //
-    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 8;
+    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 9;
 
     //
     // \brief The absolut base parameters of the vehicle.
     //
     message VehicleBasics
     {
-        // The id of the car in the simulation. 
-        //
-        optional Identifier id = 1;
-
         // The reference_string to the car (e.g. CAD-Modell). 
         //
         // \note It is implementation-specific how the string is filled.
         //
-        optional string reference_string = 2;
+        optional string reference_string = 1;
 
         // The license plate of the car.
         // There is no international standardization.
@@ -153,11 +153,11 @@ message VehicleClass
         // If single-line: maximum of 8 Characters.
         // two-line: 9-13 Characters.
         //
-        optional string license_plate = 3;
+        optional string license_plate = 2;
         
         // Option, if the vehicle should be visible or not for visualisation reasons.
         //
-        optional bool is_visible = 4;
+        optional bool is_visible = 3;
     }
 
     //
