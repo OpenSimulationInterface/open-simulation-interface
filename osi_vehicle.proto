@@ -154,6 +154,10 @@ message VehicleClass
         // two-line: 9-13 Characters.
         //
         optional string license_plate = 3;
+        
+        // Option, if the vehicle should be visible or not for visualisation reasons.
+        //
+        optional bool is_visible = 4;
     }
 
     //
