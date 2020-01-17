@@ -122,7 +122,9 @@ message SensorViewConfiguration
     // that the simulation environment has to provide.
     // Viewing range: [- \c #field_of_view_horizontal/2,  \c
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
-    // Spherical3d. Unit: rad
+    // Spherical3d.
+    //
+    // Unit: rad
     optional double field_of_view_horizontal = 5;
 
     // Field of View in vertical orientation of the sensor.
