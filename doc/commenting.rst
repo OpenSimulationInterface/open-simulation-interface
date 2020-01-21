@@ -7,9 +7,8 @@ During the building process of open simulation interface (using the `proto2cpp <
 
 For any additional comment styles see `list <http://www.doxygen.nl/manual/commands.html>`_ of doxygen commands.
 
-Reference for writing values and units: ISO 80000-1: 2009, Quantities and units – Part 1: General
-Nice summary: [Rohde & Schwarz: Der korrekte Umgang mit Größen, Einheiten und Gleichungen ](https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf
-)
+Reference for writing values and units: ISO 80000-1:2013-08, Quantities and units – Part 1: General
+Nice summary in German: `Rohde & Schwarz: Der korrekte Umgang mit Größen, Einheiten und Gleichungen <https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf>`_
 
 
 Commenting with block syntax
@@ -199,7 +198,20 @@ You can optionally add a note to the field to describe the field better.
         optional double atmospheric_pressure = 1;
     }
 
-If you want to provide a reference to a DIN or to web page which helps in understanding the field you can add a reference.
+If you want to provide a reference to a DIN or to a web page, which helps in understanding the field, you can add a reference.
+
+Citation style for different sources:
+
+.. [#] Authorname1, X.; Authorname2, Y.: Book (monograph) title (2009), p. 2.
+.. [#] Authorname1, X.: Diss., Thesis title (2013), p. 10–15.
+.. [#] Authorname1, X.; Authorname2, Y.: Contribution in a compilation title (2015).
+.. [#] Bender, E. et al.: Journal article title, Teil 1 (2007).
+.. [#] Andreas Karius: Internet document title (2016), pp. 1–4.
+.. [#] KRdL: Norm title (2009).
+.. [#] Günther, B.; Denk, R.: DE 41 42 325 C2: Patent title (1991), p. 3.
+.. [#] Authorname1, X.; Authorname2, Y.; Authorname3, Z., et al.: Title of the Source, in Editorname, A., et al.: Booktitle, publisher, location, year
+
+..  important::  Every OSI message should be defined properly and should have a well cited reference. All citations should be primary citations. Sources like Wikipedia et al. are not allowed.
 
 .. code-block:: protobuf
 
@@ -220,7 +232,8 @@ If you want to provide a reference to a DIN or to web page which helps in unders
         // \note 100000 Pa = 1 bar
         //
         // \par Reference:
-        // - [1] [Definition atmospheric pressure](https://en.wikipedia.org/wiki/Atmospheric_pressure)
+        // [#] Stewart, D.; Simmons, M.: The Business Playground: Where Creativity and Commerce Collide. Berkeley, USA: New Riders Press, 2010.
+        // [#] [1] [Definition atmospheric pressure](https://en.wikipedia.org/wiki/Atmospheric_pressure)
         //
         optional double atmospheric_pressure = 1;
     }
@@ -318,8 +331,8 @@ If you want to reference message fields and enums add '#' to the enum/field name
 
     // A reference to a enum e.g. \c #COLOR_GREEN.
 
-Commenting with links
-----------------------
+Commenting with links (e.g. in references)
+------------------------------------------
 With ``[<add name of your link>](<add url of your link>)`` you can integrate a link to a certain homepage while commenting.
 
 Commenting with images
