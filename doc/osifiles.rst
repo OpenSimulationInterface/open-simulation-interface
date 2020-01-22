@@ -44,6 +44,9 @@ OSI common provides the building blocks for the OSI field messages.
 `osi_trafficlight.proto`_
 ---------------------------------
 
+`osi_trajectory.proto`_
+---------------------------------
+
 `osi_roadmarking.proto`_
 ---------------------------------
 

@@ -1,0 +1,103 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+
+package osi3;
+
+//
+// \brief A dynamic state describing the 2D location, orientation and
+// dynamic properties of an object
+//
+// The coordinate system is right handed, a heading of zero equalling
+// the object being heading in x-direction.
+// All coordinates and orientations from ground truth objects are relative to
+// the global ground truth frame.
+//
+// Units are [m] for positions, [m/s] for velocities, [m/s^2] for
+// accelerations and [rad] for angles.
+//
+message DynamicState
+{
+    // The x coordinate.
+    //
+    // Unit: [m]
+    //
+    optional double x = 1;
+
+    // The y coordinate.
+    //
+    // Unit: [m]
+    //
+    optional double y = 2;
+
+    // The orientation from x-axis, counter-clockwise.
+    //
+    // Unit: [rad]
+    //
+    optional double theta = 3;
+
+    // The scalar velocity.
+    //
+    // Unit: [m/s]
+    //
+    optional double v = 4;
+
+    // The scalar acceleration.
+    //
+    // Unit: [m/s^2]
+    //
+    optional double a = 5;
+
+    // The curvature of the path of the object.
+    //
+    // Unit: [1/m]
+    //
+    optional double kappa = 6;
+}
+
+
+//
+// \brief A trajectory.
+//
+// A trajectory describes both the current dynamic state of the vehicle,
+// as well as the sequence of desired dynamic states the vehicle should
+// follow on.
+//
+message Trajectory
+{
+    // The Timestamp of the generation of the trajectory.
+    //
+    optional Timestamp timestamp = 1;
+
+    // The type of spacing between two trajectory points. Spacing can
+    // either be spacial or temporal.
+    //
+    optional SpacingType spacing_type = 2;
+
+    // The the distance (spacial or temporal) between two consecutive
+    // trajectory points. Spacial distances are in given in [m],
+    // temporal distances are given in [s].
+    optional double spacing = 3;
+
+    // The reference of the vehicle
+    //
+    repeated DynamicState reference = 4;
+
+    // The current state of the vehicle
+    //
+    optional DynamicState position = 5;
+    
+    
+    enum SpacingType
+    {
+        // Trajectory points are spaced with equal distance (spacial)
+        //
+        SPACING_DISTANCE = 0;
+
+        // Trajectory points are spaced with equal time deltas (temporal)
+        //
+        SPACING_TIME = 1;
+    }
+}
