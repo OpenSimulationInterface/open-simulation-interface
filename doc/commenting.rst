@@ -198,20 +198,26 @@ You can optionally add a note to the field to describe the field better.
         optional double atmospheric_pressure = 1;
     }
 
-If you want to provide a reference to a DIN or to a web page, which helps in understanding the field, you can add a reference.
+To help understanding the field, you should add a reference.
+Every OSI message should be defined properly and should have a well cited reference.
 
-Citation style for different sources:
+**Citation style for different sources:**
 
-.. [#] Authorname1, X.; Authorname2, Y.: Book (monograph) title (2009), p. 2.
-.. [#] Authorname1, X.: Diss., Thesis title (2013), p. 10–15.
-.. [#] Authorname1, X.; Authorname2, Y.: Contribution in a compilation title (2015).
-.. [#] Bender, E. et al.: Journal article title, Teil 1 (2007).
-.. [#] Andreas Karius: Internet document title (2016), pp. 1–4.
-.. [#] KRdL: Norm title (2009).
-.. [#] Günther, B.; Denk, R.: DE 41 42 325 C2: Patent title (1991), p. 3.
-.. [#] Authorname1, X.; Authorname2, Y.; Authorname3, Z., et al.: Title of the Source, in Editorname, A., et al.: Booktitle, publisher, location, year
+- Find filled-out examples in already existing entries
+- All citations should be primary citations. Sources like Wikipedia et al. are not allowed.
+- For more than 3 authors, place "et al." after the third one
+- For more than 1 editor, place "et al." after the first one
+- Naming pages at the end is optional, to ease finding in long texts or for direct citations
+- Scheme is as follows (replace tags with corresponding values):
 
-..  important::  Every OSI message should be defined properly and should have a well cited reference. All citations should be primary citations. Sources like Wikipedia et al. are not allowed.
+.. [#] <authorname1, X.>; <authorname2, Y.>; <authorname3, Z.> et al.: <contribution in a compilation title>, in <editorname1, A.> et al.: <compilation title>, <edition>, <page(s)>, <publisher>, <location>, <year>, <page(s)>.
+.. [#] <authorname1, X.>; <authorname2, Y.>; <authorname3, Z.>: <book (monograph) title>, <edition>, <publisher>, <location>, <year>, <page(s)>.
+.. [#] <authorname1, X.>; <authorname2, Y.>: <journal article title>, in <journal title>, <page(s)>, <location>, <year>, <page(s)>.
+.. [#] <authorname1, X.>: <Phd thesis title>, Phd. thesis, <location>, <university>, <year>, <page(s)>.
+.. [#] <authorname1, X.>: <internet article title>, <link>, <year>, accessed <date>.
+.. [#] <norm identifier>, <norm title>, <year>, <page(s)>.
+.. [#] <authorname1, X.>: <patent title>, <patent identifier>, <patent number>, <year>, <page(s)>.
+
 
 .. code-block:: protobuf
 
@@ -232,8 +238,7 @@ Citation style for different sources:
         // \note 100000 Pa = 1 bar
         //
         // \par Reference:
-        // [#] Stewart, D.; Simmons, M.: The Business Playground: Where Creativity and Commerce Collide. Berkeley, USA: New Riders Press, 2010.
-        // [#] [1] [Definition atmospheric pressure](https://en.wikipedia.org/wiki/Atmospheric_pressure)
+        // [1] Rapp, C.: Grundlagen der Physik, in: Hydraulik für Ingenieure und Naturwissenschaftler, Springer Vieweg, Wiesbaden, 2017, p. 105
         //
         optional double atmospheric_pressure = 1;
     }
@@ -259,7 +264,7 @@ Finally you can provide a set of rules which this field needs to be followed. Th
         // \note 100000 Pa = 1 bar
         //
         // \par Reference:
-        // - [1] [Definition atmospheric pressure](https://en.wikipedia.org/wiki/Atmospheric_pressure)
+        // [1] Rapp, C.: Grundlagen der Physik, in: Hydraulik für Ingenieure und Naturwissenschaftler, Springer Vieweg, Wiesbaden, 2017, p. 105
         //
         // \rules
         // is_optional
