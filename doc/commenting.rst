@@ -204,11 +204,14 @@ Every OSI message should be defined properly and should have a well cited refere
 **Citation style for different sources:**
 
 - Find filled-out examples in already existing entries
+- Within the text, the number system is used with the number of the source in brackets [#] for mentioning.
+- In the references list, the number is then followed by a full citation.
 - All citations should be primary citations. Sources like Wikipedia et al. are not allowed.
-- For more than 3 authors, place "et al." after the third one
-- For more than 1 editor, place "et al." after the first one
-- Naming pages at the end is optional, to ease finding in long texts or for direct citations
-- Scheme is as follows (replace tags with corresponding values):
+- Authors are mentioned with <author last name>, <author first name(s) abbreviated>.
+- For more than 3 authors, place "et al." after the third one.
+- For more than 1 editor, place "et al." after the first one.
+- Naming pages at the end is optional, to ease finding in long texts or for direct citations.
+- The scheme for the reference list is as follows (replace tags with corresponding values):
 
 .. [#] <authorname1, X.>; <authorname2, Y.>; <authorname3, Z.> et al.: <contribution in a compilation title>, in <editorname1, A.> et al.: <compilation title>, <edition>, <page(s)>, <publisher>, <location>, <year>, <page(s)>.
 .. [#] <authorname1, X.>; <authorname2, Y.>; <authorname3, Z.>: <book (monograph) title>, <edition>, <publisher>, <location>, <year>, <page(s)>.
