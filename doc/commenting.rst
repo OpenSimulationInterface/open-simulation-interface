@@ -149,7 +149,7 @@ Then you describe the field by adding an explanation.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         optional double atmospheric_pressure = 1;
     }
@@ -168,7 +168,7 @@ Next you decide the unit of the field.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         // Unit: Pa
         //
@@ -189,7 +189,7 @@ You can optionally add a note to the field to describe the field better.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         // Unit: Pa
         //
@@ -236,14 +236,14 @@ Every OSI message should be defined properly and should have a well cited refere
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
         // \par Reference:
-        // [1] Rapp, C. (2017). Grundlagen der Physik. <em>In Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
+        // [1] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         optional double atmospheric_pressure = 1;
     }
@@ -262,14 +262,14 @@ Finally you can provide a set of rules which this field needs to be followed. Th
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
         // \par Reference:
-        // [1] Rapp, C. (2017). Grundlagen der Physik. <em>In Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
+        // [1] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         // \rules
         // is_optional
