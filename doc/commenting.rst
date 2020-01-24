@@ -203,23 +203,25 @@ Every OSI message should be defined properly and should have a well cited refere
 
 **Citation style for different sources:**
 
-- Find filled-out examples in already existing entries
 - Within the text, the number system is used with the number of the source in brackets [#] for mentioning.
-- In the references list, the number is then followed by a full citation.
+- We use the so called "APA style"`link <https://apastyle.apa.org/>`_ from the American Psychological Association for referencing ().
+- In the references list, the number in brackets [#] is followed by a full citation.
+- For writing the title in italic, use <em>title</em>
+- Author names are written as <surname>, <initial(s)> like Authorname, A. A.
+- Editor names are written as <initial(s)> <surname> like B. B. Editorname
+- Naming pages at the end is optional to enable finding in long texts or for direct citations.
 - All citations should be primary citations. Sources like Wikipedia et al. are not allowed.
-- Authors are mentioned with <author last name>, <author first name(s) abbreviated>.
-- For more than 3 authors, place "et al." after the third one.
-- For more than 1 editor, place "et al." after the first one.
-- Naming pages at the end is optional, to ease finding in long texts or for direct citations.
-- The scheme for the reference list is as follows (replace tags with corresponding values):
+- Find filled-out examples under `https://apastyle.apa.org <https://apastyle.apa.org/style-grammar-guidelines/references/examples>`_ and in existing entries.
+- The scheme for the reference list of popular sources is as follows (replace tags with corresponding values):
 
-.. [#] <authorname1, X.>; <authorname2, Y.>; <authorname3, Z.> et al.: <contribution in a compilation title>, in <editorname1, A.> et al.: <compilation title>, <edition>, <page(s)>, <publisher>, <location>, <year>, <page(s)>.
-.. [#] <authorname1, X.>; <authorname2, Y.>; <authorname3, Z.>: <book (monograph) title>, <edition>, <publisher>, <location>, <year>, <page(s)>.
-.. [#] <authorname1, X.>; <authorname2, Y.>: <journal article title>, in <journal title>, <page(s)>, <location>, <year>, <page(s)>.
-.. [#] <authorname1, X.>: <Phd thesis title>, Phd. thesis, <location>, <university>, <year>, <page(s)>.
-.. [#] <authorname1, X.>: <internet article title>, <link>, <year>, accessed <date>.
-.. [#] <norm identifier>, <norm title>, <year>, <page(s)>.
-.. [#] <authorname1, X.>: <patent title>, <patent identifier>, <patent number>, <year>, <page(s)>.
+.. [#] <author1>, <author2>, <author3> & <author4>. (<year>). Contribution in a compilation title. <em><Compilation Title></em>. <edition>. <page(s)>. <publisher>. <location>. <doi>. <page(s)>.
+.. [#] <author1>, <author2> & <author3>. (<year>). <em><book (monograph) title></em>. <edition>. <publisher>. <doi>. <page(s)>.
+.. [#] <author1> & <author2>. (<year>). <book chapter title>. In <editor1> & <editor2> (Eds.), <em><book title></em> (<page(s)>). <publisher>. <doi>. <page(s)>.
+.. [#] <author1> & <author2>. (<year>). <journal article title>. <em><journal title></em>. <page(s)>. <location>. <doi>. <page(s)>.
+.. [#] <author>. (<year>). <em><Phd thesis title></em>. Phd. thesis. <location>. <university>. <doi or url>. <page(s)>.
+.. [#] <author>. (<year>, <month> <day>). <em><internet article title></em>. Retrieved <month> <day>, <year>, from <url>.
+.. [#] <standarding organisation>. (<year>). <em><title of the standard>.</em> (<standard identifier>). <location>.
+.. [#] <author>. (<year>). <em><patent title and id></em>. <location>. <organisation>.
 
 
 .. code-block:: protobuf
