@@ -204,15 +204,15 @@ Every OSI message should be defined properly and should have a well cited refere
 **Citation style for different sources:**
 
 - Within the text, the number system is used with the number of the source in brackets [#] for mentioning.
-- We use the so called "APA style"`link <https://apastyle.apa.org/>`_ from the American Psychological Association for referencing ().
+- We use the so called `"APA style" <https://apastyle.apa.org/>`_ from the American Psychological Association for referencing.
 - In the references list, the number in brackets [#] is followed by a full citation.
-- For writing the title in italic, use <em>title</em>
+- For writing the title in italic, use <em>title</em>.
 - Author names are written as <surname>, <initial(s)> like Authorname, A. A.
-- Editor names are written as <initial(s)> <surname> like B. B. Editorname
+- Editor names are written as <initial(s)> <surname> like B. B. Editorname.
 - Naming pages at the end is optional to enable finding in long texts or for direct citations.
 - All citations should be primary citations. Sources like Wikipedia et al. are not allowed.
 - Find filled-out examples under `https://apastyle.apa.org <https://apastyle.apa.org/style-grammar-guidelines/references/examples>`_ and in existing entries.
-- The scheme for the reference list of popular sources is as follows (replace tags with corresponding values):
+- The scheme of popular sources for the reference list is as follows (replace tags with corresponding values):
 
 .. [#] <author1>, <author2>, <author3> & <author4>. (<year>). Contribution in a compilation title. <em><Compilation Title></em>. <edition>. <page(s)>. <publisher>. <location>. <doi>. <page(s)>.
 .. [#] <author1>, <author2> & <author3>. (<year>). <em><book (monograph) title></em>. <edition>. <publisher>. <doi>. <page(s)>.
