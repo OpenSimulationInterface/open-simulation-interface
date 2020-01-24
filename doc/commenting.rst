@@ -243,7 +243,7 @@ Every OSI message should be defined properly and should have a well cited refere
         // \note 100000 Pa = 1 bar
         //
         // \par Reference:
-        // [1] Rapp, C.: Grundlagen der Physik, in: Hydraulik für Ingenieure und Naturwissenschaftler, Springer Vieweg, Wiesbaden, 2017, p. 105
+        // [1] Rapp, C. (2017). Grundlagen der Physik. <em>In Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         optional double atmospheric_pressure = 1;
     }
@@ -269,7 +269,7 @@ Finally you can provide a set of rules which this field needs to be followed. Th
         // \note 100000 Pa = 1 bar
         //
         // \par Reference:
-        // [1] Rapp, C.: Grundlagen der Physik, in: Hydraulik für Ingenieure und Naturwissenschaftler, Springer Vieweg, Wiesbaden, 2017, p. 105
+        // [1] Rapp, C. (2017). Grundlagen der Physik. <em>In Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         // \rules
         // is_optional
