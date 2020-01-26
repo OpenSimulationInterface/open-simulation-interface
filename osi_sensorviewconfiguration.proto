@@ -95,6 +95,7 @@ message SensorViewConfiguration
     // right hand system
     //
     // \par Reference:
+    //
     // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
@@ -249,6 +250,7 @@ message GenericSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
+    //
     // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
@@ -320,6 +322,7 @@ message RadarSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
+    //
     // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
@@ -456,6 +459,7 @@ message LidarSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
+    //
     // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
@@ -576,6 +580,7 @@ message CameraSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
+    //
     // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
@@ -742,6 +747,7 @@ message UltrasonicSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
+    //
     // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is

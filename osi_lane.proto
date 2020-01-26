@@ -403,6 +403,7 @@ message Lane
             // Unit: mm/m
             //
             // \par Reference:
+            //
             // [1] Sayers, M. W. & Karamihas, S. M. (1998). <em>Little Book of Profiling</em>. University of Michigan Transportation Research Institute. Retrieved January 25, 2020, from http://www.umtri.umich.edu/content/LittleBook98R.pdf pp. 45 ff.
             //
             optional double surface_roughness = 5;
@@ -418,6 +419,7 @@ message Lane
             // Unit: m
             //
             // \par Reference:
+            //
             // [1] Schneider, R. (1998). <em>Modellierung der Wellenausbreitung für ein bildgebendes Kfz-Radar</em>. PhD thesis. Karlsruhe, Germany. Universität Karlsruhe, Fak. f. Elektrotechnik.
             //
             optional double surface_texture = 6;
