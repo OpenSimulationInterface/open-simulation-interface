@@ -125,7 +125,6 @@ message GroundTruth
     // E.g. Germany = 276, USA = 840.
     //
     // \par Reference:
-    //
     // [1] ISO International Organization for Standardization. (2013). <em>ISO 3166-1 Codes for the representation of names of countries and their subdivisions - Part 1: Country codes</em>. (ISO 3166-1:2013). Geneva, Switzerland.
     //
     optional uint32 country_code = 13;
@@ -136,7 +135,6 @@ message GroundTruth
     // The string follows the PROJ rules for projections [1].
     //
     // \par Reference:
-    //
     // [1] PROJ contributors. (2019). <em>PROJ coordinate transformation software library</em>. Open Source Geospatial Foundation. Retrieved January 25, 2019, from https://proj.org/usage/projections.html
     //
     optional string proj_string = 14;

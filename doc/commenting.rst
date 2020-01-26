@@ -207,6 +207,7 @@ Every OSI message should be defined properly and should have a well cited refere
 - We use the so called `"APA style" <https://apastyle.apa.org/>`_ from the American Psychological Association for referencing.
 - In the references list, the number in brackets [#] is followed by a full citation.
 - For writing the title in italic, use <em>title</em>.
+- If the list contains more than one entry, add " \n " at the end of the line to create a line break within the list.
 - Author names are written as <surname>, <initial(s)> like Authorname, A. A.
 - Editor names are written as <initial(s)> <surname> like B. B. Editorname.
 - Naming pages at the end is optional to enable finding in long texts or for direct citations.
@@ -220,7 +221,7 @@ Every OSI message should be defined properly and should have a well cited refere
 .. [#] <author1> & <author2>. (<year>). <journal article title>. <em><journal title></em>. <page(s)>. <location>. <doi>. <page(s)>.
 .. [#] <author>. (<year>). <em><Phd thesis title></em>. Phd. thesis. <location>. <university>. <doi or url>. <page(s)>.
 .. [#] <author>. (<year>, <month> <day>). <em><internet article title></em>. Retrieved <month> <day>, <year>, from <url>.
-.. [#] <standarding organisation>. (<year>). <em><title of the standard>.</em> (<standard identifier>). <location>.
+.. [#] <standarding organisation>. (<year>). <em><title of the standard></em>. (<standard identifier>). <location>.
 .. [#] <author>. (<year>). <em><patent title and id></em>. <location>. <organisation>.
 
 
@@ -236,14 +237,15 @@ Every OSI message should be defined properly and should have a well cited refere
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa) [1, 2].
         //
         // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
-        // \par Reference:
-        // [1] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
+        // \par References:
+        // [1] DIN Deutsches Institut für Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Größen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         optional double atmospheric_pressure = 1;
     }
@@ -262,14 +264,15 @@ Finally you can provide a set of rules which this field needs to be followed. Th
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa) [1, 2].
         //
         // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
-        // \par Reference:
-        // [1] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
+        // \par References:
+        // [1] DIN Deutsches Institut für Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Größen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         // \rules
         // is_optional
