@@ -167,7 +167,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Emitter Frequency.</p>
 <p>This information can be used by a ray tracing engine to calculate doppler shift information and take into account differences in refraction and reflection. For doppler shift calculations the sensor model can of course always provide a nominal frequency and adjust the resulting doppler shift information to actual frequency through frequency adjustments. For material and geometry interaction purposes the frequency is also relevant.</p>
-<p>Unit: Hz </p>
+<p>Unit: Hz</p>
+<p>is_greater_than_or_equal_to: 0  </p>
 
 </div>
 </div>
@@ -217,7 +218,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Maximum number of interactions to take into account.</p>
-<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor.</dd></dl>
+<p>is_greater_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -275,7 +277,8 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
       </table>
 </div><div class="memdoc">
 <p>Number of pixels in frame.</p>
-<p>This field includes the number of pixels in each frame </p>
+<p>This field includes the number of pixels in each frame</p>
+<p>is_greater_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -291,7 +294,8 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
       </table>
 </div><div class="memdoc">
 <p>Number of rays to cast across horizontal field of view.</p>
-<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor.</dd></dl>
+<p>is_greater_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -307,7 +311,8 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
       </table>
 </div><div class="memdoc">
 <p>Number of rays to cast across vertical field of view.</p>
-<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor.</dd></dl>
+<p>is_greater_than_or_equal_to: 1  </p>
 
 </div>
 </div>

@@ -179,8 +179,8 @@ Multiple seperate detections, from e.g. a large object, do not necessarily on th
       </table>
 </div><div class="memdoc">
 <p>Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.</p>
-<p>Range: [0.0, 1.0]</p>
-<dl class="section note"><dt>Note</dt><dd>Use as confidence measure where a low value means less confidence and a high value indicates strong confidence. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Use as confidence measure where a low value means less confidence and a high value indicates strong confidence.</dd></dl>
+<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -196,7 +196,8 @@ Multiple seperate detections, from e.g. a large object, do not necessarily on th
       </table>
 </div><div class="memdoc">
 <p>ID of the detected object this detection is associated to.</p>
-<dl class="section note"><dt>Note</dt><dd>ID = MAX(uint64) indicates no reference to an object. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>ID = MAX(uint64) indicates no reference to an object.</dd></dl>
+<p>refers_to: DetectedObject  </p>
 
 </div>
 </div>
@@ -212,7 +213,7 @@ Multiple seperate detections, from e.g. a large object, do not necessarily on th
       </table>
 </div><div class="memdoc">
 <p>Describes the possibility whether more than one object may have led to this detection.</p>
-<p>Range: [0.0, 1.0] </p>
+<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -258,7 +259,8 @@ Multiple seperate detections, from e.g. a large object, do not necessarily on th
       </table>
 </div><div class="memdoc">
 <p>Absolute radial (in direction to the sensor) velocity of the detection.</p>
-<p>Unit: m/s </p>
+<p>Unit: m/s</p>
+<p>is_greater_than_or_equal_to: 0  </p>
 
 </div>
 </div>
@@ -274,7 +276,8 @@ Multiple seperate detections, from e.g. a large object, do not necessarily on th
       </table>
 </div><div class="memdoc">
 <p>Root mean squared error of the object measured radial velocity.</p>
-<p>Unit: m/s </p>
+<p>Unit: m/s</p>
+<p>is_greater_than_or_equal_to: 0  </p>
 
 </div>
 </div>

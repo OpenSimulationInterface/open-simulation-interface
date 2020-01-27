@@ -136,7 +136,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Measured distance (radius) of the detection.</p>
-<p>Unit: m </p>
+<p>Unit: m</p>
+<p>is_greater_than_or_equal_to: 0  </p>
 
 </div>
 </div>
@@ -152,8 +153,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.</p>
-<p>Range: [0.0, 1.0]</p>
-<dl class="section note"><dt>Note</dt><dd>Used as confidence measure where a low value means less confidence and a high value indicates strong confidence. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Used as confidence measure where a low value means less confidence and a high value indicates strong confidence.</dd></dl>
+<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -169,7 +170,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>ID of the detected object this detection is associated to.</p>
-<dl class="section note"><dt>Note</dt><dd>ID = MAX(uint64) indicates no reference to an object. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>ID = MAX(uint64) indicates no reference to an object.</dd></dl>
+<p>refers_to: DetectedObject  </p>
 
 </div>
 </div>
