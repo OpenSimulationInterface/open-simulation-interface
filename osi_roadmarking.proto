@@ -73,13 +73,22 @@ message RoadMarking
         // \note Field need not be set (or set to \c #TYPE_OTHER)
         // if road marking type (\c #type) does not require it.
         //
-        optional TrafficSign.MainSign.Classification.Type
-            traffic_main_sign_type = 2;
+        // \rules
+        // check_if this.type is_greater_than_or_equal_to 2 else do_check is_set
+        // check_if this.type is_less_than_or_equal_to 4 else do_check is_set
+        // \endrules
+        //
+        optional TrafficSign.MainSign.Classification.Type traffic_main_sign_type = 2;
 
         // The monochrome color of the road marking.
         // \note Field need not be set (or set to \c #COLOR_OTHER)
         // if road marking type does not require it (e.g. for \c #type ==
         // \c #TYPE_PAINTED_TRAFFIC_SIGN).
+        //
+        // \rules
+        // check_if this.type is_equal_to 2 else do_check is_set
+        // check_if this.monochrome_color is_equal_to 1 else do_check is_set
+        // \endrules
         //
         optional Color monochrome_color = 3;
 
@@ -103,6 +112,10 @@ message RoadMarking
         // May be multiple if the road marking goes across multiple lanes.
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \rules
+        // refers_to: Lane
+        // \endrules
         //
         repeated Identifier assigned_lane_id = 6;
 

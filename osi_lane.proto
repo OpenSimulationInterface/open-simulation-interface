@@ -40,6 +40,10 @@ message Lane
     //
     // \note Note ID is global unique.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The classification of the lane.
@@ -230,6 +234,10 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
+        //
         repeated Identifier left_adjacent_lane_id = 5;
 
         // List of IDs of all lane segments that are directly adjacent to the
@@ -245,6 +253,10 @@ message Lane
         // \c #TYPE_INTERSECTION .
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
         //
         repeated Identifier right_adjacent_lane_id = 6;
 
@@ -275,6 +287,10 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
+        //
         repeated Identifier right_lane_boundary_id = 8;
 
         // The left adjacent lane boundaries \c #left_lane_boundary_id may only
@@ -292,6 +308,10 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
+        //
         repeated Identifier left_lane_boundary_id = 9;
 
         // The free boundaries which have no/unknown assignment to left/right.
@@ -303,6 +323,10 @@ message Lane
         // lane boundaries.
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
         //
         repeated Identifier free_lane_boundary_id = 10;
 
@@ -350,11 +374,19 @@ message Lane
             //
             // Unit: K
             //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
+            //
             optional double surface_temperature = 1;
 
             // The height of the water film on top of the surface in mm.
             //
             // Unit: mm
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_water_film = 2;
 
@@ -363,11 +395,19 @@ message Lane
             //
             // Unit: K
             //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
+            //
             optional double surface_freezing_point = 3;
 
             // The percentage of ice covering the road.
             //
             // Unit: %
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_ice = 4;
 
@@ -404,6 +444,10 @@ message Lane
             //
             // \par Reference:
             // [1] Sayers, M. W. & Karamihas, S. M. (1998). <em>Little Book of Profiling</em>. University of Michigan Transportation Research Institute. Retrieved January 25, 2020, from http://www.umtri.umich.edu/content/LittleBook98R.pdf pp. 45 ff.
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_roughness = 5;
 
@@ -468,9 +512,17 @@ message Lane
         {
             // The antecessor lane ID.
             //
+            // \rules
+            // refers_to: Lane
+            // \endrules
+            //
             optional Identifier antecessor_lane_id = 1;
 
             // The successor lane ID.
+            //
+            // \rules
+            // refers_to: Lane
+            // \endrules
             //
             optional Identifier successor_lane_id = 2;
         }
@@ -494,6 +546,10 @@ message Lane
 message LaneBoundary
 {
     // The ID of the lane boundary.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
     //
     optional Identifier id = 1;
 
@@ -521,6 +577,13 @@ message LaneBoundary
     //
     // \attention For \c BoundaryPoint the same rule for the approximation
     // error applies as for \c Lane::Classification::centerline.
+    //
+    // \rules
+    // first_element width is_equal_to 0.13
+    // first_element height is_equal_to 0.14
+    // last_element width is_equal_to 0.13
+    // last_element height is_equal_to 0.13
+    // \endrules
     //
     repeated BoundaryPoint boundary_line = 2;
 
@@ -671,6 +734,10 @@ message LaneBoundary
         // The ids of \c StationaryObject which limit the corresponding lane.
         // This field must be set if the \c #type is set to
         // \c #TYPE_STRUCTURE
+        //
+        // \rules
+        // refers_to: StationaryObject
+        // \endrules
         //
         repeated Identifier limiting_structure_id = 3;
 

@@ -64,6 +64,10 @@ message GroundTruth
     //
     // \note This ID has to be filled and is not optional!
     //
+    // \rules
+    // refers_to: MovingObject
+    // \endrules
+    //
     optional Identifier host_vehicle_id = 3;
 
     // The list of stationary objects (excluding traffic signs and traffic
@@ -126,6 +130,10 @@ message GroundTruth
     //
     // \par Reference:
     // [1] ISO International Organization for Standardization. (2013). <em>ISO 3166-1 Codes for the representation of names of countries and their subdivisions - Part 1: Country codes</em>. (ISO 3166-1:2013). Geneva, Switzerland.
+    //
+    // \rules
+    // is_iso_country_code:
+    // \endrules
     //
     optional uint32 country_code = 13;
 

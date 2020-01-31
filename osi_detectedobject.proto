@@ -31,7 +31,10 @@ message DetectedItemHeader
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    // Range: [0,1]
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 1
+    // \endrules
     //
     optional double existence_probability = 3;
 
@@ -129,7 +132,10 @@ message DetectedStationaryObject
         // given under the condition of
         // \c DetectedItemHeader::existence_probability.
         //
-        // Range: [0,1]
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // is_less_than_or_equal_to: 1
+        // \endrules
         //
         optional double probability = 1;
 
@@ -182,11 +188,21 @@ message DetectedMovingObject
     //
     // Percentage value of the object width in the corresponding lane.
     //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 100
+    // \endrules
+    //
     optional double percentage_side_lane_left = 6;
 
     // Percentage side lane right.
     //
     // Percentage value of the object width in the corresponding lane.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 100
+    // \endrules
     //
     optional double percentage_side_lane_right = 7;
 
@@ -237,7 +253,10 @@ message DetectedMovingObject
         // given under the condition of
         // \c DetectedItemHeader::existence_probability.
         //
-        // Range: [0,1]
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // is_less_than_or_equal_to: 1
+        // \endrules
         //
         optional double probability = 1;
 
