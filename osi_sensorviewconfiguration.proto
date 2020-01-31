@@ -95,7 +95,7 @@ message SensorViewConfiguration
     // right hand system
     //
     // \par Reference:
-    // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -249,7 +249,7 @@ message GenericSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
-    // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -320,7 +320,7 @@ message RadarSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
-    // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -456,7 +456,7 @@ message LidarSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
-    // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -576,7 +576,7 @@ message CameraSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
-    // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -742,7 +742,7 @@ message UltrasonicSensorViewConfiguration
     // right hand system
     //
     // \par Reference:
-    // [1] DIN Deutsches Institut für Normung e. V. (2013). <em>DIN ISO 8855 Straßenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +

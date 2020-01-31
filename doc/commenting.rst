@@ -8,7 +8,7 @@ During the building process of open simulation interface (using the `proto2cpp <
 For any additional comment styles see `list <http://www.doxygen.nl/manual/commands.html>`_ of doxygen commands.
 
 Reference for writing values and units: ISO 80000-1:2013-08, Quantities and units – Part 1: General
-Nice summary in German: `Rohde & Schwarz: Der korrekte Umgang mit Größen, Einheiten und Gleichungen <https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf>`_
+Nice summary in German: `Rohde & Schwarz: Der korrekte Umgang mit Groessen, Einheiten und Gleichungen <https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf>`_
 
 
 Commenting with block syntax
@@ -244,8 +244,8 @@ Every OSI message should be defined properly and should have a well cited refere
         // \note 100000 Pa = 1 bar
         //
         // \par References:
-        // [1] DIN Deutsches Institut für Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Größen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
-        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
+        // [1] DIN Deutsches Institut fuer Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Groessen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik fuer Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         optional double atmospheric_pressure = 1;
     }
@@ -271,8 +271,8 @@ Finally you can provide a set of rules which this field needs to be followed. Th
         // \note 100000 Pa = 1 bar
         //
         // \par References:
-        // [1] DIN Deutsches Institut für Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Größen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
-        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik für Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
+        // [1] DIN Deutsches Institut fuer Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Groessen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik fuer Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         // \rules
         // is_optional
