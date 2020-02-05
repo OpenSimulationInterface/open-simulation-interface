@@ -98,8 +98,8 @@ message SensorDetectionHeader
     // identical to sensor detection frame's origin. Detections are defined in
     // the sensor detection frame which uses e.g. spherical coordinates.
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     optional MountingPosition mounting_position = 3;
 
