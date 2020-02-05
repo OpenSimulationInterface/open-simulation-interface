@@ -45,10 +45,8 @@ class OSITrace:
         self.timestep_count = 0
         self.retrieved_scenario_size = 0
 
-        if path is not None and type_name is not None:
-            self.from_file(path)
-
-    # Open and Read text file
+    def __del__(self):
+        self.scenario_file.close()
 
     def from_file(self, path, type_name="SensorView", max_index=-1, format_type=None):
         """Import a scenario from a file"""
