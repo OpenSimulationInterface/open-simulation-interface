@@ -117,8 +117,8 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>The interface version number. </p>
 <p>The field denoting the version number. This needs to be set by the sender to the actual OSI version that is to be sent. Code wanting to access the version number of the OSI code base can access a <a class="el" href="structosi3_1_1FileOptions.html" title="Extension of FileOptions for OSI. ">FileOptions</a>, which has the proper values, like this:</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> currentInterfaceVersion =</div><div class="line">  InterfaceVersion::descriptor()-&gt;file()-&gt;options().GetExtension(current_interface_version);</div></div><!-- fragment --><p>If a message with all components set to the default value 0 is received, this indicates that either that the message was sent by a version 2.2.0 or earlier release, or that the sender did not properly set the version components prior to sending.</p>
-<p>Increments will happen as part of changes to the whole interface. The meaning of different InterfaceVersions is defined [1].</p>
-<dl class="section user"><dt>References:</dt><dd>[1] Open Simulation Interface: README.md </dd></dl>
+<p>Increments will happen as part of changes to the whole interface. The meaning of different InterfaceVersions is defined in [1].</p>
+<dl class="section user"><dt>Reference:</dt><dd>[1] Open Simulation Interface. (2020, January 25). <em>README</em>. Retrieved January 25, 2020, from <a href="https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/README.html">https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/README.html</a> </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a06e82a725ac6ea051d93fdd5026913bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06e82a725ac6ea051d93fdd5026913bf">&#9670;&nbsp;</a></span>version_major</h2>
