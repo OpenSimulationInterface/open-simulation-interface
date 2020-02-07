@@ -72,7 +72,10 @@ message MotionCommand
     //
     optional Timestamp timestamp = 1;
 
+    // The current dynamic state of the vehicle.
     optional DynamicState current_state = 2;
+
+    // The trajectory the vehicle should follow on.
     optional Trajectory trajectory = 3;
 
 
