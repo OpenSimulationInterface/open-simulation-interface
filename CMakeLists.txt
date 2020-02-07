@@ -64,9 +64,9 @@ set(OSI_PROTO_FILES
     osi_environment.proto
     osi_groundtruth.proto
     osi_hostvehicledata.proto
+    osi_motioncommand.proto
     osi_trafficsign.proto
     osi_trafficlight.proto
-    osi_trajectory.proto
     osi_roadmarking.proto
     osi_lane.proto
     osi_featuredata.proto
