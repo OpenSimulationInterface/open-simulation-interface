@@ -12,7 +12,7 @@ In this context, OSI defines generic interfaces to ensure modularity, integrabil
 
 For more information on OSI see the [official documentation](https://opensimulationinterface.github.io/osi-documentation/) or the [official reference documentation](https://opensimulationinterface.github.io/open-simulation-interface/) for defined protobuf messages. 
 
-[[1]](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/) *A generic interface for the environment perception of automated driving functions in virtual scenarios.(Dated 03.02.2017) T. Hanke, N. Hirsenkorn, C. van-Driesten, P. Garcia-Ramos, M. Schiementz, S. Schneider, E. Biebl*
+[1] Hanke, T., Hirsenkorn, N., van-Driesten, C., Garcia-Ramos, P., Schiementz, M., Schneider, S. & Biebl, E. (2017, February 03). *A generic interface for the environment perception of automated driving functions in virtual scenarios.* Retrieved January 25, 2020, from https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/ 
 
 ## Usage
 ##### Example of writing and reading an OSI message in `Python`

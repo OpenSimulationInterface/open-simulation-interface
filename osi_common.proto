@@ -166,8 +166,8 @@ message Dimension3d
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
 //
-// \par References:
-// - [1] DIN ISO 8855:2013-11
+// \par Reference:
+// [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
 //
 message Orientation3d
 {

@@ -442,9 +442,8 @@ message Lane
             //
             // Unit: mm/m
             //
-            // \par References:
-            // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
-            // University of Michigan Transportation Research Institute, 1998.
+            // \par Reference:
+            // [1] Sayers, M. W. & Karamihas, S. M. (1998). <em>Little Book of Profiling</em>. University of Michigan Transportation Research Institute. Retrieved January 25, 2020, from http://www.umtri.umich.edu/content/LittleBook98R.pdf pp. 45 ff.
             //
             // \rules
             // is_greater_than_or_equal_to: 0
@@ -455,19 +454,15 @@ message Lane
             // The surface texture or fine roughness
             //
             // Whereas the IRI-based roughness or unevenness measure only takes
-            // into account road wavelengths around 0.5m - 100m, the surface
-            // texture or fine roughness [2] measures only wavelengths below
-            // 0.5m. It is given as the standard height deviation of fine
+            // into account road wavelengths around 0.5 m - 100 m, the surface
+            // texture or fine roughness [1] measures only wavelengths below
+            // 0.5 m. It is given as the standard height deviation of fine
             // roughness
             //
             // Unit: m
             //
-            // \par References:
-            // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
-            // University of Michigan Transportation Research Institute, 1998.
-            // - [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung fuer
-            // ein bildgebendes Kfz-Radar, Dissertation, Universitaet Karlsruhe,
-            // Mai 1998.
+            // \par Reference:
+            // [1] Schneider, R. (1998). <em>Modellierung der Wellenausbreitung fuer ein bildgebendes Kfz-Radar</em>. PhD thesis. Karlsruhe, Germany. Universitaet Karlsruhe, Fak. f. Elektrotechnik.
             //
             optional double surface_texture = 6;
         }

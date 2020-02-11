@@ -7,9 +7,8 @@ During the building process of open simulation interface (using the `proto2cpp <
 
 For any additional comment styles see `list <http://www.doxygen.nl/manual/commands.html>`_ of doxygen commands.
 
-Reference for writing values and units: ISO 80000-1: 2009, Quantities and units – Part 1: General
-Nice summary: [Rohde & Schwarz: Der korrekte Umgang mit Größen, Einheiten und Gleichungen ](https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf
-)
+Reference for writing values and units: ISO 80000-1:2013-08, Quantities and units – Part 1: General
+Nice summary in German: `Rohde & Schwarz: Der korrekte Umgang mit Groessen, Einheiten und Gleichungen <https://karriere.rohde-schwarz.de/fileadmin/customer/downloads/PDF/Der_korrekte_Umgang_mit_Groessen_Einheiten_und_Gleichungen_bro_de_01.pdf>`_
 
 
 Commenting with block syntax
@@ -150,7 +149,7 @@ Then you describe the field by adding an explanation.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         optional double atmospheric_pressure = 1;
     }
@@ -169,7 +168,7 @@ Next you decide the unit of the field.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         // Unit: Pa
         //
@@ -190,7 +189,7 @@ You can optionally add a note to the field to describe the field better.
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa).
         //
         // Unit: Pa
         //
@@ -199,7 +198,32 @@ You can optionally add a note to the field to describe the field better.
         optional double atmospheric_pressure = 1;
     }
 
-If you want to provide a reference to a DIN or to web page which helps in understanding the field you can add a reference.
+To help understanding the field, you should add a reference.
+Every OSI message should be defined properly and should have a well cited reference.
+
+**Citation style for different sources:**
+
+- Within the text, the number system is used with the number of the source in brackets [#] for mentioning.
+- We use the so called `"APA style" <https://apastyle.apa.org/>`_ from the American Psychological Association for referencing.
+- In the references list, the number in brackets [#] is followed by a full citation.
+- For writing the title in italic, use <em>title</em>.
+- If the list contains more than one entry, add " \n " at the end of the line to create a line break within the list.
+- Author names are written as <surname>, <initial(s)> like Authorname, A. A.
+- Editor names are written as <initial(s)> <surname> like B. B. Editorname.
+- Naming pages at the end is optional to enable finding in long texts or for direct citations.
+- All citations should be primary citations. Sources like Wikipedia et al. are not allowed.
+- Find filled-out examples under `https://apastyle.apa.org <https://apastyle.apa.org/style-grammar-guidelines/references/examples>`_ and in existing entries.
+- The scheme of popular sources for the reference list is as follows (replace tags with corresponding values):
+
+.. [#] <author1>, <author2>, <author3> & <author4>. (<year>). Contribution in a compilation title. <em><Compilation Title></em>. <edition>. <page(s)>. <publisher>. <location>. <doi>. <page(s)>.
+.. [#] <author1>, <author2> & <author3>. (<year>). <em><book (monograph) title></em>. <edition>. <publisher>. <doi>. <page(s)>.
+.. [#] <author1> & <author2>. (<year>). <book chapter title>. In <editor1> & <editor2> (Eds.), <em><book title></em> (<page(s)>). <publisher>. <doi>. <page(s)>.
+.. [#] <author1> & <author2>. (<year>). <journal article title>. <em><journal title></em>. <page(s)>. <location>. <doi>. <page(s)>.
+.. [#] <author>. (<year>). <em><Phd thesis title></em>. Phd. thesis. <location>. <university>. <doi or url>. <page(s)>.
+.. [#] <author>. (<year>, <month> <day>). <em><internet article title></em>. Retrieved <month> <day>, <year>, from <url>.
+.. [#] <standarding organisation>. (<year>). <em><title of the standard></em>. (<standard identifier>). <location>.
+.. [#] <author>. (<year>). <em><patent title and id></em>. <location>. <organisation>.
+
 
 .. code-block:: protobuf
 
@@ -213,14 +237,15 @@ If you want to provide a reference to a DIN or to web page which helps in unders
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa) [1, 2].
         //
         // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
-        // \par Reference:
-        // - [1] [Definition atmospheric pressure](https://en.wikipedia.org/wiki/Atmospheric_pressure)
+        // \par References:
+        // [1] DIN Deutsches Institut fuer Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Groessen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik fuer Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         optional double atmospheric_pressure = 1;
     }
@@ -239,14 +264,15 @@ Finally you can provide a set of rules which this field needs to be followed. Th
     //
     message EnvironmentalConditions
     {
-        // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).
+        // Atmospheric pressure in Pascal at z = 0.0 m in world frame (about 101325 Pa) [1, 2].
         //
         // Unit: Pa
         //
         // \note 100000 Pa = 1 bar
         //
-        // \par Reference:
-        // - [1] [Definition atmospheric pressure](https://en.wikipedia.org/wiki/Atmospheric_pressure)
+        // \par References:
+        // [1] DIN Deutsches Institut fuer Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Groessen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+        // [2] Rapp, C. (2017). Grundlagen der Physik. In <em>Hydraulik fuer Ingenieure und Naturwissenschaftler</em> (pp.23-36). Springer Vieweg. Wiesbaden, Germany. https://doi.org/10.1007/978-3-658-18619-7_3. p. 105.
         //
         // \rules
         // is_optional
@@ -318,8 +344,8 @@ If you want to reference message fields and enums add '#' to the enum/field name
 
     // A reference to a enum e.g. \c #COLOR_GREEN.
 
-Commenting with links
-----------------------
+Commenting with links (e.g. in references)
+------------------------------------------
 With ``[<add name of your link>](<add url of your link>)`` you can integrate a link to a certain homepage while commenting.
 
 Commenting with images
