@@ -56,7 +56,8 @@ def main():
     if args.output == 'converted.txth':
         args.output = args.data.split('.', 1)[0] + '.txth'
 
-    trace.make_readable(args.output)    
+    trace.make_readable(args.output)
+    trace.scenario_file.close()  
  
 if __name__ == "__main__":
     main()
