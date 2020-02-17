@@ -59,6 +59,7 @@ class TestRules(unittest.TestCase):
                     if matchMessage is not None:
                         # a new message or a new nested message
                         numMessage += 1
+                        self.assertFalse(foundruleCount > 0, file + f" in line {str(line_number-1)}: message should not have rules for '{statement.strip()}'")
                         endOfLine = statement[matchMessage.end():]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         
@@ -99,9 +100,11 @@ class TestRules(unittest.TestCase):
                             if statement.find(";") != -1:
                                 statement = statement.strip()
                                 self.assertFalse(hasRule and lineruleCount != foundruleCount and endRule and lineruleCount-foundruleCount-1>0, file + " in line " + str(line_number) + ": "+str(lineruleCount-foundruleCount-1)+" defined rule(s) does not exists for: '"+statement+"'")
-                                self.assertFalse(hasRule and lineruleCount > foundruleCount and not endRule, file + " in line " + str(line_number) + ": \\endrules statement does not exists for: '"+statement+"'")
-                                self.assertFalse(not hasRule and lineruleCount < foundruleCount and endRule, file + " in line " + str(line_number) + ": \\rules statement does not exists for: '"+statement+"'")
+                                self.assertFalse(hasRule and not endRule, file + " in line " + str(line_number) + ": \\endrules statement does not exists for: '"+statement+"'")
+                                self.assertFalse(not hasRule and endRule, file + " in line " + str(line_number) + ": \\rules statement does not exists for: '"+statement+"'")
                                 self.assertFalse(not hasRule and not endRule and lineruleCount < foundruleCount, file + " in line " + str(line_number) + ": rules found but no statements (\\rules and \\endrules) around it for: '"+statement+"'")
+                                lineruleCount = -1
+                                foundruleCount = -1
 
                         # elif numMessage == 0 and hasRule:
                         #     statement = statement.strip()
