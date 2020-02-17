@@ -288,45 +288,21 @@ The rule definition must follow the syntax which is defined by a regex search wh
 
 .. code-block:: python
     
-    'is_greater_than':              r'\b(is_greater_than)\b: \d+(\.\d+)?'                                                   # is_greater_than: 1
-    'is_greater_than_or_equal_to':  r'\b(is_greater_than_or_equal_to)\b: \d+(\.\d+)?'                                       # is_greater_than_or_equal_to: 1
-    'is_less_than_or_equal_to':     r'\b(is_less_than_or_equal_to)\b: \d+(\.\d+)?'                                          # is_less_than_or_equal_to: 10
-    'is_less_than':                 r'\b(is_less_than)\b: \d+(\.\d+)?'                                                      # is_less_than: 2
-    'is_equal':                     r'\b(is_equal)\b: \d+(\.\d+)?'                                                          # is_equal: 1
-    'is_different':                 r'\b(is_different)\b: \d+(\.\d+)?'                                                      # is_different: 2
-    'is_global_unique':             r'\b(is_global_unique)\b'                                                               # is_global_unique
-    'refers':                       r'\b(refers)\b'                                                                         # refers
-    'is_iso_country_code':          r'\b(is_iso_country_code)\b'                                                            # is_iso_country_code
-    'first_element':                r'\b(first_element)\b: \{.*: \d+\.\d+\}'                                                # first_element: {is_equal: 0.13, is_greater_than: 0.13}
-    'last_element':                 r'\b(last_element)\b: \{.*: \d+\.\d+\}'                                                 # last_element: {is_equal: 0.13, is_greater_than: 0.13}
-    'is_optional':                  r'\b(is_optional)\b'                                                                    # is_optional
-    'check_if':                     r'\b(check_if)\b: \[\{.*: \d+(\.\d+)?, target: .*}, \{do_check: \{.*: \d+(\.\d+)?}}]'   # check_if: [{is_equal: 2, is_greater_than: 3, target: this.y}, {do_check: {is_equal: 1, is_less_than: 3}}]
+    'is_greater_than':              r'^[ ]\b(is_greater_than)\b: ([\s\d]+)$'                # is_greater_than: 1
+    'is_greater_than_or_equal_to':  r'^[ ]\b(is_greater_than_or_equal_to)\b: ([\s\d]+)$'    # is_greater_than_or_equal_to: 1
+    'is_less_than_or_equal_to':     r'^[ ]\b(is_less_than_or_equal_to)\b: ([\s\d]+)$'       # is_less_than_or_equal_to: 10
+    'is_less_than':                 r'^[ ]\b(is_less_than)\b: ([\s\d]+)$'                   # is_less_than: 2
+    'is_equal':                     r'^[ ]\b(is_equal_to)\b: ([\s\d]+)$'                    # is_equal_to: 1
+    'is_different':                 r'^[ ]\b(is_different_to)\b: ([\s\d]+)$'                # is_different_to: 2
+    'is_global_unique':             r'^[ ]\b(is_globally_unique)\b'                         # is_globally_unique
+    'refers':                       r'^[ ]\b(refers_to)\b'                                  # refers_to: DetectedObject
+    'is_iso_country_code':          r'^[ ]\b(is_iso_country_code)\b'                        # is_iso_country_code
+    'first_element':                r'^[ ]\b(first_element)\b'                              # first_element height is_equal_to 0.13
+    'last_element':                 r'^[ ]\b(last_element)\b'                               # last_element width is_equal_to 0.13
+    'check_if':                     r'^[ ](\bcheck_if\b)(.*\belse do_check\b)'              # check_if this.type is_equal_to 2 else do_check is_set
 
-You can check the correctness of these regular expression on `regex101 <https://regex101.com/r/6tomm6/16>`_.
+You can check the correctness of these regular expression on `regex101 <https://regex101.com/r/P4KeuO/1>`_.
 
-
-.. is_greater_than: 2
-.. is_greater_than: 2.23
-.. is_greater_than_or_equal_to: 1
-.. is_greater_than_or_equal_to: 1.12
-.. is_less_than_or_equal_to: 10
-.. is_less_than_or_equal_to: 10.123
-.. is_less_than: 2
-.. is_less_than: 2.321
-.. is_equal: 1
-.. is_equal: 1.312
-.. is_different: 2
-.. is_different: 2.2122
-.. is_global_unique
-.. refers
-.. is_iso_country_code
-.. first_element: {is_equal: 3, is_greater: 2}
-.. first_element: {is_equal: 0.13, is_greater: 0.13}
-.. last_element: {is_equal: 3, is_greater: 2}
-.. last_element: {is_equal: 0.13, is_greater: 0.13}
-.. check_if: [{is_equal: 2, is_greater_than: 3, target: this.y}, {do_check: {is_equal: 1, is_less_than: 3}}]
-.. is_set
- 
 
 Commenting with doxygen references
 ------------------------------------
