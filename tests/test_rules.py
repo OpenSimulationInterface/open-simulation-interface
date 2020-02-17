@@ -22,8 +22,6 @@ class TestRules(unittest.TestCase):
                 foundruleCount = 0
                 saveStatement = ""
                 isEnum = False
-                hasRule = False
-                endRule = False
 
                 for line in fin:
                     line_number += 1
@@ -102,10 +100,10 @@ class TestRules(unittest.TestCase):
                         enumName = ""
 
                     if matchComment is not None:
-                        if comment.find("\\endrules") != -1:
+                        if re.search(r"^[ ]\\\bendrules\b$", comment) is not None:
                             endRule = True
 
-                        if comment.find("\\rules") != -1:
+                        if re.search(r"^[ ]\\\brules\b$", comment) is not None:
                             hasRule = True
                             lineruleCount = 0
                             foundruleCount = 0
@@ -120,15 +118,11 @@ class TestRules(unittest.TestCase):
                             if statement.find(";") != -1:
                                 statement = statement.strip()
                                 self.assertFalse(hasRule and lineruleCount != foundruleCount and endRule and lineruleCount-foundruleCount-1>0, file + " in line " + str(line_number) + ": "+str(lineruleCount-foundruleCount-1)+" defined rule(s) does not exists for: '"+statement+"'")
-                                self.assertFalse(hasRule and not endRule, file + " in line " + str(line_number) + ": \\endrules statement does not exists for: '"+statement+"'")
-                                self.assertFalse(not hasRule and endRule, file + " in line " + str(line_number) + ": \\rules statement does not exists for: '"+statement+"'")
+                                self.assertFalse(hasRule and not endRule, file + " in line " + str(line_number) + ": \\endrules statement does not exists for: '"+statement+"'. Check spacing and rule syntax.")
+                                self.assertFalse(not hasRule and endRule, file + " in line " + str(line_number) + ": \\rules statement does not exists for: '"+statement+"'. Check spacing and rule syntax.")
                                 self.assertFalse(not hasRule and not endRule and lineruleCount < foundruleCount, file + " in line " + str(line_number) + ": rules found but no statements (\\rules and \\endrules) around it for: '"+statement+"'")
                                 lineruleCount = 0
                                 foundruleCount = 0
-
-                        # elif numMessage == 0 and hasRule:
-                        #     statement = statement.strip()
-                        #     self.assertFalse(hasRule and lineruleCount != foundruleCount and endRule and lineruleCount-foundruleCount-1>0, file + " in line " + str(line_number) + ": "+str(lineruleCount-foundruleCount-1)+" defined rule(s) does not exists for: '"+statement+"'")
 
                         hasRule = False
                         endRule = False
