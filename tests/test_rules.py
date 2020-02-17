@@ -3,7 +3,7 @@ import glob
 import unittest
 import yaml
 
-PROTO_FILES = glob.glob("osi_environment.proto")
+PROTO_FILES = glob.glob("*.proto")
 
 class TestRules(unittest.TestCase):
     """ Test class for units documentation. """
@@ -21,6 +21,7 @@ class TestRules(unittest.TestCase):
                 lineruleCount = 0
                 foundruleCount = 0
                 saveStatement = ""
+                isEnum = False
                 hasRule = False
                 endRule = False
 
@@ -59,7 +60,7 @@ class TestRules(unittest.TestCase):
                     if matchMessage is not None:
                         # a new message or a new nested message
                         numMessage += 1
-                        self.assertFalse(foundruleCount > 0, file + f" in line {str(line_number-1)}: message should not have rules for '{statement.strip()}'")
+                        self.assertFalse(foundruleCount > 0 or lineruleCount > 0, file + f" in line {str(line_number-1)}: message should not have rules for '{statement.strip()}'")
                         endOfLine = statement[matchMessage.end():]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         
@@ -76,10 +77,29 @@ class TestRules(unittest.TestCase):
                                 type = statement.replace(checkName, "")
                                 matchName = re.search(r"\b\w[\S\.]*\s*=", type)
 
+                    if isEnum:
+                        matchName = re.search(r"\b\w[\S:]+\b", statement)
+                        if matchName is not None:
+                            checkName = statement[matchName.start():matchName.end()]
+                            self.assertFalse(foundruleCount > 0 or lineruleCount > 0, file + f" in line {str(line_number-1)}: enum field should not have rules for '{statement.strip()}'")
+
+                    # Search for "enum".
+                    matchEnum = re.search(r"\benum\b", statement)
+                    if matchEnum is not None:
+                        isEnum = True
+                        endOfLine = statement[matchEnum.end():]
+                        matchName = re.search(r"\b\w[\S]*\b", endOfLine)
+                        if matchName is not None:
+                            self.assertFalse(foundruleCount > 0 or lineruleCount > 0, file + f" in line {str(line_number-1)}: enum should not have rules for '{statement.strip()}'")
+
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
                     if numMessage > 0 and matchClosingBrace is not None:
                         numMessage -= 1
+
+                    if isEnum is True and matchClosingBrace is not None:
+                        isEnum = False
+                        enumName = ""
 
                     if matchComment is not None:
                         if comment.find("\\endrules") != -1:
@@ -87,8 +107,8 @@ class TestRules(unittest.TestCase):
 
                         if comment.find("\\rules") != -1:
                             hasRule = True
-                            lineruleCount = -1
-                            foundruleCount = -1
+                            lineruleCount = 0
+                            foundruleCount = 0
 
                         if not endRule and comment != '':
                             for rulename, ruleregex in RULES_DICT.items():
@@ -103,8 +123,8 @@ class TestRules(unittest.TestCase):
                                 self.assertFalse(hasRule and not endRule, file + " in line " + str(line_number) + ": \\endrules statement does not exists for: '"+statement+"'")
                                 self.assertFalse(not hasRule and endRule, file + " in line " + str(line_number) + ": \\rules statement does not exists for: '"+statement+"'")
                                 self.assertFalse(not hasRule and not endRule and lineruleCount < foundruleCount, file + " in line " + str(line_number) + ": rules found but no statements (\\rules and \\endrules) around it for: '"+statement+"'")
-                                lineruleCount = -1
-                                foundruleCount = -1
+                                lineruleCount = 0
+                                foundruleCount = 0
 
                         # elif numMessage == 0 and hasRule:
                         #     statement = statement.strip()
