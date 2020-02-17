@@ -12,7 +12,7 @@ class TestRules(unittest.TestCase):
         ''' Test rule compliance syntax of proto files. '''
 
         with open(r'rules.yml') as rules_file:
-            RULES_DICT = yaml.load(rules_file, Loader=yaml.FullLoader)
+            RULES_DICT = yaml.load(rules_file, Loader=yaml.BaseLoader)
         
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -97,7 +97,6 @@ class TestRules(unittest.TestCase):
 
                     if isEnum is True and matchClosingBrace is not None:
                         isEnum = False
-                        enumName = ""
 
                     if matchComment is not None:
                         if re.search(r"^[ ]\\\bendrules\b$", comment) is not None:
