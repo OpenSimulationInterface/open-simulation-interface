@@ -11,17 +11,18 @@ class TestRules(unittest.TestCase):
     def test_rules_compliance(self):
         ''' Test rule compliance syntax of proto files. '''
 
-        lineruleCount = 0
-        foundruleCount = 0
-
         with open(r'rules.yml') as rules_file:
             RULES_DICT = yaml.load(rules_file, Loader=yaml.FullLoader)
         
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
                 line_number = 0
-                noMessage = 0
+                numMessage = 0
+                lineruleCount = 0
+                foundruleCount = 0
                 saveStatement = ""
+                hasRule = False
+                endRule = False
 
                 for line in fin:
                     line_number += 1
@@ -57,16 +58,16 @@ class TestRules(unittest.TestCase):
                     matchMessage = re.search(r"\bmessage\b", statement)
                     if matchMessage is not None:
                         # a new message or a new nested message
-                        noMessage += 1
+                        numMessage += 1
                         endOfLine = statement[matchMessage.end():]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         
                     elif re.search(r"\bextend\b", statement) is not None:
                         # treat extend as message
-                        noMessage += 1
+                        numMessage += 1
                     else:
                         # Check field names
-                        if noMessage > 0:
+                        if numMessage > 0:
                             matchName = re.search(r"\b\w[\S]*\b\s*=", statement)
                             if matchName is not None:
                                 checkName = statement[matchName.start():matchName.end()-1]
@@ -76,8 +77,8 @@ class TestRules(unittest.TestCase):
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
-                    if noMessage > 0 and matchClosingBrace is not None:
-                        noMessage -= 1
+                    if numMessage > 0 and matchClosingBrace is not None:
+                        numMessage -= 1
 
                     if matchComment is not None:
                         if comment.find("\\endrules") != -1:
@@ -94,16 +95,22 @@ class TestRules(unittest.TestCase):
                                     foundruleCount += 1
 
                     elif len(saveStatement) == 0:
-                        if noMessage > 0:
+                        if numMessage > 0:
                             if statement.find(";") != -1:
                                 statement = statement.strip()
                                 self.assertFalse(hasRule and lineruleCount != foundruleCount and endRule and lineruleCount-foundruleCount-1>0, file + " in line " + str(line_number) + ": "+str(lineruleCount-foundruleCount-1)+" defined rule(s) does not exists for: '"+statement+"'")
-                                self.assertFalse(hasRule and lineruleCount > foundruleCount and not endRule, file + " in line " + str(line_number) + ": endrules statement does not exists for: '"+statement+"'")
-                    
+                                self.assertFalse(hasRule and lineruleCount > foundruleCount and not endRule, file + " in line " + str(line_number) + ": \\endrules statement does not exists for: '"+statement+"'")
+                                self.assertFalse(not hasRule and lineruleCount < foundruleCount and endRule, file + " in line " + str(line_number) + ": \\rules statement does not exists for: '"+statement+"'")
+                                self.assertFalse(not hasRule and not endRule and lineruleCount < foundruleCount, file + " in line " + str(line_number) + ": rules found but no statements (\\rules and \\endrules) around it for: '"+statement+"'")
+
+                        # elif numMessage == 0 and hasRule:
+                        #     statement = statement.strip()
+                        #     self.assertFalse(hasRule and lineruleCount != foundruleCount and endRule and lineruleCount-foundruleCount-1>0, file + " in line " + str(line_number) + ": "+str(lineruleCount-foundruleCount-1)+" defined rule(s) does not exists for: '"+statement+"'")
+
                         hasRule = False
                         endRule = False
 
-                    if hasRule and not endRule:
+                    if hasRule and not endRule or not hasRule and endRule:
                         lineruleCount += 1
 
 if __name__ == '__main__':
