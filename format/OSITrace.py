@@ -45,11 +45,6 @@ class OSITrace:
         self.timestep_count = 0
         self.retrieved_scenario_size = 0
 
-        if path is not None and type_name is not None:
-            self.from_file(path)
-
-    # Open and Read text file
-
     def from_file(self, path, type_name="SensorView", max_index=-1, format_type=None):
         """Import a scenario from a file"""
 
@@ -142,7 +137,7 @@ class OSITrace:
             message_length = struct.unpack("<L", serialized_message[i:INT_LENGTH+i])[0]
             message.ParseFromString(serialized_message[i+INT_LENGTH:i+INT_LENGTH+message_length])
             i += message_length + INT_LENGTH
-            self.message_offsets.append(message)
+            self.message_offsets.append(i)
 
         if eof:
             self.retrieved_scenario_size = scenario_size

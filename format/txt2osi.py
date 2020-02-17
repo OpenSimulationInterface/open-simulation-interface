@@ -69,6 +69,7 @@ def main():
         f.write(struct.pack("<L", len(byte_buffer)) + byte_buffer) 
     
     f.close()
+    trace.scenario_file.close()
  
 if __name__ == "__main__":
     main()
