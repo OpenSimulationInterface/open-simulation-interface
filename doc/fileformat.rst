@@ -36,6 +36,33 @@ In summary we have currently three types of formats:
 2. ``*.txt`` trace files which are ``$$__$$`` separated.
 3. ``*.txth`` files which are human readable trace files for just plausibility checks.
 
+Trace file naming convention
+-----------------------------
+As best practice we recommend to name the trace files in the following format:
+
+.. code-block:: txt
+
+    <type>_<osi-version>_<protobuf-version>_<frame-number>_<custom-trace-name>.osi
+
+For example a naming for a trace with the information below:
+
+.. code-block:: txt
+
+    Type = SensorView
+    OSI Version= 3.1.2
+    Protobuf Version = 3.0.0
+    Number of frames = 1523
+    Scenario name = highway
+
+would then look like this:
+
+.. code-block:: txt
+
+    sv_312_300_1523_highway.osi
+
+The type definition would only be possible for ``SensorView = sv``, ``SensorData = sd`` and ``GroundTruth = gt``.
+By following this best practice users can understand the general content of a file. By comparing the information provided by the naming and the actual trace the user can check the overall validity of a trace file.
+
 Generate OSI traces
 --------------------
 If you want to generate a valid OSI trace file which can be used as an input for the `osi-validator <https://github.com/OpenSimulationInterface/osi-validation>`_ or the `osi-visualizer <https://github.com/OpenSimulationInterface/osi-visualizer>`_ see the example script in python below:
@@ -47,7 +74,7 @@ If you want to generate a valid OSI trace file which can be used as an input for
 
     def main():
         """Initialize SensorView"""
-        f = open("test_trace.osi", "ab")
+        f = open("sv_312_320_10_movingobject.osi", "ab")
         sensorview = SensorView()
 
         sv_ground_truth = sensorview.global_ground_truth
@@ -95,5 +122,5 @@ In the script we initialize the type we want to use for the messages. Here we us
 For the ``SensorView`` it is mandatory to define the version and the timestamp. After that we can add objects. 
 Here we add a moving object with the ID 114. For this object we generate in a for loop 10 OSI messages which all have different x values over a time span of 9 seconds. 
 This means the object is changing the position in the x direction through the iteration each second. 
-Each time we change the x value and the timestamp we append the length of the OSI message and the serialized OSI message itself to a file called ``test_trace.osi``. 
-After finishing the loop we now have a ``test_trace.osi`` file which can be `validated <https://github.com/OpenSimulationInterface/osi-validation>`_ and `visualized <https://github.com/OpenSimulationInterface/osi-visualizer>`_.
+Each time we change the x value and the timestamp we append the length of the OSI message and the serialized OSI message itself to a file called ``sv_312_320_10_movingobject.osi``. 
+After finishing the loop we now have a ``sv_312_320_10_movingobject.osi`` file which can be `validated <https://github.com/OpenSimulationInterface/osi-validation>`_ and `visualized <https://github.com/OpenSimulationInterface/osi-visualizer>`_.
