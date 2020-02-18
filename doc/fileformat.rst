@@ -73,7 +73,7 @@ If you want to generate a valid OSI trace file which can be used as an input for
 
     def main():
         """Initialize SensorView"""
-        f = open("sv_312_300_10_objectmoving.osi", "ab")
+        f = open("sv_312_320_10_movingobject.osi", "ab")
         sensorview = SensorView()
 
         sv_ground_truth = sensorview.global_ground_truth
@@ -121,5 +121,5 @@ In the script we initialize the type we want to use for the messages. Here we us
 For the ``SensorView`` it is mandatory to define the version and the timestamp. After that we can add objects. 
 Here we add a moving object with the ID 114. For this object we generate in a for loop 10 OSI messages which all have different x values over a time span of 9 seconds. 
 This means the object is changing the position in the x direction through the iteration each second. 
-Each time we change the x value and the timestamp we append the length of the OSI message and the serialized OSI message itself to a file called ``test_trace.osi``. 
-After finishing the loop we now have a ``test_trace.osi`` file which can be `validated <https://github.com/OpenSimulationInterface/osi-validation>`_ and `visualized <https://github.com/OpenSimulationInterface/osi-visualizer>`_.
+Each time we change the x value and the timestamp we append the length of the OSI message and the serialized OSI message itself to a file called ``sv_312_320_10_movingobject.osi``. 
+After finishing the loop we now have a ``sv_312_320_10_movingobject.osi`` file which can be `validated <https://github.com/OpenSimulationInterface/osi-validation>`_ and `visualized <https://github.com/OpenSimulationInterface/osi-visualizer>`_.
