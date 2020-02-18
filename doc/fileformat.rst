@@ -60,7 +60,7 @@ would then look like this:
 
     sv_312_300_1523_highway.osi
 
-By following this best practice users can understand the contents of the file and also a validation of the file by osi-validator can be possible (not mandatory).
+By following this best practice users can understand the general contents of a file. By comparing the information provided by the naming and the actual trace the user can check the general validity of a trace file.
 
 Generate OSI traces
 --------------------
