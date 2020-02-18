@@ -73,7 +73,7 @@ If you want to generate a valid OSI trace file which can be used as an input for
 
     def main():
         """Initialize SensorView"""
-        f = open("test_trace.osi", "ab")
+        f = open("sv_312_300_10_objectmoving.osi", "ab")
         sensorview = SensorView()
 
         sv_ground_truth = sensorview.global_ground_truth
