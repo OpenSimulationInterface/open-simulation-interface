@@ -60,8 +60,8 @@ would then look like this:
 
     sv_312_300_1523_highway.osi
 
-The type definition would only be possible for ``SensorView = sv``, ``SensorData = sd`` amd ``GroundTruth = gt``.
-By following this best practice users can understand the general contents of a file. By comparing the information provided by the naming and the actual trace the user can check the general validity of a trace file.
+The type definition would only be possible for ``SensorView = sv``, ``SensorData = sd`` and ``GroundTruth = gt``.
+By following this best practice users can understand the general content of a file. By comparing the information provided by the naming and the actual trace the user can check the overall validity of a trace file.
 
 Generate OSI traces
 --------------------
