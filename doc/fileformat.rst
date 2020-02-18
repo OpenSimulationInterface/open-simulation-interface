@@ -36,6 +36,32 @@ In summary we have currently three types of formats:
 2. ``*.txt`` trace files which are ``$$__$$`` separated.
 3. ``*.txth`` files which are human readable trace files for just plausibility checks.
 
+Trace file naming convention
+-----------------------------
+As best practice we recommend to name the trace files in the following format:
+
+.. code-block:: txt
+
+    <type>_<osi-version>_<protobuf-version>_<frame-number>_<custom-trace-name>.osi
+
+For example a naming for a trace with the information below:
+
+.. code-block:: txt
+
+    Type = SensorView
+    OSI Version= 3.1.2
+    Protobuf Version = 3.0.0
+    Number of frames = 1523
+    Scenario name = highway
+
+would then look like this:
+
+.. code-block:: txt
+
+    sv_312_300_1523_highway.osi
+
+By following this best practice users can understand the contents of the file and also a validation of the file by osi-validator can be possible (not mandatory).
+
 Generate OSI traces
 --------------------
 If you want to generate a valid OSI trace file which can be used as an input for the `osi-validator <https://github.com/OpenSimulationInterface/osi-validation>`_ or the `osi-visualizer <https://github.com/OpenSimulationInterface/osi-visualizer>`_ see the example script in python below:
