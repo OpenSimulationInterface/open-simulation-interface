@@ -64,6 +64,10 @@ message GroundTruth
     //
     // \note This ID has to be filled and is not optional!
     //
+    // \rules
+    // refers_to: MovingObject
+    // \endrules
+    //
     optional Identifier host_vehicle_id = 3;
 
     // The list of stationary objects (excluding traffic signs and traffic
@@ -121,26 +125,25 @@ message GroundTruth
     optional EnvironmentalConditions environmental_conditions = 12;
 
     // The ISO country code in 3 digit numeric format according to:
-    // ISO Code 3166/1 [1,2].
+    // ISO Code 3166/1 [1].
     // E.g. Germany = 276, USA = 840.
     //
-    // Unit: []
+    // \par Reference:
+    // [1] ISO International Organization for Standardization. (2013). <em>ISO 3166-1 Codes for the representation of names of countries and their subdivisions - Part 1: Country codes</em>. (ISO 3166-1:2013). Geneva, Switzerland.
     //
-    // \par References:
-    // - [1] [International Standard ISO 3166-1: Codes for the representation of
-    // names of countries and their subdivisions - Part 1: Country codes, third
-    // ed., 2013] (https://www.iso.org/obp/ui/)
-    // - [2] [Wikipedia ISO 3166/1] (https://en.wikipedia.org/wiki/ISO_3166-1)
+    // \rules
+    // is_iso_country_code:
+    // \endrules
     //
     optional uint32 country_code = 13;
 
     // Projection string that allows to transform all coordinates in GroundTruth
     // into a different cartographic projection.
     //
-    // The string follows the PROJ.4 project rules for projections [1].
+    // The string follows the PROJ rules for projections [1].
     //
-    // \par References:
-    // - [1] [Proj.4 Projections] (https://proj4.org/usage/projections.html)
+    // \par Reference:
+    // [1] PROJ contributors. (2019). <em>PROJ coordinate transformation software library</em>. Open Source Geospatial Foundation. Retrieved January 25, 2019, from https://proj.org/usage/projections.html
     //
     optional string proj_string = 14;
 

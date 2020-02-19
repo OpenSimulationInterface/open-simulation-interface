@@ -12,7 +12,7 @@ package osi3;
 //
 message SensorDataSeries
 {
-    // List of sensor data messages for subsequent timesteps.
+    // List of sensor data messages for subsequent time steps.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -25,7 +25,7 @@ message SensorDataSeries
 //
 message SensorDataSeriesList
 {
-    // List of sensor data for multiple sensors at subsequent timesteps.
+    // List of sensor data for multiple sensors at subsequent time steps.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //

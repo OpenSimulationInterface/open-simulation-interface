@@ -1,0 +1,32 @@
+v2.2.0 - OSI "Brave Brabham"
+==============================
+`8950185 <https://github.com/OpenSimulationInterface/open-simulation-interface/commit/895018594421e0bd2a68013b2d32b2b729b076c4>`_
+
+Purpose:
+---------
+This release focuses on optimizing the build process and documentation.
+
+`Content/Changes <https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/2?closed=1>`_:
+-----------------------------------------------------------------------------------------------------------------------
+
+- Added a shared library target to the CMake build script.
+- Generated a proper doxygen documentation.
+- Placed the version number in one file (VERSION).
+- Added unit testing mechanism including style guide checking.
+- Redefined precipitation and added a fog definition to the environmental conditions message.
+- Added layer id to low level point cloud data.
+- Reworked large parts of the build instructions in the WIKI.
+
+v2.2.1 - OSI "Brave Brabham", Update 1
+========================================
+`ca21a73 <https://github.com/OpenSimulationInterface/open-simulation-interface/commit/ca21a731e35a96ba3f91ef6cdf4365115ec3f332>`_
+
+Purpose:
+---------
+This release focuses on optimizing the build process and ensures the proper installation of different versions of OSI on a single system.
+
+`Content/Changes <https://github.com/OpenSimulationInterface/open-simulation-interface/compare/maintenance/v2.2.x>`_:
+-----------------------------------------------------------------------------------------------------------------------
+
+- Allowing several OSI versions on the same computer.
+- Improves CI builds to also test the installation cmake targets for proper completion.

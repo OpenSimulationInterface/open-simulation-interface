@@ -94,8 +94,8 @@ message SensorViewConfiguration
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -122,7 +122,9 @@ message SensorViewConfiguration
     // that the simulation environment has to provide.
     // Viewing range: [- \c #field_of_view_horizontal/2,  \c
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
-    // Spherical3d. Unit: [rad]
+    // Spherical3d.
+    //
+    // Unit: rad
     optional double field_of_view_horizontal = 5;
 
     // Field of View in vertical orientation of the sensor.
@@ -133,7 +135,7 @@ message SensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 6;
 
     // Maximum range of the sensor
@@ -141,7 +143,12 @@ message SensorViewConfiguration
     // This determines the limit of the cone of interest of ground truth
     // that the simulation environment has to provide.
     //
-    // Unit: [m]
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
+    //
     optional double range = 7;
 
     // The update cycle time of the sensor model.
@@ -149,7 +156,7 @@ message SensorViewConfiguration
     // This specifies the rate at which the sensor model is provided with
     // new input data.
     //
-    // Unit: [s]
+    // Unit: s
     // \note In the case of FMU packaging this will correspond to the
     // communication step size.
     optional Timestamp update_cycle_time = 8;
@@ -171,7 +178,7 @@ message SensorViewConfiguration
     // stable phase position of the offset in the case of changing
     // simulation start times, e.g. for partial resimulation.
     //
-    // Unit: [s]
+    // Unit: s
     optional Timestamp update_cycle_offset = 9;
 
     // Simulation Start time
@@ -180,7 +187,7 @@ message SensorViewConfiguration
     // has chosen. This field has no defined meaning if provided by
     // the sensor model.
     //
-    // Unit: [s]
+    // Unit: s
     optional Timestamp simulation_start_time = 10;
 
     // Generic Sensor View Configuration(s).
@@ -246,8 +253,8 @@ message GenericSensorViewConfiguration
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -274,7 +281,7 @@ message GenericSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -283,7 +290,7 @@ message GenericSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // TBD: Generic sensor specific configuration.
@@ -317,8 +324,8 @@ message RadarSensorViewConfiguration
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -345,7 +352,7 @@ message RadarSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -354,25 +361,40 @@ message RadarSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // Number of rays to cast across horizontal field of view (azimuth).
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 number_of_rays_horizontal = 6;
 
     // Number of rays to cast across vertical field of view (elevation).
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 number_of_rays_vertical = 7;
 
     // Maximum number of interactions to take into account.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 max_number_of_interactions = 8;
 
     // Emitter Frequency.
@@ -385,7 +407,12 @@ message RadarSensorViewConfiguration
     // through frequency adjustments. For material and geometry interaction
     // purposes the frequency is also relevant.
     //
-    // Unit: [Hz]
+    // Unit: Hz
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
+    //
     optional double emitter_frequency = 9;
 
     // This represents the TX antenna diagram
@@ -409,19 +436,19 @@ message RadarSensorViewConfiguration
         // Horizontal deflection (azimuth) of entry in sensor/antenna
         // coordinates.
         //
-        // Unit: [rad]
+        // Unit: rad
         optional double horizontal_angle = 1;
 
         // Vertical deflection (elevation) of entry in sensor/antenna
         // coordinates.
         //
-        // Unit: [rad]
+        // Unit: rad
         optional double vertical_angle = 2;
 
         // Response of antenna at this point (positive dB is gain,
         // negative dB is attenuation).
         //
-        // Unit: [dB]
+        // Unit: dB
         optional double response = 3;
     }
 }
@@ -453,8 +480,8 @@ message LidarSensorViewConfiguration
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -481,7 +508,7 @@ message LidarSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -490,25 +517,40 @@ message LidarSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // Number of rays to cast across horizontal field of view.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 number_of_rays_horizontal = 6;
 
     // Number of rays to cast across vertical field of view.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 number_of_rays_vertical = 7;
 
     // Maximum number of interactions to take into account.
     //
     // \note This is a characteristic of the ray tracing engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 max_number_of_interactions = 8;
 
     // Emitter Frequency.
@@ -521,12 +563,21 @@ message LidarSensorViewConfiguration
     // through frequency adjustments. For material and geometry interaction
     // purposes the frequency is also relevant.
     //
-    // Unit: [Hz]
+    // Unit: Hz
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
+    //
     optional double emitter_frequency = 9;
 
     // Number of pixels in frame.
     //
     // This field includes the number of pixels in each frame
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
     //
     optional uint32 num_of_pixels = 10;
 
@@ -573,8 +624,8 @@ message CameraSensorViewConfiguration
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -601,7 +652,7 @@ message CameraSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -610,19 +661,29 @@ message CameraSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // Number of pixels to produce across horizontal field of view.
     //
     // \note This is a characteristic of the rendering engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 number_of_pixels_horizontal = 6;
 
     // Number of pixels to produce across horizontal field of view.
     //
     // \note This is a characteristic of the rendering engine of the
     // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
     optional uint32 number_of_pixels_vertical = 7;
 
     // Format for image data (includes number, kind and format of channels).
@@ -638,6 +699,10 @@ message CameraSensorViewConfiguration
     // be one of the values the sensor model requested - or there
     // must be no value, indicating that the simulation environment
     // cannot provide image data in one of the requested formats.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
     //
     repeated ChannelFormat channel_format = 8;
 
@@ -739,8 +804,8 @@ message UltrasonicSensorViewConfiguration
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note The origin of vehicle's coordinate system in world frame is
     // ( \c MovingObject::base . \c BaseMoving::position +
@@ -767,7 +832,7 @@ message UltrasonicSensorViewConfiguration
     // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
     // Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_horizontal = 4;
 
     // Field of View in vertical orientation of the physical sensor.
@@ -776,7 +841,7 @@ message UltrasonicSensorViewConfiguration
     // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
     // as defined in \c Spherical3d.
     //
-    // Unit: [rad]
+    // Unit: rad
     optional double field_of_view_vertical = 5;
 
     // TBD: Ultrasonic Sensor specific configuration.

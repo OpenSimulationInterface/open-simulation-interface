@@ -172,8 +172,8 @@ message SensorData
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note This field is usually static during the simulation.
     // \note The origin of vehicle's coordinate system in world frame is

@@ -40,6 +40,10 @@ message Lane
     //
     // \note Note ID is global unique.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The classification of the lane.
@@ -230,6 +234,10 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
+        //
         repeated Identifier left_adjacent_lane_id = 5;
 
         // List of IDs of all lane segments that are directly adjacent to the
@@ -245,6 +253,10 @@ message Lane
         // \c #TYPE_INTERSECTION .
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
         //
         repeated Identifier right_adjacent_lane_id = 6;
 
@@ -275,6 +287,10 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
+        //
         repeated Identifier right_lane_boundary_id = 8;
 
         // The left adjacent lane boundaries \c #left_lane_boundary_id may only
@@ -292,6 +308,10 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
+        //
         repeated Identifier left_lane_boundary_id = 9;
 
         // The free boundaries which have no/unknown assignment to left/right.
@@ -303,6 +323,10 @@ message Lane
         // lane boundaries.
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \rules
+        // check_if this.type is_different_to 4 else do_check is_set
+        // \endrules
         //
         repeated Identifier free_lane_boundary_id = 10;
 
@@ -348,26 +372,42 @@ message Lane
         {
             // The temperature of the roads surface in Kelvin.
             //
-            // Unit: [K]
+            // Unit: K
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_temperature = 1;
 
             // The height of the water film on top of the surface in mm.
             //
-            // Unit: [mm]
+            // Unit: mm
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_water_film = 2;
 
             // The temperature where the water on top of the surface would start
             // to freeze or dew in Kelvin.
             //
-            // Unit: [K]
+            // Unit: K
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_freezing_point = 3;
 
             // The percentage of ice covering the road.
             //
-            // Unit: [%]
+            // Unit: %
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_ice = 4;
 
@@ -378,52 +418,51 @@ message Lane
             // 20 mm/m (a very rough road).
             //
             // Estimated value ranges (IRI):
-            // 0.0 [mm/m] absolutely perfect evenness
-            // 0.3 -  1.8 [mm/m] airport runways and superhighways
-            // 1.4 -  3.4 [mm/m] new pavements
-            // 2.2 -  5.7 [mm/m] older pavements
-            // 3.2 -  9.8 [mm/m] maintained unpaved roads
-            // 4.0 - 11.0 [mm/m] damaged pavements
+            // 0.0 mm/m absolutely perfect evenness
+            // 0.3 -  1.8 mm/m airport runways and superhighways
+            // 1.4 -  3.4 mm/m new pavements
+            // 2.2 -  5.7 mm/m older pavements
+            // 3.2 -  9.8 mm/m maintained unpaved roads
+            // 4.0 - 11.0 mm/m damaged pavements
             // 8.0 - >
-            // 20 [mm/m] rough unpaved roads
+            // 20 mm/m rough unpaved roads
             //
             // Speed of normal use (IRI):
-            // 30 [km/h] - 20   [mm/m]
-            // 50 [km/h] - 14.5 [mm/m]
-            // 60 [km/h] - 10.0 [mm/m]
-            // 80 [km/h] -  8.5 [mm/m]
-            // 100 [km/h] -  3.4 [mm/m]
+            // 30 km/h - 20   mm/m
+            // 50 km/h - 14.5 mm/m
+            // 60 km/h - 10.0 mm/m
+            // 80 km/h -  8.5 mm/m
+            // 100 km/h -  3.4 mm/m
             //
             // Road conditions (IRI);
-            // 15 [mm/m] erosion gulleys and deep depressions
-            // 11 [mm/m] frequent shallow depressions, some deep
-            // 9 [mm/m] frequent minor depressions
-            // 5 [mm/m] surface imperfections
+            // 15 mm/m erosion gulleys and deep depressions
+            // 11 mm/m frequent shallow depressions, some deep
+            // 9 mm/m frequent minor depressions
+            // 5 mm/m surface imperfections
             //
-            // Unit: [mm/m]
+            // Unit: mm/m
             //
-            // \par References:
-            // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
-            // University of Michigan Transportation Research Institute, 1998.
+            // \par Reference:
+            // [1] Sayers, M. W. & Karamihas, S. M. (1998). <em>Little Book of Profiling</em>. University of Michigan Transportation Research Institute. Retrieved January 25, 2020, from http://www.umtri.umich.edu/content/LittleBook98R.pdf pp. 45 ff.
+            //
+            // \rules
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double surface_roughness = 5;
 
             // The surface texture or fine roughness
             //
             // Whereas the IRI-based roughness or unevenness measure only takes
-            // into account road wavelengths around 0.5m - 100m, the surface
-            // texture or fine roughness [2] measures only wavelengths below
-            // 0.5m. It is given as the standard height deviation of fine
+            // into account road wavelengths around 0.5 m - 100 m, the surface
+            // texture or fine roughness [1] measures only wavelengths below
+            // 0.5 m. It is given as the standard height deviation of fine
             // roughness
             //
-            // Unit: [m]
+            // Unit: m
             //
-            // \par References:
-            // - [1] SAYERS, M.W.; KARAMIHAS, S.M. Little Book of Profiling,
-            // University of Michigan Transportation Research Institute, 1998.
-            // - [2] SCHNEIDER, R.: Modellierung der Wellenausbreitung fuer
-            // ein bildgebendes Kfz-Radar, Dissertation, Universitaet Karlsruhe,
-            // Mai 1998.
+            // \par Reference:
+            // [1] Schneider, R. (1998). <em>Modellierung der Wellenausbreitung fuer ein bildgebendes Kfz-Radar</em>. PhD thesis. Karlsruhe, Germany. Universitaet Karlsruhe, Fak. f. Elektrotechnik.
             //
             optional double surface_texture = 6;
         }
@@ -473,9 +512,17 @@ message Lane
         {
             // The antecessor lane ID.
             //
+            // \rules
+            // refers_to: Lane
+            // \endrules
+            //
             optional Identifier antecessor_lane_id = 1;
 
             // The successor lane ID.
+            //
+            // \rules
+            // refers_to: Lane
+            // \endrules
             //
             optional Identifier successor_lane_id = 2;
         }
@@ -499,6 +546,10 @@ message Lane
 message LaneBoundary
 {
     // The ID of the lane boundary.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
     //
     optional Identifier id = 1;
 
@@ -526,6 +577,13 @@ message LaneBoundary
     //
     // \attention For \c BoundaryPoint the same rule for the approximation
     // error applies as for \c Lane::Classification::centerline.
+    //
+    // \rules
+    // first_element width is_equal_to 0.13
+    // first_element height is_equal_to 0.14
+    // last_element width is_equal_to 0.13
+    // last_element height is_equal_to 0.13
+    // \endrules
     //
     repeated BoundaryPoint boundary_line = 2;
 
@@ -676,6 +734,10 @@ message LaneBoundary
         // The ids of \c StationaryObject which limit the corresponding lane.
         // This field must be set if the \c #type is set to
         // \c #TYPE_STRUCTURE
+        //
+        // \rules
+        // refers_to: StationaryObject
+        // \endrules
         //
         repeated Identifier limiting_structure_id = 3;
 

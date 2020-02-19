@@ -79,7 +79,10 @@ message DetectedTrafficSign
             // probability is given under the condition of \c
             // DetectedItemHeader::existence_probability.
             //
-            // Range: [0,1]
+            // \rules
+            // is_less_than_or_equal_to: 1
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double probability = 1;
 
@@ -122,7 +125,7 @@ message DetectedTrafficSign
             GEOMETRY_SQUARE = 5;
 
             // Traffic sign that has a pole geometry. (height is bigger than
-            // width e.g. pole indicating highways exit in xx [m]). (4 corners)
+            // width e.g. pole indicating highways exit in xx m). (4 corners)
             //
             GEOMETRY_POLE = 6;
 
@@ -204,7 +207,10 @@ message DetectedTrafficSign
             // probability is given under the condition of \c
             // DetectedItemHeader::existence_probability.
             //
-            // Range: [0,1]
+            // \rules
+            // is_less_than_or_equal_to: 1
+            // is_greater_than_or_equal_to: 0
+            // \endrules
             //
             optional double probability = 1;
 

@@ -10,26 +10,26 @@ package osi3;
 //
 // The coordinate system is defined as right-handed.
 //
-// Units are [m] for positions, [m/s] for velocities and [m/s^2] for
+// Units are m for positions, m/s for velocities, and m/s^2 for
 // accelerations.
 //
 message Vector3d
 {
     // The x coordinate.
     //
-    // Unit: [m] [m/s] or [m/s^2]
+    // Unit: m, m/s, or m/s^2
     //
     optional double x = 1;
 
     // The y coordinate.
     //
-    // Unit: [m] [m/s] or [m/s^2]
+    // Unit: m, m/s, or m/s^2
     //
     optional double y = 2;
 
     // The z coordinate.
     //
-    // Unit: [m] [m/s] or [m/s^2]
+    // Unit: m, m/s, or m/s^2
     //
     optional double z = 3;
 }
@@ -38,20 +38,20 @@ message Vector3d
 // \brief A cartesian 2D vector for positions, velocities or accelerations or
 // its uncertainties.
 //
-// Units are [m] for positions, [m/s] for velocities and [m/s^2] for
+// Units are m for positions, m/s for velocities, and m/s^2 for
 // accelerations.
 //
 message Vector2d
 {
     // The x coordinate.
     //
-    // Unit: [m] [m/s] or [m/s^2]
+    // Unit: m, m/s, or m/s^2
     //
     optional double x = 1;
 
     // The y coordinate.
     //
-    // Unit: [m] [m/s] or [m/s^2]
+    // Unit: m, m/s, or m/s^2
     //
     optional double y = 2;
 }
@@ -70,7 +70,11 @@ message Timestamp
     // The number of seconds since the start of e.g. the simulation / system /
     // vehicle.
     //
-    // Unit: [s]
+    // Unit: s
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
     //
     optional int64 seconds = 1;
 
@@ -78,7 +82,12 @@ message Timestamp
     //
     // Range: [0, 999.999.999]
     //
-    // Unit: [ns]
+    // Unit: ns
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 999999999
+    // \endrules
     //
     optional uint32 nanos = 2;
 }
@@ -98,19 +107,31 @@ message Dimension3d
 {
     // The length of the box.
     //
-    // Unit: [m]
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
     //
     optional double length = 1;
 
     // The width of the box.
     //
-    // Unit: [m]
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
     //
     optional double width = 2;
 
     // The height of the box.
     //
-    // Unit: [m]
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
     //
     optional double height = 3;
 }
@@ -119,10 +140,10 @@ message Dimension3d
 // \brief A 3D orientation, orientation rate or orientation acceleration (i.e.
 // derivatives) or its uncertainties denoted in euler angles.
 //
-// Units are [rad] for orientation [rad/s] for rates and [rad/s^2] for
+// Units are rad for orientation, rad/s for rates, and rad/s^2 for
 // accelerations
 //
-// The preferred angular range is (-pi, pi]. The coordinate system is defined as
+// The preferred angular range is [-pi, pi]. The coordinate system is defined as
 // right-handed.
 // For the sense of each rotation, the right-hand rule applies.
 //
@@ -145,26 +166,26 @@ message Dimension3d
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
 //
-// \par References:
-// - [1] DIN ISO 8855:2013-11
+// \par Reference:
+// [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
 //
 message Orientation3d
 {
     // The roll angle/rate/acceleration.
     //
-    // Unit: [rad] [rad/s] or [rad/s^2]
+    // Unit: rad, rad/s, or rad/s^2
     //
     optional double roll = 1;
 
     // The pitch angle/rate/acceleration.
     //
-    // Unit: [rad] [rad/s] or [rad/s^2]
+    // Unit: rad, rad/s, or rad/s^2
     //
     optional double pitch = 2;
 
     // The yaw angle/rate/acceleration.
     //
-    // Unit: [rad] [rad/s] or [rad/s^2]
+    // Unit: rad, rad/s, or rad/s^2
     //
     optional double yaw = 3;
 }
@@ -186,6 +207,10 @@ message Orientation3d
 message Identifier
 {
     // The identifier's value.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
     //
     optional uint64 value = 1;
 }
@@ -232,19 +257,23 @@ message Spherical3d
 {
     // The radial distance.
     //
-    // Unit: [m]
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
     //
     optional double distance = 1;
 
     // The azimuth (horizontal) angle.
     //
-    // Unit: [rad]
+    // Unit: rad
     //
     optional double azimuth = 2;
 
     // The elevation (vertical) angle.
     //
-    // Unit: [rad]
+    // Unit: rad
     //
     optional double elevation = 3;
 }

@@ -15,7 +15,7 @@ package osi3;
 message DetectedItemHeader
 {
     // Specific ID of the detected item as assigned by the sensor internally.
-    // Need not match with \c #ground_truth_id.
+    // Needs not to match with \c #ground_truth_id.
     //
     optional Identifier tracking_id = 1;
 
@@ -31,7 +31,10 @@ message DetectedItemHeader
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
     //
-    // Range: [0,1]
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 1
+    // \endrules
     //
     optional double existence_probability = 3;
 
@@ -42,7 +45,7 @@ message DetectedItemHeader
     // \f$ Timestamp - Age := \f$ 'point in time' when the object has
     // been observed for the first time.
     //
-    // Unit: [s]
+    // Unit: s
     //
     optional double age = 4;
 
@@ -129,7 +132,10 @@ message DetectedStationaryObject
         // given under the condition of
         // \c DetectedItemHeader::existence_probability.
         //
-        // Range: [0,1]
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // is_less_than_or_equal_to: 1
+        // \endrules
         //
         optional double probability = 1;
 
@@ -182,11 +188,21 @@ message DetectedMovingObject
     //
     // Percentage value of the object width in the corresponding lane.
     //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 100
+    // \endrules
+    //
     optional double percentage_side_lane_left = 6;
 
     // Percentage side lane right.
     //
     // Percentage value of the object width in the corresponding lane.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 100
+    // \endrules
     //
     optional double percentage_side_lane_right = 7;
 
@@ -199,28 +215,28 @@ message DetectedMovingObject
 
     // Additional data that is specific to radar sensors.
     //
-    // \note Field need not be set if simulated sensor is not a radar
+    // \note Field needs not to be set if simulated sensor is not a radar
     // sensor.
     //
     optional RadarSpecificObjectData radar_specifics = 100;
 
     // Additional data that is specific to lidar sensors.
     //
-    // \note Field need not be set if simulated sensor is not a lidar
+    // \note Field needs not to be set if simulated sensor is not a lidar
     // sensor.
     //
     optional LidarSpecificObjectData lidar_specifics = 101;
 
     // Additional data that is specific to camera sensors.
     //
-    // \note Field need not be set if simulated sensor is not a camera
+    // \note Field needs not to be set if simulated sensor is not a camera
     // sensor.
     //
     optional CameraSpecificObjectData camera_specifics = 102;
 
     // Additional data that is specific to ultrasonic sensors.
     //
-    // \note Field need not be set if simulated sensor is not an ultrasonic
+    // \note Field needs not to be set if simulated sensor is not an ultrasonic
     // sensor.
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
@@ -237,7 +253,10 @@ message DetectedMovingObject
         // given under the condition of
         // \c DetectedItemHeader::existence_probability.
         //
-        // Range: [0,1]
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // is_less_than_or_equal_to: 1
+        // \endrules
         //
         optional double probability = 1;
 
@@ -256,9 +275,8 @@ message DetectedMovingObject
         // Pedestrian head pose for behavior prediction. Describes the head
         // orientation w.r.t. the host vehicle orientation.
         // The x-axis of the right-handed head frame is pointing along the
-        // pedestrian's straight ahead viewing direction and the z-axis is
-        // pointing upwards (cranial direction [1] i.e. to pedestrian's skull
-        // cap).
+        // pedestrian's straight ahead viewing direction (anterior), the y-axis lateral to the left,
+        // and the z-axis is pointing upwards (superior) [1].
         //
         // ``View_normal_base_coord_system =
         // Inverse_Rotation(#head_pose)*Unit_vector_x``
@@ -266,17 +284,18 @@ message DetectedMovingObject
         // \note This field is mandatory if the \c CandidateMovingObject.type is
         // \c MovingObject::TYPE_PEDESTRIAN
         //
-        // \par References:
-        // - [1] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+        // \par Reference:
+        //
+        // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.
         //
         optional Orientation3d head_pose = 4;
 
         // Pedestrian upper body pose for behavior prediction. Describes the
         // upper body orientation w.r.t. the host vehicle orientation.
         // The x-axis of the right-handed upper body frame is pointing along the
-        // pedestrian's upper body ventral direction [2] (i.e. usually
-        // pedestrian's intended moving direction) and the z-axis is pointing
-        // upwards (to pedestrian's head).
+        // pedestrian's upper body ventral (anterior) direction (i.e. usually
+        // pedestrian's intended moving direction), the y-axis lateral to the left,
+        // and the z-axis is pointing upwards (superior, to the pedestrian's head) [1].
         //
         // ``View_normal_base_coord_system =
         // Inverse_Rotation(#upper_body_pose)*Unit_vector_x``
@@ -284,8 +303,8 @@ message DetectedMovingObject
         // \note This field is mandatory if the \c CandidateMovingObject::type
         // is \c MovingObject::TYPE_PEDESTRIAN
         //
-        // \par References:
-        // - [2] https://en.wikipedia.org/wiki/Anatomical_terms_of_location
+        // \par Reference:
+        // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.
         //
         optional Orientation3d upper_body_pose = 5;
     }

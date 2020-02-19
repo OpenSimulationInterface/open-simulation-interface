@@ -19,6 +19,10 @@ message StationaryObject
 {
     // The ID of the object.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The base parameters of the stationary object.
@@ -195,19 +199,19 @@ message StationaryObject
             //
             DENSITY_SOLID = 2;
 
-            // Perforation max. ]0; 100] [mm]
+            // Perforation max. ]0; 100] mm
             //
             DENSITY_SMALL_MESH = 3;
 
-            // Perforation max. ]100; 500] [mm]
+            // Perforation max. ]100; 500] mm
             //
             DENSITY_MEDIAN_MESH = 4;
 
-            // Perforation max. ]500; 5000] [mm]
+            // Perforation max. ]500; 5000] mm
             //
             DENSITY_LARGE_MESH = 5;
 
-            // Perforation max. ]5000; infinity] [mm]
+            // Perforation max. ]5000; infinity[ mm
             //
             DENSITY_OPEN = 6;
         }
@@ -279,6 +283,10 @@ message MovingObject
 {
     // The ID of the object.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The base parameters of the vehicle.
@@ -305,6 +313,10 @@ message MovingObject
     // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
     //
+    // \rules
+    // check_if this.type is_equal_to 2 else do_check is_set
+    // \endrules
+    //
     optional VehicleAttributes vehicle_attributes = 5;
 
     // Specific information about the classification of the vehicle.
@@ -312,6 +324,10 @@ message MovingObject
     //
     // \note This field is mandatory if the \c #type is
     // #TYPE_VEHICLE .
+    //
+    // \rules
+    // check_if this.type is_equal_to 2 else do_check is_set
+    // \endrules
     //
     optional VehicleClassification vehicle_classification = 6;
 
@@ -368,8 +384,8 @@ message MovingObject
     // right-handed. Therefore the positive y-axis points to the left of the
     // vehicle.
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     message VehicleAttributes
     {
@@ -383,13 +399,19 @@ message MovingObject
         // Median radius of the wheels measured from a center of the wheel
         // including tire.
         //
-        // Unit: [m]
+        // Unit: m
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // \endrules
         //
         optional double radius_wheel = 2;
 
         // Number of independent wheels.
         //
-        // Unit: []
+        // \rules
+        // is_greater_than_or_equal_to: 1
+        // \endrules
         //
         optional uint32 number_wheels = 3;
 
@@ -407,7 +429,7 @@ message MovingObject
         //
         optional Vector3d bbcenter_to_front = 5;
 
-        // Static minimal distance in [m] of under-body plane to ground
+        // Static minimal distance in m of under-body plane to ground
         // surface plane (i.e. disregarding driving dynamic effects or road
         // surface effects) under neutral load conditions. Can be useful to
         // approximate the clear area under a vehicle that a sensor can see
@@ -438,6 +460,10 @@ message MovingObject
         //
         // \note Field need not be set if has_Trailer is set to false or use
         // value for non valid id.
+        //
+        // \rules
+        // check_if this.has_trailer is_equal_to true else do_check is_set
+        // \endrules
         //
         optional Identifier trailer_id = 4;
 

@@ -1,0 +1,63 @@
+v3.0.0 - OSI "Cosmic Coulthard"
+=================================
+`12720ba <https://github.com/OpenSimulationInterface/open-simulation-interface/commit/12720baf67624d7312db0b556dcc5e5da700e349>`_
+
+Purpose:
+---------
+This release is a complete rework including the feedback from many OSI users. Thank you!
+We are aligned with the ongoing discussions for the upcoming ISO 23150 standard for hardware sensor outputs in order to bring simulation and the hardware in the car closer together.
+
+`Content/Changes <https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.0>`_:
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Added major version to package label (osi3), allowing concurrent use of OSI 2.x and OSI 3.x in one process.
+- Added new top-level messages (new concept SensorView (Configuration),etc.).
+    - GroundTruth.
+    - SensorView.
+    - SensorData / FeatureData.
+    - SensorViewConfiguration (used for auto-configuration of SensorView).
+- Added technology-specific SensorView sub-messages to aid physical models.
+- Introduced conceptual separation of “SensorModels” and “LogicModels”.
+- Extended enumerations (e.g. traffic sign Type according to StVO, vehicle Type, etc.).
+- Improved messages and definitions (additional RoadConditions, country code in GT, AmbientIllumination, etc.).
+- Use ISO 8855 coordinate systems (incompatible with earlier OSI versions).
+- Redefined DetectedXXX messages.
+- Introduced DetectedStationaryObjects.
+- Merged MovingObjects and Vehicle messages.
+- Redefined Lane messages (with separated lane boundary messages and intersections).
+- Redefined TrafficLight messages.
+- Redefined TrafficSigns (1 x MainSign + n x SupplementarySign inclusive BaseStationary).
+- New FeatureData messages (rework of previous LowLevelData message) - aligned with an upcoming standard ISO 23150.
+- FeatureData usable for fusion units.
+- Extension and clarification of the existing doxygen documentation.
+- Improved doxygen collaboration diagrams.
+- Build process improvements, added install targets.
+- Made proto definitions compatible with proto3 restrictions to allow concurrent use with proto3-only implementations in the future.
+- Fixed version-checking of transmitted data.
+- AND MUCH MORE ENJOY!!!
+
+See for more information the `changelog <https://github.com/OpenSimulationInterface/open-simulation-interface/files/2297162/osi_overview_v2.2_vs_v3.0.pdf>`_.
+
+v3.0.1 - OSI "Cosmic Coulthard", Update 1
+==========================================
+`d144f0c <https://github.com/OpenSimulationInterface/open-simulation-interface/commit/d144f0c8e5cde5471c8c3cdd5d43facfe37e4a08>`_
+
+`Summertime :) <https://www.youtube.com/watch?v=yG0oBPtyNb0>`_
+
+Purpose:
+---------
+This release is a patch reworking parts of the documentation in order to avoid ambiguities and improving the build/installation process of OSI.
+
+`Content/Changes <https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.1>`_:
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Added script to automatically convert the messages from proto2 to proto3 with on the wire compatibility
+- cmake enhancements to enable multi-version support of OSI 2 and OSI 3
+- Added Python 3 support
+- Clarification of multiple comments
+- Added explanatory images in the documentation
+- centerline definition improved
+- signal_strength definition in LidarSensorView corrected
+- FeatureData::ambiguity_id definition clarified
+- RadarSensorViewConfiguration::AntennaDiagram::response definition clarified
+
