@@ -291,13 +291,9 @@ message RadarDetection
     //
     optional Spherical3d position_rmse = 4;
 
-    // Absolute radial (in direction to the sensor) velocity of the detection.
+    // Radial velocity of the detection positive in direction to the sensor.
     //
     // Unit: m/s
-    //
-    // \rules
-    // is_greater_than_or_equal_to: 0
-    // \endrules
     //
     optional double radial_velocity = 5;
 
