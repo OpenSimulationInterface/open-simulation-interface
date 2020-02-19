@@ -46,6 +46,13 @@ After defining a message fields can be added to it in snake case format. This me
         optional double atmospheric_pressure = 1;
     }
 
+Field Numbering
+----------------
+
+Fields should be numbered consecutively  starting from 1 on first definition. During maintenance, the rules of backward/forward-compatibility require that fields are never renumbered, and field numbers never re-used unless a major release is performed.
+
+All field numbers of 10000 and above are reserved for user-defined extensions, and will thus never be used by OSI message fields.
+
 Enum Naming
 ------------
 The naming of an enum should be camel case. See example below:
