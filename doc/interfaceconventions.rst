@@ -17,7 +17,7 @@ A message definition should always be in camel case. This means that the first l
 
 Field Message Naming
 ---------------------
-After defining a message custom fields can be added to it in snake case format. This means every letter is lower case and the words are connected through an underline character. See example below:
+After defining a message fields can be added to it in snake case format. This means every letter is lower case and the words are connected through an underline character. See example below:
 
 .. code-block:: protobuf
 
