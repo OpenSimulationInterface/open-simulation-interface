@@ -15,6 +15,10 @@ optional. For the purpose of providing a complete interface, all
 existing fields should be set, unless not setting a field carries a
 specific meaning as indicated in the accompanying comment.
 
+All field numbers of 10000 and upward are available for user-specific
+extensions (i.e. custom fields), so no future evolution of OSI will
+use field numbers of 10000 or above itself.
+
 Compatibility
 -------------
 
