@@ -15,6 +15,26 @@ A message definition should always be in camel case. This means that the first l
     {
     }
 
+Top-Level Messages
+-------------------
+All messages that are intended to be exchanged as a stand-alone message, i.e. not required to be embedded in another message, like e.g. ``SensorView`` or ``SensorViewConfiguration``, are required to carry an ``InterfaceVersion`` field as their first field, and a ``Timestamp`` field as their second field, e.g.:
+
+.. code-block:: protobuf
+
+    message TopLevel
+    {
+        // The interface version used by the sender (simulation environment).
+        //
+        optional InterfaceVersion version = 1;
+        
+        // The data timestamp of the simulation environment. Zero time is arbitrary
+        // but must be identical for all messages. Zero time does not need to
+        // coincide with the UNIX epoch. Recommended is the starting time point of
+        // the simulation.
+        //
+        optional Timestamp timestamp = 2;
+    }
+
 Field Message Naming
 ---------------------
 After defining a message fields can be added to it in snake case format. This means every letter is lower case and the words are connected through an underline character. See example below:
