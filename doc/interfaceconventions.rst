@@ -49,9 +49,9 @@ After defining a message fields can be added to it in snake case format. This me
 Field Numbering
 ----------------
 
-Fields should be numbered consecutively  starting from 1 on first definition. During maintenance, the rules of backward/forward-compatibility require that fields are never renumbered, and field numbers never re-used unless a major release is performed.
+Fields should be numbered consecutively starting from 1 on first definition. During maintenance, the rules of backward/forward-compatibility require that fields are never renumbered, and field numbers never re-used unless a major release is performed.
 
-All field numbers of 10000 and above are reserved for user-defined extensions, and will thus never be used by OSI message fields.
+All field numbers of 10000 and above are reserved for user-defined extensions and will thus never be used by OSI message fields.
 
 Enum Naming
 ------------
@@ -70,7 +70,7 @@ The naming of an enum should be camel case. See example below:
 
 Enum Field Naming
 ------------
-The naming of an enum field should be all in upper case. The start should be converted from the enum name camel case to upper case snake case. It is mandatory to have as a first enum field name the name ``_UNKNOWN`` and as the second the name ``_OTHER`` attached to it. After that the naming can be decided by the user. See example below:
+The naming of an enum field should be all in upper case. The start should be converted from the enum name camel case to upper case snake case. It is mandatory to add to the first enum field name the postfix ``_UNKNOWN`` and to the second the postfix ``_OTHER``. After that the naming can be decided by the user. It is often mentioned that the value ``_UNKNOWN`` should not be used in a ``GroundTruth`` message as there are now uncertanties by definition in ``the truth``. These values are mostly used in messages like ``SensorData`` where the content is subject to interpretation. See example below:
 
 .. code-block:: protobuf
 
