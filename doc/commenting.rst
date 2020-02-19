@@ -215,14 +215,22 @@ Every OSI message should be defined properly and should have a well cited refere
 - Find filled-out examples under `https://apastyle.apa.org <https://apastyle.apa.org/style-grammar-guidelines/references/examples>`_ and in existing entries.
 - The scheme of popular sources for the reference list is as follows (replace tags with corresponding values):
 
-.. [#] <author1>, <author2>, <author3> & <author4>. (<year>). Contribution in a compilation title. <em><Compilation Title></em>. <edition>. <page(s)>. <publisher>. <location>. <doi>. <page(s)>.
-.. [#] <author1>, <author2> & <author3>. (<year>). <em><book (monograph) title></em>. <edition>. <publisher>. <doi>. <page(s)>.
-.. [#] <author1> & <author2>. (<year>). <book chapter title>. In <editor1> & <editor2> (Eds.), <em><book title></em> (<page(s)>). <publisher>. <doi>. <page(s)>.
-.. [#] <author1> & <author2>. (<year>). <journal article title>. <em><journal title></em>. <page(s)>. <location>. <doi>. <page(s)>.
-.. [#] <author>. (<year>). <em><Phd thesis title></em>. Phd. thesis. <location>. <university>. <doi or url>. <page(s)>.
-.. [#] <author>. (<year>, <month> <day>). <em><internet article title></em>. Retrieved <month> <day>, <year>, from <url>.
-.. [#] <standarding organisation>. (<year>). <em><title of the standard></em>. (<standard identifier>). <location>.
-.. [#] <author>. (<year>). <em><patent title and id></em>. <location>. <organisation>.
+1. <author1>, <author2>, <author3> & <author4>. (<year>). Contribution in a compilation title. <em><Compilation Title></em>. <edition>. <page(s)>. <publisher>. <location>. <doi>. <page(s)>.
+
+2. <author1>, <author2> & <author3>. (<year>). <em><book (monograph) title></em>. <edition>. <publisher>. <doi>. <page(s)>.
+
+3. <author1> & <author2>. (<year>). <book chapter title>. In <editor1> & <editor2> (Eds.), <em><book title></em> (<page(s)>). <publisher>. <doi>. <page(s)>.
+
+4. <author1> & <author2>. (<year>). <journal article title>. <em><journal title></em>. <page(s)>. <location>. <doi>. <page(s)>.
+
+5. <author>. (<year>). <em><Phd thesis title></em>. Phd. thesis. <location>. <university>. <doi or url>. <page(s)>.
+
+6. <author>. (<year>, <month> <day>). <em><internet article title></em>. Retrieved <month> <day>, <year>, from <url>.
+
+7. <standarding organisation>. (<year>). <em><title of the standard></em>. (<standard identifier>). <location>.
+
+8. <author>. (<year>). <em><patent title and id></em>. <location>. <organisation>.
+
 
 
 .. code-block:: protobuf
