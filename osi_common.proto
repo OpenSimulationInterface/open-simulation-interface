@@ -191,20 +191,6 @@ message Orientation3d
 }
 
 //
-// \brief Specifies the Position and Orientation of an object.
-//
-message Position6d
-{
-    // Offset position relative to the specified reference coordinate system.
-    //
-    optional Vector3d position = 1;
-
-    // Orientation offset relative to the specified reference coordinate system.
-    //
-    optional Orientation3d orientation = 2;
-}
-
-//
 // \brief A common identifier (ID), represented as an integer.
 //
 // Has to be unique among all simulated items at any given time. For ground

@@ -67,6 +67,10 @@ message TrafficAction
         // A PathAction
         //
         PathAction path_action = 2;
+
+        // An AcquireGlobalPositionAction
+        //
+        AcquireGlobalPositionAction acquire_global_position_action = 3;
     }
 }
 
@@ -181,19 +185,24 @@ message PathAction
 
 
 //
-// \brief Acquire Global Position Action
-//
-// \note This is not discussed in SL425 UAP 2.1.5 and is not part of this
-// proposal. This is temporary for the MS1.
-//
-// \note Remark: The Position6d is a redefinition of a Position + Orientation.
-// Neither the redefinition nore the naming "position" for a pose makes sense.
+// \brief Acquire Global Position Action. It provides an interface to describe
+// a target pose.
 //
 // \note Remark: Maybe better to avoid an other redefinition and use a
-// TrajectoryAction with only trajectorypoint.
+// PathAction with only one path_point.
 //
-message AcquireGlobalPositionAction {
-    // Position and orientation relative to the global coordinate system.
+message AcquireGlobalPositionAction
+{
+    // The action_header
     //
-    optional Position6d position = 1;
+    //
+    optional ActionHeader action_header = 1;
+
+    // Offset position relative to the global coordinate system.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation offset relative to the global coordinate system.
+    //
+    optional Orientation3d orientation = 3;
 }
