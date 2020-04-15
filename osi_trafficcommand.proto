@@ -58,20 +58,23 @@ message TrafficCommand
 //
 message TrafficAction
 {
-    oneof Action {
+	// Only one of the TrafficActions is supposed to be chosen. Pending, if the proto-keyword "One of" can be used.
+	
+    // A TrafficAction
+    //
+    optional TrajectoryAction trajectory_action = 1;
 
-        // A TrafficAction
-        //
-        TrajectoryAction trajectory_action = 1;
+    // A PathAction
+    //
+    optional PathAction path_action = 2;
 
-        // A PathAction
-        //
-        PathAction path_action = 2;
-
-        // An AcquireGlobalPositionAction
-        //
-        AcquireGlobalPositionAction acquire_global_position_action = 3;
-    }
+    // An AcquireGlobalPositionAction
+    //
+    optional AcquireGlobalPositionAction acquire_global_position_action = 3;
+	
+	// A LaneChangeAction
+	//
+    optional LaneChangeAction lane_change_action = 4; 
 }
 
 
@@ -205,4 +208,33 @@ message AcquireGlobalPositionAction
     // Orientation offset relative to the global coordinate system.
     //
     optional Orientation3d orientation = 3;
+}
+
+message LaneChangeAction
+{
+    // The action_header
+    //
+    //
+    optional ActionHeader action_header = 1;
+	
+	// Required field for this Action. Targeted Lane relative to the current lane. Convention: +1 means to the right, -1 means to the left. 
+    optional int32 RelativeTargetLane = 2; 
+	
+	// Enum definition
+    optional DynamicsShape dynamics_shape = 3;
+	
+	// in seconds
+    optional double LC_duration = 4; 
+	
+	// in meters
+    optional double LC_distance = 5;
+	
+    enum DynamicsShape
+    {
+        UNDEFINED = 1; 
+        LINEAR = 2;
+        CUBIC = 3;
+        SINUSOIDAL = 4;
+        STEP = 5;
+    }	
 }
