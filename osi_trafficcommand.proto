@@ -58,7 +58,7 @@ message TrafficCommand
 //
 message TrafficAction
 {
-	// Only one of the TrafficActions is supposed to be chosen. Pending, if the proto-keyword "One of" can be used.
+    // Only one of the TrafficActions is supposed to be chosen. Pending, if the proto-keyword "One of" can be used.
 	
     // A TrafficAction
     //
@@ -72,8 +72,8 @@ message TrafficAction
     //
     optional AcquireGlobalPositionAction acquire_global_position_action = 3;
 	
-	// A LaneChangeAction
-	//
+    // A LaneChangeAction
+    //
     optional LaneChangeAction lane_change_action = 4; 
 }
 
@@ -99,11 +99,17 @@ message StatePoint
     optional Timestamp time_stamp = 1;
 
 
-    // BaseMoving to describe a state
+    // Offset position relative to the global coordinate system in [m].
+    // The position refers to the center (x,y,z) of the bounding box.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
     //
-    optional BaseMoving state = 2;
+    optional Vector3d position = 2;
+
+    // Orientation offset relative to the global coordinate system in [rad].
+    //
+    optional Orientation3d orientation = 3;
 }
 
 //
@@ -201,11 +207,15 @@ message AcquireGlobalPositionAction
     //
     optional ActionHeader action_header = 1;
 
-    // Offset position relative to the global coordinate system.
+    // Offset position relative to the global coordinate system in [m].
+    // The position refers to the center (x,y,z) of the bounding box.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
     //
     optional Vector3d position = 2;
 
-    // Orientation offset relative to the global coordinate system.
+    // Orientation offset relative to the global coordinate system in [rad].
     //
     optional Orientation3d orientation = 3;
 }
@@ -217,16 +227,16 @@ message LaneChangeAction
     //
     optional ActionHeader action_header = 1;
 	
-	// Required field for this Action. Targeted Lane relative to the current lane. Convention: +1 means to the right, -1 means to the left. 
+    // Required field for this Action. Targeted Lane relative to the current lane. Convention: +1 means to the right, -1 means to the left. 
     optional int32 RelativeTargetLane = 2; 
 	
-	// Enum definition
+    // Enum definition
     optional DynamicsShape dynamics_shape = 3;
 	
-	// in seconds
+    // in seconds
     optional double LC_duration = 4; 
 	
-	// in meters
+    // in meters
     optional double LC_distance = 5;
 	
     enum DynamicsShape
