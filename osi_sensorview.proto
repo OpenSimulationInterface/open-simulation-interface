@@ -56,6 +56,10 @@ message SensorView
     // object output; it is distinct from the IDs of its physical detectors,
     // which are used in the detected features.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier sensor_id = 3;
 
     // The virtual mounting position of the sensor (origin and orientation
@@ -73,8 +77,8 @@ message SensorView
     // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
     // right hand system
     //
-    // \par References:
-    // - [1] DIN ISO 8855:2013-11
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
     // \note This field is usually static during the simulation.
     // \note The origin of vehicle's coordinate system in world frame is
@@ -118,6 +122,10 @@ message SensorView
     optional GroundTruth global_ground_truth = 7;
 
     // The ID of the host vehicle in the \c #global_ground_truth data.
+    //
+    // \rules
+    // refers_to: 'MovingObject'
+    // \endrules
     //
     optional Identifier host_vehicle_id = 8;
 

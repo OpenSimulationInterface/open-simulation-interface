@@ -139,6 +139,10 @@ message TrafficSign
 {
     // The ID of the traffic sign.
     //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // Main sign, e.g. speed limit 30 km/h
@@ -252,6 +256,10 @@ message TrafficSign
             //
             // \note OSI uses singular instead of plural for repeated field
             // names.
+            //
+            // \rules
+            // refers_to: Lane
+            // \endrules
             //
             repeated Identifier assigned_lane_id = 5;
 
@@ -1325,7 +1333,7 @@ message TrafficSign
                 // </tr>
                 // </table>
                 //
-                // Left: \c #TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN
+                // Left: \c #TYPE_PRESCRIBED_LEFT_TURN_AND_STRAIGHT
                 //
                 // As symbolic road marking \c
                 // RoadMarking::Classification::TYPE_SYMBOLIC_TRAFFIC_SIGN
@@ -5495,6 +5503,10 @@ message TrafficSign
             // \note OSI uses singular instead of plural for repeated field
             // names.
             //
+            // \rules
+            // refers_to: Lane
+            // \endrules
+            //
             repeated Identifier assigned_lane_id = 4;
 
             // This enumerator indicates a traffic actor (e.g.
@@ -9152,6 +9164,10 @@ message TrafficSign
             message Arrow
             {
                 // The IDs of the lanes the arrow applies to
+                //
+                // \rules
+                // refers_to: Lane
+                // \endrules
                 //
                 repeated Identifier lane_id = 1;
 

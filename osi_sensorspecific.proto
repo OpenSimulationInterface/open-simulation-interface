@@ -50,12 +50,21 @@ message UltrasonicSpecificObjectData
     //
     // Unit: m
     //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
+    //
     optional double maximum_measurement_distance_sensor = 1;
 
     // This value indicates the propability height for the classification in the
     // calculated object.
     //
     // Unit: %
+    //
+    // \rules
+    // is_less_than_or_equal_to: 1
+    // is_greater_than_or_equal_to: 0
+    // \endrules
     //
     optional double probability = 2;
 
