@@ -134,6 +134,9 @@ message ActionHeader
   // \note Zero time point does not need to coincide with the UNIX epoch.
   //
   optional Timestamp start_time = 2;
+  
+  // This boolean describes if the Orientation values in StatePoint shall be set or not: 1 = yes, 0 = no.
+  optional bool Orientation_constrain = 3;
 
 }
 
@@ -233,11 +236,11 @@ message LaneChangeAction
     // Enum definition
     optional DynamicsShape dynamics_shape = 3;
 	
-    // in seconds
-    optional double LC_duration = 4; 
+    // duration of the lane change, in seconds
+    optional double duration = 4; 
 	
-    // in meters
-    optional double LC_distance = 5;
+    // distance of the lane change, in meters
+    optional double distance = 5;
 	
     enum DynamicsShape
     {
