@@ -451,6 +451,22 @@ message RadarSensorViewConfiguration
         // Unit: dB
         optional double response = 3;
     }
+
+
+    // Ray tracing data.
+    //
+    // The maximum length in m of each ray to terminate the ray when reached
+    // and give an intensity of the reflection to 0.
+    //
+    repeated uint32 max_range_per_ray = 12;
+
+    // Ray tracing data.
+    //
+    // The maximum length in m of each path of multiple rays caused by
+    // multi-path propagation in one pixel.
+    // When reached, propagation is terminated.
+    //
+    repeated uint32 max_range_per_pixel = 13;
 }
 
 //
@@ -595,6 +611,21 @@ message LidarSensorViewConfiguration
     // timestamp. Length is num_of_pixels
     //
     repeated uint32 timings = 12;
+
+    // Ray tracing data.
+    //
+    // The maximum length in m of each ray to terminate the ray when reached
+    // and give an intensity of the reflection to 0.
+    //
+    repeated uint32 max_range_per_ray = 13;
+
+    // Ray tracing data.
+    //
+    // The maximum length in m of each path of multiple rays caused by
+    // multi-path propagation in one pixel.
+    // When reached, propagation is terminated.
+    //
+    repeated uint32 max_range_per_pixel = 14;
 }
 
 //
