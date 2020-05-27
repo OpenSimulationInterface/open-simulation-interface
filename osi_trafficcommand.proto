@@ -4,7 +4,6 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
-import "osi_object.proto";
 
 package osi3;
 
@@ -53,5 +52,20 @@ message TrafficCommand
 //
 message TrafficAction
 {
+    // Action to be taken
+    //
+    // \note This could in the future be a oneof field, rather than multiple
+    // optional fields, only one of which should be set at any time.  From
+    // an API point of view this is the same, but with better enforcement
+    // on the wire.
+    optional AcquireGlobalPositionAction acquire_global_position_action = 1;
+}
 
+//
+// \brief Acquire Global Position Action
+//
+message AcquireGlobalPositionAction {
+    // Position and orientation relative to the global coordinate system.
+    //
+    optional Position6d position = 1;
 }
