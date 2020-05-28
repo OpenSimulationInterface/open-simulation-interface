@@ -87,7 +87,8 @@ message TrafficAction
 //
 // \note The StatePoint definition does not define mandatory fields.
 // The context defines how and what fields are used.
-// For example: Path only used xyz of the StatePoint, trajectory also timestamp...
+// For example: FollowPathAction does not use timestamp in contrast to
+// FollowTrajectoryAction. 
 //
 message StatePoint
 {
@@ -254,7 +255,7 @@ message FollowPathAction
 //
 // \brief Acquire Global Position Action.
 //
-// This action assigns a route to an traffic participant. The route
+// This action assigns a route to a traffic participant. The route
 // assigned will be the shortest route (along roads or satisfying any
 // other constraints a traffic participant is operating under) between
 // the traffic participant's current position and the position specified.
@@ -291,6 +292,17 @@ message AcquireGlobalPositionAction
 //
 // \brief Lane Change Action.
 //
+// This action assigns a lane change to a traffic participant. The fields 
+// of this message enable different levels of constraint for the traffic 
+// participant depending on the use case. In case the constraints are 
+// supposed to be small, the dynamics shape or even the duration and 
+// the distance for the lane change can be omitted.
+//
+// \note This action is aligned with LaneChangeAction of OpenSCENARIO 1.0
+// defining the targeted lane and optionally the parametrization of the 
+// lane change.
+//
+
 message LaneChangeAction
 {
     // The Action Header
@@ -303,17 +315,23 @@ message LaneChangeAction
     //
     optional int32 relative_target_lane = 2;
     
-    // Specified shape of the lane change action.
+    // Specified shape of the lane change action. This is optional: 
+    // If no dynamics shape is given, the shape of the lane change is 
+    // open to the traffic participant model.
     //
     optional DynamicsShape dynamics_shape = 3;
     
-    // Duration of the lane change.
+    // Duration of the lane change. This is optional: 
+    // If no duration is given, the duration of the lane change is 
+    // open to the traffic participant model.
     //
     // Unit: s
     //
     optional double duration = 4; 
     
-    // Distance of the lane change.
+    // Distance of the lane change. This is optional: 
+    // If no distance is given, the distance of the lane change is 
+    // open to the traffic participant model.
     //
     // Unit: m
     //
