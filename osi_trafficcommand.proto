@@ -76,7 +76,7 @@ message TrafficAction
     // An AcquireGlobalPositionAction
     //
     optional AcquireGlobalPositionAction acquire_global_position_action = 3;
-	
+
     // A LaneChangeAction
     //
     optional LaneChangeAction lane_change_action = 4; 
@@ -211,6 +211,9 @@ message AcquireGlobalPositionAction
     optional Orientation3d orientation = 3;
 }
 
+//
+// \brief Lane Change Action.
+//
 message LaneChangeAction
 {
     // The Action Header
@@ -249,18 +252,18 @@ message LaneChangeAction
 
         // Shape is linear.
         //
-        DYNAMICS_SHAPE_LINEAR = 2;
+        DYNAMICS_SHAPE_LINEAR = 1;
 
         // Shape is cubic.
         //
-        DYNAMICS_SHAPE_CUBIC = 3;
+        DYNAMICS_SHAPE_CUBIC = 2;
 
         // Shape is sinusoidal.
         //
-        DYNAMICS_SHAPE_SINUSOIDAL = 4;
+        DYNAMICS_SHAPE_SINUSOIDAL = 3;
 
         // Shape is a step function.
         //
-        DYNAMICS_SHAPE_STEP = 5;
+        DYNAMICS_SHAPE_STEP = 4;
     }	
 }
