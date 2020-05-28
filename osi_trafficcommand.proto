@@ -65,13 +65,13 @@ message TrafficCommand
 //
 message TrafficAction
 {
-    // A TrajectoryAction
+    // A FollowTrajectoryAction
     //
-    optional TrajectoryAction trajectory_action = 1;
+    optional FollowTrajectoryAction follow_trajectory_action = 1;
 
-    // A PathAction
+    // A FollowPathAction
     //
-    optional PathAction path_action = 2;
+    optional FollowPathAction follow_path_action = 2;
 
     // An AcquireGlobalPositionAction
     //
@@ -128,20 +128,28 @@ message ActionHeader
 }
 
 //
-// \brief The TrajectoryAction. It provides an interface to describe the motion
-// in space as a function of time.
+// \brief Follow Trajectory Action.
 //
-// \note The StatePoint requires the timestamp to be set.
+// Controls a traffic participant to follow a trajectory using vertices
+// with timings. It specifies the motion in space as a function of time.
 //
-// \note The StatePoint requires the pose (xyz/rpy) to be set.
+// \note The StatePoint messages in trajectory_point require the timestamp
+// to be specified.
 //
-message TrajectoryAction
+// \note This action is aligned with the FollowTrajectoryAction of
+// OpenSCENARIO 1.0 using a 4/7D trajectory with shape Polyline.
+//
+message FollowTrajectoryAction
 {
     // The Action Header
     //
     optional ActionHeader action_header = 1;
 
-    // A list of TrajectoryPoints
+    // A list of trajectory StatePoints
+    //
+    // The timestamp fields for all trajectory points are required to be
+    // set, as are the position fields. The orientation fields can be set
+    // depending on the constrain_orientation field being true.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -151,27 +159,60 @@ message TrajectoryAction
     // by the trajectory points
     //
     // This boolean flag defines whether orientation values supplied in 
-    // the trajectory points shall be used to constrain the orientation
-    // of the traffic participant or not.
+    // the trajectory points (if any) shall be used to constrain the
+    // orientation of the traffic participant or not.
     //
     optional bool constrain_orientation = 3;
+
+    // Specify the following mode that should be employed in executing
+    // the trajectory.
+    //
+    optional FollowingMode following_mode = 4;
+
+    // Definition of Following Mode.
+    //
+    enum FollowingMode
+    {
+        // Following mode position forces the traffic participant to
+        // follow the trajectory explicitly, disregarding any internal
+        // constraints, like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_POSITION = 0;
+
+        // Following mode follow allows the traffic participant to
+        // treat the trajectory as a target, to be achieved as closely
+        // as possible while retaining any internal constraints,
+        // like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_FOLLOW = 1;
+    }
 }
 
 //
-// \brief The PathAction. It provides an interface to describe a path.
+// \brief Follow Path Action.
 //
-// \note The StatePoint requires the position to be set. The orientation can be
-// set optional.
+// Controls a traffic participant to follow a trajectory using vertices
+// with timings. It specifies the motion in space independent of time.
 //
-// \note All other StatePoint values are ignored.
+// \note The StatePoint messages in path_point only require the position
+// field to be specified. The orientation can be set optionally. Any
+// timestamp StatePoint values are ignored.
 //
-message PathAction
+// \note This action is aligned with the FollowTrajectoryAction of
+// OpenSCENARIO 1.0 using a 3/6D trajectory with shape Polyline.
+//
+message FollowPathAction
 {
     // The Action Header
     //
     optional ActionHeader action_header = 1;
 
-    // A list of PathPoints
+    // A list of path StatePoints
+    //
+    // The position fields for all path points  required to be set.
+    // The timestamp field are not required to be set and are ignored.
+    // The orientation fields can be set depending on the constrain_orientation
+    // field being true.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -185,11 +226,44 @@ message PathAction
     // of the traffic participant or not.
     //
     optional bool constrain_orientation = 3;
+
+    // Specify the following mode that should be employed in executing
+    // the path.
+    //
+    optional FollowingMode following_mode = 4;
+
+    // Definition of Following Mode.
+    //
+    enum FollowingMode
+    {
+        // Following mode position forces the traffic participant to
+        // follow the path explicitly, disregarding any internal
+        // constraints, like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_POSITION = 0;
+
+        // Following mode follow allows the traffic participant to
+        // treat the path as a target, to be achieved as closely
+        // as possible while retaining any internal constraints,
+        // like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_FOLLOW = 1;
+    }
 }
 
 //
-// \brief Acquire Global Position Action. It provides an interface to describe
-// a target pose.
+// \brief Acquire Global Position Action.
+//
+// This action assigns a route to an traffic participant. The route
+// assigned will be the shortest route (along roads or satisfying any
+// other constraints a traffic participant is operating under) between
+// the traffic participant's current position and the position specified.
+//
+// As with all routing actions, the exact way this route is achieved is
+// under the control of the traffic participant model.
+//
+// \note This action is aligned with the AcquirePositionAction of
+// OpenSCENARIO 1.0 using a WorldPosition position argument.
 //
 message AcquireGlobalPositionAction
 {
@@ -208,6 +282,9 @@ message AcquireGlobalPositionAction
 
     // Orientation in the global coordinate system.
     //
+    // This is optional, if no orientation is given, the end orientation
+    // is under control of the traffic participant.
+    //
     optional Orientation3d orientation = 3;
 }
 
@@ -219,23 +296,23 @@ message LaneChangeAction
     // The Action Header
     //
     optional ActionHeader action_header = 1;
-	
+    
     // Targeted lane relative to the current lane.
     //
     // Convention: +1 means to the right, -1 means to the left.
     //
     optional int32 relative_target_lane = 2;
-	
+    
     // Specified shape of the lane change action.
     //
     optional DynamicsShape dynamics_shape = 3;
-	
+    
     // Duration of the lane change.
     //
     // Unit: s
     //
     optional double duration = 4; 
-	
+    
     // Distance of the lane change.
     //
     // Unit: m
@@ -265,5 +342,5 @@ message LaneChangeAction
         // Shape is a step function.
         //
         DYNAMICS_SHAPE_STEP = 4;
-    }	
+    }
 }
