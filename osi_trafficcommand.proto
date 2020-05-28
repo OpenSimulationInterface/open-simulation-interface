@@ -43,8 +43,8 @@ message TrafficCommand
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    // \note The current SL425 discussion status: We assume all actions are
-    // executed in parallel.
+    // \note If more than one action is being supplied in one command message
+    // all actions are executed in parallel.
     //
     repeated TrafficAction action = 4;
 
@@ -53,14 +53,19 @@ message TrafficCommand
 //
 // \brief Atomic Traffic Actions to be performed
 //
-// \note  This message allows "inheritance", as all TrafficActions can be treated
-// the same, even they have different implementation.
+// The actual commands being transmitted are the atomic traffic actions
+// described by this message.
+//
+// \note This message is notionally a choice selection, i.e. only one
+// of the multiple optional fields in it must be set at any time.
+// It is not defined as a one of field, since this is not currently
+// used in OSI message definitions for portability reasons.  From
+// an API point of view this results in the same generated interface,
+// but without the better enforcement of the restriction on the wire.
 //
 message TrafficAction
 {
-    // Only one of the TrafficActions is supposed to be chosen. Pending, if the proto-keyword "One of" can be used.
-	
-    // A TrafficAction
+    // A TrajectoryAction
     //
     optional TrajectoryAction trajectory_action = 1;
 
@@ -77,18 +82,12 @@ message TrafficAction
     optional LaneChangeAction lane_change_action = 4; 
 }
 
-
-
 //
 // \brief The StatePoint definition
 //
 // \note The StatePoint definition does not define mandatory fields.
 // The context defines how and what fields are used.
 // For example: Path only used xyz of the StatePoint, trajectory also timestamp...
-//
-// A StatePoint contains a BaseMoving (full state with xyz/rpy and the derivatives
-// linear /angular velocity and acceleration).
-// Furthermore it contains a time stamp.
 //
 message StatePoint
 {
@@ -98,8 +97,8 @@ message StatePoint
     //
     optional Timestamp time_stamp = 1;
 
-
-    // Offset position relative to the global coordinate system in [m].
+    // Position in the global coordinate system.
+    //
     // The position refers to the center (x,y,z) of the bounding box.
     //
     // \note Remark: The definition of the reference point follows the
@@ -107,7 +106,7 @@ message StatePoint
     //
     optional Vector3d position = 2;
 
-    // Orientation offset relative to the global coordinate system in [rad].
+    // Orientation in the global coordinate system.
     //
     optional Orientation3d orientation = 3;
 }
@@ -118,29 +117,26 @@ message StatePoint
 //
 message ActionHeader
 {
-  // The unique id of the command
-  //
-  // \note This field is mandatory.
-  //
-  // \note SL425 discussion: In what context must the id be unique? Global, for
-  // all TrafficCommands or only in TrafficCommand context?
-  //
-  optional Identifier action_id = 1;
+    // The unique id of the action
+    //
+    // \note This field is mandatory.
+    //
+    // \note This id must be unique within all traffic command
+    // messages exchanged with one traffic participant.
+    //
+    optional Identifier action_id = 1;
 
-  // The start_time can be used to set a starttime of execution
-  //
-  // \note Is optional. If not set, execution must start directly.
-  //
-  // \note Zero time point does not need to coincide with the UNIX epoch.
-  //
-  optional Timestamp start_time = 2;
+    // The start_time can be used to set a starttime of execution
+    //
+    // \note Is optional. If not set, execution must start directly.
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    optional Timestamp start_time = 2;
   
-  // This boolean describes if the Orientation values in StatePoint shall be set or not: 1 = yes, 0 = no.
-  optional bool Orientation_constrain = 3;
-
+    // This boolean describes if the Orientation values in StatePoint shall be set or not: 1 = yes, 0 = no.
+    optional bool Orientation_constrain = 3;
 }
-
-
 
 //
 // \brief The TrajectoryAction. It provides an interface to describe the motion
@@ -150,15 +146,9 @@ message ActionHeader
 //
 // \note The StatePoint requires the pose (xyz/rpy) to be set.
 //
-// \note The velocity and acceleration can be set. If not set, the model must
-// calculate it itself.
-//
-// \note SL425 discussion: We define it to be set in the world frame atm.
-//
 message TrajectoryAction
 {
-    // The action_header
-    //
+    // The Action Header
     //
     optional ActionHeader action_header = 1;
 
@@ -178,12 +168,9 @@ message TrajectoryAction
 //
 // \note All other StatePoint values are ignored.
 //
-// \note SL425 discussion: We define it to be set in the world frame atm.
-//
 message PathAction
 {
-    // The action_header
-    //
+    // The Action Header
     //
     optional ActionHeader action_header = 1;
 
@@ -194,23 +181,18 @@ message PathAction
     repeated StatePoint path_point = 2;
 }
 
-
-
 //
 // \brief Acquire Global Position Action. It provides an interface to describe
 // a target pose.
 //
-// \note Remark: Maybe better to avoid an other redefinition and use a
-// PathAction with only one path_point.
-//
 message AcquireGlobalPositionAction
 {
-    // The action_header
-    //
+    // The Action Header
     //
     optional ActionHeader action_header = 1;
 
-    // Offset position relative to the global coordinate system in [m].
+    // Position in the global coordinate system.
+    //
     // The position refers to the center (x,y,z) of the bounding box.
     //
     // \note Remark: The definition of the reference point follows the
@@ -218,36 +200,61 @@ message AcquireGlobalPositionAction
     //
     optional Vector3d position = 2;
 
-    // Orientation offset relative to the global coordinate system in [rad].
+    // Orientation in the global coordinate system.
     //
     optional Orientation3d orientation = 3;
 }
 
 message LaneChangeAction
 {
-    // The action_header
-    //
+    // The Action Header
     //
     optional ActionHeader action_header = 1;
 	
-    // Required field for this Action. Targeted Lane relative to the current lane. Convention: +1 means to the right, -1 means to the left. 
+    // Targeted lane relative to the current lane.
+    //
+    // Convention: +1 means to the right, -1 means to the left.
+    //     
     optional int32 RelativeTargetLane = 2; 
 	
-    // Enum definition
+    // Specified shape of the lane change action.
+    //
     optional DynamicsShape dynamics_shape = 3;
 	
-    // duration of the lane change, in seconds
+    // Duration of the lane change.
+    //
+    // Unit: s
+    //
     optional double duration = 4; 
 	
-    // distance of the lane change, in meters
+    // Distance of the lane change.
+    //
+    // Unit: m
+    //
     optional double distance = 5;
-	
+    
+    // Definition of LaneChange dynamic shapes.
+    //
     enum DynamicsShape
     {
-        UNDEFINED = 1; 
-        LINEAR = 2;
-        CUBIC = 3;
-        SINUSOIDAL = 4;
-        STEP = 5;
+        // Shape is unspecified.
+        //
+        DYNAMICS_SHAPE_UNSPECIFIED = 0;
+
+        // Shape is linear.
+        //
+        DYNAMICS_SHAPE_LINEAR = 2;
+
+        // Shape is cubic.
+        //
+        DYNAMICS_SHAPE_CUBIC = 3;
+
+        // Shape is sinusoidal.
+        //
+        DYNAMICS_SHAPE_SINUSOIDAL = 4;
+
+        // Shape is a step function.
+        //
+        DYNAMICS_SHAPE_STEP = 5;
     }	
 }
