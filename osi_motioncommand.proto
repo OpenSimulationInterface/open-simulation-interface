@@ -60,23 +60,39 @@ message DynamicState
 
 
 //
-// \brief A MotionCommand.
+// \brief The motion command describing the expected near-time future motion
+// of a vehicle.
 //
-// The MotionCommand comprises of the trajectory the vehicle should
-// should follow on, as well as the DynamicState current state, which
-// contains the vehicles localization and dynamic properties.
+// The motion command comprises of the trajectory the vehicle should
+// follow on, as well as the current dynamic state which contains
+// the vehicle's localization and dynamic properties.
 //
 message MotionCommand
 {
-    // The Timestamp of the generation of the trajectory.
+    // The interface version used by the sender.
     //
-    optional Timestamp timestamp = 1;
+    optional InterfaceVersion version = 1;
+
+    // The timestamp of the message. Zero time is arbitrary but must be
+    // identical for all messages. Zero time does not need to coincide with
+    // the unix epoch. Recommended is the starting time point of the
+    // simulation.
+    //
+    // \note This can either be the point in time that the motion command
+    // message becomes available to the rest of the system (i.e. the motion
+    // control unit), so it corresponds with the sending time and thus takes
+    // the latency of internal processing of the driver function into account,
+    // or equals the point in time whose data the computation is based on.
+    // Latencies of bus communications, etc., that occur after the sensor output
+    // have to be applied on top of this, if needed.
+    //
+    optional Timestamp timestamp = 2;
 
     // The current dynamic state of the vehicle.
-    optional DynamicState current_state = 2;
+    optional DynamicState current_state = 3;
 
     // The trajectory the vehicle should follow on.
-    optional Trajectory trajectory = 3;
+    optional Trajectory trajectory = 4;
 
 
     // \brief A trajectory.
