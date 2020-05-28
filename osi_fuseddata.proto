@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
+import "osi_featuredata.proto";
 
 package osi3;
 
@@ -203,34 +204,4 @@ message FusedDetection
     // Basic classification of the detection.
     //
     optional DetectionClassification classification = 11;
-}
-
-// Definition of a basic detection classifications.
-//
-enum DetectionClassification
-{
-    // Detection is unknown (must not be used in ground truth).
-    //
-    DETECTION_CLASSIFICATION_UNKNOWN = 0;
-
-    // Other (unspecified but known) detection.
-    //
-    DETECTION_CLASSIFICATION_OTHER = 1;
-
-    // Invalid detection, not to be used for object tracking, of unspecified
-    // type (none of the other types applies).
-    //
-    DETECTION_CLASSIFICATION_INVALID = 2;
-
-    // Clutter (noise, spray, rain, fog etc.).
-    //
-    DETECTION_CLASSIFICATION_CLUTTER = 3;
-
-    // Over-drivable (ground etc.).
-    //
-    DETECTION_CLASSIFICATION_OVERDRIVABLE = 4;
-
-    // Under-drivable (sign gantry etc.).
-    //
-    DETECTION_CLASSIFICATION_UNDERDRIVABLE = 5;
 }
