@@ -26,8 +26,8 @@ message VehicleCommunicationData
     // \note This is the point in time that the vehicle communication data 
     // message becomes available to the rest of the system (i.e. the driving
     // functions), so it corresponds with the sending time and thus takes the
-    // latency of internal processing of the sensor into account. Latencies
-    // of bus communications, etc., that occur after the sensor output have to
+    // latency of internal processing of the source into account. Latencies
+    // of bus communications, etc., that occur after the source output have to
     // be applied on top of this, if needed.
     //
     optional Timestamp timestamp = 2;
