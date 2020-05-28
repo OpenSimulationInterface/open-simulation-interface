@@ -125,14 +125,6 @@ message ActionHeader
     // messages exchanged with one traffic participant.
     //
     optional Identifier action_id = 1;
-
-    // The start_time can be used to set a starttime of execution
-    //
-    // \note Is optional. If not set, execution must start directly.
-    //
-    // \note Zero time point does not need to coincide with the UNIX epoch.
-    //
-    optional Timestamp start_time = 2;
 }
 
 //
