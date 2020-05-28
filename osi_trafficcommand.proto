@@ -95,7 +95,7 @@ message StatePoint
     //
     // \note Zero time point does not need to coincide with the UNIX epoch.
     //
-    optional Timestamp time_stamp = 1;
+    optional Timestamp timestamp = 1;
 
     // Position in the global coordinate system.
     //
@@ -133,9 +133,6 @@ message ActionHeader
     // \note Zero time point does not need to coincide with the UNIX epoch.
     //
     optional Timestamp start_time = 2;
-  
-    // This boolean describes if the Orientation values in StatePoint shall be set or not: 1 = yes, 0 = no.
-    optional bool Orientation_constrain = 3;
 }
 
 //
@@ -157,8 +154,16 @@ message TrajectoryAction
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated StatePoint trajectory_point = 2;
-}
 
+    // Constrain the orientation of the traffic participant as specified
+    // by the trajectory points
+    //
+    // This boolean flag defines whether orientation values supplied in 
+    // the trajectory points shall be used to constrain the orientation
+    // of the traffic participant or not.
+    //
+    optional bool constrain_orientation = 3;
+}
 
 //
 // \brief The PathAction. It provides an interface to describe a path.
@@ -179,6 +184,15 @@ message PathAction
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated StatePoint path_point = 2;
+
+    // Constrain the orientation of the traffic participant as specified
+    // by the path points
+    //
+    // This boolean flag defines whether orientation values supplied in 
+    // the path points shall be used to constrain the orientation
+    // of the traffic participant or not.
+    //
+    optional bool constrain_orientation = 3;
 }
 
 //
@@ -214,8 +228,8 @@ message LaneChangeAction
     // Targeted lane relative to the current lane.
     //
     // Convention: +1 means to the right, -1 means to the left.
-    //     
-    optional int32 RelativeTargetLane = 2; 
+    //
+    optional int32 relative_target_lane = 2;
 	
     // Specified shape of the lane change action.
     //
