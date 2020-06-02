@@ -5,7 +5,7 @@ option optimize_for = SPEED;
 import "osi_common.proto";
 import "osi_version.proto";
 
-package osi3;
+package setlevel4to5;
 
 //
 // \brief A dynamic state describing the 2D location, orientation and
@@ -72,7 +72,7 @@ message MotionCommand
 {
     // The interface version used by the sender.
     //
-    optional InterfaceVersion version = 1;
+    optional osi3.InterfaceVersion version = 1;
 
     // The timestamp of the message. Zero time is arbitrary but must be
     // identical for all messages. Zero time does not need to coincide with
@@ -87,7 +87,7 @@ message MotionCommand
     // Latencies of bus communications, etc., that occur after the sensor output
     // have to be applied on top of this, if needed.
     //
-    optional Timestamp timestamp = 2;
+    optional osi3.Timestamp timestamp = 2;
 
     // The current dynamic state of the vehicle.
     optional DynamicState current_state = 3;

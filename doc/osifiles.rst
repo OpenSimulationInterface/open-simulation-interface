@@ -38,9 +38,6 @@ OSI common provides the building blocks for the OSI field messages.
 `osi_hostvehicledata.proto`_
 ---------------------------------
 
-`osi_motioncommand.proto`_
----------------------------------
-
 `osi_trafficsign.proto`_
 ---------------------------------
 
@@ -72,6 +69,9 @@ OSI common provides the building blocks for the OSI field messages.
 ---------------------------------
 
 `osi_sensorview.proto`_
+---------------------------------
+
+`sl45_motioncommand.proto`_
 ---------------------------------
 
 

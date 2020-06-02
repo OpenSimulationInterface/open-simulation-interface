@@ -64,7 +64,6 @@ set(OSI_PROTO_FILES
     osi_environment.proto
     osi_groundtruth.proto
     osi_hostvehicledata.proto
-    osi_motioncommand.proto
     osi_trafficsign.proto
     osi_trafficlight.proto
     osi_roadmarking.proto
@@ -76,6 +75,7 @@ set(OSI_PROTO_FILES
     osi_sensorviewconfiguration.proto
     osi_sensorspecific.proto
     osi_sensorview.proto
+    sl45_motioncommand.proto
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
