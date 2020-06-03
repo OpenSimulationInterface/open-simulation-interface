@@ -71,6 +71,8 @@ OSI common provides the building blocks for the OSI field messages.
 `osi_sensorview.proto`_
 ---------------------------------
 
+`sl45_vehiclecommunicationdata.proto`_
+--------------------------------------
 
 .. _osi_version.proto: https://github.com/OpenSimulationInterface/open-simulation-interface/blob/master/osi_version.proto.in
 .. _osi_common.proto: https://github.com/OpenSimulationInterface/open-simulation-interface/blob/master/osi_common.proto
