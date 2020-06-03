@@ -67,8 +67,8 @@ class GenerateProtobufCommand(build_py):
         'osi_sensordata.proto',
         'osi_sensorviewconfiguration.proto',
         'osi_sensorspecific.proto',
-        'osi_vehiclecommunicationdata.proto',
-        'osi_sensorview.proto')
+        'osi_sensorview.proto',
+        'sl45_vehiclecommunicationdata.proto')
 
     """ Generate Protobuf Messages """
 
