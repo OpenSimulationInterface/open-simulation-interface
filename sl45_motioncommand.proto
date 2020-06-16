@@ -25,13 +25,13 @@ message DynamicState
     //
     // Unit: [m]
     //
-    optional double global_position_x = 1;
+    optional double position_x = 1;
 
     // The y coordinate.
     //
     // Unit: [m]
     //
-    optional double global_position_y = 2;
+    optional double position_y = 2;
 
     // The orientation from x-axis, counter-clockwise.
     //
@@ -57,8 +57,6 @@ message DynamicState
     //
     optional double curvature = 6;
 }
-
-
 
 //
 // \brief The motion command describing the expected near-time future motion
@@ -89,10 +87,14 @@ message MotionCommand
     //
     optional osi3.Timestamp timestamp = 2;
 
-    // The current dynamic state of the vehicle.
+    // The current dynamic state of the vehicle. All positions are given in the
+    // the global coordinate system.
+    //
     optional DynamicState current_state = 3;
 
-    // The trajectory the vehicle should follow on.
+    // The trajectory the vehicle should follow on. All positions are given in the
+    // the global coordinate system.
+    //
     optional Trajectory trajectory = 4;
 
 
@@ -112,6 +114,7 @@ message MotionCommand
         // The the distance (spacial or temporal) between two consecutive
         // trajectory points. Spacial distances are in given in [m],
         // temporal distances are given in [s].
+        //
         optional double spacing = 2;
 
         // The reference of the vehicle
