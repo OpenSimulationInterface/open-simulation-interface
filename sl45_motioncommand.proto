@@ -117,9 +117,9 @@ message MotionCommand
         //
         optional double spacing = 2;
 
-        // The reference of the vehicle
+        // The target trajectory of the vehicle
         //
-        repeated DynamicState reference = 3;
+        repeated DynamicState trajectory_point = 3;
         
         
         enum SpacingType
