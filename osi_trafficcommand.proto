@@ -1,0 +1,364 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+
+package osi3;
+
+//
+// \brief The traffic command message is provided by the scenario
+// engine to traffic participant models to provide control commands
+// to them based on the scenario.
+//
+// \note This interface is currently just a placeholder, and will be
+// changed in experimental ways to support basic scenario execution.
+// In the future this interface shall be aligned with the level of
+// atomic actions as described in OpenSCENARIO 1.0 or later.
+//
+message TrafficCommand
+{
+    // The interface version used by the sender (scenario engine).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the UNIX epoch. Recommended is the starting time point of
+    // the simulation.
+    //
+    // \note For traffic command data the timestamp coincides both with
+    // the notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for traffic command data, as opposed
+    // to sensor data).
+    //
+    optional Timestamp timestamp = 2;
+
+    // The ID of this traffic participant.
+    //
+    optional Identifier traffic_participant_id = 3;
+
+    // Commanded Traffic Action(s) if any
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    // \note If more than one action is being supplied in one command message
+    // all actions are executed in parallel.
+    //
+    repeated TrafficAction action = 4;
+
+}
+
+//
+// \brief Atomic Traffic Actions to be performed
+//
+// The actual commands being transmitted are the atomic traffic actions
+// described by this message.
+//
+// \note This message is notionally a choice selection, i.e. only one
+// of the multiple optional fields in it must be set at any time.
+// It is not defined as a one of field, since this is not currently
+// used in OSI message definitions for portability reasons.  From
+// an API point of view this results in the same generated interface,
+// but without the better enforcement of the restriction on the wire.
+//
+message TrafficAction
+{
+    // A FollowTrajectoryAction
+    //
+    optional FollowTrajectoryAction follow_trajectory_action = 1;
+
+    // A FollowPathAction
+    //
+    optional FollowPathAction follow_path_action = 2;
+
+    // An AcquireGlobalPositionAction
+    //
+    optional AcquireGlobalPositionAction acquire_global_position_action = 3;
+
+    // A LaneChangeAction
+    //
+    optional LaneChangeAction lane_change_action = 4; 
+}
+
+//
+// \brief The StatePoint definition
+//
+// \note The StatePoint definition does not define mandatory fields.
+// The context defines how and what fields are used.
+// For example: FollowPathAction does not use timestamp in contrast to
+// FollowTrajectoryAction. 
+//
+message StatePoint
+{
+    // The timestamp of a StatePoint
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    optional Timestamp timestamp = 1;
+
+    // Position in the global coordinate system.
+    //
+    // The position refers to the center (x,y,z) of the bounding box.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation in the global coordinate system.
+    //
+    optional Orientation3d orientation = 3;
+}
+
+//
+// \brief The ActionHeader
+//
+//
+message ActionHeader
+{
+    // The unique id of the action
+    //
+    // \note This field is mandatory.
+    //
+    // \note This id must be unique within all traffic command
+    // messages exchanged with one traffic participant.
+    //
+    optional Identifier action_id = 1;
+}
+
+//
+// \brief Follow Trajectory Action.
+//
+// Controls a traffic participant to follow a trajectory using vertices
+// with timings. It specifies the motion in space as a function of time.
+//
+// \note The StatePoint messages in trajectory_point require the timestamp
+// to be specified.
+//
+// \note This action is aligned with the FollowTrajectoryAction of
+// OpenSCENARIO 1.0 using a 4/7D trajectory with shape Polyline.
+//
+message FollowTrajectoryAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+
+    // A list of trajectory StatePoints
+    //
+    // The timestamp fields for all trajectory points are required to be
+    // set, as are the position fields. The orientation fields can be set
+    // depending on the constrain_orientation field being true.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated StatePoint trajectory_point = 2;
+
+    // Constrain the orientation of the traffic participant as specified
+    // by the trajectory points
+    //
+    // This boolean flag defines whether orientation values supplied in 
+    // the trajectory points (if any) shall be used to constrain the
+    // orientation of the traffic participant or not.
+    //
+    optional bool constrain_orientation = 3;
+
+    // Specify the following mode that should be employed in executing
+    // the trajectory.
+    //
+    optional FollowingMode following_mode = 4;
+
+    // Definition of Following Mode.
+    //
+    enum FollowingMode
+    {
+        // Following mode position forces the traffic participant to
+        // follow the trajectory explicitly, disregarding any internal
+        // constraints, like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_POSITION = 0;
+
+        // Following mode follow allows the traffic participant to
+        // treat the trajectory as a target, to be achieved as closely
+        // as possible while retaining any internal constraints,
+        // like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_FOLLOW = 1;
+    }
+}
+
+//
+// \brief Follow Path Action.
+//
+// Controls a traffic participant to follow a trajectory using vertices
+// with timings. It specifies the motion in space independent of time.
+//
+// \note The StatePoint messages in path_point only require the position
+// field to be specified. The orientation can be set optionally. Any
+// timestamp StatePoint values are ignored.
+//
+// \note This action is aligned with the FollowTrajectoryAction of
+// OpenSCENARIO 1.0 using a 3/6D trajectory with shape Polyline.
+//
+message FollowPathAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+
+    // A list of path StatePoints
+    //
+    // The position fields for all path points  required to be set.
+    // The timestamp field are not required to be set and are ignored.
+    // The orientation fields can be set depending on the constrain_orientation
+    // field being true.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated StatePoint path_point = 2;
+
+    // Constrain the orientation of the traffic participant as specified
+    // by the path points
+    //
+    // This boolean flag defines whether orientation values supplied in 
+    // the path points shall be used to constrain the orientation
+    // of the traffic participant or not.
+    //
+    optional bool constrain_orientation = 3;
+
+    // Specify the following mode that should be employed in executing
+    // the path.
+    //
+    optional FollowingMode following_mode = 4;
+
+    // Definition of Following Mode.
+    //
+    enum FollowingMode
+    {
+        // Following mode position forces the traffic participant to
+        // follow the path explicitly, disregarding any internal
+        // constraints, like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_POSITION = 0;
+
+        // Following mode follow allows the traffic participant to
+        // treat the path as a target, to be achieved as closely
+        // as possible while retaining any internal constraints,
+        // like e.g. steering dynamics.
+        //
+        FOLLOWING_MODE_FOLLOW = 1;
+    }
+}
+
+//
+// \brief Acquire Global Position Action.
+//
+// This action assigns a route to a traffic participant. The route
+// assigned will be the shortest route (along roads or satisfying any
+// other constraints a traffic participant is operating under) between
+// the traffic participant's current position and the position specified.
+//
+// As with all routing actions, the exact way this route is achieved is
+// under the control of the traffic participant model.
+//
+// \note This action is aligned with the AcquirePositionAction of
+// OpenSCENARIO 1.0 using a WorldPosition position argument.
+//
+message AcquireGlobalPositionAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+
+    // Position in the global coordinate system.
+    //
+    // The position refers to the center (x,y,z) of the bounding box.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation in the global coordinate system.
+    //
+    // This is optional, if no orientation is given, the end orientation
+    // is under control of the traffic participant.
+    //
+    optional Orientation3d orientation = 3;
+}
+
+//
+// \brief Lane Change Action.
+//
+// This action assigns a lane change to a traffic participant. The fields 
+// of this message enable different levels of constraint for the traffic 
+// participant depending on the use case. In case the constraints are 
+// supposed to be small, the dynamics shape or even the duration and 
+// the distance for the lane change can be omitted.
+//
+// \note This action is aligned with LaneChangeAction of OpenSCENARIO 1.0
+// defining the targeted lane and optionally the parametrization of the 
+// lane change.
+//
+
+message LaneChangeAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+    
+    // Targeted lane relative to the current lane.
+    //
+    // Convention: +1 means to the right, -1 means to the left.
+    //
+    optional int32 relative_target_lane = 2;
+    
+    // Specified shape of the lane change action. This is optional: 
+    // If no dynamics shape is given, the shape of the lane change is 
+    // open to the traffic participant model.
+    //
+    optional DynamicsShape dynamics_shape = 3;
+    
+    // Duration of the lane change. This is optional: 
+    // If no duration is given, the duration of the lane change is 
+    // open to the traffic participant model.
+    //
+    // Unit: s
+    //
+    optional double duration = 4; 
+    
+    // Distance of the lane change. This is optional: 
+    // If no distance is given, the distance of the lane change is 
+    // open to the traffic participant model.
+    //
+    // Unit: m
+    //
+    optional double distance = 5;
+    
+    // Definition of LaneChange dynamic shapes.
+    //
+    enum DynamicsShape
+    {
+        // Shape is unspecified.
+        //
+        DYNAMICS_SHAPE_UNSPECIFIED = 0;
+
+        // Shape is linear.
+        //
+        DYNAMICS_SHAPE_LINEAR = 1;
+
+        // Shape is cubic.
+        //
+        DYNAMICS_SHAPE_CUBIC = 2;
+
+        // Shape is sinusoidal.
+        //
+        DYNAMICS_SHAPE_SINUSOIDAL = 3;
+
+        // Shape is a step function.
+        //
+        DYNAMICS_SHAPE_STEP = 4;
+    }
+}
