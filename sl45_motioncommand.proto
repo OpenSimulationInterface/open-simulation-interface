@@ -21,41 +21,49 @@ package setlevel4to5;
 //
 message DynamicState
 {
+    // The point in time when the state is supposed to be reached.
+    // It is synchronized with the data timestamp of the simulation
+    // environment. Zero time is arbitrary but must be identical for all
+    // messages. Zero time does not need to coincide with the UNIX epoch.
+    // Recommended is the starting time point of the simulation.
+    //
+    optional osi3.Timestamp timestamp = 1;
+
     // The x coordinate.
     //
     // Unit: [m]
     //
-    optional double position_x = 1;
+    optional double position_x = 2;
 
     // The y coordinate.
     //
     // Unit: [m]
     //
-    optional double position_y = 2;
+    optional double position_y = 3;
 
     // The orientation from x-axis, counter-clockwise.
     //
     // Unit: [rad]
     //
-    optional double heading_angle = 3;
+    optional double heading_angle = 4;
 
     // The scalar velocity.
     //
     // Unit: [m/s]
     //
-    optional double velocity = 4;
+    optional double velocity = 5;
 
     // The scalar acceleration.
     //
     // Unit: [m/s^2]
     //
-    optional double acceleration = 5;
+    optional double acceleration = 6;
 
     // The curvature of the path of the object.
     //
     // Unit: [1/m]
     //
-    optional double curvature = 6;
+    optional double curvature = 7;
 }
 
 //
