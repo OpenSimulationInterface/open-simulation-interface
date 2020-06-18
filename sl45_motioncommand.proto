@@ -1,0 +1,144 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+
+package setlevel4to5;
+
+//
+// \brief A dynamic state describing the 2D location, orientation and
+// dynamic properties of an object
+//
+// The coordinate system is right handed, a heading of zero equalling
+// the object being heading in x-direction.
+// All coordinates and orientations are relative to the global ground
+// truth frame.
+//
+// Units are [m] for positions, [m/s] for velocities, [m/s^2] for
+// accelerations and [rad] for angles.
+//
+message DynamicState
+{
+    // The point in time when the state is supposed to be reached.
+    // It is synchronized with the data timestamp of the simulation
+    // environment. Zero time is arbitrary but must be identical for all
+    // messages. Zero time does not need to coincide with the UNIX epoch.
+    // Recommended is the starting time point of the simulation.
+    //
+    optional osi3.Timestamp timestamp = 1;
+
+    // The x coordinate.
+    //
+    // Unit: [m]
+    //
+    optional double position_x = 2;
+
+    // The y coordinate.
+    //
+    // Unit: [m]
+    //
+    optional double position_y = 3;
+
+    // The orientation from x-axis, counter-clockwise.
+    //
+    // Unit: [rad]
+    //
+    optional double heading_angle = 4;
+
+    // The scalar velocity.
+    //
+    // Unit: [m/s]
+    //
+    optional double velocity = 5;
+
+    // The scalar acceleration.
+    //
+    // Unit: [m/s^2]
+    //
+    optional double acceleration = 6;
+
+    // The curvature of the path of the object.
+    //
+    // Unit: [1/m]
+    //
+    optional double curvature = 7;
+}
+
+//
+// \brief The motion command describing the expected near-time future motion
+// of a vehicle.
+//
+// The motion command comprises of the trajectory the vehicle should
+// follow on, as well as the current dynamic state which contains
+// the vehicle's localization and dynamic properties.
+//
+message MotionCommand
+{
+    // The interface version used by the sender.
+    //
+    optional osi3.InterfaceVersion version = 1;
+
+    // The timestamp of the message. Zero time is arbitrary but must be
+    // identical for all messages. Zero time does not need to coincide with
+    // the unix epoch. Recommended is the starting time point of the
+    // simulation.
+    //
+    // \note This can either be the point in time that the motion command
+    // message becomes available to the rest of the system (i.e. the motion
+    // control unit), so it corresponds with the sending time and thus takes
+    // the latency of internal processing of the driver function into account,
+    // or equals the point in time whose data the computation is based on.
+    // Latencies of bus communications, etc., that occur after the sensor output
+    // have to be applied on top of this, if needed.
+    //
+    optional osi3.Timestamp timestamp = 2;
+
+    // The current dynamic state of the vehicle. All positions are given in the
+    // the global coordinate system.
+    //
+    optional DynamicState current_state = 3;
+
+    // The trajectory the vehicle should follow on. All positions are given in the
+    // the global coordinate system.
+    //
+    optional Trajectory trajectory = 4;
+
+
+    // \brief A trajectory.
+    //
+    // A trajectory describes both the current dynamic state of the vehicle,
+    // as well as the sequence of desired dynamic states the vehicle should
+    // follow on.
+    //
+    message Trajectory
+    {
+        // The type of spacing between two trajectory points. Spacing can
+        // either be spacial or temporal.
+        //
+        optional SpacingType spacing_type = 1;
+
+        // The the distance (spacial or temporal) between two consecutive
+        // trajectory points. Spacial distances are in given in [m],
+        // temporal distances are given in [s].
+        //
+        optional double spacing = 2;
+
+        // The target trajectory of the vehicle
+        //
+        repeated DynamicState trajectory_point = 3;
+        
+        
+        enum SpacingType
+        {
+            // Trajectory points are spaced with equal distance (spacial)
+            //
+            SPACING_DISTANCE = 0;
+
+            // Trajectory points are spaced with equal time deltas (temporal)
+            //
+            SPACING_TIME = 1;
+        }
+    }
+}
