@@ -80,6 +80,10 @@ message TrafficAction
     // A LaneChangeAction
     //
     optional LaneChangeAction lane_change_action = 4; 
+
+    // A SpeedAction
+    //
+    optional SpeedAction speed_action = 5;    
 }
 
 //
@@ -361,4 +365,80 @@ message LaneChangeAction
         //
         DYNAMICS_SHAPE_STEP = 4;
     }
+}
+
+//
+// \brief Speed Action.
+//
+// This action assigns a targeted speed to a traffic participant. To avoid 
+// contradictory constraints, it shall not be sent if the traffic participant
+// is under impact of a FollowTrajectoryAction. Yet, it may be sent if the 
+// traffic particpiant is under impact of a FollowPathAction, 
+// AcquireGlobalPositionAction or LaneChangeAction.
+// Furthermore, the action can be constrained by specifying the dynamics 
+// shape or even the duration and the distance of the acceleration / 
+// deceleration process.
+//
+// \note This action is aligned with SpeedAction of OpenSCENARIO 1.0
+// defining the targeted speed and optionally the parametrization of the 
+// speed transition.
+//
+
+message SpeedAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+    
+    // Targeted absolute speed.
+    //
+    optional double absolute_target_speed = 2;
+    
+    // Specified transition shape of the speed change. This is optional: 
+    // If no dynamics shape is given, the transition is 
+    // open to the traffic participant model.
+    //
+    optional DynamicsShape dynamics_shape = 3;
+    
+    // Specified duration of the speed change. This is optional: 
+    // If no duration is given, the duration of the transition is 
+    // open to the traffic participant model.
+    //
+    // Unit: s
+    //
+    optional double duration = 4; 
+    
+    // Specified distance of the speed change. This is optional: 
+    // If no distance is given, the distance travelled while changing
+    // speed is open to the traffic participant model.
+    //
+    // Unit: m
+    //
+    optional double distance = 5;
+    
+    // Definition of speed change dynamic shapes.
+    //
+    enum DynamicsShape
+    {
+        // Shape is unspecified.
+        //
+        DYNAMICS_SHAPE_UNSPECIFIED = 0;
+
+        // Shape is linear.
+        //
+        DYNAMICS_SHAPE_LINEAR = 1;
+
+        // Shape is cubic.
+        //
+        DYNAMICS_SHAPE_CUBIC = 2;
+
+        // Shape is sinusoidal.
+        //
+        DYNAMICS_SHAPE_SINUSOIDAL = 3;
+
+        // Shape is a step function.
+        //
+        DYNAMICS_SHAPE_STEP = 4;
+    }
+
 }
