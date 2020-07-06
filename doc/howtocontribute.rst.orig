@@ -85,8 +85,8 @@ If you want to be reminded to add the sign-off for commits in your repository, y
 
 Placing this script into a file called ``.git/hooks/commit-msg`` and making it executable (e.g. using ``chmod a+x .git/hooks/commit-msg`` on unixoid operating systems) will prevent commits without a sign-off.
 =======
-The DCO text can either be manually added to your commit body, or you can add either -s or --signoff to your usual Git commit commands. If you forget to add the sign-off you can also amend a previous commit with the sign-off by running git commit --amend -s. If you’ve pushed your changes to GitHub already you’ll need to force push your branch after this with git push -f.
->>>>>>> Add DCO information to Contribution Guidelines
+The DCO text can either be manually added to your commit body, or you can add either ``-s`` or ``--signoff`` to your usual Git commit commands. If you forget to add the sign-off you can also amend a previous commit with the sign-off by running ``git commit --amend -s``. If you’ve pushed your changes to GitHub already you’ll need to force push your branch after this with ``git push --force-with-lease``.
+>>>>>>> Remove suggestion to use -f in git push
 
 
 Reporting issues
