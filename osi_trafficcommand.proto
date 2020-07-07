@@ -324,17 +324,21 @@ message LaneChangeAction
     //
     optional DynamicsShape dynamics_shape = 3;
     
-    // Duration of the lane change. If no constraint is defined, 
-    // the value must be 0.0 (exception: for a step function, the 
-    // constraint is implicitly effective).
+    // Duration of the lane change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the duration, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
     //
     // Unit: s
     //
     optional double duration = 4; 
     
-    // Distance of the lane change. If no constraint is defined, 
-    // the value must be 0.0 (exception: for a step function, the 
-    // constraint is implicitly effective).
+    // Distance of the lane change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the distance, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
     //
     // Unit: m
     //
@@ -395,17 +399,21 @@ message SpeedAction
     //
     optional DynamicsShape dynamics_shape = 3;
     
-    // Duration of the speed change. If no constraint is defined, 
-    // the value must be 0.0 (exception: for a step function, the 
-    // constraint is implicitly effective).
+    // Duration of the speed change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the duration, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
     //
     // Unit: s
     //
     optional double duration = 4; 
     
-    // Distance of the speed change. If no constraint is defined, 
-    // the value must be 0.0 (exception: for a step function, the 
-    // constraint is implicitly effective).
+    // Distance of the speed change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the distance, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
     //
     // Unit: m
     //
