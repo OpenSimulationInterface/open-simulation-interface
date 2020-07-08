@@ -56,12 +56,11 @@ message TrafficCommand
 // The actual commands being transmitted are the atomic traffic actions
 // described by this message.
 //
-// \note This message is notionally a choice selection, i.e. only one
-// of the multiple optional fields in it must be set at any time.
-// It is not defined as a one of field, since this is not currently
-// used in OSI message definitions for portability reasons.  From
-// an API point of view this results in the same generated interface,
-// but without the better enforcement of the restriction on the wire.
+// \note This message is notionally a multiple choice selection, i.e. only 
+// certain combinations of atomic traffic actions shall be transmitted within 
+// certain time intervals (e.g. for plausibity reasons). The restrictions 
+// regarding that are not part of this message, yet are seen as a task of the 
+// scenario description (e.g. OpenSCENARIO). 
 //
 message TrafficAction
 {
@@ -80,6 +79,10 @@ message TrafficAction
     // A LaneChangeAction
     //
     optional LaneChangeAction lane_change_action = 4; 
+
+    // A SpeedAction
+    //
+    optional SpeedAction speed_action = 5;    
 }
 
 //
@@ -315,23 +318,27 @@ message LaneChangeAction
     //
     optional int32 relative_target_lane = 2;
     
-    // Specified shape of the lane change action. This is optional: 
-    // If no dynamics shape is given, the shape of the lane change is 
-    // open to the traffic participant model.
+    // Specified shape of the lane change action. 
+    // If the shape is unspecified (enum value 0), the shape of the 
+    // lane change is open to the traffic participant model. 
     //
     optional DynamicsShape dynamics_shape = 3;
     
-    // Duration of the lane change. This is optional: 
-    // If no duration is given, the duration of the lane change is 
-    // open to the traffic participant model.
+    // Duration of the lane change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the duration, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
     //
     // Unit: s
     //
     optional double duration = 4; 
     
-    // Distance of the lane change. This is optional: 
-    // If no distance is given, the distance of the lane change is 
-    // open to the traffic participant model.
+    // Distance of the lane change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the distance, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
     //
     // Unit: m
     //
@@ -361,4 +368,80 @@ message LaneChangeAction
         //
         DYNAMICS_SHAPE_STEP = 4;
     }
+}
+
+//
+// \brief Speed Action.
+//
+// This action assigns a targeted speed to a traffic participant. 
+// The action can be constrained by specifying the dynamics 
+// shape or even the duration and the distance of the acceleration / 
+// deceleration process.
+//
+// \note This action is aligned with SpeedAction of OpenSCENARIO 1.0
+// defining the targeted speed and optionally the parametrization of the 
+// speed transition.
+//
+
+message SpeedAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+    
+    // Targeted absolute speed.
+    //
+    optional double absolute_target_speed = 2;
+    
+    // Specified transition shape of the speed change action. 
+    // If the shape is unspecified (enum value 0), the shape of the 
+    // speed change is open to the traffic participant model. 
+    //
+    optional DynamicsShape dynamics_shape = 3;
+    
+    // Duration of the speed change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the duration, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
+    //
+    // Unit: s
+    //
+    optional double duration = 4; 
+    
+    // Distance of the speed change.
+    // 
+    // A value of 0.0 (the default value) will impose no constraint
+    // on the distance, unless the dynamics shape is a step function,
+    // where an immediate step is effected.
+    //
+    // Unit: m
+    //
+    optional double distance = 5;
+    
+    // Definition of speed change dynamic shapes.
+    //
+    enum DynamicsShape
+    {
+        // Shape is unspecified.
+        //
+        DYNAMICS_SHAPE_UNSPECIFIED = 0;
+
+        // Shape is linear.
+        //
+        DYNAMICS_SHAPE_LINEAR = 1;
+
+        // Shape is cubic.
+        //
+        DYNAMICS_SHAPE_CUBIC = 2;
+
+        // Shape is sinusoidal.
+        //
+        DYNAMICS_SHAPE_SINUSOIDAL = 3;
+
+        // Shape is a step function.
+        //
+        DYNAMICS_SHAPE_STEP = 4;
+    }
+
 }
