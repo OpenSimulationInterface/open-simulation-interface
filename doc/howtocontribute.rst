@@ -65,7 +65,24 @@ The DCO requires a sign-off message in the following format appear on each commi
 
   Signed-off-by: Firstname Lastname <email@address.com>
 
-The DCO text can either be manually added to your commit body, or you can add either ``-s`` or ``--signoff`` to your usual Git commit commands. If you forget to add the sign-off you can also amend a previous commit with the sign-off by running ``git commit --amend -s``. If you’ve pushed your changes to GitHub already you’ll need to force push your branch after this with ``git push --force-with-lease``.
+The DCO text can either be manually added to your commit body, or you can add either ``-s`` or ``--signoff`` to your usual Git commit commands. If you forget to add the sign-off you can also amend a previous commit with the sign-off by running ``git commit --amend -s``.  You can add sign-offs to multiple commits (including commits originally authored by others, if you are authorized to do so) using ``git rebase --signoff``. If you’ve pushed your changes to GitHub already you’ll need to force push your branch after this with ``git push --force-with-lease``.
+
+If you want to be reminded to add the sign-off for commits in your repository, you can add the following commit-message git hook to your repository:
+
+.. code:: shell
+
+  #!/bin/sh
+  #
+  # Check for DCO/Signed-off-by in message
+  #
+  
+  if ! grep -q "^Signed-off-by: " "$1"
+  then
+    echo "Aborting commit: Commit message is not signed off" >&2
+    exit 1
+  fi
+
+Placing this script into a file called ``.git/hooks/commit-msg`` and making it executable (e.g. using ``chmod a+x .git/hooks/commit-msg`` on unixoid operating systems) will prevent commits without a sign-off.
 
 
 Reporting issues
