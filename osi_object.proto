@@ -436,6 +436,50 @@ message MovingObject
         // through.
         //
         optional double ground_clearance = 6;
+
+        // Detailed wheel data.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated WheelData wheel = 7;
+
+        // \brief Information for a single wheel.
+        //
+        message WheelData
+        {
+            // The axle which contains this wheel.  A value of 0 represents the
+            // front-most axle of the vehicle with higher numbers incrementing
+            // towards the rear-most axle.
+            //
+            optional uint32 axle = 1;
+
+            // The index of the wheel on the axle, counting in the direction
+            // of positive-y, i.e. right-to-left.
+            //
+            // For example, on a standard 2-axle, 4-wheel car, the rear-right
+            // wheel would be (axle=1, index=0).
+            //
+            optional uint32 index = 2;
+
+            // Steering angle with positive values indicating a clockwise
+            // rotation about the z-axis.  Must be zero for non-steering
+            // wheels.
+            //
+            optional double steer_angle = 3;
+
+            // Rotation of the wheel about the axle in radians per second.
+            //
+            optional double rotation_rate = 4;
+
+            // Current rotation about the axle.  Rotation angle
+            // increases as the vehicle moves forward (x-positive) and
+            // decreases as the vehicle moves backwards.
+            //
+            // \note This value doesn't wrap but permanently increases or
+            // decreases.
+            //
+            optional double rotation_angle = 5;
+        }
     }
 
     //
