@@ -190,6 +190,13 @@ message SensorViewConfiguration
     // Unit: s
     optional Timestamp simulation_start_time = 10;
 
+    // Omit Static Information
+    //
+    // This flag specifies whether ground truth information can
+    // omit static information or not.
+    //
+    optional bool omit_static_information = 11;
+
     // Generic Sensor View Configuration(s).
     //
     // \note OSI uses singular instead of plural for repeated field names.
