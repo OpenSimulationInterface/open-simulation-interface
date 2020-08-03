@@ -11,8 +11,8 @@ This time of the year Santa comes with presents and has also thought about the s
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 - Complete rework of traffic signs including images in documentation.
-- Added Camera Detections in osi_featuredata.proto.
-- Added Ultrasonic Detections in osi_featuredata.proto.
+- Added Camera Detections in osi_detectiondata.proto.
+- Added Ultrasonic Detections in osi_detectiondata.proto.
 - Introduced light states for emergency and service vehicles.
 - Added orientation_acceleration and updated formulas.
 - Extended documentation with svg images.

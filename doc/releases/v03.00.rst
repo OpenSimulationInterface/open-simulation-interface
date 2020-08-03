@@ -13,7 +13,7 @@ We are aligned with the ongoing discussions for the upcoming ISO 23150 standard 
 - Added new top-level messages (new concept SensorView (Configuration),etc.).
     - GroundTruth.
     - SensorView.
-    - SensorData / FeatureData.
+    - SensorData / DetectionData.
     - SensorViewConfiguration (used for auto-configuration of SensorView).
 - Added technology-specific SensorView sub-messages to aid physical models.
 - Introduced conceptual separation of “SensorModels” and “LogicModels”.
@@ -26,8 +26,8 @@ We are aligned with the ongoing discussions for the upcoming ISO 23150 standard 
 - Redefined Lane messages (with separated lane boundary messages and intersections).
 - Redefined TrafficLight messages.
 - Redefined TrafficSigns (1 x MainSign + n x SupplementarySign inclusive BaseStationary).
-- New FeatureData messages (rework of previous LowLevelData message) - aligned with an upcoming standard ISO 23150.
-- FeatureData usable for fusion units.
+- New DetectionData messages (rework of previous LowLevelData message) - aligned with an upcoming standard ISO 23150.
+- DetectionData usable for fusion units.
 - Extension and clarification of the existing doxygen documentation.
 - Improved doxygen collaboration diagrams.
 - Build process improvements, added install targets.
@@ -56,5 +56,5 @@ This release is a patch reworking parts of the documentation in order to avoid a
 - Added explanatory images in the documentation
 - centerline definition improved
 - signal_strength definition in LidarSensorView corrected
-- FeatureData::ambiguity_id definition clarified
+- DetectionData::ambiguity_id definition clarified
 - RadarSensorViewConfiguration::AntennaDiagram::response definition clarified

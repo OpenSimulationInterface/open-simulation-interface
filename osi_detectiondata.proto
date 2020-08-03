@@ -14,10 +14,10 @@ package osi3;
 // All information regarding the environment is given with respect to the sensor
 // coordinate system specified in \c SensorDetectionHeader::mounting_position.
 // When simulating multiple sensors, each sensor has an individual copy of
-// \c FeatureData in its own reference frame. This allows an independent
+// \c DetectionData in its own reference frame. This allows an independent
 // treatment of the sensors.
 //
-message FeatureData
+message DetectionData
 {
     // The interface version used by the sender (i.e. the simulation
     // environment).

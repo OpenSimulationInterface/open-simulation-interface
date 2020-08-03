@@ -68,7 +68,7 @@ set(OSI_PROTO_FILES
     osi_trafficlight.proto
     osi_roadmarking.proto
     osi_lane.proto
-    osi_featuredata.proto
+    osi_detectiondata.proto
     osi_fuseddata.proto
     osi_object.proto
     osi_occupant.proto
@@ -174,7 +174,8 @@ install(EXPORT ${PROJECT_NAME}_targets
 # add a target to generate API documentation with Doxygen
 # Dependencies: Doxygen and proto2cpp.py
 FIND_PACKAGE(Doxygen)
-set(FILTER_PROTO2CPP_PY_PATH CACHE PATH "directory to the filter proto2cpp.py")
+# set(FILTER_PROTO2CPP_PY_PATH CACHE PATH "directory to the filter proto2cpp.py")
+set(FILTER_PROTO2CPP_PY_PATH "/home/philipp/OSI/proto2cpp/")
 
 if(NOT DOXYGEN_FOUND)
 
