@@ -174,8 +174,7 @@ install(EXPORT ${PROJECT_NAME}_targets
 # add a target to generate API documentation with Doxygen
 # Dependencies: Doxygen and proto2cpp.py
 FIND_PACKAGE(Doxygen)
-# set(FILTER_PROTO2CPP_PY_PATH CACHE PATH "directory to the filter proto2cpp.py")
-set(FILTER_PROTO2CPP_PY_PATH "/home/philipp/OSI/proto2cpp/")
+set(FILTER_PROTO2CPP_PY_PATH CACHE PATH "directory to the filter proto2cpp.py")
 
 if(NOT DOXYGEN_FOUND)
 
