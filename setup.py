@@ -61,14 +61,14 @@ class GenerateProtobufCommand(build_py):
         'osi_trafficlight.proto',
         'osi_roadmarking.proto',
         'osi_featuredata.proto',
+        'osi_fuseddata.proto',
         'osi_object.proto',
         'osi_occupant.proto',
         'osi_lane.proto',
         'osi_sensordata.proto',
         'osi_sensorviewconfiguration.proto',
         'osi_sensorspecific.proto',
-        'osi_sensorview.proto',
-        'sl45_vehiclecommunicationdata.proto')
+        'osi_sensorview.proto')
 
     """ Generate Protobuf Messages """
 
