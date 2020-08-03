@@ -69,7 +69,7 @@ set(OSI_PROTO_FILES
     osi_roadmarking.proto
     osi_lane.proto
     osi_detectiondata.proto
-    osi_fuseddata.proto
+    osi_featuredata.proto
     osi_object.proto
     osi_occupant.proto
     osi_sensordata.proto

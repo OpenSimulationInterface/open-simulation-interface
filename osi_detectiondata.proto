@@ -24,19 +24,19 @@ message DetectionData
     //
     optional InterfaceVersion version = 1;
 
-    // Radar detections for multiple radar sensors (sensor fusion).
+    // Radar detections from a single radar sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RadarDetectionData radar_sensor = 2;
 
-    // Lidar detections for multiple lidar sensors (sensor fusion).
+    // Lidar detections from a single lidar sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated LidarDetectionData lidar_sensor = 3;
 
-    // Ultrasonic detections for multiple ultrasonic sensors (sensor fusion).
+    // Ultrasonic detections from a single ultrasonic sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
@@ -46,7 +46,7 @@ message DetectionData
     //
     repeated UltrasonicDetectionData ultrasonic_sensor = 4;
 
-    // Camera detections for multiple camera sensors (sensor fusion).
+    // Camera detections from a single camera sensor.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //

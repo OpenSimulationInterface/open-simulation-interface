@@ -50,7 +50,7 @@ OSI common provides the building blocks for the OSI field messages.
 `osi_detectiondata.proto`_
 ---------------------------------
 
-`osi_fuseddata.proto`_
+`osi_featuredata.proto`_
 ---------------------------------
 
 `osi_object.proto`_

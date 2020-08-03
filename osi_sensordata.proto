@@ -12,7 +12,7 @@ import "osi_detectedobject.proto";
 import "osi_detectedoccupant.proto";
 import "osi_sensorview.proto";
 import "osi_detectiondata.proto";
-import "osi_fuseddata.proto";
+import "osi_featuredata.proto";
 
 package osi3;
 
@@ -299,12 +299,12 @@ message SensorData
     //
     optional DetectionData detection_data = 26;
 
-    // Fused data interface.
+    // Feature data interface.
     //
-    // Fused data is provided by a sensor fusion performed by a Logical Model
+    // Feature data is provided by a transformation and optional sensor fusion performed by a Logical Model
     // that fuses multiple sensors and sensor types into a single frame.
     // All information is given in the host vehicle frame (i.e. center of rear axis)
     // in cartesian coordinates.
     //
-    optional FusedData fused_data = 27;
+    optional FeatureData feature_data = 27;
 }

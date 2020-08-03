@@ -4,7 +4,6 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
-import "osi_detectiondata.proto";
 
 package osi3;
 
@@ -13,48 +12,51 @@ package osi3;
 //
 // All information is given with respect to the host vehicle frame (i.e. center of rear axis of the ego car).
 //
-message FusedData
+message FeatureData
 {
     // The interface version used by the sender (i.e. the simulation
     // environment).
     //
     optional InterfaceVersion version = 1;
 
-    // Fused detections from multiple sensors and sensor types (sensor fusion).
+
+    // Generic features consisting of transformed (fused) detections from one or multiple sensors and sensor types.
+    // Features are given with respect to the host vehicle frame (i.e. center of rear axis of the ego car).
     //
+    // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated FusedDetectionData fused_detection_data = 2;
+    repeated GenericFeatureData generic_fusion = 2;
 }
 
 //
-// \brief The header attributes of the list of fused detections.
+// \brief The header attributes of the list of features.
 //
-message FusedDetectionHeader
+message FeatureDataHeader
 {
-    // Time stamp at which the fusion was done in the global synchronized time.
+    // Time stamp at which the transformation and optional fusion was finished in the global synchronized time.
     //
     // \note See \c SensorData::timestamp and
     // \c SensorData::last_measurement_time for detailed discussions on the
     // semantics of time-related fields.
     //
-    optional Timestamp fusion_time = 1;
+    optional Timestamp feature_time = 1;
 
     // Data Qualifier expresses to what extent the content of this event can be
     // relied on.
     //
     optional DataQualifier data_qualifier = 2;
 
-    // The current number of valid detections in the detections list.
+    // The current number of valid features in the features list.
     //
-    // \note This value has to be set if the list contains invalid detections.
+    // \note This value has to be set if the list contains invalid features.
     //
     // \rules
     // is_greater_than_or_equal_to: 0
     // \endrules
     //
-    optional uint32 number_of_valid_detections = 3;
+    optional uint32 number_of_valid_features = 3;
 
-    // The IDs of the sensors that have been fused and result in the listed detections.
+    // The IDs of the sensors that have been fused and result in the listed features.
     //
     repeated Identifier sensor_id = 4;
 
@@ -98,27 +100,27 @@ message FusedDetectionHeader
 }
 
 //
-// \brief Data from one radar sensor including a list of detections.
+// \brief Data from one or multiple sensors as a list of features.
 //
-message FusedDetectionData
+message GenericFeatureData
 {
     // Header attributes of fused detections from multiple sensors and sensor types.
     //
-    optional FusedDetectionHeader header = 1;
+    optional FeatureDataHeader header = 1;
 
-    // List of fused detections.
+    // List of features.
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated FusedDetection detection = 2;
+    repeated GenericFeature feature = 2;
 }
 
 //
-// \brief A fused detection that could be based on multiple sensors and sensor types.
+// \brief A generic feature that could be based on multiple sensors and sensor types.
 //
-message FusedDetection
+message GenericFeature
 {
-    // Existence probability of the detection
+    // Existence probability of the feature
     //
     // \note Use as confidence measure where a low value means less confidence
     // and a high value indicates strong confidence.
@@ -130,7 +132,7 @@ message FusedDetection
     //
     optional double existence_probability = 1;
 
-    // ID of the detected object this detection is associated to.
+    // ID of the detected object this feature is associated to.
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
     //
@@ -140,25 +142,25 @@ message FusedDetection
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the detection given in cartesian coordinates in the
+    // Measured position of the feature given in cartesian coordinates in the
     // host vehicle coordinate system.
     //
     // Unit: m
     //
     optional Vector3d position = 3;
 
-    // Root mean squared error of the measured position of the detection.
+    // Root mean squared error of the measured position of the feature.
     //
     optional Vector3d position_rmse = 4;
 
-    // Velocity of the detection given in cartesian coordinates in the
+    // Velocity of the feature given in cartesian coordinates in the
     // host vehicle coordinate system.
     //
     // Unit: m/s
     //
     optional Vector3d velocity = 5;
 
-    // Root mean squared error of the detection's velocity.
+    // Root mean squared error of the feature's velocity.
     //
     // Unit: m/s
     //
@@ -168,7 +170,7 @@ message FusedDetection
     //
     optional Vector3d velocity_rmse = 6;
 
-    // Intensity or equivalent value of the detection's echo.
+    // Intensity or equivalent value of the feature's echo.
     //
     // Unit: %
     //
@@ -179,14 +181,14 @@ message FusedDetection
     //
     optional double intensity = 7;
 
-    // The signal to noise ratio (SNR) of the detection.
+    // The signal to noise ratio (SNR) of the feature.
     //
     // Unit: dB
     //
     optional double snr = 8;
 
     // Describes the possibility whether more than one object may have led to
-    // this detection.
+    // this feature.
     //
     // \rules
     // is_greater_than_or_equal_to: 0
@@ -195,13 +197,43 @@ message FusedDetection
     //
     optional double point_target_probability = 9;
 
-    // The IDs of the sensors that have been fused to the single detection.
+    // The IDs of the sensors that have been fused to the single feature.
     //
-    // \note one detection can originate from multiple sensors.
+    // \note one feature can originate from multiple sensors.
     //
     repeated Identifier sensor_id = 10;
 
-    // Basic classification of the detection.
+    // Basic classification of the feature.
     //
-    optional DetectionClassification classification = 11;
+    optional FeatureClassification classification = 11;
+}
+
+// Definition of basic feature classifications.
+//
+enum FeatureClassification
+{
+    // Feature is unknown (must not be used in ground truth).
+    //
+    FEATURE_CLASSIFICATION_UNKNOWN = 0;
+
+    // Other (unspecified but known) feature.
+    //
+    FEATURE_CLASSIFICATION_OTHER = 1;
+
+    // Invalid feature, not to be used for object tracking, of unspecified
+    // type (none of the other types applies).
+    //
+    FEATURE_CLASSIFICATION_INVALID = 2;
+
+    // Clutter (noise, spray, rain, fog etc.).
+    //
+    FEATURE_CLASSIFICATION_CLUTTER = 3;
+
+    // Over-drivable (ground etc.).
+    //
+    FEATURE_CLASSIFICATION_OVERDRIVABLE = 4;
+
+    // Under-drivable (sign gantry etc.).
+    //
+    FEATURE_CLASSIFICATION_UNDERDRIVABLE = 5;
 }
