@@ -17,16 +17,61 @@ package osi3;
 //
 message HostVehicleData
 {
+    // Deprecated: Will be removed in next major release. Moved to VehicleLocalization.
     // Current estimated location based on GPS- and related navigation sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location = 1;
 
+    // Deprecated: Will be removed in next major release. Moved to VehicleLocalization.
     // Current estimated location error based on GPS- and related navigation
     // sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
+    
+    // Contains all the perceivable information.
+    //
+    optional MovingObject moving_object = 3;
+    
+    // Contains all the non-perceivable information.
+    //
+    optional HostVehicleDataClass host_vehicle_data = 4;
+}
+    
+//
+// \brief The vehicle-class is a deeper description of a vehicle about the non-perceivable information.
+// It consists of different messages categorizing the vehicle in:
+// Vehicle-Basics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
+// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons. 
+//
+message HostVehicleDataClass
+{
+    // The basic parameters of the vehicle.
+    //
+    optional VehicleBasics vehicle_basics = 1;
+    
+    // Interface regarding the powermanagement.
+    //
+    optional VehiclePowertrain vehicle_powermanagement = 2;
+    
+    // Interface regarding the powertrain.
+    //
+    optional VehiclePowertrain vehicle_powertrain = 3;
+
+    // Interface regarding the SteeringWheel.
+    // The focus here is on the steering wheel.
+    //
+    optional VehicleSteeringWheel vehicle_steering_wheel = 4;
+
+    // Interface regarding the wheels.
+    // The focus here is on the physical description of a wheel.
+    //
+    optional VehicleWheels vehicle_wheels = 5;
+
+    // Interface regarding the navigation.
+    //
+    optional VehicleLocalization vehicle_localization = 6;
 }
