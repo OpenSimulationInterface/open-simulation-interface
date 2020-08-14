@@ -9,6 +9,7 @@ package osi3;
 //
 // \brief Interface for host vehicle data that is available to sensors and
 // other functions due to host vehicle's internal communication.
+// A usage regarding the vehicle model is also possible.
 //
 // \image html OSI_HostVehicle.svg
 //
@@ -44,7 +45,7 @@ message HostVehicleData
 //
 // \brief The vehicle-class is a deeper description of a vehicle about the non-perceivable information.
 // It consists of different messages categorizing the vehicle in:
-// Vehicle-Basics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
+// Vehicle-Basics, Vehicle-Powermanagement, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
 // As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons. 
 //
 message HostVehicleDataClass
@@ -55,23 +56,303 @@ message HostVehicleDataClass
     
     // Interface regarding the powermanagement.
     //
-    optional VehiclePowertrain vehicle_powermanagement = 2;
+    optional VehiclePowermanagement vehicle_powermanagement = 2;
     
     // Interface regarding the powertrain.
     //
     optional VehiclePowertrain vehicle_powertrain = 3;
 
     // Interface regarding the steering wheel.
-    // The focus here is on the steering wheel.
     //
     optional VehicleSteeringWheel vehicle_steering_wheel = 4;
 
     // Interface regarding the wheels.
-    // The focus here is on the physical description of a wheel.
     //
     optional VehicleWheels vehicle_wheels = 5;
 
     // Interface regarding the navigation.
     //
     optional VehicleLocalization vehicle_localization = 6;
+    
+    //
+    // \brief The absolute base parameters of the vehicle.
+    //
+    message VehicleBasics
+    {
+        // The total mass of the vehicle (curb weight). 
+        //
+        // Unit: [kg]
+        //
+        // \par Reference:
+        // §42 der StVZO (german Straßenverkehrs-Zulassungs-Ordnung; engl. Road Traffic Regulations)
+        //
+        optional double curb_weight = 1;
+    }
+    
+    //
+    // \brief State description of the powertrain.
+    //
+    message VehiclePowermanagement
+    {
+        // To be discussed.
+    }
+    
+    //
+    // \brief State description of the powertrain.
+    //
+    message VehiclePowertrain
+    {
+        // The positions of the pedals.
+        //
+        optional Pedalry pedalry = 1;
+
+        // Rounds per minute of the engine.
+        //
+        // Unit: [1/min]
+        //
+        optional double engine_rpm = 2;
+
+        // Torque in Nm.
+        //
+        // Unit: [N*m]
+        //
+        optional double engine_torque = 3;
+
+        // The actual gear of the gear lever.
+        //
+        optional GearLeverState gear_lever_state = 4;
+        
+        // The actual gear of the transmission.
+        // E.g. gear_lever can be in "D" and transmission in "4", but not the
+        // other way around.
+        //
+        // The sign of this field is linked to the gear's mode as following:
+        // - zero: neutral position
+        // - positive: driving forward mode
+        // - negative: reverse mode (generally -1, but few vehicles have several
+        //   reverse mode gears)
+        //
+        optional int32 gear_transmission = 5;
+        
+        // Describe the possible mode of an automatic transmission.
+        //
+        enum AutomaticTransmissionMode
+        {
+            // The gear transmission mode is unknown (must not be
+            // used in ground truth).
+            //
+            AUTOMATIC_TRANSMISSION_MODE_UNKNOWN = 0;
+
+            // Other (unspecified but known) transmisson mode.
+            //
+            AUTOMATIC_TRANSMISSION_MODE_OTHER = 1;
+        
+            // The gear lever is in automatic parking mode.
+            //
+            AUTOMATIC_TRANSMISSION_MODE_PARK = 2;
+
+            // The gear lever is in reverse motion mode.
+            //
+            AUTOMATIC_TRANSMISSION_MODE_REVERSE = 3;
+
+            // The gear lever is in automatic neutral mode.
+            //
+            AUTOMATIC_TRANSMISSION_MODE_NEUTRAL = 4;
+
+            // The gear lever is in automatic driving mode.
+            //
+            AUTOMATIC_TRANSMISSION_MODE_DRIVE = 5;
+
+            // The gear lever is in a manual override mode.
+            //
+            AUTOMATIC_TRANSMISSION_MODE_MANUAL_OVERRIDE = 6;
+        }
+        
+        //
+        // \brief A description for the positions of the pedals.
+        //
+        //
+        message Pedalry
+        {
+            // Position of the acceleration-pedal.
+            // Unit: [0-1] (Unpressed - fully pressed)
+            //
+            optional double pedal_position_acceleration = 1;
+
+            // Position of the brake-pedal.
+            // Unit: [0-1] (Unpressed - fully pressed)
+            //
+            optional double pedal_position_brake = 2;
+
+            // Position of the clutch-pedal.
+            // Unit: [0-1] (Unpressed - fully pressed)
+            //
+            optional double pedal_position_clutch = 3;
+        }
+    }
+
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the steering wheel.
+    //
+    message VehicleSteeringWheel
+    {
+        // Angle of the steering wheel. 
+        // 0=Central (Straight); Left>0; 0>Right.
+        //
+        // Unit: [rad]
+        //
+        optional double angle = 1;
+
+        // Angle-speed of the steering wheel.
+        // 0=Central (Straight); Left>0; 0>Right.
+        //
+        // Unit: [rad/s]
+        //
+        optional double angular_speed = 2;
+
+        // Torque of the steering wheel to the hand.
+        // 0=Central (Straight); Left>0; 0>Right.
+        //
+        // Unit: [N*m]
+        //
+        optional double torque = 3;
+    }
+    
+    //
+    // \brief The focus here is on the description of the wheels.
+    //
+    message VehicleWheels
+    {
+        // Contains the description of a wheel.
+        //
+        repeated Wheel wheel = 1;
+
+        //
+        // \brief The focus here is on the description of a wheel.
+        //
+        message Wheel
+        {
+            // Information about how the wheel is arranged.
+            //
+            optional Arrangement arrangement = 1;
+            
+            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
+            // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
+            // friction between moving surfaces.
+            // Ued here is the dry friction coefficient of the paired materials (see reference).
+            // Dimensionless.
+            //
+            // Unit: []
+            //
+            // \par References:
+            // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
+            //
+            optional double kinetic_friction_coefficient = 2;
+
+            // Contact point of the mid of the tire tread with the world.
+            // Absolute coordinates (x, y, z).
+            //
+            // Unit: [m]
+            //
+            optional Vector3d contact_point = 3;
+
+            // Contains the rotational speed of each wheel per second.
+            //
+            // Unit: [rad/s]
+            //
+            optional double rotational_speed = 4;
+            
+            // Contains the steering angle of each wheel.
+            // Right < 0; 0 = straight; 0 < left.
+            //
+            // Unit: [rad]
+            //
+            optional double steeringangle = 5;
+            
+            // Contains the relativ position of the center of the wheel to the center of the bounding-box.
+            // Possibility to get the spring deflection and the camber (https://en.wikipedia.org/wiki/Camber_angle).
+            //
+            // Unit: [m]
+            //
+            optional MountingPosition position = 6;
+
+            // Contains the longitudinal slip of the tire.
+            // \par References:
+            // - https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
+            //
+            // Unit: [%]
+            //
+            optional double slip = 8;
+            
+            // Information about how the wheel is arranged.
+            //
+            enum Arrangement
+            {
+                // The description is about a wheel that has an unknown arrangement.
+                //
+                ARRANGEMENT_UNKNOWN = 0;
+
+                // The description is about a wheel that has another arrangement (e.g. more than four wheels).
+                //
+                ARRANGEMENT_OTHER = 1;
+
+                // The description is about the front-left wheel.
+                //
+                ARRANGEMENT_FRONT_LEFT = 2;
+
+                // The description is about the front-right wheel.
+                //
+                ARRANGEMENT_FRONT_RIGHT = 3;
+
+                // The description is about the rear-left wheel.
+                //
+                ARRANGEMENT_REAR_LEFT = 4;
+
+                // The description is about the rear-right wheel.
+                //
+                ARRANGEMENT_REAR_RIGHT = 5;
+            }
+        }
+    }
+
+    //
+    // \brief This message contains all the necessary information of the localization solution.
+    //
+    message VehicleLocalization
+    {
+        // Longitude in decimal degrees.
+        //
+        // Unit: [degree]
+        //
+        optional double longitude = 1;
+
+        // Latitude in decimal degrees.
+        //
+        // Unit: [degree]
+        //
+        optional double latitude = 2;
+
+        // Altitude in meters.
+        //
+        // Unit: [m]
+        //
+        optional double altitude = 3;
+
+        // Heading in degrees.
+        //
+        // Unit: [degree]
+        //
+        optional double heading = 4;
+
+        // Accuracy of localization measurement measured in percentage of the units 
+        //
+        // Unit: [%]
+        //
+        optional double localization_accuracy = 5;
+
+        // Number of satellites 
+        //
+        optional int32 number_of_satellites = 6;    
+    }    
 }
