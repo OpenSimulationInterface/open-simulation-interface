@@ -84,17 +84,17 @@ message TrafficAction
     //
     optional SpeedAction speed_action = 5;    
 	
-	// A LongitudinalDistanceAction (TODO: to be implemented)
-	//
-	optional LongitudinalDistanceAction longitudinal_distance_action = 6;
+    // A LongitudinalDistanceAction (TODO: to be implemented)
+    //
+    optional LongitudinalDistanceAction longitudinal_distance_action = 6;
 	
-	// LaneOffsetAction (TODO: to be implemented)
-	//
-	optional LaneOffsetAction lane_offset_action = 7;
+    // LaneOffsetAction (TODO: to be implemented)
+    //
+    optional LaneOffsetAction lane_offset_action = 7;
 	
-	// LateralDistanceAction (TODO: to be implemented)
-	// 
-	optional LateralDistanceAction lateral_distance_action = 8; 
+    // LateralDistanceAction (TODO: to be implemented)
+    // 
+    optional LateralDistanceAction lateral_distance_action = 8; 
 }
 
 //
