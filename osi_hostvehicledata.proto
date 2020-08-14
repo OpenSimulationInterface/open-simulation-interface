@@ -61,7 +61,7 @@ message HostVehicleDataClass
     //
     optional VehiclePowertrain vehicle_powertrain = 3;
 
-    // Interface regarding the SteeringWheel.
+    // Interface regarding the steering wheel.
     // The focus here is on the steering wheel.
     //
     optional VehicleSteeringWheel vehicle_steering_wheel = 4;
