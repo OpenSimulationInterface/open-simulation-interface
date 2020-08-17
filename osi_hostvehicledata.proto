@@ -7,10 +7,10 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief Interface for host vehicle data that is available to sensors and
-// other functions due to host vehicle's internal communication.
-// A usage regarding the vehicle model is also possible.
-//
+// \brief Interface for updating internal states of host vehicle data to simulation environment. 
+// Sensors, mockups and other functions can access the host vehicle data.
+// A Usecase like simulation of vehicle model is also possible by extending the OSI with host vehicle data.
+
 // \image html OSI_HostVehicle.svg
 //
 // All coordinates and orientations are relative to the global ground truth
@@ -72,7 +72,7 @@ message HostVehicleDataClass
 
     // Interface regarding the navigation.
     //
-    optional VehicleLocalization vehicle_localization = 6;
+    optional VehicleGEOPosition Vehicle_geo_Position = 6;
     
     //
     // \brief The absolute base parameters of the vehicle.
@@ -106,17 +106,17 @@ message HostVehicleDataClass
         //
         optional Pedalry pedalry = 1;
 
-        // Rounds per minute of the engine.
+        // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
         //
         // Unit: [1/min]
         //
-        optional double engine_rpm = 2;
+        optional double motor_rpm = 2;
 
-        // Torque in Nm.
+        // Torque in Nm. It can either be from Engine/E-Motor or combined Torque values.
         //
         // Unit: [N*m]
         //
-        optional double engine_torque = 3;
+        optional double motor_torque = 3;
 
         // The actual gear of the gear lever.
         //
@@ -297,19 +297,20 @@ message HostVehicleDataClass
                 //
                 ARRANGEMENT_OTHER = 1;
 
+                // Arragement of the wheels in counter clock-wise direction starting from front-left wheel.
                 // The description is about the front-left wheel.
                 //
                 ARRANGEMENT_FRONT_LEFT = 2;
 
-                // The description is about the front-right wheel.
-                //
-                ARRANGEMENT_FRONT_RIGHT = 3;
-
                 // The description is about the rear-left wheel.
                 //
-                ARRANGEMENT_REAR_LEFT = 4;
+                ARRANGEMENT_REAR_LEFT = 3;
 
                 // The description is about the rear-right wheel.
+                //
+                ARRANGEMENT_FRONT_RIGHT = 4;
+
+                // The description is about the front-right wheel.
                 //
                 ARRANGEMENT_REAR_RIGHT = 5;
             }
@@ -319,7 +320,7 @@ message HostVehicleDataClass
     //
     // \brief This message contains all the necessary information of the localization solution.
     //
-    message VehicleLocalization
+    message VehicleGEOPosition
     {
         // Longitude in decimal degrees.
         //
