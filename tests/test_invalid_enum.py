@@ -45,7 +45,7 @@ class TestInvalidEnum(unittest.TestCase):
                         saveStatement = statement[matchSep.end():]
                         statement = statement[:matchSep.end()]
 
-                    # This section will check camelcase for enums and check enum name?
+                    # This section will check PascalCase for enums and check enum name?
 
                     if isEnum is True:
                         matchName = re.search(r"\b\w[\S:]+\b", statement)
@@ -117,7 +117,7 @@ class TestInvalidEnum(unittest.TestCase):
                         saveStatement = statement[matchSep.end():]
                         statement = statement[:matchSep.end()]
 
-                    # This section will check camelcase for enums and check enum name?
+                    # This section will check PascalCase for enums and check enum name?
 
                     if isEnum is True:
                         matchName = re.search(r"\b\w[\S:]+\b", statement)
