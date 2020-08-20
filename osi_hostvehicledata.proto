@@ -33,16 +33,16 @@ message HostVehicleData
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
-    
+
     // Contains all the perceivable information.
     //
     optional MovingObject moving_object = 3;
-    
+
     // Contains all the non-perceivable information.
     //
     optional HostVehicleDataClass host_vehicle_data = 4;
 }
-    
+
 //
 // \brief The vehicle-class is a deeper description of a vehicle about the non-perceivable information.
 // It consists of different messages categorizing the vehicle in:
@@ -54,11 +54,11 @@ message HostVehicleDataClass
     // The basic parameters of the vehicle.
     //
     optional VehicleBasics vehicle_basics = 1;
-    
+
     // Interface regarding the powermanagement.
     //
     optional VehiclePowermanagement vehicle_powermanagement = 2;
-    
+
     // Interface regarding the powertrain.
     //
     optional VehiclePowertrain vehicle_powertrain = 3;
@@ -74,7 +74,7 @@ message HostVehicleDataClass
     // Interface regarding the navigation.
     //
     optional VehicleGEOPosition vehicle_geo_position = 6;
-    
+
     //
     // \brief The absolute base parameters of the vehicle.
     //
@@ -85,11 +85,11 @@ message HostVehicleDataClass
         // Unit: [kg]
         //
         // \par Reference:
-        // §42 der StVZO (german Straßenverkehrs-Zulassungs-Ordnung; engl. Road Traffic Regulations)
+        // Paragraph 42 of the StVZO (ger. Straßenverkehrs-Zulassungs-Ordnung; engl. Road Traffic Regulations)
         //
         optional double curb_weight = 1;
     }
-    
+
     //
     // \brief State description of the powertrain.
     //
@@ -123,7 +123,7 @@ message HostVehicleDataClass
         // May come up later. For now just to be mentioned.
         //
         // optional GearLeverState gear_lever_state = 4;
-        
+
         // The actual gear of the transmission.
         // E.g. gear_lever can be in "D" and transmission in "4", but not the
         // other way around.
@@ -135,7 +135,7 @@ message HostVehicleDataClass
         //   reverse mode gears)
         //
         optional int32 gear_transmission = 5;
-        
+
         //
         // \brief A description for the positions of the pedals.
         //
@@ -186,7 +186,7 @@ message HostVehicleDataClass
         //
         optional double torque = 3;
     }
-    
+
     //
     // \brief The focus here is on the description of the wheels.
     //
@@ -204,7 +204,7 @@ message HostVehicleDataClass
             // Information about how the wheel is arranged.
             //
             optional Arrangement arrangement = 1;
-            
+
             // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
             // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
             // friction between moving surfaces.
@@ -230,14 +230,14 @@ message HostVehicleDataClass
             // Unit: [rad/s]
             //
             optional double rotational_speed = 4;
-            
+
             // Contains the steering angle of each wheel.
             // Right < 0; 0 = straight; 0 < left.
             //
             // Unit: [rad]
             //
             optional double steering_angle = 5;
-            
+
             // Contains the relativ position of the center of the wheel to the center of the bounding-box.
             // Possibility to get the spring deflection and the camber (https://en.wikipedia.org/wiki/Camber_angle).
             //
@@ -252,7 +252,7 @@ message HostVehicleDataClass
             // Unit: [%]
             //
             optional double slip = 7;
-            
+
             // Information about how the wheel is arranged.
             //
             enum Arrangement
