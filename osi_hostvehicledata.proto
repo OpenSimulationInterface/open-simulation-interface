@@ -14,8 +14,7 @@ package osi3;
 
 // \image html OSI_HostVehicle.svg
 //
-// All coordinates and orientations are relative to the global ground truth
-// coordinate system.
+// All coordinates and orientations are relative to the global ground truth coordinate system.
 //
 message HostVehicleData
 {
@@ -73,7 +72,7 @@ message HostVehicleDataClass
 
     // Interface regarding the navigation.
     //
-    optional VehicleGEOPosition vehicle_geo_position = 6;
+    optional VehicleLocalization vehicle_localization = 6;
 
     //
     // \brief The absolute base parameters of the vehicle.
@@ -82,10 +81,10 @@ message HostVehicleDataClass
     {
         // The total mass of the vehicle (curb weight). 
         //
-        // Unit: [kg]
+        // Unit: kg
         //
         // \par Reference:
-        // Paragraph 42 of the StVZO (ger. Straßenverkehrs-Zulassungs-Ordnung; engl. Road Traffic Regulations)
+        // Paragraph 42 of the German Road Traffic Admission Regulations (StVZO).
         //
         optional double curb_weight = 1;
     }
@@ -109,13 +108,13 @@ message HostVehicleDataClass
 
         // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
         //
-        // Unit: [1/min]
+        // Unit: 1/min
         //
         optional double motor_rpm = 2;
 
         // Torque in Nm. It can either be from Engine/E-Motor or combined Torque values.
         //
-        // Unit: [N*m]
+        // Unit: N*m
         //
         optional double motor_torque = 3;
 
@@ -139,21 +138,20 @@ message HostVehicleDataClass
         //
         // \brief A description for the positions of the pedals.
         //
-        //
         message Pedalry
         {
             // Position of the acceleration-pedal.
-            // Unit: [0-1] (Unpressed - fully pressed)
+            // Range: 0-1 (Unpressed - fully pressed)
             //
             optional double pedal_position_acceleration = 1;
 
             // Position of the brake-pedal.
-            // Unit: [0-1] (Unpressed - fully pressed)
+            // Range: 0-1 (Unpressed - fully pressed)
             //
             optional double pedal_position_brake = 2;
 
             // Position of the clutch-pedal.
-            // Unit: [0-1] (Unpressed - fully pressed)
+            // Range: 0-1 (Unpressed - fully pressed)
             //
             optional double pedal_position_clutch = 3;
         }
@@ -168,21 +166,21 @@ message HostVehicleDataClass
         // Angle of the steering wheel. 
         // 0=Central (Straight); Left>0; 0>Right.
         //
-        // Unit: [rad]
+        // Unit: rad
         //
         optional double angle = 1;
 
         // Angle-speed of the steering wheel.
         // 0=Central (Straight); Left>0; 0>Right.
         //
-        // Unit: [rad/s]
+        // Unit: rad/s
         //
         optional double angular_speed = 2;
 
         // Torque of the steering wheel to the hand.
         // 0=Central (Straight); Left>0; 0>Right.
         //
-        // Unit: [N*m]
+        // Unit: N*m
         //
         optional double torque = 3;
     }
@@ -211,7 +209,7 @@ message HostVehicleDataClass
             // Ued here is the dry friction coefficient of the paired materials (see reference).
             // Dimensionless.
             //
-            // Unit: []
+            // Unit: -
             //
             // \par References:
             // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
@@ -221,27 +219,27 @@ message HostVehicleDataClass
             // Contact point of the mid of the tire tread with the world.
             // Absolute coordinates (x, y, z).
             //
-            // Unit: [m]
+            // Unit: m
             //
             optional Vector3d contact_point = 3;
 
             // Contains the rotational speed of each wheel per second.
             //
-            // Unit: [rad/s]
+            // Unit: rad/s
             //
             optional double rotational_speed = 4;
 
             // Contains the steering angle of each wheel.
             // Right < 0; 0 = straight; 0 < left.
             //
-            // Unit: [rad]
+            // Unit: rad
             //
             optional double steering_angle = 5;
 
             // Contains the relativ position of the center of the wheel to the center of the bounding-box.
             // Possibility to get the spring deflection and the camber (https://en.wikipedia.org/wiki/Camber_angle).
             //
-            // Unit: [m]
+            // Unit: m
             //
             optional MountingPosition position = 6;
 
@@ -249,7 +247,7 @@ message HostVehicleDataClass
             // \par References:
             // - https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
             //
-            // Unit: [%]
+            // Unit: %
             //
             optional double slip = 7;
 
@@ -288,40 +286,55 @@ message HostVehicleDataClass
     //
     // \brief This message contains all the necessary information of the localization solution.
     //
-    message VehicleGEOPosition
+    message VehicleLocalization
     {
-        // Longitude in decimal degrees.
         //
-        // Unit: [degree]
+        // \brief This message contains information about the vehicle's knowledge about its own cartesian position.
         //
-        optional double longitude = 1;
+        message CartesianPosition
+        {
+            // To be discussed.
+        }
 
-        // Latitude in decimal degrees.
         //
-        // Unit: [degree]
+        // \brief This message contains information about the vehicle's georeferenced positioning solution component.
         //
-        optional double latitude = 2;
+        message GeoreferencedPosition
+        {
+            // Longitude in decimal degrees regarding WGS84.
+            //
+            // Unit: Degree
+            //
+            optional double longitude = 1;
 
-        // Altitude in meters.
-        //
-        // Unit: [m]
-        //
-        optional double altitude = 3;
+            // Latitude in decimal degrees regarding WGS84.
+            //
+            // Unit: Degree
+            //
+            optional double latitude = 2;
 
-        // Heading in degrees.
-        //
-        // Unit: [degree]
-        //
-        optional double heading = 4;
+            // Height above sea level regarding EGM96.
+            //
+            // Unit: m
+            //
+            optional double altitude = 3;
 
-        // Accuracy of localization measurement measured in percentage of the units 
-        //
-        // Unit: [%]
-        //
-        optional double localization_accuracy = 5;
+            // To be discussed: 
+            // Heading in decimal degrees.
+            //
+            // Unit: Degree
+            //
+            // optional double heading = 4;
 
-        // Number of satellites 
-        //
-        optional int32 number_of_satellites = 6;    
+            // Accuracy of localization measurement in percentage of the units.
+            //
+            // Unit: %
+            //
+            // optional double localization_accuracy = 5;
+
+            // Number of satellites.
+            //
+            // optional int32 number_of_satellites = 6;
+        }
     }    
 }
