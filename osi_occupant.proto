@@ -92,6 +92,14 @@ message Occupant
             //
             SEAT_THIRD_ROW_MIDDLE = 10;
         }
+        
+        // Definition of eye state
+        
+        enum EyeState
+        {
+            // Enum for occupant eye state. For example tracking winking rate, eye closed etc.
+        }
+        
 
         // Definition of hands related to the steering wheel (mostly driver).
         //
@@ -130,5 +138,7 @@ message Occupant
             //
             STEERING_CONTROL_RIGHT_HAND = 6;
         }
+    
     }
+    
 }
