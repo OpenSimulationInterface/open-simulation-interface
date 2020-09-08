@@ -2,6 +2,7 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_version.proto";
 import "osi_common.proto";
 import "osi_object.proto";
 
@@ -32,47 +33,75 @@ message HostVehicleData
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
+    
+    // The interface version used by the sender (i.e. the simulation
+    // environment).
+    //
+    optional InterfaceVersion version = 3;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    // \note For ground truth data this timestamp coincides both with the
+    // notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for ground truth data, as opposed to
+    // sensor data).
+    //
+    optional Timestamp timestamp = 4;
 
     // Contains all the perceivable information.
     //
-    optional MovingObject moving_object = 3;
+    optional MovingObject moving_object = 5;
 
-    // Contains all the non-perceivable information.
+    // Contains all the non-perceivable information, that is measured or 
+    // calculated and transported by the board net.
     //
-    optional HostVehicleDataClass host_vehicle_data = 4;
+    optional HostVehicleDataClass host_vehicle_data = 6;
 }
 
 //
-// \brief The vehicle-class is a deeper description of a vehicle about the non-perceivable information.
+// \brief The vehicle-class is about the non-perceivable information, that is measured or 
+// calculated and transported by the board net.
 // It consists of different messages categorizing the vehicle in:
 // Vehicle-Basics, Vehicle-Powermanagement, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
 // As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons. 
 //
 message HostVehicleDataClass
 {
+    // The ID of the object.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
+    optional Identifier id = 1;
+    
     // The basic parameters of the vehicle.
     //
-    optional VehicleBasics vehicle_basics = 1;
+    optional VehicleBasics vehicle_basics = 2;
 
     // Interface regarding the powermanagement.
     //
-    optional VehiclePowermanagement vehicle_powermanagement = 2;
+    optional VehiclePowermanagement vehicle_powermanagement = 3;
 
     // Interface regarding the powertrain.
     //
-    optional VehiclePowertrain vehicle_powertrain = 3;
+    optional VehiclePowertrain vehicle_powertrain = 4;
 
     // Interface regarding the steering wheel.
     //
-    optional VehicleSteeringWheel vehicle_steering_wheel = 4;
+    optional VehicleSteeringWheel vehicle_steering_wheel = 5;
 
     // Interface regarding the wheels.
     //
-    optional VehicleWheels vehicle_wheels = 5;
+    optional VehicleWheels vehicle_wheels = 6;
 
     // Interface regarding the navigation.
     //
-    optional VehicleLocalization vehicle_localization = 6;
+    optional VehicleLocalization vehicle_localization = 7;
 
     //
     // \brief The absolute base parameters of the vehicle.
@@ -107,22 +136,10 @@ message HostVehicleDataClass
         //
         optional Pedalry pedalry = 1;
 
-        // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
-        //
-        // Unit: 1/min
-        //
-        optional double motor_rpm = 2;
-
-        // Torque in Nm. It can either be from Engine/E-Motor or combined Torque values.
-        //
-        // Unit: N*m
-        //
-        optional double motor_torque = 3;
-
         // The actual gear of the gear lever.
         // May come up later. For now just to be mentioned.
         //
-        // optional GearLeverState gear_lever_state = 4;
+        // optional GearLeverState gear_lever_state = 2;
 
         // The actual gear of the transmission.
         // E.g. gear_lever can be in "D" and transmission in "4", but not the
@@ -134,7 +151,11 @@ message HostVehicleDataClass
         // - negative: reverse mode (generally -1, but few vehicles have several
         //   reverse mode gears)
         //
-        optional int32 gear_transmission = 5;
+        optional int32 gear_transmission = 3;
+        
+        // Information about the motor(s).
+        //
+        repeated Motor motor = 4;
 
         //
         // \brief A description for the positions of the pedals.
@@ -156,6 +177,52 @@ message HostVehicleDataClass
             //
             optional double pedal_position_clutch = 3;
         }
+        
+        //
+        // \brief A description for the positions of the pedals.
+        //
+        message Motor
+        {
+            // The type of the motor.
+            //
+            optional Type type = 1;
+            
+            // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
+            //
+            // Unit: 1/min
+            //
+            optional double rpm = 2;
+
+            // Torque in Nm. It can either be from Engine/E-Motor or combined Torque values.
+            //
+            // Unit: N*m
+            //
+            optional double torque = 3;
+            
+            // Definition which type of motor is used.
+            //
+            enum Type
+            {
+                // The powertrain mode is unknown.
+                //
+                TYPE_UNKNOWN = 0;
+
+                // It is another powertrain mode.
+                //
+                TYPE_OTHER = 1;
+
+                // A motor working after the principle of Nicolaus Otto.
+                //
+                TYPE_OTTO = 2;
+                
+                // A motor working after the principle of Rudolf Diesel.
+                //
+                TYPE_DIESEL = 3;
+                
+                // A motor working electric.
+                //
+                TYPE_ELEKTRIC = 4;
+            }
     }
 
     //
@@ -200,9 +267,19 @@ message HostVehicleDataClass
         //
         message Wheel
         {
-            // Information about how the wheel is arranged.
+            // The axle which contains this wheel.  A value of 0 represents the
+            // front-most axle of the vehicle with higher numbers incrementing
+            // towards the rear-most axle.
             //
-            optional Arrangement arrangement = 1;
+            optional uint32 axle = 1;
+
+            // The index of the wheel on the axle, counting in the direction
+            // of positive-y, i.e. right-to-left.
+            //
+            // For example, on a standard 2-axle, 4-wheel car, the rear-right
+            // wheel would be (axle=1, index=0).
+            //
+            optional uint32 index = 2;
 
             // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
             // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
@@ -215,34 +292,20 @@ message HostVehicleDataClass
             // \par References:
             // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
             //
-            optional double kinetic_friction_coefficient = 2;
+            optional double kinetic_friction_coefficient = 3;
 
             // Contact point of the mid of the tire tread with the world.
             // Absolute coordinates (x, y, z).
             //
             // Unit: m
             //
-            optional Vector3d contact_point = 3;
+            optional Vector3d contact_point = 4;
 
             // Contains the rotational speed of each wheel per second.
             //
             // Unit: rad/s
             //
-            optional double rotational_speed = 4;
-
-            // Contains the steering angle of each wheel.
-            // Right < 0; 0 = straight; 0 < left.
-            //
-            // Unit: rad
-            //
-            optional double steering_angle = 5;
-
-            // Contains the relativ position of the center of the wheel to the center of the bounding-box.
-            // Possibility to get the spring deflection and the camber (https://en.wikipedia.org/wiki/Camber_angle).
-            //
-            // Unit: m
-            //
-            optional MountingPosition position = 6;
+            optional double rotational_speed = 5;
 
             // Contains the longitudinal slip of the tire.
             // \par References:
@@ -250,37 +313,7 @@ message HostVehicleDataClass
             //
             // Unit: %
             //
-            optional double slip = 7;
-
-            // Information about how the wheel is arranged.
-            //
-            enum Arrangement
-            {
-                // The description is about a wheel that has an unknown arrangement.
-                //
-                ARRANGEMENT_UNKNOWN = 0;
-
-                // The description is about a wheel that has another arrangement (e.g. more than four wheels).
-                //
-                ARRANGEMENT_OTHER = 1;
-
-                // Arragement of the wheels in counter clock-wise direction starting from front-left wheel.
-                // The description is about the front-left wheel.
-                //
-                ARRANGEMENT_FRONT_LEFT = 2;
-
-                // The description is about the rear-left wheel.
-                //
-                ARRANGEMENT_REAR_LEFT = 3;
-
-                // The description is about the rear-right wheel.
-                //
-                ARRANGEMENT_FRONT_RIGHT = 4;
-
-                // The description is about the front-right wheel.
-                //
-                ARRANGEMENT_REAR_RIGHT = 5;
-            }
+            optional double slip = 6;
         }
     }
 
@@ -292,16 +325,17 @@ message HostVehicleDataClass
         //
         // \brief This message contains information about the vehicle's knowledge about its own cartesian position.
         //
-        message CartesianPosition
+        message CartesianInformation
         {
             // To be discussed.
-            //
+            // xyz, pitch,roll,yaw., velocities, accelerations, one level higher
+            optional BaseMoving cartesian_data
         }
 
         //
         // \brief This message contains information about the vehicle's georeferenced positioning solution component.
         //
-        message GeoreferencedPosition
+        message GeoreferencedInformation
         {
             // Longitude in decimal degrees regarding WGS84.
             //
@@ -321,7 +355,7 @@ message HostVehicleDataClass
             //
             optional double altitude = 3;
 
-            // To be discussed: 
+            // To be discussed as it is in CartesianInformation. 
             // Heading in decimal degrees.
             //
             // Unit: Degree
