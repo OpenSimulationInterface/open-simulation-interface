@@ -8,14 +8,17 @@ import "osi_object.proto";
 
 package osi3;
 
+// \brief The vehicle-class is about the non-perceivable information, that is measured or 
+// calculated and transported by the board net. 
+// A dynamic model can serve as input provider.
+// Sensors, mockups or other modules can make usage of the host vehicle data.
+// It consists of different messages categorizing the vehicle in:
+// Vehicle-Basics, Vehicle-Powermanagement, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
 //
-// \brief Interface for updating internal states of host vehicle data to simulation environment. 
-// Sensors, mockups and other functions can access the host vehicle data.
-// A Usecase like simulation of vehicle model is also possible by extending the OSI with host vehicle data.
-
 // \image html OSI_HostVehicle.svg
 //
 // All coordinates and orientations are relative to the global ground truth coordinate system.
+// Otherwise it is mentioned explicitly.
 //
 message HostVehicleData
 {
@@ -33,75 +36,38 @@ message HostVehicleData
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
-    
-    // The interface version used by the sender (i.e. the simulation
-    // environment).
-    //
-    optional InterfaceVersion version = 3;
 
-    // The data timestamp of the simulation environment. The zero time point is
-    // arbitrary but must be identical for all messages.
-    // Recommendation: Zero time point for start point of the simulation.
-    //
-    // \note Zero time point does not need to coincide with the UNIX epoch.
-    //
-    // \note For ground truth data this timestamp coincides both with the
-    // notional simulation time the data applies to and the time it was sent
-    // (there is no inherent latency for ground truth data, as opposed to
-    // sensor data).
-    //
-    optional Timestamp timestamp = 4;
-
-    // Contains all the perceivable information.
-    //
-    optional MovingObject moving_object = 5;
-
-    // Contains all the non-perceivable information, that is measured or 
-    // calculated and transported by the board net.
-    //
-    optional HostVehicleDataClass host_vehicle_data = 6;
-}
-
-//
-// \brief The vehicle-class is about the non-perceivable information, that is measured or 
-// calculated and transported by the board net.
-// It consists of different messages categorizing the vehicle in:
-// Vehicle-Basics, Vehicle-Powermanagement, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
-// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons. 
-//
-message HostVehicleDataClass
-{
-    // The ID of the object.
+    // The ID of the object. Can be discussed.
     //
     // \rules
     // is_globally_unique
     // \endrules
     //
-    optional Identifier id = 1;
+    optional Identifier id = 3;
     
     // The basic parameters of the vehicle.
     //
-    optional VehicleBasics vehicle_basics = 2;
+    optional VehicleBasics vehicle_basics = 4;
 
     // Interface regarding the powermanagement.
     //
-    optional VehiclePowermanagement vehicle_powermanagement = 3;
+    optional VehiclePowermanagement vehicle_powermanagement = 5;
 
     // Interface regarding the powertrain.
     //
-    optional VehiclePowertrain vehicle_powertrain = 4;
+    optional VehiclePowertrain vehicle_powertrain = 6;
 
     // Interface regarding the steering wheel.
     //
-    optional VehicleSteeringWheel vehicle_steering_wheel = 5;
+    optional VehicleSteeringWheel vehicle_steering_wheel = 7;
 
     // Interface regarding the wheels.
     //
-    optional VehicleWheels vehicle_wheels = 6;
+    optional VehicleWheels vehicle_wheels = 8;
 
     // Interface regarding the navigation.
     //
-    optional VehicleLocalization vehicle_localization = 7;
+    optional VehicleLocalization vehicle_localization = 9;
 
     //
     // \brief The absolute base parameters of the vehicle.
@@ -292,20 +258,20 @@ message HostVehicleDataClass
             // \par References:
             // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
             //
-            optional double kinetic_friction_coefficient = 3;
+            //optional double kinetic_friction_coefficient = 3;
 
             // Contact point of the mid of the tire tread with the world.
             // Absolute coordinates (x, y, z).
             //
             // Unit: m
             //
-            optional Vector3d contact_point = 4;
+            //optional Vector3d contact_point = 4;
 
             // Contains the rotational speed of each wheel per second.
             //
             // Unit: rad/s
             //
-            optional double rotational_speed = 5;
+            //optional double rotational_speed = 5;
 
             // Contains the longitudinal slip of the tire.
             // \par References:
@@ -318,9 +284,10 @@ message HostVehicleDataClass
     }
 
     //
-    // \brief This message contains all the necessary information of the localization solution.
+    // \brief This message contains all the information the vehicle knows about its kinematic states.
+    // Usually
     //
-    message VehicleLocalization
+    message VehicleKinematics
     {
         //
         // \brief This message contains information about the vehicle's knowledge about its own cartesian position.
@@ -329,7 +296,11 @@ message HostVehicleDataClass
         {
             // To be discussed.
             // xyz, pitch,roll,yaw., velocities, accelerations, one level higher
-            optional BaseMoving cartesian_data
+            optional BaseMoving cartesian_data = 1;
+            
+            // To be discussed.
+            // xyz, pitch,roll,yaw., velocities, accelerations, one level higher
+            optional BaseMoving cartesian_data_rmse
         }
 
         //
