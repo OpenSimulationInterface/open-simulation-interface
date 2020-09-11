@@ -44,7 +44,7 @@ message HostVehicleData
     // \endrules
     //
     optional Identifier id = 3;
-    
+
     // The basic parameters of the vehicle.
     //
     optional VehicleBasics vehicle_basics = 4;
@@ -267,11 +267,12 @@ message HostVehicleData
             //
             //optional Vector3d contact_point = 4;
 
-            // Contains the rotational speed of each wheel per second.
+            // Contains the rotation rate of the wheel per second in radians.
+            // Based on the processed output of the hall sensor at the wheel.
             //
             // Unit: rad/s
             //
-            //optional double rotational_speed = 5;
+            optional double rotation_rate = 5;
 
             // Contains the longitudinal slip of the tire.
             // \par References:
@@ -285,26 +286,29 @@ message HostVehicleData
 
     //
     // \brief This message contains all the information the vehicle knows about its kinematic states.
-    // Usually
     //
     message VehicleKinematics
     {
         //
-        // \brief This message contains information about the vehicle's knowledge about its own cartesian position.
+        // \brief Current kinematic data based on the output of the Intertial Measurement Unit (IMU).
         //
         message CartesianInformation
         {
-            // To be discussed.
-            // xyz, pitch,roll,yaw., velocities, accelerations, one level higher
+            // Current kinematic data based on the output of the Intertial Measurement Unit (IMU).
+            //
+            // \note Note that dimension and base_polygon need not be set.
+            //
             optional BaseMoving cartesian_data = 1;
-            
-            // To be discussed.
-            // xyz, pitch,roll,yaw., velocities, accelerations, one level higher
-            optional BaseMoving cartesian_data_rmse
+
+            // Current kinematic data error based on the output of the Intertial Measurement Unit (IMU).
+            //
+            // \note Note that dimension and base_polygon need not be set.
+            //
+            optional BaseMoving cartesian_data_rmse = 2;
         }
 
         //
-        // \brief This message contains information about the vehicle's georeferenced positioning solution component.
+        // \brief Current estimated location based on the output of the GPS-Unit.
         //
         message GeoreferencedInformation
         {
