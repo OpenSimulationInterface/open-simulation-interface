@@ -8,8 +8,9 @@ import "osi_object.proto";
 
 package osi3;
 
-// \brief The vehicle-class is about the non-perceivable information, that is measured or 
-// calculated and transported by the board net. 
+// \brief Host vehicle data is about the perception of the vehicle about it's own, internal states.
+// It describes data that the host vehicle knows about itself,
+// e.g. from location sensors, internal sensors, board net etc.
 // A dynamic model can serve as input provider.
 // Sensors, mockups or other modules can make usage of the host vehicle data.
 // It consists of different messages categorizing the vehicle in:
