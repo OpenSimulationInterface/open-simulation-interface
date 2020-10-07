@@ -334,6 +334,24 @@ message Lane
         //
         optional RoadCondition road_condition = 11;
 
+        // The subtype of the lane. 
+        // 
+        // This subtype specifies a lane more concretely. 
+        //
+        // \note More subtypes will follow from ASAM (Harmonization with 
+        // OpenX), probably with being more specific about which 
+        // type/subtype combination will be possible/allowed. It is 
+        // verbally aligned with the ASAM working group, that the 
+        // introduction of subtypes will be the implementation for next 
+        // minor releases and also probably be the long-term 
+        // solution. This still leaves open the question, if exactly those 
+        // semantics (e.g. with the current types) will outlive the next 
+        // major release. For SETLevel, sidewalk and biking lane shall be 
+        // regarded as subtypes of TYPE_DRIVING. (This note can be deleted 
+        // after implementation at ASAM.)
+        //
+        optional Subtype subtype = 12;
+
         // Definition of available lane types.
         //
         enum Type
@@ -363,6 +381,33 @@ message Lane
             // \image html OSI_X-Junction.svg "" width=600px
             //
             TYPE_INTERSECTION = 4;
+        }
+		
+        // Definition of available lane subtypes.
+        //        
+        enum Subtype
+        {
+            // Lane of unknown subtype (must not be used in ground truth).
+            //
+            SUBTYPE_UNKNOWN = 0;
+			
+            // Any other subtype of lane.
+            //
+            SUBTYPE_OTHER = 1;
+
+            // A normal lane.
+            // Example: Lanes with IDs l1, l2, l3, l4 and l6 in image \ref
+            // HighwayExit.
+            //
+            SUBTYPE_NORMAL = 2;
+
+            // A lane which is designated for bicylists.
+            //
+            SUBTYPE_BIKING = 3;
+
+            // A lane which is designated for pedestrians (sidewalk).
+            //
+            SUBTYPE_SIDEWALK = 4;
         }
 
         //
