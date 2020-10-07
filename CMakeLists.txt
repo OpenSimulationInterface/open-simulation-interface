@@ -77,6 +77,7 @@ set(OSI_PROTO_FILES
     osi_sensorviewconfiguration.proto
     osi_sensorspecific.proto
     osi_sensorview.proto
+    sl45_dynamicsrequest.proto
     sl45_motioncommand.proto
     sl45_vehiclecommunicationdata.proto
 )

@@ -1,0 +1,40 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+
+package setlevel4to5;
+
+//
+// \brief Interface description between Motion Control and Vehicle dynamics & actuators.
+// Actuator Management can be a submodel of Vehicle dynamics & actuators and consumes the message
+// DynamicsRequest.
+//
+message DynamicsRequest
+{
+    // The interface version used by the sender (simulation environment).
+    //
+    optional osi3.InterfaceVersion version = 1;
+    
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the UNIX epoch. Recommended is the starting time point of
+    // the simulation.
+    //
+    optional osi3.Timestamp timestamp = 2;
+    
+    // The target longitudinal acceleration requested by Motion Control to vehicle model.
+    //
+    // Unit: m/s^2
+    //
+    optional double longitudinal_acceleration_target = 3;
+    
+    // The target curvature requested by Motion Control to vehicle model.
+    //
+    //
+    // Unit: 1/m
+    //
+    optional double curvature_target = 4;
+}
