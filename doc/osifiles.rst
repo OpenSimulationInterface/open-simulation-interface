@@ -77,6 +77,9 @@ OSI common provides the building blocks for the OSI field messages.
 `osi_sensorview.proto`_
 ---------------------------------
 
+`sl45_dynamicsrequest.proto`_
+---------------------------------
+
 `sl45_motioncommand.proto`_
 ---------------------------------
 
