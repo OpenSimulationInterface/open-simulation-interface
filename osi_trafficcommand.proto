@@ -90,11 +90,11 @@ message TrafficAction
     // A SpeedAction
     //
     optional SpeedAction speed_action = 5;    
-	
+
     // An AbortActionsAction
     //
     optional AbortActionsAction abort_actions_action = 6; 
-	
+
     // An EndActionsAction
     //
     optional EndActionsAction end_actions_action = 7; 
@@ -475,7 +475,7 @@ message AbortActionsAction
     // The Action Header
     //
     optional ActionHeader action_header = 1;
-	
+
     // Actions which must be aborted immediately.
     // 
     // These fields hold the action ids of the actions that must be 
@@ -497,11 +497,11 @@ message EndActionsAction
     // The Action Header
     //
     optional ActionHeader action_header = 1;
-	
+
     // Actions which are regarded as successfully executed.
     // 
     // These fields hold the action ids of the actions that are regarded 
-    // as successfully executed and shall be terminated gracefully.	
+    // as successfully executed and shall be terminated gracefully.
     //
     repeated Identifier target_action_id = 2; 
 }
