@@ -196,7 +196,7 @@ class OSITrace:
             for rel_index, rel_message_offset in enumerate(rel_message_offsets):
                 rel_begin = rel_message_offset + self._int_length
                 rel_end = (
-                    rel_message_offsets[rel_index + 1] - self._int_length
+                    rel_message_offsets[rel_index + 1]
                     if rel_index + 1 < len(rel_message_offsets)
                     else message_sequence_len
                 )
@@ -209,8 +209,6 @@ class OSITrace:
         else:
             self.scenario_file.close()
             raise Exception(f"The defined format {self.format_type} does not exist.")
-
-        self.scenario_file.close()
 
     def make_readable(self, name, interval=None, index=None):
         self.scenario_file.seek(0)
