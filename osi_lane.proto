@@ -637,6 +637,8 @@ message LaneBoundary
         // Necessary for boundary points with a specified height and/or
         // width parameter.
         //
+        // Unit: rad
+        //
         // \note Field need not be set if it is previously defined.
         // See \c LaneBoundary .
         //
