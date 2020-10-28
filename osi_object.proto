@@ -458,7 +458,8 @@ message MovingObject
 
         // \brief Detailed wheel data.
         // The focus is on the description of a wheel regarding the perceivable 
-        // information from the outside.
+        // information from the outside. 
+        // It is not intended to be used for e.g. dynamic calculations.
         //
         message WheelData
         {
@@ -473,6 +474,7 @@ message MovingObject
             //
             // For example, on a standard 2-axle, 4-wheel car, the rear-right
             // wheel would be (axle=1, index=0).
+            // This concept works also for twin tires.
             //
             optional uint32 index = 2;
             
@@ -483,7 +485,7 @@ message MovingObject
             //
             optional Vector3d position = 3;
 
-            // Median radius of the wheels measured from a center of the wheel to
+            // Median radius of the wheel measured from the center of the wheel to
             // the outer part of the tire.
             //
             //
@@ -491,11 +493,17 @@ message MovingObject
             //
             optional double wheel_radius = 4;
 
-            // Radius of the rim measured from the center to the outer, visible part of the rim.
+            // Median radius of the rim measured from the center to the outer, visible part of the rim.
             //
             // Unit: m
             //
             optional double rim_radius = 5;
+            
+            // Median width of the tire.
+            //
+            // Unit: m
+            //
+            optional double width = 6;
 
             // Orientation of the wheel.
             //
@@ -503,17 +511,27 @@ message MovingObject
             // Right-handed, x-axis shows into driving direction "forward".
             // Rough Approximation: The yaw-value shows the steering angle.
             //
-            optional Orientation3d orientation = 6;
+            optional Orientation3d orientation = 7;
 
             // Rotation of the wheel around the axle.
+            // The wheel frame is the reference system.
             //
             // Unit: Rad/s.
-            // Counterclockwise is positive, clockwise negative.
-            // The reference point / view perspective is from the mid of the axle.
-            // If there is just one wheel centered in the mid of the axle (e.g. bicycle), 
-            // the wheel is treated as a right wheel.
             //
-            optional double rotation_rate = 7;
+            // Regarding positive or negative values, the right hand rule can be used around
+            // the y-axis of the vehicle frame (helpful: perspective from the mid of the axis). 
+            // Clockwise is positive, counterclockwise negative.
+            // If there is just one wheel centered in the mid of the vehicle frame/axle (e.g. bicycle), 
+            // the wheel is treated as it would be on the "right" side.
+            //
+            optional double rotation_rate = 8;
+            
+            // Opaque reference of an associated 3D model of the wheel.
+            //
+            // \note It is implementation-specific how model_references are resolved to
+            // 3d models.
+            //
+            optional string model_reference = 9;
         }
     }
 
