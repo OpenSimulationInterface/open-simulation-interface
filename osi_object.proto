@@ -450,13 +450,15 @@ message MovingObject
         //
         optional double ground_clearance = 6;
 
-        // Detailed wheel data.
+        // Description of each wheel.
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated WheelData wheel_data = 7;
 
-        // \brief Description of a single wheel.
+        // \brief Detailed wheel data.
+        // The focus is on the description of a wheel regarding the perceivable 
+        // information from the outside.
         //
         message WheelData
         {
@@ -485,21 +487,30 @@ message MovingObject
             //
             // Unit: m
             //
-            optional double radius = 4;
+            optional double radius_wheel = 4;
+
+            // Radius of the rim measured from the center to the outer, visible part of the rim.
+            //
+            // Unit: m
+            //
+            optional double radius_rim = 5;
 
             // Orientation of the wheel.
             // The reference system is the vehicle frame (center of bounding box).
             // Right-handed, x-axis shows into driving direction "forward".
             // Rough Approximation: The yaw-value shows the steering angle.
             //
-            optional Orientation3d orientation = 5;
+            optional Orientation3d orientation = 6;
 
             // Rotation of the wheel around the axle.
             //
             // Unit: Rad/s.
-            // Positive means, that the vehicle moves forward.
+            // Counterclockwise is positive, clockwise negative.
+            // The reference point / view perspective is from the mid of the axle.
+            // If there is just one wheel centered in the mid of the axle (e.g. bicycle), 
+            // the wheel is treated as a right wheel.
             //
-            optional double rotation_rate = 6;
+            optional double rotation_rate = 7;
         }
     }
 
