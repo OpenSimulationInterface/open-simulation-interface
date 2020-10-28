@@ -483,19 +483,22 @@ message MovingObject
             //
             optional Vector3d position = 3;
 
-            // Radius of the wheels measured from the center to the outer part of the tire.
+            // Median radius of the wheels measured from a center of the wheel to
+            // the outer part of the tire.
+            //
             //
             // Unit: m
             //
-            optional double radius_wheel = 4;
+            optional double wheel_radius = 4;
 
             // Radius of the rim measured from the center to the outer, visible part of the rim.
             //
             // Unit: m
             //
-            optional double radius_rim = 5;
+            optional double rim_radius = 5;
 
             // Orientation of the wheel.
+            //
             // The reference system is the vehicle frame (center of bounding box).
             // Right-handed, x-axis shows into driving direction "forward".
             // Rough Approximation: The yaw-value shows the steering angle.
