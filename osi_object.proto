@@ -478,7 +478,7 @@ message MovingObject
             //
             optional uint32 index = 2;
             
-            // Position of the wheel (geographical center of the wheel).
+            // Position of the wheel (geomatric center of the wheel).
             // The reference system is the vehicle frame (center of bounding box).
             // Right-handed, x-axis shows into driving direction "forward".
             // Rough Approximation: The z-value shows the damping.
@@ -513,16 +513,12 @@ message MovingObject
             //
             optional Orientation3d orientation = 7;
 
-            // Rotation of the wheel around the axle.
-            // The wheel frame is the reference system.
+            // Rotation rate in the wheel's frame of reference (rotation around the wheel axle).
             //
-            // Unit: Rad/s.
+            // Unit: rad/s.
             //
-            // Regarding positive or negative values, the right hand rule can be used around
-            // the y-axis of the vehicle frame (helpful: perspective from the mid of the axis). 
-            // Clockwise is positive, counterclockwise negative.
-            // If there is just one wheel centered in the mid of the vehicle frame/axle (e.g. bicycle), 
-            // the wheel is treated as it would be on the "right" side.
+            // The sign convention is defined using the right-hand rule with respect to the vehicle's coordinate system (DIN ISO 8855:2013-11):
+            // Counterclockwise is positive, and clockwise is negative.
             //
             optional double rotation_rate = 8;
             
