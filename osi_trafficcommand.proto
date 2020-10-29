@@ -98,6 +98,10 @@ message TrafficAction
     // An EndActionsAction
     //
     optional EndActionsAction end_actions_action = 7; 
+	
+	// A LongitudinalDistanceAction
+	//
+	optional LongitudinalDistanceAction longitudinal_distance_action = 9;
 }
 
 //
@@ -461,8 +465,39 @@ message SpeedAction
 
 }
 
+// \brief Longitudinal Distance Action
 //
-// \brief Abort actions action
+// The action tells the traffic participant to reach a longitudinal distance to 
+// another traffic participant. The longitudinal distance is defined as the distance
+// along the lane. 
+//
+// \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
+// defining the reference traffic participanz and the distance.
+//
+
+message LongitudinalDistanceAction {
+	// Action Header of the message
+	optional ActionHeader action_header = 1;
+	
+	// Unique Id of the refence traffic participant to which the distance is defined.
+	optional Identifier target_traffic_participant_id = 2;
+	
+	// The distance to reach along the lane
+	//
+	// Unit: m
+	//
+	optional double distance = 3;
+	
+	// Define wheather the traffic participanzt should only reach the distance once 
+	// or follow.
+	// If set to true the traffic particpant shall approach the reference participant
+	// and follow woth the distance specified until the action is aborted.
+	// If set to false the action end as soon as the traffic participant has reached
+	// the 
+	optional bool follow = 4;
+}
+
+// \brief AbortActionsAction.
 //
 // This action tells a traffic participant that it should immediately 
 // abort the execution of other actions referenced within this action.
@@ -505,3 +540,4 @@ message EndActionsAction
     //
     repeated Identifier target_action_id = 2; 
 }
+
