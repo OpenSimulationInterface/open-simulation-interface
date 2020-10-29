@@ -3,7 +3,7 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
-import "";
+import "osi_version.proto";
 
 package osi3;
 
@@ -16,6 +16,10 @@ package osi3;
 
 message DriverOutput
 {
+    // timestamp to be added to the DriverOutput message
+    //
+    optional Timestamp timestamp = 0;
+    
     //*****to be discussed further*****
     // The intention of AD function to actuator management
     //
@@ -23,13 +27,12 @@ message DriverOutput
     {    
       // Native trajectory information
       //
-      TrajectoryData = 0;
+      repeated TrajectoryData trajectorydata = 0;
 
       // Desired State of vehicle intended by AD Function
       //
-      DesiredState = 1;
+      repeated DesiredState desiredstate = 1;
     }
-
 }
 
 message TrajectoryData
@@ -47,10 +50,6 @@ message TrajectoryData
     // intended heading to be reached.
     //
     optional double desired_heading = 3;
-    
-    // timestamp
-    //
-    optional double timestamp = 4;
 
 }
 
@@ -69,16 +68,12 @@ message DesiredState
     //
     optional double desired_heading = 3;
     
-    // timestamp
-    //
-    optional double timestamp = 4;
-    
     // intended velocity to be reached. Assuming in X-Direction. tbd: Y-Direction is to considered?
     //
-    optional double desired_velocity = 5;
+    optional double desired_velocity = 4;
     
     // intended acceleration to be reached. Assuming in X-Direction. tbd: Y-Direction is to considered?
     //
-    optional double desired_acceleration = 6;
+    optional double desired_acceleration = 5;
 
 }
