@@ -2,7 +2,7 @@ import os
 import tempfile
 import unittest
 
-from OSITrace import OSITrace
+from format.OSITrace import OSITrace
 
 
 class TestOSITrace(unittest.TestCase):
