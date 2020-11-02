@@ -71,30 +71,6 @@ message TrafficUpdate
         // behaviours without performing prediction for all external traffic
         // participants.
         //
-        repeated FutureTrajectoryNode future_trajectory = 2;
-
-        //
-        // \brief The future node is a single point in time as part of a future
-        // trajectory which defines the pose, velocity, acceleration, etc. at
-        // that point.
-        // See the FutureTrajectory message for details and context.
-        //
-        message FutureTrajectoryNode
-        {
-            // The future timestamp for the trajectory node. Zero time is arbitrary
-            // but must be identical for all messages. Zero time does not need to
-            // coincide with the UNIX epoch. Recommended is the starting time point of
-            // the simulation.
-            //
-            // \note This must be in the future compared to the timestamp in the top
-            // level traffic update message.
-            //
-            optional Timestamp timestamp = 1;
-
-            // Traffic participant data for the future trajectory node.
-            //
-            // \note Dimensions and base polygon are ignored.
-            optional BaseMoving future_point = 2;
-        }
+        repeated StatePoint future_trajectory = 2;
     }
 }
