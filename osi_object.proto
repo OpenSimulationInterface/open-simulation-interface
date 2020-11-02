@@ -338,6 +338,18 @@ message MovingObject
     //
     optional string model_reference = 7;
 
+    // The trajectory that this moving object expects to follow in the future.
+    //
+    // This is not externally perceivable information, rather this is to aid
+    // realistic simulation of agents not under test.  This information should
+    // not be made available to the stack under test.
+    //
+    // \note Moving objects are not required to stick to this trajectory, it is
+    // indicative, and equivalent to the output of a perception + prediction
+    // system.
+    //
+    repeated StatePoint future_trajectory = 8;
+
     // Definition of object types.
     //
     enum Type
