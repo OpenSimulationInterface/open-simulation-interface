@@ -457,3 +457,33 @@ message BaseMoving
     //
     repeated Vector2d base_polygon = 7;
 }
+
+//
+// \brief The StatePoint definition
+//
+// A reference to a time and pose.  Typically used in a repeated field to define
+// a trajectory.
+//
+// \note The StatePoint definition does not define mandatory fields.
+// The context defines how and what fields are used.  For example, in some cases
+// only the pose variables are relevant and the timestamp is ignored.
+//
+message StatePoint
+{
+    // The timestamp of a StatePoint
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    optional Timestamp timestamp = 1;
+
+    // Position in the global coordinate system.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation in the global coordinate system.
+    //
+    optional Orientation3d orientation = 3;
+}

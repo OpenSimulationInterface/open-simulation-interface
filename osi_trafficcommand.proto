@@ -101,36 +101,6 @@ message TrafficAction
 }
 
 //
-// \brief The StatePoint definition
-//
-// \note The StatePoint definition does not define mandatory fields.
-// The context defines how and what fields are used.
-// For example: FollowPathAction does not use timestamp in contrast to
-// FollowTrajectoryAction. 
-//
-message StatePoint
-{
-    // The timestamp of a StatePoint
-    //
-    // \note Zero time point does not need to coincide with the UNIX epoch.
-    //
-    optional Timestamp timestamp = 1;
-
-    // Position in the global coordinate system.
-    //
-    // The position refers to the center (x,y,z) of the bounding box.
-    //
-    // \note Remark: The definition of the reference point follows the
-    // specification of the \c BaseMoving message.
-    //
-    optional Vector3d position = 2;
-
-    // Orientation in the global coordinate system.
-    //
-    optional Orientation3d orientation = 3;
-}
-
-//
 // \brief The action header
 //
 //
