@@ -102,6 +102,10 @@ message TrafficAction
 	// A LongitudinalDistanceAction
 	//
 	optional LongitudinalDistanceAction longitudinal_distance_action = 9;
+	
+	// A LateralDistanceAction
+	//
+	optional LateralDistanceAction lateral_distance_action = 11;
 }
 
 //
@@ -488,13 +492,57 @@ message LongitudinalDistanceAction {
 	//
 	optional double distance = 3;
 	
+	// Determine the measurement of distance between TrafficParticipant
+	// True: Lateral distance is measured using the distance between closest bounding box points.
+	// False: Reference point distance is used
+	optional boolean freespace = 4;
+	
 	// Define wheather the traffic participanzt should only reach the distance once 
 	// or follow.
 	// If set to true the traffic particpant shall approach the reference participant
 	// and follow woth the distance specified until the action is aborted.
 	// If set to false the action end as soon as the traffic participant has reached
 	// the 
-	optional bool follow = 4;
+	optional bool follow = 5;
+	
+	//Parameter that assings either unlimited dynamics (if omitted) 
+	//or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+	optional DynamicConstraints dynamic_constraints = 6;
+}
+
+
+// \brief Lateral Distance Action 
+//
+// The action tells the traffic participant to reach a longitudinal distance to 
+// another traffic participant. The longitudinal distance is defined as the distance
+// along the lane. 
+//
+// \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
+// defining the reference traffic participanz and the distance.
+//
+
+message LateralDistanceAction{
+
+	// Action Header of the message
+	optional ActionHeader action_header = 1;
+	
+	// Id of the reference entity the lateral distance shall be kept to.
+	optional Identifier target_traffic_participant_id = 2;
+	
+	// Lateral distance value. Unit: m; Range: [0...inf]
+	optional double distance = 3;
+
+	// True: Lateral distance is measured using the distance between closest bounding box points.
+	// False: Reference point distance is used
+	optional boolean freespace = 4;
+
+	// If false, the action ends when the target distance is reached.
+	// If true it does not end and can only be stopped.
+	optional boolean continuous = 5;
+
+	// Parameter that assings either unlimited dynamics (if omitted) 
+	// or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+	optional DynamicConstraints dynamic_constraints = 6;
 }
 
 // \brief AbortActionsAction.
@@ -539,5 +587,27 @@ message EndActionsAction
     // as successfully executed and shall be terminated gracefully.
     //
     repeated Identifier target_action_id = 2; 
+}
+
+// \brief DynamicConstraints
+//
+// This message is used in Longitudinal and Lateral Distance Actions as
+// constraints on the TrafficParticipant not allowing them to exceed/drop below
+// certain speeds/acceleration levels.
+//
+ 
+message DynamicConstraints{
+	
+	//Maximum acceleration the distance contoller is allowed to use for keeping distance. 
+	//Unit: m/s2; Range: [0..inf]
+	double max_acceleration = 0;
+
+	//Maximum deceleration the distance contoller is allowed to use for keeping distance. 
+	//Unit: m/s2; Range: [0..inf]
+	double max_deceleration = 1;
+
+	//Maximum speed the distance contoller is allowed to use for keeping distance. 
+	//Unit: m/s2; Range: [0..inf]
+	double max_speed = 2;
 }
 
