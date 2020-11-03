@@ -236,7 +236,7 @@ class OSITrace:
 
             if interval is None and index is not None:
                 if type(index) == int:
-                    f.write(str(scenario.get_message_by_index(0)))
+                    f.write(str(self.get_message_by_index(0)))
                 else:
                     raise Exception("Argument 'index' needs to be of type 'int'")
 
