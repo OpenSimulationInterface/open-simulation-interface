@@ -12,6 +12,7 @@ import "osi_detectedobject.proto";
 import "osi_detectedoccupant.proto";
 import "osi_sensorview.proto";
 import "osi_featuredata.proto";
+import "osi_logicaldetectiondata.proto";
 
 package osi3;
 
@@ -92,7 +93,7 @@ message DetectedEntityHeader
 //
 // Sensor fusion models can consolidate multiple \c SensorData interfaces into
 // one consolidated \c SensorData interface.  This can happen either in
-// seperate logical models, consuming and producing \c SensorData interfaces,
+// separate logical models, consuming and producing \c SensorData interfaces,
 // or it can happen as part of a combined sensor/logical model, that consumes
 // \c SensorView interfaces and directly produces one consolidated \c SensorData
 // output.
@@ -297,4 +298,19 @@ message SensorData
     // object hypothesis and tracking.
     //
     optional FeatureData feature_data = 26;
+
+    // Logical detection data interface.
+    //
+    // Logical detection data are provided by a transformation
+    // (and optional sensor fusion)
+    // performed by a sensor model or a logical Model
+    // that fuses multiple sensors and/or sensor types
+    // into a single reference frame
+    // of the so called logical/virtual sensor.
+    // Therefore, all information is given with respect to
+    // the reference frame of the logical/virtual sensor
+    // \c SensorView::mounting_position (e.g. center of rear axle of the ego car)
+    // in cartesian coordinates.
+    //
+    optional LogicalDetectionData logical_detection_data = 27;
 }
