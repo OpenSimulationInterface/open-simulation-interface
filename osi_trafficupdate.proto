@@ -40,10 +40,10 @@ message TrafficUpdate
 
     // Updated traffic participant data
     //
-    // \note Only the id, base member (without dimension and base_polygon),
-    // and the vehicle_classification.light_state members are considered in
-    // updates, all other members can be left undefined, and will be
-    // ignored by the receiver of this message.
+    // \note It is not expected that static fields are populated, and if they
+    // are they may be ignored by the receiver of this message (e.g. dimensions,
+    // or vehicle category).  All dynamic fields should be populated where known
+    // for example, velocity, light states, or future trajectory.
     //
     repeated MovingObject traffic = 3;
 }
