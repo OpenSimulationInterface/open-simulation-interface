@@ -56,6 +56,9 @@ OSI common provides the building blocks for the OSI field messages.
 `osi_featuredata.proto`_
 ---------------------------------
 
+`osi_logicaldetectiondata.proto`_
+---------------------------------
+
 `osi_object.proto`_
 ---------------------------------
 
