@@ -478,7 +478,7 @@ message MovingObject
             //
             optional uint32 index = 2;
             
-            // Position of the wheel (geomatric center of the wheel).
+            // Position of the wheel (geometric center of the wheel).
             // The reference system is the vehicle frame (center of bounding box).
             // Right-handed, x-axis shows into driving direction "forward".
             // Rough Approximation: The z-value shows the damping.
@@ -487,7 +487,6 @@ message MovingObject
 
             // Median radius of the wheel measured from the center of the wheel to
             // the outer part of the tire.
-            //
             //
             // Unit: m
             //
@@ -508,8 +507,7 @@ message MovingObject
             // Orientation of the wheel.
             //
             // The reference system is the vehicle frame (center of bounding box).
-            // Right-handed, x-axis shows into driving direction "forward".
-            // Rough Approximation: The yaw-value shows the steering angle.
+            // Right-handed relative to the vehicle's forward motion.  The yaw-value shows the steering angle.
             //
             optional Orientation3d orientation = 7;
 
