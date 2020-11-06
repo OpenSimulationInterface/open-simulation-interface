@@ -188,8 +188,9 @@ message HostVehicleData
                 
                 // A motor working electric.
                 //
-                TYPE_ELEKTRIC = 4;
+                TYPE_ELECTRIC = 4;
             }
+        }
     }
 
     //
