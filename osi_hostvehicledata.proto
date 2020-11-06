@@ -68,7 +68,7 @@ message HostVehicleData
 
     // Interface regarding the navigation.
     //
-    optional VehicleLocalization vehicle_localization = 9;
+    optional VehiclePositionAndKinematics vehicle_position_and_kinematics = 9;
 
     //
     // \brief The absolute base parameters of the vehicle.
@@ -289,7 +289,7 @@ message HostVehicleData
     //
     // \brief This message contains all the information the vehicle knows about its kinematic states.
     //
-    message VehicleKinematics
+    message VehiclePositionAndKinematics
     {
         //
         // \brief Current kinematic data based on the output of the Intertial Measurement Unit (IMU).
