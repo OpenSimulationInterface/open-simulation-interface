@@ -16,21 +16,68 @@ package osi3;
 
 message DriverOutput
 {
-    
     //*****to be discussed further*****
     // The intention of AD function to actuator management
     //
-    enum DriverOutputMode
-    {    
-      
-      // Native trajectory information. This message is intended for filling future trajectory points. 
-      //
-      repeated StatePoint TrajectoryWayPoint = 0;
+	
+	
+	// Define different options for driver ouput. Each option must be represented by varbiable in the message.
+	//
+	enum OutputOptions {
+		DESIRED_STATE = 0;
+		TRAJECTORY = 1;
+	
+	}
+    
+	// Define the option tha is used.
+	// This must be set. Additionaly the corresponding variable must be filled.
+	//
+    optional OutputOptions option = 0;
+	
+	optional DesiredState desired_state = 1;
+	
+	optional Trajectory trajectory = 2;
+}
 
-      // Desired State of vehicle intended by AD Function
-      //
-      repeated DesiredState desiredstate = 1;
-    }
+// Defines a message containing a trajecory.
+// ToDo: Unfiy this with other workpackages.
+//
+message Trajectory {
+	repeated TrajectoryPoint trajectory_point = 0;
+}
+
+//
+// Note: This is identical to the state point in 
+// https://github.com/OpenSimulationInterface/open-simulation-interface/blob/feature/osi-traffic-participants-combined/osi_trafficcommand.proto
+// ToDo: Create a unifies understanding of a trajectory 
+//
+// \brief The StatePoint definition
+//
+// \note The StatePoint definition does not define mandatory fields.
+// The context defines how and what fields are used.
+// For example: FollowPathAction does not use timestamp in contrast to
+// FollowTrajectoryAction. 
+//
+message TrajectoryPoint
+{
+    // The timestamp of a StatePoint
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    optional Timestamp timestamp = 1;
+
+    // Position in the global coordinate system.
+    //
+    // The position refers to the center (x,y,z) of the bounding box.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation in the global coordinate system.
+    //
+    optional Orientation3d orientation = 3;
 }
 
 
