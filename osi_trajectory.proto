@@ -16,18 +16,16 @@ package osi3;
 
 message DriverOutput
 {
-    // timestamp to be added to the DriverOutput message
-    //
-    optional Timestamp timestamp = 0;
     
     //*****to be discussed further*****
     // The intention of AD function to actuator management
     //
     enum DriverOutputMode
     {    
-      // Native trajectory information
+      
+      // Native trajectory information. This message is intended for filling future trajectory points. 
       //
-      repeated TrajectoryData trajectorydata = 0;
+      repeated StatePoint TrajectoryWayPoint = 0;
 
       // Desired State of vehicle intended by AD Function
       //
@@ -35,23 +33,6 @@ message DriverOutput
     }
 }
 
-message TrajectoryData
-{
-    //*****to be discussed further*****
-    
-    // intended position to be reached in x-direction.
-    //
-    optional double desired_x_pos = 1;
-    
-    // intended position to be reached in y-direction.
-    //
-    optional double desired_y_pos = 2;
-    
-    // intended heading to be reached.
-    //
-    optional double desired_heading = 3;
-
-}
 
 message DesiredState
 {  
