@@ -8,11 +8,11 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief The traffic command message is provided by the scenario
-// engine to traffic participant models to provide control commands
-// to them based on the scenario.
+// \brief The scenario engine provides control commands in the traffic command  
+// message to traffic participant models. The control commands are based on 
+// the scenario.
 //
-// \note This interface is currently just a placeholder, and will be
+// \note This interface is currently just a placeholder and will be
 // changed in experimental ways to support basic scenario execution.
 // In the future this interface shall be aligned with the level of
 // atomic actions as described in OpenSCENARIO 1.0 or later.
@@ -30,8 +30,8 @@ message TrafficCommand
     //
     // \note For traffic command data the timestamp coincides both with
     // the notional simulation time the data applies to and the time it was sent
-    // (there is no inherent latency for traffic command data, as opposed
-    // to sensor data).
+    // There is no inherent latency for traffic command data, as opposed
+    // to sensor data.
     //
     optional Timestamp timestamp = 2;
 
@@ -39,11 +39,11 @@ message TrafficCommand
     //
     optional Identifier traffic_participant_id = 3;
 
-    // Commanded Traffic Action(s) if any
+    // Commanded traffic action(s) if any
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    // \note If more than one action is being supplied in one command message
+    // \note If more than one action is supplied in one command message
     // all actions are executed in parallel.
     //
     repeated TrafficAction action = 4;
@@ -51,22 +51,22 @@ message TrafficCommand
 }
 
 //
-// \brief Atomic Traffic Actions to be performed
+// \brief Atomic traffic actions to be performed
 //
-// The actual commands being transmitted are the atomic traffic actions
-// described by this message.
+// The transmitted commands are the atomic traffic actions described by 
+// this message.
 //
-// \note This message is notionally a multiple choice selection, i.e. only 
+// \note This message is notionally a multiple choice selection, that is, only 
 // certain combinations of atomic traffic actions shall be transmitted within 
-// certain time intervals (e.g. for plausibity reasons). The restrictions 
+// certain time intervals, for example, for plausibity reasons. The restrictions 
 // regarding that are not part of this message, yet are seen as a task of the 
-// scenario description (e.g. OpenSCENARIO). 
+// scenario description, for example, OpenSCENARIO. 
 //
-// \note All TrafficActions are expected to be sent only once, to indicate
-// that they must start immediately. This is also true, if their execution 
-// is expected to take simulation time. To inform the traffic participant 
+// \note All traffic actions are sent only once just before they are about 
+// to start. This is also true, if their execution is expected to 
+// take simulation time. To inform the traffic participant 
 // model that certain actions must or shall be terminated, there are 
-// explicit Actions nested inside this message (AbortActionsAction, 
+// explicit actions nested inside this message (AbortActionsAction, 
 // EndActionsAction), which hold a reference to the respective actions.
 //
 message TrafficAction
@@ -131,7 +131,7 @@ message StatePoint
 }
 
 //
-// \brief The ActionHeader
+// \brief The action header
 //
 //
 message ActionHeader
@@ -147,27 +147,27 @@ message ActionHeader
 }
 
 //
-// \brief Follow Trajectory Action.
+// \brief Follow trajectory action.
 //
 // Controls a traffic participant to follow a trajectory using vertices
 // with timings. It specifies the motion in space as a function of time.
 //
-// \note The StatePoint messages in trajectory_point require the timestamp
-// to be specified.
+// \note The StatePoint messages in trajectory_point requires a  
+// specified timestamp.
 //
 // \note This action is aligned with the FollowTrajectoryAction of
 // OpenSCENARIO 1.0 using a 4/7D trajectory with shape Polyline.
 //
 message FollowTrajectoryAction
 {
-    // The Action Header
+    // The action header
     //
     optional ActionHeader action_header = 1;
 
     // A list of trajectory StatePoints
     //
-    // The timestamp fields for all trajectory points are required to be
-    // set, as are the position fields. The orientation fields can be set
+    // Set the timestamp fields and position fields for all 
+    // trajectory points. The orientation fields can be set
     // depending on the constrain_orientation field being true.
     //
     // \note OSI uses singular instead of plural for repeated field names.
@@ -175,7 +175,7 @@ message FollowTrajectoryAction
     repeated StatePoint trajectory_point = 2;
 
     // Constrain the orientation of the traffic participant as specified
-    // by the trajectory points
+    // by the trajectory points.
     //
     // This boolean flag defines whether orientation values supplied in 
     // the trajectory points (if any) shall be used to constrain the
@@ -188,33 +188,33 @@ message FollowTrajectoryAction
     //
     optional FollowingMode following_mode = 4;
 
-    // Definition of Following Mode.
+    // Definition of following mode.
     //
     enum FollowingMode
     {
         // Following mode position forces the traffic participant to
         // follow the trajectory explicitly, disregarding any internal
-        // constraints, like e.g. steering dynamics.
+        // constraints, for example, steering dynamics.
         //
         FOLLOWING_MODE_POSITION = 0;
 
         // Following mode follow allows the traffic participant to
         // treat the trajectory as a target, to be achieved as closely
         // as possible while retaining any internal constraints,
-        // like e.g. steering dynamics.
+        // for example, steering dynamics.
         //
         FOLLOWING_MODE_FOLLOW = 1;
     }
 }
 
 //
-// \brief Follow Path Action.
+// \brief Follow path action.
 //
 // Controls a traffic participant to follow a trajectory using vertices
 // with timings. It specifies the motion in space independent of time.
 //
-// \note The StatePoint messages in path_point only require the position
-// field to be specified. The orientation can be set optionally. Any
+// \note The StatePoint messages in path_point only requires a specified 
+// position field. The orientation can be set optionally. Any
 // timestamp StatePoint values are ignored.
 //
 // \note This action is aligned with the FollowTrajectoryAction of
@@ -222,14 +222,14 @@ message FollowTrajectoryAction
 //
 message FollowPathAction
 {
-    // The Action Header
+    // The action header
     //
     optional ActionHeader action_header = 1;
 
     // A list of path StatePoints
     //
-    // The position fields for all path points  required to be set.
-    // The timestamp field are not required to be set and are ignored.
+    // Set the position fields for all path points.
+    // The timestamp field are not required and ignored.
     // The orientation fields can be set depending on the constrain_orientation
     // field being true.
     //
@@ -238,7 +238,7 @@ message FollowPathAction
     repeated StatePoint path_point = 2;
 
     // Constrain the orientation of the traffic participant as specified
-    // by the path points
+    // by the path points.
     //
     // This boolean flag defines whether orientation values supplied in 
     // the path points shall be used to constrain the orientation
@@ -251,27 +251,27 @@ message FollowPathAction
     //
     optional FollowingMode following_mode = 4;
 
-    // Definition of Following Mode.
+    // Definition of following mode.
     //
     enum FollowingMode
     {
         // Following mode position forces the traffic participant to
         // follow the path explicitly, disregarding any internal
-        // constraints, like e.g. steering dynamics.
+        // constraints, for example, steering dynamics.
         //
         FOLLOWING_MODE_POSITION = 0;
 
         // Following mode follow allows the traffic participant to
         // treat the path as a target, to be achieved as closely
         // as possible while retaining any internal constraints,
-        // like e.g. steering dynamics.
+        // for example, steering dynamics.
         //
         FOLLOWING_MODE_FOLLOW = 1;
     }
 }
 
 //
-// \brief Acquire Global Position Action.
+// \brief Acquire global position action.
 //
 // This action assigns a route to a traffic participant. The route
 // assigned will be the shortest route (along roads or satisfying any
@@ -286,7 +286,7 @@ message FollowPathAction
 //
 message AcquireGlobalPositionAction
 {
-    // The Action Header
+    // The action header
     //
     optional ActionHeader action_header = 1;
 
@@ -301,14 +301,14 @@ message AcquireGlobalPositionAction
 
     // Orientation in the global coordinate system.
     //
-    // This is optional, if no orientation is given, the end orientation
+    // This is optional. If no orientation is given, the end orientation
     // is under control of the traffic participant.
     //
     optional Orientation3d orientation = 3;
 }
 
 //
-// \brief Lane Change Action.
+// \brief Lane change action.
 //
 // This action assigns a lane change to a traffic participant. The fields 
 // of this message enable different levels of constraint for the traffic 
@@ -323,7 +323,7 @@ message AcquireGlobalPositionAction
 
 message LaneChangeAction
 {
-    // The Action Header
+    // The action header
     //
     optional ActionHeader action_header = 1;
     
@@ -341,7 +341,7 @@ message LaneChangeAction
     
     // Duration of the lane change.
     // 
-    // A value of 0.0 (the default value) will impose no constraint
+    // A value of 0.0 (the default value) imposes no constraint
     // on the duration, unless the dynamics shape is a step function,
     // where an immediate step is effected.
     //
@@ -351,7 +351,7 @@ message LaneChangeAction
     
     // Distance of the lane change.
     // 
-    // A value of 0.0 (the default value) will impose no constraint
+    // A value of 0.0 (the default value) imposes no constraint
     // on the distance, unless the dynamics shape is a step function,
     // where an immediate step is effected.
     //
@@ -386,7 +386,7 @@ message LaneChangeAction
 }
 
 //
-// \brief Speed Action.
+// \brief Speed action.
 //
 // This action assigns a targeted speed to a traffic participant. 
 // The action can be constrained by specifying the dynamics 
@@ -400,7 +400,7 @@ message LaneChangeAction
 
 message SpeedAction
 {
-    // The Action Header
+    // The action header
     //
     optional ActionHeader action_header = 1;
     
@@ -416,7 +416,7 @@ message SpeedAction
     
     // Duration of the speed change.
     // 
-    // A value of 0.0 (the default value) will impose no constraint
+    // A value of 0.0 (the default value) imposes no constraint
     // on the duration, unless the dynamics shape is a step function,
     // where an immediate step is effected.
     //
@@ -426,7 +426,7 @@ message SpeedAction
     
     // Distance of the speed change.
     // 
-    // A value of 0.0 (the default value) will impose no constraint
+    // A value of 0.0 (the default value) imposes no constraint
     // on the distance, unless the dynamics shape is a step function,
     // where an immediate step is effected.
     //
@@ -462,17 +462,17 @@ message SpeedAction
 }
 
 //
-// \brief AbortActionsAction.
+// \brief Abort actions action
 //
-// This action tells a TrafficParticipant that it should abort the
-// execution of other actions (referenced within this action) immediately.
+// This action tells a traffic participant that it should immediately 
+// abort the execution of other actions referenced within this action.
 // In contrast to the EndActionsAction this action forces a hard 
 // termination of the referenced actions.
 //
 
 message AbortActionsAction
 {
-    // The Action Header
+    // The action header
     //
     optional ActionHeader action_header = 1;
 
@@ -484,9 +484,9 @@ message AbortActionsAction
     repeated Identifier target_action_id = 2; 
 }
 
-// \brief EndActionsAction.
+// \brief End actions action.
 //
-// This action tells a TrafficParticipant that the exection of the 
+// This action tells a traffic participant that the exection of the 
 // referenced actions is regarded as successfully performed. The 
 // termination of the referenced actions is allowed to be performed 
 // gracefully. 
@@ -494,7 +494,7 @@ message AbortActionsAction
 
 message EndActionsAction
 {
-    // The Action Header
+    // The action header
     //
     optional ActionHeader action_header = 1;
 
