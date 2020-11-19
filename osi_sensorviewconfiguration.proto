@@ -686,7 +686,7 @@ message CameraSensorViewConfiguration
     //
     optional uint32 number_of_pixels_vertical = 7;
 
-    // Format for image data (includes number, kind and format of channels).
+     // Format for image data (includes number, kind and format of channels).
     //
     // In the message provided by the sensor model, this field can
     // be repeated and all values are acceptable to the model, with
@@ -701,7 +701,7 @@ message CameraSensorViewConfiguration
     // cannot provide image data in one of the requested formats.
     //
     // \rules
-    // is_greater_than_or_equal_to: 1
+    // is_greater_than_or_equal_to: 1 
     // \endrules
     //
     repeated ChannelFormat channel_format = 8;
@@ -752,25 +752,124 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_RGB_F32_LIN = 9;
 
-        // Bayer RGGB Channels UINT8 FP Linear.
+        // Bayer BGGR Channels UINT8 FP Linear.
         //
         CHANNEL_FORMAT_BAYER_BGGR_U8_LIN = 10;
 
-        // Bayer RGGB Channels UINT16 FP Linear.
+        // Bayer BGGR Channels UINT16 FP Linear.
         //
         CHANNEL_FORMAT_BAYER_BGGR_U16_LIN = 11;
 
-        // Bayer RGGB Channels UINT32 FP Linear.
+        // Bayer BGGR Channels UINT32 FP Linear.
         //
         CHANNEL_FORMAT_BAYER_BGGR_U32_LIN = 12;
 
-        // Bayer RGGB Channels Single Precision FP Linear.
+        // Bayer BGGR Channels Single Precision FP Linear.
         //
         CHANNEL_FORMAT_BAYER_BGGR_F32_LIN = 13;
+
+        // Bayer RGGB Channels UINT8 FP Linear.
+        //
+        CHANNEL_FORMAT_BAYER_RGGB_U8_LIN = 14;
+
+        // Bayer RGGB Channels UINT16 FP Linear.
+        //
+        CHANNEL_FORMAT_BAYER_RGGB_U16_LIN = 15;
+
+        // Bayer RGGB Channels UINT32 FP Linear.
+        //
+        CHANNEL_FORMAT_BAYER_RGGB_U32_LIN = 16;
+
+        // Bayer RGGB Channels Single Precision FP Linear.
+        //
+        CHANNEL_FORMAT_BAYER_RGGB_F32_LIN = 17;
+
+        // Read Clear Clear Clear Channels UINT8 FP Linear.
+        //
+        CHANNEL_FORMAT_RCCC_U8_LIN = 18;
+
+        // Read Clear Clear Clear Channels UINT16 FP Linear.
+        //
+        CHANNEL_FORMAT_RCCC_U16_LIN = 19;
+
+        // Read Clear Clear Clear Channels UINT32 FP Linear.
+        //
+        CHANNEL_FORMAT_RCCC_U32_LIN = 20;
+
+        // Read Clear Clear Clear Channels Single Precision FP Linear.
+        //
+        CHANNEL_FORMAT_RCCC_F32_LIN = 21;
+
+        // Read Clear Clear Blue Channels UINT8 FP Linear.
+        //
+        CHANNEL_FORMAT_RCCB_U8_LIN = 22;
+
+        // Read Clear Clear Blue Channels UINT16 FP Linear.
+        //
+        CHANNEL_FORMAT_RCCB_U16_LIN = 23;
+
+        // Read Clear Clear Blue Channels UINT32 FP Linear.
+        //
+        CHANNEL_FORMAT_RCCB_U32_LIN = 24;
+
+        // Read Clear Clear Blue Channels Single Precision FP Linear.
+        //
+        CHANNEL_FORMAT_RCCB_F32_LIN = 25;
+        
 
         // TBD: Further channel permutations and padding (e.g. RGBZ,
         // BGR, BAYER_RGGB/GBRG/GRBG/...), non-BAYER filters, non-linear
         // encodings, ...
+    }
+
+    // Number of samples per pixel.
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
+    optional uint32 samples_per_pixel = 9;
+
+    // Maximum number of interactions to take into account.
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
+    optional uint32 max_number_of_interactions = 10;
+
+    // In use-cases where a spectral ray-tracer is used, this message determines the range of the wavelength
+    // and its desired number of samples.
+    //
+    optional WavelengthData wavelength_data = 11;
+
+    // \brief Detailed WavelengthRange message.
+    //
+    // Defines the start (minimum) and the end (maximum) values of the wavelength.
+    // Additionally, the number of samples within this range is defined in this message.
+    //
+    message WavelengthData
+    {
+        // The start, or the minimum, wavelength to be considered by the spectral ray tracer.
+        //
+        // Unit: nm
+        //
+        optional uint32 start = 1;
+
+        // The end, or the maximum, wavelength to be considered by the spectral ray tracer.
+        // Unit: nm
+        //
+        optional uint32 end = 2;
+
+        // Number of samples to be considered withing the defined wavelength range.
+        // 
+        optional uint32 samples_number = 3;
     }
 
     // TBD: Optical (and other) effects to apply to image, etc.
