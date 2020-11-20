@@ -459,7 +459,7 @@ message MovingObject
         // \brief Detailed wheel data.
         // The focus is on the description of a wheel regarding the perceivable 
         // information from the outside. 
-        // It is not intended to be used for e.g. dynamic calculations.
+        // It is not intended to be used for dynamic calculations, for example.
         //
         message WheelData
         {
@@ -470,7 +470,7 @@ message MovingObject
             optional uint32 axle = 1;
 
             // The index of the wheel on the axle, counting in the direction
-            // of positive-y, i.e. right-to-left.
+            // of positive-y, that is, right-to-left.
             //
             // For example, on a standard 2-axle, 4-wheel car, the rear-right
             // wheel would be (axle=1, index=0).
