@@ -103,6 +103,10 @@ message TrafficAction
 	//
 	optional LongitudinalDistanceAction longitudinal_distance_action = 9;
 	
+	// A LongitudinalDistanceAction
+	//
+	optional LaneOffsetAction lane_offset_action = 10;	
+	
 	// A LateralDistanceAction
 	//
 	optional LateralDistanceAction lateral_distance_action = 11;
@@ -547,6 +551,63 @@ message LateralDistanceAction{
 	// or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
 	optional DynamicConstraints dynamic_constraints = 6;
 }
+
+// \brief Lane Offset Action
+//
+// This action assigns a targeted lane offset to a traffic participant. 
+// The action can be constrained by specifying the dynamics shape of the
+// lateral transition profile. 
+//
+// \note This action is aligned with LaneOffsetAction of OpenSCENARIO 1.0.
+//
+
+message LaneOffsetAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+    
+    // Targeted lane offset in meters relative to the centerline of the
+	// current lane. Positive values mean left of the centerline, 
+    // negative values mean right of the centerline. 
+    //
+	// Unit: m
+	//
+    optional double target_lane_offset = 2;
+    
+    // Specified transition shape of reaching the lane offset. 
+    // If the shape is unspecified (enum value 0), the shape of the 
+    // transition is open to the traffic participant model. 
+    //
+    optional DynamicsShape dynamics_shape = 3;
+    
+    // Definition of dynamic shape of the transition.
+    //
+    enum DynamicsShape
+    {
+        // Shape is unspecified.
+        //
+        DYNAMICS_SHAPE_UNSPECIFIED = 0;
+
+        // Shape is linear.
+        //
+        DYNAMICS_SHAPE_LINEAR = 1;
+
+        // Shape is cubic.
+        //
+        DYNAMICS_SHAPE_CUBIC = 2;
+
+        // Shape is sinusoidal.
+        //
+        DYNAMICS_SHAPE_SINUSOIDAL = 3;
+
+        // Shape is a step function.
+        //
+        DYNAMICS_SHAPE_STEP = 4;
+    }
+
+}
+    
 
 // \brief Teleport Action
 //
