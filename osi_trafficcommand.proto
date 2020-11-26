@@ -99,17 +99,17 @@ message TrafficAction
     //
     optional EndActionsAction end_actions_action = 7; 
 	
-	// A LongitudinalDistanceAction
-	//
-	optional LongitudinalDistanceAction longitudinal_distance_action = 9;
+    // A LongitudinalDistanceAction
+    //
+    optional LongitudinalDistanceAction longitudinal_distance_action = 9;
 	
-	// A LongitudinalDistanceAction
-	//
-	optional LaneOffsetAction lane_offset_action = 10;	
+    // A LongitudinalDistanceAction
+    //
+    optional LaneOffsetAction lane_offset_action = 10;	
 	
-	// A LateralDistanceAction
-	//
-	optional LateralDistanceAction lateral_distance_action = 11;
+    // A LateralDistanceAction
+    //
+    optional LateralDistanceAction lateral_distance_action = 11;
 	
 	// A TeleportAction
     //
