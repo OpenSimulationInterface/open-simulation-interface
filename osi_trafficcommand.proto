@@ -499,7 +499,7 @@ message LongitudinalDistanceAction {
 	// Determine the measurement of distance between TrafficParticipant
 	// True: Lateral distance is measured using the distance between closest bounding box points.
 	// False: Reference point distance is used
-	optional boolean freespace = 4;
+	optional bool freespace = 4;
 	
 	// Define wheather the traffic participanzt should only reach the distance once 
 	// or follow.
@@ -521,10 +521,9 @@ message LongitudinalDistanceAction {
 // another traffic participant. The longitudinal distance is defined as the distance
 // along the lane. 
 //
-// \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
+// \note This action is aligned with LateralDistanceAction of OpenSCENARIO 1.0
 // defining the reference traffic participanz and the distance.
 //
-
 message LateralDistanceAction{
 
 	// Action Header of the message
@@ -538,11 +537,11 @@ message LateralDistanceAction{
 
 	// True: Lateral distance is measured using the distance between closest bounding box points.
 	// False: Reference point distance is used
-	optional boolean freespace = 4;
+	optional bool freespace = 4;
 
 	// If false, the action ends when the target distance is reached.
 	// If true it does not end and can only be stopped.
-	optional boolean continuous = 5;
+	optional bool continuous = 5;
 
 	// Parameter that assings either unlimited dynamics (if omitted) 
 	// or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
@@ -630,19 +629,21 @@ message EndActionsAction
 // constraints on the TrafficParticipant not allowing them to exceed/drop below
 // certain speeds/acceleration levels.
 //
- 
 message DynamicConstraints{
 	
 	//Maximum acceleration the distance contoller is allowed to use for keeping distance. 
 	//Unit: m/s2; Range: [0..inf]
-	double max_acceleration = 0;
+	//
+	optional double max_acceleration = 1;
 
 	//Maximum deceleration the distance contoller is allowed to use for keeping distance. 
 	//Unit: m/s2; Range: [0..inf]
-	double max_deceleration = 1;
+	//
+	optional double max_deceleration = 2;
 
 	//Maximum speed the distance contoller is allowed to use for keeping distance. 
 	//Unit: m/s2; Range: [0..inf]
-	double max_speed = 2;
+	//
+	optional double max_speed = 3;
 }
 
