@@ -106,6 +106,10 @@ message TrafficAction
 	// A LateralDistanceAction
 	//
 	optional LateralDistanceAction lateral_distance_action = 11;
+	
+	// A TeleportAction
+    //
+    optional TeleportAction teleport_action = 12; 
 }
 
 //
@@ -543,6 +547,37 @@ message LateralDistanceAction{
 	// Parameter that assings either unlimited dynamics (if omitted) 
 	// or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
 	optional DynamicConstraints dynamic_constraints = 6;
+}
+
+// \brief Teleport Action
+//
+// This Action allows to immediately place a traffic participant to 
+// another position. 
+//
+// \note This action is aligned with the TeleportAction of
+// OpenSCENARIO 1.0 using a WorldPosition position argument.
+//
+message TeleportAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+
+    // Position in the global coordinate system.
+    //
+    // The position refers to the center (x,y,z) of the bounding box.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation in the global coordinate system.
+    //
+    // This is optional, if no orientation is given, the end orientation
+    // is under control of the traffic participant.
+    //
+    optional Orientation3d orientation = 3;
 }
 
 // \brief AbortActionsAction.
