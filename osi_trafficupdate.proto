@@ -40,9 +40,9 @@ message TrafficUpdate
 
     // Updated traffic participant data
     //
-    // \note It is not expected that static fields are populated, and if they
-    // are they may be ignored by the receiver of this message (e.g. dimensions,
-    // or vehicle category).  All dynamic fields should be populated where known
+    // \note It is not expected that static fields are populated. If they
+    // are, they may be ignored by the receiver of this message, for example, dimensions,
+    // or vehicle category.  All dynamic fields should be populated where known,
     // for example, velocity, light states, or future trajectory.
     //
     repeated MovingObject traffic = 3;
