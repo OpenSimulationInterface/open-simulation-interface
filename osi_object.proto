@@ -341,8 +341,8 @@ message MovingObject
     // The trajectory that this moving object expects to follow in the future.
     //
     // This is not externally perceivable information, rather this is to aid
-    // realistic simulation of traffic participants not under test.  This
-    // information should not be made available to the stack under test.
+    // realistic simulation of traffic participants that are not under test.  
+    // This information should not be made available to the stack under test.
     //
     // \note Moving objects are not required to stick to this trajectory, it is
     // indicative, and equivalent to the output of a perception + prediction
