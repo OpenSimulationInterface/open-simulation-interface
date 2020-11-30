@@ -472,7 +472,7 @@ message StatePoint
 {
     // The timestamp of a StatePoint
     //
-    // \note Zero time point does not need to coincide with the UNIX epoch.
+    // \note Zero time does not need to coincide with the UNIX epoch.
     //
     optional Timestamp timestamp = 1;
 
