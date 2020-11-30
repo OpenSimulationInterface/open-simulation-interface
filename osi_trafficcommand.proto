@@ -25,8 +25,8 @@ message TrafficCommand
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
     // but must be identical for all messages. Zero time does not need to
-    // coincide with the UNIX epoch. Recommended is the starting time point of
-    // the simulation.
+    // coincide with the UNIX epoch. It is recommended to use zero timestamp as 
+    // the starting time point of the simulation.
     //
     // \note For traffic command data the timestamp coincides both with
     // the notional simulation time the data applies to and the time it was sent
