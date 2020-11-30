@@ -470,7 +470,7 @@ message BaseMoving
 //
 message StatePoint
 {
-    // The timestamp of a StatePoint
+    // The timestamp of a StatePoint.
     //
     // \note Zero time does not need to coincide with the UNIX epoch.
     //
