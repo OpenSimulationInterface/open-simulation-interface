@@ -478,7 +478,7 @@ message MovingObject
             //
             optional uint32 index = 2;
             
-            // Vector pointing from the vehicle's reference system (center of bounding 
+            // A vector pointing from the vehicle's reference system (center of bounding 
             // box) to the geometric center of the wheel.
             // The geometric center is measured when the vehicle is in resting position.
             //
