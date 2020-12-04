@@ -510,14 +510,15 @@ message MovingObject
 
             // Rotation rate of the wheel.
             // The rotation rate around the y-axis with respect to the wheel's coordinate.
-            //
-            // \image html OSI_RotationRate.svg
             // 
             // Unit: rad/s.
             //
             // The sign convention is defined using the right-hand rule.
             // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
             // Counterclockwise is positive and clockwise is negative.
+            //
+            // \image html OSI_RotationRate.svg
+            // \note The vehicle's reference coordinate system is only used to determine the sign convention of the rotation rate.
             //
             optional double rotation_rate = 8;
             
