@@ -1,0 +1,89 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_version.proto";
+
+package osi3;
+
+//
+// \brief This message is intended as an interface between a HAD (highly automated dricing) function and the actuator management.
+// The HAD function can send either an a desired future trajectory ore a desired future state.
+// The message to be used can be defined by a additional variable.
+//
+// All coordinates and orientations are relative to the global coordinate system.
+//
+message MotionRequest
+{
+
+	//	
+	// Define different options for had function ouput.
+	// Each option is corresponds to a field in the message.
+	//
+	enum OutputOptions {
+		DESIRED_STATE = 0;
+		TRAJECTORY = 1;
+	
+	}
+    
+	//
+	// Define the option that is used to specify the motion request.
+	// This must be set. Additionaly the field corresponding to the specified option must be set.
+	//
+    optional OutputOptions output_option = 1;
+	
+	//
+	// Defines a desired state.
+	// If the output option is set to DESIRED_STATE this must be provided.
+	//
+	optional DesiredState desired_state = 2;
+	
+	//
+	// Defines a desired trajectory.
+	// If the output option is set to DESIRED_TRAJECTORY this must be set.
+	//
+	optional Trajectory desired_trajectory = 3;
+}
+
+//
+// \brief Defined the trajectory desired by the had function. This trajectory is the result of the trajctory planning step
+// in the HAD function. The task of the acutator management is to follow the trajectory as close as possible.
+// The timestamps inside the trajecotry must be defined in global simulation time.
+//
+message Trajectory {
+	repeated StatePoint trajectory_point = 1;
+}
+
+//
+// \brief The desired state calculated by the had function as a result of the motion planning stack.
+// The actuator management is supposed  
+//
+message DesiredState
+{  
+
+	//
+	// The timestamp indicates at which point in time the state needs to be reached, 
+	// given in global simulation time.
+	//
+	optional Timestamp timestamp = 1;
+
+    // intended position to be reached in x and y direction.
+    //
+    optional Vector2d desired_pos = 2;
+    
+    // intended heading to be reached.
+    //
+    optional double desired_heading = 3;
+    
+    // intended velocity to be reached in x and y direction
+    //
+    optional Vector2d desired_velocity = 4;
+    
+    // intended acceleration to be reached in x and y direction
+    //
+    optional Vector2d desired_acceleration = 5;
+
+}
+
+
