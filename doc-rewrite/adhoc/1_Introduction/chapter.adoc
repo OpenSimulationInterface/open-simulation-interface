@@ -1,0 +1,133 @@
+[preface]
+== Foreword
+
+tbd
+
+== Introduction
+
+
+=== What is changed in this document
+
+tbd
+
+
+=== Overview
+
+
+==== What is OpenSimulationInterface?
+
+tbd
+
+
+=== Deliverables of OpenSimulationInterface
+
+The following deliverables are provided for OSI:
+
+* User guide
+* OSI Validator
+* OSI Visualizer
+* ...
+
+
+=== Normative and non-normative statements and deliverables
+
+This specification uses a standard information structure. The following rules apply regarding normativity of sections:
+
+* Statements expressed as requirements, permissions, or prohibitions according to the use of modal verbs, as defined in <<Modal verbs>>, are normative.
+* Keywords of OSI data structures in "Keyword" sections are normative.
+* Content descriptions of OSI data structures in "Contents" sections are normative.
+* Rules for OSI data structures in "Rules" sections are normative.
+* The OSI toolsuite and its use are non-normative.
+* Examples and use case descriptions are non-normative.
+
+
+=== Conventions
+
+
+==== Naming conventions
+
+tbd
+
+
+==== Units
+
+Unless stated otherwise, all numeric values within this specification are in SI units, for example:
+
+* position/distance in [m]
+* angles in [rad]
+* ...
+
+Geographic positions are stated in the unit defined by the spatial coordinate system, for example, in accordance with WGS 84 – EPSG 4326.
+
+Some data elements allow you to explicitly state the unit of a given value. If the unit is not given or if there is no means to state the unit, SI units apply. The following units may be used in explicit assignments:
+
+<<<
+[[table-units]]
+.Units
+[cols=",,",options="header",frame=topbot,grid=rows]
+|===
+| Category | Description | Identifier
+| | |
+
+|===
+
+These optional units shall be used for purposes of signage and speed indication only. They shall not be used as general units, for example, to define road geometry, etc.
+
+
+==== Modal verbs
+
+To ensure compliance with the OpenDRIVE standard, users need to be able to distinguish between mandatory requirements, recommendations, permissions, as well as possibilities and capabilities.
+
+The following rules for using modal verbs apply:
+
+<<<
+[[table-modalverbs]]
+.Rules for using modal verbs
+[cols=",",options="header",frame=topbot,grid=rows]
+|===
+| Provision | Verbal form 
+|*Requirement*
+
+Requirements shall be followed strictly in order to be conform to the standard. Deviations are not allowed. 
+| shall
+
+shall not
+|*Recommendation*
+
+Recommendations indicate that among several possibilities, one is recommended as particularly suitable, without mentioning or excluding others.
+| should
+
+should not
+|
+
+|===
+
+
+==== Typographic conventions
+
+tbd
+
+
+=== Contributing to OpenSimulationInterface
+
+tbd
+
+
+==== Repositories
+
+tbd
+
+
+==== Reporting Issues
+
+tbd
+
+
+==== Contributing changes
+
+tbd
+
+
+==== Reviewing contributions
+
+tbd
