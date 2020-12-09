@@ -35,6 +35,13 @@ message TrafficLight
     //
     optional Classification classification = 3;
 
+    // Opaque reference of an associated 3D model of the traffic light.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models.
+    //
+    optional string model_reference = 4;
+
     //
     // \brief \c Classification data for a traffic light.
     //
