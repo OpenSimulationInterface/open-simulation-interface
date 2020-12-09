@@ -40,7 +40,7 @@ message TrafficUpdate
 
     // Updated moving object
     //
-    // \note Only the following member are considered in updates: id, base member 
+    // \note Only the following members are considered in updates: id, base member 
     // without dimension and base_polygon and the vehicle_classification.light_state.
     // All other members can be left undefined and will be
     // ignored by the receiver of this message.
