@@ -509,7 +509,7 @@ message MovingObject
             optional Orientation3d orientation = 7;
 
             // Rotation rate of the wheel.
-            // The rotation rate around the y-axis with respect to the wheel's coordinate.
+            // The rotation rate around the y-axis with respect to the wheel's coordinate system.
             // 
             // Unit: rad/s.
             //
