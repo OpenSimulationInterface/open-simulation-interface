@@ -1,55 +1,12 @@
-[preface]
-== Foreword
-
-tbd
-
-== Introduction
+= Conventions
 
 
-=== What is changed in this document
+== Naming conventions
 
 tbd
 
 
-=== Overview
-
-
-==== What is OpenSimulationInterface?
-
-tbd
-
-
-=== Deliverables of OpenSimulationInterface
-
-The following deliverables are provided for OSI:
-
-* User guide
-* OSI Validator
-* OSI Visualizer
-* ...
-
-
-=== Normative and non-normative statements and deliverables
-
-This specification uses a standard information structure. The following rules apply regarding normativity of sections:
-
-* Statements expressed as requirements, permissions, or prohibitions according to the use of modal verbs, as defined in <<Modal verbs>>, are normative.
-* Keywords of OSI data structures in "Keyword" sections are normative.
-* Content descriptions of OSI data structures in "Contents" sections are normative.
-* Rules for OSI data structures in "Rules" sections are normative.
-* The OSI toolsuite and its use are non-normative.
-* Examples and use case descriptions are non-normative.
-
-
-=== Conventions
-
-
-==== Naming conventions
-
-tbd
-
-
-==== Units
+== Units
 
 Unless stated otherwise, all numeric values within this specification are in SI units, for example:
 
@@ -74,7 +31,7 @@ Some data elements allow you to explicitly state the unit of a given value. If t
 These optional units shall be used for purposes of signage and speed indication only. They shall not be used as general units, for example, to define road geometry, etc.
 
 
-==== Modal verbs
+== Modal verbs
 
 To ensure compliance with the OpenDRIVE standard, users need to be able to distinguish between mandatory requirements, recommendations, permissions, as well as possibilities and capabilities.
 
@@ -103,31 +60,6 @@ should not
 |===
 
 
-==== Typographic conventions
-
-tbd
-
-
-=== Contributing to OpenSimulationInterface
-
-tbd
-
-
-==== Repositories
-
-tbd
-
-
-==== Reporting Issues
-
-tbd
-
-
-==== Contributing changes
-
-tbd
-
-
-==== Reviewing contributions
+== Typographic conventions
 
 tbd
