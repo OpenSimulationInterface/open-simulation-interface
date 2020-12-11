@@ -98,7 +98,11 @@ message TrafficAction
     // An EndActionsAction
     //
     optional EndActionsAction end_actions_action = 7; 
-	
+    
+    // A CustomAction
+    //
+    optional CustomAction custom_action = 8;	
+
     // A LongitudinalDistanceAction
     //
     optional LongitudinalDistanceAction longitudinal_distance_action = 9;
@@ -708,3 +712,25 @@ message DynamicConstraints{
 	optional double max_speed = 3;
 }
 
+//
+// \brief Custom Action.
+//
+// This action assigns a custom command to a traffic participant.
+// The syntax and semantics of this action is implementation defined.
+// It is entirely up to each individual traffic participant which
+// custom commands it supports, if any, and how they must be phrased.
+//
+// \note This action is aligned with CustomCommandAction of OpenSCENARIO 1.0
+// providing a customizable user defined action.
+//
+
+message CustomAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+
+    // The custom command given to the traffic participant.
+    //
+    optional string command = 2;
+}
