@@ -47,7 +47,6 @@ message TrafficCommand
     // all actions are executed in parallel.
     //
     repeated TrafficAction action = 4;
-
 }
 
 //
@@ -115,7 +114,7 @@ message TrafficAction
     //
     optional LateralDistanceAction lateral_distance_action = 11;
 	
-	// A TeleportAction
+    // A TeleportAction
     //
     optional TeleportAction teleport_action = 12; 
 }
@@ -491,11 +490,14 @@ message SpeedAction
 // defining the reference traffic participanz and the distance.
 //
 
-message LongitudinalDistanceAction {
-	// Action Header of the message
+message LongitudinalDistanceAction 
+{
+    // Action Header of the message
+    //
 	optional ActionHeader action_header = 1;
 	
-	// Unique Id of the refence traffic participant to which the distance is defined.
+    // Unique Id of the refence traffic participant to which the distance is defined.
+    //
 	optional Identifier target_traffic_participant_id = 2;
 	
 	// The distance to reach along the lane
@@ -506,10 +508,11 @@ message LongitudinalDistanceAction {
 	
 	// Determine the measurement of distance between TrafficParticipant
 	// True: Lateral distance is measured using the distance between closest bounding box points.
-	// False: Reference point distance is used
+    // False: Reference point distance is used
+    //
 	optional bool freespace = 4;
 	
-	// Define wheather the traffic participanzt should only reach the distance once 
+	// Define wheather the traffic participant should only reach the distance once 
 	// or follow.
 	// If set to true the traffic particpant shall approach the reference participant
 	// and follow woth the distance specified until the action is aborted.
@@ -517,8 +520,9 @@ message LongitudinalDistanceAction {
 	// the 
 	optional bool follow = 5;
 	
-	//Parameter that assings either unlimited dynamics (if omitted) 
-	//or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+	// Parameter that assings either unlimited dynamics (if omitted) 
+    // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+    //
 	optional DynamicConstraints dynamic_constraints = 6;
 }
 
@@ -532,27 +536,33 @@ message LongitudinalDistanceAction {
 // \note This action is aligned with LateralDistanceAction of OpenSCENARIO 1.0
 // defining the reference traffic participanz and the distance.
 //
-message LateralDistanceAction{
-
-	// Action Header of the message
+message LateralDistanceAction
+{
+    // Action Header of the message
+    //
 	optional ActionHeader action_header = 1;
 	
-	// Id of the reference entity the lateral distance shall be kept to.
+    // Id of the reference entity the lateral distance shall be kept to.
+    //
 	optional Identifier target_traffic_participant_id = 2;
 	
-	// Lateral distance value. Unit: m; Range: [0...inf]
+    // Lateral distance value. Unit: m; Range: [0...inf]
+    //
 	optional double distance = 3;
 
 	// True: Lateral distance is measured using the distance between closest bounding box points.
-	// False: Reference point distance is used
+    // False: Reference point distance is used
+    //
 	optional bool freespace = 4;
 
 	// If false, the action ends when the target distance is reached.
-	// If true it does not end and can only be stopped.
+    // If true it does not end and can only be stopped.
+    //
 	optional bool continuous = 5;
 
 	// Parameter that assings either unlimited dynamics (if omitted) 
-	// or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+    // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+    //
 	optional DynamicConstraints dynamic_constraints = 6;
 }
 
