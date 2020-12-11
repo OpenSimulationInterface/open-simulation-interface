@@ -2,6 +2,10 @@
 
 == Release history
 
+//include::releases/v02.00.adoc[leveloffset=+1]
+
+link:releases/v02.00.adoc[v02.00]
+
 .. toctree::
    :maxdepth: 1
 
@@ -16,7 +20,7 @@
 
 The version number is defined in ``InterfaceVersion::version_number`` in ``osi_common.proto`` as the field's default value.
 
-`Link to Semantic Versioning <https://semver.org/>`_
+https://semver.org/[Link to Semantic Versioning]
 
 **Major**: A change of the major version results in an incompatibility of code and recorded proto messages.
 

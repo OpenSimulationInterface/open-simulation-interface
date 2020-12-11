@@ -1,0 +1,133 @@
+= ASAM OpenSimulationInterface: User Guide
+// standard version
+:version-label: Version:
+:revnumber: 4.1.0
+:copyright: ASAM e.V. 2021
+:description: Dynamic content in driving simulation
+:email: info@asam.net
+:release_date: {docdate}
+:doc_version: Document Version: 1.0.0
+:doc_part: Part 1 of 3
+:standard_type: Base Standard
+:toclevels: 2
+:sectnums:
+// path to asciidoc resources
+:asciidoc-resources: ../../../../asciidoc-resources
+//
+ifdef::backend-html5[]
+:toc: left 
+:nofooter:
+// html themes
+:stylesdir: {asciidoc-resources}/themes/html
+:stylesheet: asam.css
+:linkcs:
+// header & footer for html
+:docinfodir: {asciidoc-resources}/themes/html
+:docinfo: shared,private
+endif::[]
+ifdef::backend-pdf[]
+:toc: macro
+// pdf themes
+:pdf-theme: asam.yml
+:pdf-themesdir: {asciidoc-resources}/themes/pdf
+:pdf-fontsdir: {asciidoc-resources}/fonts
+:title-logo-image: image:asam_logo.png[align=left, top=0.9cm, pdfwidth=10cm]
+:notitle:
+:front-cover-image: ../images/ASAM_OSC_Cover_front.pdf
+:back-cover-image: ../images/ASAM_OSC_Cover_back.pdf
+endif::[]
+//
+:stem: latexmath
+:icons: font
+// source highlighting
+:source-highlighter: rouge
+:rouge-style: base16.solarized.light
+// 
+:last-update-label!:
+//embed images into html
+:data-uri: 
+:mathematical-format: svg
+:imagesdir: ../images
+:imagesoutdir: ../images/generated_images
+// :author: ASAM e.V.
+:xrefstyle: short
+:bibtex-file: A_Appendix/bibliography.bib
+:bibtex-style: ieee
+
+
+ifdef::backend-pdf[]
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+endif::[]
+
+[IMPORTANT] 
+.Disclaimer
+==== 
+This document is the copyrighted property of ASAM e.V. 
+ 
+Any use is limited to the scope described in the license terms (https://www.asam.net/license). In alteration to the regular license terms, ASAM allows unrestricted distribution of this standard. §2 (1) of ASAM's regular https://www.asam.net/license[license terms] is therefore substituted by the following clause: "The licensor grants everyone a basic, non-exclusive and unlimited license to use the standard ASAM OpenSCENARIO". 
+====
+
+<<<
+
+toc::[]
+<<<
+include::foreword.adoc[]
+
+<<<
+include::Introduction/chapter.adoc[]
+
+<<<
+include::Relations_to_other_standards/chapter.adoc[]
+
+<<<
+include::Setting_up_OSI/chapter.adoc[]
+
+<<<
+include::The_basic_design_of_OSI/chapter.adoc[]
+
+<<<
+include::Use_cases/chapter.adoc[]
+
+<<<
+include::Packaging_OSI_models/chapter.adoc[]
+
+<<<
+include::Integrating_OSI_models/chapter.adoc[]
+
+<<<
+include::Improving_performance/chapter.adoc[]
+
+<<<
+include::Validating_OSI_messages/chapter.adoc[]
+
+<<<
+include::Visualizing_OSI_messages/chapter.adoc[]
+
+<<<
+include::Extending_OSI/chapter.adoc[]
+
+<<<
+include::Appendix/chapter.adoc[]
