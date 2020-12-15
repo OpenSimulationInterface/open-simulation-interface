@@ -517,7 +517,9 @@ message LongitudinalDistanceAction
 	// If set to true the traffic particpant shall approach the reference participant
 	// and follow woth the distance specified until the action is aborted.
 	// If set to false the action end as soon as the traffic participant has reached
-	// the 
+	// the cpecified distance. If set to true the traffic participant should follow
+	// the specified participant with the distance until the action is aborted.
+	//
 	optional bool follow = 5;
 	
 	// Parameter that assings either unlimited dynamics (if omitted) 
