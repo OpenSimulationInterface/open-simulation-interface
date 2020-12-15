@@ -489,6 +489,7 @@ message SpeedAction
 // \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
 // defining the reference traffic participant and the distance.
 //
+
 message LongitudinalDistanceAction 
 {
     // Action Header of the message
@@ -507,15 +508,15 @@ message LongitudinalDistanceAction
 	
 	// Determine the measurement of distance between TrafficParticipant
 	// True: Longitudinal distance is measured using the distance between closest bounding box points.
-    // False: Reference point distance is used
+    // False: Longitudinal distance is mesasured using the distance between the center of each objects bounding box
     //
 	optional bool freespace = 4;
 	
 	// Define wheather the traffic participant should only reach the distance once 
 	// or follow.
-	// If set to true the traffic particpant shall approach the reference participant
+	// True : the traffic particpant shall approach the reference participant
 	// and follow with the distance specified until the action is aborted.
-	// If set to false the action end as soon as the traffic participant has reached
+	// False : the action end as soon as the traffic participant has reached
 	// the specified distance. 
 	//
 	optional bool follow = 5;
@@ -536,6 +537,7 @@ message LongitudinalDistanceAction
 // \note This action is aligned with LateralDistanceAction of OpenSCENARIO 1.0
 // defining the reference traffic participant and the distance.
 //
+
 message LateralDistanceAction
 {
     // Action Header of the message
@@ -551,14 +553,18 @@ message LateralDistanceAction
 	optional double distance = 3;
 
 	// True: Lateral distance is measured using the distance between closest bounding box points.
-    // False: Reference point distance is used
+    // False: Lateral distance is mesasured using the distance between the center of each objects bounding box
     //
 	optional bool freespace = 4;
 
-	// If false, the action ends when the target distance is reached.
-    // If true it does not end and can only be stopped.
-    //
-	optional bool continuous = 5;
+	// Define wheather the traffic participant should only reach the distance once 
+	// or follow.
+	// True : the traffic particpant shall approach the reference participant
+	// and follow with the distance specified until the action is aborted.
+	// False : the action end as soon as the traffic participant has reached
+	// the specified distance. 
+	//
+	optional bool follow = 5;
 
 	// Parameter that assings either unlimited dynamics (if omitted) 
     // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
@@ -631,6 +637,7 @@ message LaneOffsetAction
 // \note This action is aligned with the TeleportAction of
 // OpenSCENARIO 1.0 using a WorldPosition position argument.
 //
+
 message TeleportAction
 {
     // The Action Header
@@ -704,6 +711,7 @@ message EndActionsAction
 // constraints on the TrafficParticipant not allowing them to exceed/drop below
 // certain speeds/acceleration levels.
 //
+
 message DynamicConstraints{
 	
 	//Maximum acceleration the distance contoller is allowed to use for keeping distance. 
