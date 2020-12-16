@@ -576,7 +576,7 @@ message LateralDistanceAction
     // Parameter that assings either unlimited dynamics (if omitted) 
     // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
     //
-	optional DynamicConstraints dynamic_constraints = 6;
+    optional DynamicConstraints dynamic_constraints = 6;
 }
 
 // \brief Lane Offset Action
