@@ -500,11 +500,11 @@ message LongitudinalDistanceAction
     //
     optional Identifier target_traffic_participant_id = 2;
 	
-	// The distance to reach along the lane
-	//
-	// Unit: m
-	//
-	optional double distance = 3;
+    // The distance to reach along the lane
+    //
+    // Unit: m
+    //
+    optional double distance = 3;
 	
     // Determine the measurement of longitudinal distance between the traffic
     // participant receiving this action and the reference traffic
@@ -514,14 +514,14 @@ message LongitudinalDistanceAction
     //
     optional bool freespace = 4;
 	
-	// Define wheather the traffic participant should only reach the distance once 
-	// or if it should also follow if after having reached it.
-	// True: the traffic participant shall approach the reference participant
-	// and follow with the distance specified until the action is aborted/ended.
-	// False: the action ends as soon as the traffic participant has reached
-	// the specified distance. 
-	//
-	optional bool follow = 5;
+    // Define wheather the traffic participant should only reach the distance once 
+    // or if it should also follow if after having reached it.
+    // True: the traffic participant shall approach the reference participant
+    // and follow with the distance specified until the action is aborted/ended.
+    // False: the action ends as soon as the traffic participant has reached
+    // the specified distance. 
+    //
+    optional bool follow = 5;
 	
     // Parameter that assings either unlimited dynamics (if omitted) 
     // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
@@ -559,7 +559,7 @@ message LateralDistanceAction
     // Determine the measurement of lateral distance between the traffic
     // participant receiving this action and the reference traffic
     // participant. 
-	// True: Lateral distance is measured using the distance between closest bounding box points.
+    // True: Lateral distance is measured using the distance between closest bounding box points.
     // False: Lateral distance is mesasured using the distance between the center of each object's bounding box.
     //
     optional bool freespace = 4;
