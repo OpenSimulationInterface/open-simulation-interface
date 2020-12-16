@@ -494,11 +494,11 @@ message LongitudinalDistanceAction
 {
     // Action Header of the message
     //
-	optional ActionHeader action_header = 1;
+    optional ActionHeader action_header = 1;
 	
-    // Unique Id of the refence traffic participant to which the distance is defined.
+    // Unique Id of the reference traffic participant to which the distance is defined.
     //
-	optional Identifier target_traffic_participant_id = 2;
+    optional Identifier target_traffic_participant_id = 2;
 	
 	// The distance to reach along the lane
 	//
@@ -506,25 +506,27 @@ message LongitudinalDistanceAction
 	//
 	optional double distance = 3;
 	
-	// Determine the measurement of distance between TrafficParticipant
-	// True: Longitudinal distance is measured using the distance between closest bounding box points.
-    // False: Longitudinal distance is mesasured using the distance between the center of each objects bounding box
+    // Determine the measurement of longitudinal distance between the traffic
+    // participant receiving this action and the reference traffic
+    // participant. 
+    // True: Longitudinal distance is measured using the distance between closest bounding box points.
+    // False: Longitudinal distance is mesasured using the distance between the center of each object's bounding box.
     //
-	optional bool freespace = 4;
+    optional bool freespace = 4;
 	
 	// Define wheather the traffic participant should only reach the distance once 
-	// or follow.
-	// True : the traffic particpant shall approach the reference participant
-	// and follow with the distance specified until the action is aborted.
-	// False : the action end as soon as the traffic participant has reached
+	// or if it should also follow if after having reached it.
+	// True: the traffic participant shall approach the reference participant
+	// and follow with the distance specified until the action is aborted/ended.
+	// False: the action ends as soon as the traffic participant has reached
 	// the specified distance. 
 	//
 	optional bool follow = 5;
 	
-	// Parameter that assings either unlimited dynamics (if omitted) 
+    // Parameter that assings either unlimited dynamics (if omitted) 
     // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
     //
-	optional DynamicConstraints dynamic_constraints = 6;
+    optional DynamicConstraints dynamic_constraints = 6;
 }
 
 
@@ -542,31 +544,36 @@ message LateralDistanceAction
 {
     // Action Header of the message
     //
-	optional ActionHeader action_header = 1;
+    optional ActionHeader action_header = 1;
 	
     // Id of the reference entity the lateral distance shall be kept to.
     //
-	optional Identifier target_traffic_participant_id = 2;
+    optional Identifier target_traffic_participant_id = 2;
 	
-    // Lateral distance value. Unit: m; Range: [0...inf]
+    // Lateral distance value. 
     //
-	optional double distance = 3;
+    // Unit: m
+    //
+    optional double distance = 3;
 
+    // Determine the measurement of lateral distance between the traffic
+    // participant receiving this action and the reference traffic
+    // participant. 
 	// True: Lateral distance is measured using the distance between closest bounding box points.
-    // False: Lateral distance is mesasured using the distance between the center of each objects bounding box
+    // False: Lateral distance is mesasured using the distance between the center of each object's bounding box.
     //
-	optional bool freespace = 4;
+    optional bool freespace = 4;
 
-	// Define wheather the traffic participant should only reach the distance once 
-	// or follow.
-	// True : the traffic particpant shall approach the reference participant
-	// and follow with the distance specified until the action is aborted.
-	// False : the action end as soon as the traffic participant has reached
-	// the specified distance. 
-	//
-	optional bool follow = 5;
+    // Define wheather the traffic participant should only reach the distance once 
+    // or if it should also follow if after having reached it.
+    // True: the traffic particpant shall approach the reference participant
+    // and follow with the distance specified until the action is aborted/ended.
+    // False: the action ends as soon as the traffic participant has reached
+    // the specified distance. 
+    //
+    optional bool follow = 5;
 
-	// Parameter that assings either unlimited dynamics (if omitted) 
+    // Parameter that assings either unlimited dynamics (if omitted) 
     // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
     //
 	optional DynamicConstraints dynamic_constraints = 6;
@@ -588,11 +595,11 @@ message LaneOffsetAction
     optional ActionHeader action_header = 1;
     
     // Targeted lane offset in meters relative to the centerline of the
-	// current lane. Positive values mean left of the centerline, 
+    // current lane. Positive values mean left of the centerline, 
     // negative values mean right of the centerline. 
     //
-	// Unit: m
-	//
+    // Unit: m
+    //
     optional double target_lane_offset = 2;
     
     // Specified transition shape of reaching the lane offset. 
@@ -712,22 +719,25 @@ message EndActionsAction
 // certain speeds/acceleration levels.
 //
 
-message DynamicConstraints{
-	
-	//Maximum acceleration the distance contoller is allowed to use for keeping distance. 
-	//Unit: m/s2; Range: [0..inf]
-	//
-	optional double max_acceleration = 1;
+message DynamicConstraints
+{
+    // Maximum acceleration the distance contoller is allowed to use for keeping distance. 
+    //
+    // Unit: m/s^2
+    //
+    optional double max_acceleration = 1;
 
-	//Maximum deceleration the distance contoller is allowed to use for keeping distance. 
-	//Unit: m/s2; Range: [0..inf]
-	//
-	optional double max_deceleration = 2;
+    // Maximum deceleration the distance contoller is allowed to use for keeping distance. 
+    //
+    // Unit: m/s^2
+    //
+    optional double max_deceleration = 2;
 
-	//Maximum speed the distance contoller is allowed to use for keeping distance. 
-	//Unit: m/s2; Range: [0..inf]
-	//
-	optional double max_speed = 3;
+    // Maximum speed the distance contoller is allowed to use for keeping distance. 
+    //
+    // Unit: m/s
+    //
+    optional double max_speed = 3;
 }
 
 //
