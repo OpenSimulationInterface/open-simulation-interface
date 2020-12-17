@@ -8,11 +8,12 @@ import "osi_version.proto";
 package osi3;
 
 //
-// \brief This message is intended as an interface between a HAD (highly automated dricing) function and the actuator management.
-// The HAD function can send either an a desired future trajectory ore a desired future state.
+// \brief This message is intended as an interface between a HAD (highly automated driving) function and the actuator management.
+// The HAD function can send either a desired future trajectory ore a desired future state.
 // The message to be used can be defined by a additional variable.
 //
 // All coordinates and orientations are relative to the global coordinate system.
+// The reference point of the vehicle is the center of the 3D bounding box of the vehicle.
 //
 message MotionRequest
 {
@@ -24,14 +25,13 @@ message MotionRequest
 	enum OutputOptions {
 		DESIRED_STATE = 0;
 		TRAJECTORY = 1;
-	
 	}
     
 	//
 	// Define the option that is used to specify the motion request.
 	// This must be set. Additionaly the field corresponding to the specified option must be set.
 	//
-    optional OutputOptions output_option = 1;
+        optional OutputOptions output_option = 1;
 	
 	//
 	// Defines a desired state.
@@ -61,28 +61,27 @@ message Trajectory {
 //
 message DesiredState
 {  
+    //
+    // The timestamp indicates at which point in time the state needs to be reached, 
+    // given in global simulation time.
+    //
+    optional Timestamp timestamp = 1;
 
-	//
-	// The timestamp indicates at which point in time the state needs to be reached, 
-	// given in global simulation time.
-	//
-	optional Timestamp timestamp = 1;
-
-    // intended position to be reached in x and y direction.
+    // intended position to be reached in x, y and z direction.
     //
-    optional Vector2d desired_pos = 2;
+    optional Vector3d position = 2;
     
-    // intended heading to be reached.
+    // intended orientation to be reached containing roll, pitch and yaw angle
     //
-    optional double desired_heading = 3;
+    optional Orientation3d  orientation = 3;
     
-    // intended velocity to be reached in x and y direction
+    // intended velocity to be reached in x, y and z direction
     //
-    optional Vector2d desired_velocity = 4;
+    optional Vector3d velocity = 4;
     
-    // intended acceleration to be reached in x and y direction
+    // intended acceleration to be reached in x, y and z direction
     //
-    optional Vector2d desired_acceleration = 5;
+    optional Vector3d acceleration = 5;
 
 }
 
