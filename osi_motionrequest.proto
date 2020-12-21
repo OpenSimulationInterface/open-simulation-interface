@@ -57,7 +57,7 @@ message Trajectory {
 
 //
 // \brief The desired state calculated by the HAD function as a result of the motion planning stack.
-// The actuator management is supposed reach the desired state at the specified time.
+// The actuator management is supposed to reach the desired state at the specified time.
 //
 message DesiredState
 {  
