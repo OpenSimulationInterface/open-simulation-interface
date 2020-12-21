@@ -10,11 +10,17 @@ import "osi_hostvehicledata.proto";
 package osi3;
 
 //
+<<<<<<< HEAD
 // \brief The traffic update message is provided by traffic participant
 // models to provide updates to their position, state and future
 // trajectory back to the simulation environment. The message is
 // designed to update data of exactly one traffic participant,
 // optionally with an attached trailer. 
+=======
+// \brief The traffic update message is provided by traffic
+// participant models to provide updates to their position, state,
+// and future trajectory back to the simulation environment.
+>>>>>>> 9af16d40 (feat (docs): grammar)
 //
 // \note For reasons of convenience and consistency, the updated
 // information is provided as a MovingObject.  Certain fields of this
