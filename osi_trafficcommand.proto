@@ -106,7 +106,7 @@ message TrafficAction
     //
     optional LongitudinalDistanceAction longitudinal_distance_action = 9;
 	
-    // A LongitudinalDistanceAction
+    // A LaneOffsetAction
     //
     optional LaneOffsetAction lane_offset_action = 10;	
 	
