@@ -229,8 +229,8 @@ message FollowTrajectoryAction
 //
 // \brief Follow path action.
 //
-// Controls a traffic participant to follow a trajectory using vertices
-// with timings. It specifies the motion in space independent of time.
+// Controls a traffic participant to follow a path using vertices. It 
+// specifies the motion in space independent of time.
 //
 // \note The StatePoint messages in path_point only requires a specified 
 // position field. The orientation can be set optionally. Any
@@ -482,12 +482,17 @@ message SpeedAction
 
 // \brief Longitudinal Distance Action
 //
-// The action tells the traffic participant to reach a longitudinal distance to 
-// another traffic participant. The longitudinal distance is defined as the distance
-// along the lane. 
+// The action tells the (host) traffic participant to reach a certain longitudinal distance  
+// relative to a target traffic participant. The longitudinal distance is defined as the distance
+// along the centerline of the lane, on which the (host) traffic participant is currently located. 
+// The interpolation strategy between centerline points for calculating 
+// that distance along the centerline is open to the traffic participant modeller.  
 //
 // \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
 // defining the reference traffic participant and the distance.
+//
+// \note Limitation: This concept currently only works for lanes with a centerline, i.e. for lanes 
+// of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING or TYPE_INTERSECTION.
 //
 
 message LongitudinalDistanceAction 
@@ -532,12 +537,17 @@ message LongitudinalDistanceAction
 
 // \brief Lateral Distance Action 
 //
-// The action tells the traffic participant to reach a lateral distance to 
-// another traffic participant. The lateral distance is defined as the perpendicular to the current lane
-// along the lane. 
+// The action tells the (host) traffic participant to reach a certain lateral distance relative to 
+// a target traffic participant. The lateral distance is defined along an imaginative perpendicular line
+// with respect to the centerline of the current (host) traffic participant's lane. 
+// The interpolation strategy between centerline points for calculating that distance along the imaginative 
+// perpendicular line is open to the traffic participant modeller.  
 //
 // \note This action is aligned with LateralDistanceAction of OpenSCENARIO 1.0
 // defining the reference traffic participant and the distance.
+//
+// \note Limitation: This concept currently only works for lanes with a centerline, i.e. for lanes 
+// of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING or TYPE_INTERSECTION.
 //
 
 message LateralDistanceAction
@@ -595,7 +605,7 @@ message LaneOffsetAction
     optional ActionHeader action_header = 1;
     
     // Targeted lane offset in meters relative to the centerline of the
-    // current lane. Positive values mean left of the centerline, 
+    // current traffic participant's lane. Positive values mean left of the centerline, 
     // negative values mean right of the centerline. 
     //
     // Unit: m
