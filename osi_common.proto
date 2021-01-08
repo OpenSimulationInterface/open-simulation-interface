@@ -358,6 +358,8 @@ message BaseMoving
 {
     // The 3D dimension of the moving object (its bounding box).
     //
+    // \note The bounding box does NOT include side mirrors for vehicles.
+    //
     optional Dimension3d dimension = 1;
 
     // The reference point for position and orientation: the center (x,y,z) of
