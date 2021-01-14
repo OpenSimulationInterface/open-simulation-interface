@@ -6,6 +6,7 @@ import random
 
 """
 This program generates currently random scenarios with predefined message count and moving object count.
+This scenario generator can also be used to test the performance of osi-visualizer.
 
 Example usage:
     python gen_scenario.py --output "movingobject" --message 10 --moving_objects 5 --random
@@ -42,6 +43,14 @@ def command_line_arguments():
         required=False,
     )
     parser.add_argument(
+        "--stationary_objects",
+        "-so",
+        help="Count of the stationary objects.",
+        default=0,
+        type=int,
+        required=False,
+    )
+    parser.add_argument(
         "--random",
         "-r",
         help="Random placement of objects into the world.",
@@ -62,6 +71,7 @@ def main():
     output = args.output
 
     moving_objects_dict = {}
+    stationary_objects_dict = {}
 
     """Initialize SensorView"""
     f = open(f"sv_312_320_{moving_objects_count}_{output}.osi", "ab")
@@ -100,18 +110,47 @@ def main():
         # Save in dictionary
         moving_objects_dict[mo] = moving_object
 
+    # Create stationary object dictionary
+    for so in range(args.stationary_objects):
+        stationary_object = sv_ground_truth.stationary_object.add()
+        stationary_object.id.value = so
+
+        stationary_object.base.position.x = random.randint(0, 10000) if use_random else 0.0
+        stationary_object.base.position.y = random.randint(0, 100) if use_random else 0.0
+        stationary_object.base.position.z = random.randint(0, 100) if use_random else 0.0
+
+        # Object dimension
+        stationary_object.base.dimension.length = 5
+        stationary_object.base.dimension.width = 5
+        stationary_object.base.dimension.height = 5
+
+        # Direction
+        stationary_object.base.orientation.roll = 0.0
+        stationary_object.base.orientation.pitch = 0.0
+        stationary_object.base.orientation.yaw = 0.0
+
+        # Save in dictionary
+        stationary_objects_dict[so] = stationary_object
+
     # Generate OSI messages
+    nano_increment = 10000000
     for message_num in range(args.messages):
 
         # Increment the time by one second
-        sv_ground_truth.timestamp.seconds += 1
-        sv_ground_truth.timestamp.nanos = 0
+        if sv_ground_truth.timestamp.nanos > 1000000000:
+            sv_ground_truth.timestamp.seconds += 1
+            sv_ground_truth.timestamp.nanos = 0
+        sv_ground_truth.timestamp.nanos += nano_increment
 
         for mo_key, mo in moving_objects_dict.items():
 
-            mo.base.position.x += 1
+            mo.base.position.x += 0.5
             mo.base.position.y = mo.base.position.y
             mo.base.position.z = mo.base.position.z
+
+            mo.base.orientation.yaw += 0.1
+            mo.base.orientation.roll += 0.1
+            mo.base.orientation.pitch += 0.1
 
         """Serialize"""
         bytes_buffer = sensorview.SerializeToString()
