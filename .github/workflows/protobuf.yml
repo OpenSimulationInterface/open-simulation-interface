@@ -7,12 +7,17 @@ on:
 
 jobs:
 <<<<<<< HEAD
+<<<<<<< HEAD
   build-proto2-linux64:
     name: Build Proto2 Linux 64
 =======
   build-cpp-linux64:
     name: Build C++ Linux 64
 >>>>>>> Initial GitHub Actions CPP ProtoBuf Build
+=======
+  build-proto2-linux64:
+    name: Build Proto2 Linux 64
+>>>>>>> Add Python ProtoBuf build
 
     runs-on: ubuntu-18.04
 
@@ -23,6 +28,9 @@ jobs:
         submodules: true
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Add Python ProtoBuf build
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
@@ -31,9 +39,12 @@ jobs:
     - name: Install Python Dependencies
       run: python -m pip install --upgrade pip setuptools wheel pyyaml
 
+<<<<<<< HEAD
     - name: Install Doxygen
       run: sudo apt-get install doxygen graphviz
 
+=======
+>>>>>>> Add Python ProtoBuf build
     - name: Cache Dependencies
       id: cache-depends
       uses: actions/cache@v2
@@ -180,14 +191,27 @@ jobs:
       working-directory: protobuf-3.11.3
       run: sudo make install && sudo ldconfig
 
-    - name: Prepare Build
+    - name: Prepare C++ Build
       run: mkdir build
 
-    - name: Configure Build
+    - name: Configure C++ Build
       working-directory: build
       run: cmake ..
 
-    - name: Build
+    - name: Build C++
       working-directory: build
       run: cmake --build . --config Release -j 4
+<<<<<<< HEAD
 >>>>>>> Initial GitHub Actions CPP ProtoBuf Build
+=======
+
+    - name: Build Python
+      run: python setup.py build && python setup.py sdist 
+
+    - name: Install Python
+      run: python -m pip install .
+
+    - name: Run Python Tests
+      run: python -m unittest discover tests
+
+>>>>>>> Add Python ProtoBuf build
