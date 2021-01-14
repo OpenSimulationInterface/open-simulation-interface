@@ -1,0 +1,49 @@
+name: ProtoBuf CI Builds
+
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-cpp-linux64:
+    name: Build C++ Linux 64
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Checkout OSI
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Cache Dependencies
+      id: cache-depends
+      uses: actions/cache@v2
+      with:
+        path: protobuf-3.11.3
+        key: ${{ runner.os }}-v1-depends
+
+    - name: Download ProtoBuf
+      if: steps.cache-depends.outputs.cache-hit != 'true'
+      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.3/protobuf-all-3.11.3.tar.gz && tar xzvf protobuf-all-3.11.3.tar.gz
+
+    - name: Build ProtoBuf
+      if: steps.cache-depends.outputs.cache-hit != 'true'
+      working-directory: protobuf-3.11.3
+      run: ./configure DIST_LANG=cpp --prefix=/usr && make
+
+    - name: Install ProtoBuf
+      working-directory: protobuf-3.11.3
+      run: sudo make install && sudo ldconfig
+
+    - name: Prepare Build
+      run: mkdir build
+
+    - name: Configure Build
+      working-directory: build
+      run: cmake ..
+
+    - name: Build
+      working-directory: build
+      run: cmake --build . --config Release -j 4
