@@ -6,6 +6,7 @@ var structosi3_1_1GroundTruth =
     [ "lane", "structosi3_1_1GroundTruth.html#a5b6fb61bebe56eb509f4e5ca833d5a49", null ],
     [ "lane_boundary", "structosi3_1_1GroundTruth.html#a06abefd3ac8111dc471a3296a4b98b37", null ],
     [ "map_reference", "structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e", null ],
+    [ "model_reference", "structosi3_1_1GroundTruth.html#a83042861723a4a9e890a53aa98d88858", null ],
     [ "moving_object", "structosi3_1_1GroundTruth.html#ac0cc92fce3e8e5a7d067a3a456b3d0ec", null ],
     [ "occupant", "structosi3_1_1GroundTruth.html#adef71408537b15e4047667dd5b56b964", null ],
     [ "proj_string", "structosi3_1_1GroundTruth.html#af5f78f308a00d74ece79410eb7913006", null ],

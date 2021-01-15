@@ -9,5 +9,7 @@ var searchData=
   ['fog_5fother',['FOG_OTHER',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a09d5d6482981492d8c48fb259b31edb2',1,'osi3::EnvironmentalConditions']]],
   ['fog_5fpoor_5fvisibility',['FOG_POOR_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a8a9f171205a8b9ab0e87b3e53ec04491',1,'osi3::EnvironmentalConditions']]],
   ['fog_5fthick',['FOG_THICK',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a5387a537ed7986d142604a3f3f6f3544',1,'osi3::EnvironmentalConditions']]],
-  ['fog_5funknown',['FOG_UNKNOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4afd12ec3453aeecfd945d1fd6896deeaa',1,'osi3::EnvironmentalConditions']]]
+  ['fog_5funknown',['FOG_UNKNOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4afd12ec3453aeecfd945d1fd6896deeaa',1,'osi3::EnvironmentalConditions']]],
+  ['following_5fmode_5ffollow',['FOLLOWING_MODE_FOLLOW',['../structosi3_1_1FollowTrajectoryAction.html#a536d21ee2345b70f3e5a6c410cfd7458a154949e8c484fd37939613ae53dc9611',1,'osi3::FollowTrajectoryAction::FOLLOWING_MODE_FOLLOW()'],['../structosi3_1_1FollowPathAction.html#a4b00e28137ee43daabdc1de6e61b3ee2a498c29212e75cdd8943a1b4f5aa9d9e7',1,'osi3::FollowPathAction::FOLLOWING_MODE_FOLLOW()']]],
+  ['following_5fmode_5fposition',['FOLLOWING_MODE_POSITION',['../structosi3_1_1FollowTrajectoryAction.html#a536d21ee2345b70f3e5a6c410cfd7458abf3a02a8d86ee64672538127c6b1575f',1,'osi3::FollowTrajectoryAction::FOLLOWING_MODE_POSITION()'],['../structosi3_1_1FollowPathAction.html#a4b00e28137ee43daabdc1de6e61b3ee2a337aa16f0c2640c34cca45ebd85cfb84',1,'osi3::FollowPathAction::FOLLOWING_MODE_POSITION()']]]
 ];

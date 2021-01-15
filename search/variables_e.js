@@ -16,6 +16,7 @@ var searchData=
   ['reflection',['reflection',['../structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d',1,'osi3::RadarSensorView::reflection()'],['../structosi3_1_1LidarSensorView.html#abd48c19b5ae9ddee52c269b0dbc11686',1,'osi3::LidarSensorView::reflection()']]],
   ['reflectivity',['reflectivity',['../structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42',1,'osi3::LidarDetection']]],
   ['relative_5fhumidity',['relative_humidity',['../structosi3_1_1EnvironmentalConditions.html#a05b6f530a842deef881608e131f3b98a',1,'osi3::EnvironmentalConditions']]],
+  ['relative_5ftarget_5flane',['relative_target_lane',['../structosi3_1_1LaneChangeAction.html#af39ed748fbe94e6fe3d982904106a146',1,'osi3::LaneChangeAction']]],
   ['response',['response',['../structosi3_1_1RadarSensorViewConfiguration_1_1AntennaDiagramEntry.html#af52433c9c212034b606903e35c68719a',1,'osi3::RadarSensorViewConfiguration::AntennaDiagramEntry']]],
   ['reversing_5flight',['reversing_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a4ff4d25be361bc831238a27a197503a6',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['right_5fadjacent_5flane_5fid',['right_adjacent_lane_id',['../structosi3_1_1Lane_1_1Classification.html#a9a5f956fd6acea0205ae10a7b2475145',1,'osi3::Lane::Classification']]],

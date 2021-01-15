@@ -2,6 +2,7 @@ var searchData=
 [
   ['lane',['Lane',['../structosi3_1_1Lane.html',1,'osi3']]],
   ['laneboundary',['LaneBoundary',['../structosi3_1_1LaneBoundary.html',1,'osi3']]],
+  ['lanechangeaction',['LaneChangeAction',['../structosi3_1_1LaneChangeAction.html',1,'osi3']]],
   ['lanepairing',['LanePairing',['../structosi3_1_1Lane_1_1Classification_1_1LanePairing.html',1,'osi3::Lane::Classification']]],
   ['lidardetection',['LidarDetection',['../structosi3_1_1LidarDetection.html',1,'osi3']]],
   ['lidardetectiondata',['LidarDetectionData',['../structosi3_1_1LidarDetectionData.html',1,'osi3']]],

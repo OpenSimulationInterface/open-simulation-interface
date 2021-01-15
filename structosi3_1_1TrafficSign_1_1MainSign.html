@@ -102,14 +102,14 @@ Collaboration diagram for osi3::TrafficSign::MainSign:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficSign_1_1MainSign__coll__graph.png" border="0" usemap="#osi3_1_1TrafficSign_1_1MainSign_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficSign_1_1MainSign_coll__map" id="osi3_1_1TrafficSign_1_1MainSign_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html" title="Classification data for a traffic sign. " alt="" coords="360,157,536,198"/>
-<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="37,113,151,140"/>
-<area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="14,265,174,292"/>
-<area shape="rect" id="node9" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="370,367,526,393"/>
-<area shape="rect" id="node10" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="21,316,167,343"/>
-<area shape="rect" id="node11" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="23,367,165,393"/>
-<area shape="rect" id="node12" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="37,417,151,444"/>
-<area shape="rect" id="node13" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="37,468,151,495"/>
+<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html" title="Classification data for a traffic sign. " alt="" coords="555,157,731,198"/>
+<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="231,63,346,89"/>
+<area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="209,215,369,241"/>
+<area shape="rect" id="node10" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="565,417,721,444"/>
+<area shape="rect" id="node11" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="215,519,362,545"/>
+<area shape="rect" id="node12" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="217,367,360,393"/>
+<area shape="rect" id="node13" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="231,417,346,444"/>
+<area shape="rect" id="node14" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="231,468,346,495"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -125,6 +125,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aaa39dda4c96ae6e95648c93ea20020f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae44a444bc475718ee65da09e494b7909"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#ae44a444bc475718ee65da09e494b7909">classification</a> = 2</td></tr>
 <tr class="separator:ae44a444bc475718ee65da09e494b7909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae363de582f13f08df687a1213c7dcaac"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#ae363de582f13f08df687a1213c7dcaac">model_reference</a> = 3</td></tr>
+<tr class="separator:ae363de582f13f08df687a1213c7dcaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main sign of the traffic sign. </p>
@@ -160,6 +162,22 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The classification of the traffic sign. </p>
+
+</div>
+</div>
+<a id="ae363de582f13f08df687a1213c7dcaac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae363de582f13f08df687a1213c7dcaac">&#9670;&nbsp;</a></span>model_reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::MainSign::model_reference = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opaque reference of an associated 3D model of the traffic sign.</p>
+<dl class="section note"><dt>Note</dt><dd>It is implementation-specific how model_references are resolved to 3d models. </dd></dl>
 
 </div>
 </div>

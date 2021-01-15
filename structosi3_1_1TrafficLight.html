@@ -103,7 +103,7 @@ Collaboration diagram for osi3::TrafficLight:</div>
 <div class="center"><img src="structosi3_1_1TrafficLight__coll__graph.png" border="0" usemap="#osi3_1_1TrafficLight_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficLight_coll__map" id="osi3_1_1TrafficLight_coll__map">
 <area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="233,541,348,568"/>
-<area shape="rect" id="node10" href="structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light. " alt="" coords="543,391,671,433"/>
+<area shape="rect" id="node11" href="structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light. " alt="" coords="543,415,671,457"/>
 <area shape="rect" id="node4" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="529,159,685,185"/>
 <area shape="rect" id="node5" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="217,20,364,47"/>
 <area shape="rect" id="node7" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="219,91,362,117"/>
@@ -126,6 +126,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aeefce8098088bda54a5c1659b30204d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa26deaed88b5bd4e0c0c8c99eafcfa4e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficLight.html#aa26deaed88b5bd4e0c0c8c99eafcfa4e">classification</a> = 3</td></tr>
 <tr class="separator:aa26deaed88b5bd4e0c0c8c99eafcfa4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c2f178339b6305497879eede6ce0db"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficLight.html#a40c2f178339b6305497879eede6ce0db">model_reference</a> = 4</td></tr>
+<tr class="separator:a40c2f178339b6305497879eede6ce0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A traffic light. </p>
@@ -178,6 +180,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The ID of the traffic light.</p>
 <p>is_globally_unique  </p>
+
+</div>
+</div>
+<a id="a40c2f178339b6305497879eede6ce0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c2f178339b6305497879eede6ce0db">&#9670;&nbsp;</a></span>model_reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficLight::model_reference = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opaque reference of an associated 3D model of the traffic light.</p>
+<dl class="section note"><dt>Note</dt><dd>It is implementation-specific how model_references are resolved to 3d models. </dd></dl>
 
 </div>
 </div>

@@ -39,6 +39,7 @@ var searchData=
   ['source_5fhorizontal_5fangle',['source_horizontal_angle',['../structosi3_1_1RadarSensorView_1_1Reflection.html#a742f95122eba3b187623a07e08b8d0b4',1,'osi3::RadarSensorView::Reflection']]],
   ['source_5fvertical_5fangle',['source_vertical_angle',['../structosi3_1_1RadarSensorView_1_1Reflection.html#a8aef801568939be8168ecaf34dacf5af',1,'osi3::RadarSensorView::Reflection']]],
   ['specific_5fheader',['specific_header',['../structosi3_1_1UltrasonicDetectionData.html#aa9ebd0b90782a774aa0844fa62972e29',1,'osi3::UltrasonicDetectionData::specific_header()'],['../structosi3_1_1CameraDetectionData.html#a11cef014d85334c612d4bf8d37e5276a',1,'osi3::CameraDetectionData::specific_header()']]],
+  ['speed_5faction',['speed_action',['../structosi3_1_1TrafficAction.html#ad871b1104f7d3da64095ffef284d9c7f',1,'osi3::TrafficAction']]],
   ['stationary_5fobject',['stationary_object',['../structosi3_1_1GroundTruth.html#ab3ed9b77d4db3fda6a8a03a4cbd37d50',1,'osi3::GroundTruth::stationary_object()'],['../structosi3_1_1SensorData.html#a88c9ebfc5962c362385bb7ca80b3a696',1,'osi3::SensorData::stationary_object()']]],
   ['stationary_5fobject_5fheader',['stationary_object_header',['../structosi3_1_1SensorData.html#a8919ed1a34cf43726b59721fa688e240',1,'osi3::SensorData']]],
   ['steering_5fcontrol',['steering_control',['../structosi3_1_1Occupant_1_1Classification.html#a3c558469319b38ab91d21fd208893151',1,'osi3::Occupant::Classification']]],
