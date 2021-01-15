@@ -56,6 +56,7 @@ jobs:
 
     - name: Prepare Documentation Bukd
       run: |
+        sed -i 's/@VERSION_PATCH@/@VERSION_PATCH@_GitHub_MasterBranch/g' doxygen_config.cmake.in
         echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-3.11.3/* */proto2cpp/*" >> doxygen_config.cmake.in
         echo "GENERATE_TREEVIEW = YES" >> doxygen_config.cmake.in
 
