@@ -47,7 +47,7 @@ message MotionRequest
 	optional Trajectory desired_trajectory = 3;
 
 	//
-	// \brief The desired state calculated by the HAD function as a result of the motion planning stack.
+	// \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
 	// The actuator management is supposed to reach the desired state at the specified time.
 	//
 	message DesiredState
@@ -62,7 +62,7 @@ message MotionRequest
 	    //
 	    optional Vector3d position = 2;
 
-	    // intended orientation to be reached containing roll, pitch, and yaw angle
+	    // intended orientation to be reached containing yaw, pitch and roll angle
 	    //
 	    optional Orientation3d  orientation = 3;
 
@@ -78,12 +78,14 @@ message MotionRequest
 	
 	//
 	// \brief Defined trajectory desired by the HAD function. This trajectory is the result of the trajectory planning step
-	// in the HAD function. The task of the acutator management is to follow the trajectory as close as possible.
+	// in the HAD function. The task of the acutator management is to follow this trajectory as closely as possible.
 	// The timestamps inside the trajecotry must be defined in global simulation time. 
-	// \note Kept as a seperate message for future extensions
+	// \note Trajectory is kept as a separate message for future extensions
 	//
 	message Trajectory 
 	{
+		// consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached
+		//
 		repeated StatePoint trajectory_point = 1;
 	}
 
