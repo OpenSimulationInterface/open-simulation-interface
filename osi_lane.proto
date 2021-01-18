@@ -178,6 +178,12 @@ message Lane
         // the centerline of lane l4 (black line) is given by
         // (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5).
         //
+        // \image html OSI_LaneBoundaries_And_CenterLine.svg "Centerline" width=500px
+        //
+        // \note 
+        // cl: center line
+        // lb: lane boundary
+        //
         // \attention The points desribing the center line must be set in the 
         // same ordering (ascending or descending) as the points desribing the 
         // lane boundaries. Example: If the points are deducted from a map format, 
@@ -605,6 +611,12 @@ message LaneBoundary
 
     //
     // \brief A single point of a lane boundary.
+    //
+    // \image html OSI_LaneBoundaries_And_CenterLine.svg "" width=800px
+    //
+    // \note 
+    // cl: center line
+    // lb: lane boundary
     //
     // \image html OSI_LaneBoundary.svg "" width=800px
     //
