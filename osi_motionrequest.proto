@@ -22,7 +22,8 @@ message MotionRequest
 	// Define different options for HAD function ouput.
 	// Each option is corresponds to a field in the message.
 	//
-	enum OutputOptions {
+	enum OutputOptions 
+	{
 		DESIRED_STATE = 0;
 		TRAJECTORY = 1;
 	}
@@ -44,45 +45,46 @@ message MotionRequest
 	// If the output option is set to DESIRED_TRAJECTORY, this must be set.
 	//
 	optional Trajectory desired_trajectory = 3;
+
+	//
+	// \brief The desired state calculated by the HAD function as a result of the motion planning stack.
+	// The actuator management is supposed to reach the desired state at the specified time.
+	//
+	message DesiredState
+	{  
+	    //
+	    // The timestamp indicates the point in time the state needs to be reached, 
+	    // given in global simulation time.
+	    //
+	    optional Timestamp timestamp = 1;
+
+	    // intended position to be reached in x, y, and z direction.
+	    //
+	    optional Vector3d position = 2;
+
+	    // intended orientation to be reached containing roll, pitch, and yaw angle
+	    //
+	    optional Orientation3d  orientation = 3;
+
+	    // intended velocity to be reached in x, y, and z direction
+	    //
+	    optional Vector3d velocity = 4;
+
+	    // intended acceleration to be reached in x, y, and z direction
+	    //
+	    optional Vector3d acceleration = 5;
+
+	}
+	
+	//
+	// \brief Defined trajectory desired by the HAD function. This trajectory is the result of the trajectory planning step
+	// in the HAD function. The task of the acutator management is to follow the trajectory as close as possible.
+	// The timestamps inside the trajecotry must be defined in global simulation time. 
+	// \note Kept as a seperate message for future extensions
+	//
+	message Trajectory 
+	{
+		repeated StatePoint trajectory_point = 1;
+	}
+
 }
-
-//
-// \brief Defined the trajectory desired by the HAD function. This trajectory is the result of the trajctory planning step
-// in the HAD function. The task of the acutator management is to follow the trajectory as close as possible.
-// The timestamps inside the trajecotry must be defined in global simulation time.
-//
-message Trajectory {
-	repeated StatePoint trajectory_point = 1;
-}
-
-//
-// \brief The desired state calculated by the HAD function as a result of the motion planning stack.
-// The actuator management is supposed to reach the desired state at the specified time.
-//
-message DesiredState
-{  
-    //
-    // The timestamp indicates the point in time the state needs to be reached, 
-    // given in global simulation time.
-    //
-    optional Timestamp timestamp = 1;
-
-    // intended position to be reached in x, y, and z direction.
-    //
-    optional Vector3d position = 2;
-    
-    // intended orientation to be reached containing roll, pitch, and yaw angle
-    //
-    optional Orientation3d  orientation = 3;
-    
-    // intended velocity to be reached in x, y, and z direction
-    //
-    optional Vector3d velocity = 4;
-    
-    // intended acceleration to be reached in x, y, and z direction
-    //
-    optional Vector3d acceleration = 5;
-
-}
-
-
