@@ -133,6 +133,9 @@ Public Attributes</h2></td></tr>
 <div class="image">
 <object type="image/svg+xml" data="OSI_BaseMoving.svg">OSI_BaseMoving.svg</object>
 </div>
+<div class="image">
+<object type="image/svg+xml" data="OSI_BaseMoving_Top.svg">OSI_BaseMoving_Top.svg</object>
+</div>
 <p>E.g. a vehicle is a base moving object.</p>
 <p>All coordinates and orientations from ground truth objects are relative to the global ground truth frame. All coordinates and orientations from detected objects are relative to the host vehicle frame (see: <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> vehicle reference point). </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
@@ -181,7 +184,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The 3D dimension of the moving object (its bounding box). </p>
+<p>The 3D dimension of the moving object (its bounding box).</p>
+<dl class="section note"><dt>Note</dt><dd>The bounding box does NOT include side mirrors for vehicles. </dd></dl>
 
 </div>
 </div>
