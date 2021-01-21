@@ -262,7 +262,14 @@ Intersection</div></div>
 <div class="caption">
 Centerline</div></div>
 <p>Example: In image <a class="el" href="structosi3_1_1Lane_1_1Classification.html#HighwayExit">HighwayExit</a>, the centerline of lane l4 (black line) is given by (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5).</p>
-<dl class="section attention"><dt>Attention</dt><dd>The points describing the center line might be set at arbitrary distances. When the points are pairwise linearly connected, the lateral distance to the real ideal line (as used by the simulation environment internally) must not exceed 5cm. As shown in the following image:</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="OSI_LaneBoundaries_And_CenterLine.svg" width="500px">OSI_LaneBoundaries_And_CenterLine.svg</object>
+<div class="caption">
+Centerline</div></div>
+<dl class="section note"><dt>Note</dt><dd>cl: center line lb: lane boundary</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>The points desribing the center line must be set in the same ordering (ascending or descending) as the points desribing the lane boundaries. Example: If the points are deducted from a map format, the order of points is recommended to be in line with the road coordinate (e.g. s-coordinate in OpenDRIVE).</dd>
+<dd>
+The points describing the center line might be set at arbitrary distances. When the points are pairwise linearly connected, the lateral distance to the real ideal line (as used by the simulation environment internally) must not exceed 5cm. As shown in the following image:</dd></dl>
 <div class="image">
 <object type="image/svg+xml" data="line_approximation_error.svg">line_approximation_error.svg</object>
 <div class="caption">
@@ -357,7 +364,7 @@ OSI uses singular instead of plural for repeated field names.</dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>List of IDs of all lane segments that are directly adjacent to the lane on the left side (w.r.t. intended driving direction). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent segments if there is a split/merge point in the adjacent lane.</p>
+<p>List of IDs of all lane segments that are directly adjacent to the lane on the left side (w.r.t. ascending order of centerline points and lane boundary points). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent segments if there is a split/merge point in the adjacent lane.</p>
 <p>Example: The lane l3 is the only left adjacent lane for lane l4 in image <a class="el" href="structosi3_1_1Lane_1_1Classification.html#HighwayExit">HighwayExit</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>The <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#afa68d060422444ad5453dd9d3fc414eb">left_adjacent_lane_id</a></code> is undefined for <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a8cd72d8448d3b02adb6a2337f9a9d6f8">type</a></code> = <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#ac3ca1e440d72a4bd5a640212edf73168a15483ca4d0d24c2e18d158167416d03e">TYPE_INTERSECTION</a></code> .</dd>
 <dd>
@@ -399,7 +406,7 @@ OSI uses singular instead of plural for repeated field names.</dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>List of IDs of all lane segments that are directly adjacent to the lane on the right side (w.r.t. intended driving direction). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent segments if there is a split/merge point in the adjacent lane.</p>
+<p>List of IDs of all lane segments that are directly adjacent to the lane on the right side (w.r.t. ascending order of centerline points and lane boundary points). Note that lengths of lane segments are not synchronized and therefore there are multiple adjacent segments if there is a split/merge point in the adjacent lane.</p>
 <p>Example: <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a9a5f956fd6acea0205ae10a7b2475145">right_adjacent_lane_id</a></code> = (l5, l6) for lane l4 in image <a class="el" href="structosi3_1_1Lane_1_1Classification.html#HighwayExit">HighwayExit</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>The <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a9a5f956fd6acea0205ae10a7b2475145">right_adjacent_lane_id</a></code> is undefined for <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a8cd72d8448d3b02adb6a2337f9a9d6f8">type</a></code> = <code><a class="el" href="structosi3_1_1Lane_1_1Classification.html#ac3ca1e440d72a4bd5a640212edf73168a15483ca4d0d24c2e18d158167416d03e">TYPE_INTERSECTION</a></code> .</dd>
 <dd>
