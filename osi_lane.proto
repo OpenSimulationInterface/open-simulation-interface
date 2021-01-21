@@ -178,6 +178,18 @@ message Lane
         // the centerline of lane l4 (black line) is given by
         // (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5).
         //
+        // \image html OSI_LaneBoundaries_And_CenterLine.svg "Centerline" width=500px
+        //
+        // \note 
+        // cl: center line
+        // lb: lane boundary
+        //
+        // \attention The points desribing the center line must be set in the 
+        // same ordering (ascending or descending) as the points desribing the 
+        // lane boundaries. Example: If the points are deducted from a map format, 
+        // the order of points is recommended to be in line with the road coordinate 
+        // (e.g. s-coordinate in OpenDRIVE). 
+        //
         // \attention The points describing the center line might be set at
         // arbitrary distances. When the points are pairwise linearly connected,
         // the lateral distance to the real ideal line (as used by the
@@ -221,10 +233,10 @@ message Lane
         optional bool centerline_is_driving_direction = 4;
 
         // List of IDs of all lane segments that are directly adjacent to the
-        // lane on the left side (w.r.t. intended driving direction). Note that
-        // lengths of lane segments are not synchronized and therefore there are
-        // multiple adjacent segments if there is a split/merge point in the
-        // adjacent lane.
+        // lane on the left side (w.r.t. ascending order of centerline points
+        // and lane boundary points). Note that lengths of lane segments are 
+        // not synchronized and therefore there are multiple adjacent segments 
+        // if there is a split/merge point in the adjacent lane.
         //
         // Example: The lane l3 is the only left adjacent lane for lane l4
         // in image \ref HighwayExit.
@@ -241,10 +253,10 @@ message Lane
         repeated Identifier left_adjacent_lane_id = 5;
 
         // List of IDs of all lane segments that are directly adjacent to the
-        // lane on the right side (w.r.t. intended driving direction). Note that
-        // lengths of lane segments are not synchronized and therefore there are
-        // multiple adjacent segments if there is a split/merge point in the
-        // adjacent lane.
+        // lane on the right side (w.r.t. ascending order of centerline points
+        // and lane boundary points). Note that lengths of lane segments are 
+        // not synchronized and therefore there are multiple adjacent segments 
+        // if there is a split/merge point in the adjacent lane.
         //
         // Example: \c #right_adjacent_lane_id = (l5, l6)
         // for lane l4 in image \ref HighwayExit.
@@ -566,6 +578,12 @@ message LaneBoundary
     // Example: The boundary_line of the \c LaneBoundary with id lb2 is given by
     // (bp2_1, ..., bp2_{i-1}, bp2_{i}, bp2_{i+1}, ...).
     //
+    // \attention The ordering of the points must be the same for all lane boundaries
+    // on one road (also for roads with two-way traffic) and also the center line(s). 
+    // Example: If the points are deducted from a map format, the order of points 
+    // is recommended to be in line with the road coordinate (e.g. s-coordinate in 
+    // OpenDRIVE). 
+
     // \note For dashed lines, one \c BoundaryPoint has to be at the start and
     // another at the end of each dashed line segment. The first
     // \c BoundaryPoint defines the beginning of the first dashed lane marking.
@@ -593,6 +611,12 @@ message LaneBoundary
 
     //
     // \brief A single point of a lane boundary.
+    //
+    // \image html OSI_LaneBoundaries_And_CenterLine.svg "" width=800px
+    //
+    // \note 
+    // cl: center line
+    // lb: lane boundary
     //
     // \image html OSI_LaneBoundary.svg "" width=800px
     //
