@@ -4,5 +4,5 @@ var searchData=
   ['density',['Density',['../structosi3_1_1StationaryObject_1_1Classification.html#aa3f3a0944f19ae7fa3aa55d700ac009b',1,'osi3::StationaryObject::Classification']]],
   ['direction',['Direction',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2b',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
   ['directionscope',['DirectionScope',['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a274a9a92e6d5a50186876277b5e86dc7',1,'osi3::TrafficSign::MainSign::Classification']]],
-  ['dynamicsshape',['DynamicsShape',['../structosi3_1_1LaneChangeAction.html#a05bb19484e280d4e170da00277d9393a',1,'osi3::LaneChangeAction::DynamicsShape()'],['../structosi3_1_1SpeedAction.html#a3bc90b8de13b985b676270ab0291373f',1,'osi3::SpeedAction::DynamicsShape()']]]
+  ['dynamicsshape',['DynamicsShape',['../structosi3_1_1LaneChangeAction.html#a05bb19484e280d4e170da00277d9393a',1,'osi3::LaneChangeAction::DynamicsShape()'],['../structosi3_1_1SpeedAction.html#a3bc90b8de13b985b676270ab0291373f',1,'osi3::SpeedAction::DynamicsShape()'],['../structosi3_1_1LaneOffsetAction.html#a7f8cf0f61390d881f8d3262de346df5a',1,'osi3::LaneOffsetAction::DynamicsShape()']]]
 ];

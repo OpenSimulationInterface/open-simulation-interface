@@ -17,6 +17,7 @@ var searchData=
   ['fog_5fpoor_5fvisibility',['FOG_POOR_VISIBILITY',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a8a9f171205a8b9ab0e87b3e53ec04491',1,'osi3::EnvironmentalConditions']]],
   ['fog_5fthick',['FOG_THICK',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4a5387a537ed7986d142604a3f3f6f3544',1,'osi3::EnvironmentalConditions']]],
   ['fog_5funknown',['FOG_UNKNOWN',['../structosi3_1_1EnvironmentalConditions.html#ab2852476d757c57d3e3817e593b1fcc4afd12ec3453aeecfd945d1fd6896deeaa',1,'osi3::EnvironmentalConditions']]],
+  ['follow',['follow',['../structosi3_1_1LongitudinalDistanceAction.html#aac411b3c571d9718e91866911b3b295e',1,'osi3::LongitudinalDistanceAction::follow()'],['../structosi3_1_1LateralDistanceAction.html#acc0574fdf27f681b7471922cd1cfed35',1,'osi3::LateralDistanceAction::follow()']]],
   ['follow_5fpath_5faction',['follow_path_action',['../structosi3_1_1TrafficAction.html#a7314c9e9462c367324147131982fc170',1,'osi3::TrafficAction']]],
   ['follow_5ftrajectory_5faction',['follow_trajectory_action',['../structosi3_1_1TrafficAction.html#a7a5f8c91807097c578f4fbc2b7615890',1,'osi3::TrafficAction']]],
   ['following_5fmode',['following_mode',['../structosi3_1_1FollowTrajectoryAction.html#a4a0e16ba06bc7fa1a4f1bebb5b31e76c',1,'osi3::FollowTrajectoryAction::following_mode()'],['../structosi3_1_1FollowPathAction.html#a8eb19ded4a0607e7fca95590859e9ef0',1,'osi3::FollowPathAction::following_mode()']]],
@@ -27,5 +28,6 @@ var searchData=
   ['followtrajectoryaction',['FollowTrajectoryAction',['../structosi3_1_1FollowTrajectoryAction.html',1,'osi3']]],
   ['free_5flane_5fboundary_5fid',['free_lane_boundary_id',['../structosi3_1_1Lane_1_1Classification.html#a7c49f38d73b09f54a6d94d907e866773',1,'osi3::Lane::Classification']]],
   ['free_5fspace_5fprobability',['free_space_probability',['../structosi3_1_1LidarDetection.html#a211052d77b3fd978c00659d3d1b98a06',1,'osi3::LidarDetection']]],
+  ['freespace',['freespace',['../structosi3_1_1LongitudinalDistanceAction.html#a740cd23406548644370652d0c22c6ffa',1,'osi3::LongitudinalDistanceAction::freespace()'],['../structosi3_1_1LateralDistanceAction.html#a08cd05fe0e20e0d0ec1a033018ef9bf8',1,'osi3::LateralDistanceAction::freespace()']]],
   ['front_5ffog_5flight',['front_fog_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#ae3defe31384a483f30bf502c7234d894',1,'osi3::MovingObject::VehicleClassification::LightState']]]
 ];

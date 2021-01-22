@@ -1,6 +1,9 @@
 var searchData=
 [
   ['target_5faction_5fid',['target_action_id',['../structosi3_1_1AbortActionsAction.html#aef8cbcb9d07c2f81c1cc4e41329ada75',1,'osi3::AbortActionsAction::target_action_id()'],['../structosi3_1_1EndActionsAction.html#a248bf7d9c4c87c481ac70a3b2ddc2559',1,'osi3::EndActionsAction::target_action_id()']]],
+  ['target_5flane_5foffset',['target_lane_offset',['../structosi3_1_1LaneOffsetAction.html#aba5d302992328a2596c9a79b431093da',1,'osi3::LaneOffsetAction']]],
+  ['target_5ftraffic_5fparticipant_5fid',['target_traffic_participant_id',['../structosi3_1_1LongitudinalDistanceAction.html#afa804a665cf74ee768a586d755dd2cac',1,'osi3::LongitudinalDistanceAction::target_traffic_participant_id()'],['../structosi3_1_1LateralDistanceAction.html#a404f9df3a23e62133d214d2d958d2aea',1,'osi3::LateralDistanceAction::target_traffic_participant_id()']]],
+  ['teleport_5faction',['teleport_action',['../structosi3_1_1TrafficAction.html#a35c5eac575dc1961b5b085398a1a2b6d',1,'osi3::TrafficAction']]],
   ['temperature',['temperature',['../structosi3_1_1EnvironmentalConditions.html#afb975ad7dddedd8bfac0a38664ab908e',1,'osi3::EnvironmentalConditions']]],
   ['text',['text',['../structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90',1,'osi3::TrafficSignValue']]],
   ['time_5fdifference',['time_difference',['../structosi3_1_1CameraDetection.html#abc39a3545ba1dd62d8740cc18727f24c',1,'osi3::CameraDetection']]],
