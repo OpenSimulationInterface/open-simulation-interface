@@ -105,15 +105,15 @@ message TrafficAction
     // A LongitudinalDistanceAction
     //
     optional LongitudinalDistanceAction longitudinal_distance_action = 9;
-	
+
     // A LaneOffsetAction
     //
-    optional LaneOffsetAction lane_offset_action = 10;	
-	
+    optional LaneOffsetAction lane_offset_action = 10;
+
     // A LateralDistanceAction
     //
     optional LateralDistanceAction lateral_distance_action = 11;
-	
+
     // A TeleportAction
     //
     optional TeleportAction teleport_action = 12; 
@@ -500,17 +500,17 @@ message LongitudinalDistanceAction
     // Action Header of the message
     //
     optional ActionHeader action_header = 1;
-	
+
     // Unique Id of the reference traffic participant to which the distance is defined.
     //
     optional Identifier target_traffic_participant_id = 2;
-	
+
     // The distance to reach along the lane
     //
     // Unit: m
     //
     optional double distance = 3;
-	
+
     // Determine the measurement of longitudinal distance between the traffic
     // participant receiving this action and the reference traffic
     // participant. 
@@ -518,7 +518,7 @@ message LongitudinalDistanceAction
     // False: Longitudinal distance is mesasured using the distance between the center of each object's bounding box.
     //
     optional bool freespace = 4;
-	
+
     // Define wheather the traffic participant should only reach the distance once 
     // or if it should also follow if after having reached it.
     // True: the traffic participant shall approach the reference participant
@@ -527,7 +527,7 @@ message LongitudinalDistanceAction
     // the specified distance. 
     //
     optional bool follow = 5;
-	
+
     // Parameter that assings either unlimited dynamics (if omitted) 
     // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
     //
@@ -555,11 +555,11 @@ message LateralDistanceAction
     // Action Header of the message
     //
     optional ActionHeader action_header = 1;
-	
+
     // Id of the reference entity the lateral distance shall be kept to.
     //
     optional Identifier target_traffic_participant_id = 2;
-	
+
     // Lateral distance value. 
     //
     // Unit: m
