@@ -100,7 +100,7 @@ message TrafficAction
     
     // A CustomAction
     //
-    optional CustomAction custom_action = 8;	
+    optional CustomAction custom_action = 8;
 
     // A LongitudinalDistanceAction
     //
