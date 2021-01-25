@@ -196,13 +196,8 @@ message Orientation3d
 // Has to be unique among all simulated items at any given time. For ground
 // truth, the identifier of an item (object, lane, sign, etc.) must remain
 // stable over its lifetime. \c Identifier values may be only be reused if the
-// available address space is exhausted and the specific values have not been in
-// use for several timesteps. Sensor specific tracking IDs have no restrictions
-// and should behave according to the sensor specifications.
-//
-// The value MAX(uint64) = 2^(64) -1 =
-// 0b1111111111111111111111111111111111111111111111111111111111111111 is
-// reserved and indicates an invalid ID or error.
+// available address space is exhausted and the specific values have not been
+// in use for several timesteps.
 //
 message Identifier
 {
@@ -213,6 +208,45 @@ message Identifier
     // \endrules
     //
     optional uint64 value = 1;
+    
+    // The type of the identifier value
+    //
+    optional TYPE type = 2;
+    
+    // \brief Classification of the identifier type
+    //
+    // The identifier can be used in different parts on the one hand as a
+    // definition for a new Object or as a reference.
+    //
+    // Additionally, in some cases it could be necessary to set an undefined
+    // identifier with the value TYPE_UNKNOWN. One of the main use cases are
+    // the description of dead-end roads in the LanePairing message. 
+    //
+    enum TYPE 
+    {
+        // The id is not valid or not defined
+        //
+        TYPE_UNKNOWN = 0;
+        
+        // Other must not be used
+        //
+        TYPE_OTHER = 1;
+        
+        // Represents an error
+        //
+        TYPE_ERROR = 2;
+        
+        // The identifier of an object
+        // 
+        // In this case the identifier value must be unique among all
+        // simulated objects
+        //
+        TYPE_IDENTIFIER = 3;
+        
+        // The identifier is a reference to an object
+        //
+        TYPE_REFERENCE = 4;
+    }
 }
 
 //
