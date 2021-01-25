@@ -215,6 +215,31 @@ message Identifier
     optional uint64 value = 1;
 }
 
+// \brief References to external objects
+//
+// The external reference is used to identify objects defined in non-OSI
+// descriptions. This could be other OpenX-Standards as well as user defined
+// simulation environments.
+//
+message ExternalReference
+{
+    // The external identifier reference value.
+    //
+    // For a common description of the external identifier, where a wide range
+    // of identification types could be represented, the repeded string is chosen.
+    //
+    // E.g. referencing a unique lane in OpenDRIVE 
+    // (RoadId --> String, S-Value of LaneSection --> Double, LaneId --> Int)
+    // 
+    repeated string value = 1;
+    
+    // The source of the references
+    //
+    // Can be used to describe the original source, e.g. OpenDRIVE 1.6
+    //
+    optional string source_reference = 2;
+}
+
 //
 // \brief Specifies the mounting position of a sensor.
 //
