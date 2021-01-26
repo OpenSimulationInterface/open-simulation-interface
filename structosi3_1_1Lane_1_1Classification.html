@@ -103,10 +103,10 @@ Collaboration diagram for osi3::Lane::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1Lane_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1Lane_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1Lane_1_1Classification_coll__map" id="osi3_1_1Lane_1_1Classification_coll__map">
-<area shape="rect" id="node3" href="structosi3_1_1Lane_1_1Classification_1_1LanePairing.html" title="The lane ID pairings of antecessor and successor lanes. " alt="" coords="325,237,508,278"/>
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="9,204,124,231"/>
-<area shape="rect" id="node6" href="structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html" title="The condition of the road surface. " alt="" coords="325,354,508,395"/>
-<area shape="rect" id="node8" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="359,424,474,451"/>
+<area shape="rect" id="node4" href="structosi3_1_1Lane_1_1Classification_1_1LanePairing.html" title="The lane ID pairings of antecessor and successor lanes. " alt="" coords="325,287,508,329"/>
+<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="9,255,124,281"/>
+<area shape="rect" id="node7" href="structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html" title="The condition of the road surface. " alt="" coords="325,405,508,446"/>
+<area shape="rect" id="node9" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="359,475,474,501"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -131,6 +131,28 @@ Public Types</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ac3ca1e440d72a4bd5a640212edf73168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14fa7be357dbbf8eb6b090a9e5b5dd21"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21">Subtype</a> { <br />
+&#160;&#160;<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a6765aa82158659f6ec8ebca4f68b76f3">SUBTYPE_UNKNOWN</a> = 0, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a39fda5d64365466578c5532d693b7e8d">SUBTYPE_OTHER</a> = 1, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a3c1164c5340934089bdeac655e007c08">SUBTYPE_NORMAL</a> = 2, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a364eb36b640401d631dea23a3d81bc0c">SUBTYPE_BIKING</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a2fc65e6c2cc8dc1e20b11a61bbae1d6a">SUBTYPE_SIDEWALK</a> = 4, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a28dd1b78b095fb3a60b8d18e3566c118">SUBTYPE_PARKING</a> = 5, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ac75fb64405d197829955a683e3075246">SUBTYPE_STOP</a> = 6, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ad1e5a83662bbee06567638c8e23849a5">SUBTYPE_RESTRICTED</a> = 7, 
+<br />
+&#160;&#160;<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a97eb089f4beb0c3bc70f41ebe69332b3">SUBTYPE_BORDER</a> = 8, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a5f2156c78bf28069cb4c82856105c64b">SUBTYPE_SHOULDER</a> = 9, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a888b7f811257471386b7c36dfa4b9840">SUBTYPE_EXIT</a> = 10, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ac8ac1f6fafe9fdb182d60dc1d65bd4b8">SUBTYPE_ENTRY</a> = 11, 
+<br />
+&#160;&#160;<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a2db3aef6b5e21afc7687ab817bf116d4">SUBTYPE_ONRAMP</a> = 12, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a68500d1f721949d38253f6ec6ce1ca57">SUBTYPE_OFFRAMP</a> = 13, 
+<a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ac32db9de056f27e93732162835484fcd">SUBTYPE_CONNECTINGRAMP</a> = 14
+<br />
+ }</td></tr>
+<tr class="separator:a14fa7be357dbbf8eb6b090a9e5b5dd21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -156,6 +178,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7c49f38d73b09f54a6d94d907e866773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae62d7c2da8739f46e68f0202a4f7955"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html">RoadCondition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane_1_1Classification.html#aae62d7c2da8739f46e68f0202a4f7955">road_condition</a> = 11</td></tr>
 <tr class="separator:aae62d7c2da8739f46e68f0202a4f7955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5315bb0a34763ca7e0a31ca72a3350d"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21">Subtype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane_1_1Classification.html#ac5315bb0a34763ca7e0a31ca72a3350d">subtype</a> = 12</td></tr>
+<tr class="separator:ac5315bb0a34763ca7e0a31ca72a3350d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1Lane_1_1Classification.html" title="Classification of a lane. ">Classification</a></code> of a lane. </p>
@@ -213,6 +237,66 @@ Intersection</div></div>
 </table>
 <dl class="section note"><dt>Note</dt><dd>In the examples, the symbols l1, l2, ... and lb1, lb2, ... stand for the lane ids and lane boundary ids respectively, i.e. for integers (uint64). The symbols cl1, cl2, ... represent the <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42">osi3::Lane::Classification::centerline</a> elements of the lanes with the respective ids. The symbols cl1_1, cl1_2, ... stand for <code><a class="el" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. ">osi3::Vector3d</a></code> elements. </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a14fa7be357dbbf8eb6b090a9e5b5dd21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14fa7be357dbbf8eb6b090a9e5b5dd21">&#9670;&nbsp;</a></span>Subtype</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21">osi3::Lane::Classification::Subtype</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Definition of available lane subtypes, aligned with OpenDRIVE. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a6765aa82158659f6ec8ebca4f68b76f3"></a>SUBTYPE_UNKNOWN&#160;</td><td class="fielddoc"><p><a class="el" href="structosi3_1_1Lane.html" title="A lane in the road network. ">Lane</a> of unknown subtype. Do not use in ground truth. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a39fda5d64365466578c5532d693b7e8d"></a>SUBTYPE_OTHER&#160;</td><td class="fielddoc"><p>Any other subtype of lane. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a3c1164c5340934089bdeac655e007c08"></a>SUBTYPE_NORMAL&#160;</td><td class="fielddoc"><p>A normal driving lane. Example: Lanes with IDs l1, l2, l3 and l4 in image <a class="el" href="structosi3_1_1Lane_1_1Classification.html#HighwayExit">HighwayExit</a>.</p>
+<p>Since it is intended to be used for normal automotive driving, it should be used in combination with TYPE_DRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a364eb36b640401d631dea23a3d81bc0c"></a>SUBTYPE_BIKING&#160;</td><td class="fielddoc"><p>A lane that is designated for bicylists.</p>
+<p>Since it is not intended to be used for normal automotive driving, it should be used in combination with TYPE_NONDRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a2fc65e6c2cc8dc1e20b11a61bbae1d6a"></a>SUBTYPE_SIDEWALK&#160;</td><td class="fielddoc"><p>A lane that is designated for pedestrians (sidewalk).</p>
+<p>Since it is not intended to be used for normal automotive driving, it should be used in combination with TYPE_NONDRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a28dd1b78b095fb3a60b8d18e3566c118"></a>SUBTYPE_PARKING&#160;</td><td class="fielddoc"><p>A lane with parking spaces.</p>
+<p>Since it is not intended to be used for normal automotive driving, it should be used in combination with TYPE_NONDRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21ac75fb64405d197829955a683e3075246"></a>SUBTYPE_STOP&#160;</td><td class="fielddoc"><p>A hard shoulder on motorways for emergency stops. Example: <a class="el" href="structosi3_1_1Lane.html" title="A lane in the road network. ">Lane</a> l5 in image <a class="el" href="structosi3_1_1Lane_1_1Classification.html#HighwayExit">HighwayExit</a>.</p>
+<p>Since it is not intended to be used for normal automotive driving, it should be used in combination with TYPE_NONDRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21ad1e5a83662bbee06567638c8e23849a5"></a>SUBTYPE_RESTRICTED&#160;</td><td class="fielddoc"><p>A lane on which cars should not drive.</p>
+<p>Since it is not intended to be used for normal automotive driving, it should be used in combination with TYPE_NONDRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a97eb089f4beb0c3bc70f41ebe69332b3"></a>SUBTYPE_BORDER&#160;</td><td class="fielddoc"><p>A hard border on the edge of a road.</p>
+<p>Since it is not intended to be used for normal automotive driving, it should be used in combination with TYPE_NONDRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a5f2156c78bf28069cb4c82856105c64b"></a>SUBTYPE_SHOULDER&#160;</td><td class="fielddoc"><p>A soft border on the edge of a road.</p>
+<p>Since it is not intended to be used for normal automotive driving, it should be used in combination with TYPE_NONDRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a888b7f811257471386b7c36dfa4b9840"></a>SUBTYPE_EXIT&#160;</td><td class="fielddoc"><p>A deceleration lane in parallel to the main road. Example: <a class="el" href="structosi3_1_1Lane.html" title="A lane in the road network. ">Lane</a> l6 in image <a class="el" href="structosi3_1_1Lane_1_1Classification.html#HighwayExit">HighwayExit</a>.</p>
+<p>Since it is intended to be used for normal automotive driving, it should be used in combination with TYPE_DRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21ac8ac1f6fafe9fdb182d60dc1d65bd4b8"></a>SUBTYPE_ENTRY&#160;</td><td class="fielddoc"><p>An acceleration lane in parallel to the main road.</p>
+<p>Since it is intended to be used for normal automotive driving, it should be used in combination with TYPE_DRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a2db3aef6b5e21afc7687ab817bf116d4"></a>SUBTYPE_ONRAMP&#160;</td><td class="fielddoc"><p>A ramp from rural or urban roads joining a motorway.</p>
+<p>Since it is intended to be used for normal automotive driving, it should be used in combination with TYPE_DRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21a68500d1f721949d38253f6ec6ce1ca57"></a>SUBTYPE_OFFRAMP&#160;</td><td class="fielddoc"><p>A ramp leading off a motorway onto rural or urban roads.</p>
+<p>Since it is intended to be used for normal automotive driving, it should be used in combination with TYPE_DRIVING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a14fa7be357dbbf8eb6b090a9e5b5dd21ac32db9de056f27e93732162835484fcd"></a>SUBTYPE_CONNECTINGRAMP&#160;</td><td class="fielddoc"><p>A ramp that connect two motorways.</p>
+<p>Since it is intended to be used for normal automotive driving, it should be used in combination with TYPE_DRIVING. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="ac3ca1e440d72a4bd5a640212edf73168"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac3ca1e440d72a4bd5a640212edf73168">&#9670;&nbsp;</a></span>Type</h2>
 
@@ -449,6 +533,22 @@ OSI uses singular instead of plural for repeated field names.</dd></dl>
       </table>
 </div><div class="memdoc">
 <p>The condition of the lane, e.g. influenced by weather. </p>
+
+</div>
+</div>
+<a id="ac5315bb0a34763ca7e0a31ca72a3350d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5315bb0a34763ca7e0a31ca72a3350d">&#9670;&nbsp;</a></span>subtype</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21">Subtype</a> osi3::Lane::Classification::subtype = 12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The subtype of the lane.</p>
+<p>This subtype specifies a lane more concretely. </p>
 
 </div>
 </div>

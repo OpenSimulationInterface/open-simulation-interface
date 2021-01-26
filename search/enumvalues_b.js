@@ -17,5 +17,20 @@ var searchData=
   ['steering_5fcontrol_5fone_5fhand',['STEERING_CONTROL_ONE_HAND',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaafd105c3e974e9f2dc12026289049fc99',1,'osi3::Occupant::Classification']]],
   ['steering_5fcontrol_5fother',['STEERING_CONTROL_OTHER',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa52d5fb7e4f04983819a43f759da791c0',1,'osi3::Occupant::Classification']]],
   ['steering_5fcontrol_5fright_5fhand',['STEERING_CONTROL_RIGHT_HAND',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa7acf13ccbc57597e9708df895cbeb958',1,'osi3::Occupant::Classification']]],
-  ['steering_5fcontrol_5funknown',['STEERING_CONTROL_UNKNOWN',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa0d47b5fdef206b0a3c09cb6dbadd687c',1,'osi3::Occupant::Classification']]]
+  ['steering_5fcontrol_5funknown',['STEERING_CONTROL_UNKNOWN',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa0d47b5fdef206b0a3c09cb6dbadd687c',1,'osi3::Occupant::Classification']]],
+  ['subtype_5fbiking',['SUBTYPE_BIKING',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a364eb36b640401d631dea23a3d81bc0c',1,'osi3::Lane::Classification']]],
+  ['subtype_5fborder',['SUBTYPE_BORDER',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a97eb089f4beb0c3bc70f41ebe69332b3',1,'osi3::Lane::Classification']]],
+  ['subtype_5fconnectingramp',['SUBTYPE_CONNECTINGRAMP',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ac32db9de056f27e93732162835484fcd',1,'osi3::Lane::Classification']]],
+  ['subtype_5fentry',['SUBTYPE_ENTRY',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ac8ac1f6fafe9fdb182d60dc1d65bd4b8',1,'osi3::Lane::Classification']]],
+  ['subtype_5fexit',['SUBTYPE_EXIT',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a888b7f811257471386b7c36dfa4b9840',1,'osi3::Lane::Classification']]],
+  ['subtype_5fnormal',['SUBTYPE_NORMAL',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a3c1164c5340934089bdeac655e007c08',1,'osi3::Lane::Classification']]],
+  ['subtype_5fofframp',['SUBTYPE_OFFRAMP',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a68500d1f721949d38253f6ec6ce1ca57',1,'osi3::Lane::Classification']]],
+  ['subtype_5fonramp',['SUBTYPE_ONRAMP',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a2db3aef6b5e21afc7687ab817bf116d4',1,'osi3::Lane::Classification']]],
+  ['subtype_5fother',['SUBTYPE_OTHER',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a39fda5d64365466578c5532d693b7e8d',1,'osi3::Lane::Classification']]],
+  ['subtype_5fparking',['SUBTYPE_PARKING',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a28dd1b78b095fb3a60b8d18e3566c118',1,'osi3::Lane::Classification']]],
+  ['subtype_5frestricted',['SUBTYPE_RESTRICTED',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ad1e5a83662bbee06567638c8e23849a5',1,'osi3::Lane::Classification']]],
+  ['subtype_5fshoulder',['SUBTYPE_SHOULDER',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a5f2156c78bf28069cb4c82856105c64b',1,'osi3::Lane::Classification']]],
+  ['subtype_5fsidewalk',['SUBTYPE_SIDEWALK',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a2fc65e6c2cc8dc1e20b11a61bbae1d6a',1,'osi3::Lane::Classification']]],
+  ['subtype_5fstop',['SUBTYPE_STOP',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21ac75fb64405d197829955a683e3075246',1,'osi3::Lane::Classification']]],
+  ['subtype_5funknown',['SUBTYPE_UNKNOWN',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a6765aa82158659f6ec8ebca4f68b76f3',1,'osi3::Lane::Classification']]]
 ];

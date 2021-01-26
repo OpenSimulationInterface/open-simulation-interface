@@ -43,6 +43,7 @@ var searchData=
   ['stationary_5fobject',['stationary_object',['../structosi3_1_1GroundTruth.html#ab3ed9b77d4db3fda6a8a03a4cbd37d50',1,'osi3::GroundTruth::stationary_object()'],['../structosi3_1_1SensorData.html#a88c9ebfc5962c362385bb7ca80b3a696',1,'osi3::SensorData::stationary_object()']]],
   ['stationary_5fobject_5fheader',['stationary_object_header',['../structosi3_1_1SensorData.html#a8919ed1a34cf43726b59721fa688e240',1,'osi3::SensorData']]],
   ['steering_5fcontrol',['steering_control',['../structosi3_1_1Occupant_1_1Classification.html#a3c558469319b38ab91d21fd208893151',1,'osi3::Occupant::Classification']]],
+  ['subtype',['subtype',['../structosi3_1_1Lane_1_1Classification.html#ac5315bb0a34763ca7e0a31ca72a3350d',1,'osi3::Lane::Classification']]],
   ['successor_5flane_5fid',['successor_lane_id',['../structosi3_1_1Lane_1_1Classification_1_1LanePairing.html#a6451767f0167f56c441f1db538b4d97a',1,'osi3::Lane::Classification::LanePairing']]],
   ['supplementary_5fsign',['supplementary_sign',['../structosi3_1_1DetectedTrafficSign.html#aeeb9b376d46187c7733d9167af8c7e61',1,'osi3::DetectedTrafficSign::supplementary_sign()'],['../structosi3_1_1TrafficSign.html#a5718625d51398169c808e93adb9f7374',1,'osi3::TrafficSign::supplementary_sign()']]],
   ['surface_5ffreezing_5fpoint',['surface_freezing_point',['../structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html#af18fb9af81d3bd6a9860711dc8eac210',1,'osi3::Lane::Classification::RoadCondition']]],
