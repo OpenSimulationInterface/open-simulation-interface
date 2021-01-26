@@ -37,11 +37,7 @@ All messages that are intended to be exchanged as a stand-alone message, i.e. no
 
 Field Message Naming
 ---------------------
-<<<<<<< HEAD
-After defining a message fields can be added to it in snake case format. This means every letter is lower case and the words are connected through an underline character. See example below:
-=======
 After defining a message fields can be added to it in snake_case format. This means every letter is lower case and the words are connected through an underline character. See example below:
->>>>>>> master
 
 .. code-block:: protobuf
 
@@ -59,11 +55,7 @@ All field numbers of 10000 and above are reserved for user-defined extensions an
 
 Enum Naming
 ------------
-<<<<<<< HEAD
-The naming of an enum should be camel case. See example below:
-=======
 The naming of an enum should be PascalCase. See example below:
->>>>>>> master
 
 .. code-block:: protobuf
 
@@ -78,11 +70,7 @@ The naming of an enum should be PascalCase. See example below:
 
 Enum Field Naming
 ------------
-<<<<<<< HEAD
-The naming of an enum field should be all in upper case. The start should be converted from the enum name camel case to upper case snake case. It is mandatory to add to the first enum field name the postfix ``_UNKNOWN`` and to the second the postfix ``_OTHER``. After that the naming can be decided by the user. It is often mentioned that the value ``_UNKNOWN`` should not be used in a ``GroundTruth`` message as there are now uncertanties by definition in ``the truth``. These values are mostly used in messages like ``SensorData`` where the content is subject to interpretation. See example below:
-=======
 The naming of an enum field should be all in upper case. The start should be converted from the enum name PascalCase to UPPER_CASE_SNAKE_CASE. It is mandatory to add to the first enum field name the postfix ``_UNKNOWN`` and to the second the postfix ``_OTHER``. After that the naming can be decided by the user. It is often mentioned that the value ``_UNKNOWN`` should not be used in a ``GroundTruth`` message as there are now uncertanties by definition in ``the truth``. These values are mostly used in messages like ``SensorData`` where the content is subject to interpretation. See example below:
->>>>>>> master
 
 .. code-block:: protobuf
 
@@ -104,15 +92,6 @@ Summary
 --------
 Here a small summary for the naming conventions:
 
-<<<<<<< HEAD
-Messages: camel case
-
-Message Fields: snake case
-
-Enum: camel case
-
-Enum Fields: upper case, name of enum converted in upper case snake case and then following the specified name
-=======
 Messages: PascalCase
 
 Message Fields: snake_case
@@ -120,6 +99,5 @@ Message Fields: snake_case
 Enum: PascalCase
 
 Enum Fields: Name of enum converted in UPPER_CASE_SNAKE_CASE and then following the specified name
->>>>>>> master
 
 After defining the messages do not forget to comment them. See also the `section for commenting <https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/doc/commenting.html>`_ of fields and messages.
