@@ -346,6 +346,12 @@ message Lane
         //
         optional RoadCondition road_condition = 11;
 
+        // The subtype of the lane. 
+        // 
+        // This subtype specifies a lane more concretely.
+        //
+        optional Subtype subtype = 12;
+
         // Definition of available lane types.
         //
         enum Type
@@ -375,6 +381,116 @@ message Lane
             // \image html OSI_X-Junction.svg "" width=600px
             //
             TYPE_INTERSECTION = 4;
+        }
+
+        // Definition of available lane subtypes, aligned with OpenDRIVE.
+        //        
+        enum Subtype
+        {
+            // Lane of unknown subtype. Do not use in ground truth.
+            //
+            SUBTYPE_UNKNOWN = 0;
+
+            // Any other subtype of lane.
+            //
+            SUBTYPE_OTHER = 1;
+
+            // A normal driving lane.
+            // Example: Lanes with IDs l1, l2, l3 and l4 in image \ref
+            // HighwayExit.
+            //
+            // Since it is intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_DRIVING.
+            //
+            SUBTYPE_NORMAL = 2;
+
+            // A lane that is designated for bicylists.
+            //
+            // Since it is not intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_NONDRIVING.
+            //
+            SUBTYPE_BIKING = 3;
+
+            // A lane that is designated for pedestrians (sidewalk).
+            //
+            // Since it is not intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_NONDRIVING.
+            //
+            SUBTYPE_SIDEWALK = 4;
+            
+            // A lane with parking spaces.
+            //
+            // Since it is not intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_NONDRIVING.
+            //
+            SUBTYPE_PARKING = 5;
+            
+            // A hard shoulder on motorways for emergency stops.
+            // Example: Lane l5 in image \ref
+            // HighwayExit.
+            //
+            // Since it is not intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_NONDRIVING.
+            //
+            SUBTYPE_STOP = 6;
+            
+            // A lane on which cars should not drive.
+            //
+            // Since it is not intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_NONDRIVING.
+            //
+            SUBTYPE_RESTRICTED = 7;
+            
+            // A hard border on the edge of a road.
+            //
+            // Since it is not intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_NONDRIVING.
+            //
+            SUBTYPE_BORDER = 8;
+            
+            // A soft border on the edge of a road.
+            //
+            // Since it is not intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_NONDRIVING.
+            //
+            SUBTYPE_SHOULDER = 9;
+            
+            // A deceleration lane in parallel to the main road.
+            // Example: Lane l6 in image \ref
+            // HighwayExit.
+            //
+            // Since it is intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_DRIVING.
+            //
+            SUBTYPE_EXIT = 10;
+            
+            // An acceleration lane in parallel to the main road.
+            //
+            // Since it is intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_DRIVING.
+            //
+            SUBTYPE_ENTRY = 11;
+            
+            // A ramp from rural or urban roads joining a motorway.
+            //
+            // Since it is intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_DRIVING.
+            //
+            SUBTYPE_ONRAMP = 12;
+            
+            // A ramp leading off a motorway onto rural or urban roads.
+            //
+            // Since it is intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_DRIVING.
+            //
+            SUBTYPE_OFFRAMP = 13;
+            
+            // A ramp that connect two motorways.
+            //
+            // Since it is intended to be used for normal automotive
+            // driving, it should be used in combination with TYPE_DRIVING.
+            //
+            SUBTYPE_CONNECTINGRAMP = 14;
         }
 
         //
