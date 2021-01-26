@@ -11,6 +11,7 @@ var structosi3_1_1MovingObject =
     ] ],
     [ "assigned_lane_id", "structosi3_1_1MovingObject.html#a655c12b5f4db44e68e83a3c351d3d4e9", null ],
     [ "base", "structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8", null ],
+    [ "future_trajectory", "structosi3_1_1MovingObject.html#a62f68ba53ed7d9dfc25e41d07769893f", null ],
     [ "id", "structosi3_1_1MovingObject.html#a6a9a247e8d9c4a642b6d89dbcdf0d7da", null ],
     [ "model_reference", "structosi3_1_1MovingObject.html#a07558573bee7a5fa2f0729e1cad1325f", null ],
     [ "type", "structosi3_1_1MovingObject.html#aa2d750449efff1e937d9c9a69ad7fd71", null ],

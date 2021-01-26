@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1RadarSensorView_1_1Reflection.html#a8aef801568939be8168ecaf34dacf5af":[1,0,0,54,0,3],
 "structosi3_1_1RadarSensorView_1_1Reflection.html#ac66401f3e6e296a3133d12681161e537":[1,0,0,54,0,4],
 "structosi3_1_1RadarSpecificObjectData.html":[1,0,0,56],
 "structosi3_1_1RadarSpecificObjectData.html#a21d46477523a111803fb55d4edf59cab":[1,0,0,56,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a4623696fa0458599ef58d91f35153f02":[1,0,0,72,0,1,11],
 "structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a4ac702cde584408d333bca18c3e4817d":[1,0,0,72,0,1,2],
 "structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a56cbb3972a2510147a8cdef86ec0ea10":[1,0,0,72,0,1,3],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a5ef15a3b718842b4cf7d54136ce361f0":[1,0,0,72,0,1,7],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a6698331bad668cb25f2e8a32bc0031c6":[1,0,0,72,0,1,21]
+"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a5ef15a3b718842b4cf7d54136ce361f0":[1,0,0,72,0,1,7]
 };

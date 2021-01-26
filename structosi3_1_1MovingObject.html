@@ -103,15 +103,17 @@ Collaboration diagram for osi3::MovingObject:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1MovingObject__coll__graph.png" border="0" usemap="#osi3_1_1MovingObject_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1MovingObject_coll__map" id="osi3_1_1MovingObject_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other). " alt="" coords="588,119,752,161"/>
-<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="242,216,357,243"/>
-<area shape="rect" id="node13" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other). " alt="" coords="597,459,743,501"/>
-<area shape="rect" id="node6" href="structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html" title="The state of the lights of a vehicle. " alt="" coords="217,63,381,119"/>
-<area shape="rect" id="node7" href="structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="602,325,738,352"/>
-<area shape="rect" id="node8" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="226,280,373,307"/>
-<area shape="rect" id="node10" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="228,343,371,369"/>
-<area shape="rect" id="node11" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="242,491,357,517"/>
-<area shape="rect" id="node12" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="242,416,357,443"/>
+<area shape="rect" id="node2" href="structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other). " alt="" coords="591,127,755,169"/>
+<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="245,224,359,251"/>
+<area shape="rect" id="node13" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other). " alt="" coords="599,335,746,377"/>
+<area shape="rect" id="node6" href="structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html" title="The state of the lights of a vehicle. " alt="" coords="220,71,384,127"/>
+<area shape="rect" id="node7" href="structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="605,611,741,637"/>
+<area shape="rect" id="node8" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="229,597,375,624"/>
+<area shape="rect" id="node15" href="structosi3_1_1StatePoint.html" title="The StatePoint definition. " alt="" coords="611,459,735,485"/>
+<area shape="rect" id="node10" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="231,696,373,723"/>
+<area shape="rect" id="node11" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="245,493,359,520"/>
+<area shape="rect" id="node12" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="245,757,359,784"/>
+<area shape="rect" id="node16" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="237,351,367,377"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -153,6 +155,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a791fbef677615ca9e8e7af0595bb3b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07558573bee7a5fa2f0729e1cad1325f"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject.html#a07558573bee7a5fa2f0729e1cad1325f">model_reference</a> = 7</td></tr>
 <tr class="separator:a07558573bee7a5fa2f0729e1cad1325f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62f68ba53ed7d9dfc25e41d07769893f"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1StatePoint.html">StatePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject.html#a62f68ba53ed7d9dfc25e41d07769893f">future_trajectory</a> = 8</td></tr>
+<tr class="separator:a62f68ba53ed7d9dfc25e41d07769893f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (<code><a class="el" href="structosi3_1_1TrafficLight.html" title="A traffic light. ">TrafficLight</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign.html" title="A traffic sign. ">TrafficSign</a></code>, or <code><a class="el" href="structosi3_1_1StationaryObject.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g. pedestrian, animal, or vehicle) nor a traffic related object (TrafficLight, TrafficSign). ">StationaryObject</a></code>). </p>
@@ -223,6 +227,23 @@ OSI uses singular instead of plural for repeated field names. </dd></dl>
 </div><div class="memdoc">
 <p>The base parameters of the vehicle.</p>
 <dl class="section note"><dt>Note</dt><dd>The bounding box does NOT include side mirrors for vehicles. </dd></dl>
+
+</div>
+</div>
+<a id="a62f68ba53ed7d9dfc25e41d07769893f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62f68ba53ed7d9dfc25e41d07769893f">&#9670;&nbsp;</a></span>future_trajectory</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1StatePoint.html">StatePoint</a> osi3::MovingObject::future_trajectory = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The trajectory that this moving object expects to follow in the future.</p>
+<p>This is not externally perceivable information, rather this is to aid realistic simulation of traffic participants that are not under test. This information should not be made available to the stack under test.</p>
+<dl class="section note"><dt>Note</dt><dd>Moving objects are not required to stick to this trajectory, it is indicative, and equivalent to the output of a perception + prediction system. </dd></dl>
 
 </div>
 </div>

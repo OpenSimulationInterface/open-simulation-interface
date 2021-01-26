@@ -94,20 +94,21 @@ $(document).ready(function(){initNavTree('structosi3_1_1TrafficUpdate.html','');
 </div><!--header-->
 <div class="contents">
 
-<p>The traffic update message is provided by traffic participant models to provide updates to their position and state back to the simulation environment.  
+<p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment.  
  <a href="structosi3_1_1TrafficUpdate.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::TrafficUpdate:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficUpdate__coll__graph.png" border="0" usemap="#osi3_1_1TrafficUpdate_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficUpdate_coll__map" id="osi3_1_1TrafficUpdate_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="298,51,429,77"/>
-<area shape="rect" id="node5" href="structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="469,125,632,152"/>
-<area shape="rect" id="node11" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other). " alt="" coords="290,327,437,369"/>
-<area shape="rect" id="node6" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). " alt="" coords="656,335,803,361"/>
-<area shape="rect" id="node7" href="structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other). " alt="" coords="281,445,445,486"/>
-<area shape="rect" id="node9" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="8,335,123,361"/>
-<area shape="rect" id="node10" href="structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="295,276,431,303"/>
+<area shape="rect" id="node2" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="271,412,401,439"/>
+<area shape="rect" id="node12" href="structosi3_1_1StatePoint.html" title="The StatePoint definition. " alt="" coords="632,385,756,412"/>
+<area shape="rect" id="node5" href="structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="425,477,588,504"/>
+<area shape="rect" id="node11" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other). " alt="" coords="621,319,767,361"/>
+<area shape="rect" id="node6" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). " alt="" coords="968,219,1115,245"/>
+<area shape="rect" id="node7" href="structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other). " alt="" coords="612,113,776,154"/>
+<area shape="rect" id="node9" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="279,257,393,284"/>
+<area shape="rect" id="node10" href="structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="626,11,762,37"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -117,11 +118,11 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4d1b1ce8e0789b3e4bef89ee4d5b3fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc394afcae59b5491032f1c2fbc43bd6"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficUpdate.html#acc394afcae59b5491032f1c2fbc43bd6">timestamp</a> = 2</td></tr>
 <tr class="separator:acc394afcae59b5491032f1c2fbc43bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a2a0ad240f4ba1e7eb745a50431bead"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MovingObject.html">MovingObject</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficUpdate.html#a0a2a0ad240f4ba1e7eb745a50431bead">update</a> = 3</td></tr>
-<tr class="separator:a0a2a0ad240f4ba1e7eb745a50431bead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3c4f0f6851d1ce2e7ddcdc7684f6cd"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1MovingObject.html">MovingObject</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficUpdate.html#adf3c4f0f6851d1ce2e7ddcdc7684f6cd">update</a> = 3</td></tr>
+<tr class="separator:adf3c4f0f6851d1ce2e7ddcdc7684f6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The traffic update message is provided by traffic participant models to provide updates to their position and state back to the simulation environment. </p>
+<div class="textblock"><p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment. </p>
 <dl class="section note"><dt>Note</dt><dd>For reasons of convenience and consistency, the updated information is provided as a <a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a>. Certain fields of this sub-message are not required to be set and will be ignored by the simulation environment, because they are static information. Instead of creating a seperate message type for only the non-static information, re-use existing message. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="acc394afcae59b5491032f1c2fbc43bd6"></a>
@@ -140,19 +141,19 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0a2a0ad240f4ba1e7eb745a50431bead"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a2a0ad240f4ba1e7eb745a50431bead">&#9670;&nbsp;</a></span>update</h2>
+<a id="adf3c4f0f6851d1ce2e7ddcdc7684f6cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf3c4f0f6851d1ce2e7ddcdc7684f6cd">&#9670;&nbsp;</a></span>update</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1MovingObject.html">MovingObject</a> osi3::TrafficUpdate::update = 3</td>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1MovingObject.html">MovingObject</a> osi3::TrafficUpdate::update = 3</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Updated moving object</p>
-<dl class="section note"><dt>Note</dt><dd>Only the following members are considered in updates: id, base member without dimension and base_polygon and the vehicle_classification.light_state. All other members can be left undefined and will be ignored by the receiver of this message. </dd></dl>
+<p>Updated traffic participant data</p>
+<dl class="section note"><dt>Note</dt><dd>It is not expected that static fields are populated. If they are, they may be ignored by the receiver of this message, for example, dimensions, or vehicle category. All dynamic fields should be populated where known, for example, velocity, light states, or future trajectory. </dd></dl>
 
 </div>
 </div>

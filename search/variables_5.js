@@ -12,5 +12,6 @@ var searchData=
   ['free_5flane_5fboundary_5fid',['free_lane_boundary_id',['../structosi3_1_1Lane_1_1Classification.html#a7c49f38d73b09f54a6d94d907e866773',1,'osi3::Lane::Classification']]],
   ['free_5fspace_5fprobability',['free_space_probability',['../structosi3_1_1LidarDetection.html#a211052d77b3fd978c00659d3d1b98a06',1,'osi3::LidarDetection']]],
   ['freespace',['freespace',['../structosi3_1_1LongitudinalDistanceAction.html#a740cd23406548644370652d0c22c6ffa',1,'osi3::LongitudinalDistanceAction::freespace()'],['../structosi3_1_1LateralDistanceAction.html#a08cd05fe0e20e0d0ec1a033018ef9bf8',1,'osi3::LateralDistanceAction::freespace()']]],
-  ['front_5ffog_5flight',['front_fog_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#ae3defe31384a483f30bf502c7234d894',1,'osi3::MovingObject::VehicleClassification::LightState']]]
+  ['front_5ffog_5flight',['front_fog_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#ae3defe31384a483f30bf502c7234d894',1,'osi3::MovingObject::VehicleClassification::LightState']]],
+  ['future_5ftrajectory',['future_trajectory',['../structosi3_1_1MovingObject.html#a62f68ba53ed7d9dfc25e41d07769893f',1,'osi3::MovingObject']]]
 ];

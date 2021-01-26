@@ -106,13 +106,14 @@ var NAVTREEINDEX2 =
 "structosi3_1_1MountingPosition.html#a66a34477f66f316c6ca98b29df06fd12":[1,0,0,48,1],
 "structosi3_1_1MountingPosition.html#abf6b60bab37c064061d5591ceb82b13c":[1,0,0,48,0],
 "structosi3_1_1MovingObject.html":[1,0,0,49],
-"structosi3_1_1MovingObject.html#a07558573bee7a5fa2f0729e1cad1325f":[1,0,0,49,6],
+"structosi3_1_1MovingObject.html#a07558573bee7a5fa2f0729e1cad1325f":[1,0,0,49,7],
+"structosi3_1_1MovingObject.html#a62f68ba53ed7d9dfc25e41d07769893f":[1,0,0,49,5],
 "structosi3_1_1MovingObject.html#a655c12b5f4db44e68e83a3c351d3d4e9":[1,0,0,49,3],
-"structosi3_1_1MovingObject.html#a6a9a247e8d9c4a642b6d89dbcdf0d7da":[1,0,0,49,5],
-"structosi3_1_1MovingObject.html#a791fbef677615ca9e8e7af0595bb3b3d":[1,0,0,49,9],
+"structosi3_1_1MovingObject.html#a6a9a247e8d9c4a642b6d89dbcdf0d7da":[1,0,0,49,6],
+"structosi3_1_1MovingObject.html#a791fbef677615ca9e8e7af0595bb3b3d":[1,0,0,49,10],
 "structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8":[1,0,0,49,4],
-"structosi3_1_1MovingObject.html#aa2d750449efff1e937d9c9a69ad7fd71":[1,0,0,49,7],
-"structosi3_1_1MovingObject.html#aad46113ea5b9f84a4094f671630a010c":[1,0,0,49,8],
+"structosi3_1_1MovingObject.html#aa2d750449efff1e937d9c9a69ad7fd71":[1,0,0,49,8],
+"structosi3_1_1MovingObject.html#aad46113ea5b9f84a4094f671630a010c":[1,0,0,49,9],
 "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721e":[1,0,0,49,2],
 "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea34271d85b37fc38a053e9d81e2e2eac2":[1,0,0,49,2,4],
 "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea4b608f86c88c57a54ca0619793deadcd":[1,0,0,49,2,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structosi3_1_1RadarSensorView_1_1Reflection.html":[1,0,0,54,0],
 "structosi3_1_1RadarSensorView_1_1Reflection.html#a22d86f03243ff116d145268b71b42008":[1,0,0,54,0,1],
 "structosi3_1_1RadarSensorView_1_1Reflection.html#a58cf8f2eb4f068bda705ef530ca5da1f":[1,0,0,54,0,0],
-"structosi3_1_1RadarSensorView_1_1Reflection.html#a742f95122eba3b187623a07e08b8d0b4":[1,0,0,54,0,2],
-"structosi3_1_1RadarSensorView_1_1Reflection.html#a8aef801568939be8168ecaf34dacf5af":[1,0,0,54,0,3]
+"structosi3_1_1RadarSensorView_1_1Reflection.html#a742f95122eba3b187623a07e08b8d0b4":[1,0,0,54,0,2]
 };
