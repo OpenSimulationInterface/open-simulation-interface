@@ -213,7 +213,7 @@ message Identifier
     //
     optional TYPE type = 2;
     
-    // \brief Classification of the identifier type
+    // Classification of the identifier type
     //
     // The identifier can be used in different parts on the one hand as a
     // definition for a new Object or as a reference.
