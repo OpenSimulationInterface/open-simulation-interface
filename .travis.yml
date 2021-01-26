@@ -61,6 +61,8 @@ addons:
         - doxygen-gui
         - graphviz
         - python3-setuptools
+        - python3-pip
+        - python3-wheel
 
 
 jobs:
@@ -78,6 +80,8 @@ jobs:
           - cd ..
           - python3 setup.py build
           - python3 setup.py sdist
+          - python3 -m pip install -U pip
+          - python3 -m pip install .
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -103,6 +107,8 @@ jobs:
           - cd ..
           - python3 setup.py build
           - python3 setup.py sdist
+          - python3 -m pip install -U pip
+          - python3 -m pip install .
           - cd build
           - cmake --build . --target install
           - cd ..
@@ -128,6 +134,8 @@ jobs:
           - cd ..
           - python3 setup.py build
           - python3 setup.py sdist
+          - python3 -m pip install -U pip
+          - python3 -m pip install .
           - cd build
           - cmake --build . --target install
           - cd ..

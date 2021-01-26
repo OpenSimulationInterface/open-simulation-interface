@@ -7,7 +7,11 @@ When adding new messages, enums, field messages and field enums to OSI we enforc
 
 Message Naming
 ---------------
+<<<<<<< HEAD
+A message definition should always be in camel case. This means that the first letter of each word in a message should be upper case without any spaces. See example below:
+=======
 A message definition should always be in PascalCase. This means that the first letter of each word in a message should be upper case without any spaces. See example below:
+>>>>>>> master
 
 .. code-block:: protobuf
 

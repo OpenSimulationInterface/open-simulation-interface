@@ -155,4 +155,20 @@ message GroundTruth
     // \note It is implementation-specific how map_reference is resolved.
     //
     optional string map_reference = 15;
+
+    // Opaque reference of an associated 3D model.
+    //
+    // The model covers the static parts of the environment that are not
+    // provided as individual models referenced from ground truth objects
+    // like moving or stationary objects.
+    //
+    // \note Origin and orientation of the model have to coincide with the
+    // inertial coordinate frame of the ground truth.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models. The parts the world model contains are also implementation-specific.
+    // For example, the world model can wether contain street geometries or
+    // derives street geometies automatically from a map reference.
+    //
+    optional string model_reference = 16;
 }

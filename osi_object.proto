@@ -291,7 +291,7 @@ message MovingObject
 
     // The base parameters of the vehicle.
     //
-    // \note The bounding box does NOT includes mirrors for vehicles.
+    // \note The bounding box does NOT include side mirrors for vehicles.
     //
     optional BaseMoving base = 2;
 

@@ -181,6 +181,13 @@ message TrafficSign
         //
         optional Classification classification = 2;
 
+        // Opaque reference of an associated 3D model of the traffic sign.
+        //
+        // \note It is implementation-specific how model_references are resolved to
+        // 3d models.
+        //
+        optional string model_reference = 3;
+
         //
         // \brief \c Classification data for a traffic sign.
         //
@@ -5458,6 +5465,13 @@ message TrafficSign
         // The classification of the supplementary traffic sign.
         //
         optional Classification classification = 2;
+
+        // Opaque reference of an associated 3D model of the supplementary traffic sign.
+        //
+        // \note It is implementation-specific how model_references are resolved to
+        // 3d models.
+        //
+        optional string model_reference = 3;
 
         //
         // \brief \c Classification data for a supplementary traffic sign.
