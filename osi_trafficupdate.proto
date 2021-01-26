@@ -47,4 +47,8 @@ message TrafficUpdate
     //
     optional MovingObject update = 3;
 
+    // Updated host vehicle data
+    //
+    optional HostVehicleData host_vehicle_data_update = 4;
+
 }
