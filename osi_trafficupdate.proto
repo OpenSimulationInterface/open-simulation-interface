@@ -1,0 +1,49 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_object.proto";
+
+package osi3;
+
+//
+// \brief The traffic update message is provided by traffic
+// participant models to provide updates to their position, state
+// and future trajectory back to the simulation environment.
+//
+// \note For reasons of convenience and consistency, the
+// updated information is provided as a MovingObject.  Certain fields
+// of this sub-message are not required to be set and will be ignored by the
+// simulation environment, because they are static information.
+// Instead of creating a seperate message type for only the non-static
+// information, re-use existing message.
+//
+message TrafficUpdate
+{
+    // The interface version used by the sender (traffic participant model).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the UNIX epoch. Recommended is the starting time point of
+    // the simulation.
+    //
+    // \note For moving object update data the timestamp coincides both with
+    // the notional simulation time the data applies to and the time it was sent.
+    // There is no inherent latency for moving object update data, as opposed
+    // to sensor data.
+    //
+    optional Timestamp timestamp = 2;
+
+    // Updated traffic participant data
+    //
+    // \note It is not expected that static fields are populated. If they
+    // are, they may be ignored by the receiver of this message, for example, dimensions,
+    // or vehicle category.  All dynamic fields should be populated where known,
+    // for example, velocity, light states, or future trajectory.
+    //
+    repeated MovingObject update = 3;
+}
