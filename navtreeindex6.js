@@ -1,5 +1,16 @@
 var NAVTREEINDEX6 =
 {
+"structosi3_1_1UltrasonicIndirectDetection.html#a3e131efae88dbf40eadfd43ba4e444df":[1,0,0,79,4],
+"structosi3_1_1UltrasonicIndirectDetection.html#a486263493b3eea64c92cd607c86bc7f4":[1,0,0,79,0],
+"structosi3_1_1UltrasonicIndirectDetection.html#a66f2cbb56ff0694190aaab5cc9377fdf":[1,0,0,79,3],
+"structosi3_1_1UltrasonicIndirectDetection.html#a6d161260fca7169e5964cf620fcd044f":[1,0,0,79,2],
+"structosi3_1_1UltrasonicIndirectDetection.html#ae27488fe133f3e50b4894c7616466989":[1,0,0,79,1],
+"structosi3_1_1UltrasonicSensorView.html":[1,0,0,80],
+"structosi3_1_1UltrasonicSensorView.html#aba90faa1edc2d47553d91d67dda94f4f":[1,0,0,80,0],
+"structosi3_1_1UltrasonicSensorViewConfiguration.html":[1,0,0,81],
+"structosi3_1_1UltrasonicSensorViewConfiguration.html#a61de58d0b99c513982cd83b7112c3b48":[1,0,0,81,1],
+"structosi3_1_1UltrasonicSensorViewConfiguration.html#a655f38c2a008a81b51e02674b2b4b701":[1,0,0,81,3],
+"structosi3_1_1UltrasonicSensorViewConfiguration.html#a75effdf0ba9c72ffa74ea5f81783aea2":[1,0,0,81,2],
 "structosi3_1_1UltrasonicSensorViewConfiguration.html#a857ff0b1a82ae4e72b6b5cc4923243d9":[1,0,0,81,4],
 "structosi3_1_1UltrasonicSensorViewConfiguration.html#ac576573013280863221640ee8f6286b6":[1,0,0,81,0],
 "structosi3_1_1UltrasonicSpecificObjectData.html":[1,0,0,82],

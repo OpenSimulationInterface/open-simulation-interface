@@ -1,5 +1,16 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1RadarSensorViewConfiguration.html#ac63f51438a226eeb48b3e34c6a8b62da":[1,0,0,55,4],
+"structosi3_1_1RadarSensorViewConfiguration.html#ad9c99aa06a5729857247fc7319562d43":[1,0,0,55,3],
+"structosi3_1_1RadarSensorViewConfiguration.html#af5ff376f2a5f7becdd96ba9d956b3458":[1,0,0,55,7],
+"structosi3_1_1RadarSensorViewConfiguration_1_1AntennaDiagramEntry.html":[1,0,0,55,0],
+"structosi3_1_1RadarSensorViewConfiguration_1_1AntennaDiagramEntry.html#a53596ac061003061f399aa4242d377bf":[1,0,0,55,0,0],
+"structosi3_1_1RadarSensorViewConfiguration_1_1AntennaDiagramEntry.html#a788f6578025171307daf7764277a11a3":[1,0,0,55,0,2],
+"structosi3_1_1RadarSensorViewConfiguration_1_1AntennaDiagramEntry.html#af52433c9c212034b606903e35c68719a":[1,0,0,55,0,1],
+"structosi3_1_1RadarSensorView_1_1Reflection.html":[1,0,0,54,0],
+"structosi3_1_1RadarSensorView_1_1Reflection.html#a22d86f03243ff116d145268b71b42008":[1,0,0,54,0,1],
+"structosi3_1_1RadarSensorView_1_1Reflection.html#a58cf8f2eb4f068bda705ef530ca5da1f":[1,0,0,54,0,0],
+"structosi3_1_1RadarSensorView_1_1Reflection.html#a742f95122eba3b187623a07e08b8d0b4":[1,0,0,54,0,2],
 "structosi3_1_1RadarSensorView_1_1Reflection.html#a8aef801568939be8168ecaf34dacf5af":[1,0,0,54,0,3],
 "structosi3_1_1RadarSensorView_1_1Reflection.html#ac66401f3e6e296a3133d12681161e537":[1,0,0,54,0,4],
 "structosi3_1_1RadarSpecificObjectData.html":[1,0,0,56],
@@ -238,16 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1TrafficLight_1_1Classification.html":[1,0,0,72,0],
 "structosi3_1_1TrafficLight_1_1Classification.html#a3e26403ad1b31fe8392c15b2efe78f3a":[1,0,0,72,0,5],
 "structosi3_1_1TrafficLight_1_1Classification.html#a7b85ec64acb7871ba0a1704d4a5b7771":[1,0,0,72,0,6],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515":[1,0,0,72,0,1],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a07c5018532db61ea0dad7427a7dbe221":[1,0,0,72,0,1,8],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a0c5828ed1bab742a2a111a8c134cdf60":[1,0,0,72,0,1,20],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a0cad4ecbbd6a506696b4e766526bd6d2":[1,0,0,72,0,1,13],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a0f3977291cd549e3fa1feee802b5b2c0":[1,0,0,72,0,1,15],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a13bd225f654c09e00d55176c4bf2a66f":[1,0,0,72,0,1,19],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a1d66617dc1c25b4f786d32acb5c92a3b":[1,0,0,72,0,1,24],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a45b434990862005040fb006d4e9b6033":[1,0,0,72,0,1,5],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a4623696fa0458599ef58d91f35153f02":[1,0,0,72,0,1,11],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a4ac702cde584408d333bca18c3e4817d":[1,0,0,72,0,1,2],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a56cbb3972a2510147a8cdef86ec0ea10":[1,0,0,72,0,1,3],
-"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515a5ef15a3b718842b4cf7d54136ce361f0":[1,0,0,72,0,1,7]
+"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515":[1,0,0,72,0,1]
 };

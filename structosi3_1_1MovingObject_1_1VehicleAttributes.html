@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('structosi3_1_1MovingObject_1_1VehicleA
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structosi3_1_1MovingObject_1_1VehicleAttributes-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -101,11 +102,19 @@ Collaboration diagram for osi3::MovingObject::VehicleAttributes:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1MovingObject_1_1VehicleAttributes__coll__graph.png" border="0" usemap="#osi3_1_1MovingObject_1_1VehicleAttributes_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1MovingObject_1_1VehicleAttributes_coll__map" id="osi3_1_1MovingObject_1_1VehicleAttributes_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="8,125,123,152"/>
-<area shape="rect" id="node4" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="315,125,429,152"/>
+<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="540,7,655,33"/>
+<area shape="rect" id="node4" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information..." alt="" coords="524,184,671,240"/>
+<area shape="rect" id="node5" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="209,176,356,203"/>
+<area shape="rect" id="node7" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="225,75,340,101"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html">WheelData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information from the outside. It is not intended to be used for dynamic calculations, for example.  <a href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aba30c025ec374d4bcb9dead3913438ec"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#aba30c025ec374d4bcb9dead3913438ec">driver_id</a> = 1</td></tr>
@@ -120,6 +129,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7f681fb05df13db0e9df73e664621ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08e4d735182136ee84337ef910f89ae1"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a08e4d735182136ee84337ef910f89ae1">ground_clearance</a> = 6</td></tr>
 <tr class="separator:a08e4d735182136ee84337ef910f89ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d7ffb7cfe89c54fc94532b4e6869cd"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html">WheelData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a27d7ffb7cfe89c54fc94532b4e6869cd">wheel_data</a> = 7</td></tr>
+<tr class="separator:a27d7ffb7cfe89c54fc94532b4e6869cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The vehicle attributes for <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> (host or other). </p>
@@ -216,9 +227,25 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Median radius of the wheels measured from a center of the wheel including tire.</p>
+<p>Deprecated: Will be removed in next major release. Moved to <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information...">WheelData</a>. Median radius of the wheels measured from a center of the wheel including tire.</p>
 <p>Unit: m</p>
 <p>is_greater_than_or_equal_to: 0  </p>
+
+</div>
+</div>
+<a id="a27d7ffb7cfe89c54fc94532b4e6869cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d7ffb7cfe89c54fc94532b4e6869cd">&#9670;&nbsp;</a></span>wheel_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html">WheelData</a> osi3::MovingObject::VehicleAttributes::wheel_data = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Description of each wheel.</p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

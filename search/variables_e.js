@@ -21,9 +21,11 @@ var searchData=
   ['reversing_5flight',['reversing_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a4ff4d25be361bc831238a27a197503a6',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['right_5fadjacent_5flane_5fid',['right_adjacent_lane_id',['../structosi3_1_1Lane_1_1Classification.html#a9a5f956fd6acea0205ae10a7b2475145',1,'osi3::Lane::Classification']]],
   ['right_5flane_5fboundary_5fid',['right_lane_boundary_id',['../structosi3_1_1Lane_1_1Classification.html#a5e514b311276ad01e40538743a0664a2',1,'osi3::Lane::Classification']]],
+  ['rim_5fradius',['rim_radius',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#afdacaf4b3b87153099953937da698297',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
   ['road_5fcondition',['road_condition',['../structosi3_1_1Lane_1_1Classification.html#aae62d7c2da8739f46e68f0202a4f7955',1,'osi3::Lane::Classification']]],
   ['road_5fmarking',['road_marking',['../structosi3_1_1GroundTruth.html#a9f687169c82faae4e380556d5fabdd8f',1,'osi3::GroundTruth::road_marking()'],['../structosi3_1_1SensorData.html#a30cf0fd83d7f46cead025ce8e7fa5ce0',1,'osi3::SensorData::road_marking()']]],
   ['road_5fmarking_5fheader',['road_marking_header',['../structosi3_1_1SensorData.html#a5921917b8f68c4efed9004ded5ee589d',1,'osi3::SensorData']]],
   ['roll',['roll',['../structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba',1,'osi3::Orientation3d']]],
+  ['rotation_5frate',['rotation_rate',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#aac1cc436ddbf53001ca1a5269b536dc0',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
   ['rx_5fantenna_5fdiagram',['rx_antenna_diagram',['../structosi3_1_1RadarSensorViewConfiguration.html#a6d5b88a01eaa071e8bf4d6b13743b9b0',1,'osi3::RadarSensorViewConfiguration']]]
 ];

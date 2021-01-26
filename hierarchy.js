@@ -84,8 +84,8 @@ var hierarchy =
     [ "osi3::RadarSensorView", "structosi3_1_1RadarSensorView.html", null ],
     [ "osi3::RadarSensorViewConfiguration", "structosi3_1_1RadarSensorViewConfiguration.html", null ],
     [ "osi3::RadarSpecificObjectData", "structosi3_1_1RadarSpecificObjectData.html", null ],
-    [ "osi3::RadarSensorView::Reflection", "structosi3_1_1RadarSensorView_1_1Reflection.html", null ],
     [ "osi3::LidarSensorView::Reflection", "structosi3_1_1LidarSensorView_1_1Reflection.html", null ],
+    [ "osi3::RadarSensorView::Reflection", "structosi3_1_1RadarSensorView_1_1Reflection.html", null ],
     [ "osi3::Lane::Classification::RoadCondition", "structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html", null ],
     [ "osi3::RoadMarking", "structosi3_1_1RoadMarking.html", null ],
     [ "osi3::SensorData", "structosi3_1_1SensorData.html", null ],
@@ -119,5 +119,6 @@ var hierarchy =
     [ "osi3::Vector2d", "structosi3_1_1Vector2d.html", null ],
     [ "osi3::Vector3d", "structosi3_1_1Vector3d.html", null ],
     [ "osi3::MovingObject::VehicleAttributes", "structosi3_1_1MovingObject_1_1VehicleAttributes.html", null ],
-    [ "osi3::MovingObject::VehicleClassification", "structosi3_1_1MovingObject_1_1VehicleClassification.html", null ]
+    [ "osi3::MovingObject::VehicleClassification", "structosi3_1_1MovingObject_1_1VehicleClassification.html", null ],
+    [ "osi3::MovingObject::VehicleAttributes::WheelData", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html", null ]
 ];

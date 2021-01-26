@@ -30,7 +30,7 @@ var searchData=
   ['reference_5fpoint_5frear_5fright',['REFERENCE_POINT_REAR_RIGHT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa0e572bf2a3ea3e0b57e4d1fea60adef2',1,'osi3::DetectedMovingObject']]],
   ['reference_5fpoint_5funknown',['REFERENCE_POINT_UNKNOWN',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aadfb68f359b585fb5948c5fcd715544a0',1,'osi3::DetectedMovingObject']]],
   ['referencepoint',['ReferencePoint',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602a',1,'osi3::DetectedMovingObject']]],
-  ['reflection',['Reflection',['../structosi3_1_1RadarSensorView_1_1Reflection.html',1,'osi3::RadarSensorView::Reflection'],['../structosi3_1_1LidarSensorView_1_1Reflection.html',1,'osi3::LidarSensorView::Reflection'],['../structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d',1,'osi3::RadarSensorView::reflection()'],['../structosi3_1_1LidarSensorView.html#abd48c19b5ae9ddee52c269b0dbc11686',1,'osi3::LidarSensorView::reflection()']]],
+  ['reflection',['Reflection',['../structosi3_1_1LidarSensorView_1_1Reflection.html',1,'osi3::LidarSensorView::Reflection'],['../structosi3_1_1RadarSensorView_1_1Reflection.html',1,'osi3::RadarSensorView::Reflection'],['../structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d',1,'osi3::RadarSensorView::reflection()'],['../structosi3_1_1LidarSensorView.html#abd48c19b5ae9ddee52c269b0dbc11686',1,'osi3::LidarSensorView::reflection()']]],
   ['reflectivity',['reflectivity',['../structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42',1,'osi3::LidarDetection']]],
   ['relative_5fhumidity',['relative_humidity',['../structosi3_1_1EnvironmentalConditions.html#a05b6f530a842deef881608e131f3b98a',1,'osi3::EnvironmentalConditions']]],
   ['relative_5ftarget_5flane',['relative_target_lane',['../structosi3_1_1LaneChangeAction.html#af39ed748fbe94e6fe3d982904106a146',1,'osi3::LaneChangeAction']]],
@@ -38,11 +38,13 @@ var searchData=
   ['reversing_5flight',['reversing_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a4ff4d25be361bc831238a27a197503a6',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['right_5fadjacent_5flane_5fid',['right_adjacent_lane_id',['../structosi3_1_1Lane_1_1Classification.html#a9a5f956fd6acea0205ae10a7b2475145',1,'osi3::Lane::Classification']]],
   ['right_5flane_5fboundary_5fid',['right_lane_boundary_id',['../structosi3_1_1Lane_1_1Classification.html#a5e514b311276ad01e40538743a0664a2',1,'osi3::Lane::Classification']]],
+  ['rim_5fradius',['rim_radius',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#afdacaf4b3b87153099953937da698297',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
   ['road_5fcondition',['road_condition',['../structosi3_1_1Lane_1_1Classification.html#aae62d7c2da8739f46e68f0202a4f7955',1,'osi3::Lane::Classification']]],
   ['road_5fmarking',['road_marking',['../structosi3_1_1GroundTruth.html#a9f687169c82faae4e380556d5fabdd8f',1,'osi3::GroundTruth::road_marking()'],['../structosi3_1_1SensorData.html#a30cf0fd83d7f46cead025ce8e7fa5ce0',1,'osi3::SensorData::road_marking()']]],
   ['road_5fmarking_5fheader',['road_marking_header',['../structosi3_1_1SensorData.html#a5921917b8f68c4efed9004ded5ee589d',1,'osi3::SensorData']]],
   ['roadcondition',['RoadCondition',['../structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html',1,'osi3::Lane::Classification']]],
   ['roadmarking',['RoadMarking',['../structosi3_1_1RoadMarking.html',1,'osi3']]],
   ['roll',['roll',['../structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba',1,'osi3::Orientation3d']]],
+  ['rotation_5frate',['rotation_rate',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#aac1cc436ddbf53001ca1a5269b536dc0',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
   ['rx_5fantenna_5fdiagram',['rx_antenna_diagram',['../structosi3_1_1RadarSensorViewConfiguration.html#a6d5b88a01eaa071e8bf4d6b13743b9b0',1,'osi3::RadarSensorViewConfiguration']]]
 ];
