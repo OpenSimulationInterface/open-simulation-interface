@@ -408,6 +408,7 @@ message MovingObject
         //
         optional Identifier driver_id = 1;
 
+        // Deprecated: Will be removed in next major release. Moved to WheelData.
         // Median radius of the wheels measured from a center of the wheel
         // including tire.
         //
@@ -448,6 +449,86 @@ message MovingObject
         // through.
         //
         optional double ground_clearance = 6;
+
+        // Description of each wheel.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated WheelData wheel_data = 7;
+
+        // \brief Detailed wheel data.
+        // The focus is on the description of a wheel regarding the perceivable 
+        // information from the outside. 
+        // It is not intended to be used for dynamic calculations, for example.
+        //
+        message WheelData
+        {
+            // The axle which contains this wheel. A value of 0 represents the
+            // front-most axle of the vehicle with higher numbers incrementing
+            // towards the rear-most axle.
+            //
+            optional uint32 axle = 1;
+
+            // The index of the wheel on the axle, counting in the direction
+            // of positive-y, that is, right-to-left.
+            //
+            // For example, on a standard 2-axle, 4-wheel car, the rear-right
+            // wheel would be (axle=1, index=0).
+            // This concept works also for twin tires.
+            //
+            optional uint32 index = 2;
+            
+            // A vector pointing from the vehicle's reference system (center of bounding 
+            // box) to the geometric center of the wheel.
+            //
+            optional Vector3d position = 3;
+
+            // Median radius of the wheel measured from the center of the wheel to
+            // the outer part of the tire.
+            //
+            // Unit: m
+            //
+            optional double wheel_radius = 4;
+
+            // Median radius of the rim measured from the center to the outer, visible part of the rim.
+            //
+            // Unit: m
+            //
+            optional double rim_radius = 5;
+            
+            // Median width of the tire.
+            //
+            // Unit: m
+            //
+            optional double width = 6;
+
+            // Orientation of the wheel.
+            //
+            // The reference system is the vehicle frame (center of bounding box).
+            //
+            optional Orientation3d orientation = 7;
+
+            // Rotation rate of the wheel.
+            // The rotation rate around the y-axis with respect to the wheel's coordinate system.
+            // 
+            // Unit: rad/s.
+            //
+            // The sign convention is defined using the right-hand rule.
+            // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
+            // Counterclockwise is positive and clockwise is negative.
+            //
+            // \image html OSI_RotationRate.svg
+            // \note The vehicle's reference coordinate system is only used to determine the sign convention of the rotation rate.
+            //
+            optional double rotation_rate = 8;
+            
+            // Opaque reference of an associated 3D model of the wheel.
+            //
+            // \note It is implementation-specific how model_references are resolved to
+            // 3d models.
+            //
+            optional string model_reference = 9;
+        }
     }
 
     //
