@@ -449,6 +449,16 @@ message LidarDetection
     // Lambertian reflectivity.
     //
     optional double reflectivity = 10;
+
+    // Echo pulse width of the detection's echo.
+    //
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
+    //
+    optional double echo_pulse_width = 11;
 }
 
 //
