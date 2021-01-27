@@ -140,6 +140,7 @@ message StationaryObject
             TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
 
             // Object is a speed bump.
+            //
             TYPE_SPEED_BUMP = 17;
         }
 
