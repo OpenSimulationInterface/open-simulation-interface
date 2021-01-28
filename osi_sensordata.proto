@@ -303,7 +303,7 @@ message SensorData
     //
     // Logical detection data are provided by a transformation
     // (and optional sensor fusion)
-    // performed by a sensor model or a logical Model
+    // performed by a sensor model or a logical model
     // that fuses multiple sensors and/or sensor types
     // into a single reference frame
     // of the so called logical/virtual sensor.
