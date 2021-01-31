@@ -347,6 +347,8 @@ message BaseStationary
 //
 // \image html OSI_BaseMoving.svg
 //
+// \image html OSI_BaseMoving_Top.svg
+//
 // E.g. a vehicle is a base moving object.
 //
 // All coordinates and orientations from ground truth objects are relative to
@@ -357,6 +359,8 @@ message BaseStationary
 message BaseMoving
 {
     // The 3D dimension of the moving object (its bounding box).
+    //
+    // \note The bounding box does NOT include side mirrors for vehicles.
     //
     optional Dimension3d dimension = 1;
 

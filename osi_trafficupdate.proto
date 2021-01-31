@@ -10,7 +10,7 @@ package osi3;
 
 //
 // \brief The traffic update message is provided by traffic
-// participant models to provide updates to their position, state,
+// participant models to provide updates to their position, state
 // and future trajectory back to the simulation environment.
 //
 // \note For reasons of convenience and consistency, the
@@ -45,5 +45,5 @@ message TrafficUpdate
     // or vehicle category.  All dynamic fields should be populated where known,
     // for example, velocity, light states, or future trajectory.
     //
-    repeated MovingObject traffic = 3;
+    repeated MovingObject update = 3;
 }

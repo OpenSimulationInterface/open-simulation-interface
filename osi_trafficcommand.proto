@@ -47,7 +47,6 @@ message TrafficCommand
     // all actions are executed in parallel.
     //
     repeated TrafficAction action = 4;
-
 }
 
 //
@@ -98,6 +97,26 @@ message TrafficAction
     // An EndActionsAction
     //
     optional EndActionsAction end_actions_action = 7; 
+    
+    // A CustomAction
+    //
+    optional CustomAction custom_action = 8;
+
+    // A LongitudinalDistanceAction
+    //
+    optional LongitudinalDistanceAction longitudinal_distance_action = 9;
+
+    // A LaneOffsetAction
+    //
+    optional LaneOffsetAction lane_offset_action = 10;
+
+    // A LateralDistanceAction
+    //
+    optional LateralDistanceAction lateral_distance_action = 11;
+
+    // A TeleportAction
+    //
+    optional TeleportAction teleport_action = 12; 
 }
 
 //
@@ -180,8 +199,8 @@ message FollowTrajectoryAction
 //
 // \brief Follow path action.
 //
-// Controls a traffic participant to follow a trajectory using vertices
-// with timings. It specifies the motion in space independent of time.
+// Controls a traffic participant to follow a path using vertices. It 
+// specifies the motion in space independent of time.
 //
 // \note The StatePoint messages in path_point only requires a specified 
 // position field. The orientation can be set optionally. Any
@@ -431,8 +450,205 @@ message SpeedAction
 
 }
 
+// \brief Longitudinal Distance Action
 //
-// \brief Abort actions action
+// The action tells the (host) traffic participant to reach a certain longitudinal distance  
+// relative to a target traffic participant. The longitudinal distance is defined as the distance
+// along the centerline of the lane, on which the (host) traffic participant is currently located. 
+// The interpolation strategy between centerline points for calculating 
+// that distance along the centerline is open to the traffic participant modeller.  
+//
+// \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
+// defining the reference traffic participant and the distance.
+//
+// \note Limitation: This concept currently only works for lanes with a centerline, i.e. for lanes 
+// of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING or TYPE_INTERSECTION.
+//
+
+message LongitudinalDistanceAction 
+{
+    // Action Header of the message
+    //
+    optional ActionHeader action_header = 1;
+
+    // Unique Id of the reference traffic participant to which the distance is defined.
+    //
+    optional Identifier target_traffic_participant_id = 2;
+
+    // The distance to reach along the lane
+    //
+    // Unit: m
+    //
+    optional double distance = 3;
+
+    // Determine the measurement of longitudinal distance between the traffic
+    // participant receiving this action and the reference traffic
+    // participant. 
+    // True: Longitudinal distance is measured using the distance between closest bounding box points.
+    // False: Longitudinal distance is mesasured using the distance between the center of each object's bounding box.
+    //
+    optional bool freespace = 4;
+
+    // Define wheather the traffic participant should only reach the distance once 
+    // or if it should also follow if after having reached it.
+    // True: the traffic participant shall approach the reference participant
+    // and follow with the distance specified until the action is aborted/ended.
+    // False: the action ends as soon as the traffic participant has reached
+    // the specified distance. 
+    //
+    optional bool follow = 5;
+
+    // Parameter that assings either unlimited dynamics (if omitted) 
+    // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+    //
+    optional DynamicConstraints dynamic_constraints = 6;
+}
+
+
+// \brief Lateral Distance Action 
+//
+// The action tells the (host) traffic participant to reach a certain lateral distance relative to 
+// a target traffic participant. The lateral distance is defined along an imaginative perpendicular line
+// with respect to the centerline of the current (host) traffic participant's lane. 
+// The interpolation strategy between centerline points for calculating that distance along the imaginative 
+// perpendicular line is open to the traffic participant modeller.  
+//
+// \note This action is aligned with LateralDistanceAction of OpenSCENARIO 1.0
+// defining the reference traffic participant and the distance.
+//
+// \note Limitation: This concept currently only works for lanes with a centerline, i.e. for lanes 
+// of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING or TYPE_INTERSECTION.
+//
+
+message LateralDistanceAction
+{
+    // Action Header of the message
+    //
+    optional ActionHeader action_header = 1;
+
+    // Id of the reference entity the lateral distance shall be kept to.
+    //
+    optional Identifier target_traffic_participant_id = 2;
+
+    // Lateral distance value. 
+    //
+    // Unit: m
+    //
+    optional double distance = 3;
+
+    // Determine the measurement of lateral distance between the traffic
+    // participant receiving this action and the reference traffic
+    // participant. 
+    // True: Lateral distance is measured using the distance between closest bounding box points.
+    // False: Lateral distance is mesasured using the distance between the center of each object's bounding box.
+    //
+    optional bool freespace = 4;
+
+    // Define wheather the traffic participant should only reach the distance once 
+    // or if it should also follow if after having reached it.
+    // True: the traffic particpant shall approach the reference participant
+    // and follow with the distance specified until the action is aborted/ended.
+    // False: the action ends as soon as the traffic participant has reached
+    // the specified distance. 
+    //
+    optional bool follow = 5;
+
+    // Parameter that assings either unlimited dynamics (if omitted) 
+    // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+    //
+    optional DynamicConstraints dynamic_constraints = 6;
+}
+
+// \brief Lane Offset Action
+//
+// This action assigns a targeted lane offset to a traffic participant. 
+// The action can be constrained by specifying the dynamics shape of the
+// lateral transition profile. 
+//
+// \note This action is aligned with LaneOffsetAction of OpenSCENARIO 1.0.
+//
+
+message LaneOffsetAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+    
+    // Targeted lane offset in meters relative to the centerline of the
+    // current traffic participant's lane. Positive values mean left of the centerline, 
+    // negative values mean right of the centerline. 
+    //
+    // Unit: m
+    //
+    optional double target_lane_offset = 2;
+    
+    // Specified transition shape of reaching the lane offset. 
+    // If the shape is unspecified (enum value 0), the shape of the 
+    // transition is open to the traffic participant model. 
+    //
+    optional DynamicsShape dynamics_shape = 3;
+    
+    // Definition of dynamic shape of the transition.
+    //
+    enum DynamicsShape
+    {
+        // Shape is unspecified.
+        //
+        DYNAMICS_SHAPE_UNSPECIFIED = 0;
+
+        // Shape is linear.
+        //
+        DYNAMICS_SHAPE_LINEAR = 1;
+
+        // Shape is cubic.
+        //
+        DYNAMICS_SHAPE_CUBIC = 2;
+
+        // Shape is sinusoidal.
+        //
+        DYNAMICS_SHAPE_SINUSOIDAL = 3;
+
+        // Shape is a step function.
+        //
+        DYNAMICS_SHAPE_STEP = 4;
+    }
+
+}
+    
+
+// \brief Teleport Action
+//
+// This Action allows to immediately place a traffic participant to 
+// another position. 
+//
+// \note This action is aligned with the TeleportAction of
+// OpenSCENARIO 1.0 using a WorldPosition position argument.
+//
+
+message TeleportAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+
+    // Position in the global coordinate system.
+    //
+    // The position refers to the center (x,y,z) of the bounding box.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation in the global coordinate system.
+    //
+    // This is optional, if no orientation is given, the end orientation
+    // is under control of the traffic participant.
+    //
+    optional Orientation3d orientation = 3;
+}
+
+// \brief AbortActionsAction.
 //
 // This action tells a traffic participant that it should immediately 
 // abort the execution of other actions referenced within this action.
@@ -474,4 +690,55 @@ message EndActionsAction
     // as successfully executed and shall be terminated gracefully.
     //
     repeated Identifier target_action_id = 2; 
+}
+
+// \brief DynamicConstraints
+//
+// This message is used in Longitudinal and Lateral Distance Actions as
+// constraints on the TrafficParticipant not allowing them to exceed/drop below
+// certain speeds/acceleration levels.
+//
+
+message DynamicConstraints
+{
+    // Maximum acceleration the distance contoller is allowed to use for keeping distance. 
+    //
+    // Unit: m/s^2
+    //
+    optional double max_acceleration = 1;
+
+    // Maximum deceleration the distance contoller is allowed to use for keeping distance. 
+    //
+    // Unit: m/s^2
+    //
+    optional double max_deceleration = 2;
+
+    // Maximum speed the distance contoller is allowed to use for keeping distance. 
+    //
+    // Unit: m/s
+    //
+    optional double max_speed = 3;
+}
+
+//
+// \brief Custom Action.
+//
+// This action assigns a custom command to a traffic participant.
+// The syntax and semantics of this action is implementation defined.
+// It is entirely up to each individual traffic participant which
+// custom commands it supports, if any, and how they must be phrased.
+//
+// \note This action is aligned with CustomCommandAction of OpenSCENARIO 1.0
+// providing a customizable user defined action.
+//
+
+message CustomAction
+{
+    // The Action Header
+    //
+    optional ActionHeader action_header = 1;
+
+    // The custom command given to the traffic participant.
+    //
+    optional string command = 2;
 }
