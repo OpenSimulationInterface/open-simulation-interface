@@ -1,0 +1,105 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+
+package osi3;
+
+//
+// \brief The actuator commands from an actuator module to the 
+// intended vehicle to be controlled.
+//
+// This actuator commands are supposed to control the intended vehicle
+// by controlling pedals (gas, brake and if necessary clutch) and 
+// steering wheel movements.
+
+message actuatorcommand
+{
+    // The interface version used by the sendor (i.e. the simulation environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    optional Timestamp timestamp = 2;    
+    
+    // The ID of this traffic participant to be controlled
+    //
+    optional Identifier traffic_participant_id = 3;
+
+    // The positions of the pedals
+    optional Pedalry pedalry = 4; 
+    
+    // Steering wheel position to be controlled
+    optional VehicleSteeringWheel vehicle_steering_wheel = 5;
+
+    // The gear of the gear lever to be set.
+    //
+    // optional GearLeverState gear_lever_state = 2;
+
+    // The actual gear of the transmission.
+    // E.g. gear_lever can be in "D" and transmission in "4", but not the
+    // other way around.
+    //
+    // The sign of this field is linked to the gear's mode as following:
+    // - zero: neutral position
+    // - positive: driving forward mode
+    // - negative: reverse mode (generally -1, but few vehicles have several
+    //   reverse mode gears)
+    //
+    optional int32 gear_transmission = 6;
+    
+    //
+    // \brief A description for the positions of the pedals.
+    //
+    message Pedalry
+        {
+            // Position of the acceleration-pedal.
+            // Range: 0-1 (Unpressed - fully pressed)
+            //
+            optional double pedal_position_acceleration = 1;
+
+            // Position of the brake-pedal.
+            // Range: 0-1 (Unpressed - fully pressed)
+            //
+            optional double pedal_position_brake = 2;
+
+            // Position of the clutch-pedal.
+            // Range: 0-1 (Unpressed - fully pressed)
+            //
+            optional double pedal_position_clutch = 3;
+        }
+    
+    //
+    // \brief Interface to control the intended vehicle steering wheel.
+    //
+    message VehicleSteeringWheel
+        {
+            // Angle of the steering wheel. 
+            // 0=Central (Straight); Left>0; 0>Right.
+            //
+            // Unit: rad
+            //
+            optional double angle = 1;
+
+            // Anglular speed of the steering wheel.
+            // 0=Central (Straight); Left>0; 0>Right.
+            //
+            // Unit: rad/s
+            //
+            optional double angular_speed = 2;
+
+            // Torque of the steering wheel to the hand.
+            // 0=Central (Straight); Left>0; 0>Right.
+            //
+            // Unit: N*m
+            //
+            optional double torque = 3;
+    }        
+}
