@@ -96,6 +96,10 @@ message StationaryObject
         //
         optional Color color = 4;
 
+        // The attributes of the emitting structure if stationary object is classified as such.
+        //
+        optional EmittingStructureAttribute emitting_structure_attribute = 5;
+
         // Definition of object types.
         //
         enum Type
@@ -307,6 +311,52 @@ message StationaryObject
             // White.
             //
             COLOR_WHITE = 10;
+        }
+
+        //
+        // Attributes of type emitting structure
+        //
+        message EmittingStructureAttribute
+        {
+            // Maximum wavelength of emitted electromagnetic wave
+            //
+            // Unit: m
+            //
+            optional double max_wavelength = 0;
+
+            // Minimum wavelength of emitted electromagnetic wave
+            //
+            // Unit: m
+            //
+            optional double min_wavelength = 1;
+
+            // Step size for emitted electromagnetic wave
+            //
+            // Unit: m
+            //
+            optional double wavelength_step = 2;
+
+            // Intensities of emitted electromagnetic wave
+            //
+            // Unit: %
+            //
+            // \note size = (max_wavelength - min_wavelength) / wavelength_step
+            //
+            repeated double intensity_per_wavelength = 3;
+
+            // Beam angles of emitted electromagnetic wave
+            //
+            // Unit: rad
+            //
+            repeated Orientation3d beam_angle = 4;
+
+            // Intensities of emitted electromagnetic wave per beam
+            //
+            // Unit: %
+            //
+            // \note size = size of beam_angle
+            //
+            repeated double intensity_per_beam = 5;
         }
     }
 }
