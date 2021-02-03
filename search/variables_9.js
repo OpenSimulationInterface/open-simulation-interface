@@ -22,5 +22,8 @@ var searchData=
   ['limiting_5fstructure_5fid',['limiting_structure_id',['../structosi3_1_1LaneBoundary_1_1Classification.html#a6e0dc12b94249ce6e56040a45b15dd3e',1,'osi3::LaneBoundary::Classification']]],
   ['location',['location',['../structosi3_1_1HostVehicleData.html#a51624586db59bccb270eabf886860ffd',1,'osi3::HostVehicleData']]],
   ['location_5frmse',['location_rmse',['../structosi3_1_1HostVehicleData.html#a134f274a754bdbb4d6d231de530bf46d',1,'osi3::HostVehicleData']]],
+  ['logical_5fdetection',['logical_detection',['../structosi3_1_1LogicalDetectionData.html#a754762194c10b1f1775b5b495c629834',1,'osi3::LogicalDetectionData']]],
+  ['logical_5fdetection_5fdata',['logical_detection_data',['../structosi3_1_1SensorData.html#ab83f422a889c93a36b7fd4e3449463e8',1,'osi3::SensorData']]],
+  ['logical_5fdetection_5ftime',['logical_detection_time',['../structosi3_1_1LogicalDetectionDataHeader.html#abf0cf875292df1365859ba88ea20999e',1,'osi3::LogicalDetectionDataHeader']]],
   ['longitudinal_5fdistance_5faction',['longitudinal_distance_action',['../structosi3_1_1TrafficAction.html#a5d5ceb116645e69bdeeceb0bc160ed79',1,'osi3::TrafficAction']]]
 ];

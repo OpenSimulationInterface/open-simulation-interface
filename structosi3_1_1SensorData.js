@@ -8,6 +8,7 @@ var structosi3_1_1SensorData =
     [ "lane_boundary_header", "structosi3_1_1SensorData.html#a87f1fd980c6a87910e91b434dba5269a", null ],
     [ "lane_header", "structosi3_1_1SensorData.html#a41b6394917e07ddee67ac2b037aee1ad", null ],
     [ "last_measurement_time", "structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d", null ],
+    [ "logical_detection_data", "structosi3_1_1SensorData.html#ab83f422a889c93a36b7fd4e3449463e8", null ],
     [ "mounting_position", "structosi3_1_1SensorData.html#ac79014724b81866a0b47c6d989447f21", null ],
     [ "mounting_position_rmse", "structosi3_1_1SensorData.html#ae9b2bb51d2add0b88c483fcabe02a70e", null ],
     [ "moving_object", "structosi3_1_1SensorData.html#a03ec2ab20c09c83157e857cf368044c5", null ],

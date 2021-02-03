@@ -12,5 +12,8 @@ var searchData=
   ['lidarsensorviewconfiguration',['LidarSensorViewConfiguration',['../structosi3_1_1LidarSensorViewConfiguration.html',1,'osi3']]],
   ['lidarspecificobjectdata',['LidarSpecificObjectData',['../structosi3_1_1LidarSpecificObjectData.html',1,'osi3']]],
   ['lightstate',['LightState',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html',1,'osi3::MovingObject::VehicleClassification']]],
+  ['logicaldetection',['LogicalDetection',['../structosi3_1_1LogicalDetection.html',1,'osi3']]],
+  ['logicaldetectiondata',['LogicalDetectionData',['../structosi3_1_1LogicalDetectionData.html',1,'osi3']]],
+  ['logicaldetectiondataheader',['LogicalDetectionDataHeader',['../structosi3_1_1LogicalDetectionDataHeader.html',1,'osi3']]],
   ['longitudinaldistanceaction',['LongitudinalDistanceAction',['../structosi3_1_1LongitudinalDistanceAction.html',1,'osi3']]]
 ];
