@@ -128,8 +128,8 @@ message StationaryObject
             //
             TYPE_OVERHEAD_STRUCTURE = 14;
 
-            // Landmarks corresponding to light sources or reflective structures
-            // in the environment, like street lights or reflective poles on the
+            // Landmarks corresponding to reflective structures
+            // in the environment, like reflective poles on the
             // road boarder.
             //
             TYPE_REFLECTIVE_STRUCTURE = 15;
@@ -138,6 +138,11 @@ message StationaryObject
             // environment, like cones or beacons.
             //
             TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
+
+            // Landmarks corresponding to sources of electromagnetic waves
+            // in the environment, like street lights.
+            //
+            TYPE_EMITTING_STRUCTURE = 17;
         }
 
         // Definition of material types.
