@@ -190,7 +190,7 @@ message DetectedMovingObject
     //
     // Percentage value of the object width in the corresponding lane.
     //
-    // \note DEPRECATED: Use assigned_lane_percentage in VehicleClassification
+    // \note DEPRECATED: Use assigned_lane_percentage in MovingObjectClassification
     // instead.
     //
     // \rules
@@ -204,7 +204,7 @@ message DetectedMovingObject
     //
     // Percentage value of the object width in the corresponding lane.
     //
-    // \note DEPRECATED: Use assigned_lane_percentage in VehicleClassification
+    // \note DEPRECATED: Use assigned_lane_percentage in MovingObjectClassification
     // instead.
     //
     // \rules
