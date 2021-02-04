@@ -10,14 +10,13 @@ What does it fix?
 Is this a bug fix or a feature? Does it break any existing functionality or force me to update to a new version?
 How has it been tested?
 
-#### Mention a member
-Add @mentions of the person or team responsible for reviewing proposed changes.
+#### Take this checklist as orientation for yourself, if this PR is ready for the Change Control Board:
+- [ ] My suggestion follows the [style and contributors guidelines](https://opensimulationinterface.github.io/osi-documentation/osi/howtocontribute.html).
+- [ ] I have taken care about the [documentation](https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/doc/commenting.html).
+- [ ] I have done the [DCO signoff](https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/doc/howtocontribute.html#developer-certification-of-origin-dco).
+- [ ] My changes generate no errors when passing CI tests. 
+- [ ] I have successfully implemented and tested my fix/feature locally.
+- [ ] Appropriate reviewer(s) are assigned.
 
-#### Check the checklist
-
-- [ ] My code and comments follow the [style guidelines](https://opensimulationinterface.github.io/osi-documentation/osi/commenting.html) and [contributors guidelines](https://opensimulationinterface.github.io/osi-documentation/osi/howtocontribute.html) of this project.
-- [ ] I have performed a self-review of my own code.
-- [ ] I have made corresponding changes to the [documentation](https://github.com/OpenSimulationInterface/osi-documentation).
-- [ ] My changes generate no new warnings.
-- [ ] I have added tests that prove my fix is effective or that my feature works.
-- [ ] New and existing unit tests / travis ci pass locally with my changes.
+If you can’t check all of them, please explain why.
+If all boxes are checked or commented and you achieved at least one positive review, you can assign the label readyForCCB!
