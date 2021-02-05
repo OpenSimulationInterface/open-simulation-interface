@@ -19,4 +19,4 @@ How has it been tested?
 - [ ] Appropriate reviewer(s) are assigned.
 
 If you can’t check all of them, please explain why.
-If all boxes are checked or commented and you achieved at least one positive review, you can assign the label readyForCCB!
+If all boxes are checked or commented and you have achieved at least one positive review, you can assign the label ReadyForCCBReview!
