@@ -491,3 +491,29 @@ message StatePoint
     //
     optional Orientation3d orientation = 3;
 }
+//
+// \brief Detailed WavelengthRange message.
+//
+// Defines the start (minimum) and the end (maximum) values of the wavelength.
+// Additionally, the number of samples within this range is defined in this message.
+//
+message WavelengthData
+{
+    // The start, or the minimum wavelength value.
+    //
+    // Unit: m
+    //
+    optional double start = 1;
+
+    // The start, or the minimum wavelength value.
+    //
+    // Unit: m
+    //
+    optional double end = 2;
+
+    // Number of samples to be considered within the defined wavelength range.
+    // 
+    // \note This defines the number of wavelengths to be computed during simulation, not to be confused with samples_per_pixel.
+    //
+    optional double samples_number = 3;
+}
