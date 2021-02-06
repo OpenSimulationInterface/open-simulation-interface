@@ -706,6 +706,34 @@ message CameraSensorViewConfiguration
     //
     repeated ChannelFormat channel_format = 8;
 
+    // Number of samples per pixel.
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
+    optional uint32 samples_per_pixel = 9;
+
+    // Maximum number of interactions to take into account.
+    //
+    // \note This is a characteristic of the ray tracing engine of the
+    // environment simulation, not a direct characteristic of the sensor.
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 1
+    // \endrules
+    //
+    optional uint32 max_number_of_interactions = 10;
+
+    // In use-cases where a spectral ray-tracer is used, this message
+    // determines the range of the wavelength and its desired number
+    // of samples.
+    //
+    repeated WavelengthData wavelength_data = 11;
+
     // Channel format.
     //
     enum ChannelFormat
@@ -816,41 +844,8 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_RCCB_F32_LIN = 25;
         
-
-        // TBD: Further channel permutations and padding (e.g. RGBZ,
-        // BGR, BAYER_RGGB/GBRG/GRBG/...), non-BAYER filters, non-linear
-        // encodings, ...
     }
-
-    // Number of samples per pixel.
-    //
-    // \note This is a characteristic of the ray tracing engine of the
-    // environment simulation, not a direct characteristic of the sensor.
-    //
-    // \rules
-    // is_greater_than_or_equal_to: 1
-    // \endrules
-    //
-    optional uint32 samples_per_pixel = 9;
-
-    // Maximum number of interactions to take into account.
-    //
-    // \note This is a characteristic of the ray tracing engine of the
-    // environment simulation, not a direct characteristic of the sensor.
-    //
-    // \rules
-    // is_greater_than_or_equal_to: 1
-    // \endrules
-    //
-    optional uint32 max_number_of_interactions = 10;
-
-    // In use-cases where a spectral ray-tracer is used, this message determines the range of the wavelength
-    // and its desired number of samples.
-    //
-    repeated WavelengthData wavelength_data = 11;
     
-    // TBD: Optical (and other) effects to apply to image, etc.
-    //
 }
 
 //
