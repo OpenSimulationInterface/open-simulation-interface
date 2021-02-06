@@ -512,7 +512,7 @@ message WavelengthData
     optional double end = 2;
 
     // Number of samples to be considered within the defined wavelength range.
-    // 
+    // The number of samples includes the start and the end values that are defined in this message, starting from the "start" value.
     // \note This defines the number of wavelengths to be computed during simulation, not to be confused with samples_per_pixel.
     //
     optional double samples_number = 3;
