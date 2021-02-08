@@ -315,6 +315,10 @@ message DetectedMovingObject
         // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.
         //
         optional Orientation3d upper_body_pose = 5;
+
+        // Specific information about the classification of a moving object.
+        //
+        optional MovingObject.MovingObjectClassification moving_object_classification = 6;        
     }
 
     // Definition of available reference points. Left/middle/right and
