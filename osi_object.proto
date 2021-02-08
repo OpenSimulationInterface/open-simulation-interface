@@ -61,6 +61,22 @@ message StationaryObject
         //
         optional Color color = 4;
 
+        // The IDs of the lanes that the stationary object is assigned to.
+        //
+        // \note Might be multiple if the stationary object is streching over multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 5;
+
+        // Percentage value of the total stationary object residing within a corresponding lane.
+        //
+        // \note Might be multiple if the stationary object is streching over multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated double assigned_lane_percentage = 6;
+
         // Definition of object types.
         //
         enum Type
