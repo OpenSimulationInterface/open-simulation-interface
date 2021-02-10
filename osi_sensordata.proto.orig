@@ -15,8 +15,8 @@ import "osi_featuredata.proto";
 <<<<<<< HEAD
 import "osi_logicaldetectiondata.proto";
 =======
-import "osi_hostvehicledata.proto"
->>>>>>> Add HostVehicleData to SensorData #480
+import "osi_hostvehicledata.proto";
+>>>>>>> fix semicolon
 
 package osi3;
 
@@ -135,7 +135,6 @@ message SensorData
     //
     optional Timestamp timestamp = 2;
 
-    // Deprecated: Will be removed in next major release. Moved to HostVehicleData.VehiclePositionAndKinematics.
     // The sensors estimated location of the host vehicle
     //
     // \note This value is only set by sensors that are able to
@@ -145,7 +144,6 @@ message SensorData
     //
     optional BaseMoving host_vehicle_location = 3;
 
-    // Deprecated: Will be removed in next major release. Moved to HostVehicleData.VehiclePositionAndKinematics.
     // The sensors estimated location error of the host vehicle
     //
     // \note This value is only set by sensors that are able to
@@ -305,7 +303,6 @@ message SensorData
     //
     optional FeatureData feature_data = 26;
 
-<<<<<<< HEAD
     // Logical detection data interface.
     //
     // Logical detection data are provided by a transformation
@@ -320,9 +317,4 @@ message SensorData
     // in cartesian coordinates.
     //
     optional LogicalDetectionData logical_detection_data = 27;
-=======
-    // Host vehicle data measured by the sensors.
-    //
-    optional HostVehicleData host_vehicle = 27;
->>>>>>> Add HostVehicleData to SensorData #480
 }
