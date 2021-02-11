@@ -119,7 +119,6 @@ message TrafficAction
     //
     // \brief The action header
     //
-    //
     message ActionHeader
     {
         // The unique id of the action.
@@ -130,6 +129,77 @@ message TrafficAction
         // messages exchanged with one traffic participant.
         //
         optional Identifier action_id = 1;
+    }
+
+    // Definition of following mode.
+    //
+    enum FollowingMode
+    {
+        // Following mode position forces the traffic participant to
+        // follow a path/trajectory explicitly, disregarding any internal
+        // constraints, for example, steering dynamics.
+        //
+        FOLLOWING_MODE_POSITION = 0;
+
+        // Following mode follow allows the traffic participant to
+        // treat a path/trajectory as a target, to be achieved as closely
+        // as possible while retaining any internal constraints,
+        // for example, steering dynamics.
+        //
+        FOLLOWING_MODE_FOLLOW = 1;
+    }    
+
+    // Definition of dynamic shapes.
+    //
+    enum DynamicsShape
+    {
+        // Shape is unspecified.
+        //
+        DYNAMICS_SHAPE_UNSPECIFIED = 0;
+
+        // Shape is linear.
+        //
+        DYNAMICS_SHAPE_LINEAR = 1;
+
+        // Shape is cubic.
+        //
+        DYNAMICS_SHAPE_CUBIC = 2;
+
+        // Shape is sinusoidal.
+        //
+        DYNAMICS_SHAPE_SINUSOIDAL = 3;
+
+        // Shape is a step function.
+        //
+        DYNAMICS_SHAPE_STEP = 4;
+    }
+
+
+    // \brief DynamicConstraints
+    //
+    // This message is used in Longitudinal and Lateral Distance Actions as
+    // constraints on the TrafficParticipant not allowing them to exceed/drop below
+    // certain speeds/acceleration levels.
+    //
+    message DynamicConstraints
+    {
+        // Maximum acceleration the distance contoller is allowed to use for keeping distance. 
+        //
+        // Unit: m/s^2
+        //
+        optional double max_acceleration = 1;
+
+        // Maximum deceleration the distance contoller is allowed to use for keeping distance. 
+        //
+        // Unit: m/s^2
+        //
+        optional double max_deceleration = 2;
+
+        // Maximum speed the distance contoller is allowed to use for keeping distance. 
+        //
+        // Unit: m/s
+        //
+        optional double max_speed = 3;
     }
 
     //
@@ -173,24 +243,6 @@ message TrafficAction
         // the trajectory.
         //
         optional FollowingMode following_mode = 4;
-
-        // Definition of following mode.
-        //
-        enum FollowingMode
-        {
-            // Following mode position forces the traffic participant to
-            // follow the trajectory explicitly, disregarding any internal
-            // constraints, for example, steering dynamics.
-            //
-            FOLLOWING_MODE_POSITION = 0;
-
-            // Following mode follow allows the traffic participant to
-            // treat the trajectory as a target, to be achieved as closely
-            // as possible while retaining any internal constraints,
-            // for example, steering dynamics.
-            //
-            FOLLOWING_MODE_FOLLOW = 1;
-        }
     }
 
     //
@@ -236,24 +288,6 @@ message TrafficAction
         // the path.
         //
         optional FollowingMode following_mode = 4;
-
-        // Definition of following mode.
-        //
-        enum FollowingMode
-        {
-            // Following mode position forces the traffic participant to
-            // follow the path explicitly, disregarding any internal
-            // constraints, for example, steering dynamics.
-            //
-            FOLLOWING_MODE_POSITION = 0;
-
-            // Following mode follow allows the traffic participant to
-            // treat the path as a target, to be achieved as closely
-            // as possible while retaining any internal constraints,
-            // for example, steering dynamics.
-            //
-            FOLLOWING_MODE_FOLLOW = 1;
-        }
     }
 
     //
@@ -343,31 +377,6 @@ message TrafficAction
         // Unit: m
         //
         optional double distance = 5;
-
-        // Definition of LaneChange dynamic shapes.
-        //
-        enum DynamicsShape
-        {
-            // Shape is unspecified.
-            //
-            DYNAMICS_SHAPE_UNSPECIFIED = 0;
-
-            // Shape is linear.
-            //
-            DYNAMICS_SHAPE_LINEAR = 1;
-
-            // Shape is cubic.
-            //
-            DYNAMICS_SHAPE_CUBIC = 2;
-
-            // Shape is sinusoidal.
-            //
-            DYNAMICS_SHAPE_SINUSOIDAL = 3;
-
-            // Shape is a step function.
-            //
-            DYNAMICS_SHAPE_STEP = 4;
-        }
     }
 
     //
@@ -417,33 +426,71 @@ message TrafficAction
         // Unit: m
         //
         optional double distance = 5;
-
-        // Definition of speed change dynamic shapes.
-        //
-        enum DynamicsShape
-        {
-            // Shape is unspecified.
-            //
-            DYNAMICS_SHAPE_UNSPECIFIED = 0;
-
-            // Shape is linear.
-            //
-            DYNAMICS_SHAPE_LINEAR = 1;
-
-            // Shape is cubic.
-            //
-            DYNAMICS_SHAPE_CUBIC = 2;
-
-            // Shape is sinusoidal.
-            //
-            DYNAMICS_SHAPE_SINUSOIDAL = 3;
-
-            // Shape is a step function.
-            //
-            DYNAMICS_SHAPE_STEP = 4;
-        }
-
     }
+
+    // \brief AbortActionsAction.
+    //
+    // This action tells a traffic participant that it should immediately 
+    // abort the execution of other actions referenced within this action.
+    // In contrast to the EndActionsAction this action forces a hard 
+    // termination of the referenced actions.
+    //
+    message AbortActionsAction
+    {
+        // The action header
+        //
+        optional ActionHeader action_header = 1;
+
+        // Actions which must be aborted immediately.
+        // 
+        // These fields hold the action ids of the actions that must be 
+        // aborted immediately. 
+        //
+        repeated Identifier target_action_id = 2; 
+    }
+
+    // \brief End actions action.
+    //
+    // This action tells a traffic participant that the exection of the 
+    // referenced actions is regarded as successfully performed. The 
+    // termination of the referenced actions is allowed to be performed 
+    // gracefully. 
+    //
+    message EndActionsAction
+    {
+        // The action header
+        //
+        optional ActionHeader action_header = 1;
+
+        // Actions which are regarded as successfully executed.
+        // 
+        // These fields hold the action ids of the actions that are regarded 
+        // as successfully executed and shall be terminated gracefully.
+        //
+        repeated Identifier target_action_id = 2; 
+    }    
+
+    //
+    // \brief Custom Action.
+    //
+    // This action assigns a custom command to a traffic participant.
+    // The syntax and semantics of this action is implementation defined.
+    // It is entirely up to each individual traffic participant which
+    // custom commands it supports, if any, and how they must be phrased.
+    //
+    // \note This action is aligned with CustomCommandAction of OpenSCENARIO 1.0
+    // providing a customizable user defined action.
+    //
+    message CustomAction
+    {
+        // The Action Header.
+        //
+        optional ActionHeader action_header = 1;
+
+        // The custom command given to the traffic participant.
+        //
+        optional string command = 2;
+    }    
 
     // \brief Longitudinal Distance Action
     //
@@ -484,11 +531,11 @@ message TrafficAction
         optional bool freespace = 4;
 
         // Define wheather the traffic participant should only reach the distance once 
-        // or if it should also follow if after having reached it.
+        // or if it should also keep the distance after having reached it.
         // True: the traffic participant shall approach the reference participant
-        // and follow with the distance specified until the action is aborted/ended.
+        // and follow with the distance specified until the action is aborted (communicate with AbortActionsAction).
         // False: the action ends as soon as the traffic participant has reached
-        // the specified distance. 
+        // the specified distance (communicate with EndActionsAction).
         //
         optional bool follow = 5;
 
@@ -537,11 +584,11 @@ message TrafficAction
         optional bool freespace = 4;
 
         // Define wheather the traffic participant should only reach the distance once 
-        // or if it should also follow if after having reached it.
-        // True: the traffic particpant shall approach the reference participant
-        // and follow with the distance specified until the action is aborted/ended.
+        // or if it should also keep the distance after having reached it.
+        // True: the traffic participant shall approach the reference participant
+        // and follow with the distance specified until the action is aborted (communicate with AbortActionsAction).
         // False: the action ends as soon as the traffic participant has reached
-        // the specified distance. 
+        // the specified distance (communicate with EndActionsAction).
         //
         optional bool follow = 5;
 
@@ -578,32 +625,6 @@ message TrafficAction
         // transition is open to the traffic participant model. 
         //
         optional DynamicsShape dynamics_shape = 3;
-        
-        // Definition of dynamic shape of the transition.
-        //
-        enum DynamicsShape
-        {
-            // Shape is unspecified.
-            //
-            DYNAMICS_SHAPE_UNSPECIFIED = 0;
-
-            // Shape is linear.
-            //
-            DYNAMICS_SHAPE_LINEAR = 1;
-
-            // Shape is cubic.
-            //
-            DYNAMICS_SHAPE_CUBIC = 2;
-
-            // Shape is sinusoidal.
-            //
-            DYNAMICS_SHAPE_SINUSOIDAL = 3;
-
-            // Shape is a step function.
-            //
-            DYNAMICS_SHAPE_STEP = 4;
-        }
-
     }
 
     // \brief Teleport Action
@@ -635,96 +656,5 @@ message TrafficAction
         // is under control of the traffic participant.
         //
         optional Orientation3d orientation = 3;
-    }
-
-    // \brief AbortActionsAction.
-    //
-    // This action tells a traffic participant that it should immediately 
-    // abort the execution of other actions referenced within this action.
-    // In contrast to the EndActionsAction this action forces a hard 
-    // termination of the referenced actions.
-    //
-    message AbortActionsAction
-    {
-        // The action header
-        //
-        optional ActionHeader action_header = 1;
-
-        // Actions which must be aborted immediately.
-        // 
-        // These fields hold the action ids of the actions that must be 
-        // aborted immediately. 
-        //
-        repeated Identifier target_action_id = 2; 
-    }
-
-    // \brief End actions action.
-    //
-    // This action tells a traffic participant that the exection of the 
-    // referenced actions is regarded as successfully performed. The 
-    // termination of the referenced actions is allowed to be performed 
-    // gracefully. 
-    //
-    message EndActionsAction
-    {
-        // The action header
-        //
-        optional ActionHeader action_header = 1;
-
-        // Actions which are regarded as successfully executed.
-        // 
-        // These fields hold the action ids of the actions that are regarded 
-        // as successfully executed and shall be terminated gracefully.
-        //
-        repeated Identifier target_action_id = 2; 
-    }
-
-    // \brief DynamicConstraints
-    //
-    // This message is used in Longitudinal and Lateral Distance Actions as
-    // constraints on the TrafficParticipant not allowing them to exceed/drop below
-    // certain speeds/acceleration levels.
-    //
-    message DynamicConstraints
-    {
-        // Maximum acceleration the distance contoller is allowed to use for keeping distance. 
-        //
-        // Unit: m/s^2
-        //
-        optional double max_acceleration = 1;
-
-        // Maximum deceleration the distance contoller is allowed to use for keeping distance. 
-        //
-        // Unit: m/s^2
-        //
-        optional double max_deceleration = 2;
-
-        // Maximum speed the distance contoller is allowed to use for keeping distance. 
-        //
-        // Unit: m/s
-        //
-        optional double max_speed = 3;
-    }
-
-    //
-    // \brief Custom Action.
-    //
-    // This action assigns a custom command to a traffic participant.
-    // The syntax and semantics of this action is implementation defined.
-    // It is entirely up to each individual traffic participant which
-    // custom commands it supports, if any, and how they must be phrased.
-    //
-    // \note This action is aligned with CustomCommandAction of OpenSCENARIO 1.0
-    // providing a customizable user defined action.
-    //
-    message CustomAction
-    {
-        // The Action Header.
-        //
-        optional ActionHeader action_header = 1;
-
-        // The custom command given to the traffic participant.
-        //
-        optional string command = 2;
     }
 }
