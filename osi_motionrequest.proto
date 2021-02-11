@@ -9,11 +9,14 @@ package osi3;
 
 //
 // \brief This message is intended as an interface between a HAD (highly automated driving) function and the actuator management.
+//
 // The HAD function can send either a desired future trajectory ore a desired future state.
 // The message can be defined by a additional variable.
 //
+// \note The coordinate system is defined as right-handed.
 // All coordinates and orientations are relative to the global coordinate system.
 // The reference point of the vehicle is the center of the 3D bounding box of the vehicle.
+// Units are m for positions, m/s for velocities, and m/s^2 for accelerations.
 //
 message MotionRequest
 {
@@ -21,85 +24,83 @@ message MotionRequest
     //
     optional InterfaceVersion version = 1;
 
-    // The data timestamp of the simulation environment. Zero time is arbitrary
-    // but must be identical for all messages. Zero time does not need to
-    // coincide with the UNIX epoch. Recommended is the starting time point of
-    // the simulation.
-    //
-    // \note For sensor view data this timestamp coincides both with the
-    // notional simulation time the data applies to and the time it was sent
-    // (there is no inherent latency for sensor view data, as opposed to
-    // sensor data).
+    // The data timestamp of the simulation environment. A reference to \c Timestamp message.
     //
     optional Timestamp timestamp = 2;
 
-	//
-	// Define the option that is used to specify the motion request.
-	// This must be set. Additionally, the field corresponding to the specified option must be set.
-	//
-	optional OutputOptions output_option = 3;
+    // Define the option that is used to specify the motion request.
+    // This must be set. Additionally, the field corresponding to the specified option must be set.
+    //
+    optional OutputOptions output_option = 3;
 
-	//
-	// Defines a desired state.
-	// If the output option is set to DESIRED_STATE, this must be provided.
-	//
-	optional DesiredState desired_state = 4;
+    // Defines a desired state.
+    // If the output option is set to DESIRED_STATE, this field must be set.
+    //
+    optional DesiredState desired_state = 4;
 
-	//
-	// Defines a desired trajectory.
-	// If the output option is set to DESIRED_TRAJECTORY, this must be set.
-	//
-	optional Trajectory desired_trajectory = 5;
+    // Defines a desired trajectory.
+    // If the output option is set to DESIRED_TRAJECTORY, this field must be set.
+    //
+    optional Trajectory desired_trajectory = 5;
 
-	//	
-	// Define different options for HAD function ouput.
-	// Each option is corresponds to a field in the message.
-	//
-	enum OutputOptions 
-	{
-		DESIRED_STATE = 0;
-		TRAJECTORY = 1;
-	}
+    // Define different options for HAD function ouput.
+    // Each option is corresponds to a field in the message.
+    //
+    enum OutputOptions
+    {
+        // Desired state calculated by the HAD function.
+        //
+        OUTPUT_OPTIONS_DESIRED_STATE = 0;
 
-	//
-	// \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
-	// The actuator management is supposed to reach the desired state at the specified time.
-	//
-	message DesiredState
-	{  
-	    //
-	    // The timestamp indicates the point in time the state needs to be reached, 
-	    // given in global simulation time.
-	    //
-	    optional Timestamp timestamp = 1;
+        // Desired trajectory calculated by the HAD function.
+        //
+        OUTPUT_OPTIONS_TRAJECTORY = 1;
+    }
 
-	    // intended position to be reached in x, y, and z direction.
-	    //
-	    optional Vector3d position = 2;
+    // \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
+    //
+    // The actuator management is supposed to reach the desired state at the specified time.
+    //
+    message DesiredState
+    {
+        // A reference to \c Timestamp message.
+        //
+        optional Timestamp timestamp = 1;
 
-	    // intended orientation to be reached containing yaw, pitch and roll angle
-	    //
-	    optional Orientation3d  orientation = 3;
+        // intended position to be reached in x, y, and z direction.
+        //
+        optional Vector3d position = 2;
 
-	    // intended velocity to be reached in x, y, and z direction
-	    //
-	    optional Vector3d velocity = 4;
+        // intended orientation to be reached containing yaw, pitch and roll angle.
+        //
+        optional Orientation3d  orientation = 3;
 
-	    // intended acceleration to be reached in x, y, and z direction
-	    //
-	    optional Vector3d acceleration = 5;
-	}
+        // intended velocity to be reached in x, y, and z direction.
+        //
+        // Unit: m/s
+        //
+        optional Vector3d velocity = 4;
 
-	//
-	// \brief Defined trajectory desired by the HAD function. This trajectory is the result of the trajectory planning step
-	// in the HAD function. The task of the acutator management is to follow this trajectory as closely as possible.
-	// The timestamps inside the trajecotry must be defined in global simulation time. 
-	// \note Trajectory is kept as a separate message for future extensions
-	//
-	message Trajectory 
-	{
-		// consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached
-		//
-		repeated StatePoint trajectory_point = 1;
-	}
+        // intended acceleration to be reached in x, y, and z direction.
+        //
+        // Unit: m/s^2
+        //
+        optional Vector3d acceleration = 5;
+    }
+
+    // \brief Defined trajectory desired by the HAD function.
+    //
+    // This trajectory is the result of the trajectory planning step in the HAD function.
+    // The task of the acutator management is to follow this trajectory as closely as possible.
+    // The timestamps inside the trajecotry must be defined in global simulation time.
+    //
+    // \note Trajectory is kept as a separate message for future extensions.
+    //
+    message Trajectory
+    {
+        // consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached.
+        // A reference to \c StatePoint message.
+        //
+        repeated StatePoint trajectory_point = 1;
+    }
 }
