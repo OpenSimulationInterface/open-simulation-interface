@@ -505,7 +505,7 @@ message WavelengthData
     //
     optional double start = 1;
 
-    // The start, or the minimum wavelength value.
+    // The end, or the maximum wavelength value.
     //
     // Unit: m
     //
