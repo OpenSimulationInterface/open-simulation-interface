@@ -1,4 +1,4 @@
-#### Reference to a related issue in the repository
+﻿#### Reference to a related issue in the repository
 Add a reference to a related issue in the repository.
 
 #### Add a description
@@ -11,7 +11,7 @@ Is this a bug fix or a feature? Does it break any existing functionality or forc
 How has it been tested?
 
 #### Take this checklist as orientation for yourself, if this PR is ready for the Change Control Board:
-- [ ] My suggestion follows the [style and contributors guidelines](https://opensimulationinterface.github.io/osi-documentation/osi/howtocontribute.html).
+- [ ] My suggestion follows the [style and contributors guidelines](https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/doc/howtocontribute.html).
 - [ ] I have taken care about the [documentation](https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/doc/commenting.html).
 - [ ] I have done the [DCO signoff](https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/doc/howtocontribute.html#developer-certification-of-origin-dco).
 - [ ] My changes generate no errors when passing CI tests. 
