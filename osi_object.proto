@@ -444,8 +444,8 @@ message MovingObject
         //
         optional Vector3d bbcenter_to_front = 5;
 
-        // Static minimal distance or space from the lowest point of the vehicle
-        // to the surface plane below it under neutral load conditions. This
+        // Static minimal distance or space from the lowest point of the vehicle's 
+        // body to the surface plane below it under neutral load conditions. This
         // distance disregards, for example, driving-dynamic effects or 
         // road-surface effects. Can be useful to approximate the clearance area
         // under a vehicle that a sensor can see through.
