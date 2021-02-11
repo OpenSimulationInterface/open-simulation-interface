@@ -283,9 +283,23 @@ message TrafficSign
             optional bool vertically_mirrored = 6;
 
             // Boolean flag to indicate that a traffic sign is taken out of service.
-            // This can be achieved by visibly crossing the sign or covering it completely. 
+            // This can be achieved by visibly crossing the sign or covering it completely.
             //
-            optional bool is_out_of_service = 7; 
+            optional bool is_out_of_service = 7;
+
+            // Specifies the country
+            optional Country country = 8;
+
+            // The year the traffic rules come into force
+            optional string country_revision = 9;
+
+            // Code identifier according to country code
+            //
+            optional string code = 10;
+
+            // Subcode identifier according to country code
+            //
+            optional string sub_code = 11;
 
             // Definition of traffic sign types.
             // Numbers are given according to German StVO.
@@ -5534,9 +5548,23 @@ message TrafficSign
             repeated Arrow arrow = 6;
 
             // Boolean flag to indicate that the supplementary traffic sign is taken out of service.
-            // This can be achieved by visibly crossing the sign or covering it completely. 
+            // This can be achieved by visibly crossing the sign or covering it completely.
             //
             optional bool is_out_of_service = 7;
+
+            // Specifies the country
+            optional Country country = 8;
+
+            // The year the traffic rules come into force
+            optional string countryevision = 9;
+
+            // Code identifier according to country code
+            //
+            optional string code = 10;
+
+            // Subcode identifier according to country code
+            //
+            optional string sub_code = 11;
 
             // Definition of supplementary sign types.
             //
@@ -9398,5 +9426,26 @@ message TrafficSign
         // Temporary or variable sign, e.g. on a sign bridge.
         //
         VARIABILITY_VARIABLE = 3;
+    }
+
+
+    // Definition of country.
+    enum Country
+    {
+        // Country is unknown
+        //
+        COUNTRY_UNKNOWN = 0;
+
+        // Country is Germany
+        //
+        GERMANY = 1;
+
+        // Country is USA
+        //
+        USA = 2;
+
+        // Country is Japan
+        //
+        JAPAN = 3;
     }
 }
