@@ -152,9 +152,10 @@ var NAVTREEINDEX2 =
 "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721eadba6d9163601a0c4761c130132a7a457":[1,0,0,52,2,0],
 "structosi3_1_1MovingObject_1_1VehicleAttributes.html":[1,0,0,52,0],
 "structosi3_1_1MovingObject_1_1VehicleAttributes.html#a08e4d735182136ee84337ef910f89ae1":[1,0,0,52,0,4],
-"structosi3_1_1MovingObject_1_1VehicleAttributes.html#a27d7ffb7cfe89c54fc94532b4e6869cd":[1,0,0,52,0,7],
+"structosi3_1_1MovingObject_1_1VehicleAttributes.html#a27d7ffb7cfe89c54fc94532b4e6869cd":[1,0,0,52,0,8],
 "structosi3_1_1MovingObject_1_1VehicleAttributes.html#a310be4844cd22fcd937ee65f865c8bc5":[1,0,0,52,0,2],
 "structosi3_1_1MovingObject_1_1VehicleAttributes.html#a41139d820fbf7d590d68f09f5322a4e4":[1,0,0,52,0,5],
+"structosi3_1_1MovingObject_1_1VehicleAttributes.html#a73ee49dc2b6b48f16c474f12f52c5ddf":[1,0,0,52,0,7],
 "structosi3_1_1MovingObject_1_1VehicleAttributes.html#a7f681fb05df13db0e9df73e664621ccf":[1,0,0,52,0,1],
 "structosi3_1_1MovingObject_1_1VehicleAttributes.html#a848ab52664318bb5f56acf5db0c21248":[1,0,0,52,0,6],
 "structosi3_1_1MovingObject_1_1VehicleAttributes.html#aba30c025ec374d4bcb9dead3913438ec":[1,0,0,52,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6ac7db97a4727bd3cf32ed5789c85f6c80":[1,0,0,53,0,0,0],
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6ae3ff9a0d11ef547e0fd42539c37aea2b":[1,0,0,53,0,0,6],
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6aeb650be86852bd56249051ff05232f45":[1,0,0,53,0,0,9],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6af23b7bc617a26bbdaf548a10731d4db2":[1,0,0,53,0,0,4],
-"structosi3_1_1Orientation3d.html":[1,0,0,54]
+"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6af23b7bc617a26bbdaf548a10731d4db2":[1,0,0,53,0,0,4]
 };

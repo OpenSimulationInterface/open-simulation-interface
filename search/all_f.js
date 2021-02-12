@@ -71,6 +71,7 @@ var searchData=
   ['steering_5fcontrol_5fother',['STEERING_CONTROL_OTHER',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa52d5fb7e4f04983819a43f759da791c0',1,'osi3::Occupant::Classification']]],
   ['steering_5fcontrol_5fright_5fhand',['STEERING_CONTROL_RIGHT_HAND',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa7acf13ccbc57597e9708df895cbeb958',1,'osi3::Occupant::Classification']]],
   ['steering_5fcontrol_5funknown',['STEERING_CONTROL_UNKNOWN',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa0d47b5fdef206b0a3c09cb6dbadd687c',1,'osi3::Occupant::Classification']]],
+  ['steering_5fwheel_5fangle',['steering_wheel_angle',['../structosi3_1_1MovingObject_1_1VehicleAttributes.html#a73ee49dc2b6b48f16c474f12f52c5ddf',1,'osi3::MovingObject::VehicleAttributes']]],
   ['steeringcontrol',['SteeringControl',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4eca',1,'osi3::Occupant::Classification']]],
   ['subtype',['subtype',['../structosi3_1_1Lane_1_1Classification.html#ac5315bb0a34763ca7e0a31ca72a3350d',1,'osi3::Lane::Classification::subtype()'],['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21',1,'osi3::Lane::Classification::Subtype()']]],
   ['subtype_5fbiking',['SUBTYPE_BIKING',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21a364eb36b640401d631dea23a3d81bc0c',1,'osi3::Lane::Classification']]],

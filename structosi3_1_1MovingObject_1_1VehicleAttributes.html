@@ -102,8 +102,8 @@ Collaboration diagram for osi3::MovingObject::VehicleAttributes:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1MovingObject_1_1VehicleAttributes__coll__graph.png" border="0" usemap="#osi3_1_1MovingObject_1_1VehicleAttributes_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1MovingObject_1_1VehicleAttributes_coll__map" id="osi3_1_1MovingObject_1_1VehicleAttributes_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="540,7,655,33"/>
-<area shape="rect" id="node4" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information..." alt="" coords="524,184,671,240"/>
+<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="563,7,677,33"/>
+<area shape="rect" id="node4" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information..." alt="" coords="547,184,693,240"/>
 <area shape="rect" id="node5" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="209,176,356,203"/>
 <area shape="rect" id="node7" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="225,75,340,101"/>
 </map>
@@ -131,6 +131,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a08e4d735182136ee84337ef910f89ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27d7ffb7cfe89c54fc94532b4e6869cd"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html">WheelData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a27d7ffb7cfe89c54fc94532b4e6869cd">wheel_data</a> = 7</td></tr>
 <tr class="separator:a27d7ffb7cfe89c54fc94532b4e6869cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73ee49dc2b6b48f16c474f12f52c5ddf"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a73ee49dc2b6b48f16c474f12f52c5ddf">steering_wheel_angle</a> = 8</td></tr>
+<tr class="separator:a73ee49dc2b6b48f16c474f12f52c5ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The vehicle attributes for <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> (host or other). </p>
@@ -230,6 +232,22 @@ Public Attributes</h2></td></tr>
 <p>Deprecated: Will be removed in next major release. Moved to <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information...">WheelData</a>. Median radius of the wheels measured from a center of the wheel including tire.</p>
 <p>Unit: m</p>
 <p>is_greater_than_or_equal_to: 0  </p>
+
+</div>
+</div>
+<a id="a73ee49dc2b6b48f16c474f12f52c5ddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ee49dc2b6b48f16c474f12f52c5ddf">&#9670;&nbsp;</a></span>steering_wheel_angle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::steering_wheel_angle = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Angle of the steering wheel. Zero means the steering wheel is in its center postion, a positive value means the steering wheel is turned to the left and a negative value means the steering wheel is turned to the right of the center position.</p>
+<p>Unit: rad </p>
 
 </div>
 </div>

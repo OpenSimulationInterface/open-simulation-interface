@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1TeleportAction.html#a703951d5e5f4540262032b6862a4cda3":[1,0,0,71,2],
 "structosi3_1_1TeleportAction.html#a97135a8bc50ab816cfbc1a412e21bbd1":[1,0,0,71,1],
 "structosi3_1_1Timestamp.html":[1,0,0,72],
 "structosi3_1_1Timestamp.html#a684a2426e26687ac21cd531216efffb0":[1,0,0,72,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da7afd9277975aed7c2082e7c575c2d176":[1,0,0,76,0,0,1,82],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da7c8f156705516bb2e12583d257d9c09d":[1,0,0,76,0,0,1,151],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da7d54263586d2169012a19cf67f6023f0":[1,0,0,76,0,0,1,70],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da7f07739c084de943baef364afe9530fb":[1,0,0,76,0,0,1,126],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da7f194eec706606e0803ffea7ee46f77e":[1,0,0,76,0,0,1,62]
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da7f07739c084de943baef364afe9530fb":[1,0,0,76,0,0,1,126]
 };
