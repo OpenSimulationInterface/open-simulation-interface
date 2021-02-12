@@ -308,6 +308,9 @@ message MovingObject
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
+    // \note DEPRECATED: Use assigned_lane_id in MovingObjectClassification
+    // instead.
+    //
     repeated Identifier assigned_lane_id = 4;
 
     // Specific information about the vehicle.
@@ -351,6 +354,10 @@ message MovingObject
     // system.
     //
     repeated StatePoint future_trajectory = 8;
+
+    // Specific information about the classification of the vehicle.
+    //
+    optional MovingObjectClassification moving_object_classification = 9;    
 
     // Definition of object types.
     //
@@ -541,6 +548,31 @@ message MovingObject
             //
             optional string model_reference = 9;
         }
+    }
+
+    //
+    // \brief Information for the classification of moving objects regarding
+    // \c MovingObject (host or other).
+    //
+    message MovingObjectClassification
+    {
+        // The IDs of the lanes that this object is assigned to.
+        //
+        // \note Might be multiple if the object is switching lanes or moving from
+        // one lane into another following lane.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 1;
+
+        // Percentage value of the object width in the corresponding lane.
+        //
+        // \note Might be multiple if the object is switching lanes or moving from
+        // one lane into another following lane.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated double assigned_lane_percentage = 2;        
     }
 
     //
