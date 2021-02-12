@@ -131,7 +131,6 @@ message SensorData
     //
     optional Timestamp timestamp = 2;
 
-    // Deprecated: Will be removed in next major release. Moved to HostVehicleData.VehiclePositionAndKinematics.
     // The sensors estimated location of the host vehicle
     //
     // \note This value is only set by sensors that are able to
@@ -141,7 +140,6 @@ message SensorData
     //
     optional BaseMoving host_vehicle_location = 3;
 
-    // Deprecated: Will be removed in next major release. Moved to HostVehicleData.VehiclePositionAndKinematics.
     // The sensors estimated location error of the host vehicle
     //
     // \note This value is only set by sensors that are able to
@@ -300,8 +298,4 @@ message SensorData
     // object hypothesis and tracking.
     //
     optional FeatureData feature_data = 26;
-
-    // Host vehicle data measured by the sensors.
-    //
-    optional HostVehicleData host_vehicle = 27;
 }
