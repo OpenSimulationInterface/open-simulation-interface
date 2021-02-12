@@ -12,7 +12,10 @@ import "osi_detectedobject.proto";
 import "osi_detectedoccupant.proto";
 import "osi_sensorview.proto";
 import "osi_featuredata.proto";
+<<<<<<< HEAD
 import "osi_logicaldetectiondata.proto";
+=======
+>>>>>>> remove osi_hostvehicledata.proto again from osi_sensordata.proto
 
 package osi3;
 
@@ -298,7 +301,6 @@ message SensorData
     // object hypothesis and tracking.
     //
     optional FeatureData feature_data = 26;
-<<<<<<< HEAD
 
     // Logical detection data interface.
     //
@@ -314,6 +316,4 @@ message SensorData
     // in cartesian coordinates.
     //
     optional LogicalDetectionData logical_detection_data = 27;
-=======
->>>>>>> remove host vehicle data from sensor data again
 }
