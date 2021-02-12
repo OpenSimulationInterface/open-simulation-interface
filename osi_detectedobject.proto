@@ -159,6 +159,8 @@ message DetectedMovingObject
     //
     // \note The bounding box does NOT includes mirrors for vehicles.
     // \note The parent frame of \c base is the sensor's vehicle frame.
+    // \note The height includes the ground_clearance. It always goes from the
+    // top to the ground.
     //
     optional BaseMoving base = 2;
 
