@@ -109,6 +109,21 @@ message DetectedLaneBoundary
     //
     optional ColorDescription color_description = 6;
 
+    // The boundary line can be expressed as a polyline of nth order.
+    //
+    repeated BoundaryPolyLineModel boundary_poly_line_model = 7;
+
+    // The range until where the lane boundary is detected.
+    // 
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // is_less_than_or_equal_to: 1000
+    // \endrules
+    //
+    optional double view_range = 8;
+
     //
     // \brief A candidate for a detected lane boundary as estimated by the
     // sensor.
@@ -134,5 +149,40 @@ message DetectedLaneBoundary
         // reference to \c DetectedXXX::tracking_id IDs.
         //
         optional LaneBoundary.Classification classification = 2;
+    }
+
+    //
+    // \brief The lane boundary as polyline model up to third order.
+    //
+    message BoundaryPolyLineModel
+    {
+    
+        // P0 parameter of the poly function model that describes the lane boundary.
+        //
+        // Unit: m
+        //
+        optional double polyline_parameter_p0 = 1;
+
+        // P1 parameter of the poly function model that describes the lane boundary.
+        //
+        // Unit: 1
+        //
+        optional double polyline_parameter_p1 = 2;
+    
+        // P2 parameter of the poly function model that describes the lane boundary.
+        //
+        // Unit: 1/m
+        //
+        optional double polyline_parameter_p2 = 3;
+    
+        // P3 parameter of the poly function model that describes the lane boundary.
+        //
+        // Unit: 1/m²
+        //
+        optional double polyline_parameter_p3 = 4;
+
+        // The measured width within the detected range.
+        //
+        optional double polyline_width = 5;
     }
 }
