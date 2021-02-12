@@ -22,6 +22,20 @@ package osi3;
 //
 message HostVehicleData
 {
+    // The interface version used by the sender.
+    //
+    optional InterfaceVersion version = 10;
+
+    // The timestamp of the host vehicle data. Zero time is arbitrary but must be
+    // identical for all messages. Zero time does not need to coincide with
+    // the unix epoch. Recommended is the starting time point of the
+    // simulation or measurement.
+    //
+    // \note This is the point in time that the host vehicle data message becomes
+    // available on the board net system.
+    //
+    optional Timestamp timestamp = 11;
+
     // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
     // Current estimated location based on GPS- and related navigation sensors.
     //
