@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>open_simulation_interface: osi3::CameraSensorView Struct Reference</title>
+<title>open_simulation_interface: osi3::WavelengthData Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,7 +68,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('structosi3_1_1CameraSensorView.html','');});
+$(document).ready(function(){initNavTree('structosi3_1_1WavelengthData.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -88,77 +88,91 @@ $(document).ready(function(){initNavTree('structosi3_1_1CameraSensorView.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structosi3_1_1CameraSensorView-members.html">List of all members</a>  </div>
+<a href="structosi3_1_1WavelengthData-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">osi3::CameraSensorView Struct Reference</div>  </div>
+<div class="title">osi3::WavelengthData Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definition of the camera sensor view.  
- <a href="structosi3_1_1CameraSensorView.html#details">More...</a></p>
+<p>Detailed WavelengthRange message.  
+ <a href="structosi3_1_1WavelengthData.html#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for osi3::CameraSensorView:</div>
+Collaboration diagram for osi3::WavelengthData:</div>
 <div class="dyncontent">
-<div class="center"><img src="structosi3_1_1CameraSensorView__coll__graph.png" border="0" usemap="#osi3_1_1CameraSensorView_coll__map" alt="Collaboration graph"/></div>
-<map name="osi3_1_1CameraSensorView_coll__map" id="osi3_1_1CameraSensorView_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1CameraSensorViewConfiguration.html" title="The configuration settings for the Camera Sensor View to be provided by the environment simulation..." alt="" coords="711,147,981,173"/>
-<area shape="rect" id="node4" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="296,63,465,89"/>
-<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="323,113,438,140"/>
-<area shape="rect" id="node6" href="structosi3_1_1WavelengthData.html" title="Detailed WavelengthRange message. " alt="" coords="298,243,463,269"/>
+<div class="center"><img src="structosi3_1_1WavelengthData__coll__graph.png" border="0" usemap="#osi3_1_1WavelengthData_coll__map" alt="Collaboration graph"/></div>
+<map name="osi3_1_1WavelengthData_coll__map" id="osi3_1_1WavelengthData_coll__map">
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae9d39a38c8461241f8e7597fa9c8a0c4"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html">CameraSensorViewConfiguration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraSensorView.html#ae9d39a38c8461241f8e7597fa9c8a0c4">view_configuration</a> = 1</td></tr>
-<tr class="separator:ae9d39a38c8461241f8e7597fa9c8a0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac58456a34babf78792ea2608eb963f36"><td class="memItemLeft" align="right" valign="top">optional bytes&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraSensorView.html#ac58456a34babf78792ea2608eb963f36">image_data</a> = 2</td></tr>
-<tr class="separator:ac58456a34babf78792ea2608eb963f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee43ccfe4916625ba392485bcffa34d"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1WavelengthData.html#a8ee43ccfe4916625ba392485bcffa34d">start</a> = 1</td></tr>
+<tr class="separator:a8ee43ccfe4916625ba392485bcffa34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664957f7ae83f8fb8a42c80434290ea9"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1WavelengthData.html#a664957f7ae83f8fb8a42c80434290ea9">end</a> = 2</td></tr>
+<tr class="separator:a664957f7ae83f8fb8a42c80434290ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117a9a090009fe6a6dd8b67834b28d9a"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1WavelengthData.html#a117a9a090009fe6a6dd8b67834b28d9a">samples_number</a> = 3</td></tr>
+<tr class="separator:a117a9a090009fe6a6dd8b67834b28d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of the camera sensor view. </p>
-<p>Camera specific sensor view data. </p>
+<div class="textblock"><p>Detailed WavelengthRange message. </p>
+<p>Defines the start (minimum) and the end (maximum) values of the wavelength. Additionally, the number of samples within this range is defined in this message. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac58456a34babf78792ea2608eb963f36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac58456a34babf78792ea2608eb963f36">&#9670;&nbsp;</a></span>image_data</h2>
+<a id="a664957f7ae83f8fb8a42c80434290ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664957f7ae83f8fb8a42c80434290ea9">&#9670;&nbsp;</a></span>end</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional bytes osi3::CameraSensorView::image_data = 2</td>
+          <td class="memname">optional double osi3::WavelengthData::end = 2</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Raw image data.</p>
-<p>The raw image data in the memory layout and order specified by the camera sensor input configuration. </p>
+<p>The end, or the maximum wavelength value.</p>
+<p>Unit: m </p>
 
 </div>
 </div>
-<a id="ae9d39a38c8461241f8e7597fa9c8a0c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9d39a38c8461241f8e7597fa9c8a0c4">&#9670;&nbsp;</a></span>view_configuration</h2>
+<a id="a117a9a090009fe6a6dd8b67834b28d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117a9a090009fe6a6dd8b67834b28d9a">&#9670;&nbsp;</a></span>samples_number</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html">CameraSensorViewConfiguration</a> osi3::CameraSensorView::view_configuration = 1</td>
+          <td class="memname">optional double osi3::WavelengthData::samples_number = 3</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Camera view configuration valid at the time the data was created. </p>
+<p>Number of samples to be considered within the defined wavelength range. The number of samples includes the start and the end values that are defined in this message, starting from the "start" value. </p><dl class="section note"><dt>Note</dt><dd>This defines the number of wavelengths to be computed during simulation, not to be confused with samples_per_pixel. </dd></dl>
+
+</div>
+</div>
+<a id="a8ee43ccfe4916625ba392485bcffa34d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee43ccfe4916625ba392485bcffa34d">&#9670;&nbsp;</a></span>start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::WavelengthData::start = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The start, or the minimum wavelength value.</p>
+<p>Unit: m </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/travis/build/OpenSimulationInterface/open-simulation-interface/osi_sensorview.proto</li>
+<li>/home/travis/build/OpenSimulationInterface/open-simulation-interface/osi_common.proto</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>osi3</b></li><li class="navelem"><a class="el" href="structosi3_1_1CameraSensorView.html">CameraSensorView</a></li>
+    <li class="navelem"><b>osi3</b></li><li class="navelem"><a class="el" href="structosi3_1_1WavelengthData.html">WavelengthData</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

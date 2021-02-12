@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['wavelength_5fdata',['wavelength_data',['../structosi3_1_1CameraSensorViewConfiguration.html#abc3a44291ec7e392dc466425a454d435',1,'osi3::CameraSensorViewConfiguration']]],
+  ['wavelengthdata',['WavelengthData',['../structosi3_1_1WavelengthData.html',1,'osi3']]],
   ['wheel_5fdata',['wheel_data',['../structosi3_1_1MovingObject_1_1VehicleAttributes.html#a27d7ffb7cfe89c54fc94532b4e6869cd',1,'osi3::MovingObject::VehicleAttributes']]],
   ['wheel_5fradius',['wheel_radius',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a103fad79e18f7443b50e4d81160c8d56',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
   ['wheeldata',['WheelData',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html',1,'osi3::MovingObject::VehicleAttributes']]],

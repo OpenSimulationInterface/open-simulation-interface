@@ -5,6 +5,7 @@ var searchData=
   ['ellipsoid_5fradial',['ellipsoid_radial',['../structosi3_1_1UltrasonicIndirectDetection.html#ae27488fe133f3e50b4894c7616466989',1,'osi3::UltrasonicIndirectDetection']]],
   ['emergency_5fvehicle_5fillumination',['emergency_vehicle_illumination',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a27a9f18b2697ae7d2c13f0cd31085997',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['emitter_5ffrequency',['emitter_frequency',['../structosi3_1_1RadarSensorViewConfiguration.html#a16bcecae0130a7770ede9fcb934dc3c1',1,'osi3::RadarSensorViewConfiguration::emitter_frequency()'],['../structosi3_1_1LidarSensorViewConfiguration.html#aac96421ddf19cf73a7fa611abef48766',1,'osi3::LidarSensorViewConfiguration::emitter_frequency()']]],
+  ['end',['end',['../structosi3_1_1WavelengthData.html#a664957f7ae83f8fb8a42c80434290ea9',1,'osi3::WavelengthData']]],
   ['end_5factions_5faction',['end_actions_action',['../structosi3_1_1TrafficAction.html#a359ddf5c1cdf870ad2695bb168488517',1,'osi3::TrafficAction']]],
   ['endactionsaction',['EndActionsAction',['../structosi3_1_1EndActionsAction.html',1,'osi3']]],
   ['environmental_5fconditions',['environmental_conditions',['../structosi3_1_1GroundTruth.html#aee1873cbe2ed79701c6790ddcb14b420',1,'osi3::GroundTruth']]],

@@ -88,6 +88,7 @@ var annotated_dup =
       [ "UltrasonicSensorViewConfiguration", "structosi3_1_1UltrasonicSensorViewConfiguration.html", "structosi3_1_1UltrasonicSensorViewConfiguration" ],
       [ "UltrasonicSpecificObjectData", "structosi3_1_1UltrasonicSpecificObjectData.html", "structosi3_1_1UltrasonicSpecificObjectData" ],
       [ "Vector2d", "structosi3_1_1Vector2d.html", "structosi3_1_1Vector2d" ],
-      [ "Vector3d", "structosi3_1_1Vector3d.html", "structosi3_1_1Vector3d" ]
+      [ "Vector3d", "structosi3_1_1Vector3d.html", "structosi3_1_1Vector3d" ],
+      [ "WavelengthData", "structosi3_1_1WavelengthData.html", "structosi3_1_1WavelengthData" ]
     ] ]
 ];

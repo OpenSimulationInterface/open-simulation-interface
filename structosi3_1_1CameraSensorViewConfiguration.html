@@ -102,10 +102,11 @@ Collaboration diagram for osi3::CameraSensorViewConfiguration:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1CameraSensorViewConfiguration__coll__graph.png" border="0" usemap="#osi3_1_1CameraSensorViewConfiguration_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1CameraSensorViewConfiguration_coll__map" id="osi3_1_1CameraSensorViewConfiguration_coll__map">
-<area shape="rect" id="node3" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="569,108,739,135"/>
-<area shape="rect" id="node4" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="209,108,356,135"/>
-<area shape="rect" id="node6" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="225,159,340,185"/>
-<area shape="rect" id="node7" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="597,159,711,185"/>
+<area shape="rect" id="node3" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="656,160,825,187"/>
+<area shape="rect" id="node4" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="289,131,436,157"/>
+<area shape="rect" id="node6" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="305,193,420,220"/>
+<area shape="rect" id="node9" href="structosi3_1_1WavelengthData.html" title="Detailed WavelengthRange message. " alt="" coords="460,251,625,277"/>
+<area shape="rect" id="node7" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="683,279,798,305"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -128,7 +129,22 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a5ccf69a5a462ba4d0a1d80369863c12f">CHANNEL_FORMAT_BAYER_BGGR_U16_LIN</a> = 11, 
 <br />
 &#160;&#160;<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a5135cfe683e03ec9eb8a0d3bba2974df">CHANNEL_FORMAT_BAYER_BGGR_U32_LIN</a> = 12, 
-<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a274f4d32807b164fc072651322dee288">CHANNEL_FORMAT_BAYER_BGGR_F32_LIN</a> = 13
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a274f4d32807b164fc072651322dee288">CHANNEL_FORMAT_BAYER_BGGR_F32_LIN</a> = 13, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92ad74108f18d4430690247185843c5b59c">CHANNEL_FORMAT_BAYER_RGGB_U8_LIN</a> = 14, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92ad0a5851a32dcaf98c43d840192d33b67">CHANNEL_FORMAT_BAYER_RGGB_U16_LIN</a> = 15, 
+<br />
+&#160;&#160;<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a1ba91b26be2e5aee41a235834bac331e">CHANNEL_FORMAT_BAYER_RGGB_U32_LIN</a> = 16, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92ac274d70a64098aa9bc8b830378b797f7">CHANNEL_FORMAT_BAYER_RGGB_F32_LIN</a> = 17, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92ac0e6b42ddde88801337db26cd5c506fe">CHANNEL_FORMAT_RCCC_U8_LIN</a> = 18, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a6b828b30c8ae4c5fcd3dc86c16a09990">CHANNEL_FORMAT_RCCC_U16_LIN</a> = 19, 
+<br />
+&#160;&#160;<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92aec4ae63eb26cc3cf3aead3649e1d3b5e">CHANNEL_FORMAT_RCCC_U32_LIN</a> = 20, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a96a1fbdf9bf4839cf0d7d785ba94bd02">CHANNEL_FORMAT_RCCC_F32_LIN</a> = 21, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92ace53c5f700ad0157449f41219d742030">CHANNEL_FORMAT_RCCB_U8_LIN</a> = 22, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a4de2a5f599fc962454a2a59473f3c058">CHANNEL_FORMAT_RCCB_U16_LIN</a> = 23, 
+<br />
+&#160;&#160;<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92aa50dae2cdaf20fc88ddc1a0a10a53045">CHANNEL_FORMAT_RCCB_U32_LIN</a> = 24, 
+<a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a50fe189921fa05fe4894bc7880ac37e8">CHANNEL_FORMAT_RCCB_F32_LIN</a> = 25
 <br />
  }</td></tr>
 <tr class="separator:a83f77f6327e55c21ccc89e07ec654a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,6 +167,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ae71698d9be703a4d372cdaffe60b9c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae202276d96b78a2fdb13cd915aeb47b7"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92">ChannelFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#ae202276d96b78a2fdb13cd915aeb47b7">channel_format</a> = 8</td></tr>
 <tr class="separator:ae202276d96b78a2fdb13cd915aeb47b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd2b58e82f420f0c8d1fc98d2388ddc"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a5fd2b58e82f420f0c8d1fc98d2388ddc">samples_per_pixel</a> = 9</td></tr>
+<tr class="separator:a5fd2b58e82f420f0c8d1fc98d2388ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afca07adefc8e9ae84d4400a31c1c42cd"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#afca07adefc8e9ae84d4400a31c1c42cd">max_number_of_interactions</a> = 10</td></tr>
+<tr class="separator:afca07adefc8e9ae84d4400a31c1c42cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3a44291ec7e392dc466425a454d435"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1WavelengthData.html">WavelengthData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#abc3a44291ec7e392dc466425a454d435">wavelength_data</a> = 11</td></tr>
+<tr class="separator:abc3a44291ec7e392dc466425a454d435"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The configuration settings for the Camera Sensor View to be provided by the environment simulation. </p>
@@ -188,13 +210,37 @@ Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a36599532d18f0410a7608b6906bd5381"></a>CHANNEL_FORMAT_RGB_F32_LIN&#160;</td><td class="fielddoc"><p>Packed RGB Channels (no padding) Single Precision FP Linear. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a22ffdde4288beefdfdd812baaf64d1f5"></a>CHANNEL_FORMAT_BAYER_BGGR_U8_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels UINT8 FP Linear. </p>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a22ffdde4288beefdfdd812baaf64d1f5"></a>CHANNEL_FORMAT_BAYER_BGGR_U8_LIN&#160;</td><td class="fielddoc"><p>Bayer BGGR Channels UINT8 FP Linear. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a5ccf69a5a462ba4d0a1d80369863c12f"></a>CHANNEL_FORMAT_BAYER_BGGR_U16_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels UINT16 FP Linear. </p>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a5ccf69a5a462ba4d0a1d80369863c12f"></a>CHANNEL_FORMAT_BAYER_BGGR_U16_LIN&#160;</td><td class="fielddoc"><p>Bayer BGGR Channels UINT16 FP Linear. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a5135cfe683e03ec9eb8a0d3bba2974df"></a>CHANNEL_FORMAT_BAYER_BGGR_U32_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels UINT32 FP Linear. </p>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a5135cfe683e03ec9eb8a0d3bba2974df"></a>CHANNEL_FORMAT_BAYER_BGGR_U32_LIN&#160;</td><td class="fielddoc"><p>Bayer BGGR Channels UINT32 FP Linear. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a274f4d32807b164fc072651322dee288"></a>CHANNEL_FORMAT_BAYER_BGGR_F32_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels Single Precision FP Linear. </p>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a274f4d32807b164fc072651322dee288"></a>CHANNEL_FORMAT_BAYER_BGGR_F32_LIN&#160;</td><td class="fielddoc"><p>Bayer BGGR Channels Single Precision FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92ad74108f18d4430690247185843c5b59c"></a>CHANNEL_FORMAT_BAYER_RGGB_U8_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels UINT8 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92ad0a5851a32dcaf98c43d840192d33b67"></a>CHANNEL_FORMAT_BAYER_RGGB_U16_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels UINT16 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a1ba91b26be2e5aee41a235834bac331e"></a>CHANNEL_FORMAT_BAYER_RGGB_U32_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels UINT32 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92ac274d70a64098aa9bc8b830378b797f7"></a>CHANNEL_FORMAT_BAYER_RGGB_F32_LIN&#160;</td><td class="fielddoc"><p>Bayer RGGB Channels Single Precision FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92ac0e6b42ddde88801337db26cd5c506fe"></a>CHANNEL_FORMAT_RCCC_U8_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Clear Channels UINT8 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a6b828b30c8ae4c5fcd3dc86c16a09990"></a>CHANNEL_FORMAT_RCCC_U16_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Clear Channels UINT16 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92aec4ae63eb26cc3cf3aead3649e1d3b5e"></a>CHANNEL_FORMAT_RCCC_U32_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Clear Channels UINT32 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a96a1fbdf9bf4839cf0d7d785ba94bd02"></a>CHANNEL_FORMAT_RCCC_F32_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Clear Channels Single Precision FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92ace53c5f700ad0157449f41219d742030"></a>CHANNEL_FORMAT_RCCB_U8_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Blue Channels UINT8 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a4de2a5f599fc962454a2a59473f3c058"></a>CHANNEL_FORMAT_RCCB_U16_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Blue Channels UINT16 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92aa50dae2cdaf20fc88ddc1a0a10a53045"></a>CHANNEL_FORMAT_RCCB_U32_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Blue Channels UINT32 FP Linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a83f77f6327e55c21ccc89e07ec654a92a50fe189921fa05fe4894bc7880ac37e8"></a>CHANNEL_FORMAT_RCCB_F32_LIN&#160;</td><td class="fielddoc"><p>Red Clear Clear Blue Channels Single Precision FP Linear. </p>
 </td></tr>
 </table>
 
@@ -250,6 +296,23 @@ Public Attributes</h2></td></tr>
 <p>Field of View in vertical orientation of the physical sensor.</p>
 <p>Viewing range: [- <code><a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a94aab05a912cfcd394fbb21058c0bab5">field_of_view_vertical</a>/2</code>, <code><a class="el" href="structosi3_1_1CameraSensorViewConfiguration.html#a94aab05a912cfcd394fbb21058c0bab5">field_of_view_vertical</a>/2</code>] elevation in the sensor frame at zero azimuth as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>.</p>
 <p>Unit: rad </p>
+
+</div>
+</div>
+<a id="afca07adefc8e9ae84d4400a31c1c42cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca07adefc8e9ae84d4400a31c1c42cd">&#9670;&nbsp;</a></span>max_number_of_interactions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional uint32 osi3::CameraSensorViewConfiguration::max_number_of_interactions = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of interactions to take into account.</p>
+<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor.</dd></dl>
+<p>is_greater_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -326,6 +389,23 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 
 </div>
 </div>
+<a id="a5fd2b58e82f420f0c8d1fc98d2388ddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd2b58e82f420f0c8d1fc98d2388ddc">&#9670;&nbsp;</a></span>samples_per_pixel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional uint32 osi3::CameraSensorViewConfiguration::samples_per_pixel = 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of samples per pixel.</p>
+<dl class="section note"><dt>Note</dt><dd>This is a characteristic of the ray tracing engine of the environment simulation, not a direct characteristic of the sensor.</dd></dl>
+<p>is_greater_than_or_equal_to: 1  </p>
+
+</div>
+</div>
 <a id="a8944708e064585712a97a94c78f80529"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8944708e064585712a97a94c78f80529">&#9670;&nbsp;</a></span>sensor_id</h2>
 
@@ -340,6 +420,21 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 <p>The ID of the sensor at host vehicle's mounting_position.</p>
 <p>This is the ID of the physical sensor, to be used in its detected features output; it is distinct from the ID of its virtual sensor.</p>
 <p>The ID is to be provided by the environment simulation, the sensor model is not in a position to provide a useful default value. </p>
+
+</div>
+</div>
+<a id="abc3a44291ec7e392dc466425a454d435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc3a44291ec7e392dc466425a454d435">&#9670;&nbsp;</a></span>wavelength_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1WavelengthData.html">WavelengthData</a> osi3::CameraSensorViewConfiguration::wavelength_data = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>In use-cases where a spectral ray-tracer is used, this message determines the range of the wavelength and its desired number of samples. </p>
 
 </div>
 </div>

@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['samples_5fnumber',['samples_number',['../structosi3_1_1WavelengthData.html#a117a9a090009fe6a6dd8b67834b28d9a',1,'osi3::WavelengthData']]],
+  ['samples_5fper_5fpixel',['samples_per_pixel',['../structosi3_1_1CameraSensorViewConfiguration.html#a5fd2b58e82f420f0c8d1fc98d2388ddc',1,'osi3::CameraSensorViewConfiguration']]],
   ['seat',['seat',['../structosi3_1_1Occupant_1_1Classification.html#a6d199291b28eba3c31d90db967e80fb2',1,'osi3::Occupant::Classification']]],
   ['seconds',['seconds',['../structosi3_1_1Timestamp.html#a684a2426e26687ac21cd531216efffb0',1,'osi3::Timestamp']]],
   ['seconds_5fsince_5fmidnight',['seconds_since_midnight',['../structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html#a6babaecd5662954155e8a846edbd8b72',1,'osi3::EnvironmentalConditions::TimeOfDay']]],
@@ -40,6 +42,7 @@ var searchData=
   ['source_5fvertical_5fangle',['source_vertical_angle',['../structosi3_1_1RadarSensorView_1_1Reflection.html#a8aef801568939be8168ecaf34dacf5af',1,'osi3::RadarSensorView::Reflection']]],
   ['specific_5fheader',['specific_header',['../structosi3_1_1UltrasonicDetectionData.html#aa9ebd0b90782a774aa0844fa62972e29',1,'osi3::UltrasonicDetectionData::specific_header()'],['../structosi3_1_1CameraDetectionData.html#a11cef014d85334c612d4bf8d37e5276a',1,'osi3::CameraDetectionData::specific_header()']]],
   ['speed_5faction',['speed_action',['../structosi3_1_1TrafficAction.html#ad871b1104f7d3da64095ffef284d9c7f',1,'osi3::TrafficAction']]],
+  ['start',['start',['../structosi3_1_1WavelengthData.html#a8ee43ccfe4916625ba392485bcffa34d',1,'osi3::WavelengthData']]],
   ['stationary_5fobject',['stationary_object',['../structosi3_1_1GroundTruth.html#ab3ed9b77d4db3fda6a8a03a4cbd37d50',1,'osi3::GroundTruth::stationary_object()'],['../structosi3_1_1SensorData.html#a88c9ebfc5962c362385bb7ca80b3a696',1,'osi3::SensorData::stationary_object()']]],
   ['stationary_5fobject_5fheader',['stationary_object_header',['../structosi3_1_1SensorData.html#a8919ed1a34cf43726b59721fa688e240',1,'osi3::SensorData']]],
   ['steering_5fcontrol',['steering_control',['../structosi3_1_1Occupant_1_1Classification.html#a3c558469319b38ab91d21fd208893151',1,'osi3::Occupant::Classification']]],
