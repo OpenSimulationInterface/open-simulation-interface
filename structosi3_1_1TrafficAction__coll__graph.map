@@ -1,20 +1,20 @@
 <map id="osi3::TrafficAction" name="osi3::TrafficAction">
-<area shape="rect" id="node2" href="$structosi3_1_1AbortActionsAction.html" title="AbortActionsAction. " alt="" coords="949,547,1130,574"/>
-<area shape="rect" id="node3" href="$structosi3_1_1ActionHeader.html" title="The action header. " alt="" coords="579,659,725,686"/>
-<area shape="rect" id="node5" href="$structosi3_1_1CustomAction.html" title="Custom Action. " alt="" coords="965,469,1113,495"/>
-<area shape="rect" id="node7" href="$structosi3_1_1LaneChangeAction.html" title="Lane change action. " alt="" coords="950,85,1129,111"/>
-<area shape="rect" id="node11" href="$structosi3_1_1SpeedAction.html" title="Speed action. " alt="" coords="970,223,1109,250"/>
-<area shape="rect" id="node12" href="$structosi3_1_1EndActionsAction.html" title="End actions action. " alt="" coords="954,626,1125,653"/>
-<area shape="rect" id="node13" href="$structosi3_1_1AcquireGlobalPositionAction.html" title="Acquire global position action. " alt="" coords="939,807,1139,848"/>
-<area shape="rect" id="node16" href="$structosi3_1_1LateralDistanceAction.html" title="Lateral Distance Action. " alt="" coords="939,1327,1139,1354"/>
-<area shape="rect" id="node19" href="$structosi3_1_1LaneOffsetAction.html" title="Lane Offset Action. " alt="" coords="955,338,1123,365"/>
-<area shape="rect" id="node20" href="$structosi3_1_1LongitudinalDistanceAction.html" title="Longitudinal Distance Action. " alt="" coords="942,1511,1137,1552"/>
-<area shape="rect" id="node21" href="$structosi3_1_1FollowTrajectoryAction.html" title="Follow trajectory action. " alt="" coords="937,941,1141,967"/>
-<area shape="rect" id="node24" href="$structosi3_1_1TeleportAction.html" title="Teleport Action. " alt="" coords="964,705,1115,731"/>
-<area shape="rect" id="node25" href="$structosi3_1_1FollowPathAction.html" title="Follow path action. " alt="" coords="955,1031,1123,1058"/>
-<area shape="rect" id="node4" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="225,659,340,686"/>
-<area shape="rect" id="node14" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="209,922,356,949"/>
-<area shape="rect" id="node15" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="225,851,340,878"/>
-<area shape="rect" id="node18" href="$structosi3_1_1DynamicConstraints.html" title="DynamicConstraints. " alt="" coords="557,1610,747,1637"/>
-<area shape="rect" id="node22" href="$structosi3_1_1StatePoint.html" title="The StatePoint definition. " alt="" coords="590,1062,714,1089"/>
+<area shape="rect" id="node2" href="$structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html" title="Follow trajectory action. " alt="" coords="952,922,1129,963"/>
+<area shape="rect" id="node3" href="$structosi3_1_1TrafficAction_1_1ActionHeader.html" title="The action header. " alt="" coords="581,873,719,914"/>
+<area shape="rect" id="node11" href="$structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html" title="Longitudinal Distance Action. " alt="" coords="937,370,1145,411"/>
+<area shape="rect" id="node13" href="$structosi3_1_1TrafficAction_1_1FollowPathAction.html" title="Follow path action. " alt="" coords="970,987,1111,1029"/>
+<area shape="rect" id="node14" href="$structosi3_1_1TrafficAction_1_1LaneChangeAction.html" title="Lane change action. " alt="" coords="965,1589,1116,1630"/>
+<area shape="rect" id="node17" href="$structosi3_1_1TrafficAction_1_1AcquireGlobalPositionAction.html" title="Acquire global position action. " alt="" coords="933,791,1148,833"/>
+<area shape="rect" id="node18" href="$structosi3_1_1TrafficAction_1_1LateralDistanceAction.html" title="Lateral Distance Action. " alt="" coords="954,535,1127,577"/>
+<area shape="rect" id="node19" href="$structosi3_1_1TrafficAction_1_1CustomAction.html" title="Custom Action. " alt="" coords="972,1205,1109,1246"/>
+<area shape="rect" id="node21" href="$structosi3_1_1TrafficAction_1_1SpeedAction.html" title="Speed action. " alt="" coords="972,1351,1109,1393"/>
+<area shape="rect" id="node22" href="$structosi3_1_1TrafficAction_1_1EndActionsAction.html" title="End actions action. " alt="" coords="969,159,1112,201"/>
+<area shape="rect" id="node23" href="$structosi3_1_1TrafficAction_1_1LaneOffsetAction.html" title="Lane Offset Action. " alt="" coords="970,1458,1111,1499"/>
+<area shape="rect" id="node24" href="$structosi3_1_1TrafficAction_1_1AbortActionsAction.html" title="AbortActionsAction. " alt="" coords="963,238,1118,279"/>
+<area shape="rect" id="node25" href="$structosi3_1_1TrafficAction_1_1TeleportAction.html" title="Teleport Action. " alt="" coords="972,1110,1109,1151"/>
+<area shape="rect" id="node4" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="225,147,340,173"/>
+<area shape="rect" id="node6" href="$structosi3_1_1StatePoint.html" title="The StatePoint definition. " alt="" coords="588,1000,712,1027"/>
+<area shape="rect" id="node7" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="209,896,356,923"/>
+<area shape="rect" id="node9" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="225,801,340,828"/>
+<area shape="rect" id="node12" href="$structosi3_1_1TrafficAction_1_1DynamicConstraints.html" title="DynamicConstraints. " alt="" coords="569,362,731,403"/>
 </map>

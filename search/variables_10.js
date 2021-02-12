@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['target_5faction_5fid',['target_action_id',['../structosi3_1_1AbortActionsAction.html#aef8cbcb9d07c2f81c1cc4e41329ada75',1,'osi3::AbortActionsAction::target_action_id()'],['../structosi3_1_1EndActionsAction.html#a248bf7d9c4c87c481ac70a3b2ddc2559',1,'osi3::EndActionsAction::target_action_id()']]],
-  ['target_5flane_5foffset',['target_lane_offset',['../structosi3_1_1LaneOffsetAction.html#aba5d302992328a2596c9a79b431093da',1,'osi3::LaneOffsetAction']]],
-  ['target_5ftraffic_5fparticipant_5fid',['target_traffic_participant_id',['../structosi3_1_1LongitudinalDistanceAction.html#afa804a665cf74ee768a586d755dd2cac',1,'osi3::LongitudinalDistanceAction::target_traffic_participant_id()'],['../structosi3_1_1LateralDistanceAction.html#a404f9df3a23e62133d214d2d958d2aea',1,'osi3::LateralDistanceAction::target_traffic_participant_id()']]],
+  ['target_5faction_5fid',['target_action_id',['../structosi3_1_1TrafficAction_1_1AbortActionsAction.html#afbd73abca3d78c6357161a8d39964d87',1,'osi3::TrafficAction::AbortActionsAction::target_action_id()'],['../structosi3_1_1TrafficAction_1_1EndActionsAction.html#a064cf0ab780ae5cb0e07c569c66378a0',1,'osi3::TrafficAction::EndActionsAction::target_action_id()']]],
+  ['target_5flane_5foffset',['target_lane_offset',['../structosi3_1_1TrafficAction_1_1LaneOffsetAction.html#a9ccf06c47eeef124acbef2da0b27fe6d',1,'osi3::TrafficAction::LaneOffsetAction']]],
+  ['target_5ftraffic_5fparticipant_5fid',['target_traffic_participant_id',['../structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#a061e9fb4e643af3fcd42b8be22d183fe',1,'osi3::TrafficAction::LongitudinalDistanceAction::target_traffic_participant_id()'],['../structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#a19e15cc025ae58a21586e0d996244ef1',1,'osi3::TrafficAction::LateralDistanceAction::target_traffic_participant_id()']]],
   ['teleport_5faction',['teleport_action',['../structosi3_1_1TrafficAction.html#a35c5eac575dc1961b5b085398a1a2b6d',1,'osi3::TrafficAction']]],
   ['temperature',['temperature',['../structosi3_1_1EnvironmentalConditions.html#afb975ad7dddedd8bfac0a38664ab908e',1,'osi3::EnvironmentalConditions']]],
   ['text',['text',['../structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90',1,'osi3::TrafficSignValue']]],
@@ -19,7 +19,7 @@ var searchData=
   ['traffic_5fsign',['traffic_sign',['../structosi3_1_1GroundTruth.html#a4234b9b1037680ad8c53ac504cc085b7',1,'osi3::GroundTruth::traffic_sign()'],['../structosi3_1_1SensorData.html#a939e870a502f67517e27a8199218f878',1,'osi3::SensorData::traffic_sign()']]],
   ['traffic_5fsign_5fheader',['traffic_sign_header',['../structosi3_1_1SensorData.html#a120ed3199eb2a654d1ac2828532fe6c5',1,'osi3::SensorData']]],
   ['trailer_5fid',['trailer_id',['../structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482',1,'osi3::MovingObject::VehicleClassification']]],
-  ['trajectory_5fpoint',['trajectory_point',['../structosi3_1_1FollowTrajectoryAction.html#a723e36f097fc71ac3f8d0f685d8592f5',1,'osi3::FollowTrajectoryAction']]],
+  ['trajectory_5fpoint',['trajectory_point',['../structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html#a3a316528f8bf3c2af89a4a92d78b1232',1,'osi3::TrafficAction::FollowTrajectoryAction']]],
   ['trend',['trend',['../structosi3_1_1UltrasonicSpecificObjectData.html#a74c14595948c2dd7dba6f2efcaea15ad',1,'osi3::UltrasonicSpecificObjectData']]],
   ['trilateration_5fstatus',['trilateration_status',['../structosi3_1_1UltrasonicSpecificObjectData.html#a702aa36075ca0a020bbe4883c26bfe6e',1,'osi3::UltrasonicSpecificObjectData']]],
   ['tx_5fantenna_5fdiagram',['tx_antenna_diagram',['../structosi3_1_1RadarSensorViewConfiguration.html#ac55679303d865a28b659f4166b22f762',1,'osi3::RadarSensorViewConfiguration']]],

@@ -9,12 +9,12 @@ var searchData=
   ['lane_5foffset_5faction',['lane_offset_action',['../structosi3_1_1TrafficAction.html#a793b9edfd74051d0e8a6d7ae253e9e86',1,'osi3::TrafficAction']]],
   ['lane_5fpairing',['lane_pairing',['../structosi3_1_1Lane_1_1Classification.html#a36c2f60a9ee363fe9e478a56d16a6b4a',1,'osi3::Lane::Classification']]],
   ['laneboundary',['LaneBoundary',['../structosi3_1_1LaneBoundary.html',1,'osi3']]],
-  ['lanechangeaction',['LaneChangeAction',['../structosi3_1_1LaneChangeAction.html',1,'osi3']]],
-  ['laneoffsetaction',['LaneOffsetAction',['../structosi3_1_1LaneOffsetAction.html',1,'osi3']]],
+  ['lanechangeaction',['LaneChangeAction',['../structosi3_1_1TrafficAction_1_1LaneChangeAction.html',1,'osi3::TrafficAction']]],
+  ['laneoffsetaction',['LaneOffsetAction',['../structosi3_1_1TrafficAction_1_1LaneOffsetAction.html',1,'osi3::TrafficAction']]],
   ['lanepairing',['LanePairing',['../structosi3_1_1Lane_1_1Classification_1_1LanePairing.html',1,'osi3::Lane::Classification']]],
   ['last_5fmeasurement_5ftime',['last_measurement_time',['../structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d',1,'osi3::SensorData']]],
   ['lateral_5fdistance_5faction',['lateral_distance_action',['../structosi3_1_1TrafficAction.html#abf5f5f43bb40e015e9e1404db4710e70',1,'osi3::TrafficAction']]],
-  ['lateraldistanceaction',['LateralDistanceAction',['../structosi3_1_1LateralDistanceAction.html',1,'osi3']]],
+  ['lateraldistanceaction',['LateralDistanceAction',['../structosi3_1_1TrafficAction_1_1LateralDistanceAction.html',1,'osi3::TrafficAction']]],
   ['left_5fadjacent_5flane_5fid',['left_adjacent_lane_id',['../structosi3_1_1Lane_1_1Classification.html#afa68d060422444ad5453dd9d3fc414eb',1,'osi3::Lane::Classification']]],
   ['left_5flane_5fboundary_5fid',['left_lane_boundary_id',['../structosi3_1_1Lane_1_1Classification.html#a27cc65913fe78232e6006222612a509e',1,'osi3::Lane::Classification']]],
   ['length',['length',['../structosi3_1_1Dimension3d.html#a5317df4eb25a8527986fd03fcf18a9ce',1,'osi3::Dimension3d']]],
@@ -40,5 +40,5 @@ var searchData=
   ['logicaldetectiondata',['LogicalDetectionData',['../structosi3_1_1LogicalDetectionData.html',1,'osi3']]],
   ['logicaldetectiondataheader',['LogicalDetectionDataHeader',['../structosi3_1_1LogicalDetectionDataHeader.html',1,'osi3']]],
   ['longitudinal_5fdistance_5faction',['longitudinal_distance_action',['../structosi3_1_1TrafficAction.html#a5d5ceb116645e69bdeeceb0bc160ed79',1,'osi3::TrafficAction']]],
-  ['longitudinaldistanceaction',['LongitudinalDistanceAction',['../structosi3_1_1LongitudinalDistanceAction.html',1,'osi3']]]
+  ['longitudinaldistanceaction',['LongitudinalDistanceAction',['../structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html',1,'osi3::TrafficAction']]]
 ];

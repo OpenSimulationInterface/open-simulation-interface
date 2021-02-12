@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['target_5faction_5fid',['target_action_id',['../structosi3_1_1AbortActionsAction.html#aef8cbcb9d07c2f81c1cc4e41329ada75',1,'osi3::AbortActionsAction::target_action_id()'],['../structosi3_1_1EndActionsAction.html#a248bf7d9c4c87c481ac70a3b2ddc2559',1,'osi3::EndActionsAction::target_action_id()']]],
-  ['target_5flane_5foffset',['target_lane_offset',['../structosi3_1_1LaneOffsetAction.html#aba5d302992328a2596c9a79b431093da',1,'osi3::LaneOffsetAction']]],
-  ['target_5ftraffic_5fparticipant_5fid',['target_traffic_participant_id',['../structosi3_1_1LongitudinalDistanceAction.html#afa804a665cf74ee768a586d755dd2cac',1,'osi3::LongitudinalDistanceAction::target_traffic_participant_id()'],['../structosi3_1_1LateralDistanceAction.html#a404f9df3a23e62133d214d2d958d2aea',1,'osi3::LateralDistanceAction::target_traffic_participant_id()']]],
+  ['target_5faction_5fid',['target_action_id',['../structosi3_1_1TrafficAction_1_1AbortActionsAction.html#afbd73abca3d78c6357161a8d39964d87',1,'osi3::TrafficAction::AbortActionsAction::target_action_id()'],['../structosi3_1_1TrafficAction_1_1EndActionsAction.html#a064cf0ab780ae5cb0e07c569c66378a0',1,'osi3::TrafficAction::EndActionsAction::target_action_id()']]],
+  ['target_5flane_5foffset',['target_lane_offset',['../structosi3_1_1TrafficAction_1_1LaneOffsetAction.html#a9ccf06c47eeef124acbef2da0b27fe6d',1,'osi3::TrafficAction::LaneOffsetAction']]],
+  ['target_5ftraffic_5fparticipant_5fid',['target_traffic_participant_id',['../structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#a061e9fb4e643af3fcd42b8be22d183fe',1,'osi3::TrafficAction::LongitudinalDistanceAction::target_traffic_participant_id()'],['../structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#a19e15cc025ae58a21586e0d996244ef1',1,'osi3::TrafficAction::LateralDistanceAction::target_traffic_participant_id()']]],
   ['teleport_5faction',['teleport_action',['../structosi3_1_1TrafficAction.html#a35c5eac575dc1961b5b085398a1a2b6d',1,'osi3::TrafficAction']]],
-  ['teleportaction',['TeleportAction',['../structosi3_1_1TeleportAction.html',1,'osi3']]],
+  ['teleportaction',['TeleportAction',['../structosi3_1_1TrafficAction_1_1TeleportAction.html',1,'osi3::TrafficAction']]],
   ['temperature',['temperature',['../structosi3_1_1EnvironmentalConditions.html#afb975ad7dddedd8bfac0a38664ab908e',1,'osi3::EnvironmentalConditions']]],
   ['text',['text',['../structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90',1,'osi3::TrafficSignValue']]],
   ['time_5fdifference',['time_difference',['../structosi3_1_1CameraDetection.html#abc39a3545ba1dd62d8740cc18727f24c',1,'osi3::CameraDetection']]],
@@ -27,7 +27,7 @@ var searchData=
   ['trafficsignvalue',['TrafficSignValue',['../structosi3_1_1TrafficSignValue.html',1,'osi3']]],
   ['trafficupdate',['TrafficUpdate',['../structosi3_1_1TrafficUpdate.html',1,'osi3']]],
   ['trailer_5fid',['trailer_id',['../structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482',1,'osi3::MovingObject::VehicleClassification']]],
-  ['trajectory_5fpoint',['trajectory_point',['../structosi3_1_1FollowTrajectoryAction.html#a723e36f097fc71ac3f8d0f685d8592f5',1,'osi3::FollowTrajectoryAction']]],
+  ['trajectory_5fpoint',['trajectory_point',['../structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html#a3a316528f8bf3c2af89a4a92d78b1232',1,'osi3::TrafficAction::FollowTrajectoryAction']]],
   ['trend',['Trend',['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61',1,'osi3::UltrasonicSpecificObjectData::Trend()'],['../structosi3_1_1UltrasonicSpecificObjectData.html#a74c14595948c2dd7dba6f2efcaea15ad',1,'osi3::UltrasonicSpecificObjectData::trend()']]],
   ['trend_5fapproaching',['TREND_APPROACHING',['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61a781c99e513742356298a50c414c467ab',1,'osi3::UltrasonicSpecificObjectData']]],
   ['trend_5fconstant',['TREND_CONSTANT',['../structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61ab67925d336e05704dc1670b5b109dab0',1,'osi3::UltrasonicSpecificObjectData']]],

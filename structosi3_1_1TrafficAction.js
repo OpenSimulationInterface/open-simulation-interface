@@ -1,5 +1,30 @@
 var structosi3_1_1TrafficAction =
 [
+    [ "AbortActionsAction", "structosi3_1_1TrafficAction_1_1AbortActionsAction.html", "structosi3_1_1TrafficAction_1_1AbortActionsAction" ],
+    [ "AcquireGlobalPositionAction", "structosi3_1_1TrafficAction_1_1AcquireGlobalPositionAction.html", "structosi3_1_1TrafficAction_1_1AcquireGlobalPositionAction" ],
+    [ "ActionHeader", "structosi3_1_1TrafficAction_1_1ActionHeader.html", "structosi3_1_1TrafficAction_1_1ActionHeader" ],
+    [ "CustomAction", "structosi3_1_1TrafficAction_1_1CustomAction.html", "structosi3_1_1TrafficAction_1_1CustomAction" ],
+    [ "DynamicConstraints", "structosi3_1_1TrafficAction_1_1DynamicConstraints.html", "structosi3_1_1TrafficAction_1_1DynamicConstraints" ],
+    [ "EndActionsAction", "structosi3_1_1TrafficAction_1_1EndActionsAction.html", "structosi3_1_1TrafficAction_1_1EndActionsAction" ],
+    [ "FollowPathAction", "structosi3_1_1TrafficAction_1_1FollowPathAction.html", "structosi3_1_1TrafficAction_1_1FollowPathAction" ],
+    [ "FollowTrajectoryAction", "structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html", "structosi3_1_1TrafficAction_1_1FollowTrajectoryAction" ],
+    [ "LaneChangeAction", "structosi3_1_1TrafficAction_1_1LaneChangeAction.html", "structosi3_1_1TrafficAction_1_1LaneChangeAction" ],
+    [ "LaneOffsetAction", "structosi3_1_1TrafficAction_1_1LaneOffsetAction.html", "structosi3_1_1TrafficAction_1_1LaneOffsetAction" ],
+    [ "LateralDistanceAction", "structosi3_1_1TrafficAction_1_1LateralDistanceAction.html", "structosi3_1_1TrafficAction_1_1LateralDistanceAction" ],
+    [ "LongitudinalDistanceAction", "structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html", "structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction" ],
+    [ "SpeedAction", "structosi3_1_1TrafficAction_1_1SpeedAction.html", "structosi3_1_1TrafficAction_1_1SpeedAction" ],
+    [ "TeleportAction", "structosi3_1_1TrafficAction_1_1TeleportAction.html", "structosi3_1_1TrafficAction_1_1TeleportAction" ],
+    [ "DynamicsShape", "structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3d", [
+      [ "DYNAMICS_SHAPE_UNSPECIFIED", "structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da3869f6dbef35766a1f22223615bec457", null ],
+      [ "DYNAMICS_SHAPE_LINEAR", "structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3daeeb478ab200938695916a119c3139024", null ],
+      [ "DYNAMICS_SHAPE_CUBIC", "structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da797226e1ce2f1682d54f02b0039bbe15", null ],
+      [ "DYNAMICS_SHAPE_SINUSOIDAL", "structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da7214bae96c3649236eb8a8decb4ac091", null ],
+      [ "DYNAMICS_SHAPE_STEP", "structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da423872cff5fae3a2ce5c6be470c83d35", null ]
+    ] ],
+    [ "FollowingMode", "structosi3_1_1TrafficAction.html#a6acd32ce009c17611259c5bc1e317858", [
+      [ "FOLLOWING_MODE_POSITION", "structosi3_1_1TrafficAction.html#a6acd32ce009c17611259c5bc1e317858a7fbfed9f75bc12a5a01a3a53dd4a6c7d", null ],
+      [ "FOLLOWING_MODE_FOLLOW", "structosi3_1_1TrafficAction.html#a6acd32ce009c17611259c5bc1e317858abc8e97fc78bf60de8f8a8a966b135670", null ]
+    ] ],
     [ "abort_actions_action", "structosi3_1_1TrafficAction.html#ae259d7adc878b2ca9415facebb664a17", null ],
     [ "acquire_global_position_action", "structosi3_1_1TrafficAction.html#ac2270499db21ece72a3f8afc5b87e0d0", null ],
     [ "custom_action", "structosi3_1_1TrafficAction.html#aaf959088db53d9ce041d2b365af0feb4", null ],

@@ -59,7 +59,7 @@ var searchData=
   ['source_5fvertical_5fangle',['source_vertical_angle',['../structosi3_1_1RadarSensorView_1_1Reflection.html#a8aef801568939be8168ecaf34dacf5af',1,'osi3::RadarSensorView::Reflection']]],
   ['specific_5fheader',['specific_header',['../structosi3_1_1UltrasonicDetectionData.html#aa9ebd0b90782a774aa0844fa62972e29',1,'osi3::UltrasonicDetectionData::specific_header()'],['../structosi3_1_1CameraDetectionData.html#a11cef014d85334c612d4bf8d37e5276a',1,'osi3::CameraDetectionData::specific_header()']]],
   ['speed_5faction',['speed_action',['../structosi3_1_1TrafficAction.html#ad871b1104f7d3da64095ffef284d9c7f',1,'osi3::TrafficAction']]],
-  ['speedaction',['SpeedAction',['../structosi3_1_1SpeedAction.html',1,'osi3']]],
+  ['speedaction',['SpeedAction',['../structosi3_1_1TrafficAction_1_1SpeedAction.html',1,'osi3::TrafficAction']]],
   ['spherical3d',['Spherical3d',['../structosi3_1_1Spherical3d.html',1,'osi3']]],
   ['start',['start',['../structosi3_1_1WavelengthData.html#a8ee43ccfe4916625ba392485bcffa34d',1,'osi3::WavelengthData']]],
   ['statepoint',['StatePoint',['../structosi3_1_1StatePoint.html',1,'osi3']]],
