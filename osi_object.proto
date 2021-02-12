@@ -456,6 +456,15 @@ message MovingObject
         //
         repeated WheelData wheel_data = 7;
 
+        // Angle of the steering wheel. 
+        // Zero means the steering wheel is in its center postion, a positive value
+        // means the steering wheel is turned to the left and a negative value
+        // means the steering wheel is turned to the right of the center position.
+        //
+        // Unit: rad
+        //
+        optional double steering_wheel_angle = 8;
+
         // \brief Detailed wheel data.
         // The focus is on the description of a wheel regarding the perceivable 
         // information from the outside. 
