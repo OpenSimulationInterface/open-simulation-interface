@@ -101,10 +101,11 @@ Collaboration diagram for osi3::DetectedMovingObject::CandidateMovingObject:</di
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject__coll__graph.png" border="0" usemap="#osi3_1_1DetectedMovingObject_1_1CandidateMovingObject_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1DetectedMovingObject_1_1CandidateMovingObject_coll__map" id="osi3_1_1DetectedMovingObject_1_1CandidateMovingObject_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other). " alt="" coords="291,99,455,141"/>
-<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="30,107,145,133"/>
-<area shape="rect" id="node6" href="structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html" title="The state of the lights of a vehicle. " alt="" coords="5,157,169,213"/>
-<area shape="rect" id="node7" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="299,267,446,293"/>
+<area shape="rect" id="node2" href="structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other). " alt="" coords="416,109,580,150"/>
+<area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="30,192,145,219"/>
+<area shape="rect" id="node10" href="structosi3_1_1MovingObject_1_1MovingObjectClassification.html" title="Information for the classification of moving objects regarding MovingObject (host or other)..." alt="" coords="395,229,601,270"/>
+<area shape="rect" id="node6" href="structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html" title="The state of the lights of a vehicle. " alt="" coords="5,107,169,163"/>
+<area shape="rect" id="node7" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="425,357,571,384"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -120,6 +121,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a5c13d0541f0706ce7c8a827a81df9202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e976baaa57e7cdcfce6c4e4c9d217a1"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#a0e976baaa57e7cdcfce6c4e4c9d217a1">upper_body_pose</a> = 5</td></tr>
 <tr class="separator:a0e976baaa57e7cdcfce6c4e4c9d217a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39090bcf176ddb5a0c401fd9ea68d5d"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MovingObject_1_1MovingObjectClassification.html">MovingObject::MovingObjectClassification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ab39090bcf176ddb5a0c401fd9ea68d5d">moving_object_classification</a> = 6</td></tr>
+<tr class="separator:ab39090bcf176ddb5a0c401fd9ea68d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A candidate for a detected moving object as estimated by the sensor. </p>
@@ -140,6 +143,21 @@ Public Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>This field is mandatory if the <code><a class="el" href="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ac09a45f142cda46d14a8c3f2b069e4c6">CandidateMovingObject.type</a></code> is <code><a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea51ba3d4a7a7c23a33261826b3df9ee4a">MovingObject::TYPE_PEDESTRIAN</a></code> </dd></dl>
 <dl class="section user"><dt>Reference:</dt><dd></dd></dl>
 <p>[1] Patton, K. T. &amp; Thibodeau, G. A. (2015). <em>Anatomy &amp; Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229. </p>
+
+</div>
+</div>
+<a id="ab39090bcf176ddb5a0c401fd9ea68d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39090bcf176ddb5a0c401fd9ea68d5d">&#9670;&nbsp;</a></span>moving_object_classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1MovingObject_1_1MovingObjectClassification.html">MovingObject::MovingObjectClassification</a> osi3::DetectedMovingObject::CandidateMovingObject::moving_object_classification = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Specific information about the classification of a moving object. </p>
 
 </div>
 </div>

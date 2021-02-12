@@ -46,6 +46,8 @@ var searchData=
   ['movement_5fstate_5funknown',['MOVEMENT_STATE_UNKNOWN',['../structosi3_1_1DetectedMovingObject.html#af837733436624206284d0121687c7787aa87159057db96509a5932827802500e6',1,'osi3::DetectedMovingObject']]],
   ['movementstate',['MovementState',['../structosi3_1_1DetectedMovingObject.html#af837733436624206284d0121687c7787',1,'osi3::DetectedMovingObject']]],
   ['moving_5fobject',['moving_object',['../structosi3_1_1GroundTruth.html#ac0cc92fce3e8e5a7d067a3a456b3d0ec',1,'osi3::GroundTruth::moving_object()'],['../structosi3_1_1SensorData.html#a03ec2ab20c09c83157e857cf368044c5',1,'osi3::SensorData::moving_object()']]],
+  ['moving_5fobject_5fclassification',['moving_object_classification',['../structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ab39090bcf176ddb5a0c401fd9ea68d5d',1,'osi3::DetectedMovingObject::CandidateMovingObject::moving_object_classification()'],['../structosi3_1_1MovingObject.html#a977066d08847f96bd98dffcc0aff80ca',1,'osi3::MovingObject::moving_object_classification()']]],
   ['moving_5fobject_5fheader',['moving_object_header',['../structosi3_1_1SensorData.html#af1363f2e753fe2b55adf169de24f29ea',1,'osi3::SensorData']]],
-  ['movingobject',['MovingObject',['../structosi3_1_1MovingObject.html',1,'osi3']]]
+  ['movingobject',['MovingObject',['../structosi3_1_1MovingObject.html',1,'osi3']]],
+  ['movingobjectclassification',['MovingObjectClassification',['../structosi3_1_1MovingObject_1_1MovingObjectClassification.html',1,'osi3::MovingObject']]]
 ];

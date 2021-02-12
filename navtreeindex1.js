@@ -16,11 +16,12 @@ var NAVTREEINDEX1 =
 "structosi3_1_1DetectedMovingObject.html#af837733436624206284d0121687c7787ab30cdf2540eede1e8a31780f76722356":[1,0,0,13,1,2],
 "structosi3_1_1DetectedMovingObject.html#af837733436624206284d0121687c7787ac143d48db95e510402b82f7939c4acc9":[1,0,0,13,1,1],
 "structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html":[1,0,0,13,0],
-"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#a0e976baaa57e7cdcfce6c4e4c9d217a1":[1,0,0,13,0,3],
+"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#a0e976baaa57e7cdcfce6c4e4c9d217a1":[1,0,0,13,0,4],
 "structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#a5c13d0541f0706ce7c8a827a81df9202":[1,0,0,13,0,0],
-"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ac09a45f142cda46d14a8c3f2b069e4c6":[1,0,0,13,0,2],
-"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#acb41f80be1062f662bed906b19e83d99":[1,0,0,13,0,1],
-"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ada03b54c79f3aaf8e706ef33f8a18021":[1,0,0,13,0,4],
+"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ab39090bcf176ddb5a0c401fd9ea68d5d":[1,0,0,13,0,1],
+"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ac09a45f142cda46d14a8c3f2b069e4c6":[1,0,0,13,0,3],
+"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#acb41f80be1062f662bed906b19e83d99":[1,0,0,13,0,2],
+"structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ada03b54c79f3aaf8e706ef33f8a18021":[1,0,0,13,0,5],
 "structosi3_1_1DetectedOccupant.html":[1,0,0,14],
 "structosi3_1_1DetectedOccupant.html#a265ce952f0b2f3f283093a42a394a263":[1,0,0,14,1],
 "structosi3_1_1DetectedOccupant.html#a920267c96312c52c00963757711bc33c":[1,0,0,14,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "structosi3_1_1Lane_1_1Classification.html#ac5315bb0a34763ca7e0a31ca72a3350d":[1,0,0,29,0,14],
 "structosi3_1_1Lane_1_1Classification.html#aefbd7976958f298e74e62ed43895562f":[1,0,0,29,0,5],
 "structosi3_1_1Lane_1_1Classification.html#af83917efaa77a0796f62de8bb2547156":[1,0,0,29,0,7],
-"structosi3_1_1Lane_1_1Classification.html#afa68d060422444ad5453dd9d3fc414eb":[1,0,0,29,0,9],
-"structosi3_1_1Lane_1_1Classification_1_1LanePairing.html":[1,0,0,29,0,0]
+"structosi3_1_1Lane_1_1Classification.html#afa68d060422444ad5453dd9d3fc414eb":[1,0,0,29,0,9]
 };
