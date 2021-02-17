@@ -55,6 +55,8 @@ message actuatorcommand
     // - negative: reverse mode (generally -1, but few vehicles have several
     //   reverse mode gears)
     //
+    // \note to be pushed to osi::origin from HostVehicleData. Eventually will be referenced here
+    //
     optional int32 gear_transmission = 6;
     
     // \brief A description for the positions of the pedals.
