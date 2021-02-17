@@ -44,7 +44,7 @@ message HostVehicleData
     optional BaseMoving location = 1;
 
     // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
-    // Current estimated location error based on GPS- and related navigation 
+    // Current estimated location error based on GPS- and related navigation
     // sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
@@ -88,7 +88,7 @@ message HostVehicleData
     //
     message VehicleBasics
     {
-        // The total mass of the vehicle (curb weight). 
+        // The total mass of the vehicle (curb weight).
         //
         // Unit: kg
         //
@@ -106,7 +106,7 @@ message HostVehicleData
         // To be discussed.
         //
     }
-    
+
     //
     // \brief State description of the powertrain.
     //
@@ -132,7 +132,7 @@ message HostVehicleData
         //   reverse mode gears)
         //
         optional int32 gear_transmission = 3;
-        
+
         // Information about the motor(s).
         //
         repeated Motor motor = 4;
@@ -157,7 +157,7 @@ message HostVehicleData
             //
             optional double pedal_position_clutch = 3;
         }
-        
+
         //
         // \brief A description for the positions of the pedals.
         //
@@ -166,7 +166,7 @@ message HostVehicleData
             // The type of the motor.
             //
             optional Type type = 1;
-            
+
             // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
             //
             // Unit: 1/min
@@ -178,7 +178,7 @@ message HostVehicleData
             // Unit: N*m
             //
             optional double torque = 3;
-            
+
             // Definition which type of motor is used.
             //
             enum Type
@@ -194,11 +194,11 @@ message HostVehicleData
                 // A motor working after the principle of Nicolaus Otto.
                 //
                 TYPE_OTTO = 2;
-                
+
                 // A motor working after the principle of Rudolf Diesel.
                 //
                 TYPE_DIESEL = 3;
-                
+
                 // A motor working electric.
                 //
                 TYPE_ELECTRIC = 4;
@@ -212,7 +212,7 @@ message HostVehicleData
     //
     message VehicleSteeringWheel
     {
-        // Angle of the steering wheel. 
+        // Angle of the steering wheel.
         // 0=Central (Straight); Left>0; 0>Right.
         //
         // Unit: rad
@@ -262,7 +262,7 @@ message HostVehicleData
             //
             optional uint32 index = 2;
 
-            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
+            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces
             // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
             // friction between moving surfaces.
             // Ued here is the dry friction coefficient of the paired materials (see reference).
@@ -305,21 +305,29 @@ message HostVehicleData
     message VehiclePositionAndKinematics
     {
         //
-        // \brief Current kinematic data based on the output of the Intertial Measurement Unit (IMU).
+        // \brief Current vehicle kinematics in the cartesian coordinate system.
         //
         message CartesianInformation
         {
-            // Current kinematic data based on the output of the Intertial Measurement Unit (IMU).
+            // Current kinematic data. If enu_origin is set then the pose is given in ENU according to ISO8855.
+            // Otherwise the cartesian coordinate system is only an arbitrary local frame of reference.
             //
             // \note Note that dimension and base_polygon need not be set.
             //
             optional BaseMoving cartesian_data = 1;
 
-            // Current kinematic data error based on the output of the Intertial Measurement Unit (IMU).
+            // Current kinematic data error. If enu_origin is set then the pose error is given in ENU according to ISO8855.
+            // Otherwise the cartesian coordinate system is only an arbitrary local frame of reference.
             //
             // \note Note that dimension and base_polygon need not be set.
             //
             optional BaseMoving cartesian_data_rmse = 2;
+
+            // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
+            //
+            // Order: Longitude[rad], latitude[rad], altitude[m].
+            //
+            optional Vector3d enu_origin = 3;
         }
 
         //
@@ -348,7 +356,7 @@ message HostVehicleData
             //
             optional double altitude = 3;
 
-            // To be discussed as it is in CartesianInformation. 
+            // To be discussed as it is in CartesianInformation.
             // Heading in decimal degrees.
             //
             // Unit: Degree
@@ -366,5 +374,5 @@ message HostVehicleData
             //
             // optional int32 number_of_satellites = 6;
         }
-    }    
+    }
 }
