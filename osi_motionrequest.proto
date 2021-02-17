@@ -10,8 +10,8 @@ package osi3;
 //
 // \brief This message is intended as an interface between a HAD (highly automated driving) function and the actuator management.
 //
-// The HAD function can send either a desired future trajectory ore a desired future state.
-// The message can be defined by a additional variable.
+// The HAD function can send either a desired future trajectory or a desired future state.
+// The message can be defined by an additional variable.
 //
 // \note The coordinate system is defined as right-handed.
 // All coordinates and orientations are relative to the global coordinate system.
@@ -43,8 +43,8 @@ message MotionRequest
     //
     optional Trajectory desired_trajectory = 5;
 
-    // Define different options for HAD function ouput.
-    // Each option is corresponds to a field in the message.
+    // Define different options for HAD function output.
+    // Each option corresponds to a field in the message.
     //
     enum OutputOptions
     {
@@ -67,21 +67,21 @@ message MotionRequest
         //
         optional Timestamp timestamp = 1;
 
-        // intended position to be reached in x, y, and z direction.
+        // Intended position to be reached in x, y, and z direction.
         //
         optional Vector3d position = 2;
 
-        // intended orientation to be reached containing yaw, pitch and roll angle.
+        // Intended orientation to be reached containing yaw, pitch and roll angle.
         //
         optional Orientation3d  orientation = 3;
 
-        // intended velocity to be reached in x, y, and z direction.
+        // Intended velocity to be reached in x, y, and z direction.
         //
         // Unit: m/s
         //
         optional Vector3d velocity = 4;
 
-        // intended acceleration to be reached in x, y, and z direction.
+        // Intended acceleration to be reached in x, y, and z direction.
         //
         // Unit: m/s^2
         //
@@ -91,14 +91,14 @@ message MotionRequest
     // \brief Defined trajectory desired by the HAD function.
     //
     // This trajectory is the result of the trajectory planning step in the HAD function.
-    // The task of the acutator management is to follow this trajectory as closely as possible.
-    // The timestamps inside the trajecotry must be defined in global simulation time.
+    // The task of the actuator management is to follow this trajectory as closely as possible.
+    // The timestamps inside the trajectory must be defined in global simulation time.
     //
     // \note Trajectory is kept as a separate message for future extensions.
     //
     message Trajectory
     {
-        // consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached.
+        // Consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached.
         // A reference to \c StatePoint message.
         //
         repeated StatePoint trajectory_point = 1;
