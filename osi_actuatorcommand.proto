@@ -15,7 +15,7 @@ package osi3;
 // by controlling pedals (gas, brake and if necessary clutch) and 
 // steering wheel movements.
 
-message actuatorcommand
+message ActuatorCommand
 {
     // The interface version used by the sendor (i.e. the simulation environment).
     //
