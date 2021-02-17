@@ -59,6 +59,8 @@ message actuatorcommand
     
     // \brief A description for the positions of the pedals.
     //
+    // \note to be pushed to osi::origin from HostVehicleData. Eventually will be referenced here
+    //
     message Pedalry
     {
         // Position of the acceleration-pedal.
@@ -78,6 +80,8 @@ message actuatorcommand
     }
     
     // \brief Interface to control the intended vehicle steering wheel.
+    //
+    // \note to be pushed to osi::origin from HostVehicleData. Eventually will be referenced here
     //
     message VehicleSteeringWheel
     {
