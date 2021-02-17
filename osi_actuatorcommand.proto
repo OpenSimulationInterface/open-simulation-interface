@@ -34,9 +34,11 @@ message actuatorcommand
     optional Identifier traffic_participant_id = 3;
 
     // The positions of the pedals
+    //
     optional Pedalry pedalry = 4; 
     
     // Steering wheel position to be controlled
+    //
     optional VehicleSteeringWheel vehicle_steering_wheel = 5;
 
     // The gear of the gear lever to be set.
@@ -55,51 +57,49 @@ message actuatorcommand
     //
     optional int32 gear_transmission = 6;
     
-    //
     // \brief A description for the positions of the pedals.
     //
     message Pedalry
-        {
-            // Position of the acceleration-pedal.
-            // Range: 0-1 (Unpressed - fully pressed)
-            //
-            optional double pedal_position_acceleration = 1;
+    {
+        // Position of the acceleration-pedal.
+        // Range: 0-1 (Unpressed - fully pressed)
+        //
+        optional double pedal_position_acceleration = 1;
 
-            // Position of the brake-pedal.
-            // Range: 0-1 (Unpressed - fully pressed)
-            //
-            optional double pedal_position_brake = 2;
+        // Position of the brake-pedal.
+        // Range: 0-1 (Unpressed - fully pressed)
+        //
+        optional double pedal_position_brake = 2;
 
-            // Position of the clutch-pedal.
-            // Range: 0-1 (Unpressed - fully pressed)
-            //
-            optional double pedal_position_clutch = 3;
-        }
+        // Position of the clutch-pedal.
+        // Range: 0-1 (Unpressed - fully pressed)
+        //
+        optional double pedal_position_clutch = 3;
+    }
     
-    //
     // \brief Interface to control the intended vehicle steering wheel.
     //
     message VehicleSteeringWheel
-        {
-            // Angle of the steering wheel. 
-            // 0=Central (Straight); Left>0; 0>Right.
-            //
-            // Unit: rad
-            //
-            optional double angle = 1;
+    {
+        // Angle of the steering wheel. 
+        // 0=Central (Straight); Left>0; 0>Right.
+        //
+        // Unit: rad
+        //
+        optional double angle = 1;
 
-            // Anglular speed of the steering wheel.
-            // 0=Central (Straight); Left>0; 0>Right.
-            //
-            // Unit: rad/s
-            //
-            optional double angular_speed = 2;
+        // Anglular speed of the steering wheel.
+        // 0=Central (Straight); Left>0; 0>Right.
+        //
+        // Unit: rad/s
+        //
+        optional double angular_speed = 2;
 
-            // Torque of the steering wheel to the hand.
-            // 0=Central (Straight); Left>0; 0>Right.
-            //
-            // Unit: N*m
-            //
-            optional double torque = 3;
-    }        
+        // Torque of the steering wheel to the hand.
+        // 0=Central (Straight); Left>0; 0>Right.
+        //
+        // Unit: N*m
+        //
+        optional double torque = 3;
+    }
 }
