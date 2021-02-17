@@ -15,67 +15,74 @@ For more information on OSI see the [official documentation](https://opensimulat
 [1] Hanke, T., Hirsenkorn, N., van-Driesten, C., Garcia-Ramos, P., Schiementz, M., Schneider, S. & Biebl, E. (2017, February 03). *A generic interface for the environment perception of automated driving functions in virtual scenarios.* Retrieved January 25, 2020, from https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/ 
 
 ## Usage
-##### Example of writing and reading an OSI message in `Python`
+##### Example of generating OSI messages in `Python`
 ```python
+# generate_osi_messages.py
 from osi3.osi_sensorview_pb2 import SensorView
-from osi3.osi_sensordata_pb2 import SensorData
+import struct
+
+NANO_INCREMENT = 10000000
+MOVING_OBJECT_LENGTH = 5
+MOVING_OBJECT_WIDTH = 2
+MOVING_OBJECT_HEIGHT = 1
 
 def main():
-    """Initialize SensorView and SensorData"""
+    """Initialize SensorView"""
+    f = open("sv_330_361_1000_movingobject.osi", "ab")
     sensorview = SensorView()
-    sensordata = SensorData()
 
-    """Clear SensorData"""
-    sensordata.Clear()
-
-    """Get boundary line attributes from SensorView"""
     sv_ground_truth = sensorview.global_ground_truth
-    sv_lane_boundary = sv_ground_truth.lane_boundary.add()
-    sv_boundary_line = sv_lane_boundary.boundary_line.add()
-    sv_boundary_line.position.x = 1699.20
-    sv_boundary_line.position.y = 100.16
-    sv_boundary_line.position.z = 0.0
-    sv_boundary_line.width = 0.13
-    sv_boundary_line.height = 0.0
+    sv_ground_truth.version.version_major = 3
+    sv_ground_truth.version.version_minor = 3
+    sv_ground_truth.version.version_patch = 0
 
-    """Set boundary line attributes to SensorData"""
-    sd_lane_boundary = sensordata.lane_boundary.add()
-    sd_boundary_line = sd_lane_boundary.boundary_line.add()
-    sd_boundary_line.position.x = sv_boundary_line.position.x
-    sd_boundary_line.position.y = sv_boundary_line.position.y
-    sd_boundary_line.position.z = sv_boundary_line.position.z
-    sd_boundary_line.width = sv_boundary_line.width
-    sd_boundary_line.height = sv_boundary_line.height
+    sv_ground_truth.timestamp.seconds = 0
+    sv_ground_truth.timestamp.nanos = 0
 
-    """Serialize SensorData which can be send"""
-    string_buffer = sensordata.SerializeToString()
+    moving_object = sv_ground_truth.moving_object.add()
+    moving_object.id.value = 42
 
-    """Clear SensorData to show parsing from string"""
-    sensordata.Clear()
+    # Generate 1000 OSI messages for a duration of 10 seconds    
+    for i in range(1000):
 
-    """The received string buffer can now be parsed"""
-    sensordata.ParseFromString(string_buffer)
+        # Increment the time
+        if sv_ground_truth.timestamp.nanos > 1000000000:
+            sv_ground_truth.timestamp.seconds += 1
+            sv_ground_truth.timestamp.nanos = 0
+        sv_ground_truth.timestamp.nanos += NANO_INCREMENT
 
-    """Print SensorData"""
-    print(sensordata)
+        moving_object.vehicle_classification.type = 2
+
+        moving_object.base.dimension.length = MOVING_OBJECT_LENGTH
+        moving_object.base.dimension.width = MOVING_OBJECT_WIDTH
+        moving_object.base.dimension.height = MOVING_OBJECT_HEIGHT
+
+        moving_object.base.position.x += 0.5
+        moving_object.base.position.y = 0.0
+        moving_object.base.position.z = 0.0
+
+        moving_object.base.orientation.roll = 0.0
+        moving_object.base.orientation.pitch = 0.0
+        moving_object.base.orientation.yaw = 0.0
+
+        """Serialize"""
+        bytes_buffer = sensorview.SerializeToString()
+        f.write(struct.pack("<L", len(bytes_buffer)))
+        f.write(bytes_buffer)
+
+    f.close()
 
 if __name__ == "__main__":
     main()
 ```
-**Output**:
+
+To run the script execute the following command in the terminal:
 ```bash
-lane_boundary {
-  boundary_line {
-    position {
-      x: 1699.2
-      y: 100.16
-      z: 0.0
-    }
-    width: 0.13
-    height: 0.0
-  }
-}
+python3 generate_osi_messages.py
 ```
+
+This will output an osi file (`sv_330_361_1000_movingobject.osi`) which can be visualized and played back by the [osi-visualizer](https://github.com/OpenSimulationInterface/osi-visualizer).
+
 See Google's documentation for more tutorials on how to use protocol buffers with [Python](https://developers.google.com/protocol-buffers/docs/pythontutorial) or [C++](https://developers.google.com/protocol-buffers/docs/cpptutorial).
 ## Installation
 ##### Dependencies
