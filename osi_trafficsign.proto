@@ -280,6 +280,8 @@ message TrafficSign
             // As for every boolean in the protocol buffers language, the
             // default value of \c #vertically_mirrored is \c false.
             //
+            // May be deprecated in the future.
+            // Discussions will continue in OSI Harmonization OpenX group.
             optional bool vertically_mirrored = 6;
 
             // Boolean flag to indicate that a traffic sign is taken out of service.
