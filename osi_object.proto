@@ -347,6 +347,8 @@ message MovingObject
     // The base parameters of the vehicle.
     //
     // \note The bounding box does NOT include side mirrors for vehicles.
+    // \note The height includes the ground_clearance. It always goes from the
+    // top to the ground.
     //
     optional BaseMoving base = 2;
 
@@ -360,6 +362,9 @@ message MovingObject
     // one lane into another following lane.
     //
     // \note OSI uses singular instead of plural for repeated field names.
+    //
+    // \note DEPRECATED: Use assigned_lane_id in MovingObjectClassification
+    // instead.
     //
     repeated Identifier assigned_lane_id = 4;
 
@@ -404,6 +409,10 @@ message MovingObject
     // system.
     //
     repeated StatePoint future_trajectory = 8;
+
+    // Specific information about the classification of the vehicle.
+    //
+    optional MovingObjectClassification moving_object_classification = 9;    
 
     // Definition of object types.
     //
@@ -497,11 +506,12 @@ message MovingObject
         //
         optional Vector3d bbcenter_to_front = 5;
 
-        // Static minimal distance in m of under-body plane to ground
-        // surface plane (i.e. disregarding driving dynamic effects or road
-        // surface effects) under neutral load conditions. Can be useful to
-        // approximate the clear area under a vehicle that a sensor can see
-        // through.
+        // Static minimal distance or space from the lowest point of the vehicle's 
+        // body to the surface plane below it under neutral load conditions. This
+        // distance disregards, for example, driving-dynamic effects or 
+        // road-surface effects. Can be useful to approximate the clearance area
+        // under a vehicle that a sensor can see through.
+        // \note \c ground_clearance is included in the bounding box height.
         //
         optional double ground_clearance = 6;
 
@@ -510,6 +520,15 @@ message MovingObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated WheelData wheel_data = 7;
+
+        // Angle of the steering wheel. 
+        // Zero means the steering wheel is in its center postion, a positive value
+        // means the steering wheel is turned to the left and a negative value
+        // means the steering wheel is turned to the right of the center position.
+        //
+        // Unit: rad
+        //
+        optional double steering_wheel_angle = 8;
 
         // \brief Detailed wheel data.
         // The focus is on the description of a wheel regarding the perceivable 
@@ -584,6 +603,31 @@ message MovingObject
             //
             optional string model_reference = 9;
         }
+    }
+
+    //
+    // \brief Information for the classification of moving objects regarding
+    // \c MovingObject (host or other).
+    //
+    message MovingObjectClassification
+    {
+        // The IDs of the lanes that this object is assigned to.
+        //
+        // \note Might be multiple if the object is switching lanes or moving from
+        // one lane into another following lane.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 1;
+
+        // Percentage value of the object width in the corresponding lane.
+        //
+        // \note Might be multiple if the object is switching lanes or moving from
+        // one lane into another following lane.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated double assigned_lane_percentage = 2;        
     }
 
     //

@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(open_simulation_interface)
 
+# set default compiler
+set(CMAKE_CXX_STANDARD 11)
+
 # Set a default build type if none was specified
 set(default_build_type "Release")
 if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
@@ -71,6 +74,7 @@ set(OSI_PROTO_FILES
     osi_roadmarking.proto
     osi_lane.proto
     osi_featuredata.proto
+    osi_logicaldetectiondata.proto
     osi_object.proto
     osi_occupant.proto
     osi_sensordata.proto
