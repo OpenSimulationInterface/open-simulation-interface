@@ -225,6 +225,8 @@ message TrafficSign
 
             // The type of the traffic sign.
             //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             optional Type type = 2;
 
             // Additional value associated with the traffic sign, e.g. value of
@@ -256,6 +258,8 @@ message TrafficSign
             // might have been intentionally unmounted and, hence, not be in
             // effect.
             //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             optional DirectionScope direction_scope = 4;
 
             // The IDs of the lanes that the sign is assigned to.
@@ -280,8 +284,8 @@ message TrafficSign
             // As for every boolean in the protocol buffers language, the
             // default value of \c #vertically_mirrored is \c false.
             //
-            // May be deprecated in the future.
-            // Discussions will continue in OSI Harmonization OpenX group.
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             optional bool vertically_mirrored = 6;
 
             // Boolean flag to indicate that a traffic sign is taken out of service.
@@ -323,6 +327,8 @@ message TrafficSign
             // https://www.gesetze-im-internet.de/stvo_2013/anlage_4.html
             // (Verkehrseinrichtungen) \arg https://traffic-rules.com/
             //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             enum Type
             {
                 // Type of traffic sign is unknown (must not be used in ground
@@ -5515,6 +5521,8 @@ message TrafficSign
 
             // Type of the supplementary sign.
             //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             optional Type type = 2;
 
             // Additional value(s) associated with the traffic sign, e.g.
@@ -5544,10 +5552,14 @@ message TrafficSign
             // bikes, cars, trucks and so on), that the supplementary sign
             // makes reference to.
             //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             repeated Actor actor = 5;
 
             // A direction arrow shown on the supplementary sign.
             //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             repeated Arrow arrow = 6;
 
             // Boolean flag to indicate that the supplementary traffic sign is taken out of service.
@@ -5583,6 +5595,9 @@ message TrafficSign
             // text, \c Type is used in descending order in the following
             // sequence: \c #TYPE_EXCEPT, \c #TYPE_CONSTRAINED_TO, \c
             // #TYPE_ARROW, \c #TYPE_TIME, \c #TYPE_SPACE, \c #TYPE_TEXT.
+            //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             enum Type
             {
                 // Type of supplementary sign is unknown (must not be used in
@@ -8998,6 +9013,8 @@ message TrafficSign
             // Definition of the traffic actors the supplementary sign makes
             // reference to. E.g. bikes, trucks, cars, etc.
             //
+            // May be deprecated or changed in the future.
+            // Discussions will continue in Harmonization OpenX group.
             enum Actor
             {
                 // An unknown actor
@@ -9223,6 +9240,8 @@ message TrafficSign
 
                 // The direction to which the arrow points to
                 //
+                // May be deprecated or changed in the future.
+                // Discussions will continue in Harmonization OpenX group.
                 enum Direction
                 {
                     // Direction of sign is unknown (must not be used in ground
