@@ -287,8 +287,9 @@ message TrafficSign
             //
             optional bool is_out_of_service = 7;
 
-            // Specifies the country
-            optional Country country = 8;
+            // Specifies the country. See ISO 3166-1, alpha-2 codes
+            // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+            optional string country = 8;
 
             // The year the traffic rules come into force
             optional string country_revision = 9;
@@ -5552,11 +5553,12 @@ message TrafficSign
             //
             optional bool is_out_of_service = 7;
 
-            // Specifies the country
-            optional Country country = 8;
+            // Specifies the country. See ISO 3166-1, alpha-2 codes
+            // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+            optional string country = 8;
 
             // The year the traffic rules come into force
-            optional string countryevision = 9;
+            optional string country_revision = 9;
 
             // Code identifier according to country code
             //
@@ -9426,26 +9428,5 @@ message TrafficSign
         // Temporary or variable sign, e.g. on a sign bridge.
         //
         VARIABILITY_VARIABLE = 3;
-    }
-
-
-    // Definition of country.
-    enum Country
-    {
-        // Country is unknown
-        //
-        COUNTRY_UNKNOWN = 0;
-
-        // Country is Germany
-        //
-        GERMANY = 1;
-
-        // Country is USA
-        //
-        USA = 2;
-
-        // Country is Japan
-        //
-        JAPAN = 3;
     }
 }
