@@ -318,45 +318,34 @@ message StationaryObject
         //
         message EmittingStructureAttribute
         {
-            // Maximum wavelength of emitted electromagnetic wave
+            // In use-cases where a spectral ray-tracer is used, this message
+            // determines the range of the wavelength and its desired number
+            // of samples.
             //
-            // Unit: m
-            //
-            optional double max_wavelength = 0;
+            repeated WavelengthData wavelength_data = 1;
 
-            // Minimum wavelength of emitted electromagnetic wave
-            //
-            // Unit: m
-            //
-            optional double min_wavelength = 1;
-
-            // Step size for emitted electromagnetic wave
-            //
-            // Unit: m
-            //
-            optional double wavelength_step = 2;
-
-            // Intensities of emitted electromagnetic wave
+            // Intensities of emitted electromagnetic wave referred to a discrete
+            // wavelength defined in WavelengthData.
             //
             // Unit: %
             //
-            // \note size = (max_wavelength - min_wavelength) / wavelength_step
+            // \note The size of the message has to be equal to the the size of WavelengthData samples_number
             //
-            repeated double intensity_per_wavelength = 3;
+            repeated double intensity_per_wavelength = 2;
 
-            // Beam angles of emitted electromagnetic wave
+            // The beam angle of emitted electromagnetic wave in azimuth and elevation
             //
             // Unit: rad
             //
-            repeated Orientation3d beam_angle = 4;
+            repeated Spherical2d beam_angle = 3;
 
-            // Intensities of emitted electromagnetic wave per beam
+            // Intensities of emitted electromagnetic wave referred to beam_angle.
             //
             // Unit: %
             //
-            // \note size = size of beam_angle
+            // \note The size of the message has to be equal to the discretization in beam_angle.
             //
-            repeated double intensity_per_beam = 5;
+            repeated double intensity_per_beam = 4;
         }
     }
 }
