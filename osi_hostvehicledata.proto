@@ -8,17 +8,13 @@ import "osi_common.proto";
 package osi3;
 
 // \brief Host vehicle data is about the perception of the vehicle about it's own, internal states.
-// It describes data that the host vehicle knows about itself,
-// e.g. from location sensors, internal sensors, board net etc.
+// It describes data that the host vehicle knows about itself, e.g. from location sensors, board net etc.
 // A dynamic model can serve as input provider.
 // Sensors, mockups or other modules can make usage of the host vehicle data.
 // It consists of different messages categorizing the vehicle in:
 // Vehicle-Basics, Vehicle-Powermanagement, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
 //
 // \image html OSI_HostVehicle.svg
-//
-// All coordinates and orientations are relative to the global ground truth coordinate system.
-// Otherwise it is mentioned explicitly.
 //
 message HostVehicleData
 {
@@ -36,16 +32,29 @@ message HostVehicleData
     //
     optional Timestamp timestamp = 11;
 
-    // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
-    // Current estimated location based on GPS- and related navigation sensors.
+    // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
+    //
+    // Order: Longitude[rad], latitude[rad], altitude[m].
+    //
+    optional Vector3d enu_origin = 12;
+
+    // The host vehicle location and kinematics at \c HostVehicleData::timestamp.
+    //
+    // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+    // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+    // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+    // with its axis conventions following ISO8855.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location = 1;
 
-    // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
-    // Current estimated location error based on GPS- and related navigation 
-    // sensors.
+    // The host vehicle location and kinematics root-mean-square errors at \c HostVehicleData::timestamp.
+    //
+    // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+    // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+    // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+    // with its axis conventions following ISO8855.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
@@ -79,16 +88,12 @@ message HostVehicleData
     //
     optional VehicleWheels vehicle_wheels = 8;
 
-    // Interface regarding the navigation.
-    //
-    optional VehiclePositionAndKinematics vehicle_position_and_kinematics = 9;
-
     //
     // \brief The absolute base parameters of the vehicle.
     //
     message VehicleBasics
     {
-        // The total mass of the vehicle (curb weight). 
+        // The total mass of the vehicle (curb weight).
         //
         // Unit: kg
         //
@@ -106,7 +111,7 @@ message HostVehicleData
         // To be discussed.
         //
     }
-    
+
     //
     // \brief State description of the powertrain.
     //
@@ -132,7 +137,7 @@ message HostVehicleData
         //   reverse mode gears)
         //
         optional int32 gear_transmission = 3;
-        
+
         // Information about the motor(s).
         //
         repeated Motor motor = 4;
@@ -157,7 +162,7 @@ message HostVehicleData
             //
             optional double pedal_position_clutch = 3;
         }
-        
+
         //
         // \brief A description for the positions of the pedals.
         //
@@ -166,7 +171,7 @@ message HostVehicleData
             // The type of the motor.
             //
             optional Type type = 1;
-            
+
             // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
             //
             // Unit: 1/min
@@ -178,7 +183,7 @@ message HostVehicleData
             // Unit: N*m
             //
             optional double torque = 3;
-            
+
             // Definition which type of motor is used.
             //
             enum Type
@@ -194,11 +199,11 @@ message HostVehicleData
                 // A motor working after the principle of Nicolaus Otto.
                 //
                 TYPE_OTTO = 2;
-                
+
                 // A motor working after the principle of Rudolf Diesel.
                 //
                 TYPE_DIESEL = 3;
-                
+
                 // A motor working electric.
                 //
                 TYPE_ELECTRIC = 4;
@@ -212,7 +217,7 @@ message HostVehicleData
     //
     message VehicleSteeringWheel
     {
-        // Angle of the steering wheel. 
+        // Angle of the steering wheel.
         // 0=Central (Straight); Left>0; 0>Right.
         //
         // Unit: rad
@@ -262,7 +267,7 @@ message HostVehicleData
             //
             optional uint32 index = 2;
 
-            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
+            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces
             // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
             // friction between moving surfaces.
             // Ued here is the dry friction coefficient of the paired materials (see reference).
@@ -298,73 +303,4 @@ message HostVehicleData
             optional double slip = 6;
         }
     }
-
-    //
-    // \brief This message contains all the information the vehicle knows about its kinematic states.
-    //
-    message VehiclePositionAndKinematics
-    {
-        //
-        // \brief Current kinematic data based on the output of the Intertial Measurement Unit (IMU).
-        //
-        message CartesianInformation
-        {
-            // Current kinematic data based on the output of the Intertial Measurement Unit (IMU).
-            //
-            // \note Note that dimension and base_polygon need not be set.
-            //
-            optional BaseMoving cartesian_data = 1;
-
-            // Current kinematic data error based on the output of the Intertial Measurement Unit (IMU).
-            //
-            // \note Note that dimension and base_polygon need not be set.
-            //
-            optional BaseMoving cartesian_data_rmse = 2;
-        }
-
-        //
-        // \brief Current estimated location based on the output of the GPS-Unit.
-        //
-        message GeoreferencedInformation
-        {
-            // Longitude in decimal degrees regarding WGS84.
-            //
-            // Unit: Degree
-            // Range: [-180; 180]
-            //
-            optional double longitude = 1;
-
-            // Latitude in decimal degrees regarding WGS84.
-            //
-            // Unit: Degree
-            // Range: [-90; 90]
-            //
-            optional double latitude = 2;
-
-            // Height above sea level regarding EGM96.
-            //
-            // Unit: m
-            // Range: [-300; 10000]
-            //
-            optional double altitude = 3;
-
-            // To be discussed as it is in CartesianInformation. 
-            // Heading in decimal degrees.
-            //
-            // Unit: Degree
-            // Range: [0; 360]
-            //
-            // optional double heading = 4;
-
-            // Accuracy of localization measurement in percentage of the units.
-            //
-            // Unit: %
-            //
-            // optional double localization_accuracy = 5;
-
-            // Number of satellites.
-            //
-            // optional int32 number_of_satellites = 6;
-        }
-    }    
 }
