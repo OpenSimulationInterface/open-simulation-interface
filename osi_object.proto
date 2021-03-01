@@ -324,10 +324,10 @@ message StationaryObject
             //
             repeated WavelengthData wavelength_data = 1;
 
-            // Intensities of emitted electromagnetic wave referred to a discrete
-            // wavelength defined in WavelengthData.
+            // Original intensities of emitted electromagnetic wave referred to a discrete
+            // wavelength defined in WavelengthData. This maximum value is weighted based on the DistributionData.
             //
-            // Unit: %
+            // Unit: W/m^2
             //
             // \note The size of the message has to be equal to the the size of WavelengthData samples_number
             //
@@ -345,7 +345,7 @@ message StationaryObject
             //
             // \note The size of the message has to be equal to the discretization in beam_angle.
             //
-            repeated double intensity_per_beam = 4;
+            repeated DistributionData EDF = 4;
         }
     }
 }

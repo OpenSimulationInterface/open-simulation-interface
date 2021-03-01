@@ -579,3 +579,76 @@ message WavelengthData
     //
     optional double samples_number = 3;
 }
+
+//
+// \brief Distribution of data points and data values
+//
+// Defines the breakpoints of the corresponding distribution and the corresponding distribution values.
+//
+message DistributionData
+{
+    // Defines the type of the breakpoints for the distribution function.
+    //
+    optional Breakpoints breakpoints = 1;
+
+    // Defines the value of breakpoints of the distribution function for continuous or not equally distributed cases.
+    //
+    repeated double points = 2;
+
+    // Defines the start value, end value and the sample number if distribution has equally discretized breakpoints.
+    // In case of BREAKPOINTS_SPHERICAL the first one is azimuth and the second is elevation direction.
+    // In case of BREAKPOINTS_RECTANGULAR the first one is x and the second is y direction
+    //
+    repeated double WaveLengthData = 3;
+
+    // Defines the type of the distribution.
+    //
+    optional Distribution distribution = 4;
+
+    // Defines the normalized value of the distribution.
+    // In case of DISTRIBUTION_EQUAL the value of all points is equal to the double data.
+    // In case of DISTRIBUTION_GAUSSIAN there has to be two values in the following order:
+    // expected value, variance
+    // If the type is DISTRIBUTION_CUSTOM data corresponds to a Lookup-Table with points
+    // defined in the same message:
+    // E.g. osi_object.proto: Spherical2d is defined before DistributionData and the number
+    // of elements in data is equal to the discretization in Spheical2d.
+    //
+    // Unit: %
+    //
+    repeated double data = 5;
+
+    // Definition of distribution types. The values of the data distribution is defined in the field data.
+    //
+    enum Breakpoints
+    {
+        // The data points of the distribution is user-defined (e.g. breakpoints Lookup-Table).
+        //
+        BREAKPOINTS_CUSTOM = 0;
+
+        // The distribution corresponds to an equal distribution.
+        //
+        BREAKPOINTS_SPHERICAL = 1;
+
+        // The distribution corresponds to a Gaussian distribution.
+        //
+        BREAKPOINTS_RECTANGULAR = 2;
+    }
+
+    // Definition of distribution types. The values of the data distribution is defined in the field data.
+    //
+    enum Distribution
+    {
+        // The distribution corresponds to a user-defined distribution (e.g. Lookup-Table).
+        //
+        DISTRIBUTION_CUSTOM = 0;
+
+        // The distribution corresponds to an equal distribution.
+        //
+        DISTRIBUTION_EQUAL = 1;
+
+        // The distribution corresponds to a Gaussian distribution.
+        //
+        DISTRIBUTION_GAUSSIAN = 2;
+    }
+}
