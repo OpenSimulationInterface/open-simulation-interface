@@ -60,33 +60,25 @@ message HostVehicleData
     //
     optional BaseMoving location_rmse = 2;
 
-    // The ID of the object. Can be discussed.
-    //
-    // \rules
-    // is_globally_unique
-    // \endrules
-    //
-    optional Identifier id = 3;
-
     // The basic parameters of the vehicle.
     //
-    optional VehicleBasics vehicle_basics = 4;
+    optional VehicleBasics vehicle_basics = 3;
 
     // Interface regarding the powermanagement.
     //
-    optional VehiclePowermanagement vehicle_powermanagement = 5;
+    optional VehiclePowermanagement vehicle_powermanagement = 4;
 
     // Interface regarding the powertrain.
     //
-    optional VehiclePowertrain vehicle_powertrain = 6;
+    optional VehiclePowertrain vehicle_powertrain = 5;
 
     // Interface regarding the steering wheel.
     //
-    optional VehicleSteeringWheel vehicle_steering_wheel = 7;
+    optional VehicleSteeringWheel vehicle_steering_wheel = 6;
 
     // Interface regarding the wheels.
     //
-    optional VehicleWheels vehicle_wheels = 8;
+    optional VehicleWheels vehicle_wheels = 7;
 
     //
     // \brief The absolute base parameters of the vehicle.
