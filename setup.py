@@ -46,6 +46,7 @@ class GenerateProtobufCommand(build_py):
 
     osi_files = (
         'osi_version.proto',
+        'osi_actuatorcommand.proto',
         'osi_common.proto',
         'osi_datarecording.proto',
         'osi_detectedtrafficsign.proto',
