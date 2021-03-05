@@ -294,17 +294,9 @@ message StationaryObject
             //
             repeated double intensity_per_wavelength = 2;
 
-            // The beam angle of emitted electromagnetic wave in azimuth and elevation
-            //
-            // Unit: rad
-            //
-            repeated Spherical2d beam_angle = 3;
-
-            // Intensities of emitted electromagnetic wave referred to beam_angle.
+            // Intensities of emitted electromagnetic wave.
             //
             // Unit: %
-            //
-            // \note The size of the message has to be equal to the discretization in beam_angle.
             //
             repeated DistributionData EDF = 4;
         }
