@@ -8,10 +8,9 @@ import "osi_common.proto";
 package osi3;
 
 // \brief Host vehicle data is about the perception of the vehicle about it's own, internal states.
-// It describes data that the host vehicle knows about itself,
-// e.g. from location sensors, internal sensors, board net etc.
-// A dynamic model can serve as input provider.
-// Sensors, mockups or other modules can make usage of the host vehicle data.
+// It can be understood as an interface container for restbussimulation signals.
+// If there is a duplication with values from the rest of SensorView or SensorData, than these shall be taken.
+//
 // It consists of different messages categorizing the vehicle in:
 // Vehicle-Basics, Vehicle-Powermanagement, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
 //
@@ -80,7 +79,7 @@ message HostVehicleData
     //
     message VehicleBasics
     {
-        // The total mass of the vehicle (curb weight). 
+        // The total mass of the vehicle (curb weight).
         //
         // Unit: kg
         //
@@ -98,7 +97,7 @@ message HostVehicleData
         // To be discussed.
         //
     }
-    
+
     //
     // \brief State description of the powertrain.
     //
@@ -124,7 +123,7 @@ message HostVehicleData
         //   reverse mode gears)
         //
         optional int32 gear_transmission = 3;
-        
+
         // Information about the motor(s).
         //
         repeated Motor motor = 4;
@@ -149,7 +148,7 @@ message HostVehicleData
             //
             optional double pedal_position_clutch = 3;
         }
-        
+
         //
         // \brief A description for the positions of the pedals.
         //
@@ -158,7 +157,7 @@ message HostVehicleData
             // The type of the motor.
             //
             optional Type type = 1;
-            
+
             // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
             //
             // Unit: 1/min
@@ -170,7 +169,7 @@ message HostVehicleData
             // Unit: N*m
             //
             optional double torque = 3;
-            
+
             // Definition which type of motor is used.
             //
             enum Type
@@ -186,11 +185,11 @@ message HostVehicleData
                 // A motor working after the principle of Nicolaus Otto.
                 //
                 TYPE_OTTO = 2;
-                
+
                 // A motor working after the principle of Rudolf Diesel.
                 //
                 TYPE_DIESEL = 3;
-                
+
                 // A motor working electric.
                 //
                 TYPE_ELECTRIC = 4;
@@ -204,7 +203,7 @@ message HostVehicleData
     //
     message VehicleSteeringWheel
     {
-        // Angle of the steering wheel. 
+        // Angle of the steering wheel.
         // 0=Central (Straight); Left>0; 0>Right.
         //
         // Unit: rad
@@ -254,7 +253,7 @@ message HostVehicleData
             //
             optional uint32 index = 2;
 
-            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
+            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces
             // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
             // friction between moving surfaces.
             // Ued here is the dry friction coefficient of the paired materials (see reference).
@@ -292,33 +291,58 @@ message HostVehicleData
     }
 
     //
-    // \brief This message contains all the information the vehicle knows about its positioning and kinematics.
+    // \brief Current calculated and estimated location that can be based on GPS- and related navigation sensors,
+    // but this message does not contain the raw values of the sensorics.
+    // Instead it contains the most accurate information the vehicle knows about its positioning and kinematics
+    // available on the board net.
+    // Because of this the values can differ from the "true" values calculated out of
+    // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
     //
     message VehiclePositionAndKinematics
     {
         //
-        // \brief Current calculated and estimated kinematic data.
+        // \brief Most accurate, calculated and estimated kinematic data.
         //
         message CartesianInformation
         {
-            // Current calculated and estimated kinematic data.
+            // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
             //
-            // \note Note that dimension and base_polygon need not be set.
+            // Order: Longitude[rad], latitude[rad], altitude[m].
             //
-            optional BaseMoving cartesian_data = 1;
+            optional Vector3d cartesian_positioning_origin = 1;
 
-            // Current calculated and estimated kinematic data error.
+            // Current calculated and estimated positioning data.
             //
-            // \note Note that dimension and base_polygon need not be set.
+            // Order: Longitude[rad], latitude[rad], altitude[m].
             //
-            optional BaseMoving cartesian_data_rmse = 2;
+            // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+            // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+            // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+            // with its axis conventions following ISO8855.
+            //
+            optional Vector3d cartesian_positioning = 2;
+
+            // Current calculated and estimated positioning data error.
+            //
+            // Order: Longitude[rad], latitude[rad], altitude[m].
+            //
+            // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+            // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+            // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+            // with its axis conventions following ISO8855.
+            //
+            optional Vector3d cartesian_positioning_rmse = 3;
+
+            // Acceleration Values?
         }
 
         //
-        // \brief Current calculated and estimated geodetic location.
+        // \brief Most accurate, calculated and estimated geodetic location.
         //
         message GeoreferencedInformation
         {
+            // ToDo: Offset?
+
             // Longitude in decimal degrees regarding WGS84.
             //
             // Unit: Degree
