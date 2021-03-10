@@ -27,12 +27,21 @@ message DynamicsRequest
     
     // The target longitudinal acceleration requested by Motion Control to vehicle model.
     //
+    // Reference point: car body point coincident with the midpoint of rear axle in design configuration, defined by the following coordinates:
+    //   x: Position of rear axle
+    //   y: Vehicle longitudinal centerline
+    //   z: Wheel center of rear axle
+    //
     // Unit: m/s^2
     //
     optional double longitudinal_acceleration_target = 3;
     
     // The target curvature requested by Motion Control to vehicle model.
     //
+    // Reference point: car body point coincident with the midpoint of rear axle in design configuration, defined by the following coordinates:
+    //   x: Position of rear axle
+    //   y: Vehicle longitudinal centerline
+    //   z: Wheel center of rear axle
     //
     // Unit: 1/m
     //
