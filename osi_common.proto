@@ -157,7 +157,7 @@ message Dimension3d
 // x-axis.
 //
 // \f$ Rotation_{yaw,pitch,roll} =
-// Rotation_{roll}*Rotation_{pitch}*Rotation_{yaw} \f$
+// Rotation_{yaw}*Rotation_{pitch}*Rotation_{roll} \f$
 //
 // \f$ vector_{\text{global coord system}} :=
 // Rotation_{yaw,pitch,roll}^{-1}( \f$ \c Orientation3d \f$
