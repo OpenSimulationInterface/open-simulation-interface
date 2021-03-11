@@ -143,14 +143,14 @@ message Dimension3d
 // Units are rad for orientation, rad/s for rates, and rad/s^2 for
 // accelerations
 //
-// The preferred angular range is [-pi, pi]. The coordinate system is defined as
-// right-handed.
+// The coordinate system is defined as right-handed.
 // For the sense of each rotation, the right-hand rule applies.
 //
 // The rotations are to be performed \b yaw \b first (around the z-axis),
 // \b pitch \b second (around the new y-axis) and \b roll \b third (around the
 // new x-axis) to follow the definition according to [1] (Tait-Bryan / Euler
-// convention z-y'-x'').
+// convention z-y'-x''). The preferred angular range is [-pi, pi] for roll 
+// and yaw and [-pi/2, pi/2] for pitch. 
 //
 // Roll/Pitch are 0 if the objects xy-plane is parallel to its parent's
 // xy-plane. Yaw is 0 if the object's local x-axis is parallel to its parent's
