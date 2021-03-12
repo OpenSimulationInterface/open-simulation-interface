@@ -53,6 +53,7 @@ set(PROTOBUF_IMPORT_DIRS ${PROTOBUF_INCLUDE_DIRS})
 
 set(OSI_PROTO_FILES
     osi_version.proto
+    osi_actuatorcommand.proto
     osi_common.proto
     osi_datarecording.proto
     osi_detectedtrafficsign.proto
