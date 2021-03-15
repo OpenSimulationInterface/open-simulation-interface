@@ -135,7 +135,7 @@ message StationaryObject
             TYPE_REFLECTIVE_STRUCTURE = 15;
 
             // Landmarks corresponding to construction site elements in the
-            // environment, like cones or beacons.
+            // environment, like beacons.
             //
             TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
         }
