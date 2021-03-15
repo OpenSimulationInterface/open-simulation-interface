@@ -141,31 +141,35 @@ message Occupant
         //
         message State
         {
-            // Head pose.
+            // The position from the occupant's head, always relative to the host vehicle frame
+            // (for ground truth occupants an detected occupants).
             //
-            optional HeadPose head_pose = 1;
+            optional Vector3d head_position = 1; 
+ 
+            // The orientation from the occupant's head, always relative to the host vehicle frame
+            // (for ground truth occupants an detected occupants).
+
+            // The head pose describes the occupant's head orientation.
+            // The x-axis of the right-handed head frame is pointing along the
+            // occupant's straight ahead viewing direction (anterior), the y-axis lateral to the left,
+            // and the z-axis is pointing upwards (superior) [1].
+            //
+            // ``View_normal_base_coord_system =
+            // Inverse_Rotation(#head_pose)*Unit_vector_x``
+            //
+            // \par Reference:
+            //
+            // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.
+            //
+            optional Orientation3d head_pose = 2;
             
             // Left eye state.
             //
-            optional EyeState eye_state_left = 2;
+            optional EyeState eye_state_left = 3;
             
             // Right eye state.
             //
-            optional EyeState eye_state_right = 3;
-            
-            //
-            // \brief An occupant's head pose, including position and orientation.
-            //
-            message HeadPose
-            {
-                // Position within the ego vehicle's coordinate system.
-                //
-                optional Vector3d position = 1;
-                
-                // Orientation.
-                //
-                optional Orientation3d orientation = 2;
-            }
+            optional EyeState eye_state_right = 4;
             
             //
             // \brief The eye state comprises information regarding an eye's presence, gaze,
@@ -177,11 +181,11 @@ message Occupant
                 //
                 optional bool present = 1;
                 
-                // Gaze vector.
+                // Gaze vector, relative to the occupant's head pose.
                 //
                 optional Orientation3d gaze = 2;
                 
-                // Position.
+                // Position of the eye relative to the occupant's head position.
                 //
                 optional Vector3d position = 3;
                 
