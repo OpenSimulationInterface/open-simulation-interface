@@ -359,6 +359,17 @@ message MovingObject
     //
     optional MovingObjectClassification moving_object_classification = 9;    
 
+    // Specific information about the classification of the pedestrian.
+    //
+    // \note This field is mandatory if the \c #type is
+    // #TYPE_PEDESTRIAN .
+    //
+    // \rules
+    // check_if this.type is_equal_to 3 else do_check is_set
+    // \endrules
+    //
+    optional PedestrianClassification pedestrian_classification = 10;    
+
     // Definition of object types.
     //
     enum Type
@@ -826,4 +837,53 @@ message MovingObject
             }
         }
     }
+
+    //
+    // \brief Information for the classification of pedestrians regarding
+    // \c MovingObject (host or other).
+    //
+    message PedestrianClassification
+    {
+        // The orientations from pedestrians in ground truth or traffic update are relative to
+        // the global ground truth frame. The orientations
+        // from detected pedestrians are relative to the host vehicle frame.
+
+        // The head pose describes the pedestrian's head orientation.
+        // The x-axis of the right-handed head frame is pointing along the
+        // pedestrian's straight ahead viewing direction (anterior), the y-axis lateral to the left,
+        // and the z-axis is pointing upwards (superior) [1].
+        //
+        // ``View_normal_base_coord_system =
+        // Inverse_Rotation(#head_pose)*Unit_vector_x``
+        //
+        // \note This field is mandatory if the \c CandidateMovingObject.type is
+        // \c MovingObject::TYPE_PEDESTRIAN
+        //
+        // \par Reference:
+        //
+        // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.
+        //
+        optional Orientation3d head_pose = 1;
+
+        // The orientations from pedestrians in ground truth or traffic update are relative to
+        // the global ground truth frame. The orientations
+        // from detected pedestrians are relative to the host vehicle frame.
+
+        // The upper body pose describes the pedestrian's upper body orientation.
+        // The x-axis of the right-handed upper body frame is pointing along the
+        // pedestrian's upper body ventral (anterior) direction (i.e. usually
+        // pedestrian's intended moving direction), the y-axis lateral to the left,
+        // and the z-axis is pointing upwards (superior, to the pedestrian's head) [1].
+        //
+        // ``View_normal_base_coord_system =
+        // Inverse_Rotation(#upper_body_pose)*Unit_vector_x``
+        //
+        // \note This field is mandatory if the \c CandidateMovingObject::type
+        // is \c MovingObject::TYPE_PEDESTRIAN
+        //
+        // \par Reference:
+        // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.
+        //
+        optional Orientation3d upper_body_pose = 2;
+    }    
 }

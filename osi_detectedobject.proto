@@ -280,6 +280,8 @@ message DetectedMovingObject
         //
         optional MovingObject.VehicleClassification vehicle_classification = 3;
 
+        // This field might be deprecated in V4.0 due to new PedestrianClassification message.
+
         // Pedestrian head pose for behavior prediction. Describes the head
         // orientation w.r.t. the host vehicle orientation.
         // The x-axis of the right-handed head frame is pointing along the
@@ -298,6 +300,8 @@ message DetectedMovingObject
         //
         optional Orientation3d head_pose = 4;
 
+        // This field might be deprecated in V4.0 due to new PedestrianClassification message.        
+        
         // Pedestrian upper body pose for behavior prediction. Describes the
         // upper body orientation w.r.t. the host vehicle orientation.
         // The x-axis of the right-handed upper body frame is pointing along the
@@ -318,7 +322,14 @@ message DetectedMovingObject
 
         // Specific information about the classification of a moving object.
         //
-        optional MovingObject.MovingObjectClassification moving_object_classification = 6;        
+        optional MovingObject.MovingObjectClassification moving_object_classification = 6;     
+        
+        // Specific information about the classification of the pedestrian.
+        //
+        // \note This field is mandatory if the \c CandidateMovingObject::type
+        // is \c MovingObject::TYPE_PEDESTRIAN .
+        //
+        optional MovingObject.PedestrianClassification pedestrian_classification = 7;        
     }
 
     // Definition of available reference points. Left/middle/right and
