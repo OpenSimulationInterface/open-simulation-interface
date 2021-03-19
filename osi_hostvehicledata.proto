@@ -31,7 +31,7 @@ message HostVehicleData
     // simulation or measurement.
     //
     // \note This is the point in time that the host vehicle data message becomes
-    // available on the board net system.
+    // available as snapshot from the board net information.
     //
     optional Timestamp timestamp = 11;
 
@@ -291,15 +291,18 @@ message HostVehicleData
     }
 
     //
-    // \brief Current calculated and estimated location that can be based on GPS- and related navigation sensors,
-    // but this message does not contain the raw values of the sensorics.
-    // Instead it contains the most accurate information the vehicle knows about its positioning and kinematics
+    // \brief Current calculated and estimated location that can be based on GNSS- and related navigation sensors,
+    // but this message does not contain the single sensor values of the sensorics.
+    //
+    // This message contains the most accurate information the vehicle knows about its positioning and kinematics
     // available on the board net.
     // Because of this the values can differ from the "true" values calculated out of
     // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
     //
     message VehiclePositionAndKinematics
     {
+        // ToDo: Is a boolean necessery which signal is counting?
+ 
         //
         // \brief Most accurate, calculated and estimated kinematic data.
         //
@@ -307,13 +310,9 @@ message HostVehicleData
         {
             // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
             //
-            // Order: Longitude[rad], latitude[rad], altitude[m].
-            //
             optional Vector3d cartesian_positioning_origin = 1;
 
             // Current calculated and estimated positioning data.
-            //
-            // Order: Longitude[rad], latitude[rad], altitude[m].
             //
             // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
             // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
@@ -323,8 +322,6 @@ message HostVehicleData
             optional Vector3d cartesian_positioning = 2;
 
             // Current calculated and estimated positioning data error.
-            //
-            // Order: Longitude[rad], latitude[rad], altitude[m].
             //
             // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
             // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
