@@ -223,6 +223,20 @@ message Identifier
 //
 message ExternalReference
 {
+    // The source of the external references
+    //
+    // Defines the original source of an object as an URI.
+    // The URI should be follow the syntax according to 
+    // \link https://tools.ietf.org/html/rfc3986 RFC 3986\endlink.
+    //
+    optional string reference = 1;
+    
+    // The type of the external references
+    //
+    // Can be used to describe the original source, e.g. OpenDRIVE 1.6
+    //
+    optional string type = 2;    
+    
     // The external identifier reference value.
     //
     // For a common description of the external identifier, where a wide range
@@ -231,13 +245,7 @@ message ExternalReference
     // E.g. referencing a unique lane in OpenDRIVE 
     // (RoadId --> String, S-Value of LaneSection --> Double, LaneId --> Int)
     // 
-    repeated string value = 1;
-    
-    // The source of the references
-    //
-    // Can be used to describe the original source, e.g. OpenDRIVE 1.6
-    //
-    optional string source_reference = 2;
+    repeated string identifier = 3;
 }
 
 //
