@@ -50,6 +50,32 @@ message Lane
     //
     optional Classification classification = 2;
 
+    // External Reference to the Lane Source
+    //
+    // The ExternalReference point to the source of the lane, if it is derived
+    // from one or more objects or external references. An exaple here is the 
+    // reference to the lane defined in a OpenDRIVE map.
+    //
+    // For OpenDRIVE 1.6 the items should be set as following:
+    // * reference = URI to map, can remain empty if identical with definiton
+    //               in \c GroundTruth::map_reference
+    // * type = "OpenDRIVE 1.6"
+    // * identifier[0] = id of t_road
+    // * identifier[1] = s of t_road_lanes_laneSection
+    // * identifier[2] = id of t_road_lanes_laneSection_left_lane,
+    //                         t_road_lanes_laneSection_right_lane or
+    //                         t_road_lanes_laneSection_center_lane
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated, as it cannot guarantee, that one
+    //       Lane-Segment is derived from only one origin segment. It is also
+    //       possible, that multiple sources (map, sensor) should be added as
+    //       reference.
+    //
+    repeated ExternalReference source_reference = 3;
+
     //
     // \brief \c Classification of a lane.
     //

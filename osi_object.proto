@@ -40,6 +40,39 @@ message StationaryObject
     //
     optional string model_reference = 4;
 
+    // External Reference to the StationaryObject Source
+    //
+    // The ExternalReference point to the source of an stationary object, if it
+    // is derived from an external sources like OpenDRIVE or OpenSCENARIO.
+    //
+    // For OpenDRIVE 1.6 the objects should be set as following:
+    // * reference = URI to map, can remain empty if identical with definiton
+    //               in \c GroundTruth::map_reference
+    // * type = "OpenDRIVE 1.6"
+    // * identifier[0] = "object" for t_road_objects_object and
+    //                   "bridge" for t_road_objects_bridge
+    // * identifier[1] = id of t_road_objects_object or t_road_objects_bridge
+    //
+    // For OpenSCENARIO 1.0 the entities of the type MiscObject, which describes
+    // partly stationary objecs should be set as following:
+    // * reference = URI to the OpenSCENARIO File
+    // * type = "OpenSCENARIO 1.0"
+    // * identifier[0] = Entity-Type ("MiscObject")
+    // * identifier[1] = name of MiscObject in Entity
+    //
+    // \note The following rule, described in OpenDRIVE, should also apply here:
+    // * Objects derived from OpenSCENARIO shall not be mixed with objects
+    //   described in OpenDRIVE.
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated, as it cannot guarantee, that one
+    //       object is derived from only one origin source, like from one 
+    //       scernario file and and from the sensors.
+    //
+    repeated ExternalReference source_reference = 5;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -358,6 +391,29 @@ message MovingObject
     // Specific information about the classification of the vehicle.
     //
     optional MovingObjectClassification moving_object_classification = 9;    
+
+    // External Reference to the MovingObject Source
+    //
+    // The ExternalReference point to the source of an moving object, if it
+    // is derived from an external sources like OpenSCENARIO.
+    //
+    // For OpenSCENARIO 1.0 the entities of the type Vehicle or Pedestrian,
+    // which describes moving objecs should be set as following:
+    // * reference = URI to the OpenSCENARIO File
+    // * type = "OpenSCENARIO 1.0"
+    // * identifier[0] = Entity-Type ("Vehicle" or "Pedestrian")
+    // * identifier[1] = name of Vehicle/Pedestrian in Entity
+    //
+    // \todo OpenSCENARIO 1.0 currently does not provide an animal type.
+    // 
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated, as it cannot guarantee, that one
+    //       object is derived from only one origin source, like from one map
+    //       and from the sensors.
+    //
+    repeated ExternalReference source_reference = 10;
 
     // Definition of object types.
     //
