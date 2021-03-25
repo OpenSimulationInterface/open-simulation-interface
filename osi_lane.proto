@@ -63,8 +63,7 @@ message Lane
     // * identifier[0] = id of t_road
     // * identifier[1] = s of t_road_lanes_laneSection
     // * identifier[2] = id of t_road_lanes_laneSection_left_lane,
-    //                         t_road_lanes_laneSection_right_lane or
-    //                         t_road_lanes_laneSection_center_lane
+    //                         t_road_lanes_laneSection_right_lane
     //
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
