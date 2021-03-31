@@ -1,0 +1,404 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+
+package osi3;
+
+
+//
+// definitions for car types.
+// 
+// main types: sedan,bus,truck,suv, trailer
+//
+enum CarType {
+   // CarType that is unknown.
+   //
+   CAR_TYPE_UNDEFINED = 0;
+   CAR_TYPE_SEDAN = 1; 
+   CAR_TYPE_SUV = 2; 
+   CAR_TYPE_BUS = 3; 
+   CAR_TYPE_TRUCK = 4; 
+   CAR_TYPE_TRUCK_1 = 5;  
+   // first type of sedan
+   //
+   CAR_TYPE_SEDAN_001= 6; 
+   // second type of sedan
+   //
+   CAR_TYPE_SEDAN_002= 7;
+   // third type of sedan
+   //
+   CAR_TYPE_SEDAN_003 = 8;
+   // fourth type of sedan
+   //
+   CAR_TYPE_SEDAN_004= 9;
+   //  first type of suv
+   //
+   CAR_TYPE_SUV_001 =10;
+   //  second type of suv
+   //
+   CAR_TYPE_SUV_002= 11;
+   //  third type of suv
+   //
+   CAR_TYPE_SUV_003 =12;
+   //  fourth type of suv
+   //
+   CAR_TYPE_SUV_004 = 13;
+   //  first type of truck
+   //
+   CAR_TYPE_TRUCK_001=14;
+   //  second type of truck
+   //
+   CAR_TYPE_TRUCK_002=15;
+   // first type of bus
+   //
+   CAR_TYPE_BUS_001 =16; 
+   //  first type of trailer truck
+   //
+   CAR_TYPE_SEMI_TRAILER_TRUCK_001 = 17;
+}
+
+// definitions for StaticObstacle types.
+// 
+// main types: sedan,bus,truck,suv, trailer
+//
+enum StaticObstacleType{
+   // sedan that is stationary
+   //
+   STATIC_OBSTACLE_TYPE_SEDAN =0;
+   // box shaped obstacle
+   //
+   STATIC_OBSTACLE_TYPE_BOX =1 ; 
+   // persion that stand still
+   //
+   STATIC_OBSTACLE_TYPE_PERSON =2;
+   // cone shaped obstacle
+   //
+   STATIC_OBSTACLE_TYPE_CONE=3; 
+   // sandpile like obstacle
+   //
+   STATIC_OBSTACLE_TYPE_SAND = 4;
+}
+
+// definitions for DynamicObstacle types.
+// 
+// main types: human,children,oldman,cat,dog,bike,moto.
+//
+enum DynamicObstacleType {
+   // moving pedestrain    
+   //   
+   DYNAMIC_OBSTACLE_TYPE_PEDESTRAIN = 0;
+   // moving child
+   //
+   DYNAMIC_OBSTACLE_TYPE_CHILD =1; 
+   // moving aged people
+   //
+   DYNAMIC_OBSTACLE_TYPE_OLDMAN =2; 
+   // moving cat
+   //
+   DYNAMIC_OBSTACLE_TYPE_CAT = 3;
+   // moving dog
+   //
+   DYNAMIC_OBSTACLE_TYPE_DOG = 4;
+   // moving bike
+   //
+   DYNAMIC_OBSTACLE_TYPE_BIKE_001 = 5;
+   // first type of moving moto
+   //
+   DYNAMIC_OBSTACLE_TYPE_MOTO_001 =6;
+   // second type of moving moto
+   //
+   DYNAMIC_OBSTACLE_TYPE_MOTO_002 = 7;
+}
+
+//
+//
+//  \brief  The car object in environment.
+//
+// Units are millisecond for t, radian for heading and theta, m/s for v and vl, and m/s^2 for
+// acc, m for length, width,height and z .
+//
+//
+
+message Car {
+   // The ID of the Car object.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
+   optional Identifier id = 1;
+   // timestamp for this message. 
+   //
+   optional Timestamp timestamp = 2;
+   //longitude of the vehicle
+   //
+   optional double x = 3;
+   // latitude of the vehicle
+   //
+   optional double y = 4;
+   // direction of the front wheel
+   //
+   optional double heading = 5;
+   // longitudinal velocity
+   //
+   optional double v = 6;
+   // lateral velocity
+   //
+   optional double vl = 7;
+   // direction of the vehicle body
+   //
+   optional double theta = 8;  
+   // length of the bounding box of the static obstacle
+   //
+   optional double length = 9;
+   // width of the bounding box of the car 
+   //
+   optional double width = 10;
+   // height of the bounding box of the static obstacle
+   //
+   optional double height = 11;
+   // type of the car
+   //
+   optional CarType type = 12;
+   // acceleration of the car
+   //
+   optional double acceleration= 14;
+   // altitude or elevation of the car
+   //
+   optional double z = 16;
+
+   // lane the car is running on
+   // lane and lanelink are mutual-exclusive.
+   // the car can be either running on a lane or a lane link.
+   optional LaneUid lane_id;
+  
+   // id of the lane link, the car is running on.
+   //
+   optional Identifier lanelink_id = 20;
+  
+}
+
+//
+//
+//  \brief The static object in environment.
+//
+//
+//
+message StaticObstacle {
+   // The ID of the StaticObstacle object
+   //
+   optional Identifier id = 1;
+   // timestamp of this message
+   //
+   optional Timestamp ts = 2;
+   // longitude of the static obstacle
+   //
+   optional double x = 3;
+   // latitude of the static obstacle
+   //
+   optional double y = 4;
+   // direction of the obstacle body
+   //
+   optional double heading = 5;
+   // length of the bounding box of the static obstacle
+   //
+   optional double length = 6;
+   // width of the bounding box of the static obstacle
+   //
+   optional double width = 7;
+   // height of the bounding box of the static obstacle
+   //
+   optional double height = 8;
+   // type of the static obstacle
+   //
+   optional StaticObstacleType type = 9;
+   // altitude or elevation of the object
+   //
+   optional double z = 11;
+}
+ 
+//
+//
+// \brief The dynamic object in environment.
+//
+//
+// Units are milliseconds for t, radian for heading, m for length, width,height,z,
+// second for age, m/s for v and vl,  m/s^2 for acc .
+// 
+ message DynamicObstacle {
+    // The ID of the DynamicObstacle object.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
+   optional Identifier id = 1;
+   // timestamp of the message.
+   //  
+   optional Timestamp timestamp = 2;
+   //longitude of the static obstacle
+   //
+   optional double x = 3;
+   // latitude of the static obstacle
+   //
+   optional double y = 4;
+   // direction of the obstacle body
+   //
+   optional double heading = 5;
+   // length of the bounding box of the dynamic obstacle
+   //
+   optional double length = 6;
+   // width of the bounding box of the dynamic obstacle
+   //
+   optional double width = 7;
+   // height of the bounding box of the dynamic obstacle
+   //
+   optional double height = 8;
+   // type of the dynamic obstacle
+   //
+   optional DynamicObstacleType type = 9;
+   // longitudinal velocity
+   //
+   optional double v = 10;
+   // lateral velocity
+   //
+   optional double vl = 11;
+   // acceleration of the dynamic obstacle
+   //
+   optional double acceleration = 12;
+   // altitude or elevation of the object
+   //
+   optional double z = 14;
+ }
+ 
+//
+// \brief The LaneUid consist of road_id, section_id, and lane_id.
+//
+message LaneUid {
+   // road id
+   //
+   optional uint64 road_id = 1;
+   // section id
+   //
+   optional uint64 section_id = 2;
+   // lane id
+   //
+   optional int64  lane_id = 3;
+}
+
+
+// Definition of allowed vehicle behavior on lane
+//
+enum Phase {
+   // turn around
+   //
+   PHASE_UTURN = 0;
+   // turn left
+   //
+   PHASE_LEFT = 1;
+   // go straight
+   //
+   PHASE_STRAIGHT = 2;
+   // turn right
+   //
+   PHASE_RIGHT = 3;
+}
+
+//
+// Definition of Color state of a traffic light.
+//
+enum ColorState {
+   // red color state
+   //
+   COLOR_STATE_RED = 0;
+   // green color state
+   //
+   COLOR_STATE_GREEN = 1;
+   // yellow color state
+   //
+   COLOR_STATE_YELLOW = 2;
+   // color other than red|green|yellow , maybe blink
+   //
+   COLOR_STATE_GREY = 3;
+   // not working state
+   //
+   COLOR_STATE_BLACK = 4;
+   
+}
+ 
+//
+// \brief The traffic light
+//
+// Units are  radian for heading, m for z,
+// second for age.
+//
+ message TrafficLight {
+   // The ID of the TrafficLight object.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
+   optional int32 id = 1;  
+   // longitude of the static obstacle
+   //
+   optional double x = 2;
+   // latitude of the static obstacle
+   //
+   optional double y = 3;
+   //direction the traffic light is facing
+   //
+   optional double heading = 4;
+   // the color state of the traffic light
+   //
+   optional ColorState color = 5;
+   // time to next color state change
+   //
+   optional int32 age = 6;
+   // altitude or elevation of the traffic light
+   //
+   optional double z = 7;
+  // lanes the traffic light controls
+  //
+   repeated LaneUid control_lanes = 11;
+   // phase the traffic light controls
+   //
+   repeated Phase   control_phases = 12;
+ }
+ 
+ 
+ //
+ //\brief The V2X consist of cars, static obstacles, dynamic obstacles and traffic lights,
+ // Each of which has a ground truth version and simulated vesion(groud truth + some noisy data)
+ //
+
+message V2X {
+   // cars in current simulation environment (with some noise)
+   //
+   repeated Car cars = 1;
+   // groud truth of the same cars in current environment
+   //
+   repeated Car cars_gt = 2;
+   // static obstacles in current simulation environment (with some noise)
+   //
+   repeated StaticObstacle staticobstacles = 3;
+   // groud truth of the same static obstacles in current environment
+   //
+   repeated StaticObstacle staticobstacles_gt = 4;
+
+
+   // dynamic obstacles in current simulation environment (with some noise)
+   //
+   repeated DynamicObstacle dynamicobstacles = 5;
+   // groud truth of the same dynamic obstacles in current environment
+   //
+   repeated DynamicObstacle dynamicobstacles_gt = 6;
+   // traffic light in current simulation environment (with some noise)
+   //
+   repeated TrafficLight trafficlights = 7;
+   // groud truth of the same traffic light in current environment
+   //
+   repeated TrafficLight trafficlights_gt = 8;
+}
