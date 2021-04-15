@@ -993,6 +993,10 @@ message LaneBoundary
             // Marking with violet color.
             //
             COLOR_VIOLET = 8;
+
+            // Marking with orange color.
+            //
+            COLOR_ORANGE = 9;
         }
     }
 }
