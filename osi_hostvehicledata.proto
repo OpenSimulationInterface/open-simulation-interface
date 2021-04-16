@@ -338,8 +338,6 @@ message HostVehicleData
         //
         message GeoreferencedInformation
         {
-            // ToDo: Offset?
-
             // Longitude in decimal degrees regarding WGS84.
             //
             // Unit: Degree
@@ -367,7 +365,7 @@ message HostVehicleData
             // Unit: Degree
             // Range: [0; 360]
             //
-            // optional double heading = 4;
+            optional double heading = 4;
 
             // Accuracy of localization measurement in percentage of the units.
             //
