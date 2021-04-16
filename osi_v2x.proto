@@ -2,403 +2,249 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_version.proto";
 import "osi_common.proto";
+import "osi_trafficlight.proto";
+import "osi_trafficsign.proto";
+import "osi_roadmarking.proto";
+import "osi_lane.proto";
+import "osi_object.proto";
 
 package osi3;
 
+// V2X include four main types: 
+//    1. V2I(vehicle-to-infrstructure)
+//    2. V2P(vehicle-to-pedestrian)
+//    3. V2N(vehicle-to-network )
+//    4. V2V(vehicle-to-vehicle)
+
+
 
 //
-// definitions for car types.
 // 
-// main types: sedan,bus,truck,suv, trailer
+//  \brief  Road facilities(roadmarking,lane boundary, lane, traffic light,traffic sign), stationary and moving objects detected by RSU alike devices. 
 //
-enum CarType {
-   // CarType that is unknown.
-   //
-   CAR_TYPE_UNDEFINED = 0;
-   CAR_TYPE_SEDAN = 1; 
-   CAR_TYPE_SUV = 2; 
-   CAR_TYPE_BUS = 3; 
-   CAR_TYPE_TRUCK = 4; 
-   CAR_TYPE_TRUCK_1 = 5;  
-   // first type of sedan
-   //
-   CAR_TYPE_SEDAN_001= 6; 
-   // second type of sedan
-   //
-   CAR_TYPE_SEDAN_002= 7;
-   // third type of sedan
-   //
-   CAR_TYPE_SEDAN_003 = 8;
-   // fourth type of sedan
-   //
-   CAR_TYPE_SEDAN_004= 9;
-   //  first type of suv
-   //
-   CAR_TYPE_SUV_001 =10;
-   //  second type of suv
-   //
-   CAR_TYPE_SUV_002= 11;
-   //  third type of suv
-   //
-   CAR_TYPE_SUV_003 =12;
-   //  fourth type of suv
-   //
-   CAR_TYPE_SUV_004 = 13;
-   //  first type of truck
-   //
-   CAR_TYPE_TRUCK_001=14;
-   //  second type of truck
-   //
-   CAR_TYPE_TRUCK_002=15;
-   // first type of bus
-   //
-   CAR_TYPE_BUS_001 =16; 
-   //  first type of trailer truck
-   //
-   CAR_TYPE_SEMI_TRAILER_TRUCK_001 = 17;
+//
+
+message V2I {
+
+
+    // The list of stationary objects (excluding traffic signs and traffic
+    // lights).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated StationaryObject stationary_object = 1;
+
+
+    // The list of all other moving objects including all (host) vehicles.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated MovingObject moving_object = 2;
+
+    // The list of traffic signs.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated TrafficSign traffic_sign = 3;
+
+    // The list of traffic lights.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated TrafficLight traffic_light = 4;
+
+    // The list of road surface markings (lane markings are excluded and
+    // defined as \c LaneBoundary).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated RoadMarking road_marking = 5;
+
+    // The list of lane boundaries.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated LaneBoundary lane_boundary = 6;
+
+    // The list of lanes forming a road network.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Lane lane = 7;
+
 }
 
-// definitions for StaticObstacle types.
-// 
-// main types: sedan,bus,truck,suv, trailer
-//
-enum StaticObstacleType{
-   // sedan that is stationary
-   //
-   STATIC_OBSTACLE_TYPE_SEDAN =0;
-   // box shaped obstacle
-   //
-   STATIC_OBSTACLE_TYPE_BOX =1 ; 
-   // persion that stand still
-   //
-   STATIC_OBSTACLE_TYPE_PERSON =2;
-   // cone shaped obstacle
-   //
-   STATIC_OBSTACLE_TYPE_CONE=3; 
-   // sandpile like obstacle
-   //
-   STATIC_OBSTACLE_TYPE_SAND = 4;
-}
-
-// definitions for DynamicObstacle types.
-// 
-// main types: human,children,oldman,cat,dog,bike,moto.
-//
-enum DynamicObstacleType {
-   // moving pedestrain    
-   //   
-   DYNAMIC_OBSTACLE_TYPE_PEDESTRAIN = 0;
-   // moving child
-   //
-   DYNAMIC_OBSTACLE_TYPE_CHILD =1; 
-   // moving aged people
-   //
-   DYNAMIC_OBSTACLE_TYPE_OLDMAN =2; 
-   // moving cat
-   //
-   DYNAMIC_OBSTACLE_TYPE_CAT = 3;
-   // moving dog
-   //
-   DYNAMIC_OBSTACLE_TYPE_DOG = 4;
-   // moving bike
-   //
-   DYNAMIC_OBSTACLE_TYPE_BIKE_001 = 5;
-   // first type of moving moto
-   //
-   DYNAMIC_OBSTACLE_TYPE_MOTO_001 =6;
-   // second type of moving moto
-   //
-   DYNAMIC_OBSTACLE_TYPE_MOTO_002 = 7;
-}
 
 //
-//
-//  \brief  The car object in environment.
-//
-// Units are millisecond for t, radian for heading and theta, m/s for v and vl, and m/s^2 for
-// acc, m for length, width,height and z .
-//
+//  \brief  Broadcasted by vehicle. 
 //
 
-message Car {
-   // The ID of the Car object.
+message V2V {
+
+    // The ID of the Vehicle.
     //
     // \rules
     // is_globally_unique
     // \endrules
     //
-   optional Identifier id = 1;
-   // timestamp for this message. 
-   //
-   optional Timestamp timestamp = 2;
-   //longitude of the vehicle
-   //
-   optional double x = 3;
-   // latitude of the vehicle
-   //
-   optional double y = 4;
-   // direction of the front wheel
-   //
-   optional double heading = 5;
-   // longitudinal velocity
-   //
-   optional double v = 6;
-   // lateral velocity
-   //
-   optional double vl = 7;
-   // direction of the vehicle body
-   //
-   optional double theta = 8;  
-   // length of the bounding box of the static obstacle
-   //
-   optional double length = 9;
-   // width of the bounding box of the car 
-   //
-   optional double width = 10;
-   // height of the bounding box of the static obstacle
-   //
-   optional double height = 11;
-   // type of the car
-   //
-   optional CarType type = 12;
-   // acceleration of the car
-   //
-   optional double acceleration= 14;
-   // altitude or elevation of the car
-   //
-   optional double z = 16;
+    optional Identifier id = 1;
 
-   // lane the car is running on
-   // lane and lanelink are mutual-exclusive.
-   // the car can be either running on a lane or a lane link.
-   optional LaneUid lane_id;
-  
-   // id of the lane link, the car is running on.
-   //
-   optional Identifier lanelink_id = 20;
-  
-}
+    // The base parameters of the vehicle.
+    //
+    // \note The bounding box does NOT include side mirrors for vehicles.
+    // \note The height includes the ground_clearance. It always goes from the
+    // top to the ground.
+    //
+    optional BaseMoving base = 2;
 
-//
-//
-//  \brief The static object in environment.
-//
-//
-//
-message StaticObstacle {
-   // The ID of the StaticObstacle object
-   //
-   optional Identifier id = 1;
-   // timestamp of this message
-   //
-   optional Timestamp ts = 2;
-   // longitude of the static obstacle
-   //
-   optional double x = 3;
-   // latitude of the static obstacle
-   //
-   optional double y = 4;
-   // direction of the obstacle body
-   //
-   optional double heading = 5;
-   // length of the bounding box of the static obstacle
-   //
-   optional double length = 6;
-   // width of the bounding box of the static obstacle
-   //
-   optional double width = 7;
-   // height of the bounding box of the static obstacle
-   //
-   optional double height = 8;
-   // type of the static obstacle
-   //
-   optional StaticObstacleType type = 9;
-   // altitude or elevation of the object
-   //
-   optional double z = 11;
-}
- 
-//
-//
-// \brief The dynamic object in environment.
-//
-//
-// Units are milliseconds for t, radian for heading, m for length, width,height,z,
-// second for age, m/s for v and vl,  m/s^2 for acc .
-// 
- message DynamicObstacle {
-    // The ID of the DynamicObstacle object.
+    // Specific information about the vehicle.
+    //
+    // \note This field is mandatory if the \c #type is
+    // #TYPE_VEHICLE .
     //
     // \rules
-    // is_globally_unique
+    // check_if this.type is_equal_to 2 else do_check is_set
     // \endrules
     //
-   optional Identifier id = 1;
-   // timestamp of the message.
-   //  
-   optional Timestamp timestamp = 2;
-   //longitude of the static obstacle
-   //
-   optional double x = 3;
-   // latitude of the static obstacle
-   //
-   optional double y = 4;
-   // direction of the obstacle body
-   //
-   optional double heading = 5;
-   // length of the bounding box of the dynamic obstacle
-   //
-   optional double length = 6;
-   // width of the bounding box of the dynamic obstacle
-   //
-   optional double width = 7;
-   // height of the bounding box of the dynamic obstacle
-   //
-   optional double height = 8;
-   // type of the dynamic obstacle
-   //
-   optional DynamicObstacleType type = 9;
-   // longitudinal velocity
-   //
-   optional double v = 10;
-   // lateral velocity
-   //
-   optional double vl = 11;
-   // acceleration of the dynamic obstacle
-   //
-   optional double acceleration = 12;
-   // altitude or elevation of the object
-   //
-   optional double z = 14;
- }
- 
-//
-// \brief The LaneUid consist of road_id, section_id, and lane_id.
-//
-message LaneUid {
-   // road id
-   //
-   optional uint64 road_id = 1;
-   // section id
-   //
-   optional uint64 section_id = 2;
-   // lane id
-   //
-   optional int64  lane_id = 3;
-}
+    optional MovingObject.VehicleAttributes vehicle_attributes = 5;
 
-
-// Definition of allowed vehicle behavior on lane
-//
-enum Phase {
-   // turn around
-   //
-   PHASE_UTURN = 0;
-   // turn left
-   //
-   PHASE_LEFT = 1;
-   // go straight
-   //
-   PHASE_STRAIGHT = 2;
-   // turn right
-   //
-   PHASE_RIGHT = 3;
-}
-
-//
-// Definition of Color state of a traffic light.
-//
-enum ColorState {
-   // red color state
-   //
-   COLOR_STATE_RED = 0;
-   // green color state
-   //
-   COLOR_STATE_GREEN = 1;
-   // yellow color state
-   //
-   COLOR_STATE_YELLOW = 2;
-   // color other than red|green|yellow , maybe blink
-   //
-   COLOR_STATE_GREY = 3;
-   // not working state
-   //
-   COLOR_STATE_BLACK = 4;
-   
-}
- 
-//
-// \brief The traffic light
-//
-// Units are  radian for heading, m for z,
-// second for age.
-//
- message TrafficLight {
-   // The ID of the TrafficLight object.
+    // Specific information about the classification of the vehicle.
+    //
+    //
+    // \note This field is mandatory if the \c #type is
+    // #TYPE_VEHICLE .
     //
     // \rules
-    // is_globally_unique
+    // check_if this.type is_equal_to 2 else do_check is_set
     // \endrules
     //
-   optional int32 id = 1;  
-   // longitude of the static obstacle
-   //
-   optional double x = 2;
-   // latitude of the static obstacle
-   //
-   optional double y = 3;
-   //direction the traffic light is facing
-   //
-   optional double heading = 4;
-   // the color state of the traffic light
-   //
-   optional ColorState color = 5;
-   // time to next color state change
-   //
-   optional int32 age = 6;
-   // altitude or elevation of the traffic light
-   //
-   optional double z = 7;
-  // lanes the traffic light controls
-  //
-   repeated LaneUid control_lanes = 11;
-   // phase the traffic light controls
-   //
-   repeated Phase   control_phases = 12;
- }
- 
- 
+    optional MovingObject.VehicleClassification vehicle_classification = 6;
+
+}
+
+//
+//  \brief  The V2N placeholder 
+//
+//
+
+message V2N {
+
+}
+
+//
+//  \brief  The V2P placeholder 
+//
+
+message V2P{
+
+}
+
+
+
  //
- //\brief The V2X consist of cars, static obstacles, dynamic obstacles and traffic lights,
- // Each of which has a ground truth version and simulated vesion(groud truth + some noisy data)
+ //\brief Composition of V2I, V2V, V2P, V2N . 
+ //   
+ // The message is requested by host_vehicle. 
+ // Each of four types of message have both ground truth version and simulated version(gt + noise).
  //
 
 message V2X {
-   // cars in current simulation environment (with some noise)
-   //
-   repeated Car cars = 1;
-   // groud truth of the same cars in current environment
-   //
-   repeated Car cars_gt = 2;
-   // static obstacles in current simulation environment (with some noise)
-   //
-   repeated StaticObstacle staticobstacles = 3;
-   // groud truth of the same static obstacles in current environment
-   //
-   repeated StaticObstacle staticobstacles_gt = 4;
+
+   // The interface version used by the sender (i.e. the simulation
+    // environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    // \note For ground truth data this timestamp coincides both with the
+    // notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for ground truth data, as opposed to
+    // sensor data).
+    //
+    optional Timestamp timestamp = 2;
 
 
-   // dynamic obstacles in current simulation environment (with some noise)
-   //
-   repeated DynamicObstacle dynamicobstacles = 5;
-   // groud truth of the same dynamic obstacles in current environment
-   //
-   repeated DynamicObstacle dynamicobstacles_gt = 6;
-   // traffic light in current simulation environment (with some noise)
-   //
-   repeated TrafficLight trafficlights = 7;
-   // groud truth of the same traffic light in current environment
-   //
-   repeated TrafficLight trafficlights_gt = 8;
+    //  Infrastructure in simulated environment, including stationary and moving objects detected by RSU.
+    //
+    // \rules
+    // refers_to: V2I
+    // \endrules
+    //
+
+    optional V2I v2i = 4;
+
+    // Ground truth version of infrastructure in simulated environment, including stationary and moving objects detected by RSU.
+    //
+    // \rules
+    // refers_to: V2I
+    // \endrules
+    //
+
+   optional V2I v2i_gt = 5;
+
+    //  Network in simulated environment, internet, communication network.
+    //
+    // \rules
+    // refers_to: V2N
+    // \endrules
+    //
+   optional V2N v2n = 6;
+   //  Groud truth version of network (Internet, communication network) in simulated environment 
+    //
+    // \rules
+    // refers_to: V2N
+    // \endrules
+    //
+
+   optional  V2N v2n_gt = 7;
+
+
+    //  Simulated pedestrain.
+    //
+    // \rules
+    // refers_to: V2P
+    // \endrules
+    //
+
+   repeated V2P v2p = 8;
+
+   //  Ground truth of simulated pedestrain.
+    //
+    // \rules
+    // refers_to: V2P
+    // \endrules
+    //
+
+   repeated V2P v2p_gt = 9;
+
+    //  Vehicles in simulated environment.
+    //
+    // \rules
+    // refers_to: V2V
+    // \endrules
+    //
+    
+
+   repeated V2V v2v = 10;
+
+    //  Gound truth version of  vehicles in  simulated environment.
+    //
+    // \rules
+    // refers_to: V2V
+    // \endrules
+    //
+
+   repeated V2V v2v_gt = 11;
+
 }
+
+
+
+

@@ -81,9 +81,11 @@ set(OSI_PROTO_FILES
     osi_sensorviewconfiguration.proto
     osi_sensorspecific.proto
     osi_sensorview.proto
+    osi_v2x.proto
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
+
 
 add_library(${PROJECT_NAME}_static STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
 target_include_directories(${PROJECT_NAME}_static
