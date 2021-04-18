@@ -579,6 +579,8 @@ message MovingObject
         //
         optional MovingDirection moving_direction = 3;
 
+        // Definitions of moving direction.
+        //
         enum MovingDirection
         {
             // Moving direction is unkown.
