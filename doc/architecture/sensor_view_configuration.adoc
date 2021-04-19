@@ -1,9 +1,11 @@
 = Sensor view configuration
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Et malesuada fames ac turpis egestas.
-Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-Nulla facilisi morbi tempus iaculis urna id. Justo eget magna fermentum iaculis.
-Sed augue lacus viverra vitae congue eu. Velit ut tortor pretium viverra suspendisse.
-Amet commodo nulla facilisi nullam vehicula ipsum a. Nibh nisl condimentum id venenatis a.
-Diam vel quam elementum pulvinar etiam non quam lacus suspendisse.
+The sensor view configuration configures the sensor view.
+It is provided by the environment simulation.
+Sensor view configuration data is intended for the automatic configuration of an environment simulation in order to supply the necessary input to a sensor model.
+Sensor view configuration data is not intended to provide parameters to a generic sensor model. 
+
+Sensor view configuration data can also be provided by the sensor model to the environment simulation.
+In that case, it describes the input configuration that is desired by the sensor model.
+In response the environment simulation will configure the input and provide a new message which describes the actual configuration.
+These two messages may differ, when the environment simulation does not support a given requested configuration or when the requested configuration allowed is ambiguous.
