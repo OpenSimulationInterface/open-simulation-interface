@@ -1,10 +1,11 @@
 = Ground truth
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Et malesuada fames ac turpis egestas.
-Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-Nulla facilisi morbi tempus iaculis urna id. Justo eget magna fermentum iaculis.
-Sed augue lacus viverra vitae congue eu. Velit ut tortor pretium viverra suspendisse.
-Amet commodo nulla facilisi nullam vehicula ipsum a.
-Nibh nisl condimentum id venenatis a.
-Diam vel quam elementum pulvinar etiam non quam lacus suspendisse.
+Ground truth describes the simulated environment around all simulated host vehicles in a global coordinate system.
+Ground truth provides an exact view on the simulated objects in a global coordinate system.
+It is based on internally available data and published to external subscribers.
+Depending on the external subscriber, ground-truth data may be individually restricted.
+
+//TODO: It looks like we may have two conflicting descriptions here.
+// I cannot tell which one is correct or if they are conflicting at all.
+// The first sentence is based on the comments in the proto files.
+// The second sentence is based on the description on Github pages.
