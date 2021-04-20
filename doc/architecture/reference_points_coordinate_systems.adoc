@@ -1,0 +1,16 @@
+= Reference points and coordinate systems
+
+With Open Simulation Interface, an object's position coordinates refer to the center of the object's bounding box, independent of the coordinate system. This reference point is not identical to the origin of any coordinate systems.
+
+OSI uses three coordinate systems:
+
+World coordinates::
+Coordinate system for all quantities which are part of ground truth.
+
+Sensor coordinates::
+Coordinate system for all quantities which are part of sensor data.
+
+Object coordinates::
+Coordinate system for local object coordinates, for example, vehicle coordinates.
+
+OSI uses DIN ISO 8855:2013-11 for coordinate systems and transformations between coordinate systems.
