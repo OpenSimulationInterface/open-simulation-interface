@@ -52,11 +52,9 @@ include::./architecture/traffic_participant.adoc[leveloffset=+3]
 
 include::./architecture/vehicle_dynamics.adoc[leveloffset=+3]
 
-=== Coordinate systems and reference points
+// Coordinate systems and reference points (level 3)
 
-include::./architecture/coordinate_systems.adoc[leveloffset=+3]
-
-include::./architecture/reference_points.adoc[leveloffset=+3]
+include::./architecture/reference_points_coordinate_systems.adoc[leveloffset=+2]
 
 === Layering
 
@@ -105,6 +103,8 @@ include::./usecases/modeling_traffic_participant.adoc[leveloffset=+2]
 include::./usecases/benchmark_integration_gpu_radar.adoc[leveloffset=+2]
 
 include::./usecases/generating_osi_traces.adoc[leveloffset=+2]
+
+include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+2]
 
 == Improving performance
 
