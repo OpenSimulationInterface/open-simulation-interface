@@ -288,8 +288,10 @@ message TrafficSign
             // As for every boolean in the protocol buffers language, the
             // default value of \c #vertically_mirrored is \c false.
             //
-            // May be deprecated or changed in the future.
-            // Discussions will continue in Harmonization OpenX group.
+            // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
+            // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
+            // How the enum Actor will be dealt in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated planned for version 4.0.0
             optional bool vertically_mirrored = 6;
 
             // Boolean flag to indicate that a traffic sign is taken out of service.
