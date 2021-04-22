@@ -2,6 +2,8 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_common.proto";
+
 package osi3;
 
 //
@@ -97,7 +99,7 @@ message EnvironmentalConditions
     //       object is derived from only one origin source, like from one 
     //       scernario file and and from the sensors.
     //
-    repeated ExternalReference source_reference = 8;
+    repeated ExternalReference source_reference = 9;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour mm/h)
