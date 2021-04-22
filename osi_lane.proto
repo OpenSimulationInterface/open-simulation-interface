@@ -762,7 +762,7 @@ message LaneBoundary
     //       object is derived from only one origin source, like from one 
     //       scernario file and and from the sensors.
     //
-    repeated ExternalReference source_reference = 3;
+    repeated ExternalReference source_reference = 4;
 
     //
     // \brief A single point of a lane boundary.
