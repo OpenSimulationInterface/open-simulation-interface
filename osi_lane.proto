@@ -53,7 +53,7 @@ message Lane
     // External Reference to the Lane Source
     //
     // The ExternalReference point to the source of the lane, if it is derived
-    // from one or more objects or external references. An exaple here is the 
+    // from one or more objects or external references. An example here is the 
     // reference to the lane defined in a OpenDRIVE map.
     //
     // For OpenDRIVE 1.6 the items should be set as following:
@@ -749,6 +749,20 @@ message LaneBoundary
     // The classification of the lane boundary.
     //
     optional Classification classification = 3;
+    
+    // External Reference to the Lane Boundary Source
+    //
+    // \note For OpenDRIVE 1.6 there is no direct possibility to reference the
+    //       RoadMark, as there is no unique identifier in this sub-object.
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated, as it cannot guarantee, that one
+    //       object is derived from only one origin source, like from one 
+    //       scernario file and and from the sensors.
+    //
+    repeated ExternalReference source_reference = 3;
 
     //
     // \brief A single point of a lane boundary.

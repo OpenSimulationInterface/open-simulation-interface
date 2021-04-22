@@ -85,6 +85,19 @@ message EnvironmentalConditions
     // Description of the fog.
     //
     optional Fog fog = 7;
+    
+    // External Reference to the Environmental Condition Sources
+    //
+    // \note For OpenDRIVE and OpenSECNARIO there is no no direct counterpart.
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated, as it cannot guarantee, that one
+    //       object is derived from only one origin source, like from one 
+    //       scernario file and and from the sensors.
+    //
+    repeated ExternalReference source_reference = 8;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour mm/h)
