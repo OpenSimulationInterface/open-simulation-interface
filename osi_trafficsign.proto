@@ -260,8 +260,10 @@ message TrafficSign
             // might have been intentionally unmounted and, hence, not be in
             // effect.
             //
-            // May be deprecated or changed in the future.
-            // Discussions will continue in Harmonization OpenX group.
+            // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
+            // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
+            // How the DirectionScope will be dealt in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated planned for version 4.0.0
             optional DirectionScope direction_scope = 4;
 
             // The IDs of the lanes that the sign is assigned to.
