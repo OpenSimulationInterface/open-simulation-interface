@@ -32,20 +32,20 @@ jobs:
       id: cache-depends
       uses: actions/cache@v2
       with:
-        path: protobuf-3.11.3
+        path: protobuf-3.15.8
         key: ${{ runner.os }}-v1-depends
 
     - name: Download ProtoBuf
       if: steps.cache-depends.outputs.cache-hit != 'true'
-      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.3/protobuf-all-3.11.3.tar.gz && tar xzvf protobuf-all-3.11.3.tar.gz
+      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.15.8/protobuf-all-3.15.8.tar.gz && tar xzvf protobuf-all-3.15.8.tar.gz
 
     - name: Build ProtoBuf
       if: steps.cache-depends.outputs.cache-hit != 'true'
-      working-directory: protobuf-3.11.3
+      working-directory: protobuf-3.15.8
       run: ./configure DIST_LANG=cpp --prefix=/usr && make
 
     - name: Install ProtoBuf
-      working-directory: protobuf-3.11.3
+      working-directory: protobuf-3.15.8
       run: sudo make install && sudo ldconfig
 
     - name: Install proto2cpp
@@ -57,7 +57,7 @@ jobs:
     - name: Prepare Documentation Bukd
       run: |
         sed -i 's/@VERSION_PATCH@/@VERSION_PATCH@_GitHub_MasterBranch/g' doxygen_config.cmake.in
-        echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-3.11.3/* */proto2cpp/*" >> doxygen_config.cmake.in
+        echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-3.15.8/* */proto2cpp/*" >> doxygen_config.cmake.in
         echo "GENERATE_TREEVIEW = YES" >> doxygen_config.cmake.in
 
     - name: Configure C++ Build
@@ -78,11 +78,19 @@ jobs:
       run: python -m unittest discover tests
 
     - name: Archive Documentation
+      if: ${{ github.event_name == 'pull_request' }}
       uses: actions/upload-artifact@v2
       with:
         name: linux64-doc
         path: doc/html
         if-no-files-found: error
+
+    - name: deploy to gh-pages if push to master branch
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      uses:  peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./doc/html
 
   build-proto3-linux64:
     name: Build Proto3 Linux 64
@@ -107,20 +115,20 @@ jobs:
       id: cache-depends
       uses: actions/cache@v2
       with:
-        path: protobuf-3.11.3
+        path: protobuf-3.15.8
         key: ${{ runner.os }}-v1-depends
 
     - name: Download ProtoBuf
       if: steps.cache-depends.outputs.cache-hit != 'true'
-      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.3/protobuf-all-3.11.3.tar.gz && tar xzvf protobuf-all-3.11.3.tar.gz
+      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.15.8/protobuf-all-3.15.8.tar.gz && tar xzvf protobuf-all-3.15.8.tar.gz
 
     - name: Build ProtoBuf
       if: steps.cache-depends.outputs.cache-hit != 'true'
-      working-directory: protobuf-3.11.3
+      working-directory: protobuf-3.15.8
       run: ./configure DIST_LANG=cpp --prefix=/usr && make
 
     - name: Install ProtoBuf
-      working-directory: protobuf-3.11.3
+      working-directory: protobuf-3.15.8
       run: sudo make install && sudo ldconfig
 
     - name: Prepare C++ Build
