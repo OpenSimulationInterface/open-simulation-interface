@@ -1,7 +1,7 @@
 Open Simulation Interface (OSI)
 ===============================
 
-[![GitHub Build Status](https://github.com/pmai/open-simulation-interface/workflows/ProtoBuf%20CI%20Builds/badge.svg)](https://github.com/pmai/open-simulation-interface/actions?query=workflow%3A%22ProtoBuf+CI+Builds%22)
+[![ProtoBuf CI Builds](https://github.com/OpenSimulationInterface/open-simulation-interface/actions/workflows/protobuf.yml/badge.svg)](https://github.com/OpenSimulationInterface/open-simulation-interface/actions/workflows/protobuf.yml)
 
 The Open Simulation Interface <sup>[[1]](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)</sup> (OSI) is a generic interface based on [Google's protocol buffers](https://developers.google.com/protocol-buffers/) for the environmental perception of automated driving functions in virtual scenarios.
 
