@@ -43,6 +43,7 @@ the introduction of brand new top level messages which extend OSI's scope beyond
 `Content/Changes <https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/18?closed=1>`_:
 ---------------------------------------------------------------------------------------------------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
 - **Bug Fix**: Fixed outdated version information in VERSION file in 3.3.0. This lead to wrong versioning in proto definitions and Doxygen documentation.
 - **Bug Fix**: Removed outdated picture in README.md.
 =======
@@ -51,3 +52,7 @@ the introduction of brand new top level messages which extend OSI's scope beyond
 =======
 - **Bug Fix**: Versioning in VERSION file wrong in 3.3.0. This lead to wrong versioning in Doxygen documentation.
 >>>>>>> updated release notes for bugfix
+=======
+- **Bug Fix**: Fixed outdated version information in VERSION file in 3.3.0. This lead to wrong versioning in proto definitions and Doxygen documentation.
+- **Bug Fix**: Removed outdated picture in README.md.
+>>>>>>> Remove obsolete image and update release notes
