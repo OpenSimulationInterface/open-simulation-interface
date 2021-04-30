@@ -16,9 +16,6 @@ package osi3;
 //
 // \image html OSI_HostVehicle.svg
 //
-// All coordinates and orientations are relative to the global ground truth coordinate system.
-// Otherwise it is mentioned explicitly.
-//
 message HostVehicleData
 {
     // The interface version used by the sender.
@@ -301,81 +298,58 @@ message HostVehicleData
     //
     message VehiclePositionAndKinematics
     {
-        // ToDo: Is a boolean necessery which signal is counting?
- 
+        // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
         //
-        // \brief Most accurate, calculated and estimated kinematic data.
+        optional GeodeticPosition enu_origin = 1;
+
+        // The host vehicle location and kinematics at \c HostVehicleData::timestamp.
         //
-        message CartesianInformation
-        {
-            // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
-            //
-            optional Vector3d cartesian_positioning_origin = 1;
-
-            // Current calculated and estimated positioning data.
-            //
-            // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
-            // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
-            // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
-            // with its axis conventions following ISO8855.
-            //
-            optional Vector3d cartesian_positioning = 2;
-
-            // Current calculated and estimated positioning data error.
-            //
-            // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
-            // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
-            // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
-            // with its axis conventions following ISO8855.
-            //
-            optional Vector3d cartesian_positioning_rmse = 3;
-
-            // Acceleration Values?
-        }
-
+        // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+        // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+        // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+        // with its axis conventions following ISO8855.
         //
-        // \brief Most accurate, calculated and estimated geodetic location.
+        // \note Note that dimension and base_polygon need not be set.
         //
-        message GeoreferencedInformation
-        {
-            // Longitude in decimal degrees regarding WGS84.
-            //
-            // Unit: Degree
-            // Range: [-180; 180]
-            //
-            optional double longitude = 1;
+        optional BaseMoving location = 2;
 
-            // Latitude in decimal degrees regarding WGS84.
-            //
-            // Unit: Degree
-            // Range: [-90; 90]
-            //
-            optional double latitude = 2;
+        // The host vehicle location and kinematics root-mean-square errors at \c HostVehicleData::timestamp.
+        //
+        // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+        // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+        // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+        // with its axis conventions following ISO8855.
+        //
+        // \note Note that dimension and base_polygon need not be set.
+        //
+        optional BaseMoving location_rmse = 3;
+    }
 
-            // Height above sea level regarding EGM96.
-            //
-            // Unit: m
-            // Range: [-300; 10000]
-            //
-            optional double altitude = 3;
+    //
+    // \brief The geodetic position of the vehicle.
+    // In which context it is used has to be specified in the concrete field.
+    //
+    message GeodeticPosition
+    {
+        // Longitude in decimal degrees regarding WGS84.
+        //
+        // Unit: Degree
+        // Range: [-180; 180]
+        //
+        optional double longitude = 1;
 
-            // To be discussed as it is in CartesianInformation. 
-            // Heading in decimal degrees.
-            //
-            // Unit: Degree
-            // Range: [0; 360]
-            //
-            optional double heading = 4;
+        // Latitude in decimal degrees regarding WGS84.
+        //
+        // Unit: Degree
+        // Range: [-90; 90]
+        //
+        optional double latitude = 2;
 
-            // Accuracy of localization measurement in percentage of the units.
-            //
-            // Unit: %
-            //
-            // optional double localization_accuracy = 5;
-
-            // Number of satellites.
-            //
-            // optional int32 number_of_satellites = 6;
-        }
-    }    
+        // Height above sea level regarding EGM96.
+        //
+        // Unit: m
+        // Range: [-300; 10000]
+        //
+        optional double altitude = 3;
+    }
 }
