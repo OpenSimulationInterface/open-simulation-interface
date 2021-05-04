@@ -311,7 +311,7 @@ message HostVehicleData
         //
         // \note Note that dimension and base_polygon need not be set.
         //
-        optional BaseMoving location = 2;
+        optional BaseMoving base = 2;
 
         // The host vehicle location and kinematics root-mean-square errors at \c HostVehicleData::timestamp.
         //
@@ -322,34 +322,34 @@ message HostVehicleData
         //
         // \note Note that dimension and base_polygon need not be set.
         //
-        optional BaseMoving location_rmse = 3;
-    }
+        optional BaseMoving base_rmse = 3;
 
-    //
-    // \brief The geodetic position of the vehicle.
-    // In which context it is used has to be specified in the concrete field.
-    //
-    message GeodeticPosition
-    {
-        // Longitude in decimal degrees regarding WGS84.
         //
-        // Unit: Degree
-        // Range: [-180; 180]
+        // \brief The geodetic position of the vehicle.
+        // In which context it is used has to be specified in the concrete field.
         //
-        optional double longitude = 1;
+        message GeodeticPosition
+        {
+            // Longitude in decimal degrees regarding WGS84.
+            //
+            // Unit: Degree
+            // Range: [-180; 180]
+            //
+            optional double longitude = 1;
 
-        // Latitude in decimal degrees regarding WGS84.
-        //
-        // Unit: Degree
-        // Range: [-90; 90]
-        //
-        optional double latitude = 2;
+            // Latitude in decimal degrees regarding WGS84.
+            //
+            // Unit: Degree
+            // Range: [-90; 90]
+            //
+            optional double latitude = 2;
 
-        // Height above sea level regarding EGM96.
-        //
-        // Unit: m
-        // Range: [-300; 10000]
-        //
-        optional double altitude = 3;
+            // Height above sea level regarding EGM96.
+            //
+            // Unit: m
+            // Range: [-300; 10000]
+            //
+            optional double altitude = 3;
+        }
     }
 }
