@@ -54,7 +54,7 @@ message StationaryObject
     // * identifier[1] = id of t_road_objects_object or t_road_objects_bridge
     //
     // For OpenSCENARIO 1.0 the entities of the type MiscObject, which describes
-    // partly stationary objecs should be set as following:
+    // partly stationary objects should be set as following:
     // * reference = URI to the OpenSCENARIO File
     // * type = "OpenSCENARIO 1.0"
     // * identifier[0] = Entity-Type ("MiscObject")
@@ -69,7 +69,7 @@ message StationaryObject
     //
     // \note The value has to be repeated, as it cannot guarantee, that one
     //       object is derived from only one origin source, like from one 
-    //       scernario file and and from the sensors.
+    //       scenario file and and from the sensors.
     //
     repeated ExternalReference source_reference = 5;
 

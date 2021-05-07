@@ -217,8 +217,8 @@ message Identifier
 
 // \brief References to external objects
 //
-// The external reference is used to identify objects defined in non-OSI
-// descriptions. This could be other OpenX-Standards as well as user defined
+// The external reference is an optional recommendation to refer to objects defined outside of OSI.
+// This could be other OpenX standards, 3rd-party standards or user-defined objects.
 // simulation environments.
 //
 message ExternalReference
@@ -233,14 +233,14 @@ message ExternalReference
     
     // The type of the external references
     //
-    // Can be used to describe the original source, e.g. OpenDRIVE 1.6
+    // Must be used to describe the type of the original source.
     //
     optional string type = 2;    
     
     // The external identifier reference value.
     //
     // For a common description of the external identifier, where a wide range
-    // of identification types could be represented, the repeded string is chosen.
+    // of identification types could be represented, the repeated string is chosen.
     //
     // E.g. referencing a unique lane in OpenDRIVE 
     // (RoadId --> String, S-Value of LaneSection --> Double, LaneId --> Int)
@@ -550,4 +550,3 @@ message WavelengthData
     //
     optional double samples_number = 3;
 }
-
