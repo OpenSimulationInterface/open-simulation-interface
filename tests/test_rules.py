@@ -92,11 +92,10 @@ class TestRules(unittest.TestCase):
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
-                    if numMessage > 0 and matchClosingBrace is not None:
-                        numMessage -= 1
-
                     if isEnum is True and matchClosingBrace is not None:
                         isEnum = False
+                    elif numMessage > 0 and matchClosingBrace is not None:
+                        numMessage -= 1
 
                     if matchComment is not None:
                         if re.search(r"^[ ]\\\bendrules\b$", comment) is not None:
