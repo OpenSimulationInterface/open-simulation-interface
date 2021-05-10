@@ -157,7 +157,7 @@ message TrafficSign
     repeated SupplementarySign supplementary_sign = 3;
 
 
-    // External Reference to the Traffic Sign Source
+    // Optional external Reference to the Traffic Sign Source
     //
     // The ExternalReference point to the source of the traffic sign, if it is
     // derived from one or more objects or external references. An example here

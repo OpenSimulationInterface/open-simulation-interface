@@ -88,7 +88,7 @@ message EnvironmentalConditions
     //
     optional Fog fog = 7;
     
-    // External Reference to the Environmental Condition Sources
+    // Optional external Reference to the Environmental Condition Sources
     //
     // \note For OpenDRIVE and OpenSECNARIO there is no direct counterpart.
     //

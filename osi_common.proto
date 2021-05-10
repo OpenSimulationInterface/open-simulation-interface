@@ -221,19 +221,38 @@ message Identifier
 // This could be other OpenX standards, 3rd-party standards or user-defined objects.
 // simulation environments.
 //
+// \note The ExternalReference is an optional value and can be left empty.
+//
 message ExternalReference
 {
     // The source of the external references
     //
-    // Defines the original source of an object as an URI.
-    // The URI should be follow the syntax according to 
+    // Defines the original source of an object as uniquely identifiable reference.
+    // In case of using \c GroundTruth::map_reference or 
+    // \c GroundTruth::model_reference, the reference can be left empty.
+    // If not otherwise required, an URI is suggested and should follow the syntax according to 
     // \link https://tools.ietf.org/html/rfc3986 RFC 3986\endlink.
+    //
     //
     optional string reference = 1;
     
     // The type of the external references
     //
     // Must be used to describe the type of the original source.
+    //
+    // For OpenX/ASAM standards it is specified as follows,
+    // the PATCH-Value is optional:
+    // - OpenDRIVE 1.6
+    // - OpenDRIVE 1.6.0
+    // - OpenDRIVE 1.6.1
+    // - OpenSCENARIO 1.0
+    // - OpenSCENARIO 1.0.0
+    // - OpenSCENARIO 1.1
+    // - OpenSCENARIO 1.1.0
+    //
+    // For third-party standards and user-defined objects the 
+    // Reverse Domain Name Notation is suggested, to guarantee unique
+    // and interoperable identifications.
     //
     optional string type = 2;    
     
@@ -245,6 +264,19 @@ message ExternalReference
     // E.g. referencing a unique lane in OpenDRIVE 
     // (RoadId --> String, S-Value of LaneSection --> Double, LaneId --> Int)
     // 
+    // \note The detailed description of the identifiers and how they are 
+    //       used for referencing external objects are given in the individual
+    //       messages, where it is deployed.
+    //
+    // \see EnvironmentalConditions::source_reference
+    // \see Lane::source_reference
+    // \see LaneBoundary::source_reference
+    // \see StationaryObject::source_reference
+    // \see MovingObject::source_reference
+    // \see RoadMarking::source_reference
+    // \see TrafficLight::source_reference
+    // \see TrafficSign::source_reference
+    //
     repeated string identifier = 3;
 }
 

@@ -392,7 +392,7 @@ message MovingObject
     //
     optional MovingObjectClassification moving_object_classification = 9;    
 
-    // External Reference to the MovingObject Source
+    // Optional external Reference to the MovingObject Source
     //
     // The ExternalReference point to the source of an moving object, if it
     // is derived from an external sources like OpenSCENARIO.

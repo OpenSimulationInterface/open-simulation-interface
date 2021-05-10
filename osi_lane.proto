@@ -50,7 +50,7 @@ message Lane
     //
     optional Classification classification = 2;
 
-    // External Reference to the Lane Source
+    // Optional external Reference to the Lane Source
     //
     // The ExternalReference point to the source of the lane, if it is derived
     // from one or more objects or external references. An example here is the 
@@ -750,7 +750,7 @@ message LaneBoundary
     //
     optional Classification classification = 3;
     
-    // External Reference to the Lane Boundary Source
+    // Optional external Reference to the Lane Boundary Source
     //
     // \note For OpenDRIVE 1.6 there is no direct possibility to reference the
     //       RoadMark, as there is no unique identifier in this sub-object.
