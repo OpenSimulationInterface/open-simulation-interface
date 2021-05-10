@@ -55,7 +55,7 @@ message RoadMarking
     //
     optional Classification classification = 3;
 
-    // External Reference to the Roadmarking Source
+    // Optional external Reference to the Roadmarking Source
     //
     // The ExternalReference point to the source of the surface marking, if it
     // is derived from one or more objects or external references. An example

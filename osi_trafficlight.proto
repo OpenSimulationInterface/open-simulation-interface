@@ -42,7 +42,7 @@ message TrafficLight
     //
     optional string model_reference = 4;
 
-    // External Reference to the Traffic Light Source
+    // Optional external Reference to the Traffic Light Source
     //
     // The ExternalReference point to the source of the traffic light, if it is
     // derived from one or more objects or external references. An example here
