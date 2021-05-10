@@ -451,6 +451,10 @@ message LidarDetection
     optional double reflectivity = 10;
 
     // Echo pulse width of the detection's echo.
+	// Several sensors output an echo-pulse width instead of an intensity for each single detection.
+	// It is measured in m and measures the extend of the object parts or atmospheric particles that produce the echo.
+	// As an example, it is depicted for the two echos reflected from the edges A-B and C-D in Fig. 7 from [Rosenberger et al.](https://link.springer.com/content/pdf/10.1007/s41104-020-00066-x.pdf).
+	// Fig. 8 [Rosenberger et al.](https://link.springer.com/content/pdf/10.1007/s41104-020-00066-x.pdf) shows it in more detail, as the echo-pulse width is measured as the range between the rising and falling edge crossing the intensity threshold.
     //
     // Unit: m
     //
