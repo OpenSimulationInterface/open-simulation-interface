@@ -8,7 +8,8 @@ var structosi3_1_1RoadMarking_1_1Classification =
       [ "COLOR_BLUE", "structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4a425b0ae611a14972e49e70260816a7eb", null ],
       [ "COLOR_RED", "structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4a1c70b2c22f8369aaa46a2c9608641110", null ],
       [ "COLOR_GREEN", "structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4a61414c8303818d8fa18dad70554f55c9", null ],
-      [ "COLOR_VIOLET", "structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4a1b3b2a646e9b35278f581ab738c8998c", null ]
+      [ "COLOR_VIOLET", "structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4a1b3b2a646e9b35278f581ab738c8998c", null ],
+      [ "COLOR_ORANGE", "structosi3_1_1RoadMarking_1_1Classification.html#ac87385b6a2a1bc79f828f22e1c36e4b4a0d112dc0dcecd5ff07aa69f4b955eaca", null ]
     ] ],
     [ "Type", "structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cb", [
       [ "TYPE_UNKNOWN", "structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba9005ae9c0364fa3c8e74b262184a625b", null ],

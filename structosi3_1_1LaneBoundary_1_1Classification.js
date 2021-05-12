@@ -9,7 +9,8 @@ var structosi3_1_1LaneBoundary_1_1Classification =
       [ "COLOR_RED", "structosi3_1_1LaneBoundary_1_1Classification.html#a7b617964f20b0d2a7e60474cacf6e214a8873c5df93e01a519c2067a023dd12dd", null ],
       [ "COLOR_BLUE", "structosi3_1_1LaneBoundary_1_1Classification.html#a7b617964f20b0d2a7e60474cacf6e214a8cfe85c2c0edbf7adb01cd1f04a9cd23", null ],
       [ "COLOR_GREEN", "structosi3_1_1LaneBoundary_1_1Classification.html#a7b617964f20b0d2a7e60474cacf6e214abc97b8bac29e43fa3f7c6248f1b9f33b", null ],
-      [ "COLOR_VIOLET", "structosi3_1_1LaneBoundary_1_1Classification.html#a7b617964f20b0d2a7e60474cacf6e214a7ec3bebf03d030e30729141e70d682e6", null ]
+      [ "COLOR_VIOLET", "structosi3_1_1LaneBoundary_1_1Classification.html#a7b617964f20b0d2a7e60474cacf6e214a7ec3bebf03d030e30729141e70d682e6", null ],
+      [ "COLOR_ORANGE", "structosi3_1_1LaneBoundary_1_1Classification.html#a7b617964f20b0d2a7e60474cacf6e214abe20fe4305fe120ca584c6dd79e9ba8b", null ]
     ] ],
     [ "Type", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47", [
       [ "TYPE_UNKNOWN", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a27f3526f41278923da0e7dc2b788784f", null ],
