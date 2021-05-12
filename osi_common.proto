@@ -240,19 +240,13 @@ message ExternalReference
     //
     // Must be used to describe the type of the original source.
     //
-    // For OpenX/ASAM standards it is specified as follows,
-    // the PATCH-Value is optional:
-    // - OpenDRIVE 1.6
-    // - OpenDRIVE 1.6.0
-    // - OpenDRIVE 1.6.1
-    // - OpenSCENARIO 1.0
-    // - OpenSCENARIO 1.0.0
-    // - OpenSCENARIO 1.1
-    // - OpenSCENARIO 1.1.0
+    // For OpenX/ASAM standards it is specified as follows:
+    // - net.asam.opendrive
+    // - net.asam.openscenario
     //
     // For third-party standards and user-defined objects the 
-    // Reverse Domain Name Notation is suggested, to guarantee unique
-    // and interoperable identifications.
+    // Reverse Domain Name Notation, with lower case type field,
+    // is suggested, to guarantee unique and interoperable identifications.
     //
     optional string type = 2;    
     
