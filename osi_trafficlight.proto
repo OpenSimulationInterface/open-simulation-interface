@@ -48,10 +48,10 @@ message TrafficLight
     // derived from one or more objects or external references. An example here
     // is the reference to the signal defined in a OpenDRIVE map.
     //
-    // For OpenDRIVE 1.6 the items should be set as following:
+    // For OpenDRIVE the items should be set as following:
     // * reference = URI to map, can remain empty if identical with definiton
     //               in \c GroundTruth::map_reference
-    // * type = "OpenDRIVE 1.6"
+    // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road_signals_signal
     //
     // \note For non-ASAM Standards, it is implementation-specific how
