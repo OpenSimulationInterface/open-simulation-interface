@@ -56,10 +56,10 @@ message Lane
     // from one or more objects or external references. An example here is the 
     // reference to the lane defined in a OpenDRIVE map.
     //
-    // For OpenDRIVE 1.6 the items should be set as following:
+    // For OpenDRIVE the items should be set as following:
     // * reference = URI to map, can remain empty if identical with definiton
     //               in \c GroundTruth::map_reference
-    // * type = "OpenDRIVE 1.6"
+    // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road
     // * identifier[1] = s of t_road_lanes_laneSection
     // * identifier[2] = id of t_road_lanes_laneSection_left_lane,
@@ -752,7 +752,7 @@ message LaneBoundary
     
     // Optional external Reference to the Lane Boundary Source
     //
-    // \note For OpenDRIVE 1.6 there is no direct possibility to reference the
+    // \note For OpenDRIVE there is no direct possibility to reference the
     //       RoadMark, as there is no unique identifier in this sub-object.
     //
     // \note For non-ASAM Standards, it is implementation-specific how
