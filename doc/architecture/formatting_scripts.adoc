@@ -18,11 +18,11 @@ The default value is `'SensorView'`.
 
 `--output`, `-o`::
 Optional string containing the name of the output file.,
-The default value is 'converted.osi'.
+The default value is `'converted.osi'`.
 
 `--compress`, `-c`::
 Optional boolean controlling whether to compress the output to a lzma file..
-Allowed values are `'True'`, and `False`.
+Allowed values are `True`, and `False`.
 The default value is `False`.
 
 **osi2read.py**
@@ -40,7 +40,7 @@ The default value is `'SensorView'`.
 
 `--output`, `-o`::
 Optional string containing the name of the output file.,
-The default value is 'converted.txth'.
+The default value is `'converted.txth'`.
 
 `--format`, `-f`::
 Optional string containing the format type of the trace.
