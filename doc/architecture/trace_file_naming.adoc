@@ -1,9 +1,21 @@
 = OSI trace file naming conventions
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Et malesuada fames ac turpis egestas.
-Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-Nulla facilisi morbi tempus iaculis urna id. Justo eget magna fermentum iaculis.
-Sed augue lacus viverra vitae congue eu. Velit ut tortor pretium viverra suspendisse.
-Amet commodo nulla facilisi nullam vehicula ipsum a. Nibh nisl condimentum id venenatis a.
-Diam vel quam elementum pulvinar etiam non quam lacus suspendisse.
+**Name format**
+
+Names of OSI trace files should have the following format:
+
+[source]
+----
+<type>_<osi-version>_<protobuf-version>_<frame-number>_<custom-trace-name>.osi
+----
+
+**Types**
+
+`sd`::
+Trace file contains sensor-data messages.
+
+`sv`::
+Trace file contains sensor-view messages.
+
+`gt`::
+Trace file contains ground-truth messages.
