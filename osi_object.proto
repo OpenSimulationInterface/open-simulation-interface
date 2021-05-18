@@ -40,12 +40,12 @@ message StationaryObject
     //
     optional string model_reference = 4;
 
-    // External Reference to the StationaryObject Source
+    // External reference to the stationary-object source.
     //
-    // The ExternalReference point to the source of an stationary object, if it
+    // The external reference points to the source of a stationary object, if it
     // is derived from an external sources like OpenDRIVE or OpenSCENARIO.
     //
-    // For OpenDRIVE the objects should be set as following:
+    // For OpenDRIVE, references to objects should be set as following:
     // * reference = URI to map, can remain empty if identical with definiton
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
@@ -53,23 +53,23 @@ message StationaryObject
     //                   "bridge" for t_road_objects_bridge
     // * identifier[1] = id of t_road_objects_object or t_road_objects_bridge
     //
-    // For OpenSCENARIO the entities of the type MiscObject, which describes
-    // partly stationary objects should be set as following:
+    // For OpenSCENARIO, references to entities of the type MiscObject, which
+    // describes partly stationary objects, should be set as following:
     // * reference = URI to the OpenSCENARIO File
     // * type = "net.asam.openscenario"
     // * identifier[0] = Entity-Type ("MiscObject")
     // * identifier[1] = name of MiscObject in Entity
     //
-    // \note The following rule, described in OpenDRIVE, should also apply here:
+    // \note The following rule, described in OpenDRIVE, also applies:
     // * Objects derived from OpenSCENARIO shall not be mixed with objects
     //   described in OpenDRIVE.
     //
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
-    // \note The value has to be repeated, as it cannot guarantee, that one
-    //       object is derived from only one origin source, like from one 
-    //       scenario file and and from the sensors.
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
     //
     repeated ExternalReference source_reference = 5;
 
@@ -392,13 +392,13 @@ message MovingObject
     //
     optional MovingObjectClassification moving_object_classification = 9;    
 
-    // Optional external Reference to the MovingObject Source
+    // Optional external reference to the moving-object source
     //
-    // The ExternalReference point to the source of an moving object, if it
+    // The external reference points to the source of an moving object, if it
     // is derived from an external sources like OpenSCENARIO.
     //
-    // For OpenSCENARIO the entities of the type Vehicle or Pedestrian,
-    // which describes moving objecs should be set as following:
+    // For OpenSCENARIO, references to entities of the type Vehicle or
+    // Pedestrian, which describe moving objects, should be set as following:
     // * reference = URI to the OpenSCENARIO File
     // * type = "net.asam.openscenario"
     // * identifier[0] = Entity-Type ("Vehicle" or "Pedestrian")
@@ -409,9 +409,9 @@ message MovingObject
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
-    // \note The value has to be repeated, as it cannot guarantee, that one
-    //       object is derived from only one origin source, like from one map
-    //       and from the sensors.
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
     //
     repeated ExternalReference source_reference = 10;
 
