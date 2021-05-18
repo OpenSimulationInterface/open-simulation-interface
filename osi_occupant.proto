@@ -23,16 +23,16 @@ message Occupant
     //
     optional Classification classification = 2;
 
-    // External Reference to the Occupant Source
+    // External reference to the occupant source.
     //
-    // \note For OpenDRIVE and OpenSCENARIO there is no no direct counterpart.
+    // \note For OpenDRIVE and OpenSCENARIO there is no direct counterpart.
     //
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
-    // \note The value has to be repeated, as it cannot guarantee, that one
-    //       object is derived from only one origin source, like from one 
-    //       scernario file and and from the sensors.
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
     //
     repeated ExternalReference source_reference = 3;
 

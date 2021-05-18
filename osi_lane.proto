@@ -50,13 +50,13 @@ message Lane
     //
     optional Classification classification = 2;
 
-    // Optional external Reference to the Lane Source
+    // Optional external reference to the lane source.
     //
-    // The ExternalReference point to the source of the lane, if it is derived
-    // from one or more objects or external references. An example here is the 
-    // reference to the lane defined in a OpenDRIVE map.
+    // The external reference points to the source of the lane, if it is derived
+    // from one or more objects or external references.
     //
-    // For OpenDRIVE the items should be set as following:
+    // For example, to reference a lane defined in an OpenDRIVE map
+    // the items should be set as following:
     // * reference = URI to map, can remain empty if identical with definiton
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
@@ -68,10 +68,9 @@ message Lane
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
-    // \note The value has to be repeated, as it cannot guarantee, that one
-    //       Lane-Segment is derived from only one origin segment. It is also
-    //       possible, that multiple sources (map, sensor) should be added as
-    //       reference.
+    // \note The value has to be repeated, because one lane segment may be
+    //       derived from more than one origin segment. Multiple sources
+    //       may be added as reference as well, for example, a map and sensors.
     //
     repeated ExternalReference source_reference = 3;
 
@@ -750,17 +749,17 @@ message LaneBoundary
     //
     optional Classification classification = 3;
     
-    // Optional external Reference to the Lane Boundary Source
+    // Optional external reference to the lane boundary source.
     //
-    // \note For OpenDRIVE there is no direct possibility to reference the
+    // \note For OpenDRIVE, there is no direct possibility to reference the
     //       RoadMark, as there is no unique identifier in this sub-object.
     //
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
-    // \note The value has to be repeated, as it cannot guarantee, that one
-    //       object is derived from only one origin source, like from one 
-    //       scernario file and and from the sensors.
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
     //
     repeated ExternalReference source_reference = 4;
 
