@@ -1,9 +1,18 @@
 = OSI trace file formats
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Et malesuada fames ac turpis egestas.
-Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-Nulla facilisi morbi tempus iaculis urna id. Justo eget magna fermentum iaculis.
-Sed augue lacus viverra vitae congue eu. Velit ut tortor pretium viverra suspendisse.
-Amet commodo nulla facilisi nullam vehicula ipsum a. Nibh nisl condimentum id venenatis a.
-Diam vel quam elementum pulvinar etiam non quam lacus suspendisse.
+There are multiple formats for storing multiple serialized OSI messages into one trace file
+
+*.osi::
+Binary trace file.
+Messages are separated by a length specifications before each message.
+The length is represented by a four-byte, little-endian, unsigned integer.
+The length does not include the integer itself.
+
+*.txt::
+Plain-text trace file.
+Messages are separated by `$$__$$`.
+
+*.txth::
+Human-readable plain-text trace file.
+Messages are separated by newlines.
+Such a filen may be used for manual checks.
