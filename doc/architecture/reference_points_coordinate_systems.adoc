@@ -1,16 +1,26 @@
 = Reference points and coordinate systems
 
-With Open Simulation Interface, an object's position coordinates refer to the center of the object's bounding box, independent of the coordinate system. This reference point is not identical to the origin of any coordinate systems.
+With Open Simulation Interface, an object's position coordinates refer to the center of the object's bounding box.
+This reference point is not necessarily identical to the origin of the respective coordinate systems.
+OSI uses DIN ISO 8855:2013-11 for coordinate systems and transformations between coordinate systems.
 
 OSI uses three coordinate systems:
 
 World coordinates::
 Coordinate system for all quantities which are part of ground truth.
+The world coordinate system is an inertial x/y/z-coordinate system.
 
 Sensor coordinates::
 Coordinate system for all quantities which are part of sensor data.
+The origin is the mounting position of the physical sensor or a virtual mounting position, depending on the technology.
 
 Object coordinates::
 Coordinate system for local object coordinates, for example, vehicle coordinates.
+For vehicles, the origin is the middle of the rear axle.
+Other objects may use different origins.
 
-OSI uses DIN ISO 8855:2013-11 for coordinate systems and transformations between coordinate systems.
+The following images shows an example of the differents coordinate systems.
+It also shows that the reference point of the vehicle is located in the center of its bounding box whereas the origin of the vehicle coordinate system is located on the rear axle.
+In this example, the virtual mounting position coincides with the origin of the vehicle coordinate system.
+
+image::{imagedir}/osi_coordinate_systems.png[]
