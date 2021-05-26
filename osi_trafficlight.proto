@@ -48,7 +48,7 @@ message TrafficLight
     // is derived from one or more objects or external references.
     //
     // For example, to reference a signal defined in an OpenDRIVE map
-    // the items should be set as following:
+    // the items should be set as follows:
     // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
