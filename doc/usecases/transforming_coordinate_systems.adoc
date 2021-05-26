@@ -19,4 +19,4 @@ The middle of the rear axle is
 
 ``SensorData::mounting_position``::
 Defines the sensor’s position and orientation and thereby the origin of the sensor coordinate system.
-The mounting position is defined in sensor coordinates and relative to the origin of the vehicle coordinate system.
+The mounting position is given in the vehicle coordinate system.
