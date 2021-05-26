@@ -61,7 +61,8 @@ message RoadMarking
     // is derived from one or more objects or external references. An example
     // here is the reference to the signal defined in a OpenDRIVE map.
     //
-    // For OpenDRIVE the items should be set as following:
+    // For example, to reference a signal defined in an OpenDRIVE map
+    // the items should be set as follows:
     // * reference = URI to map, can remain empty if identical with definiton
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"

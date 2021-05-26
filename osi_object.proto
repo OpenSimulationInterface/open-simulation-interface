@@ -45,7 +45,8 @@ message StationaryObject
     // The external reference points to the source of a stationary object, if it
     // is derived from an external sources like OpenDRIVE or OpenSCENARIO.
     //
-    // For OpenDRIVE, references to objects should be set as following:
+    // For example, to reference an object defined in an OpenDRIVE map
+    // the items should be set as follows:
     // * reference = URI to map, can remain empty if identical with definiton
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
@@ -53,8 +54,9 @@ message StationaryObject
     //                   "bridge" for t_road_objects_bridge
     // * identifier[1] = id of t_road_objects_object or t_road_objects_bridge
     //
-    // For OpenSCENARIO, references to entities of the type MiscObject, which
-    // describes partly stationary objects, should be set as following:
+    // For example, to reference OpenSCENARIO entities of the type MiscObject,
+    // which describe partly stationary objects, the items should be set as 
+    // follows:
     // * reference = URI to the OpenSCENARIO File
     // * type = "net.asam.openscenario"
     // * identifier[0] = Entity-Type ("MiscObject")
@@ -397,8 +399,9 @@ message MovingObject
     // The external reference points to the source of an moving object, if it
     // is derived from an external sources like OpenSCENARIO.
     //
-    // For OpenSCENARIO, references to entities of the type Vehicle or
-    // Pedestrian, which describe moving objects, should be set as following:
+    // For example, to reference OpenSCENARIO entities of the type Vehicle or
+    // Pedestrian, which describe moving objects, the items should be set as
+    // follows:
     // * reference = URI to the OpenSCENARIO File
     // * type = "net.asam.openscenario"
     // * identifier[0] = Entity-Type ("Vehicle" or "Pedestrian")
