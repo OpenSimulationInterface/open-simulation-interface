@@ -40,6 +40,10 @@ include::./architecture/sensor_view_configuration.adoc[leveloffset=+3]
 
 include::./architecture/sensor_data.adoc[leveloffset=+3]
 
+include::./architecture/traffic_command.adoc[leveloffset=+3]
+
+include::./architecture/traffic_update.adoc[leveloffset=+3]
+
 === Model types
 
 include::./architecture/environmental_effect_model.adoc[leveloffset=+3]
