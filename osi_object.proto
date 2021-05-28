@@ -305,13 +305,13 @@ message StationaryObject
             message IntensityDistribution
             {
                 // Horizontal deflection (azimuth) of emission in emitting object
-                // coordinates.
+                // coordinate system.
                 //
                 // Unit: rad
                 optional double horizontal_angle = 1;
 
                 // Vertical deflection (elevation) of emission in emitting object
-                // coordinates.
+                // coordinate system.
                 //
                 // Unit: rad
                 optional double vertical_angle = 2;
@@ -319,9 +319,8 @@ message StationaryObject
                 // Emitted intensity of emitting object at this point for one specific wavelength.
                 // The value corresponds to the intensity defined in max_intensity_per_wavelength.
                 //
-                // Unit: dB
-                //
-                optional double intensity = 3;
+                // Unit: %
+                optional double relative_intensity = 3;
             }
         }
     }
