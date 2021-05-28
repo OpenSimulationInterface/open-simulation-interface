@@ -275,30 +275,54 @@ message StationaryObject
         }
 
         //
-        // Attributes of type emitting structure
+        // \brief Attributes of type emitting structure
         //
         message EmittingStructureAttribute
         {
-            // In use-cases where a spectral ray-tracer is used, this message
-            // determines the range of the wavelength and its desired number
-            // of samples.
+            // This message determines the range of the wavelength and its
+            // desired number of samples.
             //
             repeated WavelengthData wavelength_data = 1;
 
             // Original intensities of emitted electromagnetic wave referred to a discrete
-            // wavelength defined in WavelengthData. This maximum value is weighted based on the DistributionData.
+            // wavelength defined in WavelengthData. This maximum value is weighted based on the IntensityDistribution.
             //
             // Unit: W/m^2
             //
-            // \note The size of the message has to be equal to the the size of WavelengthData samples_number
+            // \note max_intensity_per_wavelength.size() = WavelengthData.samples_number.size()
             //
-            repeated double intensity_per_wavelength = 2;
+            repeated double max_intensity_per_wavelength = 2;
 
-            // Intensities of emitted electromagnetic wave.
+            // Distribution of the emitted electromagnetic wave's intensity based on the intensity_per_wavelength as
+            // maximum value.
             //
-            // Unit: %
+            repeated IntensityDistribution emitted_intensity_distribution = 3;
+
             //
-            repeated DistributionData EDF = 4;
+            // \brief Definition of a intensity distribution with a horizontal and a vertical angle
+            // and the corresponding intensity
+            //
+            message IntensityDistribution
+            {
+                // Horizontal deflection (azimuth) of emission in emitting object
+                // coordinates.
+                //
+                // Unit: rad
+                optional double horizontal_angle = 1;
+
+                // Vertical deflection (elevation) of emission in emitting object
+                // coordinates.
+                //
+                // Unit: rad
+                optional double vertical_angle = 2;
+
+                // Emitted intensity of emitting object at this point for one specific wavelength.
+                // The value corresponds to the intensity defined in max_intensity_per_wavelength.
+                //
+                // Unit: dB
+                //
+                optional double intensity = 3;
+            }
         }
     }
 }
