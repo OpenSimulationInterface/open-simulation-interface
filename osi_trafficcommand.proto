@@ -490,6 +490,10 @@ message TrafficAction
         // The custom command given to the traffic participant.
         //
         optional string command = 2;
+
+        // The type of the custom command given to the traffic participant.
+        //
+        optional string type = 3;
     }    
 
     // \brief Longitudinal Distance Action
