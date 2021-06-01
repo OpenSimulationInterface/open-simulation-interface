@@ -382,33 +382,6 @@ message Lane
             //
             TYPE_INTERSECTION = 4;
         }
-		
-        // Definition of available lane subtypes.
-        //        
-        enum Subtype
-        {
-            // Lane of unknown subtype (must not be used in ground truth).
-            //
-            SUBTYPE_UNKNOWN = 0;
-			
-            // Any other subtype of lane.
-            //
-            SUBTYPE_OTHER = 1;
-
-            // A normal lane.
-            // Example: Lanes with IDs l1, l2, l3, l4 and l6 in image \ref
-            // HighwayExit.
-            //
-            SUBTYPE_NORMAL = 2;
-
-            // A lane which is designated for bicylists.
-            //
-            SUBTYPE_BIKING = 3;
-
-            // A lane which is designated for pedestrians (sidewalk).
-            //
-            SUBTYPE_SIDEWALK = 4;
-        }
 
         // Definition of available lane subtypes, aligned with OpenDRIVE.
         //        
