@@ -44,6 +44,7 @@ class OSITrace:
         self.type_name = type_name
         self.timestep_count = 0
         self.retrieved_scenario_size = 0
+        self._int_length = len(struct.pack("<L", 0))
 
     def from_file(self, path, type_name="SensorView", max_index=-1, format_type=None):
         """Import a scenario from a file"""
@@ -161,19 +162,18 @@ class OSITrace:
         """
         Yield an iterator over messages of indexes between begin and end included.
         """
+        self.scenario_file.seek(self.message_offsets[begin])
+        abs_first_offset = self.message_offsets[begin]
+        abs_last_offset = self.message_offsets[end] \
+            if end < len(self.message_offsets) \
+            else self.retrieved_scenario_size
+
+        rel_message_offsets = [
+            abs_message_offset - abs_first_offset
+            for abs_message_offset in self.message_offsets[begin:end]
+        ]
 
         if self.format_type == "separated":
-            self.scenario_file.seek(self.message_offsets[begin])
-            abs_first_offset = self.message_offsets[begin]
-            abs_last_offset = self.message_offsets[end] \
-                if end < len(self.message_offsets) \
-                else self.retrieved_scenario_size
-
-            rel_message_offsets = [
-                abs_message_offset - abs_first_offset
-                for abs_message_offset in self.message_offsets[begin:end]
-            ]
-
             message_sequence_len = abs_last_offset - \
                 abs_first_offset - SEPARATOR_LENGTH
             serialized_messages_extract = self.scenario_file.read(
@@ -190,24 +190,25 @@ class OSITrace:
                 yield message
 
         elif self.format_type is None:
-            self.scenario_file.seek(0)
-            serialized_message = self.scenario_file.read()
-            INT_LENGTH = len(struct.pack("<L", 0))
-            message_length = 0
+            message_sequence_len = abs_last_offset - abs_first_offset
+            serialized_messages_extract = self.scenario_file.read(message_sequence_len)
 
-            i = 0
-            while i < len(serialized_message):
+            for rel_index, rel_message_offset in enumerate(rel_message_offsets):
+                rel_begin = rel_message_offset + self._int_length
+                rel_end = (
+                    rel_message_offsets[rel_index + 1]
+                    if rel_index + 1 < len(rel_message_offsets)
+                    else message_sequence_len
+                )
+
                 message = MESSAGES_TYPE[self.type_name]()
-                message_length = struct.unpack("<L", serialized_message[i:INT_LENGTH+i])[0]
-                message.ParseFromString(serialized_message[i+INT_LENGTH:i+INT_LENGTH+message_length])
-                i += message_length + INT_LENGTH
+                serialized_message = serialized_messages_extract[rel_begin:rel_end]
+                message.ParseFromString(serialized_message)
                 yield message
 
         else:
             self.scenario_file.close()
             raise Exception(f"The defined format {self.format_type} does not exist.")
-
-        self.scenario_file.close()
 
     def make_readable(self, name, interval=None, index=None):
         self.scenario_file.seek(0)
@@ -235,7 +236,7 @@ class OSITrace:
 
             if interval is None and index is not None:
                 if type(index) == int:
-                    f.write(str(scenario.get_message_by_index(0)))
+                    f.write(str(self.get_message_by_index(0)))
                 else:
                     raise Exception("Argument 'index' needs to be of type 'int'")
 

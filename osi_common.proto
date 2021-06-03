@@ -347,6 +347,8 @@ message BaseStationary
 //
 // \image html OSI_BaseMoving.svg
 //
+// \image html OSI_BaseMoving_Top.svg
+//
 // E.g. a vehicle is a base moving object.
 //
 // All coordinates and orientations from ground truth objects are relative to
@@ -357,6 +359,8 @@ message BaseStationary
 message BaseMoving
 {
     // The 3D dimension of the moving object (its bounding box).
+    //
+    // \note The bounding box does NOT include side mirrors for vehicles.
     //
     optional Dimension3d dimension = 1;
 
@@ -457,3 +461,60 @@ message BaseMoving
     //
     repeated Vector2d base_polygon = 7;
 }
+
+//
+// \brief The StatePoint definition
+//
+// A reference to a time and pose.  Typically used in a repeated field to define
+// a trajectory.
+//
+// \note The StatePoint definition does not define mandatory fields.
+// The context defines how and what fields are used.  For example, in some cases
+// only the pose variables are relevant and the timestamp is ignored.
+//
+message StatePoint
+{
+    // The timestamp of a StatePoint.
+    //
+    // \note Zero time does not need to coincide with the UNIX epoch.
+    //
+    optional Timestamp timestamp = 1;
+
+    // Position in the global coordinate system.
+    //
+    // \note Remark: The definition of the reference point follows the
+    // specification of the \c BaseMoving message.
+    //
+    optional Vector3d position = 2;
+
+    // Orientation in the global coordinate system.
+    //
+    optional Orientation3d orientation = 3;
+}
+//
+// \brief Detailed WavelengthRange message.
+//
+// Defines the start (minimum) and the end (maximum) values of the wavelength.
+// Additionally, the number of samples within this range is defined in this message.
+//
+message WavelengthData
+{
+    // The start, or the minimum wavelength value.
+    //
+    // Unit: m
+    //
+    optional double start = 1;
+
+    // The end, or the maximum wavelength value.
+    //
+    // Unit: m
+    //
+    optional double end = 2;
+
+    // Number of samples to be considered within the defined wavelength range.
+    // The number of samples includes the start and the end values that are defined in this message, starting from the "start" value.
+    // \note This defines the number of wavelengths to be computed during simulation, not to be confused with samples_per_pixel.
+    //
+    optional double samples_number = 3;
+}
+

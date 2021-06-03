@@ -166,9 +166,9 @@ message GroundTruth
     // inertial coordinate frame of the ground truth.
     //
     // \note It is implementation-specific how model_references are resolved to
-    // 3d models. It is also implementation-specific which exact parts this
-    // world model contains, e.g. whether it contains street geometries, or
-    // whether those are derived automatically from a map reference.
+    // 3d models. The parts the world model contains are also implementation-specific.
+    // For example, the world model can either contain street geometries or
+    // derives street geometries automatically from a map reference.
     //
     optional string model_reference = 16;
 }

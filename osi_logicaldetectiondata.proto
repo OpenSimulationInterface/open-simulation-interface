@@ -8,7 +8,8 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief Processed data from one or multiple sensors as a list of logical detections. Logical detections are derived from sensor detections in a logical model through processing steps like fusion filtering, tracking etc.
+// \brief Processed data from one or multiple sensors as a list of logical detections.
+// Logical detections are derived from sensor detections in a logical model through processing steps like fusion filtering, tracking etc.
 //
 // All information is given with respect to the reference frame of the logical/virtual sensor
 // \c SensorView::mounting_position (e.g. center of rear axle of the ego car) in Cartesian coordinates.
@@ -34,7 +35,7 @@ message LogicalDetectionData
 }
 
 //
-// \brief The header attributes of the list of logical detections.
+// \brief The header attributes of each sensor's logical detections list.
 //
 message LogicalDetectionDataHeader
 {
@@ -61,7 +62,8 @@ message LogicalDetectionDataHeader
     //
     optional uint32 number_of_valid_logical_detections = 3;
 
-    // The IDs of the sensors that have been fused and result in the listed logical detections.
+    // The ID(s) of the sensor(s) that produced the detections for transformation
+    // and - in case of multiple sensors - fusion into logical detections.
     //
     repeated Identifier sensor_id = 4;
 
@@ -186,9 +188,10 @@ message LogicalDetection
     //
     optional double point_target_probability = 9;
 
-    // The IDs of the sensors that have been fused to the single logical detection.
+    // The ID(s) of the sensor(s) that produced the detection(s) for transformation
+    // and - in case of multiple sensors - fusion into the single logical detection.
     //
-    // \note one logical detection can originate from multiple sensors.
+    // \note One logical detection can originate from multiple sensors.
     //
     repeated Identifier sensor_id = 10;
 
