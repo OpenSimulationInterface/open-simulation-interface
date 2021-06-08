@@ -190,6 +190,8 @@ message SensorViewConfiguration
     // Unit: s
     optional Timestamp simulation_start_time = 10;
 
+    // \attention: DEPRECATED (might be deprecated in v4.0)
+    //
     // Omit Static Information
     //
     // This flag specifies whether \c GroundTruth information that

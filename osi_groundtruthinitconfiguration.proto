@@ -1,0 +1,36 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_version.proto";
+
+package osi3;
+
+//
+// \brief The configuration settings for splitting static and dynamic 
+// content for performance reasons. Static content of \c GroundTruth 
+// can be sent at initialization, dynamic content during simulation 
+// as \c SensorView. What is regarded as static content is described here. 
+//
+message GroundTruthInitConfiguration
+{
+    // The interface version used by the sender (simulation environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    // Omit static street layer
+    //
+    // The street layer, i.e. \c Lane, \c LaneBoundary and \c RoadMarking 
+    // is regarded static and should be sent only at initialization.
+    //
+    optional bool omit_static_street_layer = 2;
+
+    // Omit static objects
+    //
+    // Objects of type \c MovingObject and \c StationaryObject which do not 
+    // have changing attributes (e.g. changing position) during a simulation 
+    // are regarded static and should be sent only at initialization.
+    //
+    optional bool omit_static_objects = 3;    
+}
