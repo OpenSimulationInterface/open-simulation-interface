@@ -30,7 +30,10 @@ message GroundTruthInitConfiguration
     //
     // Objects of type \c MovingObject and \c StationaryObject which do not 
     // have changing attributes (e.g. changing position) during a simulation 
-    // are regarded static and should be sent only at initialization.
+    // are regarded static and should be sent only at initialization. 
+    //
+    // \note: While sending certain object at initialization and others 
+    // at runtime, it must be ensured that each object still has a unique id.
     //
     optional bool omit_static_objects = 3;    
 }
