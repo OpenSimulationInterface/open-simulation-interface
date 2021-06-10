@@ -1,6 +1,6 @@
 = Sensor data
 
 Sensor data imitates the output of real sensors.
-It is generated from ground-truth data, feature data or from sensor data.
+It is generated from ground-truth data, sensor-view data, feature data or from sensor data.
 All information regarding the environment is given with respect to the virtual sensor coordinate system, except for feature data, which is given with respect to the physical sensor coordinate system.
-Sensor data can be used as input of an automated driving function,  a sensor model simulating limited perception, or a sensor fusion model.
+Sensor data can be used as input for an automated driving function, a sensor model simulating limited perception, or a sensor fusion model.
