@@ -1,11 +1,5 @@
 = Ground truth
 
-Ground truth describes the simulated environment around all simulated host vehicles in a global coordinate system.
-Ground truth provides an exact view on the simulated objects in a global coordinate system.
-It is based on internally available data and published to external subscribers.
-Depending on the external subscriber, ground-truth data may be individually restricted.
-
-//TODO: It looks like we may have two conflicting descriptions here.
-// I cannot tell which one is correct or if they are conflicting at all.
-// The first sentence is based on the comments in the proto files.
-// The second sentence is based on the description on Github pages.
+Ground truth describes the simulated environment around all simulated objects in the global coordinate system.
+It is based on data available to the simulation environment and published to external subscribers.
+Depending on the external subscriber, ground-truth data may be individually restricted to reduce the data to be exchanged.

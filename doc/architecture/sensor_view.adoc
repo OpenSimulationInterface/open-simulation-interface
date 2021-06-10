@@ -4,5 +4,5 @@ Sensor view imitates the input of sensors.
 Sensor-view data is derived from ground-truth data.
 All information regarding the environment is given with respect to the virtual sensor coordinate system, with two exceptions:
 
-* Individual physical technology-specific data, given with respect to the physical sensor coordinate system specified in the corresponding physical sensor’s mounting position
-* Ground truth data, given in global coordinates.
+* Physical technology-specific data, given with respect to the physical sensor coordinate system specified in the corresponding physical sensor’s mounting position.
+* Ground-truth data, given in the global coordinate system.
