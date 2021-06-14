@@ -314,17 +314,21 @@ message StationaryObject
         }
 
         //
-        // \brief Attributes of type emitting structure
+        // \brief Attributes of type emitting structure. The horizontal_angle and the vertical_angle in
+        // emitted_spatial_intensity are symmetrical across the normal, which is defined by the mounting position
+        // of the emitting structure.
         //
         message EmittingStructureAttribute
         {
-            // This message determines the range of the wavelength and its
+            // This message determines the range of the emitted wavelength and its
             // desired number of samples.
             //
             repeated WavelengthData wavelength_data = 1;
 
             // Original intensities of emitted electromagnetic wave referred to a discrete
-            // wavelength defined in WavelengthData. This maximum value is weighted based on the IntensityDistribution.
+            // wavelength defined in WavelengthData. This maximum value is weighted based
+            // on the emitted spatial intensity. The size of max_intensitiy_per_wavelength has to be
+            // equal to the samples in wavelength_data.
             //
             // Unit: W/m^2
             //
@@ -332,33 +336,39 @@ message StationaryObject
             //
             repeated double max_intensity_per_wavelength = 2;
 
-            // Distribution of the emitted electromagnetic wave's intensity based on the intensity_per_wavelength as
-            // maximum value.
+            // Spatial distribution of the emitted electromagnetic wave's intensity based on the intensity_per_wavelength as
+            // maximum value. For every sample in wavelength_data an emitted_spatial_intensity has to be defined.
             //
-            repeated IntensityDistribution emitted_intensity_distribution = 3;
+            // \note emitted_spatial_intensity.size() = WavelengthData.samples_number.size()
+            //
+            repeated SpatialIntensity emitted_spatial_intensity = 3;
 
             //
-            // \brief Definition of a intensity distribution with a horizontal and a vertical angle
-            // and the corresponding intensity
+            // \brief Definition of a spatial intensity distribution with a horizontal and a vertical angle
+            // and the corresponding intensity related to a maximum intensity.
             //
-            message IntensityDistribution
+            message SpatialIntensity
             {
                 // Horizontal deflection (azimuth) of emission in emitting object
                 // coordinate system.
                 //
                 // Unit: rad
+                //
                 optional double horizontal_angle = 1;
 
                 // Vertical deflection (elevation) of emission in emitting object
                 // coordinate system.
                 //
                 // Unit: rad
+                //
                 optional double vertical_angle = 2;
 
-                // Emitted intensity of emitting object at this point for one specific wavelength.
-                // The value corresponds to the intensity defined in max_intensity_per_wavelength.
+                // Emitted intensity of emitting object at the previously defined horizontal_angle and
+                // vertical angle for one specific wavelength. The value corresponds to the intensity
+                // defined in max_intensity_per_wavelength.
                 //
                 // Unit: %
+                //
                 optional double relative_intensity = 3;
             }
         }
