@@ -45,5 +45,9 @@ message TrafficUpdate
     // or vehicle category.  All dynamic fields should be populated where known,
     // for example, velocity, light states, or future trajectory.
     //
+    // \note The field is repeated because it is possible to have a trailer attached to
+    // a vehicle, see MovingObject::VehicleClassification::has_trailer and
+    // MovingObject::VehicleClassification::trailer_id. 
+    //
     repeated MovingObject update = 3;
 }
