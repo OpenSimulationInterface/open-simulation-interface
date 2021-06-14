@@ -844,8 +844,7 @@ message MovingObject
     //
     message PedestrianClassification
     {
-        // The head pose describes the pedestrian's head orientation. In ground truth / traffic update it is relative to
-        // the global ground truth frame. In sensordata (detected pedestrians) it is relative to the host vehicle frame.
+        // The head pose describes the pedestrian's head orientation. 
         // The x-axis of the right-handed head frame is pointing along the
         // pedestrian's straight ahead viewing direction (anterior), the y-axis lateral to the left,
         // and the z-axis is pointing upwards (superior) [1].
@@ -862,8 +861,7 @@ message MovingObject
         //
         optional Orientation3d head_pose = 1;
 
-        // The upper body pose describes the pedestrian's upper body orientation. In ground truth / traffic update it is relative to
-        // the global ground truth frame. In sensordata (detected pedestrians) it is relative to the host vehicle frame.
+        // The upper body pose describes the pedestrian's upper body orientation. 
         // The x-axis of the right-handed upper body frame is pointing along the
         // pedestrian's upper body ventral (anterior) direction (i.e. usually
         // pedestrian's intended moving direction), the y-axis lateral to the left,
