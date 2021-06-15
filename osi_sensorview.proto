@@ -158,6 +158,11 @@ message SensorView
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated UltrasonicSensorView ultrasonic_sensor_view = 1004;
+    // Microphone-specific SensorView(s).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated MicrophoneSensorView microphone_sensor_view = 1005;
 }
 
 //
