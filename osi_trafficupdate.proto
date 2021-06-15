@@ -11,7 +11,9 @@ package osi3;
 //
 // \brief The traffic update message is provided by traffic
 // participant models to provide updates to their position, state
-// and future trajectory back to the simulation environment.
+// and future trajectory back to the simulation environment. The message is designed 
+// to update data of exactly ONE traffic participant, optionally with an attached 
+// trailer. 
 //
 // \note For reasons of convenience and consistency, the
 // updated information is provided as a MovingObject.  Certain fields
