@@ -25,3 +25,12 @@ image::osi-traffic-participant-advanced.png[1100]
 
 OSI currently provides only limited support for data structures describing measured internal states of the traffic participant.
 Actuator intentions are currently not covered by OSI and must be handled with a different data description format.
+
+All fields in an interface are set to optional and required is not used.
+This has been done to allow backward compatible changes in the field.
+Additionally, this is the default behavior in protobuf version 3 that does no longer have the required type and therefore ensures update compatibility.
+However, this does not mean that filling the field is optional.
+For the purpose of providing a complete interface, all existing fields should be set, unless not setting a field carries a specific meaning as indicated in the accompanying comment.
+
+All field numbers of 10000 and upward are available for user-specific extensions via custom fields.
+Therefore, no future evolution of OSI will use field numbers of 10000 or above.
