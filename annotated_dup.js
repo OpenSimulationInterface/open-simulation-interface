@@ -22,6 +22,7 @@ var annotated_dup =
       [ "DetectedTrafficSign", "structosi3_1_1DetectedTrafficSign.html", "structosi3_1_1DetectedTrafficSign" ],
       [ "Dimension3d", "structosi3_1_1Dimension3d.html", "structosi3_1_1Dimension3d" ],
       [ "EnvironmentalConditions", "structosi3_1_1EnvironmentalConditions.html", "structosi3_1_1EnvironmentalConditions" ],
+      [ "ExternalReference", "structosi3_1_1ExternalReference.html", "structosi3_1_1ExternalReference" ],
       [ "FeatureData", "structosi3_1_1FeatureData.html", "structosi3_1_1FeatureData" ],
       [ "FileOptions", "structosi3_1_1FileOptions.html", "structosi3_1_1FileOptions" ],
       [ "GenericSensorView", "structosi3_1_1GenericSensorView.html", "structosi3_1_1GenericSensorView" ],

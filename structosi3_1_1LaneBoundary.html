@@ -102,10 +102,11 @@ Collaboration diagram for osi3::LaneBoundary:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1LaneBoundary__coll__graph.png" border="0" usemap="#osi3_1_1LaneBoundary_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1LaneBoundary_coll__map" id="osi3_1_1LaneBoundary_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification of a lane boundary. " alt="" coords="491,63,641,105"/>
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="189,109,304,136"/>
-<area shape="rect" id="node6" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. " alt="" coords="491,207,641,249"/>
-<area shape="rect" id="node7" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="189,259,304,285"/>
+<area shape="rect" id="node2" href="structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification of a lane boundary. " alt="" coords="510,63,661,105"/>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="193,117,307,144"/>
+<area shape="rect" id="node6" href="structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="497,207,673,233"/>
+<area shape="rect" id="node9" href="structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. " alt="" coords="510,299,661,341"/>
+<area shape="rect" id="node10" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="193,369,307,396"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -126,6 +127,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a682939954b5e9c43e1a51dd2f0d9f625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06534c672364c43293f01b86d6ea5e44"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary.html#a06534c672364c43293f01b86d6ea5e44">classification</a> = 3</td></tr>
 <tr class="separator:a06534c672364c43293f01b86d6ea5e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd5280ba5c8c61425706ff9a029b5a4"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LaneBoundary.html#aefd5280ba5c8c61425706ff9a029b5a4">source_reference</a> = 4</td></tr>
+<tr class="separator:aefd5280ba5c8c61425706ff9a029b5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A lane boundary defining the border of a lane. </p>
@@ -190,6 +193,26 @@ For Botts' dots lines, one <code><a class="el" href="structosi3_1_1LaneBoundary_
 </div><div class="memdoc">
 <p>The ID of the lane boundary.</p>
 <p>is_globally_unique  </p>
+
+</div>
+</div>
+<a id="aefd5280ba5c8c61425706ff9a029b5a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd5280ba5c8c61425706ff9a029b5a4">&#9670;&nbsp;</a></span>source_reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a> osi3::LaneBoundary::source_reference = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Optional external reference to the lane boundary source.</p>
+<dl class="section note"><dt>Note</dt><dd>For OpenDRIVE, there is no direct possibility to reference the RoadMark, as there is no unique identifier in this sub-object.</dd>
+<dd>
+For non-ASAM Standards, it is implementation-specific how source_reference is resolved.</dd>
+<dd>
+The value has to be repeated because one object may be derived from more than one origin source, for example, from a scenario file and from sensors. </dd></dl>
 
 </div>
 </div>

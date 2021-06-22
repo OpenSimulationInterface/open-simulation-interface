@@ -103,12 +103,13 @@ Collaboration diagram for osi3::TrafficSign:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficSign__coll__graph.png" border="0" usemap="#osi3_1_1TrafficSign_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficSign_coll__map" id="osi3_1_1TrafficSign_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1MainSign.html" title="Main sign of the traffic sign. " alt="" coords="701,76,833,117"/>
-<area shape="rect" id="node3" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html" title="Classification data for a traffic sign. " alt="" coords="319,5,495,47"/>
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="5,215,120,242"/>
-<area shape="rect" id="node8" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html" title="Classification data for a supplementary traffic sign. " alt="" coords="285,208,529,249"/>
-<area shape="rect" id="node5" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="329,145,485,171"/>
-<area shape="rect" id="node7" href="structosi3_1_1TrafficSign_1_1SupplementarySign.html" title="Additional supplementary sign modifying the main sign. " alt="" coords="692,176,841,217"/>
+<area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1MainSign.html" title="Main sign of the traffic sign. " alt="" coords="714,194,846,235"/>
+<area shape="rect" id="node3" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html" title="Classification data for a traffic sign. " alt="" coords="319,166,495,207"/>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="5,37,120,64"/>
+<area shape="rect" id="node10" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html" title="Classification data for a supplementary traffic sign. " alt="" coords="285,30,529,71"/>
+<area shape="rect" id="node5" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="329,105,485,132"/>
+<area shape="rect" id="node9" href="structosi3_1_1TrafficSign_1_1SupplementarySign.html" title="Additional supplementary sign modifying the main sign. " alt="" coords="705,79,855,121"/>
+<area shape="rect" id="node7" href="structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="692,311,868,337"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -138,6 +139,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac5df9ce9ecf42f190e3f4b0cf2d29a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5718625d51398169c808e93adb9f7374"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign.html">SupplementarySign</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign.html#a5718625d51398169c808e93adb9f7374">supplementary_sign</a> = 3</td></tr>
 <tr class="separator:a5718625d51398169c808e93adb9f7374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27f837ee6a72a61bd73f626a8ac5b5c8"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign.html#a27f837ee6a72a61bd73f626a8ac5b5c8">source_reference</a> = 4</td></tr>
+<tr class="separator:a27f837ee6a72a61bd73f626a8ac5b5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A traffic sign. </p>
@@ -197,6 +200,32 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Main sign, e.g. speed limit 30 km/h </p>
+
+</div>
+</div>
+<a id="a27f837ee6a72a61bd73f626a8ac5b5c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27f837ee6a72a61bd73f626a8ac5b5c8">&#9670;&nbsp;</a></span>source_reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a> osi3::TrafficSign::source_reference = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Optional external reference to the traffic sign source.</p>
+<p>The external reference point to the source of the traffic sign, if it is derived from one or more objects or external references.</p>
+<p>For example, to reference a signal defined in an OpenDRIVE map the items should be set as follows:</p><ul>
+<li>reference = URI to map, can remain empty if identical with definition in <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e">GroundTruth::map_reference</a></code> </li>
+<li>type = "net.asam.opendrive"</li>
+<li>identifier[0] = id of t_road_signals_signal</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>For non-ASAM Standards, it is implementation-specific how source_reference is resolved.</dd>
+<dd>
+If an individual identification of <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html" title="Main sign of the traffic sign. ">MainSign</a> and <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign.html" title="Additional supplementary sign modifying the main sign. ">SupplementarySign</a> is necessary, this should be done via multiple individual entries of this source_reference.</dd>
+<dd>
+The value has to be repeated, because one lane segment may be derived from more than one origin segment. Multiple sources may be added as reference as well, for example, a map and sensors. </dd></dl>
 
 </div>
 </div>

@@ -25,5 +25,6 @@ var searchData=
   ['extended_5fqualifier_5fsensor_5fmisaligned',['EXTENDED_QUALIFIER_SENSOR_MISALIGNED',['../structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baf9fa590c755364be3c7a307bdebf77f9',1,'osi3::SensorDetectionHeader']]],
   ['extended_5fqualifier_5fsensor_5fnot_5fcalibrated',['EXTENDED_QUALIFIER_SENSOR_NOT_CALIBRATED',['../structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154',1,'osi3::SensorDetectionHeader']]],
   ['extended_5fqualifier_5funknown',['EXTENDED_QUALIFIER_UNKNOWN',['../structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6',1,'osi3::SensorDetectionHeader']]],
-  ['extendedqualifier',['ExtendedQualifier',['../structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b',1,'osi3::SensorDetectionHeader']]]
+  ['extendedqualifier',['ExtendedQualifier',['../structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636b',1,'osi3::SensorDetectionHeader']]],
+  ['externalreference',['ExternalReference',['../structosi3_1_1ExternalReference.html',1,'osi3']]]
 ];

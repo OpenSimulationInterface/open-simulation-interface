@@ -29,9 +29,9 @@ var hierarchy =
     [ "osi3::RoadMarking::Classification", "structosi3_1_1RoadMarking_1_1Classification.html", null ],
     [ "osi3::Lane::Classification", "structosi3_1_1Lane_1_1Classification.html", null ],
     [ "osi3::TrafficLight::Classification", "structosi3_1_1TrafficLight_1_1Classification.html", null ],
-    [ "osi3::LaneBoundary::Classification", "structosi3_1_1LaneBoundary_1_1Classification.html", null ],
     [ "osi3::TrafficSign::MainSign::Classification", "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html", null ],
     [ "osi3::TrafficSign::SupplementarySign::Classification", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html", null ],
+    [ "osi3::LaneBoundary::Classification", "structosi3_1_1LaneBoundary_1_1Classification.html", null ],
     [ "osi3::TrafficAction::CustomAction", "structosi3_1_1TrafficAction_1_1CustomAction.html", null ],
     [ "osi3::DetectedEntityHeader", "structosi3_1_1DetectedEntityHeader.html", null ],
     [ "osi3::DetectedItemHeader", "structosi3_1_1DetectedItemHeader.html", null ],
@@ -49,6 +49,7 @@ var hierarchy =
     [ "osi3::TrafficAction::DynamicConstraints", "structosi3_1_1TrafficAction_1_1DynamicConstraints.html", null ],
     [ "osi3::TrafficAction::EndActionsAction", "structosi3_1_1TrafficAction_1_1EndActionsAction.html", null ],
     [ "osi3::EnvironmentalConditions", "structosi3_1_1EnvironmentalConditions.html", null ],
+    [ "osi3::ExternalReference", "structosi3_1_1ExternalReference.html", null ],
     [ "osi3::FeatureData", "structosi3_1_1FeatureData.html", null ],
     [ "FileOptions", null, [
       [ "osi3::FileOptions", "structosi3_1_1FileOptions.html", null ]
@@ -88,8 +89,8 @@ var hierarchy =
     [ "osi3::RadarSensorView", "structosi3_1_1RadarSensorView.html", null ],
     [ "osi3::RadarSensorViewConfiguration", "structosi3_1_1RadarSensorViewConfiguration.html", null ],
     [ "osi3::RadarSpecificObjectData", "structosi3_1_1RadarSpecificObjectData.html", null ],
-    [ "osi3::LidarSensorView::Reflection", "structosi3_1_1LidarSensorView_1_1Reflection.html", null ],
     [ "osi3::RadarSensorView::Reflection", "structosi3_1_1RadarSensorView_1_1Reflection.html", null ],
+    [ "osi3::LidarSensorView::Reflection", "structosi3_1_1LidarSensorView_1_1Reflection.html", null ],
     [ "osi3::Lane::Classification::RoadCondition", "structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html", null ],
     [ "osi3::RoadMarking", "structosi3_1_1RoadMarking.html", null ],
     [ "osi3::SensorData", "structosi3_1_1SensorData.html", null ],

@@ -42,6 +42,7 @@ var structosi3_1_1EnvironmentalConditions =
     [ "fog", "structosi3_1_1EnvironmentalConditions.html#a9da9ca8657ae124eb3daddfee3b52451", null ],
     [ "precipitation", "structosi3_1_1EnvironmentalConditions.html#a9bf9ca7c8f724860d0b8b6d0276d33d1", null ],
     [ "relative_humidity", "structosi3_1_1EnvironmentalConditions.html#a05b6f530a842deef881608e131f3b98a", null ],
+    [ "source_reference", "structosi3_1_1EnvironmentalConditions.html#a9d6eb78f198f9dd989d3f69f0f9af4c8", null ],
     [ "temperature", "structosi3_1_1EnvironmentalConditions.html#afb975ad7dddedd8bfac0a38664ab908e", null ],
     [ "time_of_day", "structosi3_1_1EnvironmentalConditions.html#aebd011399675b0a3582e5a64a5f93be2", null ],
     [ "unix_timestamp", "structosi3_1_1EnvironmentalConditions.html#a636bb78627046f34208f42f586ab2086", null ]

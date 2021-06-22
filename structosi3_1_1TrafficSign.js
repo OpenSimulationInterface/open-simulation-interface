@@ -10,5 +10,6 @@ var structosi3_1_1TrafficSign =
     ] ],
     [ "id", "structosi3_1_1TrafficSign.html#ac0461abd93dc4ee20f1adfdfb1a0d995", null ],
     [ "main_sign", "structosi3_1_1TrafficSign.html#ac5df9ce9ecf42f190e3f4b0cf2d29a12", null ],
+    [ "source_reference", "structosi3_1_1TrafficSign.html#a27f837ee6a72a61bd73f626a8ac5b5c8", null ],
     [ "supplementary_sign", "structosi3_1_1TrafficSign.html#a5718625d51398169c808e93adb9f7374", null ]
 ];

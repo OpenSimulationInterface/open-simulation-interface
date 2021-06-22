@@ -12,6 +12,7 @@ var searchData=
   ['rear_5ffog_5flight',['rear_fog_light',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9151ebc0e2515f3a58f743ff193b7936',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['receiver_5fid',['receiver_id',['../structosi3_1_1UltrasonicIndirectDetection.html#a3e131efae88dbf40eadfd43ba4e444df',1,'osi3::UltrasonicIndirectDetection::receiver_id()'],['../structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html#a7a103be3a48bd9a1331085f107a400bc',1,'osi3::UltrasonicSpecificObjectData::Signalway::receiver_id()']]],
   ['receiver_5forigin',['receiver_origin',['../structosi3_1_1UltrasonicIndirectDetection.html#a2ed15dee2e9e49c36d8bb61639de4a8a',1,'osi3::UltrasonicIndirectDetection']]],
+  ['reference',['reference',['../structosi3_1_1ExternalReference.html#a757ed9bd47b1c02f82524aa2227970e5',1,'osi3::ExternalReference']]],
   ['reference_5fpoint',['reference_point',['../structosi3_1_1DetectedMovingObject.html#a77c7170535d578fc84de22e4a52f6a93',1,'osi3::DetectedMovingObject']]],
   ['reflection',['reflection',['../structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d',1,'osi3::RadarSensorView::reflection()'],['../structosi3_1_1LidarSensorView.html#abd48c19b5ae9ddee52c269b0dbc11686',1,'osi3::LidarSensorView::reflection()']]],
   ['reflectivity',['reflectivity',['../structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42',1,'osi3::LidarDetection']]],

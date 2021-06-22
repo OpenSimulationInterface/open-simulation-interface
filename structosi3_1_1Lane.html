@@ -102,11 +102,12 @@ Collaboration diagram for osi3::Lane:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1Lane__coll__graph.png" border="0" usemap="#osi3_1_1Lane_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1Lane_coll__map" id="osi3_1_1Lane_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="215,462,329,489"/>
-<area shape="rect" id="node4" href="structosi3_1_1Lane_1_1Classification.html" title="Classification of a lane. " alt="" coords="873,214,1056,241"/>
-<area shape="rect" id="node7" href="structosi3_1_1Lane_1_1Classification_1_1LanePairing.html" title="The lane ID pairings of antecessor and successor lanes. " alt="" coords="503,5,685,47"/>
-<area shape="rect" id="node9" href="structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html" title="The condition of the road surface. " alt="" coords="503,227,685,268"/>
-<area shape="rect" id="node10" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="537,293,651,319"/>
+<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="215,244,329,271"/>
+<area shape="rect" id="node7" href="structosi3_1_1Lane_1_1Classification.html" title="Classification of a lane. " alt="" coords="873,323,1056,349"/>
+<area shape="rect" id="node10" href="structosi3_1_1Lane_1_1Classification_1_1LanePairing.html" title="The lane ID pairings of antecessor and successor lanes. " alt="" coords="503,237,685,278"/>
+<area shape="rect" id="node4" href="structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="877,575,1053,601"/>
+<area shape="rect" id="node12" href="structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html" title="The condition of the road surface. " alt="" coords="503,458,685,499"/>
+<area shape="rect" id="node13" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="537,5,651,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -122,6 +123,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a385f1fbc783753cbb5e1f8c3a5f095f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a909afdc238fe0c0ddd818f81f78b4277"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane.html#a909afdc238fe0c0ddd818f81f78b4277">classification</a> = 2</td></tr>
 <tr class="separator:a909afdc238fe0c0ddd818f81f78b4277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf3e3baefd151b75a14674afccc0b226"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane.html#abf3e3baefd151b75a14674afccc0b226">source_reference</a> = 3</td></tr>
+<tr class="separator:abf3e3baefd151b75a14674afccc0b226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A lane in the road network. </p>
@@ -177,6 +180,32 @@ Intersection</div></div>
 <p>The ID of the lane. Example: l4 (see reference picture HighwayExit).</p>
 <dl class="section note"><dt>Note</dt><dd>Note ID is global unique.</dd></dl>
 <p>is_globally_unique  </p>
+
+</div>
+</div>
+<a id="abf3e3baefd151b75a14674afccc0b226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf3e3baefd151b75a14674afccc0b226">&#9670;&nbsp;</a></span>source_reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a> osi3::Lane::source_reference = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Optional external reference to the lane source.</p>
+<p>The external reference points to the source of the lane, if it is derived from one or more objects or external references.</p>
+<p>For example, to reference a lane defined in an OpenDRIVE map the items should be set as follows:</p><ul>
+<li>reference = URI to map, can remain empty if identical with definiton in <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e">GroundTruth::map_reference</a></code> </li>
+<li>type = "net.asam.opendrive"</li>
+<li>identifier[0] = id of t_road</li>
+<li>identifier[1] = s of t_road_lanes_laneSection</li>
+<li>identifier[2] = id of t_road_lanes_laneSection_left_lane, t_road_lanes_laneSection_right_lane</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>For non-ASAM Standards, it is implementation-specific how source_reference is resolved.</dd>
+<dd>
+The value has to be repeated, because one lane segment may be derived from more than one origin segment. Multiple sources may be added as reference as well, for example, a map and sensors. </dd></dl>
 
 </div>
 </div>

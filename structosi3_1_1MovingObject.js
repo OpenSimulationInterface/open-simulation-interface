@@ -16,6 +16,7 @@ var structosi3_1_1MovingObject =
     [ "id", "structosi3_1_1MovingObject.html#a6a9a247e8d9c4a642b6d89dbcdf0d7da", null ],
     [ "model_reference", "structosi3_1_1MovingObject.html#a07558573bee7a5fa2f0729e1cad1325f", null ],
     [ "moving_object_classification", "structosi3_1_1MovingObject.html#a977066d08847f96bd98dffcc0aff80ca", null ],
+    [ "source_reference", "structosi3_1_1MovingObject.html#a28102f7b1679219e151881c74c716073", null ],
     [ "type", "structosi3_1_1MovingObject.html#aa2d750449efff1e937d9c9a69ad7fd71", null ],
     [ "vehicle_attributes", "structosi3_1_1MovingObject.html#aad46113ea5b9f84a4094f671630a010c", null ],
     [ "vehicle_classification", "structosi3_1_1MovingObject.html#a791fbef677615ca9e8e7af0595bb3b3d", null ]
