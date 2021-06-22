@@ -178,6 +178,7 @@ var NAVTREEINDEX3 =
 "structosi3_1_1StationaryObject_1_1Classification.html#aa3f3a0944f19ae7fa3aa55d700ac009bac57e0c6e7ce72f631c5b21c9b0594967":[2,0,0,58,0,1,4],
 "structosi3_1_1StationaryObject_1_1Classification.html#aa3f3a0944f19ae7fa3aa55d700ac009bae5489fa179604873131df772c375f805":[2,0,0,58,0,1,6],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457d":[2,0,0,58,0,3],
+"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da0035009db5b2fadfc746e432cd4d3eb9":[2,0,0,58,0,3,17],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da0c432c54aecbf9d68f3b320206f535f1":[2,0,0,58,0,3,11],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da0e33b264a89e8b4c8bb688e03b17393b":[2,0,0,58,0,3,5],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da224542cd5d9d94ba440ada2f249159dd":[2,0,0,58,0,3,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1TrafficAction_1_1FollowPathAction.html#a9560d0669c321be9819e513c37816e85":[2,0,0,60,6,3],
 "structosi3_1_1TrafficAction_1_1FollowPathAction.html#afeaef64a7d4e51714d4b8da4d2cda7fd":[2,0,0,60,6,1],
 "structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html":[2,0,0,60,7],
-"structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html#a3a316528f8bf3c2af89a4a92d78b1232":[2,0,0,60,7,3],
-"structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html#a3ae1ba58be023f78dd4162959b780dea":[2,0,0,60,7,1]
+"structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html#a3a316528f8bf3c2af89a4a92d78b1232":[2,0,0,60,7,3]
 };

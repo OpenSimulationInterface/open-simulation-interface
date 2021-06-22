@@ -50,7 +50,8 @@ var structosi3_1_1StationaryObject_1_1Classification =
       [ "TYPE_RECTANGULAR_STRUCTURE", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da962c01097f9e857d3cff64ac1e4e8383", null ],
       [ "TYPE_OVERHEAD_STRUCTURE", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da7e3b5e517279cca2683c659eb7d2543a", null ],
       [ "TYPE_REFLECTIVE_STRUCTURE", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457dac1715c176bec889ed7d8b55e70b17375", null ],
-      [ "TYPE_CONSTRUCTION_SITE_ELEMENT", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da61844e11acb3ff57ce7635709d59fb1b", null ]
+      [ "TYPE_CONSTRUCTION_SITE_ELEMENT", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da61844e11acb3ff57ce7635709d59fb1b", null ],
+      [ "TYPE_SPEED_BUMP", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da0035009db5b2fadfc746e432cd4d3eb9", null ]
     ] ],
     [ "color", "structosi3_1_1StationaryObject_1_1Classification.html#ae22a9a0e707d85d8883ddccf0cb4f32f", null ],
     [ "density", "structosi3_1_1StationaryObject_1_1Classification.html#afeb7027b4c8d6098f1fed2ce5f065467", null ],
