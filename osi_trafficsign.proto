@@ -156,6 +156,32 @@ message TrafficSign
     //
     repeated SupplementarySign supplementary_sign = 3;
 
+
+    // Optional external reference to the traffic sign source.
+    //
+    // The external reference point to the source of the traffic sign, if it is
+    // derived from one or more objects or external references.
+    //
+    // For example, to reference a signal defined in an OpenDRIVE map
+    // the items should be set as follows:
+    // * reference = URI to map, can remain empty if identical with definition
+    //               in \c GroundTruth::map_reference
+    // * type = "net.asam.opendrive"
+    // * identifier[0] = id of t_road_signals_signal
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note If an individual identification of MainSign and SupplementarySign
+    //       is necessary, this should be done via multiple individual
+    //       entries of this source_reference.
+    //
+    // \note The value has to be repeated, because one lane segment may be
+    //       derived from more than one origin segment. Multiple sources
+    //       may be added as reference as well, for example, a map and sensors.
+    //
+    repeated ExternalReference source_reference = 4;
+
     //
     // \brief Main sign of the traffic sign.
     //

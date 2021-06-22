@@ -215,6 +215,68 @@ message Identifier
     optional uint64 value = 1;
 }
 
+// \brief References to external objects.
+//
+// The external reference is an optional recommendation to refer to objects defined outside of OSI.
+// This could be other OpenX standards, 3rd-party standards or user-defined objects.
+//
+// \note ExternalReference is optional and can be left empty.
+//
+message ExternalReference
+{
+    // The source of the external references.
+    //
+    // Defines the original source of an object as uniquely identifiable reference.
+    // In case of using \c GroundTruth::map_reference or 
+    // \c GroundTruth::model_reference, the reference can be left empty.
+    // If not otherwise required, an URI is suggested. The syntax should follow 
+    // \link https://tools.ietf.org/html/rfc3986 RFC 3986\endlink.
+    //
+    //
+    optional string reference = 1;
+    
+    // The type of the external references.
+    //
+    // Mandatory value describing the type of the original source.
+    //
+    // For OpenX/ASAM standards it is specified as follows:
+    // - net.asam.opendrive
+    // - net.asam.openscenario
+    //
+    // For third-party standards and user-defined objects, 
+    // reverse domain name notation with lower-case type field
+    // is recommended to guarantee unique and interoperable identification.
+    //
+    optional string type = 2;    
+    
+    // The external identifier reference value.
+    //
+    // The repeated string is chosen as a common description of the external
+    // identifier, because a variety of identificatier types could be
+    // involved .
+    //
+    // For example, referencing a unique lane in OpenDRIVE requires the
+    // following identifiers:
+    // * RoadId: String
+    // * S-Value of LaneSection: Double
+    // * LaneId: Int
+    // 
+    // \note The detailed description of the identifiers and how they are 
+    //       used for referencing external objects is given in the individual
+    //       messages where the external identifier is used.
+    //
+    // \see EnvironmentalConditions::source_reference
+    // \see Lane::source_reference
+    // \see LaneBoundary::source_reference
+    // \see StationaryObject::source_reference
+    // \see MovingObject::source_reference
+    // \see RoadMarking::source_reference
+    // \see TrafficLight::source_reference
+    // \see TrafficSign::source_reference
+    //
+    repeated string identifier = 3;
+}
+
 //
 // \brief Specifies the mounting position of a sensor.
 //
@@ -517,4 +579,3 @@ message WavelengthData
     //
     optional double samples_number = 3;
 }
-

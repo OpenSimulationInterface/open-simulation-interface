@@ -55,6 +55,33 @@ message RoadMarking
     //
     optional Classification classification = 3;
 
+    // Optional external reference to the road-marking source.
+    //
+    // The external reference points to the source of the surface marking, if it
+    // is derived from one or more objects or external references. An example
+    // here is the reference to the signal defined in a OpenDRIVE map.
+    //
+    // For example, to reference a signal defined in an OpenDRIVE map
+    // the items should be set as follows:
+    // * reference = URI to map, can remain empty if identical with definiton
+    //               in \c GroundTruth::map_reference
+    // * type = "net.asam.opendrive"
+    // * identifier[0] = id of t_road_signals_signal
+    //
+    // \note With OpenDRIVE, surface markings can also be defined as objects.
+    //       In this case, the associated object is usually referenced within
+    //       OpenDRIVE using the reference t_road_signals_signal_reference.
+    //       An additional reference to the object is therefore not necessary.
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated, because one lane segment may be
+    //       derived from more than one origin segment. Multiple sources
+    //       may be added as reference as well, for example, a map and sensors.
+    //
+    repeated ExternalReference source_reference = 4;
+
     //
     // \brief \c Classification data for a road surface marking.
     //
