@@ -1,4 +1,4 @@
-# Trace-file formatting scripts
+= Trace-file formatting scripts
 
 OSI provides Python scripts for converting trace files from one format to the other.
 The formatting scripts are stored in `open-simulation-interface/format/`
@@ -17,11 +17,11 @@ Allowed values are `'SensorView'`, `'GroundTruth'`, and `'SensorData'`.
 The default value is `'SensorView'`.
 
 `--output`, `-o`::
-Optional string containing the name of the output file.,
+Optional string containing the name of the output file.
 The default value is `'converted.osi'`.
 
 `--compress`, `-c`::
-Optional boolean controlling whether to compress the output to a lzma file..
+Optional boolean controlling whether to compress the output to a lzma file.
 Allowed values are `True`, and `False`.
 The default value is `False`.
 
@@ -39,7 +39,7 @@ Allowed values are `'SensorView'`, `'GroundTruth'`, and `'SensorData'`.
 The default value is `'SensorView'`.
 
 `--output`, `-o`::
-Optional string containing the name of the output file.,
+Optional string containing the name of the output file.
 The default value is `'converted.txth'`.
 
 `--format`, `-f`::
