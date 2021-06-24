@@ -8,15 +8,24 @@ OSI uses DIN ISO 8855:2013-11 for coordinate systems and transformations between
 **Corresponding messages**
 
 ``GroundTruth::moving_object::base::position``::
-Defines the position of the vehicle’s reference point.
+Defines the position of the vehicle’s reference point in world coordinates.
+In Open Simulation Interface, the coordinates of an object refer to the position of the center of the object's bounding box.
 
 ``GroundTruth::moving_object::base::orientation``::
-Defines the orientation of the vehicle’s reference point.
+Defines the orientation of the vehicle’s reference point in world coordinates.
 
 ``GroundTruth::moving_object::vehicle_attributes::bbcenter_to_rear``::
 The vector pointing from the vehicle’s reference point to the middle of the rear axle under neutral load conditions in vehicle coordinates.
-The middle of the rear axle is 
 
 ``SensorData::mounting_position``::
 Defines the sensor’s position and orientation and thereby the origin of the sensor coordinate system.
 The mounting position is given in the vehicle coordinate system.
+
+**Example**
+
+The following image shows the relationship between the coordinate systems.
+The reference point of the vehicle is given by a vector in the world coordinate system.
+A vector pointing from the reference position of the vehicle to the center of the rear axle then yields the origin of the vehicle coordinate system.
+The mounting positions of the sensors and therefore the origins of the corresponding sensor coordinate systems are then given with respect to the vehicle coordinate system.
+
+image::{imagedir}/osi_example_coordinate_systems.png[]

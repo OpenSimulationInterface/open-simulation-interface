@@ -53,9 +53,11 @@ include::./architecture/traffic_participant.adoc[leveloffset=+3]
 
 include::./architecture/vehicle_dynamics.adoc[leveloffset=+3]
 
-// Coordinate systems and reference points (level 3)
+=== Coordinate systems and reference points
 
 include::./architecture/reference_points_coordinate_systems.adoc[leveloffset=+2]
+
+include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+2]
 
 === Layering
 
