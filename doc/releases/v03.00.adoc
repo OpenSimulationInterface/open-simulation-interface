@@ -5,7 +5,7 @@
 This release is a complete rework including the feedback from many OSI users. Thank you!
 We are aligned with the ongoing discussions for the upcoming ISO 23150 standard for hardware sensor outputs in order to bring simulation and the hardware in the car closer together.
 
-https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.0[Content/Changes]
+== https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.0[Content/Changes]
 
 * Added major version to package label (osi3), allowing concurrent use of OSI 2.x and OSI 3.x in one process.
 * Added new top-level messages (new concept SensorView (Configuration),etc.).
@@ -43,7 +43,7 @@ https://www.youtube.com/watch?v=yG0oBPtyNb0[Summertime :)]
 
 This release is a patch reworking parts of the documentation in order to avoid ambiguities and improving the build/installation process of OSI.
 
-https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.1[Content/Changes]
+== https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.1[Content/Changes]
 
 * Added script to automatically convert the messages from proto2 to proto3 with on the wire compatibility
 * cmake enhancements to enable multi-version support of OSI 2 and OSI 3
