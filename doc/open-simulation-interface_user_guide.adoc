@@ -55,9 +55,9 @@ include::./architecture/vehicle_dynamics.adoc[leveloffset=+3]
 
 === Coordinate systems and reference points
 
-include::./architecture/reference_points_coordinate_systems.adoc[leveloffset=+2]
+include::./architecture/reference_points_coordinate_systems.adoc[leveloffset=+3]
 
-include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+2]
+include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+3]
 
 === Layering
 
@@ -107,7 +107,7 @@ include::./usecases/benchmark_integration_gpu_radar.adoc[leveloffset=+2]
 
 include::./usecases/generating_osi_traces.adoc[leveloffset=+2]
 
-include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+2]
+//include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+2]
 
 == Improving performance
 
