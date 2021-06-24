@@ -9,16 +9,16 @@ package osi3;
 
 //
 // \brief This message enables the traffic participant model to send updates 
-// to the scenario engine about the execution of its received \c TrafficCommand input. While traffic 
-// actions are usually executed successfully by the traffic participant 
+// to the scenario engine about the execution of its received \c TrafficCommand input. 
+// While traffic actions are usually executed successfully by the traffic participant 
 // there may be actions which the traffic participant is not able to execute
 // either for capability or situation-specific reasons. This message gives
 // the traffic participant the basic possiblity to send feedback if an action 
 // cannot happen as requested by the \c TrafficCommand. Currently, it is out of
 // scope to standardize the exact reason for non-executability or failed execution 
 // because the reason can have multiple explantions. The point in time 
-// for this message to be sent is only restricted to be after the \c TrafficCommand  
-// with the corresponding traffic action(s) has been sent. The 
+// for this message to be sent is only restricted to be after (or at the same time) 
+// the \c TrafficCommand with the corresponding traffic action(s) has been sent. The 
 // responsibility for deciding about successful or unsuccessful scenario execution
 // lies fully on the side of the scenario engine.  
 //
@@ -44,24 +44,31 @@ message TrafficCommandUpdate
     //
     optional Identifier traffic_participant_id = 3;
 
-    // Dismissed traffic action id(s) from the perspective of a traffic participant, if any.
+    // Actions which a traffic participant dismisses.
     //
-    // \note Dismissed traffic action id(s) identify actions which cannot be executed or 
-    // completed by the traffic participant. If more than one action id is supplied it means that
-    // multiple actions are regarded as dismissed. This field must have the same value(s) as 
-    // \c TrafficAction::ActionHeader::action_id of the prior sent \c TrafficCommand and must correspond
-    // to the same traffic participant.
+    // \note If more than one action id is supplied it means that
+    // multiple actions are regarded as dismissed.
     //
-    // \Attention If an action is not dismissed, abortet by the scenario engine with a 
-    // \c TrafficAction::AbortActionsAction or ended by the scenario engine with a
-    // \c TrafficAction::EndActionsAction it is assumed that the traffic participant is 
-    // in the process of executing this action.
-    //
-    repeated Identifier dismissed_action_id = 4;
-
-    // Information about the reason of failure.
+    repeated DismissedAction dismissed_action;
+    
     // 
-    // \note This is just a custom, informal string without a standardized meaning. 
+    // \brief Action which a traffic participant dismisses.
     //
-    optional string failure_reason = 5; 
+    message DismissedAction 
+    {
+        // Dismissed traffic action id from the perspective of a traffic participant, if any.
+        //
+        // \note A dismissed traffic action id identifies a \c TrafficAction which cannot be executed or 
+        // completed by the traffic participant. This field must have the same value as 
+        // \c TrafficAction::ActionHeader::action_id of a prior sent \c TrafficCommand and must correspond
+        // to the same traffic participant.
+        //
+        optional Identifier dismissed_action_id = 4;
+
+        // Information about the reason of failure.
+        // 
+        // \note This is just a custom, informal string without a standardized meaning. 
+        //
+        optional string failure_reason = 5;
+    }
 }
