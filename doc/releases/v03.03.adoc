@@ -4,10 +4,8 @@ Stay p(OSI)tive!
 
 == Purpose
 
-As a part of the increasing adoption of OSI in the industry, and its movement to ASAM as its home, 
-several new use cases and extensions for OSI have been identified. 
-This minor release highlights the work that has been done on several working packages including 
-the introduction of brand new top level messages which extend OSI's scope beyond the specialized world of sensor modeling.
+As a part of the increasing adoption of OSI in the industry, and its movement to ASAM as its home, several new use cases and extensions for OSI have been identified. 
+This minor release highlights the work that has been done on several working packages including the introduction of brand new top level messages which extend OSI's scope beyond the specialized world of sensor modeling.
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/13?closed=1[Content/Changes]
 
@@ -34,7 +32,6 @@ the introduction of brand new top level messages which extend OSI's scope beyond
 = https://github.com/OpenSimulationInterface/open-simulation-interface/releases/tag/v3.3.1[v3.3.1 - OSI "Fabulous Fangio", Update 1]
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/18?closed=1[Content/Changes]
-
 
 * **Bug Fix**: Fixed outdated version information in VERSION file in 3.3.0. This lead to wrong versioning in proto definitions and Doxygen documentation.
 * **Bug Fix**: Removed outdated picture in README.md.
