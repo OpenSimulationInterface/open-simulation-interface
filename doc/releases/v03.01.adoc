@@ -4,7 +4,10 @@ https://www.youtube.com/watch?v=fu3uA8K6ApQ>[(O SI)lent night]
 
 == Purpose
 
-This time of the year Santa comes with presents and has also thought about the sensor modelers of this planet. We introduce the current state of the ISO 23150 discussions including Ultrasonic and Camera Detections. The traffic signs have been reworked and the documentation has been extended for a perfect user experience. Trust me - it's amazing!
+This time of the year Santa comes with presents and has also thought about the sensor modelers of this planet.
+We introduce the current state of the ISO 23150 discussions including Ultrasonic and Camera Detections.
+The traffic signs have been reworked and the documentation has been extended for a perfect user experience.
+Trust me - it's amazing!
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?q=is%3Apr+is%3Aclosed+milestone%3Av3.1.0>[Content/Changes]
 
@@ -24,7 +27,8 @@ This time of the year Santa comes with presents and has also thought about the s
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?q=is%3Apr+is%3Aclosed+milestone%3Av3.1.1[Content/Changes]
 
-* **Bug Fix**: Changed open_simulation_interface target back from being a static library to a shared library, as before (this reverts an inadvertent change in v3.1.0 from previous releases). v3.1.0 breaks all users of the shared library (i.e. everyone building on Linux/Unix systems, and even some using the DLL on Windows).
+* **Bug Fix**: Changed open_simulation_interface target back from being a static library to a shared library, as before (this reverts an inadvertent change in v3.1.0 from previous releases).
+v3.1.0 breaks all users of the shared library (i.e. everyone building on Linux/Unix systems, and even some using the DLL on Windows).
 
 = https://github.com/OpenSimulationInterface/open-simulation-interface/releases/tag/v3.1.2[v3.1.2 - OSI "Dynamic Duncan", Update 2]
 
