@@ -202,7 +202,8 @@ message Lane
         // the centerline of lane l4 (black line) is given by
         // (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5).
         //
-        // \image html OSI_LaneBoundaries_And_CenterLine.svg "Centerline" width=500px
+        // \anchor Centerline_LaneBoundaries
+        // \image html OSI_LaneBoundaries_And_CenterLine_Intersection.svg "centerline & lane boundaries" width=900px
         //
         // \note 
         // cl: center line
@@ -298,11 +299,24 @@ message Lane
 
         // The antecessor/successor lane pairings of this lane. There can be
         // multiple pairings with the same antecessor and different successor
-        // lanes and vice versa. The antecessor lanes end in the same point that
-        // this lane starts from. The successor lanes start in the same point
-        // that this lane ends in.
+        // lanes and vice versa. The antecessor lanes are connected to the first
+        // and successor lanes to the last centerline and lane boundary points
+        // (w.r.t ascending order of centerline and lane boundary points) of the lane.
         //
-        // Example: See image \ref Intersection.
+        // Example: See image \ref Centerline_LaneBoundaries "centerline & lane boundaries" .
+        //
+        // \attention For intersections, it's possible that a lane pairing consists
+        // exclusively of antecessors or successors. Such a case appears for example 
+        // for the lane pairing of lane 2 and lane 3 of the intersection in image 
+        // \ref Centerline_LaneBoundaries "centerline & lane boundaries". Both lanes start 
+        // (w.r.t ascending order of centerline and lane boundary points) at the intersection, 
+        // which makes them antecessors for the intersection's lane pairing. The resulting lane 
+        // pairing should therefore be (l2l3,), with two antecessors and no successor.
+        //
+        // \note The antecessor/successor (w.r.t. driving direction) of a driving lane can be
+        // determined from the \c #centerline_is_driving_direction. In the case of intersections,
+        // the antecessor/successor (w.r.t. driving direction) has to be determined by comparison
+        // with the current/previous lane.
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
