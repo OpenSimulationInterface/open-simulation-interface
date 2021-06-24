@@ -19,3 +19,32 @@ Trace file contains sensor-view messages.
 
 `gt`::
 Trace file contains ground-truth messages.
+
+**Example**
+
+Given an OSI trace file with the following information:
+
+[cols="1,1"]
+|===
+|Type
+|SensorView
+
+|OSI Version
+|3.1.2
+
+|Protobuf Version
+|3.0.0
+
+|Number of frames
+|1523
+
+|Scenario name
+|highway
+|===
+
+The recommend file name is: 
+
+[source]
+----
+sv_312_300_1523_highway.osi
+----
