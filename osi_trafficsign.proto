@@ -253,8 +253,8 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the Type type will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the Type type will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             optional Type type = 2;
 
             // Additional value associated with the traffic sign, e.g. value of
@@ -288,8 +288,8 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the DirectionScope direction_scope will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the DirectionScope direction_scope will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             optional DirectionScope direction_scope = 4;
 
             // The IDs of the lanes that the sign is assigned to.
@@ -316,8 +316,8 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the bool vertically_mirrored will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the bool vertically_mirrored will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             optional bool vertically_mirrored = 6;
 
             // Boolean flag to indicate that a traffic sign is taken out of service.
@@ -369,8 +369,8 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the Type will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the Type will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             enum Type
             {
                 // Type of traffic sign is unknown (must not be used in ground
@@ -5565,8 +5565,8 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the Type type will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the Type type will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             optional Type type = 2;
 
             // Additional value(s) associated with the traffic sign, e.g.
@@ -5598,16 +5598,16 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the Actor actor will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the Actor actor will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             repeated Actor actor = 5;
 
             // A direction arrow shown on the supplementary sign.
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the Arrow arrow will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the Arrow arrow will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             repeated Arrow arrow = 6;
 
             // Boolean flag to indicate that the supplementary traffic sign is taken out of service.
@@ -5654,8 +5654,8 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the enum Type will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the enum Type will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             enum Type
             {
                 // Type of supplementary sign is unknown (must not be used in
@@ -9073,8 +9073,8 @@ message TrafficSign
             //
             // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
             // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-            // How the enum Actor will be dealt in future will be discussed in Harmonization OpenX group.<br>
-            // Deprecated planned for version 4.0.0
+            // How the enum Actor will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+            // Deprecated status planned for version 4.0.0
             enum Actor
             {
                 // An unknown actor
@@ -9302,8 +9302,8 @@ message TrafficSign
                 //
                 // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
                 // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-                // How the enum Direction will be dealt in future will be discussed in Harmonization OpenX group.<br>
-                // Deprecated planned for version 4.0.0
+                // How the enum Direction will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+                // Deprecated status planned for version 4.0.0
                 enum Direction
                 {
                     // Direction of sign is unknown (must not be used in ground

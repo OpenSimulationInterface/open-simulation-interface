@@ -149,7 +149,7 @@ message RoadMarking
 
         // Boolean flag to indicate that the road marking is taken out of service.
         // This can be achieved by visibly crossing the road marking with stripes,
-        // or completly covering a road marking making it not visible.
+        // or completely covering a road marking making it not visible.
         //
         // \image html OSI_RoadMaking_is_out_of_service.jpg width=800px
         //
@@ -182,8 +182,8 @@ message RoadMarking
         //
         // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
         // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-        // How the Type will be dealt in future will be discussed in Harmonization OpenX group.<br>
-        // Deprecated planned for version 4.0.0
+        // How the Type will be dealt with in future will be discussed in Harmonization OpenX group.<br>
+        // Deprecated status planned for version 4.0.0
         //
         enum Type
         {
