@@ -364,10 +364,6 @@ message MovingObject
     // \note This field is mandatory if the \c #type is
     // #TYPE_PEDESTRIAN .
     //
-    // \rules
-    // check_if this.type is_equal_to 3 else do_check is_set
-    // \endrules
-    //
     optional PedestrianClassification pedestrian_classification = 10;    
 
     // Definition of object types.
