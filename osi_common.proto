@@ -804,3 +804,57 @@ message ColorCMYK
     //
     optional double key = 4;
 }
+
+//
+// \brief A description for the positions of the pedals.
+//
+message Pedalry
+{
+	// Position of the acceleration-pedal.
+	// Range: 0-1 (Unpressed - fully pressed)
+	//
+	optional double pedal_position_acceleration = 1;
+
+	// Position of the brake-pedal.
+	// Range: 0-1 (Unpressed - fully pressed)
+	//
+	optional double pedal_position_brake = 2;
+
+	// Position of the clutch-pedal.
+	// Range: 0-1 (Unpressed - fully pressed)
+	//
+	optional double pedal_position_clutch = 3;
+}
+
+//
+// A description of the steering wheel.
+//
+message VehicleSteeringWheel
+{
+	// Angle of the steering wheel. 
+	// Zero means the steering wheel is in its center position, a positive value
+	// means the steering wheel is turned to the left and a negative value
+	// means the steering wheel is turned to the right of the center position.
+	//
+	// Unit: rad
+	//
+	optional double angle = 1;
+
+	// Angular speed of the steering wheel. 
+	// Zero means the steering wheel stays in its position, a positive value
+	// means the steering wheel is turned to the left and a negative value
+	// means the steering wheel is turned to the right.
+	//
+	// Unit: rad/s
+	//
+	optional double angular_speed = 2;
+
+	// Torque of the steering wheel to the hand.
+	// Zero means there is no force from the steering wheel to the driver`s hands.
+	// A positive value means the steering wheel would turn to the left without driver`s forces
+	// and a negative value means the steering wheel would turn to the right without driver`s forces.
+	//
+	// Unit: N*m
+	//
+	optional double torque = 3;
+}
