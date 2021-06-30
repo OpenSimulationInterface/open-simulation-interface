@@ -530,7 +530,7 @@ message MovingObject
         repeated WheelData wheel_data = 7;
 
         // Angle of the steering wheel. 
-        // Zero means the steering wheel is in its center postion, a positive value
+        // Zero means the steering wheel is in its center position, a positive value
         // means the steering wheel is turned to the left and a negative value
         // means the steering wheel is turned to the right of the center position.
         //
