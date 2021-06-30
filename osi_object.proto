@@ -422,6 +422,28 @@ message MovingObject
     //
     repeated ExternalReference source_reference = 10;
 
+    // The simulation timestamp the calculated "base" parameters (especially
+    // "position") of the moving object apply to.
+    // Background: The timestamps can differ between e.g. host vehicle, rest of
+    // the vehicle traffic and pedestrians (or other types), because they may be
+    // calculated in different modules. And even inside those groups the
+    // timestamps can differ if one part is calculated in one cycle and the rest
+    // in the following cycle out of performance reasons.
+    // Usage: E.g. for extrapolation of the whole traffic in graphic engines.
+    //
+    // Regarding the "simulation timestamp":
+    // The zero time point is arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    // \note Zero time point does not need to coincide with the UNIX epoch.
+    //
+    // \note For ground truth data this timestamp coincides both with the
+    // notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for ground truth data, as opposed to
+    // sensor data).
+    //
+    optional Timestamp timestamp = 11;
+
     // Definition of object types.
     //
     enum Type
