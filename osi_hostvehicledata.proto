@@ -2,31 +2,281 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_version.proto";
 import "osi_common.proto";
 
 package osi3;
 
+// \brief Host vehicle data is about the perception of the vehicle about it's own, internal states.
+// It can be understood as an interface container for restbussimulation signals.
+// If there is a duplication with values from the rest of SensorView or SensorData, than these shall be taken.
 //
-// \brief Interface for host vehicle data that is available to sensors and
-// other functions due to host vehicle's internal communication.
+// It consists of different messages categorizing the vehicle in:
+// Vehicle-Basics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
 //
 // \image html OSI_HostVehicle.svg
 //
-// All coordinates and orientations are relative to the global ground truth
-// coordinate system.
-//
 message HostVehicleData
 {
+    // The interface version used by the sender.
+    //
+    optional InterfaceVersion version = 10;
+
+    // The timestamp of the host vehicle data. Zero time is arbitrary but must be
+    // identical for all messages. Zero time does not need to coincide with
+    // the unix epoch. Recommended is the starting time point of the
+    // simulation or measurement.
+    //
+    // \note This is the point in time that the host vehicle data message becomes
+    // available as snapshot from the board net information.
+    //
+    optional Timestamp timestamp = 11;
+
+    // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
     // Current estimated location based on GPS- and related navigation sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location = 1;
 
-    // Current estimated location error based on GPS- and related navigation
+    // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
+    // Current estimated location error based on GPS- and related navigation 
     // sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
+
+    // The basic parameters of the vehicle.
+    //
+    optional VehicleBasics vehicle_basics = 3;
+
+    // Interface regarding the powertrain.
+    //
+    optional VehiclePowertrain vehicle_powertrain = 4;
+
+    // Interface regarding the steering wheel.
+    //
+    optional VehicleSteeringWheel vehicle_steering_wheel = 5;
+
+    // Interface regarding the wheels.
+    //
+    optional VehicleWheels vehicle_wheels = 6;
+
+    // Interface regarding the localization.
+    //
+    optional VehiclePositionAndKinematics vehicle_position_and_kinematics = 7;
+
+    //
+    // \brief The absolute base parameters of the vehicle. 
+    //
+    message VehicleBasics
+    {
+        // The total mass of the vehicle (curb weight).
+        //
+        // Unit: kg
+        //
+        // \par Reference:
+        // Paragraph 42 of the German Road Traffic Admission Regulations (StVZO).
+        //
+        optional double curb_weight = 1;
+    }
+
+    //
+    // \brief State description of the powertrain.
+    //
+    message VehiclePowertrain
+    {
+        // The positions of the pedals.
+        //
+        optional Pedalry pedalry = 1;
+
+        // The actual gear of the transmission.
+        // E.g. a gear lever can be in "D" and transmission in "4", but not the
+        // other way around.
+        //
+        // The sign of this field is linked to the gear's mode as following:
+        // - zero: neutral position
+        // - positive: driving forward mode
+        // - negative: reverse mode (generally -1, but few vehicles have several
+        //   reverse mode gears)
+        //
+        optional int32 gear_transmission = 2;
+
+        // Information about the motor(s).
+        //
+        repeated Motor motor = 3;
+
+        //
+        // \brief A description for the positions of the pedals.
+        //
+        message Motor
+        {
+            // The type of the motor.
+            //
+            optional Type type = 1;
+
+            // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
+            //
+            // Unit: 1/min
+            //
+            optional double rpm = 2;
+
+            // Torque in Nm. It can either be from Engine/E-Motor or combined Torque values.
+            //
+            // Unit: N*m
+            //
+            optional double torque = 3;
+
+            // Definition which type of motor is used.
+            //
+            enum Type
+            {
+                // The powertrain mode is unknown.
+                //
+                TYPE_UNKNOWN = 0;
+
+                // It is another powertrain mode.
+                //
+                TYPE_OTHER = 1;
+
+                // A motor working after the principle of Nicolaus Otto.
+                //
+                TYPE_OTTO = 2;
+
+                // A motor working after the principle of Rudolf Diesel.
+                //
+                TYPE_DIESEL = 3;
+
+                // A motor working electric.
+                //
+                TYPE_ELECTRIC = 4;
+            }
+        }
+    }
+
+    //
+    // \brief The focus here is on the description of the wheels.
+    //
+    message VehicleWheels
+    {
+        // Description of each wheel.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated WheelData wheel_data = 1;
+
+        //
+        // \brief The focus here is on the description of a wheel.
+        //
+        message WheelData
+        {
+            // The axle which contains this wheel. A value of 0 represents the
+            // front-most axle of the vehicle with higher numbers incrementing
+            // towards the rear-most axle.
+            //
+            optional uint32 axle = 1;
+
+            // The index of the wheel on the axle, counting in the direction
+            // of positive-y, that is, right-to-left.
+            //
+            // For example, on a standard 2-axle, 4-wheel car, the rear-right
+            // wheel would be (axle=1, index=0).
+            // This concept works also for twin tires.
+            //
+            optional uint32 index = 2;
+
+            // Rotation rate of the wheel based on the processed output of the hall sensor measurements at the wheel.
+            // The rotation rate around the y-axis with respect to the wheel's coordinate system.
+            // 
+            // Unit: rad/s.
+            //
+            // The sign convention is defined using the right-hand rule.
+            // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
+            // Counterclockwise is positive and clockwise is negative.
+            //
+            // \image html OSI_RotationRate.svg
+            // \note The vehicle's reference coordinate system is only used to determine the sign convention of the rotation rate.
+            //
+            optional double rotation_rate = 3;
+
+            // Contains the longitudinal, measured slip of the tire.
+            // \par References:
+            // - https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
+            //
+            // Unit: %
+            //
+            // The sign convention is defined using the right-hand rule.
+            // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
+            // Counterclockwise is positive and clockwise is negative.
+            //
+            optional double slip = 4;
+        }
+    }
+
+    //
+    // \brief Current calculated and estimated location that can be based on GNSS- and related navigation sensors,
+    // but this message does not contain the single sensor values of the sensorics.
+    //
+    // This message contains the most accurate information the vehicle knows about its positioning and kinematics
+    // available on the board net.
+    // Because of this the values can differ from the "true" values calculated out of
+    // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
+    //
+    message VehiclePositionAndKinematics
+    {
+        // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
+        //
+        optional GeodeticPosition enu_origin = 1;
+
+        // The host vehicle location and kinematics at \c HostVehicleData::timestamp.
+        //
+        // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+        // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+        // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+        // with its axis conventions following ISO8855.
+        //
+        // \note Note that dimension and base_polygon need not be set.
+        //
+        optional BaseMoving base = 2;
+
+        // The host vehicle location and kinematics root-mean-square errors at \c HostVehicleData::timestamp.
+        //
+        // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
+        // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
+        // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
+        // with its axis conventions following ISO8855.
+        //
+        // \note Note that dimension and base_polygon need not be set.
+        //
+        optional BaseMoving base_rmse = 3;
+
+        //
+        // \brief The geodetic position of the vehicle.
+        // In which context it is used has to be specified in the concrete field.
+        //
+        message GeodeticPosition
+        {
+            // Longitude in decimal degrees regarding WGS84.
+            //
+            // Unit: Degree
+            // Range: [-180; 180]
+            //
+            optional double longitude = 1;
+
+            // Latitude in decimal degrees regarding WGS84.
+            //
+            // Unit: Degree
+            // Range: [-90; 90]
+            //
+            optional double latitude = 2;
+
+            // Height above sea level regarding EGM96.
+            //
+            // Unit: m
+            // Range: [-300; 10000]
+            //
+            optional double altitude = 3;
+        }
+    }
 }
