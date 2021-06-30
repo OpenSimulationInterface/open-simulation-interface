@@ -51,28 +51,24 @@ message HostVehicleData
     //
     optional VehicleBasics vehicle_basics = 3;
 
-    // Interface regarding the powermanagement.
-    //
-    optional VehiclePowermanagement vehicle_powermanagement = 4;
-
     // Interface regarding the powertrain.
     //
-    optional VehiclePowertrain vehicle_powertrain = 5;
+    optional VehiclePowertrain vehicle_powertrain = 4;
 
     // Interface regarding the steering wheel.
     //
-    optional VehicleSteeringWheel vehicle_steering_wheel = 6;
+    optional VehicleSteeringWheel vehicle_steering_wheel = 5;
 
     // Interface regarding the wheels.
     //
-    optional VehicleWheels vehicle_wheels = 7;
+    optional VehicleWheels vehicle_wheels = 6;
 
     // Interface regarding the navigation.
     //
-    optional VehiclePositionAndKinematics vehicle_position_and_kinematics = 8;
+    optional VehiclePositionAndKinematics vehicle_position_and_kinematics = 7;
 
     //
-    // \brief The absolute base parameters of the vehicle.
+    // \brief The absolute base parameters of the vehicle. 
     //
     message VehicleBasics
     {
@@ -89,28 +85,14 @@ message HostVehicleData
     //
     // \brief State description of the powertrain.
     //
-    message VehiclePowermanagement
-    {
-        // To be discussed.
-        //
-    }
-
-    //
-    // \brief State description of the powertrain.
-    //
     message VehiclePowertrain
     {
         // The positions of the pedals.
         //
         optional Pedalry pedalry = 1;
 
-        // The actual gear of the gear lever.
-        // May come up later. For now just to be mentioned.
-        //
-        // optional GearLeverState gear_lever_state = 2;
-
         // The actual gear of the transmission.
-        // E.g. gear_lever can be in "D" and transmission in "4", but not the
+        // E.g. a gear lever can be in "D" and transmission in "4", but not the
         // other way around.
         //
         // The sign of this field is linked to the gear's mode as following:
@@ -119,11 +101,11 @@ message HostVehicleData
         // - negative: reverse mode (generally -1, but few vehicles have several
         //   reverse mode gears)
         //
-        optional int32 gear_transmission = 3;
+        optional int32 gear_transmission = 2;
 
         // Information about the motor(s).
         //
-        repeated Motor motor = 4;
+        repeated Motor motor = 3;
 
         //
         // \brief A description for the positions of the pedals.
@@ -195,27 +177,32 @@ message HostVehicleData
     }
 
     //
-    // \brief Interface to the vehicle-model.
-    // The focus here is on the steering wheel.
+    // A description of the steering wheel.
     //
     message VehicleSteeringWheel
     {
-        // Angle of the steering wheel.
-        // 0=Central (Straight); Left>0; 0>Right.
+        // Angle of the steering wheel. 
+        // Zero means the steering wheel is in its center position, a positive value
+        // means the steering wheel is turned to the left and a negative value
+        // means the steering wheel is turned to the right of the center position.
         //
         // Unit: rad
         //
         optional double angle = 1;
 
-        // Angle-speed of the steering wheel.
-        // 0=Central (Straight); Left>0; 0>Right.
+        // Angle of the steering wheel. 
+        // Zero means the steering wheel stays in its position, a positive value
+        // means the steering wheel is turned to the left and a negative value
+        // means the steering wheel is turned to the right.
         //
         // Unit: rad/s
         //
         optional double angular_speed = 2;
 
         // Torque of the steering wheel to the hand.
-        // 0=Central (Straight); Left>0; 0>Right.
+        // Zero means there is no force from the steering wheel to the driver`s hands.
+        // A positive value means the steering wheel would turn to the left without driver`s forces
+        // and a negative value means the steering wheel would turn to the right without driver`s forces.
         //
         // Unit: N*m
         //
@@ -227,63 +214,57 @@ message HostVehicleData
     //
     message VehicleWheels
     {
-        // Contains the description of a wheel.
+        // Description of each wheel.
         //
-        repeated Wheel wheel = 1;
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated WheelData wheel_data = 1;
 
         //
         // \brief The focus here is on the description of a wheel.
         //
-        message Wheel
+        message WheelData
         {
-            // The axle which contains this wheel.  A value of 0 represents the
+            // The axle which contains this wheel. A value of 0 represents the
             // front-most axle of the vehicle with higher numbers incrementing
             // towards the rear-most axle.
             //
             optional uint32 axle = 1;
 
             // The index of the wheel on the axle, counting in the direction
-            // of positive-y, i.e. right-to-left.
+            // of positive-y, that is, right-to-left.
             //
             // For example, on a standard 2-axle, 4-wheel car, the rear-right
             // wheel would be (axle=1, index=0).
+            // This concept works also for twin tires.
             //
             optional uint32 index = 2;
 
-            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces
-            // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
-            // friction between moving surfaces.
-            // Ued here is the dry friction coefficient of the paired materials (see reference).
-            // Dimensionless.
+            // Rotation rate of the wheel based on the processed output of the hall sensor measurements at the wheel.
+            // The rotation rate around the y-axis with respect to the wheel's coordinate system.
+            // 
+            // Unit: rad/s.
             //
-            // Unit: -
+            // The sign convention is defined using the right-hand rule.
+            // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
+            // Counterclockwise is positive and clockwise is negative.
             //
-            // \par References:
-            // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
+            // \image html OSI_RotationRate.svg
+            // \note The vehicle's reference coordinate system is only used to determine the sign convention of the rotation rate.
             //
-            //optional double kinetic_friction_coefficient = 3;
+            optional double rotation_rate = 3;
 
-            // Contact point of the mid of the tire tread with the world.
-            // Absolute coordinates (x, y, z).
-            //
-            // Unit: m
-            //
-            //optional Vector3d contact_point = 4;
-
-            // Contains the rotation rate of the wheel per second in radians.
-            // Based on the processed output of the hall sensor at the wheel.
-            //
-            // Unit: rad/s
-            //
-            optional double rotation_rate = 5;
-
-            // Contains the longitudinal slip of the tire.
+            // Contains the longitudinal, measured slip of the tire.
             // \par References:
             // - https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
             //
             // Unit: %
             //
-            optional double slip = 6;
+            // The sign convention is defined using the right-hand rule.
+            // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
+            // Counterclockwise is positive and clockwise is negative.
+            //
+            optional double slip = 4;
         }
     }
 
