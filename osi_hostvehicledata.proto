@@ -108,7 +108,7 @@ message HostVehicleData
         repeated Motor motor = 3;
 
         //
-        // \brief A description for the positions of the pedals.
+        // \brief A description of the motor states.
         //
         message Motor
         {
@@ -116,13 +116,13 @@ message HostVehicleData
             //
             optional Type type = 1;
 
-            // Rounds per minute of the engine. RPM can be from E-Motor/ Engine.
+            // Rounds per minute of the motor.
             //
             // Unit: 1/min
             //
             optional double rpm = 2;
 
-            // Torque in Nm. It can either be from Engine/E-Motor or combined Torque values.
+            // Torque from the motor.
             //
             // Unit: N*m
             //
@@ -132,11 +132,11 @@ message HostVehicleData
             //
             enum Type
             {
-                // The powertrain mode is unknown.
+                // The motor type is unknown.
                 //
                 TYPE_UNKNOWN = 0;
 
-                // It is another powertrain mode.
+                // It is another motor type.
                 //
                 TYPE_OTHER = 1;
 
