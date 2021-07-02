@@ -180,14 +180,14 @@ message GenericSensorView
 //
 message Obstruction
 {
-    // \brief ID of the object in ground truth data
+    // ID of the object in ground truth data
     //
     // This field is required as without it the entire message ships
     // no useful information.
     //
     optional Identifier ground_truth_id = 1;
 
-    // \brief Level of occlusion for the object.
+    // Level of occlusion for the object.
     //
     // The occlusion level represents a fraction of object volume exposed to the
     // sensor assuming the sensor had a full 360 degree field of view (so ignoring
@@ -200,7 +200,7 @@ message Obstruction
     //
     optional double occlusion = 2;
 
-    // \brief Level of truncation for the object.
+    // Level of truncation for the object.
     //
     // The truncation level represents a fraction of object volume remaining
     // outside of sensor's field of view.  The truncation value is independent of
@@ -210,7 +210,7 @@ message Obstruction
     //
     optional double truncation = 3;
 
-    // \brief Total visible proportion for the object.
+    // Total visible proportion for the object.
     //
     // This value combines both truncation and occlusion to provide a indicate how
     // visible an object is from the view of a particular sensor.
