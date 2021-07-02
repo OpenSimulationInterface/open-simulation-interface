@@ -173,6 +173,57 @@ message GenericSensorView
 }
 
 //
+// \brief Obstruction values for a given object and sensor.
+//
+// For a given object in the ground truth data, and for a particular sensor, how
+// obstructed is that object from the point of view of that sensor.
+//
+message Obstruction
+{
+    // \brief ID of the object in ground truth data
+    //
+    // This field is required as without it the entire message ships
+    // no useful information.
+    //
+    optional Identifier ground_truth_id = 1;
+
+    // \brief Level of occlusion for the object.
+    //
+    // The occlusion level represents a fraction of object volume exposed to the
+    // sensor assuming the sensor had a full 360 degree field of view (so ignoring
+    // any truncation of that object).
+    //
+    // The possibly occluding objects might be moving ones (other vehicles, pedestrians
+    // etc) as well as stationary ones (like buildings, trees etc).
+    //
+    // Value in range between 0.0 (not occluded) and 1.0 (fully occluded).
+    //
+    optional double occlusion = 2;
+
+    // \brief Level of truncation for the object.
+    //
+    // The truncation level represents a fraction of object volume remaining
+    // outside of sensor's field of view.  The truncation value is independent of
+    // the occlusion value, so something can be fully occluded but not truncated.
+    //
+    // The value is in range between 0.0 (fully within FOV) and 1.0 (fully truncated).
+    //
+    optional double truncation = 3;
+
+    // \brief Total visible proportion for the object.
+    //
+    // This value combines both truncation and occlusion to provide a indicate how
+    // visible an object is from the view of a particular sensor.
+    //
+    // \note This is not the sum of the occlusion and truncation values as the
+    // two values are independent, so they may overlap, or they may be distinct.
+    //
+    // The value is in the range 0.0 (fully hidden) and 1.0 (fully visible).
+    //
+    optional double visible = 4;
+}
+
+//
 // \brief Definition of the radar sensor view.
 //
 // Radar specific sensor view data.
@@ -191,6 +242,12 @@ message RadarSensorView
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Reflection reflection = 2;
+
+    // Obstruction level for the objects
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Obstruction obstruction = 3;
 
     //
     // \brief Definition of the radar reflection.
@@ -265,6 +322,12 @@ message LidarSensorView
     //
     repeated Reflection reflection = 2;
 
+    // Obstruction level for the objects
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Obstruction obstruction = 3;
+
     //
     // \brief Definition of the lidar reflection.
     //
@@ -331,6 +394,12 @@ message CameraSensorView
     // camera sensor input configuration.
     //
     optional bytes image_data = 2;
+
+    // Obstruction level for the objects
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Obstruction obstruction = 3;
 }
 
 //
