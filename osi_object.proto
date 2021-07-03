@@ -286,52 +286,12 @@ message StationaryObject
             //
             repeated WavelengthData wavelength_data = 1;
 
-            // Original intensities of emitted electromagnetic wave referred to a discrete
-            // wavelength defined in WavelengthData. This maximum value is weighted based
-            // on the emitted spatial intensity. The size of max_intensitiy_per_wavelength has to be
-            // equal to the samples in wavelength_data.
+            // Spatial signal strength distribution of the emitted electromagnetic wave.
+            // For every sample in wavelength_data an emitted_spatial_signal_strength has to be defined.
             //
-            // Unit: W/m^2
+            // \note emitted_spatial_signal_strength.size() = WavelengthData.samples_number.size()
             //
-            // \note max_intensity_per_wavelength.size() = WavelengthData.samples_number.size()
-            //
-            repeated double max_intensity_per_wavelength = 2;
-
-            // Spatial distribution of the emitted electromagnetic wave's intensity based on the intensity_per_wavelength as
-            // maximum value. For every sample in wavelength_data an emitted_spatial_intensity has to be defined.
-            //
-            // \note emitted_spatial_intensity.size() = WavelengthData.samples_number.size()
-            //
-            repeated SpatialIntensity emitted_spatial_intensity = 3;
-
-            //
-            // \brief Definition of a spatial intensity distribution with a horizontal and a vertical angle
-            // and the corresponding intensity related to a maximum intensity.
-            //
-            message SpatialIntensity
-            {
-                // Horizontal deflection (azimuth) of emission in emitting object
-                // coordinate system.
-                //
-                // Unit: rad
-                //
-                optional double horizontal_angle = 1;
-
-                // Vertical deflection (elevation) of emission in emitting object
-                // coordinate system.
-                //
-                // Unit: rad
-                //
-                optional double vertical_angle = 2;
-
-                // Emitted intensity of emitting object at the previously defined horizontal_angle and
-                // vertical angle for one specific wavelength. The value corresponds to the intensity
-                // defined in max_intensity_per_wavelength.
-                //
-                // Unit: %
-                //
-                optional double relative_intensity = 3;
-            }
+            repeated SpatialSignalStrength emitted_spatial_signal_strength = 3;
         }
     }
 }
