@@ -1,12 +1,13 @@
 = Open simulation interface
-:revnumber: v.v.v 
+:revnumber: v.v.v
 :revdate: dd.mm.yyyy
-:toc: left 
+:toc: left
 :toclevels: 2
 :sectnums:
 
 :topicdir: topics
 :reusedir: reuse
+:imagedir: images
 
 // header & footer for html
 // html themes
@@ -14,11 +15,11 @@
 // source highlighting
 :source-highlighter: rouge
 :rouge-style: base16.solarized.light
-// 
+//
 // :nofooter:
 :last-update-label!:
 //embed images into html
-:data-uri: 
+:data-uri:
 :mathematical-format: svg
 :imagesoutdir: ../images/generated_images
 
@@ -58,9 +59,9 @@ include::./architecture/vehicle_dynamics.adoc[leveloffset=+3]
 
 === Coordinate systems and reference points
 
-include::./architecture/coordinate_systems.adoc[leveloffset=+3]
+include::./architecture/reference_points_coordinate_systems.adoc[leveloffset=+3]
 
-include::./architecture/reference_points.adoc[leveloffset=+3]
+include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+3]
 
 //=== Layering
 
