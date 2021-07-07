@@ -9,7 +9,7 @@ OSI uses DIN ISO 8855:2013-11 for coordinate systems and transformations between
 
 ``GroundTruth::moving_object::base::position``::
 Defines the position of the vehicle’s reference point in world coordinates.
-In Open Simulation Interface, the coordinates of an object refer to the position of the center of the object's bounding box.
+In Open Simulation Interface, the position of an object is defined by the coordinates of the center of the object's bounding box.
 
 ``GroundTruth::moving_object::base::orientation``::
 Defines the orientation of the vehicle’s reference point in world coordinates.
