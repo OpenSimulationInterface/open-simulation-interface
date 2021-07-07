@@ -11,7 +11,8 @@ image::osi-context.png[1100]
 
 
 OSI also defines interfaces for traffic participant models.
-These interfaces allow to send commands to traffic participant models and to receive their updated state.
+The ``TrafficCommand`` interface allows to send commands to traffic participant models.
+The ``TrafficUpdate`` interface allows to receive their updated state.
 The following figure shows the interfaces of a generic traffic participant.
 
 .Interface of a traffic participant
@@ -23,7 +24,8 @@ The following figure shows a more advanced use case for traffic participants.
 .Traffic participant with sensor models, AD function, and dynamic model
 image::osi-traffic-participant-advanced.png[1100]
 
-OSI currently provides only limited support for data structures describing measured internal states of the traffic participant.
+The ``HostVehicleData`` interface describes the measured internal states of a traffic participant
+OSI currently provides only limited support for data structures describing measured internal states traffic participants.
 Actuator intentions are currently not covered by OSI and must be handled with a different data description format.
 
 All fields in an interface are set to `optional`.
