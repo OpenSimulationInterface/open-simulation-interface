@@ -187,40 +187,26 @@ message Obstruction
     //
     optional Identifier ground_truth_id = 1;
 
-    // Level of occlusion for the object.
-    //
-    // The occlusion level represents a fraction of object volume exposed to the
-    // sensor assuming the sensor had a full 360 degree field of view (so ignoring
-    // any truncation of that object).
-    //
-    // The possibly occluding objects might be moving ones (other vehicles, pedestrians
-    // etc) as well as stationary ones (like buildings, trees etc).
-    //
-    // Value in range between 0.0 (not occluded) and 1.0 (fully occluded).
-    //
-    optional double occlusion = 2;
-
-    // Level of truncation for the object.
-    //
-    // The truncation level represents a fraction of object volume remaining
-    // outside of sensor's field of view.  The truncation value is independent of
-    // the occlusion value, so something can be fully occluded but not truncated.
-    //
-    // The value is in range between 0.0 (fully within FOV) and 1.0 (fully truncated).
-    //
-    optional double truncation = 3;
-
     // Total visible proportion for the object.
     //
-    // This value combines both truncation and occlusion to provide a indicate how
-    // visible an object is from the view of a particular sensor.
+    // This value considers various factors that would stop an object from being
+    // visible from the point of view of this sensor.  It should include
+    // truncation (outside of the field of view of the sensor), distance (beyond
+    // the range of the sensor), and occlusion (how hidden is the object by
+    // other objects in the scene).
     //
-    // \note This is not the sum of the occlusion and truncation values as the
-    // two values are independent, so they may overlap, or they may be distinct.
+    // Occlusion can be caused by both static objects (trees, buildings, etc.)
+    // and dynamic objects (cars, pedestrians, etc.).  By convention
+    // semi-transparent surfaces (e.g. car windows) are considered opaque.
+    //
+    // \note The object is considered to be the 2D cross-section of the object
+    // as visible from the sensor.
     //
     // The value is in the range 0.0 (fully hidden) and 1.0 (fully visible).
     //
-    optional double visible = 4;
+    // \image html OSI_Obstruction_visibility.svg "Obstruction visibility"
+    //
+    optional double visibility = 2;
 }
 
 //
