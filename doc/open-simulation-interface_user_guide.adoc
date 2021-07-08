@@ -1,27 +1,22 @@
-= Open simulation interface
-:revnumber: v.v.v
-:revdate: dd.mm.yyyy
-:toc: left
-:toclevels: 2
-:sectnums:
+ifndef::THIS_STANDARD[] 
+
+:asciidoc-resources: ../asciidoc-resources
+include::{asciidoc-resources}/preamble.adoc[]
+
+:revnumber: --localbuild--
+:revdate: {docdate}
 
 :topicdir: topics
 :reusedir: reuse
-:imagedir: images
 
-// header & footer for html
-// html themes
-//
-// source highlighting
-:source-highlighter: rouge
-:rouge-style: base16.solarized.light
-//
-// :nofooter:
-:last-update-label!:
-//embed images into html
-:data-uri:
-:mathematical-format: svg
-:imagesoutdir: ../images/generated_images
+:imagesdir: .
+:images_open_simulation_interface: ./images
+
+
+endif::[]
+
+= Open Simulation Interface
+
 
 include::./misc/osi_vision.adoc[leveloffset=+1]
 

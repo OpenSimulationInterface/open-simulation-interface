@@ -15,13 +15,13 @@ Therefore, the ego vehicle is also a traffic participant.
 The following figure shows the interface of a traffic participant.
 
 .Interface of a traffic participant
-image::osi-traffic-participant-principle.png[1100]
+image::{images_open_simulation_interface}/osi-traffic-participant-principle.png[1100]
 
 Traffic participant models may use other OSI interfaces internally, for example, to model autonomous vehicles.
 The following figure shows a more advanced use case for traffic participants.
 
 .Traffic participant using other OSI interfaces internally
-image::osi-traffic-participant-advanced.png.png[1100]
+image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1100]
 
 With every simulation step, an OSI traffic participant model receives ground truth data from the environment around itself, the sensor view.
 A traffic participant can output its own perceivable state, the traffic update.
