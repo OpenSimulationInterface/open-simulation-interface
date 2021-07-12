@@ -224,6 +224,13 @@ message SensorViewConfiguration
     //
     repeated UltrasonicSensorViewConfiguration
         ultrasonic_sensor_view_configuration = 1004;
+
+    // Microphone-specific Sensor View Configuration(s).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated MicrophoneViewConfiguration
+        microphone_sensor_view_configuration = 1005;
 }
 
 //
@@ -916,5 +923,76 @@ message UltrasonicSensorViewConfiguration
     optional double field_of_view_vertical = 5;
 
     // TBD: Ultrasonic Sensor specific configuration.
+    //
+}
+
+//
+// \brief The configuration settings for the Microphone Sensor View to be
+// provided by the environment simulation.
+//
+message MicrophoneSensorViewConfiguration
+{
+    // The ID of the sensor at host vehicle's mounting_position.
+    //
+    // This is the ID of the physical sensor, to be used in its detected
+    // features output; it is distinct from the ID of its virtual sensor.
+    //
+    // The ID is to be provided by the environment simulation, the sensor
+    // model is not in a position to provide a useful default value.
+    //
+    optional Identifier sensor_id = 1;
+
+    // The physical mounting position of the sensor (origin and orientation
+    // of the sensor coordinate system) given in vehicle coordinates [1].
+    // The physical position pertains to this detector individually, and
+    // governs the sensor-relative coordinates in features detected by this
+    // detector.
+    //
+    // \arg \b x-direction of sensor coordinate system: sensor viewing direction
+    // \arg \b z-direction of sensor coordinate system: sensor (up)
+    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
+    // right hand system
+    //
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    //
+    // \note The origin of vehicle's coordinate system in world frame is
+    // ( \c MovingObject::base . \c BaseMoving::position +
+    // Inverse_Rotation_yaw_pitch_roll( \c MovingObject::base . \c
+    // BaseMoving::orientation) * \c
+    // MovingObject::VehicleAttributes::bbcenter_to_rear) . The orientation of
+    // the vehicle's coordinate system is equal to the orientation of the
+    // vehicle's bounding box \c MovingObject::base . \c
+    // BaseMoving::orientation. \note A default position can be provided by the
+    // sensor model (e.g. to indicate the position the model was validated for),
+    // but this is optional; the environment simulation must provide a valid
+    // mounting position (based on the vehicle configuration) when setting the
+    // view configuration.
+    //
+    optional MountingPosition mounting_position = 2;
+
+    // The root mean squared error of the mounting position.
+    //
+    optional MountingPosition mounting_position_rmse = 3;
+
+    // Field of View in horizontal orientation of the physical sensor.
+    //
+    // Viewing range: [- \c #field_of_view_horizontal/2,  \c
+    // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
+    // Spherical3d.
+    //
+    // Unit: rad
+    optional double field_of_view_horizontal = 4;
+
+    // Field of View in vertical orientation of the physical sensor.
+    //
+    // Viewing range: [- \c #field_of_view_vertical/2,  \c
+    // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
+    // as defined in \c Spherical3d.
+    //
+    // Unit: rad
+    optional double field_of_view_vertical = 5;
+
+    // TBD: Microphone Sensor specific configuration.
     //
 }

@@ -349,3 +349,15 @@ message UltrasonicSensorView
     //
     optional UltrasonicSensorViewConfiguration view_configuration = 1;
 }
+
+//
+// \brief Definition of the microphone sensor view.
+//
+// Ultrasonic specific sensor view data.
+//
+message MicrophoneSensorView
+{
+    // Microphone view configuration valid at the time the data was created.
+    //
+    optional MicrophoneSensorViewConfiguration view_configuration = 1;
+}
