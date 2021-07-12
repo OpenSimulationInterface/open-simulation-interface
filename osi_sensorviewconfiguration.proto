@@ -229,7 +229,7 @@ message SensorViewConfiguration
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated MicrophoneViewConfiguration
+    repeated MicrophoneSensorViewConfiguration
         microphone_sensor_view_configuration = 1005;
 }
 
