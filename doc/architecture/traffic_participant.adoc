@@ -23,7 +23,7 @@ The following figure shows a more advanced use case for traffic participants.
 .Traffic participant using other OSI interfaces internally
 image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1100]
 
-With every simulation step, an OSI traffic participant model receives ground truth data from the environment around itself, the sensor view.
+With every simulation step, an OSI traffic participant model receives ground-truth data from the environment around itself, the sensor view.
 A traffic participant can output its own perceivable state, the traffic update.
 Traffic commands influence the behavior of the traffic participant model.
 They allow event-based communication towards the traffic participant, that is, at certain simulation steps.
