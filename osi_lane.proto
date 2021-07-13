@@ -50,6 +50,30 @@ message Lane
     //
     optional Classification classification = 2;
 
+    // Optional external reference to the lane source.
+    //
+    // The external reference points to the source of the lane, if it is derived
+    // from one or more objects or external references.
+    //
+    // For example, to reference a lane defined in an OpenDRIVE map
+    // the items should be set as follows:
+    // * reference = URI to map, can remain empty if identical with definiton
+    //               in \c GroundTruth::map_reference
+    // * type = "net.asam.opendrive"
+    // * identifier[0] = id of t_road
+    // * identifier[1] = s of t_road_lanes_laneSection
+    // * identifier[2] = id of t_road_lanes_laneSection_left_lane,
+    //                         t_road_lanes_laneSection_right_lane
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated, because one lane segment may be
+    //       derived from more than one origin segment. Multiple sources
+    //       may be added as reference as well, for example, a map and sensors.
+    //
+    repeated ExternalReference source_reference = 3;
+
     //
     // \brief \c Classification of a lane.
     //
@@ -724,6 +748,20 @@ message LaneBoundary
     // The classification of the lane boundary.
     //
     optional Classification classification = 3;
+    
+    // Optional external reference to the lane boundary source.
+    //
+    // \note For OpenDRIVE, there is no direct possibility to reference the
+    //       RoadMark, as there is no unique identifier in this sub-object.
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
+    //
+    repeated ExternalReference source_reference = 4;
 
     //
     // \brief A single point of a lane boundary.
@@ -993,6 +1031,10 @@ message LaneBoundary
             // Marking with violet color.
             //
             COLOR_VIOLET = 8;
+
+            // Marking with orange color.
+            //
+            COLOR_ORANGE = 9;
         }
     }
 }

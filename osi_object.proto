@@ -40,6 +40,41 @@ message StationaryObject
     //
     optional string model_reference = 4;
 
+    // External reference to the stationary-object source.
+    //
+    // The external reference points to the source of a stationary object, if it
+    // is derived from an external sources like OpenDRIVE or OpenSCENARIO.
+    //
+    // For example, to reference an object defined in an OpenDRIVE map
+    // the items should be set as follows:
+    // * reference = URI to map, can remain empty if identical with definiton
+    //               in \c GroundTruth::map_reference
+    // * type = "net.asam.opendrive"
+    // * identifier[0] = "object" for t_road_objects_object and
+    //                   "bridge" for t_road_objects_bridge
+    // * identifier[1] = id of t_road_objects_object or t_road_objects_bridge
+    //
+    // For example, to reference OpenSCENARIO entities of the type MiscObject,
+    // which describe partly stationary objects, the items should be set as 
+    // follows:
+    // * reference = URI to the OpenSCENARIO File
+    // * type = "net.asam.openscenario"
+    // * identifier[0] = Entity-Type ("MiscObject")
+    // * identifier[1] = name of MiscObject in Entity
+    //
+    // \note The following rule, described in OpenDRIVE, also applies:
+    // * Objects derived from OpenSCENARIO shall not be mixed with objects
+    //   described in OpenDRIVE.
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
+    //
+    repeated ExternalReference source_reference = 5;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -135,9 +170,13 @@ message StationaryObject
             TYPE_REFLECTIVE_STRUCTURE = 15;
 
             // Landmarks corresponding to construction site elements in the
-            // environment, like cones or beacons.
+            // environment, like beacons.
             //
             TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
+
+            // Object is a speed bump.
+            //
+            TYPE_SPEED_BUMP = 17;
         }
 
         // Definition of material types.
@@ -292,6 +331,8 @@ message MovingObject
     // The base parameters of the vehicle.
     //
     // \note The bounding box does NOT include side mirrors for vehicles.
+    // \note The height includes the ground_clearance. It always goes from the
+    // top to the ground.
     //
     optional BaseMoving base = 2;
 
@@ -305,6 +346,9 @@ message MovingObject
     // one lane into another following lane.
     //
     // \note OSI uses singular instead of plural for repeated field names.
+    //
+    // \note DEPRECATED: Use assigned_lane_id in MovingObjectClassification
+    // instead.
     //
     repeated Identifier assigned_lane_id = 4;
 
@@ -349,6 +393,34 @@ message MovingObject
     // system.
     //
     repeated StatePoint future_trajectory = 8;
+
+    // Specific information about the classification of the vehicle.
+    //
+    optional MovingObjectClassification moving_object_classification = 9;    
+
+    // Optional external reference to the moving-object source
+    //
+    // The external reference points to the source of an moving object, if it
+    // is derived from an external sources like OpenSCENARIO.
+    //
+    // For example, to reference OpenSCENARIO entities of the type Vehicle or
+    // Pedestrian, which describe moving objects, the items should be set as
+    // follows:
+    // * reference = URI to the OpenSCENARIO File
+    // * type = "net.asam.openscenario"
+    // * identifier[0] = Entity-Type ("Vehicle" or "Pedestrian")
+    // * identifier[1] = name of Vehicle/Pedestrian in Entity
+    //
+    // \todo OpenSCENARIO currently does not provide an animal type.
+    // 
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
+    //
+    repeated ExternalReference source_reference = 10;
 
     // Definition of object types.
     //
@@ -442,11 +514,12 @@ message MovingObject
         //
         optional Vector3d bbcenter_to_front = 5;
 
-        // Static minimal distance in m of under-body plane to ground
-        // surface plane (i.e. disregarding driving dynamic effects or road
-        // surface effects) under neutral load conditions. Can be useful to
-        // approximate the clear area under a vehicle that a sensor can see
-        // through.
+        // Static minimal distance or space from the lowest point of the vehicle's 
+        // body to the surface plane below it under neutral load conditions. This
+        // distance disregards, for example, driving-dynamic effects or 
+        // road-surface effects. Can be useful to approximate the clearance area
+        // under a vehicle that a sensor can see through.
+        // \note \c ground_clearance is included in the bounding box height.
         //
         optional double ground_clearance = 6;
 
@@ -455,6 +528,15 @@ message MovingObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated WheelData wheel_data = 7;
+
+        // Angle of the steering wheel. 
+        // Zero means the steering wheel is in its center postion, a positive value
+        // means the steering wheel is turned to the left and a negative value
+        // means the steering wheel is turned to the right of the center position.
+        //
+        // Unit: rad
+        //
+        optional double steering_wheel_angle = 8;
 
         // \brief Detailed wheel data.
         // The focus is on the description of a wheel regarding the perceivable 
@@ -529,6 +611,31 @@ message MovingObject
             //
             optional string model_reference = 9;
         }
+    }
+
+    //
+    // \brief Information for the classification of moving objects regarding
+    // \c MovingObject (host or other).
+    //
+    message MovingObjectClassification
+    {
+        // The IDs of the lanes that this object is assigned to.
+        //
+        // \note Might be multiple if the object is switching lanes or moving from
+        // one lane into another following lane.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 1;
+
+        // Percentage value of the object width in the corresponding lane.
+        //
+        // \note Might be multiple if the object is switching lanes or moving from
+        // one lane into another following lane.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated double assigned_lane_percentage = 2;        
     }
 
     //
