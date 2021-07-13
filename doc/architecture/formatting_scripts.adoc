@@ -34,7 +34,7 @@ This script takes the following parameters:
 String containing the path to the file with serialized data.
 
 `--type`, `-t`::
-Optional string containing the name of the type used to serialize data.
+Optional string describing the message type used to serialize data.
 Allowed values are `'SensorView'`, `'GroundTruth'`, or `'SensorData'`.
 The default value is `'SensorView'`.
 
