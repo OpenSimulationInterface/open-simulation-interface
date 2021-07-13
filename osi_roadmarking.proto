@@ -100,6 +100,12 @@ message RoadMarking
         // \note Field need not be set (or set to \c #TYPE_OTHER)
         // if road marking type (\c #type) does not require it.
         //
+        // \attention Deprecated: A revision is planned for version 4.0.0 to
+        // replace the type enum with a more semantically defined enumeration,
+        // with the exact sign specification being relegated to the newly
+        // introduced 4-tupel traffic sign catalog specification as used in
+        // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+        //
         // \rules
         // check_if this.type is_greater_than_or_equal_to 2 else do_check is_set
         // check_if this.type is_less_than_or_equal_to 4 else do_check is_set
@@ -146,7 +152,6 @@ message RoadMarking
         //
         repeated Identifier assigned_lane_id = 6;
 
-
         // Boolean flag to indicate that the road marking is taken out of service.
         // This can be achieved by visibly crossing the road marking with stripes,
         // or completely covering a road marking making it not visible.
@@ -155,35 +160,91 @@ message RoadMarking
         //
         optional bool is_out_of_service = 7;
 
-        // Specifies the country. See ISO 3166-1, alpha-2 codes
-        // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2. <br>
-        // e.g. "DE", "FR", "AT"
+        // Country specification of the traffic sign catalog specification
+        // that identifies the actual traffic sign. This is part of the
+        // 4-tupel traffic sign catalog specification as used in
+        // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+        //
+        // Country is specified using the ISO 3166-1, alpha-2 code
+        // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2, or the
+        // special OpenDRIVE country for generic signs.<br>
+        //
+        // \rules
+        // check_if this.type is_greater_than_or_equal_to 2 else do_check is_set
+        // check_if this.type is_less_than_or_equal_to 4 else do_check is_set
+        // \endrules
         //
         optional string country = 8;
 
-        // The year the traffic rules come into force. <br>
+        // Revision specification of the traffic sign catalog specification
+        // that identifies the actual traffic sign. This is part of the
+        // 4-tupel traffic sign catalog specification as used in
+        // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+        //
+        // The year the traffic rules came into force. <br>
         // e.g. "2017"
+        //
+        // \note Field is set if ( \c #type == \c #TYPE_PAINTED_TRAFFIC_SIGN or
+        // \c #TYPE_SYMBOLIC_TRAFFIC_SIGN or \c #TYPE_TEXTUAL_TRAFFIC_SIGN ).
+        //
+        // \note Field need not be set (or set to \c #TYPE_OTHER)
+        // if road marking type (\c #type) does not require it.
+        //
+        // \rules
+        // check_if this.type is_greater_than_or_equal_to 2 else do_check is_set
+        // check_if this.type is_less_than_or_equal_to 4 else do_check is_set
+        // \endrules
         //
         optional string country_revision = 9;
 
-        // Code identifier according to country code. <br>
+        // Code specification of the traffic sign catalog specification
+        // that identifies the actual traffic sign. This is part of the
+        // 4-tupel traffic sign catalog specification as used in
+        // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+        //
+        // Code identifier according to country and country revision,
+        // corresponds to the type field of OpenDRIVE. <br>
         // code is only unique in combination with #country and #country_revision.  <br>
         // e.g. http://www.vzkat.de/2017/VzKat.htm
         //
+        // \note Field is set if ( \c #type == \c #TYPE_PAINTED_TRAFFIC_SIGN or
+        // \c #TYPE_SYMBOLIC_TRAFFIC_SIGN or \c #TYPE_TEXTUAL_TRAFFIC_SIGN ).
+        //
+        // \note Field need not be set (or set to \c #TYPE_OTHER)
+        // if road marking type (\c #type) does not require it.
+        //
+        // \rules
+        // check_if this.type is_greater_than_or_equal_to 2 else do_check is_set
+        // check_if this.type is_less_than_or_equal_to 4 else do_check is_set
+        // \endrules
+        //
         optional string code = 10;
 
-        // Subcode identifier according to country code. <br>
-        // sub_code is only unique in combination with #country and #country_revision.  <br>
+        // Sub-code specification of the traffic sign catalog specification
+        // that identifies the actual traffic sign. This is part of the
+        // 4-tupel traffic sign catalog specification as used in
+        // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+        //
+        // Sub-code identifier according to country, country revision and code,
+        // corresponds to the subtype field of OpenDRIVE. <br>
+        // sub_code is only unique in combination with #country, #country_revision,
+        // and #code.  <br>
         // e.g. http://www.vzkat.de/2017/VzKat.htm
+        //
+        // \note Field is set if ( \c #type == \c #TYPE_PAINTED_TRAFFIC_SIGN or
+        // \c #TYPE_SYMBOLIC_TRAFFIC_SIGN or \c #TYPE_TEXTUAL_TRAFFIC_SIGN ).
+        //
+        // \note Field need not be set (or set to \c #TYPE_OTHER)
+        // if road marking type (\c #type) does not require it.
+        //
+        // \rules
+        // check_if this.type is_greater_than_or_equal_to 2 else do_check is_set
+        // check_if this.type is_less_than_or_equal_to 4 else do_check is_set
+        // \endrules
         //
         optional string sub_code = 11;
 
         // Definition of road marking types.
-        //
-        // \attention Deprecated: OpenDRIVE categorization for traffic signs is more generic than OSI enum
-        // (see <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE V1-6-0</a>).<br>
-        // How the Type will be dealt with in future will be discussed in Harmonization OpenX group.<br>
-        // Deprecated status planned for version 4.0.0
         //
         enum Type
         {
