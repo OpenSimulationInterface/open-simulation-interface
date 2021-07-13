@@ -1,5 +1,5 @@
 = Feature data
 
-Feature data contains detected features in the reference frame of a sensor.
-Feature data is generated from ground-truth data.
+Feature-data messages contains detected features in the reference frame of a sensor.
+Feature-data messages are generated from ground-truth messages.
 It serves, for example, as input for sensor models simulating object detection or feature fusion models.
