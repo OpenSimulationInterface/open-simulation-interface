@@ -860,6 +860,43 @@ message CameraSensorViewConfiguration
         // returned.
         //
         CHANNEL_FORMAT_DEPTH_F32_LIN = 26;
+
+        // Optical Flow Single Precision FP Linear.
+        //
+        // Each element gives the optical flow vector as a pair of
+        // two single precision floating point numbers giving the
+        // vector x and y components, and a further UINT32 value
+        // indicating the mode of the flow vector at that point.
+        //
+        // The following mode values are currently defined:
+        //
+        // MODE_PREVIOUS_FROM_CURRENT = 1; 
+        //
+        // the flow is stored in previous frame coordinate system
+        // and refers to the current object point position 
+        //
+        // MODE_CURRENT_FROM_PREVIOUS = 2;
+        //
+        // a valid flow vector can not be evaluated because 
+        // the current observed world point was previously hidden
+        // (in opposite to a valid flow vector MODE_PREVIOUS_FROM_CURRENT)
+        //
+        // MODE_FROM_HIDDEN_OBJECT = 3;
+        //
+        // a valid flow vector can not be evaluated because 
+        // the current observed world point was previously out of sight
+        // or the previously observed world point vanishes out of sight
+        // out of sight: it leaves the image plane
+        //
+        // MODE_OUT_OF_SIGHT = 4;
+        //
+        // a valid flow vector can not be evaluated because 
+        // the previously observed world point is currently behind an object
+        // (in opposite to a valid flow vector MODE_CURRENT_FROM_PREVIOUS)
+        //
+        // MODE_BEHIND_OBJECT = 5;
+        //
+        CHANNEL_FORMAT_OPTICALFLOW_F32F32U32_LIN = 27;
         
     }
     
