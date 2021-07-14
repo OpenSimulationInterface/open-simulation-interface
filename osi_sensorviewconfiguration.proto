@@ -851,6 +851,16 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_RCCB_F32_LIN = 25;
         
+        // Depth Map Single Precision FP Linear.
+        //
+        // Each element gives the sight ray length from the optical
+        // center of the sensor to the first obstacle in meters.
+        // If the value would be infinite, since no actual object is
+        // hit (e.g. only the sky in view), a negative value is
+        // returned.
+        //
+        CHANNEL_FORMAT_DEPTH_F32_LIN = 26;
+        
     }
     
 }
