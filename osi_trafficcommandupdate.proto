@@ -49,7 +49,7 @@ message TrafficCommandUpdate
     // \note If more than one action id is supplied it means that
     // multiple actions are regarded as dismissed.
     //
-    repeated DismissedAction dismissed_action;
+    repeated DismissedAction dismissed_action = 4;
     
     // 
     // \brief Action which a traffic participant dismisses.
@@ -63,12 +63,12 @@ message TrafficCommandUpdate
         // \c TrafficAction::ActionHeader::action_id of a prior sent \c TrafficCommand and must correspond
         // to the same traffic participant.
         //
-        optional Identifier dismissed_action_id = 4;
+        optional Identifier dismissed_action_id = 1;
 
         // Information about the reason of failure.
         // 
         // \note This is just a custom, informal string without a standardized meaning. 
         //
-        optional string failure_reason = 5;
+        optional string failure_reason = 2;
     }
 }
