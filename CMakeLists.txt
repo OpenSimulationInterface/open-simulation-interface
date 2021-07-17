@@ -38,19 +38,18 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 # Offer the user the choice of overriding the installation directories
-set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
-set(INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
+option(OSI_INSTALL_LIB_DIR "Installation directory for libraries" lib)
+option(OSI_INSTALL_INCLUDE_DIR "Installation directory for header files" include)
 
 if(WIN32 AND NOT CYGWIN)
   set(DEF_INSTALL_CMAKE_DIR CMake/${PROJECT_NAME}-${VERSION_MAJOR})
 else()
   set(DEF_INSTALL_CMAKE_DIR lib/cmake/${PROJECT_NAME}-${VERSION_MAJOR})
 endif()
-set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH
-    "Installation directory for CMake files")
+option(OSI_INSTALL_CMAKE_DIR "Installation directory for CMake files" ${DEF_INSTALL_CMAKE_DIR})
 
-set(INSTALL_LIB_DIR ${INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
-set(INSTALL_INCLUDE_DIR ${INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
+set(OSI_INSTALL_LIB_DIR ${OSI_INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
+set(OSI_INSTALL_INCLUDE_DIR ${OSI_INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
 
 configure_file(osi_version.proto.in ${CMAKE_CURRENT_SOURCE_DIR}/osi_version.proto)
 
@@ -137,12 +136,12 @@ target_include_directories(${PROJECT_NAME}_static
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+        $<INSTALL_INTERFACE:${OSI_INSTALL_INCLUDE_DIR}>
 )
 target_link_libraries(${PROJECT_NAME}_static PUBLIC ${PROTOBUF_LIBRARY})
 install(TARGETS ${PROJECT_NAME}_static
         EXPORT ${PROJECT_NAME}_targets
-        ARCHIVE DESTINATION "${INSTALL_LIB_DIR}" COMPONENT lib)
+        ARCHIVE DESTINATION "${OSI_INSTALL_LIB_DIR}" COMPONENT lib)
 
 
 add_library(${PROJECT_NAME}_obj OBJECT ${PROTO_SRCS} ${PROTO_HEADERS})
@@ -150,7 +149,7 @@ target_include_directories(${PROJECT_NAME}_obj
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+        $<INSTALL_INTERFACE:${OSI_INSTALL_INCLUDE_DIR}>
 )
 set_property(TARGET ${PROJECT_NAME}_obj PROPERTY POSITION_INDEPENDENT_CODE ON)
 
@@ -161,7 +160,7 @@ target_include_directories(${PROJECT_NAME}_pic
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+        $<INSTALL_INTERFACE:${OSI_INSTALL_INCLUDE_DIR}>
 )
 target_link_libraries(${PROJECT_NAME}_pic PUBLIC ${PROTOBUF_LIBRARY})
 
@@ -169,14 +168,14 @@ set_property(TARGET ${PROJECT_NAME}_pic PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 install(TARGETS ${PROJECT_NAME}_pic
         EXPORT ${PROJECT_NAME}_targets
-        ARCHIVE DESTINATION "${INSTALL_LIB_DIR}" COMPONENT lib)
+        ARCHIVE DESTINATION "${OSI_INSTALL_LIB_DIR}" COMPONENT lib)
 
 add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:${PROJECT_NAME}_obj>)
 target_include_directories(${PROJECT_NAME}
     PUBLIC
         ${PROTOBUF_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-        $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
+        $<INSTALL_INTERFACE:${OSI_INSTALL_INCLUDE_DIR}>
 )
 
 set_property(
@@ -191,7 +190,7 @@ set_property(
 target_link_libraries(${PROJECT_NAME} PUBLIC ${PROTOBUF_LIBRARY})
 install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}_targets
-        DESTINATION "${INSTALL_LIB_DIR}" COMPONENT lib)
+        DESTINATION "${OSI_INSTALL_LIB_DIR}" COMPONENT lib)
 
 # Create the open_simulation_interface.cmake and open_simulation_interface-version files
 
@@ -200,7 +199,7 @@ set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
 configure_file(open_simulation_interface-config.cmake.in
                "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config.cmake" @ONLY)
 # ... for the install tree
-set(CONF_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${INSTALL_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIR})
+set(CONF_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${OSI_INSTALL_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIR})
 configure_file(open_simulation_interface-config.cmake.in
                "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/open_simulation_interface-config.cmake" @ONLY)
 # ... for both
@@ -211,16 +210,16 @@ configure_file(open_simulation_interface-config-version.cmake.in
 install(FILES
         "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/open_simulation_interface-config.cmake"
         "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake"
-        DESTINATION "${INSTALL_CMAKE_DIR}"
+        DESTINATION "${OSI_INSTALL_CMAKE_DIR}"
         COMPONENT dev)
 
 # Header files
 install(FILES ${PROTO_HEADERS} ${FLAT_HEADERS}
-        DESTINATION "${INSTALL_INCLUDE_DIR}")
+        DESTINATION "${OSI_INSTALL_INCLUDE_DIR}")
 
 # Install the export set for use with the install-tree
 install(EXPORT ${PROJECT_NAME}_targets
-        DESTINATION "${INSTALL_CMAKE_DIR}"
+        DESTINATION "${OSI_INSTALL_CMAKE_DIR}"
         COMPONENT dev)
 
 # add a target to generate API documentation with Doxygen
