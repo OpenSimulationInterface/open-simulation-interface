@@ -38,15 +38,15 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 # Offer the user the choice of overriding the installation directories
-option(OSI_INSTALL_LIB_DIR "Installation directory for libraries" lib)
-option(OSI_INSTALL_INCLUDE_DIR "Installation directory for header files" include)
+set(OSI_INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
+set(OSI_INSTALL_INCLUDE_DIR include CACHE PATH "Installation directory for header files")
 
 if(WIN32 AND NOT CYGWIN)
   set(DEF_INSTALL_CMAKE_DIR CMake/${PROJECT_NAME}-${VERSION_MAJOR})
 else()
   set(DEF_INSTALL_CMAKE_DIR lib/cmake/${PROJECT_NAME}-${VERSION_MAJOR})
 endif()
-option(OSI_INSTALL_CMAKE_DIR "Installation directory for CMake files" ${DEF_INSTALL_CMAKE_DIR})
+set(OSI_INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH "Installation directory for CMake files")
 
 set(OSI_INSTALL_LIB_DIR ${OSI_INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
 set(OSI_INSTALL_INCLUDE_DIR ${OSI_INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
@@ -195,26 +195,41 @@ install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}_targets
         DESTINATION "${OSI_INSTALL_LIB_DIR}" COMPONENT lib)
 
-# Create the open_simulation_interface.cmake and open_simulation_interface-version files
+# Copy proto headers to where they are expected by the package config file
+add_custom_command(
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory
+    ${CMAKE_CURRENT_BINARY_DIR}/${OSI_INSTALL_INCLUDE_DIR}
+    COMMAND ${CMAKE_COMMAND} -E copy
+    ${PROTO_HEADERS}
+    ${CMAKE_CURRENT_BINARY_DIR}/${OSI_INSTALL_INCLUDE_DIR})
 
-# ... for the build tree
-set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
-configure_file(open_simulation_interface-config.cmake.in
-               "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config.cmake" @ONLY)
-# ... for the install tree
-set(CONF_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${OSI_INSTALL_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIR})
-configure_file(open_simulation_interface-config.cmake.in
-               "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/open_simulation_interface-config.cmake" @ONLY)
-# ... for both
-configure_file(open_simulation_interface-config-version.cmake.in
-               "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake" @ONLY)
+# Create the package config files
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/open_simulation_interface-config-version.cmake"
+    VERSION ${OPEN_SIMULATION_INTERFACE_VERSION}
+    COMPATIBILITY SameMajorVersion
+)
+
+export(EXPORT ${PROJECT_NAME}_targets
+    FILE "${CMAKE_CURRENT_BINARY_DIR}/open_simulation_interface-targets.cmake"
+    NAMESPACE ${PROJECT_NAME}::
+)
+
+configure_package_config_file(open_simulation_interface-config.cmake.in
+    "${CMAKE_CURRENT_BINARY_DIR}/open_simulation_interface-config.cmake"
+    INSTALL_DESTINATION ${OSI_INSTALL_CMAKE_DIR}
+    PATH_VARS OSI_INSTALL_INCLUDE_DIR
+    NO_CHECK_REQUIRED_COMPONENTS_MACRO
+)
 
 # Install the *cmake files
 install(FILES
-        "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/open_simulation_interface-config.cmake"
-        "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake"
-        DESTINATION "${OSI_INSTALL_CMAKE_DIR}"
-        COMPONENT dev)
+    "${CMAKE_CURRENT_BINARY_DIR}/open_simulation_interface-config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/open_simulation_interface-config-version.cmake"
+    DESTINATION "${OSI_INSTALL_CMAKE_DIR}"
+    COMPONENT dev)
 
 # Header files
 install(FILES ${PROTO_HEADERS} ${FLAT_HEADERS}
@@ -222,8 +237,10 @@ install(FILES ${PROTO_HEADERS} ${FLAT_HEADERS}
 
 # Install the export set for use with the install-tree
 install(EXPORT ${PROJECT_NAME}_targets
-        DESTINATION "${OSI_INSTALL_CMAKE_DIR}"
-        COMPONENT dev)
+    FILE open_simulation_interface-targets.cmake
+    NAMESPACE ${PROJECT_NAME}::
+    DESTINATION "${OSI_INSTALL_CMAKE_DIR}"
+    COMPONENT dev)
 
 # add a target to generate API documentation with Doxygen
 # Dependencies: Doxygen and proto2cpp.py
