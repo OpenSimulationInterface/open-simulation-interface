@@ -51,13 +51,13 @@ set(OSI_INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH "Installation dire
 set(OSI_INSTALL_LIB_DIR ${OSI_INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
 set(OSI_INSTALL_INCLUDE_DIR ${OSI_INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
 
-configure_file(osi_version.proto.in ${CMAKE_CURRENT_SOURCE_DIR}/osi_version.proto)
+configure_file(osi_version.proto.in osi_version.proto)
 
 find_package(Protobuf 2.6.1 REQUIRED)
 set(PROTOBUF_IMPORT_DIRS ${PROTOBUF_INCLUDE_DIRS})
 
 set(OSI_PROTO_FILES
-    osi_version.proto
+    ${CMAKE_CURRENT_BINARY_DIR}/osi_version.proto
     osi_common.proto
     osi_datarecording.proto
     osi_detectedtrafficsign.proto
