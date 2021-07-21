@@ -105,7 +105,7 @@ Collaboration diagram for osi3::TrafficSign::SupplementarySign::Classification:<
 <map name="osi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_coll__map" id="osi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_coll__map">
 <area shape="rect" id="node2" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html" title="An arrow denoting a direction shown on the traffic sign. " alt="" coords="269,13,513,69"/>
 <area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="19,75,134,101"/>
-<area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="311,359,471,385"/>
+<area shape="rect" id="node10" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="311,415,471,441"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -262,6 +262,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3e1ffc78063cd690ec681b6ad343c62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23ba408f133181235f9f5069afd9e00a"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a23ba408f133181235f9f5069afd9e00a">is_out_of_service</a> = 7</td></tr>
 <tr class="separator:a23ba408f133181235f9f5069afd9e00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd025de2647abbd860c3ce79716b5b24"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#abd025de2647abbd860c3ce79716b5b24">country</a> = 8</td></tr>
+<tr class="separator:abd025de2647abbd860c3ce79716b5b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb057ce06a75a691aef7d8aaabe9af4e"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#adb057ce06a75a691aef7d8aaabe9af4e">country_revision</a> = 9</td></tr>
+<tr class="separator:adb057ce06a75a691aef7d8aaabe9af4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f23bec0dc18491912698b8f1011a4b"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a49f23bec0dc18491912698b8f1011a4b">code</a> = 10</td></tr>
+<tr class="separator:a49f23bec0dc18491912698b8f1011a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9640ed4c4445a9618bca9c90f99f3976"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a9640ed4c4445a9618bca9c90f99f3976">sub_code</a> = 11</td></tr>
+<tr class="separator:a9640ed4c4445a9618bca9c90f99f3976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html" title="Classification data for a supplementary traffic sign. ">Classification</a></code> data for a supplementary traffic sign. </p>
@@ -399,7 +407,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Definition of supplementary sign types.</p>
-<p>For general supplementary signs use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a13429e49d5539ed165b4bd2097068778">TYPE_TEXT</a></code>. Supplementary signs with general space restrictions use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a5c9a1973fb25d6dca4e673510304ae01">TYPE_SPACE</a></code>. Supplementary signs with general time restrictions use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a90413a69fe4b782ffb478ea23738404d">TYPE_TIME</a></code>. Supplementary signs with displayed arrow directions use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a8275d60ab86cce3c0a3d6636cf6bde90">TYPE_ARROW</a></code>. Supplementary signs constraint to one type of actors use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a956fa021718a16d57dc8788a5293b5cb">TYPE_CONSTRAINED_TO</a></code>. Supplementary signs that will exclude one type of actors use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85acde5436800aeb71db86a8970ce626ba4">TYPE_EXCEPT</a></code>. If supplementary signs combine contraints, restrictions, or plain text, <code>Type</code> is used in descending order in the following sequence: <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85acde5436800aeb71db86a8970ce626ba4">TYPE_EXCEPT</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a956fa021718a16d57dc8788a5293b5cb">TYPE_CONSTRAINED_TO</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a8275d60ab86cce3c0a3d6636cf6bde90">TYPE_ARROW</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a90413a69fe4b782ffb478ea23738404d">TYPE_TIME</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a5c9a1973fb25d6dca4e673510304ae01">TYPE_SPACE</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a13429e49d5539ed165b4bd2097068778">TYPE_TEXT</a></code>. </p>
+<p>For general supplementary signs use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a13429e49d5539ed165b4bd2097068778">TYPE_TEXT</a></code>. Supplementary signs with general space restrictions use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a5c9a1973fb25d6dca4e673510304ae01">TYPE_SPACE</a></code>. Supplementary signs with general time restrictions use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a90413a69fe4b782ffb478ea23738404d">TYPE_TIME</a></code>. Supplementary signs with displayed arrow directions use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a8275d60ab86cce3c0a3d6636cf6bde90">TYPE_ARROW</a></code>. Supplementary signs constraint to one type of actors use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a956fa021718a16d57dc8788a5293b5cb">TYPE_CONSTRAINED_TO</a></code>. Supplementary signs that will exclude one type of actors use <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85acde5436800aeb71db86a8970ce626ba4">TYPE_EXCEPT</a></code>. If supplementary signs combine contraints, restrictions, or plain text, <code>Type</code> is used in descending order in the following sequence: <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85acde5436800aeb71db86a8970ce626ba4">TYPE_EXCEPT</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a956fa021718a16d57dc8788a5293b5cb">TYPE_CONSTRAINED_TO</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a8275d60ab86cce3c0a3d6636cf6bde90">TYPE_ARROW</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a90413a69fe4b782ffb478ea23738404d">TYPE_TIME</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a5c9a1973fb25d6dca4e673510304ae01">TYPE_SPACE</a></code>, <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a13429e49d5539ed165b4bd2097068778">TYPE_TEXT</a></code>.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5dbeb6ad7e5a0f46cc4fca34e8260b85adec51bea1772c14f6a91ad44610de339"></a>TYPE_UNKNOWN&#160;</td><td class="fielddoc"><p>Type of supplementary sign is unknown (must not be used in ground truth). </p>
 </td></tr>
@@ -1747,7 +1756,8 @@ StVO 1060-33</div></div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This enumerator indicates a traffic actor (e.g. bikes, cars, trucks and so on), that the supplementary sign makes reference to. </p>
+<p>This enumerator indicates a traffic actor (e.g. bikes, cars, trucks and so on), that the supplementary sign makes reference to.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 
 </div>
 </div>
@@ -1762,7 +1772,8 @@ StVO 1060-33</div></div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A direction arrow shown on the supplementary sign. </p>
+<p>A direction arrow shown on the supplementary sign.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 
 </div>
 </div>
@@ -1783,6 +1794,58 @@ StVO 1060-33</div></div>
 
 </div>
 </div>
+<a id="a49f23bec0dc18491912698b8f1011a4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49f23bec0dc18491912698b8f1011a4b">&#9670;&nbsp;</a></span>code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::SupplementarySign::Classification::code = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Code specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Code identifier according to country and country revision, corresponds to the type field of OpenDRIVE. <br />
+ code is only unique in combination with <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#abd025de2647abbd860c3ce79716b5b24">country</a> and <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#adb057ce06a75a691aef7d8aaabe9af4e">country_revision</a>. <br />
+ e.g. <a href="http://www.vzkat.de/2017/VzKat.htm">http://www.vzkat.de/2017/VzKat.htm</a> </p>
+
+</div>
+</div>
+<a id="abd025de2647abbd860c3ce79716b5b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd025de2647abbd860c3ce79716b5b24">&#9670;&nbsp;</a></span>country</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::SupplementarySign::Classification::country = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Country specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Country is specified using the ISO 3166-1, alpha-2 code <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2,">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2,</a> or the special OpenDRIVE country for generic signs.<br />
+ </p>
+
+</div>
+</div>
+<a id="adb057ce06a75a691aef7d8aaabe9af4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb057ce06a75a691aef7d8aaabe9af4e">&#9670;&nbsp;</a></span>country_revision</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::SupplementarySign::Classification::country_revision = 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Revision specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>The year the traffic rules came into force. <br />
+ e.g. "2017" </p>
+
+</div>
+</div>
 <a id="a23ba408f133181235f9f5069afd9e00a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23ba408f133181235f9f5069afd9e00a">&#9670;&nbsp;</a></span>is_out_of_service</h2>
 
@@ -1798,6 +1861,24 @@ StVO 1060-33</div></div>
 
 </div>
 </div>
+<a id="a9640ed4c4445a9618bca9c90f99f3976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9640ed4c4445a9618bca9c90f99f3976">&#9670;&nbsp;</a></span>sub_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::SupplementarySign::Classification::sub_code = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sub-code specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Sub-code identifier according to country, country revision and code, corresponds to the subtype field of OpenDRIVE. <br />
+ sub_code is only unique in combination with <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#abd025de2647abbd860c3ce79716b5b24">country</a>, <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#adb057ce06a75a691aef7d8aaabe9af4e">country_revision</a>, and <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a49f23bec0dc18491912698b8f1011a4b">code</a>. <br />
+ e.g. <a href="http://www.vzkat.de/2017/VzKat.htm">http://www.vzkat.de/2017/VzKat.htm</a> </p>
+
+</div>
+</div>
 <a id="aaca540ea9916a9ea3479f25bf8e2f8f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaca540ea9916a9ea3479f25bf8e2f8f7">&#9670;&nbsp;</a></span>type</h2>
 
@@ -1809,7 +1890,8 @@ StVO 1060-33</div></div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Type of the supplementary sign. </p>
+<p>Type of the supplementary sign.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 
 </div>
 </div>

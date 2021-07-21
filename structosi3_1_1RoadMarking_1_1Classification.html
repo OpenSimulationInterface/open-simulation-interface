@@ -103,7 +103,7 @@ Collaboration diagram for osi3::RoadMarking::Classification:</div>
 <div class="center"><img src="structosi3_1_1RoadMarking_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1RoadMarking_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1RoadMarking_1_1Classification_coll__map" id="osi3_1_1RoadMarking_1_1Classification_coll__map">
 <area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="272,107,387,133"/>
-<area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="249,271,409,297"/>
+<area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="249,329,409,356"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -154,6 +154,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a482fa85b781bebc662550ae8e3213e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7ab5b67d03aaa14c440c5a7125ab186"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#ad7ab5b67d03aaa14c440c5a7125ab186">is_out_of_service</a> = 7</td></tr>
 <tr class="separator:ad7ab5b67d03aaa14c440c5a7125ab186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4171832ae6bbaacb2399c55b040fb49f"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a4171832ae6bbaacb2399c55b040fb49f">country</a> = 8</td></tr>
+<tr class="separator:a4171832ae6bbaacb2399c55b040fb49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a360cf40474ea7013c32f0375e86b1288"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a360cf40474ea7013c32f0375e86b1288">country_revision</a> = 9</td></tr>
+<tr class="separator:a360cf40474ea7013c32f0375e86b1288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b03366b7996d1e48ee16fb627aec824"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a2b03366b7996d1e48ee16fb627aec824">code</a> = 10</td></tr>
+<tr class="separator:a2b03366b7996d1e48ee16fb627aec824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf65b99396648c9737f8d1b248403e40"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#abf65b99396648c9737f8d1b248403e40">sub_code</a> = 11</td></tr>
+<tr class="separator:abf65b99396648c9737f8d1b248403e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html" title="Classification data for a road surface marking. ">Classification</a></code> data for a road surface marking. </p>
@@ -244,6 +252,67 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a2b03366b7996d1e48ee16fb627aec824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b03366b7996d1e48ee16fb627aec824">&#9670;&nbsp;</a></span>code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::RoadMarking::Classification::code = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Code specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Code identifier according to country and country revision, corresponds to the type field of OpenDRIVE. <br />
+ code is only unique in combination with <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a4171832ae6bbaacb2399c55b040fb49f">country</a> and <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a360cf40474ea7013c32f0375e86b1288">country_revision</a>. <br />
+ e.g. <a href="http://www.vzkat.de/2017/VzKat.htm">http://www.vzkat.de/2017/VzKat.htm</a></p>
+<dl class="section note"><dt>Note</dt><dd>Field is set if ( <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4">TYPE_PAINTED_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaf32447c2168fbb5d9baf48f650a80b9d">TYPE_SYMBOLIC_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba4a5a31878399051eefbcd7f7dd58836c">TYPE_TEXTUAL_TRAFFIC_SIGN</a></code> ).</dd>
+<dd>
+Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331">TYPE_OTHER</a></code>) if road marking type (<code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code>) does not require it.</dd></dl>
+<p>check_if this.type is_greater_than_or_equal_to 2 else do_check is_set check_if this.type is_less_than_or_equal_to 4 else do_check is_set  </p>
+
+</div>
+</div>
+<a id="a4171832ae6bbaacb2399c55b040fb49f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4171832ae6bbaacb2399c55b040fb49f">&#9670;&nbsp;</a></span>country</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::RoadMarking::Classification::country = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Country specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Country is specified using the ISO 3166-1, alpha-2 code <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2,">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2,</a> or the special OpenDRIVE country for generic signs.<br />
+</p>
+<p>check_if this.type is_greater_than_or_equal_to 2 else do_check is_set check_if this.type is_less_than_or_equal_to 4 else do_check is_set  </p>
+
+</div>
+</div>
+<a id="a360cf40474ea7013c32f0375e86b1288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a360cf40474ea7013c32f0375e86b1288">&#9670;&nbsp;</a></span>country_revision</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::RoadMarking::Classification::country_revision = 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Revision specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>The year the traffic rules came into force. <br />
+ e.g. "2017"</p>
+<dl class="section note"><dt>Note</dt><dd>Field is set if ( <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4">TYPE_PAINTED_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaf32447c2168fbb5d9baf48f650a80b9d">TYPE_SYMBOLIC_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba4a5a31878399051eefbcd7f7dd58836c">TYPE_TEXTUAL_TRAFFIC_SIGN</a></code> ).</dd>
+<dd>
+Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331">TYPE_OTHER</a></code>) if road marking type (<code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code>) does not require it.</dd></dl>
+<p>check_if this.type is_greater_than_or_equal_to 2 else do_check is_set check_if this.type is_less_than_or_equal_to 4 else do_check is_set  </p>
+
+</div>
+</div>
 <a id="ad7ab5b67d03aaa14c440c5a7125ab186"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7ab5b67d03aaa14c440c5a7125ab186">&#9670;&nbsp;</a></span>is_out_of_service</h2>
 
@@ -255,7 +324,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Boolean flag to indicate that the road marking is taken out of service. This can be achieved by visibly crossing the road marking with stripes, or completly covering a road marking making it not visible.</p>
+<p>Boolean flag to indicate that the road marking is taken out of service. This can be achieved by visibly crossing the road marking with stripes, or completely covering a road marking making it not visible.</p>
 <div class="image">
 <img src="OSI_RoadMaking_is_out_of_service.jpg" alt="OSI_RoadMaking_is_out_of_service.jpg" width="800px"/>
 </div>
@@ -278,6 +347,28 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="abf65b99396648c9737f8d1b248403e40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf65b99396648c9737f8d1b248403e40">&#9670;&nbsp;</a></span>sub_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::RoadMarking::Classification::sub_code = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sub-code specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Sub-code identifier according to country, country revision and code, corresponds to the subtype field of OpenDRIVE. <br />
+ sub_code is only unique in combination with <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a4171832ae6bbaacb2399c55b040fb49f">country</a>, <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a360cf40474ea7013c32f0375e86b1288">country_revision</a>, and <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a2b03366b7996d1e48ee16fb627aec824">code</a>. <br />
+ e.g. <a href="http://www.vzkat.de/2017/VzKat.htm">http://www.vzkat.de/2017/VzKat.htm</a></p>
+<dl class="section note"><dt>Note</dt><dd>Field is set if ( <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4">TYPE_PAINTED_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaf32447c2168fbb5d9baf48f650a80b9d">TYPE_SYMBOLIC_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba4a5a31878399051eefbcd7f7dd58836c">TYPE_TEXTUAL_TRAFFIC_SIGN</a></code> ).</dd>
+<dd>
+Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331">TYPE_OTHER</a></code>) if road marking type (<code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code>) does not require it.</dd></dl>
+<p>check_if this.type is_greater_than_or_equal_to 2 else do_check is_set check_if this.type is_less_than_or_equal_to 4 else do_check is_set  </p>
+
+</div>
+</div>
 <a id="a71de4ec9d93175a6b2b02a7a4326cb98"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71de4ec9d93175a6b2b02a7a4326cb98">&#9670;&nbsp;</a></span>traffic_main_sign_type</h2>
 
@@ -293,6 +384,7 @@ Public Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Field is set if ( <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code> == <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4">TYPE_PAINTED_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaf32447c2168fbb5d9baf48f650a80b9d">TYPE_SYMBOLIC_TRAFFIC_SIGN</a></code> or <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba4a5a31878399051eefbcd7f7dd58836c">TYPE_TEXTUAL_TRAFFIC_SIGN</a></code> ).</dd>
 <dd>
 Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331">TYPE_OTHER</a></code>) if road marking type (<code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">type</a></code>) does not require it.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</dd></dl>
 <p>check_if this.type is_greater_than_or_equal_to 2 else do_check is_set check_if this.type is_less_than_or_equal_to 4 else do_check is_set  </p>
 
 </div>

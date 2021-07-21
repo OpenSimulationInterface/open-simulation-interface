@@ -105,7 +105,11 @@ var structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification =
     [ "actor", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#ae6d89c8343e585f6b2aa50c8cf7b4dd4", null ],
     [ "arrow", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a3e1ffc78063cd690ec681b6ad343c62f", null ],
     [ "assigned_lane_id", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a24b0102d61ea7c2f6c7123e2f366e766", null ],
+    [ "code", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a49f23bec0dc18491912698b8f1011a4b", null ],
+    [ "country", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#abd025de2647abbd860c3ce79716b5b24", null ],
+    [ "country_revision", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#adb057ce06a75a691aef7d8aaabe9af4e", null ],
     [ "is_out_of_service", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a23ba408f133181235f9f5069afd9e00a", null ],
+    [ "sub_code", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a9640ed4c4445a9618bca9c90f99f3976", null ],
     [ "type", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#aaca540ea9916a9ea3479f25bf8e2f8f7", null ],
     [ "value", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#ae1f39b5453ddbc26cc1f737cbdf6793b", null ],
     [ "variability", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#ab42dd2f31cb86e3b256ed449599e0d9e", null ]

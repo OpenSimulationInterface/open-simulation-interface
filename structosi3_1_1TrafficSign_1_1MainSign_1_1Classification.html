@@ -103,7 +103,7 @@ Collaboration diagram for osi3::TrafficSign::MainSign::Classification:</div>
 <div class="center"><img src="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map" id="osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map">
 <area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="281,108,395,135"/>
-<area shape="rect" id="node8" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="258,260,418,287"/>
+<area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="258,316,418,343"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -442,6 +442,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a820236ac745f034214feac26a1cb8f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60f453fde017bb893ddf628a5018e86a"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a60f453fde017bb893ddf628a5018e86a">is_out_of_service</a> = 7</td></tr>
 <tr class="separator:a60f453fde017bb893ddf628a5018e86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc4bdab6899311c6db79e3669b312c58"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#acc4bdab6899311c6db79e3669b312c58">country</a> = 8</td></tr>
+<tr class="separator:acc4bdab6899311c6db79e3669b312c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636fa97efbac96ce7918c80ee0032b41"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a636fa97efbac96ce7918c80ee0032b41">country_revision</a> = 9</td></tr>
+<tr class="separator:a636fa97efbac96ce7918c80ee0032b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77cdfd9370fed7a71ba534d130261501"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a77cdfd9370fed7a71ba534d130261501">code</a> = 10</td></tr>
+<tr class="separator:a77cdfd9370fed7a71ba534d130261501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a1663492cb55490689425039832562"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#ad9a1663492cb55490689425039832562">sub_code</a> = 11</td></tr>
+<tr class="separator:ad9a1663492cb55490689425039832562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html" title="Classification data for a traffic sign. ">Classification</a></code> data for a traffic sign. </p>
@@ -504,8 +512,9 @@ Public Attributes</h2></td></tr>
 <li><a href="https://www.gesetze-im-internet.de/stvo_2013/anlage_2.html">https://www.gesetze-im-internet.de/stvo_2013/anlage_2.html</a> (Vorschriftzeichen) </li>
 <li><a href="https://www.gesetze-im-internet.de/stvo_2013/anlage_3.html">https://www.gesetze-im-internet.de/stvo_2013/anlage_3.html</a> (Richtzeichen) </li>
 <li><a href="https://www.gesetze-im-internet.de/stvo_2013/anlage_4.html">https://www.gesetze-im-internet.de/stvo_2013/anlage_4.html</a> (Verkehrseinrichtungen) </li>
-<li><a href="https://traffic-rules.com/">https://traffic-rules.com/</a> </li>
+<li><a href="https://traffic-rules.com/">https://traffic-rules.com/</a></li>
 </ul>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af4bea9cfaada82922c78d06dff73b88da276de3a609b215107cf55fe012dd53ef"></a>TYPE_UNKNOWN&#160;</td><td class="fielddoc"><p>Type of traffic sign is unknown (must not be used in ground truth). </p>
 </td></tr>
@@ -3221,6 +3230,58 @@ StVO 629</div></div>
 
 </div>
 </div>
+<a id="a77cdfd9370fed7a71ba534d130261501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77cdfd9370fed7a71ba534d130261501">&#9670;&nbsp;</a></span>code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::MainSign::Classification::code = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Code specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Code identifier according to country and country revision, corresponds to the type field of OpenDRIVE. <br />
+ code is only unique in combination with <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#acc4bdab6899311c6db79e3669b312c58">country</a> and <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a636fa97efbac96ce7918c80ee0032b41">country_revision</a>. <br />
+ e.g. <a href="http://www.vzkat.de/2017/VzKat.htm">http://www.vzkat.de/2017/VzKat.htm</a> </p>
+
+</div>
+</div>
+<a id="acc4bdab6899311c6db79e3669b312c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc4bdab6899311c6db79e3669b312c58">&#9670;&nbsp;</a></span>country</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::MainSign::Classification::country = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Country specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Country is specified using the ISO 3166-1, alpha-2 code <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2,">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2,</a> or the special OpenDRIVE country for generic signs.<br />
+ </p>
+
+</div>
+</div>
+<a id="a636fa97efbac96ce7918c80ee0032b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a636fa97efbac96ce7918c80ee0032b41">&#9670;&nbsp;</a></span>country_revision</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::MainSign::Classification::country_revision = 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Revision specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>The year the traffic rules came into force. <br />
+ e.g. "2017" </p>
+
+</div>
+</div>
 <a id="aef21f38caa61148c2417f0c1e62a3872"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef21f38caa61148c2417f0c1e62a3872">&#9670;&nbsp;</a></span>direction_scope</h2>
 
@@ -3234,7 +3295,8 @@ StVO 629</div></div>
 </div><div class="memdoc">
 <p>Some traffic signs have an additional arrow symbol as an additional constraint for their scope (e.g. no parking to the right). The arrow direction is given relative to the sign's 2D image plane, i.e. as a viewer standing right in front of the sign and looking straight towards it would interpret the arrow.</p>
 <p>The definition for left and right is according to the following temporarily constructed right-handed local coordinate system: Set z-axis to match the z-axis of the ground truth coordinate system. Set x-axis to the view normal of the traffic sign's image (<code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#aaa39dda4c96ae6e95648c93ea20020f5">base</a></code> <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">BaseStationary::orientation</a></code> x-axis). Right: direction of the local coordinate system's positive y-axis. Left: opposite direction of the local coordinate system's y-axis i.e. negative y-axis',</p>
-<dl class="section note"><dt>Note</dt><dd>If a traffic sign image is on the ground (there is no definition for right or left). Normally, this is a road marking and not a traffic sign. Actual traffic signs lying on the ground might have been intentionally unmounted and, hence, not be in effect. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If a traffic sign image is on the ground (there is no definition for right or left). Normally, this is a road marking and not a traffic sign. Actual traffic signs lying on the ground might have been intentionally unmounted and, hence, not be in effect.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 
 </div>
 </div>
@@ -3253,6 +3315,24 @@ StVO 629</div></div>
 
 </div>
 </div>
+<a id="ad9a1663492cb55490689425039832562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9a1663492cb55490689425039832562">&#9670;&nbsp;</a></span>sub_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::TrafficSign::MainSign::Classification::sub_code = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sub-code specification of the traffic sign catalog specification that identifies the actual traffic sign. This is part of the 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.</p>
+<p>Sub-code identifier according to country, country revision and code, corresponds to the subtype field of OpenDRIVE. <br />
+ sub_code is only unique in combination with <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#acc4bdab6899311c6db79e3669b312c58">country</a>, <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a636fa97efbac96ce7918c80ee0032b41">country_revision</a>, and <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a77cdfd9370fed7a71ba534d130261501">code</a>. <br />
+ e.g. <a href="http://www.vzkat.de/2017/VzKat.htm">http://www.vzkat.de/2017/VzKat.htm</a> </p>
+
+</div>
+</div>
 <a id="a428061f28509c9707b380f8f90be4bf0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a428061f28509c9707b380f8f90be4bf0">&#9670;&nbsp;</a></span>type</h2>
 
@@ -3264,7 +3344,8 @@ StVO 629</div></div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The type of the traffic sign. </p>
+<p>The type of the traffic sign.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 
 </div>
 </div>
@@ -3310,7 +3391,8 @@ StVO 629</div></div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Some traffic signs exist in two variants that have a similar semantic meaning but differ in that the symbol of the one corresponds to the specular reflection of the other with respect to the vertical axis. For some scenarios it might be relevant to choose the reflected version of a reference sign. This can be done by setting the <code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a820236ac745f034214feac26a1cb8f9d">vertically_mirrored</a></code> boolean to <code>true</code>. As for every boolean in the protocol buffers language, the default value of <code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a820236ac745f034214feac26a1cb8f9d">vertically_mirrored</a></code> is <code>false</code>. </p>
+<p>Some traffic signs exist in two variants that have a similar semantic meaning but differ in that the symbol of the one corresponds to the specular reflection of the other with respect to the vertical axis. For some scenarios it might be relevant to choose the reflected version of a reference sign. This can be done by setting the <code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a820236ac745f034214feac26a1cb8f9d">vertically_mirrored</a></code> boolean to <code>true</code>. As for every boolean in the protocol buffers language, the default value of <code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a820236ac745f034214feac26a1cb8f9d">vertically_mirrored</a></code> is <code>false</code>.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Deprecated: A revision is planned for version 4.0.0 to replace the type enum with a more semantically defined enumeration, with the exact sign specification being relegated to the newly introduced 4-tupel traffic sign catalog specification as used in <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>. </dd></dl>
 
 </div>
 </div>

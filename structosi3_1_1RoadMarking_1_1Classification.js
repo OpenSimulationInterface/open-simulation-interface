@@ -22,8 +22,12 @@ var structosi3_1_1RoadMarking_1_1Classification =
       [ "TYPE_GENERIC_TEXT", "structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbab6918d84634cb10b458042a5bcf90788", null ]
     ] ],
     [ "assigned_lane_id", "structosi3_1_1RoadMarking_1_1Classification.html#a482fa85b781bebc662550ae8e3213e30", null ],
+    [ "code", "structosi3_1_1RoadMarking_1_1Classification.html#a2b03366b7996d1e48ee16fb627aec824", null ],
+    [ "country", "structosi3_1_1RoadMarking_1_1Classification.html#a4171832ae6bbaacb2399c55b040fb49f", null ],
+    [ "country_revision", "structosi3_1_1RoadMarking_1_1Classification.html#a360cf40474ea7013c32f0375e86b1288", null ],
     [ "is_out_of_service", "structosi3_1_1RoadMarking_1_1Classification.html#ad7ab5b67d03aaa14c440c5a7125ab186", null ],
     [ "monochrome_color", "structosi3_1_1RoadMarking_1_1Classification.html#aa0997fbbe7cd0afaeaf2c3b2079cfca9", null ],
+    [ "sub_code", "structosi3_1_1RoadMarking_1_1Classification.html#abf65b99396648c9737f8d1b248403e40", null ],
     [ "traffic_main_sign_type", "structosi3_1_1RoadMarking_1_1Classification.html#a71de4ec9d93175a6b2b02a7a4326cb98", null ],
     [ "type", "structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e", null ],
     [ "value", "structosi3_1_1RoadMarking_1_1Classification.html#a43378b96a36ae45b3e692bd0fcb6ff22", null ],
