@@ -65,7 +65,7 @@ message HostVehicleData
 
     // Interface regarding the localization.
     //
-    optional VehiclePositionAndKinematics vehicle_position_and_kinematics = 7;
+    optional VehicleLocalization vehicle_localization = 7;
 
     //
     // \brief The absolute base parameters of the vehicle. 
@@ -218,65 +218,26 @@ message HostVehicleData
     // \brief Current calculated and estimated location that can be based on GNSS- and related navigation sensors,
     // but this message does not contain the single sensor values of the sensorics.
     //
-    // This message contains the most accurate information the vehicle knows about its positioning and kinematics
+    // This message contains the most accurate information the vehicle knows about its positioning
     // available on the board net.
     // Because of this the values can differ from the "true" values calculated out of
     // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
     //
-    message VehiclePositionAndKinematics
+    message VehicleLocalization
     {
-        // Geodetic origin of the ENU (east-north-up) cartesian coordinate system regarding WGS84.
+        // Most accurate position information of the vehicle available on the board net.
+        // The reference point for position, i.e. the center (x,y,z) of the bounding box
+        // in context to the global coordinate system.
         //
-        optional GeodeticPosition enu_origin = 1;
+        optional Vector3d position = 1;
 
-        // The host vehicle location and kinematics at \c HostVehicleData::timestamp.
+        // Most accurate orientation information of the vehicle available on the board net
+        // in context to the global coordinate system.
         //
-        // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
-        // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
-        // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
-        // with its axis conventions following ISO8855.
+        optional Orientation3d orientation = 2;
+ 
+        // Most accurate geodetic information of the vehicle available on the board net.
         //
-        // \note Note that dimension and base_polygon need not be set.
-        //
-        optional BaseMoving base = 2;
-
-        // The host vehicle location and kinematics root-mean-square errors at \c HostVehicleData::timestamp.
-        //
-        // \note If \c HostVehicleData::enu_origin is specified, then the \c BaseMoving parent frame used by
-        // \c HostVehicleData::location is the ENU frame according to ISO8855 with the geodetic origin of
-        // \c HostVehicleData::enu_origin. Otherwise \c BaseMoving parent frame is an arbitrary cartesian coordinate system
-        // with its axis conventions following ISO8855.
-        //
-        // \note Note that dimension and base_polygon need not be set.
-        //
-        optional BaseMoving base_rmse = 3;
-
-        //
-        // \brief The geodetic position of the vehicle.
-        // In which context it is used has to be specified in the concrete field.
-        //
-        message GeodeticPosition
-        {
-            // Longitude in decimal degrees regarding WGS84.
-            //
-            // Unit: Degree
-            // Range: [-180; 180]
-            //
-            optional double longitude = 1;
-
-            // Latitude in decimal degrees regarding WGS84.
-            //
-            // Unit: Degree
-            // Range: [-90; 90]
-            //
-            optional double latitude = 2;
-
-            // Height above sea level regarding EGM96.
-            //
-            // Unit: m
-            // Range: [-300; 10000]
-            //
-            optional double altitude = 3;
-        }
+        optional GeodeticPosition geodetic_position = 3;
     }
 }
