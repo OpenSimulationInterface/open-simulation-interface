@@ -251,6 +251,12 @@ message TrafficSign
 
             // The type of the traffic sign.
             //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
             optional Type type = 2;
 
             // Additional value associated with the traffic sign, e.g. value of
@@ -282,6 +288,12 @@ message TrafficSign
             // might have been intentionally unmounted and, hence, not be in
             // effect.
             //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
             optional DirectionScope direction_scope = 4;
 
             // The IDs of the lanes that the sign is assigned to.
@@ -306,12 +318,64 @@ message TrafficSign
             // As for every boolean in the protocol buffers language, the
             // default value of \c #vertically_mirrored is \c false.
             //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
             optional bool vertically_mirrored = 6;
 
             // Boolean flag to indicate that a traffic sign is taken out of service.
-            // This can be achieved by visibly crossing the sign or covering it completely. 
+            // This can be achieved by visibly crossing the sign or covering it completely.
             //
-            optional bool is_out_of_service = 7; 
+            optional bool is_out_of_service = 7;
+
+            // Country specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // Country is specified using the ISO 3166-1, alpha-2 code
+            // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2, or the
+            // special OpenDRIVE country for generic signs.<br>
+            //
+            optional string country = 8;
+
+            // Revision specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // The year the traffic rules came into force. <br>
+            // e.g. "2017"
+            //
+            optional string country_revision = 9;
+
+            // Code specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // Code identifier according to country and country revision,
+            // corresponds to the type field of OpenDRIVE. <br>
+            // code is only unique in combination with #country and #country_revision.  <br>
+            // e.g. http://www.vzkat.de/2017/VzKat.htm
+            //
+            optional string code = 10;
+
+            // Sub-code specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // Sub-code identifier according to country, country revision and code,
+            // corresponds to the subtype field of OpenDRIVE. <br>
+            // sub_code is only unique in combination with #country, #country_revision,
+            // and #code.  <br>
+            // e.g. http://www.vzkat.de/2017/VzKat.htm
+            //
+            optional string sub_code = 11;
 
             // Definition of traffic sign types.
             // Numbers are given according to German StVO.
@@ -331,6 +395,12 @@ message TrafficSign
             // (Richtzeichen) \arg
             // https://www.gesetze-im-internet.de/stvo_2013/anlage_4.html
             // (Verkehrseinrichtungen) \arg https://traffic-rules.com/
+            //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
             enum Type
             {
@@ -5524,6 +5594,12 @@ message TrafficSign
 
             // Type of the supplementary sign.
             //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
             optional Type type = 2;
 
             // Additional value(s) associated with the traffic sign, e.g.
@@ -5553,16 +5629,74 @@ message TrafficSign
             // bikes, cars, trucks and so on), that the supplementary sign
             // makes reference to.
             //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
             repeated Actor actor = 5;
 
             // A direction arrow shown on the supplementary sign.
             //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
             repeated Arrow arrow = 6;
 
             // Boolean flag to indicate that the supplementary traffic sign is taken out of service.
-            // This can be achieved by visibly crossing the sign or covering it completely. 
+            // This can be achieved by visibly crossing the sign or covering it completely.
             //
             optional bool is_out_of_service = 7;
+
+            // Country specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // Country is specified using the ISO 3166-1, alpha-2 code
+            // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2, or the
+            // special OpenDRIVE country for generic signs.<br>
+            //
+            optional string country = 8;
+
+            // Revision specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // The year the traffic rules came into force. <br>
+            // e.g. "2017"
+            //
+            optional string country_revision = 9;
+
+            // Code specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // Code identifier according to country and country revision,
+            // corresponds to the type field of OpenDRIVE. <br>
+            // code is only unique in combination with #country and #country_revision.  <br>
+            // e.g. http://www.vzkat.de/2017/VzKat.htm
+            //
+            optional string code = 10;
+
+            // Sub-code specification of the traffic sign catalog specification
+            // that identifies the actual traffic sign. This is part of the
+            // 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
+            // Sub-code identifier according to country, country revision and code,
+            // corresponds to the subtype field of OpenDRIVE. <br>
+            // sub_code is only unique in combination with #country, #country_revision,
+            // and #code.  <br>
+            // e.g. http://www.vzkat.de/2017/VzKat.htm
+            //
+            optional string sub_code = 11;
 
             // Definition of supplementary sign types.
             //
@@ -5577,6 +5711,13 @@ message TrafficSign
             // text, \c Type is used in descending order in the following
             // sequence: \c #TYPE_EXCEPT, \c #TYPE_CONSTRAINED_TO, \c
             // #TYPE_ARROW, \c #TYPE_TIME, \c #TYPE_SPACE, \c #TYPE_TEXT.
+            //
+            // \attention Deprecated: A revision is planned for version 4.0.0 to
+            // replace the type enum with a more semantically defined enumeration,
+            // with the exact sign specification being relegated to the newly
+            // introduced 4-tupel traffic sign catalog specification as used in
+            // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
+            //
             enum Type
             {
                 // Type of supplementary sign is unknown (must not be used in
