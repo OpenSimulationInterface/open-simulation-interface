@@ -861,43 +861,93 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_DEPTH_F32_LIN = 26;
 
+        // Depth Map FP16 Precision Linear.
+        //
+        // Each element gives the sight ray length from the optical
+        // center of the sensor to the first obstacle in meters.
+        // If the value would be infinite, since no actual object is
+        // hit (e.g. only the sky in view), a negative value is
+        // returned.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_DEPTH_F16_LIN = 27;
+
         // Optical Flow Single Precision FP Linear.
         //
         // Each element gives the optical flow vector as a pair of
         // two single precision floating point numbers giving the
-        // vector x and y components, and a further UINT32 value
+        // vector u and v components, and a further UINT32 value
         // indicating the mode of the flow vector at that point.
+        // The mode values are the values as defined in the
+        // OpticalFlowMode enumeration; OPTICAL_FLOW_MODE_UNKNOWN
+        // and OPTICAL_FLOW_MODE_OTHER shall not be used.
         //
-        // The following mode values are currently defined:
+        CHANNEL_FORMAT_OPTICALFLOW_F32F32U32_LIN = 28;
+
+        // Optical Flow FP16 Precision Linear.
         //
-        // MODE_PREVIOUS_FROM_CURRENT = 1; 
+        // Each element gives the optical flow vector as a pair of
+        // two single precision floating point numbers giving the
+        // vector u and v components, and a further UINT16 value
+        // indicating the mode of the flow vector at that point.
+        // The mode values are the values as defined in the
+        // OpticalFlowMode enumeration; OPTICAL_FLOW_MODE_UNKNOWN
+        // and OPTICAL_FLOW_MODE_OTHER shall not be used.
         //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_OPTICALFLOW_F16F16U16_LIN = 29;
+        
+    }
+
+    // Modes of the observed optical flow
+    //
+    // The values of this enum are used in the third element of all
+    // optical flow channel formats to indicate the mode of the
+    // optical flow vector.  Note that this enumeration is not
+    // currently used in message definitions, but rather is used
+    // to indicate the relevant values in the binary data stream
+    // of the image data.
+    //
+    enum OpticalFlowMode
+    {
+        // Optical flow mode is unknown (must not be used).
+        //
+        OPTICAL_FLOW_MODE_UNKNOWN = 0;
+
+        // Unspecified but known optical flow mode.
+        //
+        OPTICAL_FLOW_MODE_OTHER = 1;
+
+        // the flow is stored in current frame coordinate system
+        // and refers to the previous object point position
+        //
+        OPTICAL_FLOW_MODE_PREVIOUS_FROM_CURRENT = 2;
+
         // the flow is stored in previous frame coordinate system
-        // and refers to the current object point position 
+        // and refers to the current object point position
         //
-        // MODE_CURRENT_FROM_PREVIOUS = 2;
-        //
-        // a valid flow vector can not be evaluated because 
+        OPTICAL_FLOW_MODE_CURRENT_FROM_PREVIOUS = 3;
+
+        // a valid flow vector can not be evaluated because
         // the current observed world point was previously hidden
-        // (in opposite to a valid flow vector MODE_PREVIOUS_FROM_CURRENT)
+        // (in contrast to a valid flow vector MODE_PREVIOUS_FROM_CURRENT)
         //
-        // MODE_FROM_HIDDEN_OBJECT = 3;
-        //
-        // a valid flow vector can not be evaluated because 
+        OPTICAL_FLOW_MODE_FROM_HIDDEN_OBJECT = 4;
+
+        // a valid flow vector can not be evaluated because
         // the current observed world point was previously out of sight
         // or the previously observed world point vanishes out of sight
         // out of sight: it leaves the image plane
         //
-        // MODE_OUT_OF_SIGHT = 4;
-        //
-        // a valid flow vector can not be evaluated because 
+        OPTICAL_FLOW_MODE_OUT_OF_SIGHT = 5;
+
+        // a valid flow vector can not be evaluated because
         // the previously observed world point is currently behind an object
-        // (in opposite to a valid flow vector MODE_CURRENT_FROM_PREVIOUS)
+        // (in contrast to a valid flow vector MODE_CURRENT_FROM_PREVIOUS)
         //
-        // MODE_BEHIND_OBJECT = 5;
-        //
-        CHANNEL_FORMAT_OPTICALFLOW_F32F32U32_LIN = 27;
-        
+        OPTICAL_FLOW_MODE_BEHIND_OBJECT = 6;
     }
     
 }
