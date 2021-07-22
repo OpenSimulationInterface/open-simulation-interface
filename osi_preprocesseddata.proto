@@ -1,0 +1,135 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_sensorviewconfiguration.proto";
+
+package osi3;
+
+//
+// \brief pre Processed data from one or multiple sensors 
+// Pre Processed Data is derived as first evaluation level in processing the sensor view information
+// E.g. the depth image estimation of the observed scene without knowing the sematic interpretation 
+// of each measurement. Afterwards these elementary data are condensed to features and detections 
+// of known, observed and classified object instances
+//
+// The Data is given with respect to the logical/virtual sensor in its coodinate system
+//
+
+//##################################################################################################
+// Camera related messages
+//##################################################################################################
+
+message CameraPreprocessedImageData
+{
+    // The pre processed data is organized as image structure like the input inside the sensor view.
+    // The interpreation of that pre processed data is given by the channel format
+    //
+    repeated CameraSensorViewConfiguration.ChannelFormat channel_format = 1;
+
+    // This is the ID describes the physical or virtual sensor
+    //
+    optional Identifier sensor_id = 2;
+
+    // Raw pre processed image data.
+    //
+    // The image data in the memory layout and order is specified the by the channel format
+    //
+    optional bytes image_data = 3;
+}
+
+
+message CameraPreprocessedData
+{
+    // The interface version used by the sender
+    //
+    optional InterfaceVersion version = 1;
+
+    // pre processed image data. The first low level results of interpretating the sensor views
+    // The included sensor id refers to the sensor the information relies on. The
+    // included channel format describes the pre processed data itself.
+    // The data is provided in the sensor specific coordinate system
+    //
+    repeated CameraPreprocessedImageData  preprocessed_data = 2;
+
+
+}
+
+
+//##################################################################################################
+// Radar related messages
+//##################################################################################################
+
+
+message RadarPreprocessedData
+{
+    // The interface version used by the sender 
+    //
+    optional InterfaceVersion version = 1;
+
+  
+}
+
+
+//##################################################################################################
+// Lidar related messages
+//##################################################################################################
+
+
+message LidarPreprocessedData
+{
+    // The interface version used by the sender 
+    //
+    optional InterfaceVersion version = 1;
+
+   
+}
+
+
+//##################################################################################################
+// Ultrasonic related messages
+//##################################################################################################
+
+
+message UltrasonicPreprocessedData
+{
+    // The interface version used by the sender 
+    //
+    optional InterfaceVersion version = 1;
+
+   
+}
+
+
+//##################################################################################################
+//##################################################################################################
+
+//
+// \brief Pre Processed Data is derived as first evaluation level in processing the sensor view information
+//
+message PreprocessedData
+{
+    // The interface version used by the sender 
+    //
+    optional InterfaceVersion version = 1;
+
+    // camera specific pre processed data
+    //
+    optional CameraPreprocessedData camera_data = 2;
+
+    // radar specific pre processed data
+    //
+    optional RadarPreprocessedData radar_data = 3;
+
+    // lidar specific pre processed data
+    //
+    optional LidarPreprocessedData lidar_data = 4;
+
+    // ultrasonic specific pre processed data
+    //
+    optional UltrasonicPreprocessedData ultrasonic_data = 5;
+
+}
+

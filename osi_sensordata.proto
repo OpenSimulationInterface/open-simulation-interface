@@ -13,6 +13,7 @@ import "osi_detectedoccupant.proto";
 import "osi_sensorview.proto";
 import "osi_featuredata.proto";
 import "osi_logicaldetectiondata.proto";
+import "osi_preprocesseddata.proto";
 
 package osi3;
 
@@ -313,4 +314,14 @@ message SensorData
     // in cartesian coordinates.
     //
     optional LogicalDetectionData logical_detection_data = 27;
+
+    // Pre-Processed Data interface
+    //
+    // PreProcessed Data are provided during the first evaluation
+    // of raw sensor views. These basic data will be afterwards 
+    // clustered and condensed to features and detections
+    // PreProcessed data may be the first depth estimation of the scene
+    // or rough movement determination
+    //
+    optional PreProcessedData  pre_processed_data = 28;
 }
