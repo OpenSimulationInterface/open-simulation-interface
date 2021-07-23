@@ -249,6 +249,13 @@ message DetectedMovingObject
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
 
+    // Additional data that is specific to microphone sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not an microphone
+    // sensor.
+    //
+    optional microphoneSpecificObjectData microphone_specifics = 104;
+
     //
     // \brief A candidate for a detected moving object as estimated by the
     // sensor.
