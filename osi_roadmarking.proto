@@ -113,7 +113,11 @@ message RoadMarking
         //
         optional TrafficSign.MainSign.Classification.Type traffic_main_sign_type = 2;
 
-        // The monochrome color of the road marking.
+        // The semantic monochrome color of the road marking.
+        //
+        // \note The color types represent the semantic color classification of
+        // road markings only. They do not represent an actual visual appearance.
+
         // \note Field need not be set (or set to \c #COLOR_OTHER)
         // if road marking type does not require it (e.g. for \c #type ==
         // \c #TYPE_PAINTED_TRAFFIC_SIGN).
@@ -286,7 +290,10 @@ message RoadMarking
             TYPE_GENERIC_TEXT = 7;
         }
 
-        // Definition of road marking colors
+        // Definition of semantic road marking colors
+        //
+        // \note The color types represent the semantic classification of
+        // road markings only. They do not represent an actual visual appearance.
         //
         enum Color
         {
