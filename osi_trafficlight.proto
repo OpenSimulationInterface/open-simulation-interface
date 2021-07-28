@@ -68,7 +68,10 @@ message TrafficLight
     //
     message Classification
     {
-        // The color of the traffic light.
+        // The semantic color of the traffic light.
+        //
+        // \note The color types represent the semantic color classification of a 
+        // traffic light only. They do not represent an actual visual appearance.
         //
         // \note If the color of the traffic light is known (from history or
         // geometrical arrangement) and the state \c #mode is
@@ -116,7 +119,10 @@ message TrafficLight
         //
         optional bool is_out_of_service = 6;
 
-        // Definition of colors for traffic lights.
+        // Definition of semantic colors for traffic lights.
+        //
+        // \note The color types represent the semantic classification of a traffic light
+        // only. They do not represent an actual visual appearance.
         //
         enum Color
         {
