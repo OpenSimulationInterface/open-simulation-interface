@@ -7,6 +7,7 @@ var searchData=
   ['sensorview',['SensorView',['../structosi3_1_1SensorView.html',1,'osi3']]],
   ['sensorviewconfiguration',['SensorViewConfiguration',['../structosi3_1_1SensorViewConfiguration.html',1,'osi3']]],
   ['signalway',['Signalway',['../structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html',1,'osi3::UltrasonicSpecificObjectData']]],
+  ['spatialsignalstrength',['SpatialSignalStrength',['../structosi3_1_1SpatialSignalStrength.html',1,'osi3']]],
   ['speedaction',['SpeedAction',['../structosi3_1_1TrafficAction_1_1SpeedAction.html',1,'osi3::TrafficAction']]],
   ['spherical3d',['Spherical3d',['../structosi3_1_1Spherical3d.html',1,'osi3']]],
   ['statepoint',['StatePoint',['../structosi3_1_1StatePoint.html',1,'osi3']]],

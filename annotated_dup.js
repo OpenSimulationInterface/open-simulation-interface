@@ -57,6 +57,7 @@ var annotated_dup =
       [ "SensorDetectionHeader", "structosi3_1_1SensorDetectionHeader.html", "structosi3_1_1SensorDetectionHeader" ],
       [ "SensorView", "structosi3_1_1SensorView.html", "structosi3_1_1SensorView" ],
       [ "SensorViewConfiguration", "structosi3_1_1SensorViewConfiguration.html", "structosi3_1_1SensorViewConfiguration" ],
+      [ "SpatialSignalStrength", "structosi3_1_1SpatialSignalStrength.html", "structosi3_1_1SpatialSignalStrength" ],
       [ "Spherical3d", "structosi3_1_1Spherical3d.html", "structosi3_1_1Spherical3d" ],
       [ "StatePoint", "structosi3_1_1StatePoint.html", "structosi3_1_1StatePoint" ],
       [ "StationaryObject", "structosi3_1_1StationaryObject.html", "structosi3_1_1StationaryObject" ],
