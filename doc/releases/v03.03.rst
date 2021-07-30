@@ -1,0 +1,42 @@
+`v3.3.0 - OSI "Fabulous Fangio" <https://github.com/OpenSimulationInterface/open-simulation-interface/releases/tag/v3.3.0>`_
+==============================
+
+Stay p(OSI)tive!
+
+Purpose:
+---------
+As a part of the increasing adoption of OSI in the industry, and its movement to ASAM as its home, 
+several new use cases and extensions for OSI have been identified. 
+This minor release highlights the work that has been done on several working packages including 
+the introduction of brand new top level messages which extend OSI's scope beyond the specialized world of sensor modeling.
+
+`Content/Changes <https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/13?closed=1>`_:
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+- Introduced the TrafficCommand top-level message which enables event-based control of traffic participant models, e.g. with regard to a scenario specification.
+- Introduced the TrafficUpdate top-level message to send updated properties of traffic participant models. 
+- Add new LogicalDetectionData message to SensorData, which provides detection data with respect to the reference frame of the logical/virtual sensor.
+- Added a new submessage to further specify wheel data.
+- Added a new field to support future trajectories of moving objects.
+- Added a new subtype message to osi_lane to better align with OpenDrive's lane type information and enable traffic participant models to identify lanes on which they are supposed to move.
+- Extended traffic lights and signs messages to include the model_references attribute that can be used to point out to a 3D-model.
+- Add global model reference to ground truth that can be used to specify the 3D model representing the environment.
+- Extended the camera sensor view configuration to better support the configuration of the simulation environment.
+- Added a new field to describe the position of the steering wheel.
+- Added a message MovingObjectClassification for classify-able attributes that are shared between different moving object types. Introduced the assigned lane id and the assigned lane percentage of a moving object there.
+
+- Updated to checklist for pull requests to provide clearer orientation for all users.
+- Updated the documentation of centerline and lane boundaries (ordering of the points, describing those lines).
+- Updated the documentation of 3D bounding boxes.
+- Update the documentation of ground clearance.
+
+- Make handling of enums in rules check more robust, especially ones.
+- Set the default compiler to C++ 11 to support protobuf>3.6.
+
+`v3.3.1 - OSI "Fabulous Fangio", Update 1 <https://github.com/OpenSimulationInterface/open-simulation-interface/releases/tag/v3.3.1>`_
+==========================================
+
+`Content/Changes <https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/18?closed=1>`_:
+---------------------------------------------------------------------------------------------------------------------------------------------
+- **Bug Fix**: Fixed outdated version information in VERSION file in 3.3.0. This lead to wrong versioning in proto definitions and Doxygen documentation.
+- **Bug Fix**: Removed outdated picture in README.md.

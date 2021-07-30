@@ -1,14 +1,11 @@
 Open Simulation Interface (OSI)
 ===============================
 
-[![Travis Build Status](https://travis-ci.com/OpenSimulationInterface/open-simulation-interface.svg?branch=master)](https://travis-ci.com/OpenSimulationInterface/open-simulation-interface)
+[![ProtoBuf CI Builds](https://github.com/OpenSimulationInterface/open-simulation-interface/actions/workflows/protobuf.yml/badge.svg)](https://github.com/OpenSimulationInterface/open-simulation-interface/actions/workflows/protobuf.yml)
 
 The Open Simulation Interface <sup>[[1]](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)</sup> (OSI) is a generic interface based on [Google's protocol buffers](https://developers.google.com/protocol-buffers/) for the environmental perception of automated driving functions in virtual scenarios.
 
 As the complexity of automated driving functions rapidly increases, the requirements for test and development methods are growing. Testing in virtual environments offers the advantage of completely controlled and reproducible environment conditions.
-
-In this context, OSI defines generic interfaces to ensure modularity, integrability, and interchangeability of the individual components:
-![](doc/images/osicontextwiki.png)
 
 For more information on OSI see the [official documentation](https://opensimulationinterface.github.io/osi-documentation/) or the [official reference documentation](https://opensimulationinterface.github.io/open-simulation-interface/) for defined protobuf messages. 
 
