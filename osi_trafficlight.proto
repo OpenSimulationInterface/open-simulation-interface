@@ -119,6 +119,12 @@ message TrafficLight
         //
         optional bool is_out_of_service = 6;
 
+        //
+        // The visual color of the traffic light. This does not represent the semantic
+        // classification but the visual appearance.
+        //
+        optional ColorDescription color_description = 7;
+
         // Definition of semantic colors for traffic lights.
         //
         // \note The color types represent the semantic classification of a traffic light
