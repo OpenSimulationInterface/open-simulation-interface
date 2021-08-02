@@ -728,7 +728,8 @@ message ColorHSV
 {
     // Hue
     //
-    // Range: [0,1]
+    // Unit: deg
+    // Range: [0,360[
     //
     optional double hue = 1;
 
