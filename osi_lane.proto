@@ -922,6 +922,12 @@ message LaneBoundary
         //
         repeated Identifier limiting_structure_id = 3;
 
+        //
+        // The visual color of the material of the lane boundary. This does not
+        // represent the semantic classification but the visual appearance.
+        //
+        optional ColorDescription color_description = 4;
+
         // The lane boundary type.
         // There is no special representation for double lines, e.g. solid /
         // solid or dashed / solid. In such cases, each lane will define its own
