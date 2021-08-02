@@ -248,6 +248,12 @@ message RoadMarking
         //
         optional string sub_code = 11;
 
+        //
+        // The visual color of the material of the road marking. This does not
+        // represent the semantic classification but the visual appearance.
+        //
+        optional ColorDescription color_description = 12;
+
         // Definition of road marking types.
         //
         enum Type
