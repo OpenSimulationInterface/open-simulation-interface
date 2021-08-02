@@ -678,6 +678,11 @@ message MovingObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated double assigned_lane_percentage = 2;        
+        
+        //
+        // The dominating color of the material of the moving object.
+        //
+        optional ColorDescription color_description = 3;
     }
 
     //

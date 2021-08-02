@@ -896,6 +896,9 @@ message CameraDetection
 
     // Definition of shape dominant color.
     //
+    // \attention DEPRECATED: This color enum will be removed in version
+    // 4.0.0. Use \c ColorDescription instead.
+    //
     enum Color
     {
         // Color of the shape is unknown (must not be used in ground
