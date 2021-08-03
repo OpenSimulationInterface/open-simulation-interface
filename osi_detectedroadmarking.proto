@@ -59,6 +59,14 @@ message DetectedRoadMarking
     //
     repeated CandidateRoadMarking candidate = 4;
 
+    // The visual color of the material of the road marking.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance. For semantic classification of the road marking use the color
+    // field in \c CandidateRoadMarking::classification.
+    //
+    optional ColorDescription color_description = 5;
+
     //
     // \brief A candidate for a detected road marking as estimated by the
     // sensor.

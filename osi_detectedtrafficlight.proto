@@ -43,6 +43,14 @@ message DetectedTrafficLight
     //
     repeated CandidateTrafficLight candidate = 4;
 
+    // The visual color of the traffic light.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance.  For semantic classification of the traffic light use the color
+    // field in \c CandidateTrafficLight::classification.
+    //
+    optional ColorDescription color_description = 5;
+
     //
     // \brief A candidate for a detected traffic light as estimated by
     // the sensor.

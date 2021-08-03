@@ -763,6 +763,14 @@ message LaneBoundary
     //
     repeated ExternalReference source_reference = 4;
 
+    // The visual color of the material of the lane boundary.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance. For semantic classification of the lane boundary use the color
+    // field in \c Classification.
+    //
+    optional ColorDescription color_description = 5;
+
     //
     // \brief A single point of a lane boundary.
     //
@@ -921,12 +929,6 @@ message LaneBoundary
         // \endrules
         //
         repeated Identifier limiting_structure_id = 3;
-
-        //
-        // The visual color of the material of the lane boundary. This does not
-        // represent the semantic classification but the visual appearance.
-        //
-        optional ColorDescription color_description = 4;
 
         // The lane boundary type.
         // There is no special representation for double lines, e.g. solid /
