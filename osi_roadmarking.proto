@@ -82,6 +82,14 @@ message RoadMarking
     //
     repeated ExternalReference source_reference = 4;
 
+    // The visual color of the material of the road marking.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance. For semantic classification of the road marking use the color
+    // field in \c Classification.
+    //
+    optional ColorDescription color_description = 5;
+
     //
     // \brief \c Classification data for a road surface marking.
     //
@@ -247,12 +255,6 @@ message RoadMarking
         // \endrules
         //
         optional string sub_code = 11;
-
-        //
-        // The visual color of the material of the road marking. This does not
-        // represent the semantic classification but the visual appearance.
-        //
-        optional ColorDescription color_description = 12;
 
         // Definition of road marking types.
         //

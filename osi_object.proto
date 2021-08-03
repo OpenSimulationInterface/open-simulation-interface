@@ -75,6 +75,10 @@ message StationaryObject
     //
     repeated ExternalReference source_reference = 5;
 
+    // The dominating color of the material of the structure.
+    //
+    optional ColorDescription color_description = 6;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -95,19 +99,14 @@ message StationaryObject
         // The dominating color of the material of the structure.
         //
         // \attention DEPRECATED: This color enum will be removed in version
-        // 4.0.0. Use the field \c #color_description (\c ColorDescription)
-        // instead.
+        // 4.0.0. Use the field \c #color_description (\c ColorDescription) of
+        // \c StationaryObject instead.
         //
         optional Color color = 4;
 
         // The attributes of the emitting structure if stationary object is classified as such.
         //
         optional EmittingStructureAttribute emitting_structure_attribute = 5;
-
-        //
-        // The dominating color of the material of the structure.
-        //
-        optional ColorDescription color_description = 6;
 
         // Definition of object types.
         //
@@ -464,6 +463,10 @@ message MovingObject
     //
     repeated ExternalReference source_reference = 10;
 
+    // The dominating color of the material of the moving object.
+    //
+    optional ColorDescription color_description = 11;
+
     // Definition of object types.
     //
     enum Type
@@ -679,10 +682,6 @@ message MovingObject
         //
         repeated double assigned_lane_percentage = 2;        
         
-        //
-        // The dominating color of the material of the moving object.
-        //
-        optional ColorDescription color_description = 3;
     }
 
     //
