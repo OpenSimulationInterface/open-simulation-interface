@@ -9,13 +9,15 @@ import "osi_object.proto";
 package osi3;
 
 //
-// \brief The traffic update message is provided by traffic
-// participant models to provide updates to their position, state
-// and future trajectory back to the simulation environment.
+// \brief The traffic update message is provided by traffic participant
+// models to provide updates to their position, state and future
+// trajectory back to the simulation environment. The message is
+// designed to update data of exactly one traffic participant,
+// optionally with an attached trailer. 
 //
-// \note For reasons of convenience and consistency, the
-// updated information is provided as a MovingObject.  Certain fields
-// of this sub-message are not required to be set and will be ignored by the
+// \note For reasons of convenience and consistency, the updated
+// information is provided as a MovingObject.  Certain fields of this
+// sub-message are not required to be set and will be ignored by the
 // simulation environment, because they are static information.
 // Instead of creating a seperate message type for only the non-static
 // information, re-use existing message.
@@ -44,6 +46,10 @@ message TrafficUpdate
     // are, they may be ignored by the receiver of this message, for example, dimensions,
     // or vehicle category.  All dynamic fields should be populated where known,
     // for example, velocity, light states, or future trajectory.
+    //
+    // \note The field is repeated because it is possible to have a trailer attached to
+    // a vehicle, see MovingObject::VehicleClassification::has_trailer and
+    // MovingObject::VehicleClassification::trailer_id. 
     //
     repeated MovingObject update = 3;
 }
