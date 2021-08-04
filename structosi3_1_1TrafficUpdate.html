@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('structosi3_1_1TrafficUpdate.html','');
 </div><!--header-->
 <div class="contents">
 
-<p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment.  
+<p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment. The message is designed to update data of exactly one traffic participant, optionally with an attached trailer.  
  <a href="structosi3_1_1TrafficUpdate.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::TrafficUpdate:</div>
@@ -124,7 +124,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:adf3c4f0f6851d1ce2e7ddcdc7684f6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment. </p>
+<div class="textblock"><p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment. The message is designed to update data of exactly one traffic participant, optionally with an attached trailer. </p>
 <dl class="section note"><dt>Note</dt><dd>For reasons of convenience and consistency, the updated information is provided as a <a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a>. Certain fields of this sub-message are not required to be set and will be ignored by the simulation environment, because they are static information. Instead of creating a seperate message type for only the non-static information, re-use existing message. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="acc394afcae59b5491032f1c2fbc43bd6"></a>
@@ -155,7 +155,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Updated traffic participant data</p>
-<dl class="section note"><dt>Note</dt><dd>It is not expected that static fields are populated. If they are, they may be ignored by the receiver of this message, for example, dimensions, or vehicle category. All dynamic fields should be populated where known, for example, velocity, light states, or future trajectory. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>It is not expected that static fields are populated. If they are, they may be ignored by the receiver of this message, for example, dimensions, or vehicle category. All dynamic fields should be populated where known, for example, velocity, light states, or future trajectory.</dd>
+<dd>
+The field is repeated because it is possible to have a trailer attached to a vehicle, see <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6">MovingObject::VehicleClassification::has_trailer</a> and <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482">MovingObject::VehicleClassification::trailer_id</a>. </dd></dl>
 
 </div>
 </div>
