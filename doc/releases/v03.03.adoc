@@ -19,7 +19,8 @@ This minor release highlights the work that has been done on several working pac
 * Add global model reference to ground truth that can be used to specify the 3D model representing the environment.
 * Extended the camera sensor view configuration to better support the configuration of the simulation environment.
 * Added a new field to describe the position of the steering wheel.
-* Added a message MovingObjectClassification for classify-able attributes that are shared between different moving object types. Introduced the assigned lane id and the assigned lane percentage of a moving object there.
+* Added a message MovingObjectClassification for classify-able attributes that are shared between different moving object types.
+  Introduced the assigned lane id and the assigned lane percentage of a moving object there.
 
 * Updated to checklist for pull requests to provide clearer orientation for all users.
 * Updated the documentation of centerline and lane boundaries (ordering of the points, describing those lines).

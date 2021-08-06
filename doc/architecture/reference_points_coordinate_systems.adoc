@@ -4,11 +4,11 @@ OSI uses DIN ISO 8855:2013-11 for coordinate systems and transformations between
 OSI uses three coordinate systems:
 
 World coordinate system::
-Coordinate system for all quantities which are part of ground truth.
+Coordinate system for all entities which are part of ground truth.
 The world coordinate system is an inertial x/y/z-coordinate system.
 
 Sensor coordinate system::
-Coordinate system for all quantities which are part of sensor data.
+Coordinate system for all entities which are part of sensor data.
 The origin is the mounting position of the physical sensor or a virtual mounting position, depending on the technology.
 
 Object coordinate system::
