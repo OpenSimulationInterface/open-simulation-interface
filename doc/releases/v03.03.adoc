@@ -34,5 +34,6 @@ This minor release highlights the work that has been done on several working pac
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/18?closed=1[Content/Changes]
 
-* **Bug Fix**: Fixed outdated version information in VERSION file in 3.3.0. This lead to wrong versioning in proto definitions and Doxygen documentation.
+* **Bug Fix**: Fixed outdated version information in VERSION file in 3.3.0.
+This led to wrong versioning in proto definitions and Doxygen documentation.
 * **Bug Fix**: Removed outdated picture in README.md.
