@@ -5,7 +5,7 @@ There are two sources for sensor-view-configuration data.
 
 Sensor-view-configuration data can be provided by the environment simulation.
 In this case, the data is intended for the automatic configuration of an environment simulation in order to supply the necessary input to a sensor model.
-Sensor-view-configuration data is not intended to provide parameters to a generic sensor model. 
+Sensor-view-configuration data is not intended to provide parameters to a sensor model. 
 
 Sensor-view-configuration data can also be provided by the sensor model to the environment simulation.
 In this case, the data describes the input configuration that is desired by the sensor model.
