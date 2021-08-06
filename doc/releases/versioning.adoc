@@ -1,6 +1,6 @@
 = Versioning
 
-The version number is defined in `InterfaceVersion::version_number` in `osi_common.proto` as the field’s default value.
+The version number is defined in `InterfaceVersion::version_number` in `osi_version.proto` as the field’s default value.
 
 OSI uses https://semver.org/[Semantic Versioning].
 
@@ -13,7 +13,7 @@ Major changes include:
 Example: `optional double field = 1;` changes to `repeated double field = 1;`.
 * Changing the definition of units or the interpretation of a field.
 * Deleting a field and reusing the field number.
-* Changing the technology from Protocol Buffer to FlatBuffer.
+* Changing the technology from Protocol Buffers to FlatBuffers.
 
 Minor::
 A change of the minor version indicates remaining compatibility to previously recorded files.
