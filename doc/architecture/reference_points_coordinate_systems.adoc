@@ -6,11 +6,14 @@ OSI uses three coordinate systems:
 World coordinate system::
 Coordinate system for all entities which are part of ground truth.
 The world coordinate system is an inertial x/y/z-coordinate system.
+The origin is the global reference point, which is determined by the environment simulation.
+This reference point may be derived from map data or other considerations.
+World coordinates can be mapped to a geographic coordinate system via `osi3::GroundTruth::proj_string`.
 
 Sensor coordinate system::
 Coordinate system for all entities which are part of sensor data.
-The origin is the mounting position of the physical sensor or a virtual mounting position, depending on the technology.
+The origin is the mounting position of the physical sensor or a virtual mounting position, depending on the OSI message.
 
 Object coordinate system::
-Coordinate system for local object coordinates.
+Local object coordinate system.
 The origin of the corresponding coordinate systems is not necessarily identical to the center of the object's bounding box.
