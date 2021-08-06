@@ -1,8 +1,9 @@
 = Sensor view
 
-Sensor view imitates the input of sensors.
+Sensor view provides the input to OSI sensor models.
 Sensor-view messages are derived from ground-truth messages.
 All information regarding the environment is given with respect to the virtual sensor coordinate system, with two exceptions:
 
 * Physical technology-specific data, given with respect to the physical sensor coordinate system specified in the corresponding physical sensor’s mounting position.
+  Example: https://opensimulationinterface.github.io/open-simulation-interface/structosi3_1_1CameraSensorView.html#ac58456a34babf78792ea2608eb963f36[`image_data` of `osi3::CameraSensorView`]
 * Ground truth, given in the global coordinate system.
