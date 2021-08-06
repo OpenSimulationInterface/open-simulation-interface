@@ -30,7 +30,7 @@ The following figure shows a more complex traffic participant.
 image::{images_open_simulation_interface}/osi-traffic-participant-use-case-3.png[1100]
 
 This use case will probably be relevant for modeling the ego vehicle, which includes the system-under-test.
-The traffic participant includes an arbitrary number of sensor models
+The traffic participant includes an arbitrary number of sensor models.
 The sensor models consume sensor view and produce sensor data.
 The AD function consumes sensor data and produces input for the dynamics model.
 OSI currently does not support data flow to dynamics models.

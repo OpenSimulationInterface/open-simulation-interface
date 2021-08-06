@@ -10,10 +10,10 @@ A change of the major version results in an incompatibility of code and recorded
 Major changes include:
 +
 * An existing field with a number changes its meaning.
-Example: `optional double field = 1;` -> `repeated double field = 1;`.
-* Changing the definition of units or interpretation of a field.
+Example: `optional double field = 1;` changes to `repeated double field = 1;`.
+* Changing the definition of units or the interpretation of a field.
 * Deleting a field and reusing the field number.
-* Changing the technology ProtoBuffer -> FlatBuffer.
+* Changing the technology from Protocol Buffer to FlatBuffer.
 
 Minor::
 A change of the minor version indicates remaining compatibility to previously recorded files.
