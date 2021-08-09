@@ -551,6 +551,7 @@ message StatePoint
     //
     optional Orientation3d orientation = 3;
 }
+
 //
 // \brief Detailed WavelengthRange message.
 //
@@ -662,12 +663,12 @@ message ColorGrey
 }
 
 //
-// RGB color model
+// \brief RGB color model
 //
 // ColorRGB provides values for red, green and blue.
 //
 message ColorRGB
-{   
+{
     // Red ratio
     //
     // Range: [0,1]
