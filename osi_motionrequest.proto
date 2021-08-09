@@ -8,10 +8,11 @@ import "osi_version.proto";
 package osi3;
 
 //
-// \brief This message is intended as an interface between a HAD (highly automated driving) function and the actuator management.
+// \brief This message is intended as an interface between a
+// highly-automated-driving function (HAD function) and the actuator management.
 //
-// The HAD function can send either a desired future trajectory or a desired future state.
-// The message can be defined by an additional variable.
+// The HAD function can either send a desired future trajectory or a desired
+// future state. The message can be defined by an additional variable.
 //
 // \note The coordinate system is defined as right-handed.
 // All coordinates and orientations are relative to the global coordinate system.
@@ -24,12 +25,14 @@ message MotionRequest
     //
     optional InterfaceVersion version = 1;
 
-    // The data timestamp of the simulation environment. A reference to \c Timestamp message.
+    // The data timestamp of the simulation environment.
+    // A reference to \c Timestamp message.
     //
     optional Timestamp timestamp = 2;
 
     // Define the option that is used to specify the motion request.
-    // This must be set. Additionally, the field corresponding to the specified option must be set.
+    // This must be set. Additionally, the field corresponding to the specified 
+    // option must be set.
     //
     optional OutputOptions output_option = 3;
 
@@ -57,9 +60,11 @@ message MotionRequest
         OUTPUT_OPTIONS_TRAJECTORY = 1;
     }
 
-    // \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
+    // \brief The desired state is calculated by the HAD function as a result of
+    // the motion planning stack.
     //
-    // The actuator management is supposed to reach the desired state at the specified time.
+    // The actuator management is supposed to reach the desired state at the
+    // specified time.
     //
     message DesiredState
     {
@@ -67,21 +72,21 @@ message MotionRequest
         //
         optional Timestamp timestamp = 1;
 
-        // Intended position to be reached in x, y, and z direction.
+        // Intended position to be reached in in x-, y-, and z-direction.
         //
         optional Vector3d position = 2;
 
         // Intended orientation to be reached containing yaw, pitch and roll angle.
         //
-        optional Orientation3d  orientation = 3;
+        optional Orientation3d orientation = 3;
 
-        // Intended velocity to be reached in x, y, and z direction.
+        // Intended velocity to be reached in in x-, y-, and z-direction.
         //
         // Unit: m/s
         //
         optional Vector3d velocity = 4;
 
-        // Intended acceleration to be reached in x, y, and z direction.
+        // Intended acceleration to be reached in x-, y-, and z-direction.
         //
         // Unit: m/s^2
         //
@@ -94,11 +99,12 @@ message MotionRequest
     // The task of the actuator management is to follow this trajectory as closely as possible.
     // The timestamps inside the trajectory must be defined in global simulation time.
     //
-    // \note Trajectory is kept as a separate message for future extensions.
+    // \note The trajectory is kept as a separate message for future extensions.
     //
     message Trajectory
     {
-        // Consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached.
+        // The trajectory consists of intended position (x, y, and z) and
+        // orientation (yaw, pitch and roll) of intended state to be reached.
         // A reference to \c StatePoint message.
         //
         repeated StatePoint trajectory_point = 1;
