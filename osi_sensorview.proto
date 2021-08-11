@@ -301,13 +301,17 @@ message LidarSensorView
         //
         optional double relative_velocity = 3;
 
-        // Index of the emitted signal as configured in SensorViewConfiguration.
+        // Zero-based index of the emitted signal as configured in
+        // LidarSensorViewConfiguration.emitted_signal.
         // This is necessary to recalculate the direction of the emitter.
         //
-        // \note Usually, this is a result when ray tracing or similar techniques are applied.
+        // \note Usually, this is a result when ray tracing or similar
+        // techniques are applied.
         //
-        optional int emitted_signal_idx = 4;
+        optional uint32 emitted_signal_idx = 4;
 
+        // IDs of the detected objects this reflection is associated to.
+        // Can be used e.g for raytracing debug.
         //
         // \note ID = MAX(uint64) indicates no reference to an object.
         //
