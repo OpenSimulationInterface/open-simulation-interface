@@ -771,6 +771,12 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_MONO_F32_LIN = 5;
 
+        // Single Luminance Channel FP16 Precision FP Linear.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_MONO_F16_LIN = 30;
+
         // Packed RGB Channels (no padding) UINT8 Linear.
         //
         CHANNEL_FORMAT_RGB_U8_LIN = 6;
@@ -786,6 +792,49 @@ message CameraSensorViewConfiguration
         // Packed RGB Channels (no padding) Single Precision FP Linear.
         //
         CHANNEL_FORMAT_RGB_F32_LIN = 9;
+
+        // Packed RGB Channels (no padding) FP16 Precision FP Linear.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_RGB_F16_LIN = 31;
+
+        // RGBX Channels UINT8 Linear.
+        //
+        // X channel is unused, but shall be set to 255, to allow
+        // easy further processing as either RGBX or RGBA.
+        //
+        CHANNEL_FORMAT_RGBX_U8_LIN = 32;
+
+        // RGBX Channels UINT16 Linear.
+        //
+        // X channel is unused, but shall be set to 65535, to allow
+        // easy further processing as either RGBX or RGBA.
+        //
+        CHANNEL_FORMAT_RGBX_U16_LIN = 33;
+
+        // RGBX Channels UINT32 Linear.
+        //
+        // X channel is unused, but shall be set to 4294967295, to allow
+        // easy further processing as either RGBX or RGBA.
+        //
+        CHANNEL_FORMAT_RGBX_U32_LIN = 34;
+
+        // RGBX Channels Single Precision FP Linear.
+        //
+        // X channel is unused, but shall be set to 1.0, to allow
+        // easy further processing as either RGBX or RGBA.
+        //
+        CHANNEL_FORMAT_RGBX_F32_LIN = 35;
+
+        // RGBX Channels FP16 Precision FP Linear.
+        //
+        // X channel is unused, but shall be set to 1.0, to allow
+        // easy further processing as either RGBX or RGBA.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_RGBX_F16_LIN = 36;
 
         // Bayer BGGR Channels UINT8 FP Linear.
         //
@@ -803,15 +852,21 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_BAYER_BGGR_F32_LIN = 13;
 
-        // Bayer RGGB Channels UINT8 FP Linear.
+        // Bayer BGGR Channels FP16 Precision FP Linear.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_BAYER_BGGR_F16_LIN = 37;
+
+        // Bayer RGGB Channels UINT8 Linear.
         //
         CHANNEL_FORMAT_BAYER_RGGB_U8_LIN = 14;
 
-        // Bayer RGGB Channels UINT16 FP Linear.
+        // Bayer RGGB Channels UINT16 Linear.
         //
         CHANNEL_FORMAT_BAYER_RGGB_U16_LIN = 15;
 
-        // Bayer RGGB Channels UINT32 FP Linear.
+        // Bayer RGGB Channels UINT32 Linear.
         //
         CHANNEL_FORMAT_BAYER_RGGB_U32_LIN = 16;
 
@@ -819,15 +874,21 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_BAYER_RGGB_F32_LIN = 17;
 
-        // Red Clear Clear Clear Channels UINT8 FP Linear.
+        // Bayer RGGB Channels FP16 Precision FP Linear.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_BAYER_RGGB_F16_LIN = 38;
+
+        // Red Clear Clear Clear Channels UINT8 Linear.
         //
         CHANNEL_FORMAT_RCCC_U8_LIN = 18;
 
-        // Red Clear Clear Clear Channels UINT16 FP Linear.
+        // Red Clear Clear Clear Channels UINT16 Linear.
         //
         CHANNEL_FORMAT_RCCC_U16_LIN = 19;
 
-        // Red Clear Clear Clear Channels UINT32 FP Linear.
+        // Red Clear Clear Clear Channels UINT32 Linear.
         //
         CHANNEL_FORMAT_RCCC_U32_LIN = 20;
 
@@ -835,15 +896,21 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_RCCC_F32_LIN = 21;
 
-        // Red Clear Clear Blue Channels UINT8 FP Linear.
+        // Red Clear Clear Clear Channels FP16 Precision FP Linear.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_RCCC_F16_LIN = 39;
+
+        // Red Clear Clear Blue Channels UINT8 Linear.
         //
         CHANNEL_FORMAT_RCCB_U8_LIN = 22;
 
-        // Red Clear Clear Blue Channels UINT16 FP Linear.
+        // Red Clear Clear Blue Channels UINT16 Linear.
         //
         CHANNEL_FORMAT_RCCB_U16_LIN = 23;
 
-        // Red Clear Clear Blue Channels UINT32 FP Linear.
+        // Red Clear Clear Blue Channels UINT32 Linear.
         //
         CHANNEL_FORMAT_RCCB_U32_LIN = 24;
 
@@ -851,6 +918,12 @@ message CameraSensorViewConfiguration
         //
         CHANNEL_FORMAT_RCCB_F32_LIN = 25;
         
+        // Red Clear Clear Blue Channels FP16 Precision FP Linear.
+        //
+        // All floating point values are in IEEE 754 Binary16 format.
+        //
+        CHANNEL_FORMAT_RCCB_F16_LIN = 40;
+
         // Depth Map Single Precision FP Linear.
         //
         // Each element gives the sight ray length from the optical
