@@ -491,6 +491,7 @@ message StatePoint
     //
     optional Orientation3d orientation = 3;
 }
+
 //
 // \brief Detailed WavelengthRange message.
 //
@@ -518,3 +519,37 @@ message WavelengthData
     optional double samples_number = 3;
 }
 
+
+//
+// \brief Definition of a spatial signal strength distribution
+// for an emitting / transmitting / receiving entity
+// with a horizontal and a vertical angle
+// and the corresponding signal strength in dBm (decibels per milliwatt).
+//
+message SpatialSignalStrength
+{
+    // Horizontal angle (azimuth) of emission / transmission / reception
+    // in the entity's coordinate system.
+    //
+    // Unit: rad
+    //
+    optional double horizontal_angle = 1;
+
+    // Vertical angle (elevation) of emission / transmission / reception
+    // in the entity's coordinate system.
+    //
+    // Unit: rad
+    //
+    optional double vertical_angle = 2;
+
+    // Emitted / transmitted / received signal strength
+    // of the respective entity
+    // at the previously defined horizontal and
+    // vertical angle for one specific wavelength.
+    // The value for the signal strength
+    // is given in dBm (decibels per milliwatt).
+    //
+    // Unit: dBm
+    //
+    optional double signal_strength = 3;
+}

@@ -509,99 +509,59 @@ message LidarSensorViewConfiguration
     //
     optional MountingPosition mounting_position_rmse = 3;
 
-    // Field of View in horizontal orientation of the physical sensor.
+    // Emitter wavelength.
     //
-    // Viewing range: [- \c #field_of_view_horizontal/2,  \c
-    // #field_of_view_horizontal/2] azimuth in the sensor frame as defined in \c
-    // Spherical3d.
+    // This information can be used by a rendering engine to calculate
+    // signal interactions within the scene.
     //
-    // Unit: rad
-    optional double field_of_view_horizontal = 4;
+    // Unit: nm
+    //
+    //
+    optional double emitter_wavelength = 4;
 
-    // Field of View in vertical orientation of the physical sensor.
+    // Emitted spatial signal strength.
     //
-    // Viewing range: [- \c #field_of_view_vertical/2,  \c
-    // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
-    // as defined in \c Spherical3d.
+    // This describes the directions and signal strengths of the emitted signal,
+    // for which rendering results are to be expected from the simulated scene.
     //
-    // Unit: rad
-    optional double field_of_view_vertical = 5;
+    // \note Data is in sensor coordinate system
+    // \note Usually, this is needed when ray tracing or similar techniques are applied.
+    //
+    //
+    repeated SpatialSignalStrength emitted_signal = 5;
 
-    // Number of rays to cast across horizontal field of view.
+    // Time offset for each emitted signal.
     //
-    // \note This is a characteristic of the ray tracing engine of the
-    // environment simulation, not a direct characteristic of the sensor.
+    // The time offset in microseconds of every emitted signal
+    // from each frame timestamp.
+    //
+    // Unit: μs
+    //
+    // \note Usually, this is needed when ray tracing or similar techniques are applied.
+    //
+    // \rules
+    // The time_offset_emission_size() must be the same as the emitted_signal_size().
+    // \endrules
+    //
+    repeated uint32 time_offset_emission = 6;
+
+    // Maximum number of interactions per emitted signal within the scene to take into account for rendering.
+    //
+    // \note Usually, this is needed when ray tracing or similar techniques are applied.
     //
     // \rules
     // is_greater_than_or_equal_to: 1
     // \endrules
     //
-    optional uint32 number_of_rays_horizontal = 6;
+    optional uint32 max_number_of_interactions = 7;
 
-    // Number of rays to cast across vertical field of view.
+    // Maximum path length.
     //
-    // \note This is a characteristic of the ray tracing engine of the
-    // environment simulation, not a direct characteristic of the sensor.
+    // The maximum length in m of one signal path.
+    // When reached, propagation is terminated.
     //
-    // \rules
-    // is_greater_than_or_equal_to: 1
-    // \endrules
-    //
-    optional uint32 number_of_rays_vertical = 7;
+    optional uint32 max_path_length = 8;
 
-    // Maximum number of interactions to take into account.
-    //
-    // \note This is a characteristic of the ray tracing engine of the
-    // environment simulation, not a direct characteristic of the sensor.
-    //
-    // \rules
-    // is_greater_than_or_equal_to: 1
-    // \endrules
-    //
-    optional uint32 max_number_of_interactions = 8;
-
-    // Emitter Frequency.
-    //
-    // This information can be used by a ray tracing engine to calculate
-    // doppler shift information and take into account differences in
-    // refraction and reflection. For doppler shift calculations the
-    // sensor model can of course always provide a nominal frequency and
-    // adjust the resulting doppler shift information to actual frequency
-    // through frequency adjustments. For material and geometry interaction
-    // purposes the frequency is also relevant.
-    //
-    // Unit: Hz
-    //
-    // \rules
-    // is_greater_than_or_equal_to: 0
-    // \endrules
-    //
-    optional double emitter_frequency = 9;
-
-    // Number of pixels in frame.
-    //
-    // This field includes the number of pixels in each frame
-    //
-    // \rules
-    // is_greater_than_or_equal_to: 1
-    // \endrules
-    //
-    optional uint32 num_of_pixels = 10;
-
-    // Ray tracing data.
-    //
-    // The directions unit vectors describing the Lidar's raster transmission
-    // directions. Length is num_of_pixels \note data is in Lidar's coordinate
-    // system
-    //
-    repeated Vector3d directions = 11;
-
-    // Ray tracing data.
-    //
-    // The time offset in microseconds of every measurement from each frame
-    // timestamp. Length is num_of_pixels
-    //
-    repeated uint32 timings = 12;
 }
 
 //
