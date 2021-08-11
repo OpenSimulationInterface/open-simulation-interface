@@ -256,61 +256,62 @@ message LidarSensorView
     //
     optional LidarSensorViewConfiguration view_configuration = 1;
 
-    // Ray tracing data.
+    // Rendering result.
     //
-    // This field includes one entry for each ray, in left-to-right,
-    // top-to-bottom order (think of scan lines in a TV).
+    // This field includes one entry for each reflection in the scene, that is backscattered to the sensor.
     //
+    // \note Due to e.g. diffuse reflections, a single emitted signal can yield multiple rendering results.
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated Reflection reflection = 2;
+    repeated RenderingResult rendering_result = 2;
 
     //
-    // \brief Definition of the lidar reflection.
+    // \brief Definition of the result of a lidar rendering algorithm.
     //
-    message Reflection
+    message RenderingResult
     {
-        // Relative signal level of the reflection.
+        // Received spatial signal strength.
         //
-        // This takes the signal losses due to scattering and absorption
-        // into account, and will, when multiplied by TX power yield the
-        // potential RX power (disregarding any other RX/TX losses).
-        //
-        // Unit: dB
-        //
-        optional double signal_strength = 1;
+        // This describes the incoming direction and signal strength
+        // of the rendering result from the simulated scene.
 
-        // Time of flight.
+        // The signal can be received from a different angle than it has been emitted to.
         //
-        // This is the time of flight of the reflection, which is directly
-        // proportional to the distance traveled.
+        // \note Data is in sensor coordinate system.
+        // \note Usually, this is a result when ray tracing or similar techniques are applied.
         //
-        // Unit: s
         //
-        optional double time_of_flight = 2;
+        optional SpatialSignalStrength received_signal = 1;
 
-        // Doppler shift.
+        // Path length.
         //
-        // Shift in frequency based on the specified TX frequency.
+        // This is the length of the signal path from emission to reception,
+        // which could measured via the time-of-flight principle in the real sensor.
         //
-        // Unit: Hz
+        // Unit: m
         //
-        optional double doppler_shift = 3;
+        optional double path_length = 2;
 
-        // normal to surface angle.
+        // Relative velocity along the signal path.
         //
-        // The normal of the transmitted beam to the object, roadmarking etc
-        // encounter. \note data is in Lidar coordinate system
+        // This is the relative velocity along the face normals of the reflecting surfaces within the signal path,
+        // which is originally measured (if possible) via the proportional doppler-shift.
         //
-        // Unit: unit vector
+        // Unit: m/s
         //
-        optional Vector3d normal_to_surface = 5;
+        optional double relative_velocity = 3;
 
-        // ID of the detected object this reflection is associated to.
-        // can be used for raytracing debug
+        // Index of the emitted signal as configured in SensorViewConfiguration.
+        // This is necessary to recalculate the direction of the emitter.
+        //
+        // \note Usually, this is a result when ray tracing or similar techniques are applied.
+        //
+        optional int emitted_signal_idx = 4;
+
         //
         // \note ID = MAX(uint64) indicates no reference to an object.
-        optional Identifier object_id = 6;
+        //
+        repeated Identifier object_id = 5;
     }
 }
 
