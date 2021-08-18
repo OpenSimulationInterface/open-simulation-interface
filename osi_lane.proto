@@ -833,18 +833,27 @@ message LaneBoundary
         //
         enum Dash
         {
+            // The current state of the dash alternation is not known (must
+            // not be used in ground truth). 
+            //
+            DASH_UNKNOWN = 0;
+
+            // Other (unspecified but known) type of dash alternation state. 
+            //
+            DASH_OTHER = 1;
+            
             // The current \c BoundaryPoint indicates the start of a dash.
             //
-            DASH_START = 0;
+            DASH_START = 2;
 
             // The current \c BoundaryPoint is located on a dash of a dashed
             // line. This enables a dash to continue across multiple points.
             //
-            DASH_CONTINUE = 1;
+            DASH_CONTINUE = 3;
 
             // The current \c BoundaryPoint indicates the end of a dash.
             //
-            DASH_END = 2;
+            DASH_END = 4;
         }
     }
 
