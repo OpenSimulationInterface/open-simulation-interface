@@ -12,6 +12,6 @@ Sensor-view-configuration data is not intended to provide parameters to a sensor
 Sensor-view-configuration data can also be provided by the sensor model to the environment simulation.
 In this case, the data describes the input configuration that is requested by the sensor model.
 In response, the environment simulation will configure the input and provide a new message which describes the actual configuration.
-The configuration requested by the sensor model may differ from the configuration provided by the simulation environment.
+The configuration requested by the sensor model may differ from the configuration provided by the environment simulation.
 This happens when the environment simulation does not support a requested configuration or when the requested configuration is ambiguous.
-The message describing the configuration requested by the sensor model differs from the message describing the configuration provided by the simulation environment.
+The message describing the configuration requested by the sensor model differs from the message describing the configuration provided by the environment simulation.
