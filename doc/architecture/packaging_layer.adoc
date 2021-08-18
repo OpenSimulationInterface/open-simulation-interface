@@ -1,9 +1,10 @@
 = Packaging layer
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Et malesuada fames ac turpis egestas.
-Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-Nulla facilisi morbi tempus iaculis urna id. Justo eget magna fermentum iaculis.
-Sed augue lacus viverra vitae congue eu. Velit ut tortor pretium viverra suspendisse.
-Amet commodo nulla facilisi nullam vehicula ipsum a. Nibh nisl condimentum id venenatis a.
-Diam vel quam elementum pulvinar etiam non quam lacus suspendisse.
+The packaging layer of OSI specifies the way that components (e.g. models) employing the OSI data layer can be packaged in order to achieve easy interoperability.
+
+It specifies model types (e.g. sensor model, traffic participant model), together with mandatory and optional OSI inputs, outputs, parameter interfaces.
+It also specifies specific component technology standards to allow encapsulation of those model types in easily exchangeable component packages, that allow use across platforms and implementations.
+
+Multiple packaging layer implementations are possible within the OSI framework, with the common data layer ensuring ease of bridging between multiple implementations.
+The current centrally defined packaging layer is the OSI Sensor Model Packaging (OSMP) specification.
+It is defined based on FMI 2.0 and certain additional conventions to allow packaging of OSI using models as FMUs.
