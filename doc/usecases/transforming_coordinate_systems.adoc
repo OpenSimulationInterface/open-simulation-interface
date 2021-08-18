@@ -1,7 +1,11 @@
-= Transforming coordinate systems
+= Coordinate Transformations
 
-Transforming coordinates for a specific vehicle or sensor is a common task when running simulations.
-OSI uses DIN ISO 8855:2013-11 for coordinate systems and transformations between coordinate systems.
+== Vehicle and Sensor Coordinate Systems
+
+Transforming coordinates from the world coordinate system for a specific vehicle and its sensors is a common task when running simulations.
+
+This section provides an overview of the involved messages, fields and their relationship for this task.
+It demonstrates how world coordinate system, vehicle coordinate system, and sensor coordinate system are related for a specific (ego-)vehicle.
 
 //TODO: Should we add one or more sentences about the mathematical operations involved?
 

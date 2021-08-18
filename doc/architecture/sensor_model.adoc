@@ -1,6 +1,5 @@
 = Sensor model
 
 Sensor models consume sensor-view messages and produce sensor-data messages.
-Those models can be based on physics or phenomenological.
 
 Sensor-model output does not represent raw data but detected features or classified objects.
