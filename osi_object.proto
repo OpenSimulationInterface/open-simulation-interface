@@ -696,6 +696,15 @@ message MovingObject
         //
         optional Identifier trailer_id = 4;
 
+        // What driver assistance is active.
+        //
+        // This can include:
+        //  - information presented to the driver, for example, parking sensors
+        //  - warnings raised by the vehicle, for example, forward collision warning
+        //  - corrective action taken by the vehicle, for example, auto emergency braking
+        //
+        optional DriverAssistState driver_assist_state = 5;
+
         // Definition of vehicle types.
         //
         enum Type
@@ -915,6 +924,112 @@ message MovingObject
                 // Brake lights are on with extra bright intensity (indicating
                 // stronger braking).
                 BRAKE_LIGHT_STATE_STRONG = 4;
+            }
+        }
+
+        //
+        // \brief The state of driver assistance features.
+        //
+        message DriverAssistState
+        {
+            // State of recognised ADAS features.
+            //
+            repeated ADASState adas_state = 1;
+
+            // Custom driver assist state.
+            //
+            repeated CustomAssistState custom_assist_state = 2;
+
+            //
+            // The driver assist state specifically relating to recognised
+            // Advanced Driver Assistance Systems.
+            //
+            message ADASState
+            {
+                // The particular feature being reported about.
+                //
+                optional ADASFeature adas_feature = 1;
+
+                // Whether this particular feature is enabled or not.
+                //
+                // For example, the Forward Collision Warning feature may
+                // be enabled, even if it isn't active, because there are no
+                // vehicles in front.
+                //
+                optional bool enabled = 2;
+
+                // The activation state of the feature.
+                //
+                // This is whether the feature has actually been triggered, for
+                // example, a warning has been raised, or additional braking is
+                // in effect.
+                //
+                optional ActivationState activation_state = 3;
+
+                // Custom detail.
+                //
+                // An opaque field to distinguish user-specific details, such as
+                // whether the notification was raised via an audio warning, or
+                // the dashboard.
+                //
+                optional string custom_detail = 4;
+
+                // ADAS feature that is raising the notification.
+                //
+                // \note The naming convention is taken from the SAE guidance on ADAS
+                // nomenclature:
+                // https://www.sae.org/binaries/content/assets/cm/content/miscellaneous/adas-nomenclature.pdf
+                //
+                enum ADASFeature
+                {
+                    BLIND_SPOT_WARNING = 1;
+                    FORWARD_COLLISION_WARNING = 2;
+                    LANE_DEPARTURE_WARNING = 3;
+                    PARKING_COLLISION_WARNING = 4;
+                    REAR_CROSS_TRAFFIC_WARNING = 5;
+                    AUTOMATIC_EMERGENCY_BRAKING = 6;
+                    AUTOMATIC_EMERGENCY_STEERING = 7;
+                    REVERSE_AUTOMATIC_EMERGENCY_BRAKING = 8;
+                    ADAPTIVE_CRUISE_CONTROL = 9;
+                    LANE_KEEPING_ASSIST = 10;
+                    ACTIVE_DRIVING_ASSISTANCE = 11;
+                    BACKUP_CAMERA = 12;
+                    SURROUND_VIEW_CAMERA = 13;
+                    ACTIVE_PARKING_ASSISTANCE = 14;
+                    REMOTE_PARKING_ASSISTANCE = 15;
+                    TRAILER_ASSISTANCE = 16;
+                    AUTOMATIC_HIGH_BEAMS = 17;
+                    DRIVER_MONITORING = 18;
+                    HEAD_UP_DISPLAY = 19;
+                    NIGHT_VISION = 20;
+                }
+
+                // The activation state of a feature.
+                //
+                // \note Not all of these will be applicable for all vehicles
+                // and features.
+                //
+                enum ActivationState
+                {
+                    INACTIVE = 1;
+                    ACTIVE = 2;
+                    ACTIVE_DRIVER_OVERRIDE = 3;
+                }
+            }
+
+            //
+            // The driver assist state relating to anything not formally
+            // recognised.  This could be proprietary assistance features
+            // that are available for a particular vehicle.
+            //
+            message CustomAssistState
+            {
+                // An identifier for the assistance feature.
+                //
+                optional string identifier = 1;
+
+                // A string indicating any relevant information about the feature.
+                optional string state = 2;
             }
         }
     }
