@@ -939,7 +939,7 @@ message MovingObject
 
             // Custom feature name.
             //
-            // Only used if assist_feature is set to CUSTOM_FEATURE.
+            // Only used if assist_feature is set to ASSIST_FEATURE_OTHER.
             //
             optional string custom_name = 2;
 
@@ -953,7 +953,7 @@ message MovingObject
 
             // Custom activation state.
             //
-            // Only used if the activation_state is set to CUSTOM_STATE.
+            // Only used if the activation_state is set to ACTIVATION_STATE_OTHER.
             //
             optional string custom_activation_state = 4;
 
@@ -975,27 +975,28 @@ message MovingObject
             //
             enum AssistFeature
             {
-                CUSTOM_FEATURE = 1;
-                BLIND_SPOT_WARNING = 2;
-                FORWARD_COLLISION_WARNING = 3;
-                LANE_DEPARTURE_WARNING = 4;
-                PARKING_COLLISION_WARNING = 5;
-                REAR_CROSS_TRAFFIC_WARNING = 6;
-                AUTOMATIC_EMERGENCY_BRAKING = 7;
-                AUTOMATIC_EMERGENCY_STEERING = 8;
-                REVERSE_AUTOMATIC_EMERGENCY_BRAKING = 9;
-                ADAPTIVE_CRUISE_CONTROL = 10;
-                LANE_KEEPING_ASSIST = 11;
-                ACTIVE_DRIVING_ASSISTANCE = 12;
-                BACKUP_CAMERA = 13;
-                SURROUND_VIEW_CAMERA = 14;
-                ACTIVE_PARKING_ASSISTANCE = 15;
-                REMOTE_PARKING_ASSISTANCE = 16;
-                TRAILER_ASSISTANCE = 17;
-                AUTOMATIC_HIGH_BEAMS = 18;
-                DRIVER_MONITORING = 19;
-                HEAD_UP_DISPLAY = 20;
-                NIGHT_VISION = 21;
+                ASSIST_FEATURE_UNKNOWN = 0;
+                ASSIST_FEATURE_OTHER = 1;
+                ASSIST_FEATURE_BLIND_SPOT_WARNING = 2;
+                ASSIST_FEATURE_FORWARD_COLLISION_WARNING = 3;
+                ASSIST_FEATURE_LANE_DEPARTURE_WARNING = 4;
+                ASSIST_FEATURE_PARKING_COLLISION_WARNING = 5;
+                ASSIST_FEATURE_REAR_CROSS_TRAFFIC_WARNING = 6;
+                ASSIST_FEATURE_AUTOMATIC_EMERGENCY_BRAKING = 7;
+                ASSIST_FEATURE_AUTOMATIC_EMERGENCY_STEERING = 8;
+                ASSIST_FEATURE_REVERSE_AUTOMATIC_EMERGENCY_BRAKING = 9;
+                ASSIST_FEATURE_ADAPTIVE_CRUISE_CONTROL = 10;
+                ASSIST_FEATURE_LANE_KEEPING_ASSIST = 11;
+                ASSIST_FEATURE_ACTIVE_DRIVING_ASSISTANCE = 12;
+                ASSIST_FEATURE_BACKUP_CAMERA = 13;
+                ASSIST_FEATURE_SURROUND_VIEW_CAMERA = 14;
+                ASSIST_FEATURE_ACTIVE_PARKING_ASSISTANCE = 15;
+                ASSIST_FEATURE_REMOTE_PARKING_ASSISTANCE = 16;
+                ASSIST_FEATURE_TRAILER_ASSISTANCE = 17;
+                ASSIST_FEATURE_AUTOMATIC_HIGH_BEAMS = 18;
+                ASSIST_FEATURE_DRIVER_MONITORING = 19;
+                ASSIST_FEATURE_HEAD_UP_DISPLAY = 20;
+                ASSIST_FEATURE_NIGHT_VISION = 21;
             }
 
             // The activation state of a feature.
@@ -1005,35 +1006,39 @@ message MovingObject
             //
             enum ActivationState
             {
+                // An unknown activation state, this should not be used.
+                //
+                ACTIVATION_STATE_UNKNOWN = 0;
+
                 // Used for custom states not covered by the definitions below.
                 //
                 // A string state can be specified in custom_activation_state.
                 //
-                CUSTOM_STATE = 1;
+                ACTIVATION_STATE_OTHER = 1;
 
                 // The feature has been disabled.
                 //
-                TURNED_OFF = 2;
+                ACTIVATION_STATE_TURNED_OFF = 2;
 
                 // The feature has errored in some way that renders it ineffective.
                 //
-                ERRORED = 3;
+                ACTIVATION_STATE_ERRORED = 3;
 
                 // The feature is enabled but conditions have not caused it to be
                 // triggered, for example, no vehicles in front to trigger a FCW.
                 //
-                STANDBY = 4;
+                ACTIVATION_STATE_STANDBY = 4;
 
                 // The feature is currently active, for example, a warning is being
                 // shown to the driver, or emergency braking is being applied/
                 //
-                ACTIVE = 5;
+                ACTIVATION_STATE_ACTIVE = 5;
 
                 // The feature would be ACTIVE, but the user has show sufficient
                 // input to override, for example, by applying throttle or steering
                 // input.
                 //
-                ACTIVE_DRIVER_OVERRIDE = 6;
+                ACTIVATION_STATE_ACTIVE_DRIVER_OVERRIDE = 6;
             }
 
             // Custom detail.
