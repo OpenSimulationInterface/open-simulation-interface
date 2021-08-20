@@ -1106,13 +1106,20 @@ message MovingObject
                 ACTIVATION_STATE_ACTIVE_DRIVER_OVERRIDE = 6;
             }
 
-            // Custom detail.
             //
-            // Structure to hold custom key-value pair details.
+            // \brief Custom detail message
+            //
+            // To contain driver-assist related information that is too function
+            // specific to be captured in a generic way.
             //
             message CustomDetail
             {
+                // A generic string key to identify the information.
+                //
                 optional string key = 1;
+
+                // A generic string value to capture the information.
+                //
                 optional string value = 2;
             }
         }
