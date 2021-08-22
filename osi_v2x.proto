@@ -74,6 +74,26 @@ message V2I {
     //
     repeated Lane lane = 7;
 
+    // The list of roads in current visible area (circle area, with default radius)
+    
+
+
+}
+
+
+message GetEnvInfoReq{
+    optional Vector3d position = 1;
+    int radius =2 ;
+
+
+}
+
+message GetEnvInfoResp {
+    V2I env_info = 1;
+}
+
+service V2X {
+    rpc GetEnvInfo(GetEnvInfoReq) returns (GetEnvInfoResp);
 }
 
 
