@@ -1,8 +1,9 @@
 = Overview of OSI architecture
 
-OSI contains an object-based environment description using the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer] library developed and maintained by Google.
+OSI contains an object-based environment description that uses the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer] library.
+The Protocol Buffer library was developed and is maintained by Google.
 OSI defines top-level messages that are used to exchange data between separate models.
-Top-level messages define the ``GroundTruth`` interface, the ``SensorData`` interface and, since OSI version 3.0.0, the ``SensorView``, ``SensorViewConfiguration`` and ``FeatureData`` interfaces.
+Top-level messages define the `GroundTruth` interface, the `SensorData` interface, and – since OSI version 3.0.0 – the interfaces `SensorView`, `SensorViewConfiguration`, and `FeatureData`.
 
 The following figure shows the interfaces and models involved in modeling a sensor.
 
@@ -11,8 +12,8 @@ image::{images_open_simulation_interface}/osi-context.png[1100]
 
 
 OSI also defines interfaces for traffic participant models.
-The ``TrafficCommand`` interface allows to send commands to traffic participant models.
-The ``TrafficUpdate`` interface allows to receive their updated state.
+The `TrafficCommand` interface makes it possible to send commands to traffic participant models.
+The `TrafficUpdate` interface makes it possible to receive the updated state from traffic participant models.
 The following figure shows the interfaces of a generic traffic participant.
 
 .Interface of a traffic participant
@@ -24,14 +25,15 @@ The following figure shows a more advanced use case for traffic participants.
 .Traffic participant with sensor models, AD function, and dynamic model
 image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1100]
 
-The ``HostVehicleData`` interface describes the measured internal states of a traffic participant
-OSI currently provides only limited support for data structures describing measured internal states of traffic participants.
+The `HostVehicleData` interface describes the measured internal states of a traffic participant.
+OSI currently provides only limited support for data structures that describe measured internal states of traffic participants.
 Actuator intentions are currently not covered by OSI and must be handled with a different data description format.
 
 All fields in an interface are set to `optional`.
 `required` is not used.
 This has been done to allow backward-compatible changes in the field.
-Additionally, this is the default behavior in Protocol Buffer version 3 that does no longer have the `required` type and therefore ensures update compatibility.
+Additionally, this is the default behavior in Protocol Buffer version 3 that does no longer have the `required` type.
+Setting all fields to `optional` thus ensures update compatibility.
 However, this does not mean that filling the field is optional.
 For the purpose of providing a complete interface, all existing fields should be set, unless not setting a field carries a specific meaning as indicated in the accompanying comment.
 
