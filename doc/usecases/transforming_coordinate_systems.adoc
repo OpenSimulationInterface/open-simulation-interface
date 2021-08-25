@@ -13,7 +13,7 @@ It demonstrates how world coordinate system, vehicle coordinate system, and sens
 
 ``GroundTruth::moving_object::base::position``::
 This field defines the position of the vehicle's reference point in world coordinates.
-In Open Simulation Interface, the position of an object is defined by the coordinates of the center of the object's bounding box.
+In Open Simulation Interface, the position of an object is defined by the coordinates of the center of the object's 3D bounding box.
 
 ``GroundTruth::moving_object::base::orientation``::
 This field defines the orientation of the vehicle's reference point in world coordinates.
