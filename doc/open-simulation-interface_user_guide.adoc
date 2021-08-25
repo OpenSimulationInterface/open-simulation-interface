@@ -1,4 +1,4 @@
-ifndef::THIS_STANDARD[] 
+ifndef::THIS_STANDARD[]
 
 :asciidoc-resources: ../asciidoc-resources
 include::{asciidoc-resources}/preamble.adoc[]
@@ -60,11 +60,11 @@ include::./architecture/reference_points_coordinate_systems.adoc[leveloffset=+3]
 
 include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+3]
 
-//=== Layering
+=== Layering
 
-//include::./architecture/data_layer.adoc[leveloffset=+3]
+include::./architecture/data_layer.adoc[leveloffset=+3]
 
-//include::./architecture/packaging_layer.adoc[leveloffset=+3]
+include::./architecture/packaging_layer.adoc[leveloffset=+3]
 
 === OSI trace files
 
