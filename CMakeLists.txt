@@ -101,7 +101,7 @@ if(BUILD_FLATBUFFER)
     set(fbs "${proto_base}.fbs")
     add_custom_command(
       OUTPUT "${fbs}"
-      COMMAND $<TARGET_FILE:flatc> -o "${CMAKE_CURRENT_BINARY_DIR}" --proto "${CMAKE_CURRENT_SOURCE_DIR}/${proto}"
+      COMMAND $<TARGET_FILE:flatc> -I "${PROTOBUF_IMPORT_DIRS}" -o "${CMAKE_CURRENT_BINARY_DIR}" --proto "${CMAKE_CURRENT_SOURCE_DIR}/${proto}"
       DEPENDS "${proto}" flatc
       WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
       COMMENT "Convert ${proto} to ${fbs} using flatc"
