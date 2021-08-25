@@ -16,4 +16,5 @@ The origin is the mounting position of the physical sensor or a virtual mounting
 
 Object coordinate system::
 Local object coordinate system.
-The origin of the corresponding coordinate systems is not necessarily identical to the center of the object's bounding box.
+The origin of the corresponding coordinate system is not necessarily identical to the center of the object's bounding box.
+If the origin of the corresponding coordinate system is not identical to the center of the object's bounding box, the object documentation will provide the actual definition.
