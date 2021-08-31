@@ -1,0 +1,5 @@
+= Ground truth
+
+Ground-truth messages describe the simulated environment containing all simulated objects in the global coordinate system at consecutive time instances.
+It is based on data available to the simulation environment.
+Typically, ground-truth messages are contained in sensor view messages.
