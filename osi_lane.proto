@@ -809,6 +809,18 @@ message LaneBoundary
         // See \c LaneBoundary .
         //
         optional double height = 3;
+
+        // The rotation about the longitudinal axis of the lane boundary
+        // at the position of the \c BoundaryPoint .
+        // Necessary for boundary points with a specified height and/or
+        // width parameter.
+        //
+        // Unit: rad
+        //
+        // \note Field need not be set if it is previously defined.
+        // See \c LaneBoundary .
+        //
+        optional double roll = 4;
     }
 
     //
