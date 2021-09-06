@@ -84,10 +84,43 @@ message EnvironmentalConditions
     //
     optional Precipitation precipitation = 6;
 
+    // Description of the precipitation with intensity and the type
+    //
+    message precipitation_enhanced
+    {
+        // The intensity of the precipitation (valid for all precipitation types). Unit [mm/h]. Range [0...inf[
+        // According to OpenScenario 1.1
+        //
+        optional Precipitation intensity = 1;
+
+        // Type of the precipitation.
+        //
+        optional PrecipitationType type = 2;
+    }
+
     // Description of the fog.
     //
     optional Fog fog = 7;
-    
+
+    // \brief Defines fog at simulation runtime
+    //
+    // \note Described by the density of the fog, the visual range and the predefined bounding box
+    //
+    message fog_enhanced
+    {
+        // Description of the density of the fog.
+        //
+        optional Fog density = 1;
+
+        // Defines the possible visible range \c Unit: m; Range: [0..inf[.
+        //
+        optional double visualRange = 2;
+
+        // Dimensions and center of fog in fixed coordinates.
+        // TODO: osi_object.proto ???
+        optional bool boundingBox = 3;
+    }
+
     // Optional external reference to the environmental condition sources.
     //
     // \note For OpenDRIVE and OpenSECNARIO there is no direct counterpart.
@@ -100,6 +133,23 @@ message EnvironmentalConditions
     //       and from sensors.
     //
     repeated ExternalReference source_reference = 9;
+
+    // Defines a precipitation by type and value of a weather.
+    //
+    enum PrecipitationType
+    {
+        // No precipitation.
+        //
+        PRECIPITATION_TYPE_DRY = 0;
+
+        // Rain.
+        //
+        PRECIPITATION_TYPE_RAIN = 1;
+
+        // Snow.
+        //
+        PRECIPITATION_TYPE_SNOW = 2;
+    }
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour mm/h)
@@ -299,6 +349,23 @@ message EnvironmentalConditions
         AMBIENT_ILLUMINATION_LEVEL9 = 10;
     }
 
+    // \brief Defines wind properties.
+    //
+    // \note Describes the wind speed and direction from OpenScenario 1.1
+    //
+    message Wind
+    {
+        // The target direction of the wind (not the origin direction) in the ground/xy-plane of the \c
+        // world coordinate system. Corresponds to the heading/yaw angle. \c
+        // x-axis-direction is 0 rad. Unit [rad]. Range [0...2 pi[
+        //
+        optional double direction = 1;
+
+        // The wind speed. Unit [m/s]. Range [0...inf[
+        //
+        optional double speed = 2;
+    }
+
     //
     // \brief The time of day at a specified location.
     //
@@ -324,4 +391,58 @@ message EnvironmentalConditions
         //
         optional uint32 seconds_since_midnight = 1;
     }
+
+    //
+    // \brief Specification of sun properties.
+    //
+    // \note Defines the specification of the \c sun properties according to OpenScenario 1.1
+    //
+    message Sun
+    {
+        // Azimuth of the sun, counted counterclockwise, 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: [0..2PI].
+        //
+        optional double azimuth = 1;
+
+        // Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].
+        //
+        optional double elevation = 2;
+
+        // Illuminance of the sun, direct sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.
+        //
+        optional double intensity = 3;
+    }
+
+    // Definition of the cloud state, i.e. cloud state and sky visualization settings.
+    enum CloudState
+    {
+        // Cloudy. There are more clouds than sunshine.
+        //
+        CLOUD_STATE_CLOUDY = 0;
+
+        // Cloud free conditions.
+        //
+        CLOUD_STATE_FREE = 1;
+
+        // Overcast sky. Dull and gray looking.
+        //
+        CLOUD_STATE_OVERCAST = 2;
+
+        // Rain clouds.
+        //
+        CLOUD_STATE_RAINY = 3;
+
+        // Turns off the sky visualization.
+        //
+        CLOUD_STATE_SKYOFF = 4;
+    }
+
+    //
+    // \brief Definition of cloud states.
+    //
+    // \note Defines the cloud states according to OpenScenario 1.1
+    //
+    optional CloudState cloudstate = 10;
+
+
+
 }
