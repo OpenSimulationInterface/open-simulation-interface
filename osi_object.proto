@@ -664,7 +664,37 @@ message MovingObject
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated double assigned_lane_percentage = 2;        
+        repeated double assigned_lane_percentage = 2;
+
+        // Classification of the general moving direction of a moving object depeding on the relative yaw orientation between host vehicle and moving object.
+        // TODOD Maybe add grafic to illustrate the situation with relative yaw angle
+        //
+        optional MovingDirection moving_direction = 3;
+
+        // Definitions of moving direction.
+        //
+        enum MovingDirection
+        {
+            // Moving direction is unkown.
+            //
+            MOVING_DIRECTION_UNKOWN = 0;
+            
+            // Moving object is moving in the same direction.
+            //
+            MOVING_DIRECTION_IN_SAME_DIRECTION = 1;
+            
+            // Moving object is moving towards the host vehicle.
+            //
+            MOVING_DIRECTION_ONCOMING = 2;
+            
+            // Moving object is crossing from left to right.
+            //
+            MOVING_DIRECTION_CROSSING_LEFT_TO_RIGHT = 3;
+            
+            // Moving object is crossing from right to left.
+            //
+            MOVING_DIRECTION_CROSSING_RIGHT_TO_LEFT = 4;
+        }
     }
 
     //
