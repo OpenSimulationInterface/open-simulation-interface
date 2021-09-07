@@ -487,9 +487,21 @@ message TrafficAction
         //
         optional ActionHeader action_header = 1;
 
-        // The custom command given to the traffic participant.
+        // The custom command given to the traffic participant. Used to convey a specific instruction
+        // (for example, "exit_highway"), or event (for example, "left_indicator_activated").
+        //
+        // \note This corresponds to the content of the OpenSCENARIO 1.0 CustomCommandAction field.
         //
         optional string command = 2;
+
+        // The type of the custom command given to the traffic participant. Can be used to simplify
+        // how commands are grouped. For example, the command_type could be "sensor_failure" and the
+        // command value could be "front_right_camera".  This avoids long commands, like
+        //"sensor_failure: front_right_camera".
+        //
+        // \note This corresponds to the "type" attribute of the OpenSCENARIO 1.0 CustomCommandAction.
+        //
+        optional string command_type = 3;
     }    
 
     // \brief Longitudinal Distance Action
