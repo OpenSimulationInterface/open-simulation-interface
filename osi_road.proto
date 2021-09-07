@@ -1,0 +1,86 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+
+package osi3;
+
+//
+// \brief A description of a road.
+//
+message Road
+{
+    // The ID of the road.
+    //
+    // \note Note ID is globally unique.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
+    optional Identifier id = 1;
+    //
+    // The surface representation of the road. 
+    // 
+    optional SurfaceRepresentation surface_representation; 
+    // 
+    // \brief This message describes the road's topology.
+    //
+    message SurfaceRepresentation
+    {
+        // A list of surface points discretizing the road surface (vertex list).
+        // TODO: TBD Should there be rules or configuration options for arrangement 
+        // (e.g. triangular, rectangular) and/or granularity of the grid?
+        // 
+        repeated SurfacePoint surface_point; 
+        //
+        message SurfacePoint
+        {
+            // The ID of the surface point. 
+            //
+            optional Identifier surface_point_id = 1;
+            //
+            // The cartesian position coordinates of the surface point. 
+            //            
+            optional Vector3d surface_point = 2; 
+            // 
+            // TODO: TBD Should there be lane assignment? Clarify what a 
+            // road "contains" -> all lanes? 
+        }
+        //
+        // A list of edges connecting two surface points (edge list).
+        // 
+        repeated Edge edge;
+        // 
+        message Edge 
+        {
+            // The ID of an edge. 
+            //            
+            optional Identifier edge_id = 1;
+            // 
+            // A tuple of two surface points specifying a line. 
+            //
+            // \note Each surface point is used in multiple tuples
+            // because only that way areas (tiles) can be specified.  
+            //               
+            repeated Identifier surface_point_id = 2; 
+        }     
+        //
+        // A list of tiles connecting edges (tile list).
+        // 
+        repeated Tile tile; 
+        // 
+        message Tile 
+        {
+            // The ID of a tile. 
+            //            
+            optional Identifier tile_id = 1;
+            // 
+            // A list of surface edges. When triangulation is used, it is 
+            // a triple. 
+            //               
+            repeated Identifier edge_id = 2; 
+        }                         
+    }
+}
