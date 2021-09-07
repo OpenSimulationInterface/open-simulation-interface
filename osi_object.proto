@@ -40,6 +40,41 @@ message StationaryObject
     //
     optional string model_reference = 4;
 
+    // External reference to the stationary-object source.
+    //
+    // The external reference points to the source of a stationary object, if it
+    // is derived from an external sources like OpenDRIVE or OpenSCENARIO.
+    //
+    // For example, to reference an object defined in an OpenDRIVE map
+    // the items should be set as follows:
+    // * reference = URI to map, can remain empty if identical with definiton
+    //               in \c GroundTruth::map_reference
+    // * type = "net.asam.opendrive"
+    // * identifier[0] = "object" for t_road_objects_object and
+    //                   "bridge" for t_road_objects_bridge
+    // * identifier[1] = id of t_road_objects_object or t_road_objects_bridge
+    //
+    // For example, to reference OpenSCENARIO entities of the type MiscObject,
+    // which describe partly stationary objects, the items should be set as 
+    // follows:
+    // * reference = URI to the OpenSCENARIO File
+    // * type = "net.asam.openscenario"
+    // * identifier[0] = Entity-Type ("MiscObject")
+    // * identifier[1] = name of MiscObject in Entity
+    //
+    // \note The following rule, described in OpenDRIVE, also applies:
+    // * Objects derived from OpenSCENARIO shall not be mixed with objects
+    //   described in OpenDRIVE.
+    //
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
+    //
+    repeated ExternalReference source_reference = 5;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -60,6 +95,10 @@ message StationaryObject
         // The dominating color of the material of the structure.
         //
         optional Color color = 4;
+
+        // The attributes of the emitting structure if stationary object is classified as such.
+        //
+        optional EmittingStructureAttribute emitting_structure_attribute = 5;
 
         // Definition of object types.
         //
@@ -128,8 +167,8 @@ message StationaryObject
             //
             TYPE_OVERHEAD_STRUCTURE = 14;
 
-            // Landmarks corresponding to light sources or reflective structures
-            // in the environment, like street lights or reflective poles on the
+            // Landmarks corresponding to reflective structures
+            // in the environment, like reflective poles on the
             // road boarder.
             //
             TYPE_REFLECTIVE_STRUCTURE = 15;
@@ -138,6 +177,15 @@ message StationaryObject
             // environment, like beacons.
             //
             TYPE_CONSTRUCTION_SITE_ELEMENT = 16;
+
+            // Object is a speed bump.
+            //
+            TYPE_SPEED_BUMP = 17;
+
+            // Landmarks corresponding to sources of electromagnetic waves
+            // in the environment, like street lights.
+            //
+            TYPE_EMITTING_STRUCTURE = 18;
         }
 
         // Definition of material types.
@@ -264,6 +312,26 @@ message StationaryObject
             //
             COLOR_WHITE = 10;
         }
+
+        //
+        // \brief Attributes of type emitting structure. The horizontal_angle and the vertical_angle in
+        // emitted_spatial_intensity are symmetrical across the normal, which is defined by the mounting position
+        // of the emitting structure.
+        //
+        message EmittingStructureAttribute
+        {
+            // This message determines the range of the emitted wavelength and its
+            // desired number of samples.
+            //
+            repeated WavelengthData wavelength_data = 1;
+
+            // Spatial signal strength distribution of the emitted electromagnetic wave.
+            // For every sample in wavelength_data an emitted_spatial_signal_strength has to be defined.
+            //
+            // \note emitted_spatial_signal_strength.size() = WavelengthData.samples_number.size()
+            //
+            repeated SpatialSignalStrength emitted_spatial_signal_strength = 3;
+        }
     }
 }
 
@@ -358,6 +426,30 @@ message MovingObject
     // Specific information about the classification of the vehicle.
     //
     optional MovingObjectClassification moving_object_classification = 9;    
+
+    // Optional external reference to the moving-object source
+    //
+    // The external reference points to the source of an moving object, if it
+    // is derived from an external sources like OpenSCENARIO.
+    //
+    // For example, to reference OpenSCENARIO entities of the type Vehicle or
+    // Pedestrian, which describe moving objects, the items should be set as
+    // follows:
+    // * reference = URI to the OpenSCENARIO File
+    // * type = "net.asam.openscenario"
+    // * identifier[0] = Entity-Type ("Vehicle" or "Pedestrian")
+    // * identifier[1] = name of Vehicle/Pedestrian in Entity
+    //
+    // \todo OpenSCENARIO currently does not provide an animal type.
+    // 
+    // \note For non-ASAM Standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
+    //
+    repeated ExternalReference source_reference = 10;
 
     // Definition of object types.
     //

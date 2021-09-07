@@ -1,0 +1,61 @@
+= Installing OSI for C++ on Linux
+
+**Prerequisites**
+
+* You have _cmake_ installed.
+* You have installed _protobuf_.
+* You must have super user privileges.
+
+**Steps**
+
+. Open a terminal.
+. Clone the Open Simulation repository.
++
+[source]
+----
+git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+----
++
+. Change into the repository directory.
++
+[source]
+----
+cd open-simulation-interface
+----
++
+. Create a new directory for the build.
++
+[source]
+----
+mkdir build
+----
++
+. Change into the new directory.
++
+[source]
+----
+cd build
+----
++
+. Run cmake.
+  To build a 32-bit target under 64-bit Linux, add `-DCMAKE_CXX_FLAGS="-m32"` to the cmake command.
+  In this case, protobuf must be in 32-bit mode too.
++
+[source]
+----
+cmake ..
+----
++
+. Run make.
++
+[source]
+----
+make
+----
++
+. Install Open Simulation Interface.
++
+[source]
+----
+sudo make install
+----

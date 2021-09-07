@@ -143,25 +143,23 @@ message Dimension3d
 // Units are rad for orientation, rad/s for rates, and rad/s^2 for
 // accelerations
 //
-// The preferred angular range is [-pi, pi]. The coordinate system is defined as
-// right-handed.
+// The coordinate system is defined as right-handed.
 // For the sense of each rotation, the right-hand rule applies.
 //
 // The rotations are to be performed \b yaw \b first (around the z-axis),
 // \b pitch \b second (around the new y-axis) and \b roll \b third (around the
 // new x-axis) to follow the definition according to [1] (Tait-Bryan / Euler
-// convention z-y'-x'').
+// convention z-y'-x''). The preferred angular range is [-pi, pi] for roll 
+// and yaw and [-pi/2, pi/2] for pitch. 
 //
 // Roll/Pitch are 0 if the objects xy-plane is parallel to its parent's
 // xy-plane. Yaw is 0 if the object's local x-axis is parallel to its parent's
 // x-axis.
 //
 // \f$ Rotation_{yaw,pitch,roll} =
-// Rotation_{roll}*Rotation_{pitch}*Rotation_{yaw} \f$
+// Rotation_{yaw}*Rotation_{pitch}*Rotation_{roll} \f$
 //
-// \f$ vector_{\text{global coord system}} :=
-// Rotation_{yaw,pitch,roll}^{-1}( \f$ \c Orientation3d \f$
-// )*vector_{\text{local coord system}} + local_{origin}\text{::position} \f$
+// \f$ vector_{gobal coord system} := Rotation_{yaw, pitch, roll} * vector_{local coord system} +local_{origin::position} \f$
 //
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
@@ -213,6 +211,68 @@ message Identifier
     // \endrules
     //
     optional uint64 value = 1;
+}
+
+// \brief References to external objects.
+//
+// The external reference is an optional recommendation to refer to objects defined outside of OSI.
+// This could be other OpenX standards, 3rd-party standards or user-defined objects.
+//
+// \note ExternalReference is optional and can be left empty.
+//
+message ExternalReference
+{
+    // The source of the external references.
+    //
+    // Defines the original source of an object as uniquely identifiable reference.
+    // In case of using \c GroundTruth::map_reference or 
+    // \c GroundTruth::model_reference, the reference can be left empty.
+    // If not otherwise required, an URI is suggested. The syntax should follow 
+    // \link https://tools.ietf.org/html/rfc3986 RFC 3986\endlink.
+    //
+    //
+    optional string reference = 1;
+    
+    // The type of the external references.
+    //
+    // Mandatory value describing the type of the original source.
+    //
+    // For OpenX/ASAM standards it is specified as follows:
+    // - net.asam.opendrive
+    // - net.asam.openscenario
+    //
+    // For third-party standards and user-defined objects, 
+    // reverse domain name notation with lower-case type field
+    // is recommended to guarantee unique and interoperable identification.
+    //
+    optional string type = 2;    
+    
+    // The external identifier reference value.
+    //
+    // The repeated string is chosen as a common description of the external
+    // identifier, because a variety of identificatier types could be
+    // involved .
+    //
+    // For example, referencing a unique lane in OpenDRIVE requires the
+    // following identifiers:
+    // * RoadId: String
+    // * S-Value of LaneSection: Double
+    // * LaneId: Int
+    // 
+    // \note The detailed description of the identifiers and how they are 
+    //       used for referencing external objects is given in the individual
+    //       messages where the external identifier is used.
+    //
+    // \see EnvironmentalConditions::source_reference
+    // \see Lane::source_reference
+    // \see LaneBoundary::source_reference
+    // \see StationaryObject::source_reference
+    // \see MovingObject::source_reference
+    // \see RoadMarking::source_reference
+    // \see TrafficLight::source_reference
+    // \see TrafficSign::source_reference
+    //
+    repeated string identifier = 3;
 }
 
 //
@@ -518,3 +578,36 @@ message WavelengthData
     optional double samples_number = 3;
 }
 
+//
+// \brief Definition of a spatial signal strength distribution
+// for an emitting / transmitting / receiving entity
+// with a horizontal and a vertical angle
+// and the corresponding signal strength in dBm (decibels per milliwatt).
+//
+message SpatialSignalStrength
+{
+    // Horizontal angle (azimuth) of emission / transmission / reception
+    // in the entity's coordinate system.
+    //
+    // Unit: rad
+    //
+    optional double horizontal_angle = 1;
+
+    // Vertical angle (elevation) of emission / transmission / reception
+    // in the entity's coordinate system.
+    //
+    // Unit: rad
+    //
+    optional double vertical_angle = 2;
+
+    // Emitted / transmitted /received signal strength
+    // of the emitting / transmitting / receiving entity
+    // at the previously defined horizontal and
+    // vertical angle for one specific wavelength.
+    // The value for the signal strength
+    // is given in dBm (decibels per milliwatt).
+    //
+    // Unit: dBm
+    //
+    optional double signal_strength = 3;
+}

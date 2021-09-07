@@ -2,6 +2,8 @@ syntax = "proto2";
 
 option optimize_for = SPEED;
 
+import "osi_common.proto";
+
 package osi3;
 
 //
@@ -85,6 +87,19 @@ message EnvironmentalConditions
     // Description of the fog.
     //
     optional Fog fog = 7;
+    
+    // Optional external reference to the environmental condition sources.
+    //
+    // \note For OpenDRIVE and OpenSECNARIO there is no direct counterpart.
+    //
+    // \note For non-ASAM standards, it is implementation-specific how
+    //       source_reference is resolved.
+    //
+    // \note The value has to be repeated because one object may be derived
+    //       from more than one origin source, for example, from a scenario file
+    //       and from sensors.
+    //
+    repeated ExternalReference source_reference = 9;
 
     // Definition of discretized precipitation states according to [1].
     // (I = Intensity of precipitation in mm per hour mm/h)

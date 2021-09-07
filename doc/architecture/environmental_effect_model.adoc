@@ -1,0 +1,9 @@
+= Environmental effect model
+
+Environmental effect models consume sensor-view messages and produce sensor-view messages.
+Environmental effect models may, for example, alter sensor-view messages to include effects and phenomena caused by:
+
+* Shadows and occlusions
+* Weather effects
+* Physics of a sensor
+* Pre-processing of raw sensor data

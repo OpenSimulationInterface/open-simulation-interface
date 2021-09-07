@@ -1,0 +1,52 @@
+= Trace-file formatting scripts
+
+The OSI repository contains Python scripts for converting trace files from one format to the other.
+The formatting scripts are stored in `open-simulation-interface/format/`
+
+**txt2osi.py**
+
+`txt2osi.py` converts plain-text trace files to binary `.osi` trace files.
+This script takes the following parameters:
+
+`--data`, `-d`::
+String containing the path to the file with serialized data.
+
+`--type`, `-t`::
+Optional string describing the message type used to serialize data.
+Allowed values are `'SensorView'`, `'GroundTruth'`, or `'SensorData'`.
+The default value is `'SensorView'`.
+
+`--output`, `-o`::
+Optional string containing the name of the output file.
+The default value is `'converted.osi'`.
+
+`--compress`, `-c`::
+Optional boolean controlling whether to compress the output to a lzma file.
+Allowed values are `True`, or `False`.
+The default value is `False`.
+
+**osi2read.py**
+
+`osi2read.py` converts trace files to human-readable `.txth` trace files.
+This script takes the following parameters:
+
+`--data`, `-d`::
+String containing the path to the file with serialized data.
+
+`--type`, `-t`::
+Optional string describing the message type used to serialize data.
+Allowed values are `'SensorView'`, `'GroundTruth'`, or `'SensorData'`.
+The default value is `'SensorView'`.
+
+`--output`, `-o`::
+Optional string containing the name of the output file.
+The default value is `'converted.txth'`.
+
+`--format`, `-f`::
+Optional string containing the format type of the trace file.
+Allowed values are `'separated'`, or `None`.
+The default value is `None`.
+
+**Related topics**
+
+* <<#top-1a2f4b0c-195c-4f18-89ad-d48a123bd8c1>>[OSI trace file formats]
