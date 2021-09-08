@@ -26,6 +26,7 @@ var structosi3_1_1CameraDetection =
     ] ],
     [ "ambiguity_id", "structosi3_1_1CameraDetection.html#a14fb94173024a3ec07233bc35a63979b", null ],
     [ "color", "structosi3_1_1CameraDetection.html#add1ad1673f0058fa83ee523ce1d1c98d", null ],
+    [ "color_description", "structosi3_1_1CameraDetection.html#a247d247dd7de70f11eeb5cc86c36450e", null ],
     [ "color_probability", "structosi3_1_1CameraDetection.html#a8392d735b4b85d8f85b79b143940d632", null ],
     [ "existence_probability", "structosi3_1_1CameraDetection.html#a3623c6f12847875a2d0a0fb5cc7d173e", null ],
     [ "first_point_index", "structosi3_1_1CameraDetection.html#ae642a22b8cd90f8f99c828068a0e6daf", null ],

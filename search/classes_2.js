@@ -16,6 +16,13 @@ var searchData=
   ['candidatestationaryobject',['CandidateStationaryObject',['../structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html',1,'osi3::DetectedStationaryObject']]],
   ['candidatesupplementarysign',['CandidateSupplementarySign',['../structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign.html',1,'osi3::DetectedTrafficSign::DetectedSupplementarySign']]],
   ['candidatetrafficlight',['CandidateTrafficLight',['../structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html',1,'osi3::DetectedTrafficLight']]],
-  ['classification',['Classification',['../structosi3_1_1StationaryObject_1_1Classification.html',1,'osi3::StationaryObject::Classification'],['../structosi3_1_1Occupant_1_1Classification.html',1,'osi3::Occupant::Classification'],['../structosi3_1_1RoadMarking_1_1Classification.html',1,'osi3::RoadMarking::Classification'],['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html',1,'osi3::TrafficSign::SupplementarySign::Classification'],['../structosi3_1_1Lane_1_1Classification.html',1,'osi3::Lane::Classification'],['../structosi3_1_1TrafficLight_1_1Classification.html',1,'osi3::TrafficLight::Classification'],['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html',1,'osi3::TrafficSign::MainSign::Classification'],['../structosi3_1_1LaneBoundary_1_1Classification.html',1,'osi3::LaneBoundary::Classification']]],
+  ['classification',['Classification',['../structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html',1,'osi3::TrafficSign::MainSign::Classification'],['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html',1,'osi3::TrafficSign::SupplementarySign::Classification'],['../structosi3_1_1LaneBoundary_1_1Classification.html',1,'osi3::LaneBoundary::Classification'],['../structosi3_1_1StationaryObject_1_1Classification.html',1,'osi3::StationaryObject::Classification'],['../structosi3_1_1Occupant_1_1Classification.html',1,'osi3::Occupant::Classification'],['../structosi3_1_1RoadMarking_1_1Classification.html',1,'osi3::RoadMarking::Classification'],['../structosi3_1_1Lane_1_1Classification.html',1,'osi3::Lane::Classification'],['../structosi3_1_1TrafficLight_1_1Classification.html',1,'osi3::TrafficLight::Classification']]],
+  ['colorcmyk',['ColorCMYK',['../structosi3_1_1ColorCMYK.html',1,'osi3']]],
+  ['colordescription',['ColorDescription',['../structosi3_1_1ColorDescription.html',1,'osi3']]],
+  ['colorgrey',['ColorGrey',['../structosi3_1_1ColorGrey.html',1,'osi3']]],
+  ['colorhsv',['ColorHSV',['../structosi3_1_1ColorHSV.html',1,'osi3']]],
+  ['colorluv',['ColorLUV',['../structosi3_1_1ColorLUV.html',1,'osi3']]],
+  ['colorrgb',['ColorRGB',['../structosi3_1_1ColorRGB.html',1,'osi3']]],
+  ['colorrgbir',['ColorRGBIR',['../structosi3_1_1ColorRGBIR.html',1,'osi3']]],
   ['customaction',['CustomAction',['../structosi3_1_1TrafficAction_1_1CustomAction.html',1,'osi3::TrafficAction']]]
 ];

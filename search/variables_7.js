@@ -11,5 +11,7 @@ var searchData=
   ['host_5fvehicle_5fdata',['host_vehicle_data',['../structosi3_1_1SensorView.html#aca120e668e795bfc4827ddce64833d86',1,'osi3::SensorView']]],
   ['host_5fvehicle_5fid',['host_vehicle_id',['../structosi3_1_1GroundTruth.html#a1e95e5082d740add167f4e4948d3faec',1,'osi3::GroundTruth::host_vehicle_id()'],['../structosi3_1_1SensorView.html#a27156b9596aef52ab32922959f067cd7',1,'osi3::SensorView::host_vehicle_id()']]],
   ['host_5fvehicle_5flocation',['host_vehicle_location',['../structosi3_1_1SensorData.html#a7bacbcf1f521df6038d455a80baed870',1,'osi3::SensorData']]],
-  ['host_5fvehicle_5flocation_5frmse',['host_vehicle_location_rmse',['../structosi3_1_1SensorData.html#a3b5ba4aef1a3d5eb85ee0f44676b8f98',1,'osi3::SensorData']]]
+  ['host_5fvehicle_5flocation_5frmse',['host_vehicle_location_rmse',['../structosi3_1_1SensorData.html#a3b5ba4aef1a3d5eb85ee0f44676b8f98',1,'osi3::SensorData']]],
+  ['hsv',['hsv',['../structosi3_1_1ColorDescription.html#a16a159f32c1e226fcaaa5f24151a2d79',1,'osi3::ColorDescription']]],
+  ['hue',['hue',['../structosi3_1_1ColorHSV.html#ab66396cca9b76a8bfbddad6ed037035c',1,'osi3::ColorHSV']]]
 ];

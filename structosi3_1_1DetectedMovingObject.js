@@ -25,6 +25,7 @@ var structosi3_1_1DetectedMovingObject =
     [ "base_rmse", "structosi3_1_1DetectedMovingObject.html#a92bd545d7e0a7db2040154aae9e6fc06", null ],
     [ "camera_specifics", "structosi3_1_1DetectedMovingObject.html#a09082e051d4e8743ac25613459010722", null ],
     [ "candidate", "structosi3_1_1DetectedMovingObject.html#a34576520312191febc4a5c5878a492a4", null ],
+    [ "color_description", "structosi3_1_1DetectedMovingObject.html#a4714e71b733eef50b13287f438061f65", null ],
     [ "header", "structosi3_1_1DetectedMovingObject.html#aa101f27243091dfa864bd86b82ac1313", null ],
     [ "lidar_specifics", "structosi3_1_1DetectedMovingObject.html#ab995cfa98f7a350779da19635ec220f2", null ],
     [ "movement_state", "structosi3_1_1DetectedMovingObject.html#a0f3a4a7c2219dcd0bc485386168dfab6", null ],

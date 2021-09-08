@@ -196,7 +196,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Definition of colors for traffic lights. </p>
+<p>Definition of semantic colors for traffic lights.</p>
+<dl class="section note"><dt>Note</dt><dd>The color types represent the semantic classification of a traffic light only. They do not represent an actual visual appearance. </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ade8af99e440cdd216d8294647d473114a7c995b25ebcdc635e78e0b02349a10a6"></a>COLOR_UNKNOWN&#160;</td><td class="fielddoc"><p>Color is unknown (must not be used in ground truth). </p>
 </td></tr>
@@ -344,8 +345,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The color of the traffic light.</p>
-<dl class="section note"><dt>Note</dt><dd>If the color of the traffic light is known (from history or geometrical arrangement) and the state <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#afc685a8d448f2cabe2e5b92af8229259">mode</a></code> is <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a69be76cae92b3457de3d19f74ede0ee1">MODE_OFF</a></code> then <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034">color</a></code> could remain unchanged. If traffic light displays images in different colors and traffic light is off ( <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#afc685a8d448f2cabe2e5b92af8229259">mode</a></code> = <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a69be76cae92b3457de3d19f74ede0ee1">MODE_OFF</a></code>), then <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034">color</a></code> = <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ade8af99e440cdd216d8294647d473114a7a3d9018ba3fae6e6d2b0da49de1349a">COLOR_OTHER</a></code> . </dd></dl>
+<p>The semantic color of the traffic light.</p>
+<dl class="section note"><dt>Note</dt><dd>The color types represent the semantic color classification of a traffic light only. They do not represent an actual visual appearance.</dd>
+<dd>
+If the color of the traffic light is known (from history or geometrical arrangement) and the state <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#afc685a8d448f2cabe2e5b92af8229259">mode</a></code> is <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a69be76cae92b3457de3d19f74ede0ee1">MODE_OFF</a></code> then <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034">color</a></code> could remain unchanged. If traffic light displays images in different colors and traffic light is off ( <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#afc685a8d448f2cabe2e5b92af8229259">mode</a></code> = <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a69be76cae92b3457de3d19f74ede0ee1">MODE_OFF</a></code>), then <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034">color</a></code> = <code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ade8af99e440cdd216d8294647d473114a7a3d9018ba3fae6e6d2b0da49de1349a">COLOR_OTHER</a></code> . </dd></dl>
 
 </div>
 </div>
