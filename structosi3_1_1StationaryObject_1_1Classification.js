@@ -55,6 +55,8 @@ var structosi3_1_1StationaryObject_1_1Classification =
       [ "TYPE_SPEED_BUMP", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da0035009db5b2fadfc746e432cd4d3eb9", null ],
       [ "TYPE_EMITTING_STRUCTURE", "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da2ad7dab15df9369f54e873a079d26f02", null ]
     ] ],
+    [ "assigned_lane_id", "structosi3_1_1StationaryObject_1_1Classification.html#ab73e891def240ff1fdeb0e0e4c1df16e", null ],
+    [ "assigned_lane_percentage", "structosi3_1_1StationaryObject_1_1Classification.html#a494840e66a2d734e3f33a3a968887a79", null ],
     [ "color", "structosi3_1_1StationaryObject_1_1Classification.html#ae22a9a0e707d85d8883ddccf0cb4f32f", null ],
     [ "density", "structosi3_1_1StationaryObject_1_1Classification.html#afeb7027b4c8d6098f1fed2ce5f065467", null ],
     [ "emitting_structure_attribute", "structosi3_1_1StationaryObject_1_1Classification.html#a9cae44e84de3eb884ae7cc1d708e29df", null ],

@@ -103,9 +103,10 @@ Collaboration diagram for osi3::StationaryObject::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1StationaryObject_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1StationaryObject_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1StationaryObject_1_1Classification_coll__map" id="osi3_1_1StationaryObject_1_1Classification_coll__map">
-<area shape="rect" id="node5" href="structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure. The horizontal_angle and the vertical_angle in emitted_spatial..." alt="" coords="404,157,643,213"/>
-<area shape="rect" id="node6" href="structosi3_1_1WavelengthData.html" title="Detailed WavelengthRange message. " alt="" coords="21,143,187,169"/>
-<area shape="rect" id="node7" href="structosi3_1_1SpatialSignalStrength.html" title="Definition of a spatial signal strength distribution for an emitting / transmitting / receiving entit..." alt="" coords="5,203,203,229"/>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="466,109,581,136"/>
+<area shape="rect" id="node7" href="structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure. The horizontal_angle and the vertical_angle in emitted_spatial..." alt="" coords="404,211,643,267"/>
+<area shape="rect" id="node8" href="structosi3_1_1WavelengthData.html" title="Detailed WavelengthRange message. " alt="" coords="21,196,187,223"/>
+<area shape="rect" id="node9" href="structosi3_1_1SpatialSignalStrength.html" title="Definition of a spatial signal strength distribution for an emitting / transmitting / receiving entit..." alt="" coords="5,256,203,283"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -201,6 +202,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ae22a9a0e707d85d8883ddccf0cb4f32f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cae44e84de3eb884ae7cc1d708e29df"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html">EmittingStructureAttribute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a9cae44e84de3eb884ae7cc1d708e29df">emitting_structure_attribute</a> = 5</td></tr>
 <tr class="separator:a9cae44e84de3eb884ae7cc1d708e29df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73e891def240ff1fdeb0e0e4c1df16e"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#ab73e891def240ff1fdeb0e0e4c1df16e">assigned_lane_id</a> = 6</td></tr>
+<tr class="separator:ab73e891def240ff1fdeb0e0e4c1df16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494840e66a2d734e3f33a3a968887a79"><td class="memItemLeft" align="right" valign="top">repeated double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a494840e66a2d734e3f33a3a968887a79">assigned_lane_percentage</a> = 7</td></tr>
+<tr class="separator:a494840e66a2d734e3f33a3a968887a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object. ">Classification</a> data for a stationary object. </p>
@@ -367,6 +372,42 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab73e891def240ff1fdeb0e0e4c1df16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab73e891def240ff1fdeb0e0e4c1df16e">&#9670;&nbsp;</a></span>assigned_lane_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a> osi3::StationaryObject::Classification::assigned_lane_id = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The IDs of the lanes that the object is assigned to.</p>
+<dl class="section note"><dt>Note</dt><dd>Might be multiple IDs if the object stretches over multiple lanes.</dd>
+<dd>
+OSI uses singular instead of plural for repeated field names. </dd></dl>
+
+</div>
+</div>
+<a id="a494840e66a2d734e3f33a3a968887a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a494840e66a2d734e3f33a3a968887a79">&#9670;&nbsp;</a></span>assigned_lane_percentage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated double osi3::StationaryObject::Classification::assigned_lane_percentage = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Percentage values of the object width in the corresponding lane.</p>
+<dl class="section note"><dt>Note</dt><dd>Might be multiple percentages if the object stretches over multiple lanes.</dd>
+<dd>
+OSI uses singular instead of plural for repeated field names. </dd></dl>
+
+</div>
+</div>
 <a id="ae22a9a0e707d85d8883ddccf0cb4f32f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae22a9a0e707d85d8883ddccf0cb4f32f">&#9670;&nbsp;</a></span>color</h2>
 
