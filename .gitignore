@@ -4,6 +4,7 @@ dist/
 doc/html
 doc/latex
 osi/
+osi3/
 
 # Specific extensions
 *.egg-info
@@ -20,6 +21,7 @@ cmake_install.cmake
 install_manifest.txt
 osi_version.proto
 version.py
+pyproject.toml
 
 # Eclipse-specific files, if any
 *.cproject
