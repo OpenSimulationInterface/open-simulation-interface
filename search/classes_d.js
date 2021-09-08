@@ -1,16 +1,11 @@
 var searchData=
 [
-  ['sensordata',['SensorData',['../structosi3_1_1SensorData.html',1,'osi3']]],
-  ['sensordataseries',['SensorDataSeries',['../structosi3_1_1SensorDataSeries.html',1,'osi3']]],
-  ['sensordataserieslist',['SensorDataSeriesList',['../structosi3_1_1SensorDataSeriesList.html',1,'osi3']]],
-  ['sensordetectionheader',['SensorDetectionHeader',['../structosi3_1_1SensorDetectionHeader.html',1,'osi3']]],
-  ['sensorview',['SensorView',['../structosi3_1_1SensorView.html',1,'osi3']]],
-  ['sensorviewconfiguration',['SensorViewConfiguration',['../structosi3_1_1SensorViewConfiguration.html',1,'osi3']]],
-  ['signalway',['Signalway',['../structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html',1,'osi3::UltrasonicSpecificObjectData']]],
-  ['spatialsignalstrength',['SpatialSignalStrength',['../structosi3_1_1SpatialSignalStrength.html',1,'osi3']]],
-  ['speedaction',['SpeedAction',['../structosi3_1_1TrafficAction_1_1SpeedAction.html',1,'osi3::TrafficAction']]],
-  ['spherical3d',['Spherical3d',['../structosi3_1_1Spherical3d.html',1,'osi3']]],
-  ['statepoint',['StatePoint',['../structosi3_1_1StatePoint.html',1,'osi3']]],
-  ['stationaryobject',['StationaryObject',['../structosi3_1_1StationaryObject.html',1,'osi3']]],
-  ['supplementarysign',['SupplementarySign',['../structosi3_1_1TrafficSign_1_1SupplementarySign.html',1,'osi3::TrafficSign']]]
+  ['radardetection',['RadarDetection',['../structosi3_1_1RadarDetection.html',1,'osi3']]],
+  ['radardetectiondata',['RadarDetectionData',['../structosi3_1_1RadarDetectionData.html',1,'osi3']]],
+  ['radarsensorview',['RadarSensorView',['../structosi3_1_1RadarSensorView.html',1,'osi3']]],
+  ['radarsensorviewconfiguration',['RadarSensorViewConfiguration',['../structosi3_1_1RadarSensorViewConfiguration.html',1,'osi3']]],
+  ['radarspecificobjectdata',['RadarSpecificObjectData',['../structosi3_1_1RadarSpecificObjectData.html',1,'osi3']]],
+  ['reflection',['Reflection',['../structosi3_1_1LidarSensorView_1_1Reflection.html',1,'osi3::LidarSensorView::Reflection'],['../structosi3_1_1RadarSensorView_1_1Reflection.html',1,'osi3::RadarSensorView::Reflection']]],
+  ['roadcondition',['RoadCondition',['../structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html',1,'osi3::Lane::Classification']]],
+  ['roadmarking',['RoadMarking',['../structosi3_1_1RoadMarking.html',1,'osi3']]]
 ];

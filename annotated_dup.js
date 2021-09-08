@@ -85,5 +85,11 @@ var annotated_dup =
       [ "Vector2d", "structosi3_1_1Vector2d.html", "structosi3_1_1Vector2d" ],
       [ "Vector3d", "structosi3_1_1Vector3d.html", "structosi3_1_1Vector3d" ],
       [ "WavelengthData", "structosi3_1_1WavelengthData.html", "structosi3_1_1WavelengthData" ]
+    ] ],
+    [ "proto", null, [
+      [ "test", null, [
+        [ "ImportedMessage", "structproto_1_1test_1_1ImportedMessage.html", "structproto_1_1test_1_1ImportedMessage" ],
+        [ "ProtoMessage", "structproto_1_1test_1_1ProtoMessage.html", "structproto_1_1test_1_1ProtoMessage" ]
+      ] ]
     ] ]
 ];

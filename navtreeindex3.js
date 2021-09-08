@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6aeb650be86852bd56249051ff05232f45":[2,0,0,49,0,0,9],
+"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6af23b7bc617a26bbdaf548a10731d4db2":[2,0,0,49,0,0,4],
 "structosi3_1_1Orientation3d.html":[2,0,0,50],
 "structosi3_1_1Orientation3d.html#a1f855b7cd2ecc13fee682b13d174759a":[2,0,0,50,0],
 "structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba":[2,0,0,50,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da822faf8362eae49c88f464f79c590be4":[2,0,0,66,0,4,8],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da8de3fc54006491ab87373bd894881755":[2,0,0,66,0,4,4],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da962c01097f9e857d3cff64ac1e4e8383":[2,0,0,66,0,4,13],
-"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457dab5c48f060b434b4b8aefa7c977dd060a":[2,0,0,66,0,4,12],
-"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457dac1715c176bec889ed7d8b55e70b17375":[2,0,0,66,0,4,15],
-"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457dad2da8cbd9c8234fceb736ab178eabaf3":[2,0,0,66,0,4,6]
+"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457dab5c48f060b434b4b8aefa7c977dd060a":[2,0,0,66,0,4,12]
 };
