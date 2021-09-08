@@ -120,6 +120,10 @@ message DetectedStationaryObject
     //
     repeated CandidateStationaryObject candidate = 4;
 
+    // The dominating color of the material of the structure.
+    //
+    optional ColorDescription color_description = 5;
+
     //
     // \brief A candidate for a detected stationary object as estimated
     // by the sensor.
@@ -220,6 +224,10 @@ message DetectedMovingObject
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateMovingObject candidate = 8;
+
+    // The dominating color of the material of the moving object.
+    //
+    optional ColorDescription color_description = 9;
 
     // Additional data that is specific to radar sensors.
     //

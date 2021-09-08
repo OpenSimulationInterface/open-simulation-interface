@@ -551,6 +551,7 @@ message StatePoint
     //
     optional Orientation3d orientation = 3;
 }
+
 //
 // \brief Detailed WavelengthRange message.
 //
@@ -610,4 +611,196 @@ message SpatialSignalStrength
     // Unit: dBm
     //
     optional double signal_strength = 3;
+}
+
+//
+// \brief The description of a color within available color spaces.
+//
+// ColorDescription represents the visual, non-semantic appearance of an object, structure or feature within various available color spaces.
+//
+// Depending on the context, this may define the color of an object or structure a priori (e.g. GroundTruth objects)
+// or describe a perceived color (e.g. CameraDetections).
+//
+message ColorDescription
+{
+    // Greyscale color model
+    //
+    optional ColorGrey grey = 1;
+
+    // RGB (Red, Green, Blue) color model
+    //
+    optional ColorRGB rgb = 2;
+
+    // RGBIR (Red, Green, Blue, Infrared) color model
+    //
+    optional ColorRGBIR rgbir = 3;
+
+    // HSV (Hue, Saturation, Value) color model
+    //
+    optional ColorHSV hsv = 4;
+
+    // LUV (Luminance, U-coordinate, V-coordinate) color model
+    //
+    optional ColorLUV luv = 5;
+
+    // CMYK (Cyan, Magenta, Yellow, Key) color model
+    //
+    optional ColorCMYK cmyk = 6;
+}
+
+//
+// \brief Greyscale color model
+//
+// ColorGrey defines a greyscale.
+//
+message ColorGrey
+{
+    // Definition of a greyscale
+    //
+    // Range: [0,1]
+    //
+    optional double grey = 1;
+}
+
+//
+// \brief RGB color model
+//
+// ColorRGB provides values for red, green and blue.
+//
+message ColorRGB
+{
+    // Red ratio
+    //
+    // Range: [0,1]
+    //
+    optional double red = 1;
+
+    // Green ratio
+    //
+    // Range: [0,1]
+    //
+    optional double green = 2;
+
+    // Blue ratio
+    //
+    // Range: [0,1]
+    //
+    optional double blue = 3;
+}
+
+//
+// \brief RGBIR color model
+//
+// ColorRGBIR provides values for red, green, blue and infrared.
+//
+message ColorRGBIR
+{
+    // Red ratio
+    //
+    // Range: [0,1]
+    //
+    optional double red = 1;
+
+    // Green ratio
+    //
+    // Range: [0,1]
+    //
+    optional double green = 2;
+
+    // Blue ratio
+    //
+    // Range: [0,1]
+    //
+    optional double blue = 3;
+
+    // Infrared
+    //
+    // Range: [0,1]
+    //
+    optional double infrared = 4;
+}
+
+//
+// \brief HSV color model
+//
+// ColorHSV provides values for hue, saturation and value/brightness.
+//
+message ColorHSV
+{
+    // Hue
+    //
+    // Unit: deg
+    // Range: [0,360[
+    //
+    optional double hue = 1;
+
+    // Saturation
+    //
+    // Range: [0,1]
+    //
+    optional double saturation = 2;
+
+    // Value
+    //
+    // Range: [0,1]
+    //
+    optional double value = 3;
+}
+
+//
+// \brief LUV color model
+//
+// ColorLUV provides values for luminance, U- and V-coordinate.
+//
+message ColorLUV
+{
+    // Luminance
+    //
+    // Range: [0,1]
+    //
+    optional double luminance = 1;
+
+    // U-coordinate
+    //
+    // Range: [0,1]
+    //
+    optional double u = 2;
+    
+    // V-Coordinate
+    //
+    // Range: [0,1]
+    //
+    optional double v = 3;
+}
+
+//
+// \brief CMYK colors model
+//
+// ColorCMYK provides values for cyan, magenta, yellow and key/black.
+//
+message ColorCMYK
+{
+    // Cyan ratio
+    //
+    // Range: [0,1]
+    //
+    optional double cyan = 1;
+
+    // Magenta ratio
+    //
+    // Range: [0,1]
+    //
+    optional double magenta = 2;
+
+    // Yellow ratio
+    //
+    // Range: [0,1]
+    //
+    optional double yellow = 3;
+
+    // Black ratio
+    //
+    // Range: [0,1]
+    //
+    optional double key = 4;
 }

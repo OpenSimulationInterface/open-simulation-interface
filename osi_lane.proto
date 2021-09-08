@@ -763,6 +763,14 @@ message LaneBoundary
     //
     repeated ExternalReference source_reference = 4;
 
+    // The visual color of the material of the lane boundary.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance. For semantic classification of the lane boundary use the color
+    // field in \c Classification.
+    //
+    optional ColorDescription color_description = 5;
+
     //
     // \brief A single point of a lane boundary.
     //
@@ -905,7 +913,10 @@ message LaneBoundary
         //
         optional Type type = 1;
 
-        // The color of the lane boundary in case of lane markings.
+        // The semantic color of the lane boundary in case of lane markings.
+        //
+        // \note The color types represent the semantic classification of
+        // lane markings only. They do not represent an actual visual appearance.
         //
         optional Color color = 2;
 
@@ -987,9 +998,12 @@ message LaneBoundary
             TYPE_STRUCTURE = 13;
         }
 
-        // The color of the lane boundary in case of a lane markings.
+        // The semantic color of the lane boundary in case of a lane markings.
         // Lane markings that alternate in color must be represented by
         // individual \c LaneBoundary segments.
+        //
+        // \note The color types represent the semantic color classification of
+        // lane markings only. They do not represent an actual visual appearance.
         //
         enum Color
         {

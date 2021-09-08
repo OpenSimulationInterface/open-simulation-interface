@@ -853,6 +853,10 @@ message CameraDetection
 
     // The dominant color of the shape.
     //
+    // \attention DEPRECATED: This color enum will be removed in version
+    // 4.0.0. Use the field \c #color_description (\c ColorDescription)
+    // instead.
+    //
     optional Color color = 28;
 
     // The probability of the shape's color.
@@ -885,7 +889,15 @@ message CameraDetection
     //
     optional uint32 number_of_points = 32;
 
+    //
+    // The dominant color of the shape.
+    //
+    optional ColorDescription color_description = 33;
+
     // Definition of shape dominant color.
+    //
+    // \attention DEPRECATED: This color enum will be removed in version
+    // 4.0.0. Use \c ColorDescription instead.
     //
     enum Color
     {

@@ -75,6 +75,10 @@ message StationaryObject
     //
     repeated ExternalReference source_reference = 5;
 
+    // The dominating color of the material of the structure.
+    //
+    optional ColorDescription color_description = 6;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -93,6 +97,10 @@ message StationaryObject
         optional Density density = 3;
 
         // The dominating color of the material of the structure.
+        //
+        // \attention DEPRECATED: This color enum will be removed in version
+        // 4.0.0. Use the field \c #color_description (\c ColorDescription) of
+        // \c StationaryObject instead.
         //
         optional Color color = 4;
 
@@ -265,6 +273,10 @@ message StationaryObject
         }
 
         // Definition of colors for structures.
+        //
+        // \attention DEPRECATED: This color enum will be removed in version
+        // 4.0.0. Use \c ColorDescription instead.
+        //
         //
         enum Color
         {
@@ -450,6 +462,10 @@ message MovingObject
     //       and from sensors.
     //
     repeated ExternalReference source_reference = 10;
+
+    // The dominating color of the material of the moving object.
+    //
+    optional ColorDescription color_description = 11;
 
     // Definition of object types.
     //
@@ -665,6 +681,7 @@ message MovingObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated double assigned_lane_percentage = 2;        
+        
     }
 
     //
