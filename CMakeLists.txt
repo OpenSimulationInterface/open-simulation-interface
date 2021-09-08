@@ -2,12 +2,19 @@ cmake_minimum_required(VERSION 3.5)
 
 project(open_simulation_interface)
 
+# Toplevel check
+set(OSI_IS_TOP_LEVEL OFF)
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+  set(OSI_IS_TOP_LEVEL ON)
+endif()
+
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Optional Flatbuffer support
 option(OSI_BUILD_FLATBUFFER "Build flatbuffer versions of libraries" OFF)
+option(OSI_BUILD_DOCUMENTATION "Build flatbuffer versions of libraries" ${OSI_IS_TOP_LEVEL})
 
 # Set a default build type if none was specified
 set(default_build_type "Release")
@@ -243,27 +250,23 @@ install(EXPORT ${PROJECT_NAME}_targets
     DESTINATION "${OSI_INSTALL_CMAKE_DIR}"
     COMPONENT dev)
 
-# add a target to generate API documentation with Doxygen
-# Dependencies: Doxygen and proto2cpp.py
-find_package(Doxygen)
-if(Doxygen_FOUND)
+if(OSI_BUILD_DOCUMENTATION)
+  # add a target to generate API documentation with Doxygen
+  # Dependencies: Doxygen and proto2cpp.py
+  find_package(Doxygen)
+  if(Doxygen_FOUND)
     set(FILTER_PROTO2CPP_PY_PATH CACHE PATH "directory to the filter proto2cpp.py")
-
     if(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
-
-    message(WARNING  "${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py could not be found.")
-
+      message(WARNING "${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py could not be found.")
     else()
+      set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen_config.cmake.in)
+      set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
-        set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doxygen_config.cmake.in)
-        set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+      configure_file(${doxyfile_in} ${doxyfile} @ONLY)
 
-        configure_file(${doxyfile_in} ${doxyfile} @ONLY)
-
-        ADD_CUSTOM_TARGET(api_doc ALL
+      add_custom_target(api_doc ALL
         COMMAND ${DOXYGEN_EXECUTABLE} ${doxyfile}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-
-    endif(NOT EXISTS ${FILTER_PROTO2CPP_PY_PATH}/proto2cpp.py)
-
+    endif()
+  endif()
 endif()
