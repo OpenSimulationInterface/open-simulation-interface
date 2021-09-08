@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(open_simulation_interface)
 
-# set default compiler
+# Set the C++ standard
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Optional Flatbuffer support
 option(OSI_BUILD_FLATBUFFER "Build flatbuffer versions of libraries" OFF)
