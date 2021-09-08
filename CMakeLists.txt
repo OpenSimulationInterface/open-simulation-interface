@@ -6,7 +6,7 @@ project(open_simulation_interface)
 set(CMAKE_CXX_STANDARD 11)
 
 # Optional Flatbuffer support
-set(BUILD_FLATBUFFER OFF CACHE BOOLEAN "Build flatbuffer versions of libraries")
+option(OSI_BUILD_FLATBUFFER "Build flatbuffer versions of libraries" OFF)
 
 # Set a default build type if none was specified
 set(default_build_type "Release")
@@ -89,7 +89,7 @@ set(OSI_PROTO_FILES
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
 set(FLAT_HEADERS "")
-if(BUILD_FLATBUFFER)
+if(OSI_BUILD_FLATBUFFER)
   set(FLAT_FBS "")
   add_subdirectory("flatbuffers"
                    ${CMAKE_CURRENT_BINARY_DIR}/flatbuffers-build
