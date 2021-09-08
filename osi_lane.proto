@@ -827,9 +827,9 @@ message LaneBoundary
         // dashed lane boundary.
         //
         // \note The enum descriptions adhere to the definition direction
-        // of the lane boundary points, meaning that start or end of a dash
-        // are understood with respect to the direction in which the points
-        // of the boundary line are defined.
+        // of the lane boundary points. This means that start or end of a
+        // dash are understood with respect to the direction in which the
+        // points of the boundary line are defined.
         //
         enum Dash
         {
