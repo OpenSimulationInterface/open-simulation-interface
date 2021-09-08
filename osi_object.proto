@@ -104,13 +104,17 @@ message StationaryObject
         //
         optional Color color = 4;
 
+        // The attributes of the emitting structure if stationary object is classified as such.
+        //
+        optional EmittingStructureAttribute emitting_structure_attribute = 5;
+
         // The IDs of the lanes that the object is assigned to.
         //
         // \note Might be multiple IDs if the object stretches over multiple lanes.
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier assigned_lane_id = 5;
+        repeated Identifier assigned_lane_id = 6;
 
         // Percentage values of the object width in the corresponding lane.
         //
@@ -118,11 +122,7 @@ message StationaryObject
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated double assigned_lane_percentage = 6;
-
-        // The attributes of the emitting structure if stationary object is classified as such.
-        //
-        optional EmittingStructureAttribute emitting_structure_attribute = 5;
+        repeated double assigned_lane_percentage = 7;
 
         // Definition of object types.
         //
