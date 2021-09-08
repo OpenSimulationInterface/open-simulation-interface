@@ -3,7 +3,7 @@ var searchData=
   ['samples_5fnumber',['samples_number',['../structosi3_1_1WavelengthData.html#a117a9a090009fe6a6dd8b67834b28d9a',1,'osi3::WavelengthData']]],
   ['samples_5fper_5fpixel',['samples_per_pixel',['../structosi3_1_1CameraSensorViewConfiguration.html#a5fd2b58e82f420f0c8d1fc98d2388ddc',1,'osi3::CameraSensorViewConfiguration']]],
   ['saturation',['saturation',['../structosi3_1_1ColorHSV.html#aef5c69bc2aa0bc72d2e61e4d6ee44e9c',1,'osi3::ColorHSV']]],
-  ['seat',['Seat',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6',1,'osi3::Occupant::Classification::Seat()'],['../structosi3_1_1Occupant_1_1Classification.html#a6d199291b28eba3c31d90db967e80fb2',1,'osi3::Occupant::Classification::seat()']]],
+  ['seat',['seat',['../structosi3_1_1Occupant_1_1Classification.html#a6d199291b28eba3c31d90db967e80fb2',1,'osi3::Occupant::Classification::seat()'],['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6',1,'osi3::Occupant::Classification::Seat()']]],
   ['seat_5fback_5fleft',['SEAT_BACK_LEFT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a180b96846f3f08de04f0005d5e35899f',1,'osi3::Occupant::Classification']]],
   ['seat_5fback_5fmiddle',['SEAT_BACK_MIDDLE',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6ac56343821f504d722f98304f43fa1a0d',1,'osi3::Occupant::Classification']]],
   ['seat_5fback_5fright',['SEAT_BACK_RIGHT',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6ae3ff9a0d11ef547e0fd42539c37aea2b',1,'osi3::Occupant::Classification']]],
