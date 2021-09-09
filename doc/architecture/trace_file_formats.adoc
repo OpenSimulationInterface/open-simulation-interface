@@ -1,7 +1,7 @@
 [#top-1a2f4b0c-195c-4f18-89ad-d48a123bd8c1]
 = OSI trace file formats
 
-There are multiple formats for storing multiple serialized OSI messages into one trace file.
+There are multiple formats for storing multiple serialized OSI messages in one trace file.
 
 *.osi::
 Binary trace file.
@@ -16,4 +16,4 @@ Messages are separated by `$$__$$`.
 *.txth::
 Human-readable plain-text trace file.
 Messages are separated by newlines.
-Such a file may be used for manual checks.
+These files may be used for manual checks.

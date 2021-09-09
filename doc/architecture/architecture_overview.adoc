@@ -1,7 +1,7 @@
 = Overview of OSI architecture
 
 OSI contains an object-based environment description that uses the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer] library.
-The Protocol Buffer library was developed and is maintained by Google.
+Google developed and maintains the Protocol Buffer library.
 OSI defines top-level messages that are used to exchange data between separate models.
 Top-level messages define the `GroundTruth` interface, the `SensorData` interface, and – since OSI version 3.0.0 – the interfaces `SensorView`, `SensorViewConfiguration`, and `FeatureData`.
 
@@ -27,15 +27,15 @@ image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1
 
 The `HostVehicleData` interface describes the measured internal states of a traffic participant.
 OSI currently provides only limited support for data structures that describe measured internal states of traffic participants.
-Actuator intentions are currently not covered by OSI and must be handled with a different data description format.
+Actuator intentions are currently not covered by OSI and must be handled using a different data description format.
 
 All fields in an interface are set to `optional`.
 `required` is not used.
 This has been done to allow backward-compatible changes in the field.
-Additionally, this is the default behavior in Protocol Buffer version 3 that does no longer have the `required` type.
+Additionally, this is the default behavior in Protocol Buffer version 3 that no longer has the `required` type.
 Setting all fields to `optional` thus ensures update compatibility.
-However, this does not mean that filling the field is optional.
-For the purpose of providing a complete interface, all existing fields should be set, unless not setting a field carries a specific meaning as indicated in the accompanying comment.
+However, this does not mean that it is optional to fill the field.
+For the purpose of providing a complete interface, all existing fields should be set, unless not setting a field carries a specific meaning, as indicated in the accompanying comment.
 
 All field numbers equal to or greater than 10000 are available for user-specific extensions via custom fields.
-Therefore, no future evolution of OSI will use field numbers equal to or greater than 10000.
+No future evolution of OSI will therefore use field numbers equal to or greater than 10000.

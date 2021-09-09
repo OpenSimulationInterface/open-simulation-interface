@@ -2,8 +2,8 @@
 
 **Prerequisites**
 
-* You have installed _cmake_ as administrator.
-* You have installed _protobuf_ as administrator.
+* You have installed _cmake_ as an administrator.
+* You have installed _protobuf_ as an administrator.
 
 **Steps**
 
@@ -15,7 +15,7 @@
 git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 ----
 +
-. Change into the repository directory.
+. Switch to the repository directory.
 +
 [source]
 ----
@@ -29,7 +29,7 @@ cd open-simulation-interface
 mkdir build
 ----
 +
-. Change into the new directory.
+. Switch to the new directory.
 +
 [source]
 ----

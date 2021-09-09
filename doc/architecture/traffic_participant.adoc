@@ -1,16 +1,16 @@
 = Traffic participant
 
-A traffic participant is an element of the simulated world, which can change its state during simulation time, for example, position and orientation.
+A traffic participant is an element of the simulated world and can change its state during simulation time, for example, its position and orientation.
 A traffic participant represents one of the following:
 
-- A living being.
-- A means of transportation for living beings
-- A means of transportation for goods
-- Any other movable object that may travel the road network
+- Living being.
+- Means of transportation for living beings
+- Means of transportation for goods
+- Any other movable object that may travel on the road network
 
 Pedestrians and animals are examples of traffic participants that are living beings.
-Vehicles are examples of traffic participants that are means of transportation.
-Therefore, the ego vehicle is also a traffic participant.
+Vehicles are examples of traffic participants that are a means of transportation.
+The ego vehicle is therefore also a traffic participant.
 
 The following figure shows the interface of a traffic participant.
 
@@ -28,4 +28,4 @@ A traffic participant can output its own perceivable state, the traffic update.
 Traffic commands influence the behavior of the traffic participant model.
 They allow event-based communication towards the traffic participant, that is, at certain simulation steps.
 Traffic commands do not necessarily need to come from the environment simulation.
-They may come from a separate source, for example, a scenario engine.
+They may come from a separate source, such as a scenario engine.
