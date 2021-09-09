@@ -4,16 +4,16 @@ https://www.youtube.com/watch?v=fu3uA8K6ApQ>[(O SI)lent night]
 
 == Purpose
 
-This time of the year Santa comes with presents and has also thought about the sensor modelers of this planet.
-We introduce the current state of the ISO 23150 discussions including Ultrasonic and Camera Detections.
+At this time of the year Santa goes on his rounds and has also given thought to this planet’s sensor modelers.”.
+We have taken note of the current status of the ISO 23150 discussions, including ultrasonic and camera detections.
 The traffic signs have been reworked and the documentation has been extended for a perfect user experience.
 Trust me - it's amazing!
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?q=is%3Apr+is%3Aclosed+milestone%3Av3.1.0>[Content/Changes]
 
-* Complete rework of traffic signs including images in documentation.
-* Added Camera Detections in osi_featuredata.proto.
-* Added Ultrasonic Detections in osi_featuredata.proto.
+* Completely reworked traffic signs including images in documentation.
+* Added camera detections in osi_featuredata.proto.
+* Added ultrasonic detections in osi_featuredata.proto.
 * Introduced light states for emergency and service vehicles.
 * Added orientation_acceleration and updated formulas.
 * Extended documentation with svg images.
@@ -27,8 +27,8 @@ Trust me - it's amazing!
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?q=is%3Apr+is%3Aclosed+milestone%3Av3.1.1[Content/Changes]
 
-* **Bug Fix**: Changed open_simulation_interface target back from being a static library to a shared library, as before (this reverts an inadvertent change in v3.1.0 from previous releases).
-v3.1.0 breaks all users of the shared library (i.e. everyone building on Linux/Unix systems, and even some using the DLL on Windows).
+* **Bug Fix**: Changed open_simulation_interface target back from being a static library to its previous state as a shared library (this reverts an inadvertent change in v3.1.0 from previous releases).
+v3.1.0 breaks all users of the shared library (that is, everyone building on Linux/Unix systems, and even some using the DLL on Windows).
 
 = https://github.com/OpenSimulationInterface/open-simulation-interface/releases/tag/v3.1.2[v3.1.2 - OSI "Dynamic Duncan", Update 2]
 

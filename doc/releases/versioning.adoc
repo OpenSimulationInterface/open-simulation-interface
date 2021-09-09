@@ -1,23 +1,23 @@
-= Versioning and Compatibility
+= Versioning and compatibility
 
 The version number is defined in `InterfaceVersion::version_number` in `osi_version.proto` as the field's default value.
 
 OSI uses https://semver.org/[Semantic Versioning].
 
 Major::
-A change of the major version results in an incompatibility of code and recorded proto messages.
+A change in the major version makes the code and recorded proto messages incompatible.
 +
 Major changes include:
 +
-* An existing field with a number changes its meaning.
+* An existing field with a number changing its meaning.
 Example: `optional double field = 1;` changes to `repeated double field = 1;`.
 * Changing the definition of units or the interpretation of a field.
 * Deleting a field and reusing the field number.
 * Changing the technology from Protocol Buffers to FlatBuffers.
 
 Minor::
-A change of the minor version indicates remaining compatibility to previously recorded files.
-The code on the other hand needs fixing.
+A change in the minor version indicates there is still compatibility with previously recorded files.
+However, the code needs fixing.
 +
 Minor changes include:
 +
@@ -26,10 +26,10 @@ Minor changes include:
 * Adding a new field in a message without changing the numbering of other fields.
 
 Patch::
-The compatibility of both recorded files and code remains.
+Both recorded files and code still have compatibility.
 +
 Patches include:
 +
-* File or folder structure which does not affect including the code in other projects.
+* File or folder structure that does not affect integration of the code in other projects.
 * Changing or adding comments.
-* Clarification of text passages explaining the message content.
+* Clarifying text passages explaining the message content.
