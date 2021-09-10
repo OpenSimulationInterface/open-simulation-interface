@@ -1,8 +1,8 @@
 = Packaging layer
 
-The packaging layer of OSI specifies how components that use the OSI data layer, for example, sensor models, are packaged for exchange.
+The OSI packaging layer specifies how components that use the OSI data layer, for example, sensor models, are packaged for exchange.
 
-It specifies model types and their mandatory and optional OSI inputs, OSI outputs, and parameter interfaces.
+This specifies model types and their mandatory and optional OSI inputs, OSI outputs, and parameter interfaces.
 A model type may be, for example, a sensor model or a traffic participant model.
 The packaging layer also specifies component technology standards.
 This makes it possible to encapsulate model types in easily exchangeable component packages that can be used across platforms and implementations.
