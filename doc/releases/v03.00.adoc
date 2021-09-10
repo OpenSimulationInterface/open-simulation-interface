@@ -2,7 +2,7 @@
 
 == Purpose
 
-This release is a complete rework and includes feedback from many OSI users.
+This release is a complete rework including the feedback from many OSI users.
 Thank you!
 We are aligned with the ongoing discussions for the upcoming ISO 23150 standard for hardware sensor outputs in order to bring simulation and the hardware in the car closer together.
 
@@ -12,46 +12,46 @@ We are aligned with the ongoing discussions for the upcoming ISO 23150 standard 
 * Added new top-level messages (new concept SensorView (Configuration),etc.).
 ** GroundTruth.
 ** SensorView.
-** SensorData/FeatureData.
+** SensorData / FeatureData.
 ** SensorViewConfiguration (used for auto-configuration of SensorView).
 * Added technology-specific SensorView sub-messages to aid physical models.
 * Introduced conceptual separation of “SensorModels” and “LogicModels”.
-* Extended enumerations (for example, traffic sign type according to StVO and vehicle type).
+* Extended enumerations (e.g. traffic sign Type according to StVO, vehicle Type, etc.).
 * Improved messages and definitions (additional RoadConditions, country code in GT, AmbientIllumination, etc.).
-* Introduced ISO 8855 coordinate systems (incompatible with earlier OSI versions).
+* Use ISO 8855 coordinate systems (incompatible with earlier OSI versions).
 * Redefined DetectedXXX messages.
 * Introduced DetectedStationaryObjects.
 * Merged MovingObjects and Vehicle messages.
 * Redefined Lane messages (with separated lane boundary messages and intersections).
 * Redefined TrafficLight messages.
-* Redefined TrafficSigns (1 x MainSign + n x SupplementarySign including BaseStationary).
+* Redefined TrafficSigns (1 x MainSign + n x SupplementarySign inclusive BaseStationary).
 * New FeatureData messages (rework of previous LowLevelData message) - aligned with an upcoming standard ISO 23150.
-* Made FeatureData usable for fusion units.
-* Extended and clarified the existing doxygen documentation.
+* FeatureData usable for fusion units.
+* Extension and clarification of the existing doxygen documentation.
 * Improved doxygen collaboration diagrams.
-* Improved Build process and added install targets.
+* Build process improvements, added install targets.
 * Made proto definitions compatible with proto3 restrictions to allow concurrent use with proto3-only implementations in the future.
 * Fixed version-checking of transmitted data.
-* AND MUCH MORE, SO PLEASE ENJOY!!!
+* AND MUCH MORE ENJOY!!!
 
-https://github.com/OpenSimulationInterface/open-simulation-interface/files/2297162/osi_overview_v2.2_vs_v3.0.pdf>[For more information, view the `changelog`]
+https://github.com/OpenSimulationInterface/open-simulation-interface/files/2297162/osi_overview_v2.2_vs_v3.0.pdf>[See for more information the `changelog`]
 
 = https://github.com/OpenSimulationInterface/open-simulation-interface/releases/tag/v3.0.1[v3.0.1 - OSI "Cosmic Coulthard", Update 1]
 
-https://www.youtube.com/watch?v=yG0oBPtyNb0[Summer time :)]
+https://www.youtube.com/watch?v=yG0oBPtyNb0[Summertime :)]
 
 == Purpose
 
-This release is a patch reworking parts of the documentation in order to avoid ambiguities and improve the OSI build/installation process.
+This release is a patch reworking parts of the documentation in order to avoid ambiguities and improving the build/installation process of OSI.
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.1[Content/Changes]
 
-* Added script to automatically convert the messages from proto2 to proto3 with on the wire compatibility.
-* Made cmake enhancements to enable multi-version support for OSI 2 and OSI 3.
-* Added Python 3 support.
-* Clarified multiple comments.
-* Added explanatory images in the documentation.
-* Improved centerline definition.
-* Corrected signal_strength definition in LidarSensorView.
-* Clarified FeatureData::ambiguity_id definition.
-* Clarified RadarSensorViewConfiguration::AntennaDiagram::response definition.
+* Added script to automatically convert the messages from proto2 to proto3 with on the wire compatibility
+* cmake enhancements to enable multi-version support of OSI 2 and OSI 3
+* Added Python 3 support
+* Clarification of multiple comments
+* Added explanatory images in the documentation
+* centerline definition improved
+* signal_strength definition in LidarSensorView corrected
+* FeatureData::ambiguity_id definition clarified
+* RadarSensorViewConfiguration::AntennaDiagram::response definition clarified
