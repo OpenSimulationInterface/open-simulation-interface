@@ -7,11 +7,11 @@ This release focuses on optimizing the build process and documentation.
 == https://github.com/OpenSimulationInterface/open-simulation-interface/milestone/2?closed=1[Content/Changes]
 
 * Added a shared library target to the CMake build script.
-* Generated proper doxygen documentation.
+* Generated a proper doxygen documentation.
 * Placed the version number in one file (VERSION).
 * Added unit testing mechanism including style guide checking.
 * Redefined precipitation and added a fog definition to the environmental conditions message.
-* Added a layer id to low-level point cloud data.
+* Added layer id to low level point cloud data.
 * Reworked large parts of the build instructions in the WIKI.
 
 = https://github.com/OpenSimulationInterface/open-simulation-interface/releases/tag/v2.2.1[v2.2.1 - OSI "Brave Brabham", Update 1]
@@ -22,5 +22,5 @@ This release focuses on optimizing the build process and ensures the proper inst
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/compare/maintenance/v2.2.x[Content/Changes]
 
-* Allowed several OSI versions on the same computer.
-* Improved CI builds to also test the installation cmake targets for proper completion.
+* Allowing several OSI versions on the same computer.
+* Improves CI builds to also test the installation cmake targets for proper completion.
