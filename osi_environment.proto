@@ -22,25 +22,6 @@ message EnvironmentalConditions
     // The time of day at the host vehicles location.
     //
     optional TimeOfDay time_of_day = 2;
-    
-    // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
-    // the number of seconds that have elapsed since January 1, 1970
-    // (midnight UTC/GMT [1]), not counting leap seconds [2].
-    // Historically, the origin of UNIX system time was referred to as
-    // "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch
-    // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
-    // a synonym for 'Unix time'. Many Unix systems store epoch dates as
-    // a signed 32-bit integer, which might cause problems on January 19,
-    // 2038 (known as the Year 2038 problem or Y2038). 
-    //
-    // \note You can convert the timestamp using the following [routines
-    // sorted by languages](https://www.epochconverter.com/#code).
-    //
-    // \par References:
-    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommondation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
-    // [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html
-    //
-    optional int64 unix_timestamp = 8;
 
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // Pa).
@@ -84,42 +65,32 @@ message EnvironmentalConditions
     //
     optional Precipitation precipitation = 6;
 
-    // Description of the precipitation with intensity and the type
-    //
-    message precipitation_enhanced
-    {
-        // The intensity of the precipitation (valid for all precipitation types). Unit [mm/h]. Range [0...inf[
-        // According to OpenScenario 1.1
-        //
-        optional Precipitation intensity = 1;
-
-        // Type of the precipitation.
-        //
-        optional PrecipitationType type = 2;
-    }
-
     // Description of the fog.
+    //  It is not completely clear yet where and how to apply the new message and how to manage the transition to complement or replace existing Fog enums.
+    //
+    //  Fog enums could be complemented (short-term) or replaced (long-term) with the new FogDescription.
+    //  The name of the message (FogExtended) is still under discussion.
     //
     optional Fog fog = 7;
 
-    // \brief Defines fog at simulation runtime
+    // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
+    // the number of seconds that have elapsed since January 1, 1970
+    // (midnight UTC/GMT [1]), not counting leap seconds [2].
+    // Historically, the origin of UNIX system time was referred to as
+    // "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch
+    // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
+    // a synonym for 'Unix time'. Many Unix systems store epoch dates as
+    // a signed 32-bit integer, which might cause problems on January 19,
+    // 2038 (known as the Year 2038 problem or Y2038).
     //
-    // \note Described by the density of the fog, the visual range and the predefined bounding box
+    // \note You can convert the timestamp using the following [routines
+    // sorted by languages](https://www.epochconverter.com/#code).
     //
-    message fog_enhanced
-    {
-        // Description of the density of the fog.
-        //
-        optional Fog density = 1;
-
-        // Defines the possible visible range \c Unit: m; Range: [0..inf[.
-        //
-        optional double visualRange = 2;
-
-        // Dimensions and center of fog in fixed coordinates.
-        // TODO: osi_object.proto ???
-        optional bool boundingBox = 3;
-    }
+    // \par References:
+    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommondation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
+    // [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html
+    //
+    optional int64 unix_timestamp = 8;
 
     // Optional external reference to the environmental condition sources.
     //
@@ -134,6 +105,147 @@ message EnvironmentalConditions
     //
     repeated ExternalReference source_reference = 9;
 
+    //
+    // \brief Definition of cloud states.
+    //
+    // \note Defines the cloud states according to OpenScenario 1.1
+    //
+    optional CloudState cloudstate = 10;
+
+    // Definition of ambient illumination in lux [lx]:
+    // Ambient light is any light in the vehicle's environment that is not
+    // emitted by the vehicle itself. It can include sun/moon light, light from
+    // other cars, street lights etc.
+    //
+    // lx ("lux") is the SI unit of luminance or illumination of an area of exact
+    // one square meter, which is equal to one lumen per square meter 1 lx =
+    // 1 lm/m^2 [1].
+    // lm ("lumen") is the SI derived unit of luminous flux and a measure of
+    // the total quantity of visible light emitted by a source. The lumen is
+    // defined in relation to cd ("candela") as 1 lm = 1 cd sr, where sr
+    // denotes steradian, the unit of solid angle used in 3D geometry analogous
+    // to the radian [1].
+    //
+    // \par References:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Groessen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+    //
+    optional double ambient_illumination_extended = 11;
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    // \brief Defines wind properties.
+    //
+    // \note Describes the wind speed and direction from OpenScenario 1.1
+    //
+    message Wind
+    {
+        // The target direction of the wind (not the origin direction) in the ground/xy-plane of the \c
+        // world coordinate system. Corresponds to the heading/yaw angle. \c
+        // x-axis-direction is 0 rad. Unit [rad]. Range [0...2 pi[
+        //
+        optional double direction = 1;
+
+        // The wind speed. Unit [m/s]. Range [0...inf[
+        //
+        optional double speed = 2;
+    }
+
+    //
+    // \brief The time of day at a specified location.
+    //
+    // \note In general the global position of the parent frame should be
+    // obtainable in order to derive the local time.
+    // This information can be calculated from the \c #unix_timestamp in
+    // combination with \c #osi3::GroundTruth::proj_string and the position of
+    // the corresponding \c #osi3::BaseStationary or \c #osi3::BaseMoving .
+    //
+    message TimeOfDay
+    {
+        // The number of seconds in s that have passed since midnight local time.
+        // Used e.g. for determining the current state of the circadian rhythm
+        // of a driver.
+        //
+        // \note No changes of daylight saving time or time zones are
+        // considered.
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // is_less_than: 86400
+        // \endrules
+        //
+        optional uint32 seconds_since_midnight = 1;
+    }
+
+    //
+    // \brief Specification of sun properties.
+    //
+    // \note Defines the specification of the \c sun properties according to OpenScenario 1.1
+    //
+    message Sun
+    {
+        // Azimuth of the sun, counted counterclockwise, 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: [0..2PI].
+        //
+        optional double azimuth = 1;
+
+        // Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].
+        //
+        optional double elevation = 2;
+
+        // Illuminance of the sun, direct sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.
+        //
+        optional double intensity = 3;
+    }
+
+    // Description of the precipitation with intensity and the type
+    //
+    message precipitation_enhanced
+    {
+        // The intensity of the precipitation (valid for all precipitation types). Unit [mm/h]. Range [0...inf[
+        // According to OpenScenario 1.1 and according to the context of ISO 2315
+        //
+        optional double intensity = 1;
+
+        // Type of the precipitation.
+        //
+        optional PrecipitationType type = 2;
+    }
+
+    // \brief Defines fog at simulation runtime
+    //
+    // \note Described by the density of the fog, the visual range and the predefined bounding box
+    //
+    message fog_enhanced
+    {
+        // Definition of discretized fog states according to [1].
+        // The bandwidth of thick and dense fog was adjusted to fit the German StVO
+        // regarding rear fog lights [2, 3].
+        // (V = Visibility in m)
+        //
+        // Visibility is defined as the length of the atmosphere over which a beam
+        // of light travels before its luminous flux is reduced to 5% of its
+        // original value (definition used by the Meteorological Office [4]).
+        // This is approximately equivalent to visibility measured in terms of the
+        // contrast of a distant object against its background.
+        //
+        // \par References:
+        // [1] Shepard, F. D. (1996). <em>Reduced visibility due to fog on the highway.</em> Transportation Research Board, National Research Council (Ed.). National Academy Press. Washington, D.C., USA. ISBN 0-309-06006-0. \n
+        // [2] Strassenverkehrs-Ordnung (StVO) as of dated  March 06, 2013 (BGBl. I S. 367), lastly changed by article 4a of the order from June 06, 2019 (BGBl. I S. 756). \n
+        // [3] stvo.de. (2013, April 01). <em>StVO Par. 17 Beleuchtung</em>. Retrieved January 25, 2020, from https://www.stvo.de/strassenverkehrsordnung/101-17-beleuchtung \n
+        // [4] Meteorological Office UK. (2020). <em>Homepage of the Meteorological Office - How we measure visibility</em>. Retrieved January 25, 2020, from http://www.metoffice.gov.uk/guide/weather/observations-guide/how-we-measure-visibility
+        //
+        optional double density = 1;
+
+        // Defines the possible visible range \c Unit: m; Range: [0..inf[.
+        //
+        optional double visualRange = 2;
+
+        // Dimensions and center of fog in fixed coordinates.
+        //
+        optional BaseStationary boundingBox = 3;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
     // Defines a precipitation by type and value of a weather.
     //
     enum PrecipitationType
@@ -146,9 +258,17 @@ message EnvironmentalConditions
         //
         PRECIPITATION_TYPE_RAIN = 1;
 
+        // Hail.
+        //
+        PRECIPITATION_TYPE_HAIL = 2;
+
         // Snow.
         //
-        PRECIPITATION_TYPE_SNOW = 2;
+        PRECIPITATION_TYPE_SNOW = 3;
+
+        // Sleet.
+        //
+        PRECIPITATION_TYPE_SLEET = 4;
     }
 
     // Definition of discretized precipitation states according to [1].
@@ -349,72 +469,31 @@ message EnvironmentalConditions
         AMBIENT_ILLUMINATION_LEVEL9 = 10;
     }
 
-    // \brief Defines wind properties.
-    //
-    // \note Describes the wind speed and direction from OpenScenario 1.1
-    //
-    message Wind
-    {
-        // The target direction of the wind (not the origin direction) in the ground/xy-plane of the \c
-        // world coordinate system. Corresponds to the heading/yaw angle. \c
-        // x-axis-direction is 0 rad. Unit [rad]. Range [0...2 pi[
-        //
-        optional double direction = 1;
-
-        // The wind speed. Unit [m/s]. Range [0...inf[
-        //
-        optional double speed = 2;
-    }
-
-    //
-    // \brief The time of day at a specified location.
-    //
-    // \note In general the global position of the parent frame should be
-    // obtainable in order to derive the local time.
-    // This information can be calculated from the \c #unix_timestamp in
-    // combination with \c #osi3::GroundTruth::proj_string and the position of
-    // the corresponding \c #osi3::BaseStationary or \c #osi3::BaseMoving .
-    //
-    message TimeOfDay
-    {
-        // The number of seconds in s that have passed since midnight local time.
-        // Used e.g. for determining the current state of the circadian rhythm
-        // of a driver.
-        //
-        // \note No changes of daylight saving time or time zones are
-        // considered.
-        //
-        // \rules
-        // is_greater_than_or_equal_to: 0
-        // is_less_than: 86400
-        // \endrules
-        //
-        optional uint32 seconds_since_midnight = 1;
-    }
-
-    //
-    // \brief Specification of sun properties.
-    //
-    // \note Defines the specification of the \c sun properties according to OpenScenario 1.1
-    //
-    message Sun
-    {
-        // Azimuth of the sun, counted counterclockwise, 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: [0..2PI].
-        //
-        optional double azimuth = 1;
-
-        // Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].
-        //
-        optional double elevation = 2;
-
-        // Illuminance of the sun, direct sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.
-        //
-        optional double intensity = 3;
-    }
-
     // Definition of the cloud state, i.e. cloud state and sky visualization settings.
+    //
+    // Ref.: https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
+    //
+    // The total degree of coverage indicates how large the part of the sky vault is which is covered
+    // with clouds altogether. It is given in eighths, because this division is easier to estimate
+    // for the observer. 0 eighths means that there are no traces of clouds in the sky,
+    // 4 eighths means that the sky is covered with clouds up to half, 8 eighths means that the sky is
+    // completely covered with clouds and no sky blue can be recognized.
+    //
+    // For cloud determination, the observer will choose a location from which he can overlook the entire sky.
+    // When determining the total cloud cover, all clouds or parts of clouds, regardless of height and genus,
+    // that are above his location will be added. Aircraft contrails are also counted as cloud cover if they remain
+    // in the sky for more than 15 minutes. On the other hand, fog is not counted as cloud cover.
+    //
+    // With a little practice, the observer can easily determine the total amount of cloud cover.
+    // Problems occur only with scattered clouds or many single clouds (cumulus).
+    // Their cloud cover is often overestimated. On the other hand,
+    // the coverage of thin ice clouds (cirrus) is often underestimated.
+    //
     enum CloudState
     {
+        // TODO: Check if https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
+        // the accuracy is acceptable
+
         // Cloudy. There are more clouds than sunshine.
         //
         CLOUD_STATE_CLOUDY = 0;
@@ -435,14 +514,4 @@ message EnvironmentalConditions
         //
         CLOUD_STATE_SKYOFF = 4;
     }
-
-    //
-    // \brief Definition of cloud states.
-    //
-    // \note Defines the cloud states according to OpenScenario 1.1
-    //
-    optional CloudState cloudstate = 10;
-
-
-
 }
