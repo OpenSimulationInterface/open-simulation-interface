@@ -38,7 +38,7 @@ message Vector3d
 // \brief A cartesian 2D vector for positions, velocities or accelerations or
 // its uncertainties.
 //
-// Units are m for positions, m/s for velocities, and m/s^2 for
+// Units are pixel or unitless for image positions, m for positions, m/s for velocities, and m/s^2 for
 // accelerations.
 //
 message Vector2d
@@ -46,12 +46,14 @@ message Vector2d
     // The x coordinate.
     //
     // Unit: m, m/s, or m/s^2
+    //       pixel or unitless for image position
     //
     optional double x = 1;
 
     // The y coordinate.
     //
     // Unit: m, m/s, or m/s^2
+    //       pixel or unitless for image position
     //
     optional double y = 2;
 }

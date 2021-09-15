@@ -3,8 +3,9 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_version.proto";
-import "osi_common.proto";
-import "osi_sensorviewconfiguration.proto";
+import "osi_common.proto"; // for Vector2d
+import "osi_featuredata.proto"; // for CameraDetection, CameraDetectionData
+import "osi_sensorviewconfiguration.proto"; // CameraSensorViewConfiguration.ChannelFormat
 
 package osi3;
 
@@ -22,22 +23,47 @@ package osi3;
 // Camera related messages
 //##################################################################################################
 
+//
+// \brief preprocessed Data from one camera sensor including a list of detections.
+//
 message CameraPreprocessedImageData
 {
+    // Header attributes of camera detection from one camera sensor.
+    //
+    optional SensorDetectionHeader header = 1;
+
+    // Additional header attributes of camera detection from one camera sensor.
+    //
+    optional CameraDetectionSpecificHeader specific_header = 2;
+
     // The pre processed data is organized as image structure like the input inside the sensor view.
     // The interpreation of that pre processed data is given by the channel format
     //
-    repeated CameraSensorViewConfiguration.ChannelFormat channel_format = 1;
+    repeated CameraSensorViewConfiguration.ChannelFormat channel_format = 3;
 
     // This is the ID describes the physical or virtual sensor
     //
-    optional Identifier sensor_id = 2;
+    optional Identifier sensor_id = 4;
 
     // Raw pre processed image data.
     //
     // The image data in the memory layout and order is specified the by the channel format
     //
-    optional bytes image_data = 3;
+    optional bytes image_data = 5;
+
+    // List of camera detections.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated CameraDetection detection = 6;
+
+    // pre processed detections refers to that point container to describe the bounding boxes inside the image
+    //
+    // The image coordinates has the origin in the upper left image corner, 
+    // the x-axis goes to the right and the y-axis goes down
+    //
+    repeated Vector2d  point = 7;
+
 }
 
 
