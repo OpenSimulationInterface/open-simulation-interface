@@ -15,19 +15,19 @@ package osi3;
 //
 message Vector3d
 {
-    // The x coordinate.
+    // The x-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
     optional double x = 1;
 
-    // The y coordinate.
+    // The y-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
     optional double y = 2;
 
-    // The z coordinate.
+    // The z-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
@@ -43,13 +43,13 @@ message Vector3d
 //
 message Vector2d
 {
-    // The x coordinate.
+    // The x-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
     optional double x = 1;
 
-    // The y coordinate.
+    // The y-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
@@ -810,17 +810,17 @@ message ColorCMYK
 //
 message Pedalry
 {
-    // Position of the acceleration-pedal.
+    // Position of the acceleration pedal.
     // Range: 0-1 (Unpressed - fully pressed)
     //
     optional double pedal_position_acceleration = 1;
 
-    // Position of the brake-pedal.
+    // Position of the brake pedal.
     // Range: 0-1 (Unpressed - fully pressed)
     //
     optional double pedal_position_brake = 2;
 
-    // Position of the clutch-pedal.
+    // Position of the clutch pedal.
     // Range: 0-1 (Unpressed - fully pressed)
     //
     optional double pedal_position_clutch = 3;
@@ -832,8 +832,8 @@ message Pedalry
 message VehicleSteeringWheel
 {
     // Angle of the steering wheel. 
-    // Zero means the steering wheel is in its center position, a positive value
-    // means the steering wheel is turned to the left and a negative value
+    // Zero means the steering wheel is in its center position. A positive value
+    // means the steering wheel is turned to the left. A negative value
     // means the steering wheel is turned to the right of the center position.
     //
     // Unit: rad
@@ -841,8 +841,8 @@ message VehicleSteeringWheel
     optional double angle = 1;
 
     // Angular speed of the steering wheel. 
-    // Zero means the steering wheel stays in its position, a positive value
-    // means the steering wheel is turned to the left and a negative value
+    // Zero means the steering wheel stays in its position. A positive value
+    // means the steering wheel is turned to the left. A negative value
     // means the steering wheel is turned to the right.
     //
     // Unit: rad/s
@@ -850,9 +850,9 @@ message VehicleSteeringWheel
     optional double angular_speed = 2;
 
     // Torque of the steering wheel to the hand.
-    // Zero means there is no force from the steering wheel to the driver`s hands.
-    // A positive value means the steering wheel would turn to the left without driver`s forces
-    // and a negative value means the steering wheel would turn to the right without driver`s forces.
+    // Zero means there is no force from the steering wheel to the hand of the driver.
+    // A positive value means that the steering wheel would turn to the left without driver intervention.
+    // A negative value means that the steering wheel would turn to the right without driver intervention.
     //
     // Unit: N*m
     //
@@ -860,7 +860,7 @@ message VehicleSteeringWheel
 }
 
 //
-// \brief The geodetic position of an object, i.e. center of the bounding box.
+// \brief The geodetic position of an object, that is, the center of the 3D bounding box.
 //
 message GeodeticPosition
 {
