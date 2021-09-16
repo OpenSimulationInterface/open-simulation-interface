@@ -513,7 +513,7 @@ message MovingObject
     //
     // This is an extension to the \c MovingObject with additional attributes,
     // such as type and lights. The origin of the rear (front) axis coordinate
-    // system in world coordinates is calculated as:
+    // system in global coordinates is calculated as:
     // \c MovingObject::base . \c BaseMoving::position + R * \c
     // MovingObject::VehicleAttributes::bbcenter_to_rear (front) for the host
     // vehicle (R rotates from vehicle to world frame, i.e. inverse orientation
