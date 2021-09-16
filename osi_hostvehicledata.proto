@@ -7,7 +7,7 @@ import "osi_common.proto";
 
 package osi3;
 
-// \brief Host vehicle data is about the perception of the vehicle about it's own, internal states.
+// \brief Host vehicle data is about the perception of the vehicle about its own internal states.
 // It can be understood as an interface container for restbussimulation signals.
 // If there is a duplication with values from the rest of SensorView or SensorData, than these shall be taken.
 //
@@ -40,7 +40,7 @@ message HostVehicleData
     optional BaseMoving location = 1;
 
     // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
-    // Current estimated location error based on GPS- and related navigation 
+    // Current estimated location error based on GPS and related navigation
     // sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
@@ -92,13 +92,13 @@ message HostVehicleData
         optional Pedalry pedalry = 1;
 
         // The actual gear of the transmission.
-        // E.g. a gear lever can be in "D" and transmission in "4", but not the
+        // For example, a gear lever can be on "D" and the transmission on "4", but not the
         // other way around.
         //
         // The sign of this field is linked to the gear's mode as following:
         // - zero: neutral position
         // - positive: driving forward mode
-        // - negative: reverse mode (generally -1, but few vehicles have several
+        // - negative: reverse mode (generally -1, but few vehicles have more than 1
         //   reverse mode gears)
         //
         optional int32 gear_transmission = 2;
@@ -116,13 +116,13 @@ message HostVehicleData
             //
             optional Type type = 1;
 
-            // Rounds per minute of the motor.
+            // Revolutions per minute of the motor.
             //
             // Unit: 1/min
             //
             optional double rpm = 2;
 
-            // Torque from the motor.
+            // Torque of the motor.
             //
             // Unit: N*m
             //
@@ -172,17 +172,17 @@ message HostVehicleData
         message WheelData
         {
             // The axle which contains this wheel. A value of 0 represents the
-            // front-most axle of the vehicle with higher numbers incrementing
-            // towards the rear-most axle.
+            // foremost axle of the vehicle, with higher numbers ascending
+            // towards the rearmost axle.
             //
             optional uint32 axle = 1;
 
-            // The index of the wheel on the axle, counting in the direction
-            // of positive-y, that is, right-to-left.
+            // The index of the wheel on the axle, counted in positive y- direction,
+            // that is, right-to-left.
             //
             // For example, on a standard 2-axle, 4-wheel car, the rear-right
             // wheel would be (axle=1, index=0).
-            // This concept works also for twin tires.
+            // This concept also works for twin tires.
             //
             optional uint32 index = 2;
 
@@ -192,7 +192,7 @@ message HostVehicleData
             // Unit: rad/s.
             //
             // The sign convention is defined using the right-hand rule.
-            // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
+            // It is applied on the y-axis of the vehicle's reference system, that is, the center of bounding box.
             // Counterclockwise is positive and clockwise is negative.
             //
             // \image html OSI_RotationRate.svg
@@ -207,7 +207,7 @@ message HostVehicleData
             // Unit: %
             //
             // The sign convention is defined using the right-hand rule.
-            // It is applied on the y-axis of the vehicle's reference system (center of bounding box).
+            // It is applied on the y-axis of the vehicle's reference system, that is, the center of bounding box.
             // Counterclockwise is positive and clockwise is negative.
             //
             optional double slip = 4;
@@ -215,28 +215,28 @@ message HostVehicleData
     }
 
     //
-    // \brief Current calculated and estimated location that can be based on GNSS- and related navigation sensors,
-    // but this message does not contain the single sensor values of the sensorics.
+    // \brief Current calculated and estimated location that can be based on GNSS and related navigation sensors.
+    // This message does not contain the individual sensor values of the sensor technology.
     //
-    // This message contains the most accurate information the vehicle knows about its positioning
-    // available on the board net.
+    // This message contains the most accurate information the vehicle knows about its position
+    // available in the on-board network.
     // Because of this the values can differ from the "true" values calculated out of
     // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
     //
     message VehicleLocalization
     {
-        // Most accurate position information of the vehicle available on the board net.
-        // The reference point for position, i.e. the center (x,y,z) of the bounding box
+        // Most accurate position information of the vehicle available in the on-board network.
+        // The reference point for position, that is, the center (x,y,z) of the bounding box
         // in context to the global coordinate system.
         //
         optional Vector3d position = 1;
 
-        // Most accurate orientation information of the vehicle available on the board net
+        // Most accurate orientation information of the vehicle available in the on-board network
         // in context to the global coordinate system.
         //
         optional Orientation3d orientation = 2;
  
-        // Most accurate geodetic information of the vehicle available on the board net.
+        // Most accurate geodetic information of the vehicle available in the on-board network.
         //
         optional GeodeticPosition geodetic_position = 3;
     }
