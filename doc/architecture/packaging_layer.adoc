@@ -10,4 +10,4 @@ This makes it possible to encapsulate model types in easily exchangeable compone
 Multiple packaging layer implementations are possible within the OSI framework.
 The shared data layer ensures easy bridging between the different implementations.
 The currently defined central packaging layer is the OSI Sensor Model Packaging (OSMP) specification.
-It is based on FMI 2.0 and uses certain additional conventions to allow packaging of OSI using models as FMUs.
+It is based on FMI 2.0 cite:[fmi2.0] and uses certain additional conventions to allow packaging of OSI using models as FMUs.
