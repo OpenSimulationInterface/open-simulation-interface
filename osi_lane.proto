@@ -238,23 +238,21 @@ message Lane
         // A vehicle must calculate this individually and depending on the
         // situation.
         //
-        repeated Vector3d centerline = 3;
+        repeated Vector3d surfaceline = 3;
 
-        // Definition of the intended driving direction.
+        // Definition of the placement of the newly introduced surfaceline in the center of the lane.
         //
         // Defined and used for driving lanes.
-        // \c true means driving direction is according to ascending storage
-        // order of center line points. \c false means driving direction is
-        // according to descending storage order of center line points.
+        // \c true means that the surface line is also the centerline of the lane4.
         //
-        // Example: \c #centerline_is_driving_direction = \c true for lane l4
-        // and \c #centerline_is_driving_direction = \c false for lane l2 in
+        // Example: \c #surfaceline_is_centerline = \c true for surfaceline sl2
+        // and \c #surfaceline_is_centerline = \c false for surfacelane sl1 in
         // image \ref HighwayExit .
         //
         // \note The \c #centerline_is_driving_direction is defined for \c #type
         // = \c #TYPE_DRIVING .
         //
-        optional bool centerline_is_driving_direction = 4;
+        optional bool surfaceline_is_centerline = 4;
 
         // List of IDs of all lane segments that are directly adjacent to the
         // lane on the left side (w.r.t. ascending order of centerline points
