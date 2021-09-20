@@ -192,8 +192,10 @@ message SensorViewConfiguration
 
     // Omit Static Information
     //
-    // This flag specifies whether ground truth information can
-    // omit static information or not.
+    // This flag specifies whether \c GroundTruth information that
+    // was already provided using a GroundTruthInit parameter
+    // at initialization time shall be omitted from the \c SensorView
+    // ground truth information.
     //
     optional bool omit_static_information = 11;
 
