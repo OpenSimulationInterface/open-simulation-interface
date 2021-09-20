@@ -190,9 +190,6 @@ message SensorViewConfiguration
     // Unit: s
     optional Timestamp simulation_start_time = 10;
 
-    // TBD: I guess we would not introduce this field in favor of the
-    // GroundTruthInitConfiguration.
-    //
     // Omit Static Information
     //
     // This flag specifies whether \c GroundTruth information that
