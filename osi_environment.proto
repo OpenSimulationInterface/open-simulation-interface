@@ -110,7 +110,7 @@ message EnvironmentalConditions
     //
     // \note Defines the cloud states according to OpenScenario 1.1
     //
-    optional CloudState cloudstate = 10;
+    optional CloudState cloud_state = 10;
 
     // Definition of ambient illumination in lux [lx]:
     // Ambient light is any light in the vehicle's environment that is not
@@ -198,7 +198,7 @@ message EnvironmentalConditions
 
     // Description of the precipitation with intensity and the type
     //
-    message precipitation_enhanced
+    message PrecipitationExtended
     {
         // The intensity of the precipitation (valid for all precipitation types). Unit [mm/h]. Range [0...inf[
         // According to OpenScenario 1.1 and according to the context of ISO 2315
@@ -214,7 +214,7 @@ message EnvironmentalConditions
     //
     // \note Described by the density of the fog, the visual range and the predefined bounding box
     //
-    message fog_enhanced
+    message FogExtended
     {
         // Definition of discretized fog states according to [1].
         // The bandwidth of thick and dense fog was adjusted to fit the German StVO
@@ -237,11 +237,11 @@ message EnvironmentalConditions
 
         // Defines the possible visible range \c Unit: m; Range: [0..inf[.
         //
-        optional double visualRange = 2;
+        optional double visual_range = 2;
 
         // Dimensions and center of fog in fixed coordinates.
         //
-        optional BaseStationary boundingBox = 3;
+        optional BaseStationary bounding_box = 3;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -250,25 +250,34 @@ message EnvironmentalConditions
     //
     enum PrecipitationType
     {
+        // Intensity of precipitation is unknown (must not be used in ground
+        // truth).
+        //
+        PRECIPITATION_TYPE_UNKNOWN = 0;
+
+        // Other (unspecified but known) intensity of precipitation.
+        //
+        PRECIPITATION_TYPE_OTHER = 1;
+
         // No precipitation.
         //
-        PRECIPITATION_TYPE_DRY = 0;
+        PRECIPITATION_TYPE_DRY = 2;
 
         // Rain.
         //
-        PRECIPITATION_TYPE_RAIN = 1;
+        PRECIPITATION_TYPE_RAIN = 3;
 
         // Hail.
         //
-        PRECIPITATION_TYPE_HAIL = 2;
+        PRECIPITATION_TYPE_HAIL = 4;
 
         // Snow.
         //
-        PRECIPITATION_TYPE_SNOW = 3;
+        PRECIPITATION_TYPE_SNOW = 5;
 
         // Sleet.
         //
-        PRECIPITATION_TYPE_SLEET = 4;
+        PRECIPITATION_TYPE_SLEET = 6;
     }
 
     // Definition of discretized precipitation states according to [1].
@@ -492,26 +501,35 @@ message EnvironmentalConditions
     enum CloudState
     {
         // TODO: Check if https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
-        // the accuracy is acceptable
+        // TODO: the accuracy is acceptable
+        // TODO: Check with Sensor Group
+
+        // Cloud State is unknown (must not be used in ground truth).
+        //
+        CLOUD_STATE_UNKNOWN = 0;
+
+        // Other (unspecified but known) CloudState.
+        //
+        CLOUD_STATE_OTHER = 1;
 
         // Cloudy. There are more clouds than sunshine.
         //
-        CLOUD_STATE_CLOUDY = 0;
+        CLOUD_STATE_CLOUDY = 2;
 
         // Cloud free conditions.
         //
-        CLOUD_STATE_FREE = 1;
+        CLOUD_STATE_FREE = 3;
 
         // Overcast sky. Dull and gray looking.
         //
-        CLOUD_STATE_OVERCAST = 2;
+        CLOUD_STATE_OVERCAST = 4;
 
         // Rain clouds.
         //
-        CLOUD_STATE_RAINY = 3;
+        CLOUD_STATE_RAINY = 5;
 
         // Turns off the sky visualization.
         //
-        CLOUD_STATE_SKYOFF = 4;
+        CLOUD_STATE_SKYOFF = 6;
     }
 }
