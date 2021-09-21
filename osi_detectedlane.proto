@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_lane.proto";
 import "osi_detectedobject.proto";
+import "osi_common.proto";
 
 package osi3;
 
@@ -103,6 +104,14 @@ message DetectedLaneBoundary
     // \endrules
     //
     repeated double boundary_line_confidences = 5;
+
+    // The visual color of the material of the lane boundary.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance. For semantic classification of the lane boundary use the color
+    // field in \c CandidateLaneBoundary::classification.
+    //
+    optional ColorDescription color_description = 6;
 
     //
     // \brief A candidate for a detected lane boundary as estimated by the

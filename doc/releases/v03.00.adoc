@@ -4,7 +4,7 @@
 
 This release is a complete rework including the feedback from many OSI users.
 Thank you!
-We are aligned with the ongoing discussions for the upcoming ISO 23150 standard for hardware sensor outputs in order to bring simulation and the hardware in the car closer together.
+We are aligned with the ongoing discussions for the upcoming ISO 23150 cite:[iso23150] standard for hardware sensor outputs in order to bring simulation and the hardware in the car closer together.
 
 == https://github.com/OpenSimulationInterface/open-simulation-interface/pulls?page=1&q=is%3Apr+is%3Aclosed+milestone%3Av3.0.0[Content/Changes]
 
@@ -18,14 +18,14 @@ We are aligned with the ongoing discussions for the upcoming ISO 23150 standard 
 * Introduced conceptual separation of “SensorModels” and “LogicModels”.
 * Extended enumerations (e.g. traffic sign Type according to StVO, vehicle Type, etc.).
 * Improved messages and definitions (additional RoadConditions, country code in GT, AmbientIllumination, etc.).
-* Use ISO 8855 coordinate systems (incompatible with earlier OSI versions).
+* Use ISO 8855 cite:[iso8855] coordinate systems (incompatible with earlier OSI versions).
 * Redefined DetectedXXX messages.
 * Introduced DetectedStationaryObjects.
 * Merged MovingObjects and Vehicle messages.
 * Redefined Lane messages (with separated lane boundary messages and intersections).
 * Redefined TrafficLight messages.
 * Redefined TrafficSigns (1 x MainSign + n x SupplementarySign inclusive BaseStationary).
-* New FeatureData messages (rework of previous LowLevelData message) - aligned with an upcoming standard ISO 23150.
+* New FeatureData messages (rework of previous LowLevelData message) - aligned with an upcoming standard ISO 23150 cite:[iso23150].
 * FeatureData usable for fusion units.
 * Extension and clarification of the existing doxygen documentation.
 * Improved doxygen collaboration diagrams.

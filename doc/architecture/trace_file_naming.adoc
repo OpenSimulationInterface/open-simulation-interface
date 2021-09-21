@@ -2,7 +2,7 @@
 
 **Name format**
 
-Names of OSI trace files should have the following format:
+The names of OSI trace files should have the following format:
 
 [source]
 ----
@@ -33,26 +33,26 @@ Given an OSI trace file with the following information:
 
 [cols="1,1"]
 |===
-|Timestamp (ISO 8601)
+|Timestamp (ISO 8601) cite:[iso8601]
 |20210818T150542Z
 
 |Type
 |SensorView
 
-|OSI Version
+|OSI version
 |3.1.2
 
-|Protobuf Version
+|Protobuf version
 |3.0.0
 
 |Number of frames
 |1523
 
-|Custom Trace Name
+|Custom trace name
 |highway
 |===
 
-The recommended file name is: 
+The recommended file name is:
 
 [source]
 ----

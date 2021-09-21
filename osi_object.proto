@@ -75,6 +75,10 @@ message StationaryObject
     //
     repeated ExternalReference source_reference = 5;
 
+    // The dominating color of the material of the structure.
+    //
+    optional ColorDescription color_description = 6;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -94,11 +98,31 @@ message StationaryObject
 
         // The dominating color of the material of the structure.
         //
+        // \attention DEPRECATED: This color enum will be removed in version
+        // 4.0.0. Use the field \c #color_description (\c ColorDescription) of
+        // \c StationaryObject instead.
+        //
         optional Color color = 4;
 
         // The attributes of the emitting structure if stationary object is classified as such.
         //
         optional EmittingStructureAttribute emitting_structure_attribute = 5;
+
+        // The IDs of the lanes that the object is assigned to.
+        //
+        // \note Might be multiple IDs if the object stretches over multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 6;
+
+        // Percentage values of the object width in the corresponding lane.
+        //
+        // \note Might be multiple percentages if the object stretches over multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated double assigned_lane_percentage = 7;
 
         // Definition of object types.
         //
@@ -265,6 +289,10 @@ message StationaryObject
         }
 
         // Definition of colors for structures.
+        //
+        // \attention DEPRECATED: This color enum will be removed in version
+        // 4.0.0. Use \c ColorDescription instead.
+        //
         //
         enum Color
         {
@@ -451,6 +479,10 @@ message MovingObject
     //
     repeated ExternalReference source_reference = 10;
 
+    // The dominating color of the material of the moving object.
+    //
+    optional ColorDescription color_description = 11;
+
     // Definition of object types.
     //
     enum Type
@@ -481,7 +513,7 @@ message MovingObject
     //
     // This is an extension to the \c MovingObject with additional attributes,
     // such as type and lights. The origin of the rear (front) axis coordinate
-    // system in world coordinates is calculated as:
+    // system in global coordinates is calculated as:
     // \c MovingObject::base . \c BaseMoving::position + R * \c
     // MovingObject::VehicleAttributes::bbcenter_to_rear (front) for the host
     // vehicle (R rotates from vehicle to world frame, i.e. inverse orientation
@@ -665,6 +697,7 @@ message MovingObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated double assigned_lane_percentage = 2;        
+        
     }
 
     //

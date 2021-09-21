@@ -728,8 +728,7 @@ message LaneBoundary
     // another at the end of each dashed line segment. The first
     // \c BoundaryPoint defines the beginning of the first dashed lane marking.
     // The last \c BoundaryPoint defines the end of the last dashed lane
-    // marking. For example, the area between the second and third
-    // \c BoundaryPoint has no lane marking, and so on.
+    // marking.
     // \note For Botts' dots lines, one \c BoundaryPoint position has to define
     // each Botts' dot.
     //
@@ -762,6 +761,14 @@ message LaneBoundary
     //       and from sensors.
     //
     repeated ExternalReference source_reference = 4;
+
+    // The visual color of the material of the lane boundary.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance. For semantic classification of the lane boundary use the color
+    // field in \c Classification.
+    //
+    optional ColorDescription color_description = 5;
 
     //
     // \brief A single point of a lane boundary.
@@ -809,6 +816,45 @@ message LaneBoundary
         // See \c LaneBoundary .
         //
         optional double height = 3;
+
+        // Alternation of dashes in case of a dashed lane boundary. In
+        // context, this field gives information about the location of
+        // dashes on the boundary line.
+        //
+        optional Dash dash = 4;
+
+        // This enum describes the alternation of dashes in case of a
+        // dashed lane boundary.
+        //
+        // \note The enum descriptions adhere to the definition direction
+        // of the lane boundary points. This means that start or end of a
+        // dash are understood with respect to the direction in which the
+        // points of the boundary line are defined.
+        //
+        enum Dash
+        {
+            // The current state of the dash alternation is not known (must
+            // not be used in ground truth). 
+            //
+            DASH_UNKNOWN = 0;
+
+            // Other (unspecified but known) type of dash alternation state. 
+            //
+            DASH_OTHER = 1;
+            
+            // The current \c BoundaryPoint indicates the start of a dash.
+            //
+            DASH_START = 2;
+
+            // The current \c BoundaryPoint is located on a dash of a dashed
+            // line. This enables a dash to continue across multiple points.
+            //
+            DASH_CONTINUE = 3;
+
+            // The current \c BoundaryPoint indicates the end of a dash.
+            //
+            DASH_END = 4;
+        }
     }
 
     //
@@ -905,7 +951,10 @@ message LaneBoundary
         //
         optional Type type = 1;
 
-        // The color of the lane boundary in case of lane markings.
+        // The semantic color of the lane boundary in case of lane markings.
+        //
+        // \note The color types represent the semantic classification of
+        // lane markings only. They do not represent an actual visual appearance.
         //
         optional Color color = 2;
 
@@ -936,7 +985,7 @@ message LaneBoundary
             //
             TYPE_OTHER = 1;
 
-            // An invisible lane boundary (e.g. unmarked part of a dashed line).
+            // An invisible lane boundary.
             //
             TYPE_NO_LINE = 2;
 
@@ -987,9 +1036,12 @@ message LaneBoundary
             TYPE_STRUCTURE = 13;
         }
 
-        // The color of the lane boundary in case of a lane markings.
+        // The semantic color of the lane boundary in case of a lane markings.
         // Lane markings that alternate in color must be represented by
         // individual \c LaneBoundary segments.
+        //
+        // \note The color types represent the semantic color classification of
+        // lane markings only. They do not represent an actual visual appearance.
         //
         enum Color
         {

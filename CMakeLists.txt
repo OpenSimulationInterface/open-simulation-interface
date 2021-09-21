@@ -5,6 +5,9 @@ project(open_simulation_interface)
 # set default compiler
 set(CMAKE_CXX_STANDARD 11)
 
+# Optional Flatbuffer support
+set(BUILD_FLATBUFFER OFF CACHE BOOLEAN "Build flatbuffer versions of libraries")
+
 # Set a default build type if none was specified
 set(default_build_type "Release")
 if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
@@ -84,6 +87,48 @@ set(OSI_PROTO_FILES
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
+set(FLAT_HEADERS "")
+if(BUILD_FLATBUFFER)
+  set(FLAT_FBS "")
+  add_subdirectory("flatbuffers"
+                   ${CMAKE_CURRENT_BINARY_DIR}/flatbuffers-build
+                   EXCLUDE_FROM_ALL)
+  file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/descriptor.fbs" "namespace osi3;")
+  file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/include")
+  list(APPEND FLAT_FBS "${CMAKE_CURRENT_BINARY_DIR}/descriptor.fbs")
+  foreach (proto ${OSI_PROTO_FILES})
+    get_filename_component(proto_base ${proto} NAME_WE)
+    set(fbs "${proto_base}.fbs")
+    add_custom_command(
+      OUTPUT "${fbs}"
+      COMMAND $<TARGET_FILE:flatc> -I "${PROTOBUF_IMPORT_DIRS}" -o "${CMAKE_CURRENT_BINARY_DIR}" --proto "${CMAKE_CURRENT_SOURCE_DIR}/${proto}"
+      DEPENDS "${proto}" flatc
+      WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+      COMMENT "Convert ${proto} to ${fbs} using flatc"
+    )
+    list(APPEND FLAT_FBS "${CMAKE_CURRENT_BINARY_DIR}/${fbs}")
+  endforeach()
+
+  foreach (flat ${FLAT_FBS})
+    get_filename_component(flat_base ${flat} NAME_WE)
+    set(fbs "${flat_base}.fbs")
+    set(fbh "${flat_base}_generated.h")
+    add_custom_command(
+      OUTPUT "include/${fbh}"
+      COMMAND $<TARGET_FILE:flatc> -o "${CMAKE_CURRENT_BINARY_DIR}/include" --cpp --gen-mutable --gen-name-strings --scoped-enums "${fbs}"
+      DEPENDS "${FLAT_FBS}" flatc
+      WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+      COMMENT "Process ${fbs} to ${fbh} using flatc"
+    )
+    list(APPEND FLAT_HEADERS "${CMAKE_CURRENT_BINARY_DIR}/include/${fbh}")
+  endforeach()
+
+  add_custom_target(${PROJECT_NAME}_fbs_build ALL DEPENDS "${FLAT_HEADERS}")
+  add_library(${PROJECT_NAME}_fbs INTERFACE)
+  target_include_directories(${PROJECT_NAME}_fbs INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/>)
+  target_include_directories(${PROJECT_NAME}_fbs SYSTEM INTERFACE $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>)
+  target_link_libraries(${PROJECT_NAME}_fbs INTERFACE flatbuffers)
+endif()
 
 add_library(${PROJECT_NAME}_static STATIC ${PROTO_SRCS} ${PROTO_HEADERS})
 target_include_directories(${PROJECT_NAME}_static
@@ -168,7 +213,7 @@ install(FILES
         COMPONENT dev)
 
 # Header files
-install(FILES ${PROTO_HEADERS}
+install(FILES ${PROTO_HEADERS} ${FLAT_HEADERS}
         DESTINATION "${INSTALL_INCLUDE_DIR}")
 
 # Install the export set for use with the install-tree

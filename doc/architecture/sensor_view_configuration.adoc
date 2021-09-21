@@ -1,6 +1,6 @@
 = Sensor view configuration
 
-The sensor view is flexibly defined to provide different kinds of sensor models with appropriate input.
+The sensor view is flexibly defined to provide different kinds of sensor models with an appropriate input.
 The sensor view configuration defines the configuration of a particular sensor view.
 
 The sensor-view-configuration message is used in the initialization phase of a simulation to negotiate the sensor view configuration for a particular sensor view input.
@@ -8,20 +8,20 @@ It is also included as a sub-message in sensor view messages to indicate that th
 
 Sensor-view-configuration data has two main applications:
 
-- It enables the environment simulation to provide the necessary input to a sensor model.
-- It enables a sensor model to check whether the input matches its requirements.
+- Enable the environment simulation to provide the necessary input to a sensor model.
+- Enable a sensor model to check whether the input matches its requirements.
 If the input does not match the requirements, the sensor model may terminate the simulation.
 
-NOTE: Sensor-view-configuration data is intended for the automatic configuration of the sensor view interface between environment simulation and sensor model.
-The data is not intended as a mechanism to parametrize a generic sensor model.
+NOTE: Sensor-view-configuration data is intended for the automatic configuration of the sensor view interface between an environment simulation and sensor model.
+The data is not intended to be a mechanism for parametrizing a generic sensor model.
 
 During the initialization phase, there are two sources for sensor-view-configuration data:
 
-1. Sensor-view-configuration data may be provided by the sensor model to the environment simulation.
+1. Sensor-view configuration data may be provided by the sensor model to the environment simulation.
 In this case, the data describes the input configuration that is requested by the sensor model.
-If no such data is provided by the sensor model, then the environment simulation will fall back to manual configuration of the sensor view.
+If the sensor model does not provide such data, then the environment simulation will fall back to manual configuration of the sensor view.
 
-2. Sensor-view-configuration data may be provided by the environment simulation.
+2. Sensor-view configuration data may be provided by the environment simulation.
 In response to the request by the sensor model, or based on manual configuration, the environment simulation configures the input and provides a new message that describes the actual configuration.
 
 The configuration requested by the sensor model may differ from the configuration provided by the environment simulation.

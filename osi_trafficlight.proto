@@ -63,12 +63,23 @@ message TrafficLight
     //
     repeated ExternalReference source_reference = 5;
 
+    // The visual color of the traffic light.
+    //
+    // \note This does not represent the semantic classification but the visual
+    // appearance.  For semantic classification of the traffic light use the color
+    // field in \c Classification.
+    //
+    optional ColorDescription color_description = 6;
+
     //
     // \brief \c Classification data for a traffic light.
     //
     message Classification
     {
-        // The color of the traffic light.
+        // The semantic color of the traffic light.
+        //
+        // \note The color types represent the semantic color classification of a 
+        // traffic light only. They do not represent an actual visual appearance.
         //
         // \note If the color of the traffic light is known (from history or
         // geometrical arrangement) and the state \c #mode is
@@ -116,7 +127,10 @@ message TrafficLight
         //
         optional bool is_out_of_service = 6;
 
-        // Definition of colors for traffic lights.
+        // Definition of semantic colors for traffic lights.
+        //
+        // \note The color types represent the semantic classification of a traffic light
+        // only. They do not represent an actual visual appearance.
         //
         enum Color
         {
