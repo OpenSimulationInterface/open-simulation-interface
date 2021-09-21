@@ -480,7 +480,9 @@ message EnvironmentalConditions
 
     // Definition of the cloud state, i.e. cloud state and sky visualization settings.
     //
-    // Ref.: https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
+    //\par References:
+    // [1] ISO 15469:2004(E) / CIE S 011/E:2003 : Spatial distribution of skylight 
+    // [2] https://de.wikipedia.org/wiki/Bewölkung
     //
     // The total degree of coverage indicates how large the part of the sky vault is which is covered
     // with clouds altogether. It is given in eighths, because this division is easier to estimate
@@ -500,8 +502,6 @@ message EnvironmentalConditions
     //
     enum CloudState
     {
-        // TODO: Check if https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
-        // TODO: the accuracy is acceptable
         // TODO: Check with Sensor Group
 
         // Cloud State is unknown (must not be used in ground truth).
@@ -512,24 +512,44 @@ message EnvironmentalConditions
         //
         CLOUD_STATE_OTHER = 1;
 
-        // Cloudy. There are more clouds than sunshine.
+        // Cloudless (0/8)
         //
-        CLOUD_STATE_CLOUDY = 2;
+        CLOUD_STATE_CLOUDLESS = 2;
 
-        // Cloud free conditions.
+        // Sunny (1/8)
         //
-        CLOUD_STATE_FREE = 3;
+        CLOUD_STATE_SUNNY = 3;
 
-        // Overcast sky. Dull and gray looking.
+        // Serene (2/8))
         //
-        CLOUD_STATE_OVERCAST = 4;
+        CLOUD_STATE_SERENE = 4;
 
-        // Rain clouds.
+        // Slightly Cloudy (3/8) 
         //
-        CLOUD_STATE_RAINY = 5;
+        CLOUD_STATE_SLIGHTLYCLOUDY = 5;
 
-        // Turns off the sky visualization.
+        // Light Cloudy (4/8)
         //
-        CLOUD_STATE_SKYOFF = 6;
+        CLOUD_STATE_LIGHTCLOUDY = 6;
+        
+        // Cloudy (5/8)
+        //
+        CLOUD_STATE_CLOUDY = 7;
+        
+        // Heavy Cloudy (6/8)
+        //
+        CLOUD_STATE_HEAVYCLOUDY = 8;
+        
+        // Almost Covered (7/8)
+        //
+        CLOUD_STATE_ALMOSTCOVERED = 9;
+        
+        // Covered (8/8)
+        //
+        CLOUD_STATE_COVERED = 10;
+        
+        // No Sky (9/8)
+        //
+        CLOUD_STATE_NOSKY = 11;
     }
 }
