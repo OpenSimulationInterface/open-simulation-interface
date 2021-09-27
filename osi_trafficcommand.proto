@@ -516,7 +516,7 @@ message TrafficAction
     // defining the reference traffic participant and the distance.
     //
     // \note Limitation: This concept currently only works for lanes with a centerline, i.e. for lanes 
-    // of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING or TYPE_INTERSECTION.
+    // of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING.
     //
     message LongitudinalDistanceAction 
     {
@@ -569,7 +569,7 @@ message TrafficAction
     // defining the reference traffic participant and the distance.
     //
     // \note Limitation: This concept currently only works for lanes with a centerline, i.e. for lanes 
-    // of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING or TYPE_INTERSECTION.
+    // of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING.
     //
     message LateralDistanceAction
     {

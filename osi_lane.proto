@@ -265,9 +265,6 @@ message Lane
         // Example: The lane l3 is the only left adjacent lane for lane l4
         // in image \ref HighwayExit.
         //
-        // \note The \c #left_adjacent_lane_id is undefined for \c #type =
-        // \c #TYPE_INTERSECTION .
-        //
         // \note OSI uses singular instead of plural for repeated field names.
         //
         // \rules
@@ -284,9 +281,6 @@ message Lane
         //
         // Example: \c #right_adjacent_lane_id = (l5, l6)
         // for lane l4 in image \ref HighwayExit.
-        //
-        // \note The \c #right_adjacent_lane_id is undefined for \c #type =
-        // \c #TYPE_INTERSECTION .
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
@@ -316,11 +310,6 @@ message Lane
         // Example: \c #right_lane_boundary_id =
         // (lb9, lb6) for reference lane l4 in image \ref HighwayExit.
         //
-        // \note Empty for intersections.
-        //
-        // \note The \c #right_lane_boundary_id is undefined for \c #type =
-        // \c #TYPE_INTERSECTION .
-        //
         // \note OSI uses singular instead of plural for repeated field names.
         //
         // \rules
@@ -337,11 +326,6 @@ message Lane
         // Example: \c #left_lane_boundary_id = lb5 for lane l4 in image \ref
         // HighwayExit.
         //
-        // \note Empty for intersections.
-        //
-        // \note The \c #left_lane_boundary_id is undefined for \c #type =
-        // \c #TYPE_INTERSECTION .
-        //
         // \note OSI uses singular instead of plural for repeated field names.
         //
         // \rules
@@ -354,9 +338,6 @@ message Lane
         //
         // Example: \c #free_lane_boundary_id = lb11 for lane l7 in image \ref
         // Intersection.
-        //
-        // \note \c Lane with \c #type = \c #TYPE_INTERSECTION use only free
-        // lane boundaries.
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
@@ -375,6 +356,13 @@ message Lane
         // This subtype specifies a lane more concretely.
         //
         optional Subtype subtype = 12;
+
+        // The intersection the lane belongs to.
+        // Lanes may only overlap other lanes on the same level if both lanes
+        // are part of the same intersection. If the intersection id is 0, the
+        // lane does not belong to an intersection, and thus does not overlap
+        // any other lane.
+        optional Identifier intersection = 13;
 
         // Definition of available lane types.
         //
@@ -398,13 +386,6 @@ message Lane
             // Example: Lane with ID l5 in image \ref HighwayExit.
             //
             TYPE_NONDRIVING = 3;
-
-            // An intersection as a lane.
-            // Example: Lane with ID l7 in image \ref Intersection.
-            //
-            // \image html OSI_X-Junction.svg "" width=600px
-            //
-            TYPE_INTERSECTION = 4;
         }
 
         // Definition of available lane subtypes, aligned with OpenDRIVE.
