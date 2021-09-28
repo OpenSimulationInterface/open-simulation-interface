@@ -198,6 +198,11 @@ message EnvironmentalConditions
 
     // Description of the precipitation with intensity and the type
     //
+    // TODO: Mixed types - repeated (relativer Anteil) 1) or
+    // TODO: Prozentualer Anteil 2)
+    // TODO: Distribution Marschall-Palmer, Ulbricht - SNOW?
+    // TODO: Bounding Box!
+    // TODO: https://github.com/jruebsam/open-simulation-interface/blob/255_environmental_conditions/osi_environment.proto
     message PrecipitationExtended
     {
         // The intensity of the precipitation (valid for all precipitation types). Unit [mm/h]. Range [0...inf[
@@ -239,7 +244,7 @@ message EnvironmentalConditions
         //
         optional double visual_range = 2;
 
-        // Dimensions and center of fog in fixed coordinates.
+        // Dimensions and center of fog in fixed world coordinates.
         //
         optional BaseStationary bounding_box = 3;
     }
@@ -503,6 +508,7 @@ message EnvironmentalConditions
     enum CloudState
     {
         // TODO: Check with Sensor Group
+        // TODO: https://de.wikipedia.org/wiki/Bew%C3%B6lkung
 
         // Cloud State is unknown (must not be used in ground truth).
         //
