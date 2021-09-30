@@ -397,18 +397,6 @@ message MovingObject
     //
     optional Type type = 3;
 
-    // The IDs of the lanes that this object is assigned to.
-    //
-    // \note Might be multiple if the object is switching lanes or moving from
-    // one lane into another following lane.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
-    // \note DEPRECATED: Use assigned_lane_id in MovingObjectClassification
-    // instead.
-    //
-    repeated Identifier assigned_lane_id = 4;
-
     // Specific information about the vehicle.
     //
     // \note This field is mandatory if the \c #type is
@@ -452,8 +440,14 @@ message MovingObject
     repeated StatePoint future_trajectory = 8;
 
     // Specific information about the classification of the vehicle.
+    // One entry for each lane the object overlaps.
     //
-    optional MovingObjectClassification moving_object_classification = 9;    
+    // \note Might be multiple if the object is switching lanes or moving from
+    // one lane into another following lane.
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated MovingObjectClassification moving_object_classification = 9;
 
     // Optional external reference to the moving-object source
     //
@@ -675,29 +669,62 @@ message MovingObject
     }
 
     //
-    // \brief Information for the classification of moving objects regarding
+    // \brief Information for the classification of moving objects regarding a
+    // lane the moving object overlaps. This describes an object relative to a
+    // lane.
+    //
     // \c MovingObject (host or other).
     //
     message MovingObjectClassification
     {
-        // The IDs of the lanes that this object is assigned to.
-        //
-        // \note Might be multiple if the object is switching lanes or moving from
-        // one lane into another following lane.
-        //
-        // \note OSI uses singular instead of plural for repeated field names.
-        //
-        repeated Identifier assigned_lane_id = 1;
+        // The IDs of the lane that this object is assigned to.
+        optional Identifier assigned_lane_id = 1;
 
         // Percentage value of the object width in the corresponding lane.
+        optional double assigned_lane_percentage = 2;
+
+        // Distance along the lane.
         //
-        // \note Might be multiple if the object is switching lanes or moving from
-        // one lane into another following lane.
+        // Unit: m
         //
-        // \note OSI uses singular instead of plural for repeated field names.
+        // Calculation: The centerline of the lane is treated as a polyline.
+        // The point on this polyline, which is nearest to the reference point
+        // of the object, is taken as a base point.
+        // If there are multiple points with the same distance to the reference
+        // point, the first of these points is chosen (starting at the
+        // beginning of the centerline).
         //
-        repeated double assigned_lane_percentage = 2;        
-        
+        // distance_along_lane is the distance along this polyline from the
+        // start of the line to the chosen base point.
+        //
+        optional double distance_along_lane = 3;
+
+        // Signed distance of the reference point to the lane center.
+        //
+        // Unit: m
+        //
+        // Distance between the reference point of the object and the base
+        // point, as calculated for distance_along_lane.
+        // If the reference point is to the left (in definition direction of
+        // the centerline), the value is positive, otherwise it is negative.
+        //
+        // \c distance_along_lane
+        //
+        optional double directed_distance_from_lane_center = 4;
+
+        // Angle between the lane center and the object.
+        //
+        // Unit: rad
+        //
+        // Calculation: the base point on the centerline is chosen, using the
+        // same algorithm as for distance_along_lane.
+        // angle_to_lane is the difference between the yaw angle of the object
+        // and the direction of the centerline at the base point.
+        // If the base point is directly between two line segments, the angular
+        // mean of the angles of the two adjunct line segments is taken as the
+        // direction of the centerline.
+        //
+        optional double angle_to_lane = 5;
     }
 
     //
