@@ -771,11 +771,13 @@ message MovingObject
             //
             TYPE_DELIVERY_VAN = 6;
 
-            // Vehicle is a heavy truck.
+            // This vehicle type is deprecated.  See TYPE_TRUCK for more
+            // details.
             //
             TYPE_HEAVY_TRUCK = 7;
 
-            // Vehicle is a truck with semitrailer.
+            // This vehicle type is deprecated.  See TYPE_TRUCK for more
+            // details.
             //
             TYPE_SEMITRAILER = 8;
 
@@ -806,6 +808,17 @@ message MovingObject
             // Vehicle is a wheelchair.
             //
             TYPE_WHEELCHAIR = 15;
+
+            // Vehicle is a truck.
+            //
+            // Definition: any large vehicle used for transport of goods
+            // or materials.  Covers all rigid body vehicles, irrespective
+            // of the number of axles.  For articulated vehicles, the tractor
+            // and trailer(s) should be reported as separate moving objects
+            // with TYPE_TRUCK used for the tractor, and TYPE_TRAILER used
+            // for all trailers.
+            //
+            TYPE_TRUCK = 16;
         }
 
         //
