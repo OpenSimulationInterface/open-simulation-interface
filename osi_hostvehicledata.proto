@@ -55,17 +55,21 @@ message HostVehicleData
     //
     optional VehiclePowertrain vehicle_powertrain = 4;
 
-    // Interface regarding the steering wheel.
+    // Interface regarding the brake system
     //
-    optional VehicleSteeringWheel vehicle_steering_wheel = 5;
+    optional VehicleBrakeSystem vehicle_brake_system = 5;
+
+    // Interface regarding the steering.
+    //
+    optional VehicleSteering vehicle_steering = 6;
 
     // Interface regarding the wheels.
     //
-    optional VehicleWheels vehicle_wheels = 6;
+    optional VehicleWheels vehicle_wheels = 7;
 
     // Interface regarding the localization.
     //
-    optional VehicleLocalization vehicle_localization = 7;
+    optional VehicleLocalization vehicle_localization = 8;
 
     //
     // \brief The absolute base parameters of the vehicle. 
@@ -87,9 +91,15 @@ message HostVehicleData
     //
     message VehiclePowertrain
     {
-        // The positions of the pedals.
+        // Position of the acceleration pedal.
+        // Range: 0-1 (Unpressed - fully pressed)
         //
-        optional Pedalry pedalry = 1;
+        optional double pedal_position_acceleration = 1;
+
+        // Position of the clutch pedal.
+        // Range: 0-1 (Unpressed - fully pressed)
+        //
+        optional double pedal_position_clutch = 2;
 
         // The actual gear of the transmission.
         // For example, a gear lever can be on "D" and the transmission on "4", but not the
@@ -101,11 +111,11 @@ message HostVehicleData
         // - negative: reverse mode (generally -1, but few vehicles have more than 1
         //   reverse mode gears)
         //
-        optional int32 gear_transmission = 2;
+        optional int32 gear_transmission = 3;
 
         // Information about the motor(s).
         //
-        repeated Motor motor = 3;
+        repeated Motor motor = 4;
 
         //
         // \brief A description of the motor states.
@@ -153,6 +163,27 @@ message HostVehicleData
                 TYPE_ELECTRIC = 4;
             }
         }
+    }
+
+    //
+    // \brief The focus here is on the description of the brake system. 
+    //
+    message VehicleBrakeSystem
+    {
+        // Position of the brake pedal.
+        // Range: 0-1 (Unpressed - fully pressed)
+        //
+        optional double pedal_position_brake = 1;
+    }
+
+    //
+    // \brief The focus here is on the description of the steering train. 
+    //
+    message VehicleSteering
+    {
+        // Description of the steering wheel.
+        //
+        optional VehicleSteeringWheel vehicle_steering_wheel = 1;
     }
 
     //
