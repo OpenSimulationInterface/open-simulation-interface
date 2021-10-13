@@ -5,6 +5,7 @@ option optimize_for = SPEED;
 import "osi_version.proto";
 import "osi_common.proto";
 import "osi_object.proto";
+import "osi_hostvehicledata.proto";
 
 package osi3;
 
@@ -52,4 +53,14 @@ message TrafficUpdate
     // MovingObject::VehicleClassification::trailer_id. 
     //
     repeated MovingObject update = 3;
+
+    // Internal state for each vehicle.
+    //
+    // \note This covers any information which cannot be externally perceived
+    // and therefore cannot be included in messages available in ground truth.
+    //
+    // \note The id field from this should match the id in the update field
+    // above where the same vehicle is being referenced.
+    //
+    repeated HostVehicleData internal_state = 4;
 }
