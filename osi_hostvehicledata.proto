@@ -3,6 +3,7 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
+import "osi_internalvehiclestate.proto";
 
 package osi3;
 
@@ -29,4 +30,8 @@ message HostVehicleData
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location_rmse = 2;
+
+    // Internal state of the vehicle that isn't externally perceivable.
+    //
+    optional InternalVehicleState internal_state = 3;
 }

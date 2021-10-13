@@ -67,6 +67,7 @@ set(OSI_PROTO_FILES
     osi_environment.proto
     osi_groundtruth.proto
     osi_hostvehicledata.proto
+    osi_internalvehiclestate.proto
     osi_trafficsign.proto
     osi_trafficlight.proto
     osi_trafficupdate.proto

@@ -1,0 +1,245 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+
+package osi3;
+
+//
+// \brief Vehicle state which cannot be directly perceived from outside the
+// vehicle.
+//
+message InternalVehicleState
+{
+    // The interface version used by the sender (scenario engine).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the UNIX epoch. It is recommended to use zero timestamp as
+    // the starting time point of the simulation.
+    //
+    // \note For traffic command data the timestamp coincides both with
+    // the notional simulation time the data applies to and the time it was sent
+    // There is no inherent latency for traffic command data, as opposed
+    // to sensor data.
+    //
+    optional Timestamp timestamp = 2;
+
+    // The ID of the object.
+    //
+    // \rules
+    // is_globally_unique
+    // \endrules
+    //
+    optional Identifier id = 3;
+
+    // What driver assistance is active.
+    //
+    // This can include:
+    //  - information presented to the driver, for example, parking sensors
+    //  - warnings raised by the vehicle, for example, forward collision warning
+    //  - corrective action taken by the vehicle, for example, auto emergency braking
+    //
+    repeated DriverAssistState driver_assist_state = 4;
+
+    //
+    // \brief The driver assist state specifically relating to recognised
+    // Advanced Driver Assistance Systems.
+    //
+    message DriverAssistState
+    {
+        // The particular feature being reported about.
+        //
+        optional AssistFeature assist_feature = 1;
+
+        // Custom feature name.
+        //
+        // Only used if assist_feature is set to ASSIST_FEATURE_OTHER.
+        //
+        optional string custom_name = 2;
+
+        // The activation state of the feature.
+        //
+        // This is whether the feature has actually been triggered, for
+        // example, a warning has been raised, or additional braking is
+        // in effect.
+        //
+        optional ActivationState activation_state = 3;
+
+        // Custom activation state.
+        //
+        // Only used if the activation_state is set to ACTIVATION_STATE_OTHER.
+        //
+        optional string custom_activation_state = 4;
+
+        // Custom detail.
+        //
+        // An opaque set of key-value pairs which capture any user specific
+        // details that may be relevant.  This could include details about
+        // how a warning was raised (dashboard, audible, etc.) or it could
+        // be about settings which would influence evaluation, such as
+        // sensitivity settings.
+        //
+        repeated CustomDetail custom_detail = 5;
+
+        // ADAS feature that is raising the notification.
+        //
+        // \note The naming convention is taken from the SAE guidance on ADAS
+        // nomenclature:
+        // https://www.sae.org/binaries/content/assets/cm/content/miscellaneous/adas-nomenclature.pdf
+        //
+        enum AssistFeature
+        {
+            // Unknown feature, should not be used.
+            //
+            ASSIST_FEATURE_UNKNOWN = 0;
+
+            // Custom feature, see custom_name.
+            //
+            ASSIST_FEATURE_OTHER = 1;
+
+            // Blind spot warning.
+            //
+            ASSIST_FEATURE_BLIND_SPOT_WARNING = 2;
+
+            // Forward collision warning.
+            //
+            ASSIST_FEATURE_FORWARD_COLLISION_WARNING = 3;
+
+            // Lane departure warning.
+            //
+            ASSIST_FEATURE_LANE_DEPARTURE_WARNING = 4;
+
+            // Parking collision warning.
+            //
+            ASSIST_FEATURE_PARKING_COLLISION_WARNING = 5;
+
+            // Rear cross-traffic warning
+            //
+            ASSIST_FEATURE_REAR_CROSS_TRAFFIC_WARNING = 6;
+
+            // Automatic emergency braking
+            //
+            ASSIST_FEATURE_AUTOMATIC_EMERGENCY_BRAKING = 7;
+
+            // Emergency steering
+            //
+            ASSIST_FEATURE_AUTOMATIC_EMERGENCY_STEERING = 8;
+
+            // Reverse automatic emergency braking
+            //
+            ASSIST_FEATURE_REVERSE_AUTOMATIC_EMERGENCY_BRAKING = 9;
+
+            // Adaptive cruise control
+            //
+            ASSIST_FEATURE_ADAPTIVE_CRUISE_CONTROL = 10;
+
+            // Lane keeping assist
+            //
+            ASSIST_FEATURE_LANE_KEEPING_ASSIST = 11;
+
+            // Active driving assistance
+            //
+            ASSIST_FEATURE_ACTIVE_DRIVING_ASSISTANCE = 12;
+
+            // Backup camera
+            //
+            ASSIST_FEATURE_BACKUP_CAMERA = 13;
+
+            // Surround view camera
+            //
+            ASSIST_FEATURE_SURROUND_VIEW_CAMERA = 14;
+
+            // Active parking assistance
+            //
+            ASSIST_FEATURE_ACTIVE_PARKING_ASSISTANCE = 15;
+
+            // Remote parking assistance
+            //
+            ASSIST_FEATURE_REMOTE_PARKING_ASSISTANCE = 16;
+
+            // Trailer assistance
+            //
+            ASSIST_FEATURE_TRAILER_ASSISTANCE = 17;
+
+            // Automatic high beams
+            //
+            ASSIST_FEATURE_AUTOMATIC_HIGH_BEAMS = 18;
+
+            // Driver monitoring
+            //
+            ASSIST_FEATURE_DRIVER_MONITORING = 19;
+
+            // Head up display
+            //
+            ASSIST_FEATURE_HEAD_UP_DISPLAY = 20;
+
+            // Night vision
+            //
+            ASSIST_FEATURE_NIGHT_VISION = 21;
+        }
+
+        // The activation state of a feature.
+        //
+        // \note Not all of these will be applicable for all vehicles
+        // and features.
+        //
+        enum ActivationState
+        {
+            // An unknown activation state, this should not be used.
+            //
+            ACTIVATION_STATE_UNKNOWN = 0;
+
+            // Used for custom states not covered by the definitions below.
+            //
+            // A string state can be specified in custom_activation_state.
+            //
+            ACTIVATION_STATE_OTHER = 1;
+
+            // The feature has been disabled.
+            //
+            ACTIVATION_STATE_TURNED_OFF = 2;
+
+            // The feature has errored in some way that renders it ineffective.
+            //
+            ACTIVATION_STATE_ERRORED = 3;
+
+            // The feature is enabled but conditions have not caused it to be
+            // triggered, for example, no vehicles in front to trigger a FCW.
+            //
+            ACTIVATION_STATE_STANDBY = 4;
+
+            // The feature is currently active, for example, a warning is being
+            // shown to the driver, or emergency braking is being applied/
+            //
+            ACTIVATION_STATE_ACTIVE = 5;
+
+            // The feature would be ACTIVE, but the user has show sufficient
+            // input to override, for example, by applying throttle or steering
+            // input.
+            //
+            ACTIVATION_STATE_ACTIVE_DRIVER_OVERRIDE = 6;
+        }
+
+        //
+        // \brief Custom detail message
+        //
+        // To contain driver-assist related information that is too function
+        // specific to be captured in a generic way.
+        //
+        message CustomDetail
+        {
+            // A generic string key to identify the information.
+            //
+            optional string key = 1;
+
+            // A generic string value to capture the information.
+            //
+            optional string value = 2;
+        }
+    }
+}
