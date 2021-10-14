@@ -101,8 +101,8 @@ Collaboration diagram for osi3::LidarDetection:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1LidarDetection__coll__graph.png" border="0" usemap="#osi3_1_1LidarDetection_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1LidarDetection_coll__map" id="osi3_1_1LidarDetection_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="8,155,123,181"/>
-<area shape="rect" id="node5" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. " alt="" coords="597,155,731,181"/>
+<area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="8,162,123,189"/>
+<area shape="rect" id="node5" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. " alt="" coords="597,162,731,189"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -128,6 +128,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a44833637161c94126c8ba84bf47b377a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20bdc24a0eaadbd9c2fa48f416f30f42"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42">reflectivity</a> = 10</td></tr>
 <tr class="separator:a20bdc24a0eaadbd9c2fa48f416f30f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d179981ada5ea4281adda2aa1e6f612"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a5d179981ada5ea4281adda2aa1e6f612">echo_pulse_width</a> = 11</td></tr>
+<tr class="separator:a5d179981ada5ea4281adda2aa1e6f612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A point or vertical line in a lidar point cloud. </p>
@@ -144,6 +146,28 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Basic classification of the detection. </p>
+
+</div>
+</div>
+<a id="a5d179981ada5ea4281adda2aa1e6f612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d179981ada5ea4281adda2aa1e6f612">&#9670;&nbsp;</a></span>echo_pulse_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::LidarDetection::echo_pulse_width = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Echo pulse width of the detection's echo. Several sensors output an echo pulse width instead of an intensity for each individual detection. The echo pulse is measured in m and measures the extent of the object parts or atmospheric particles that produce the echo. </p><dl class="section note"><dt>Note</dt><dd>For more details see [1] Fig. 7 and 8. </dd>
+<dd>
+Fig. 7 shows an example where the two echos are reflected from the edges A-B and C-D. </dd>
+<dd>
+Fig. 8 shows how the echo pulse width is measured as the range between the rising edge and the falling edge that crosses the intensity threshold.</dd></dl>
+<p>Unit: m</p>
+<p>is_greater_than_or_equal_to: 0 </p>
+<dl class="section user"><dt>Reference:</dt><dd>[1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automot. Engine Technol. 5, Fig 7, Fig 8. Retrieved May 10, 2021, from <a href="https://doi.org/10.1007/s41104-020-00066-x">https://doi.org/10.1007/s41104-020-00066-x</a> </dd></dl>
 
 </div>
 </div>

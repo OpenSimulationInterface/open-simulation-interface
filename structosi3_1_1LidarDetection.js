@@ -1,6 +1,7 @@
 var structosi3_1_1LidarDetection =
 [
     [ "classification", "structosi3_1_1LidarDetection.html#a44833637161c94126c8ba84bf47b377a", null ],
+    [ "echo_pulse_width", "structosi3_1_1LidarDetection.html#a5d179981ada5ea4281adda2aa1e6f612", null ],
     [ "existence_probability", "structosi3_1_1LidarDetection.html#aa43288d7437026989c17abbc466d29d2", null ],
     [ "free_space_probability", "structosi3_1_1LidarDetection.html#a211052d77b3fd978c00659d3d1b98a06", null ],
     [ "height", "structosi3_1_1LidarDetection.html#a3307991b913cb5b5451257e49f5234d9", null ],
