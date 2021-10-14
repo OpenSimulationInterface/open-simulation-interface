@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da61844e11acb3ff57ce7635709d59fb1b":[2,0,0,66,0,4,16],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da6bdaba100e01c55375fce090386bd1a6":[2,0,0,66,0,4,10],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da7e3b5e517279cca2683c659eb7d2543a":[2,0,0,66,0,4,14],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da7f2213df87e569d5a6ec7e6d2dd863a9":[2,0,0,66,0,4,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da2228c6f2773d394fa3a60f4d491ba8a8":[2,0,0,71,0,0,1,43],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da22c3fc4ac4dc03eaf4f214aa3bd157df":[2,0,0,71,0,0,1,74],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da23734ce5e3efa9fee2cfa830245ed021":[2,0,0,71,0,0,1,68],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da25f3e3d9e8b23c14afeb32954349c806":[2,0,0,71,0,0,1,177],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da276de3a609b215107cf55fe012dd53ef":[2,0,0,71,0,0,1,0]
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da25f3e3d9e8b23c14afeb32954349c806":[2,0,0,71,0,0,1,177]
 };

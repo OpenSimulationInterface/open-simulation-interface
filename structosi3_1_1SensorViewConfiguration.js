@@ -7,6 +7,7 @@ var structosi3_1_1SensorViewConfiguration =
     [ "lidar_sensor_view_configuration", "structosi3_1_1SensorViewConfiguration.html#a13d4b0251bb2a62e2b18435fe5d51ffc", null ],
     [ "mounting_position", "structosi3_1_1SensorViewConfiguration.html#a77b0315e478c632f88e50c63b06030f4", null ],
     [ "mounting_position_rmse", "structosi3_1_1SensorViewConfiguration.html#ac2d55c94427209ff259dd9ece4914d0f", null ],
+    [ "omit_static_information", "structosi3_1_1SensorViewConfiguration.html#a124ebfbab7292e8ab9b99fd70d41d797", null ],
     [ "radar_sensor_view_configuration", "structosi3_1_1SensorViewConfiguration.html#a704763486c7c724727d96e108c6e560a", null ],
     [ "range", "structosi3_1_1SensorViewConfiguration.html#a9bced36ba45eadc92c0b56e7f88ccf15", null ],
     [ "sensor_id", "structosi3_1_1SensorViewConfiguration.html#aa7b009e0195d8c19788c2d366af295ad", null ],
