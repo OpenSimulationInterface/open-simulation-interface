@@ -56,6 +56,11 @@ message TrafficUpdate
 
     // Internal state for each vehicle.
     //
+    // This is an optional field as internal state may not be known or relevant,
+    // for example, a trailer is not going to have any internal state.
+    // It is also allowed to only specify internal_state for a subset of the
+    // objects referenced in the update.
+    //
     // \note This covers any information which cannot be externally perceived
     // and therefore cannot be included in messages available in ground truth.
     //

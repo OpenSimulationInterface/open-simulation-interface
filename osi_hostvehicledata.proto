@@ -75,7 +75,7 @@ message HostVehicleData
     //
     optional VehicleLocalization vehicle_localization = 8;
 
-        // What driver assistance is active.
+    // State of driver assistance systems.
     //
     // This can include:
     //  - information presented to the driver, for example, parking sensors
@@ -323,7 +323,7 @@ message HostVehicleData
         // be about settings which would influence evaluation, such as
         // sensitivity settings.
         //
-        repeated CustomDetail custom_detail = 5;
+        repeated KeyValuePair custom_detail = 5;
 
         // ADAS feature that is raising the notification.
         //
@@ -462,23 +462,6 @@ message HostVehicleData
             // input.
             //
             ACTIVATION_STATE_ACTIVE_DRIVER_OVERRIDE = 6;
-        }
-
-        //
-        // \brief Custom detail message
-        //
-        // To contain driver-assist related information that is too function
-        // specific to be captured in a generic way.
-        //
-        message CustomDetail
-        {
-            // A generic string key to identify the information.
-            //
-            optional string key = 1;
-
-            // A generic string value to capture the information.
-            //
-            optional string value = 2;
         }
     }
 }
