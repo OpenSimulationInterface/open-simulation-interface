@@ -3,6 +3,7 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
+import "osi_object.proto";
 
 package osi3;
 
@@ -143,11 +144,18 @@ message EnvironmentalConditions
     //
     optional Wind wind = 11;
 
+    // \brief Definition of the Sun.
+    //
+    // \note within the classification.emitting_structure_attribute \c
+    // the light intensity and wave length of the sun can be given.
+    //
+    optional StationaryObject Sun = 12;
+
     // \brief Definition of fog mist with a given location with a bounding box
     //
     // \note There can be several of fog mist fields
     //
-    repeated FogMist fog_mist = 12;
+    repeated FogMist fog_mist = 13;
 
     //
     // \brief The time of day at a specified location.
@@ -220,38 +228,21 @@ message EnvironmentalConditions
         // Dimensions and center of fog in fixed world coordinates.
         //
         optional BaseStationary bounding_box = 2;
-    }
 
-    //
-    // \brief Specification of sun properties.
-    //
-    // \note Defines the specification of the \c sun properties according to OpenScenario 1.1
-    //
-    message SunPosition
-    {
-        // Azimuth of the sun, counted counterclockwise, 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: rad; Range: [0..2PI].
-        //
-        optional double azimuth = 1;
-
-        // Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].
-        //
-        optional double elevation = 2;
-
-        // TODO: ambient_illumination? -> Solar irradiance: https://en.wikipedia.org/wiki/Solar_irradiance
-        // Illuminance of the sun, direct sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.
-        //
-        optional double solar_intensity = 3;
+        // Reference of an associated 3D model
+        // It is implementation-specific how model_references are resolved to
+        // 3d models.
+        optional string model_reference = 3;
     }
 
     //
     // Description of the precipitation with intensity and the type
     // (I = Intensity of precipitation in mm per hour mm/h)
+    // With a given model reference the 3D object of the e.g. rain drop can be given
     //
     // \par Reference:
     // [1] Paulat, M., Frei, C., Hagen, M. & Wernli, H. (2008). A gridded dataset of hourly precipitation in Germany: Its construction, climatology and application. <em>Meteorologische Zeitschrift</em>. Vol. 17, No. 6. pp. 719-732. Berlin, Stuttgart, Germany. https://doi.org/10.1127/0941-2948/2008/0332
     //
-    // TODO: Distribution Marschall-Palmer, Ulbricht - SNOW? - tbd
-    // TODO: Bounding Box! - tbd
     message Precipitation
     {
         // The intensity of the precipitation (valid for all precipitation types). Unit [mm/h]. Range [0...inf[
@@ -262,6 +253,11 @@ message EnvironmentalConditions
         // Type of the precipitation.
         //
         optional PrecipitationType type = 2;
+
+        // Reference of an associated 3D model e.g. Snow flake or rain drop.
+        // It is implementation-specific how model_references are resolved to
+        // 3d models.
+        optional string model_reference = 3;
     }
 
     // Defines a precipitation by type and value of the weather.
@@ -298,13 +294,9 @@ message EnvironmentalConditions
         PRECIPITATION_TYPE_SLEET = 6;
     }
 
-    // Definition of the cloud state, i.e. cloud state and sky visualization settings.
+    // \brief Definition of the cloud state, i.e. cloud state and sky visualization settings.
     //
-    // \par References:
-    // [1] ISO 15469:2004(E) / CIE S 011/E:2003 : Spatial distribution of skylight 
-    // [2] https://de.wikipedia.org/wiki/Bewölkung
-    //
-    // The total degree of coverage indicates how large the part of the sky vault is which is covered
+    // \note The total degree of coverage indicates how large the part of the sky vault is which is covered
     // with clouds altogether. It is given in eighths, because this division is easier to estimate
     // for the observer. 0 eighths means that there are no traces of clouds in the sky,
     // 4 eighths means that the sky is covered with clouds up to half, 8 eighths means that the sky is
@@ -320,11 +312,12 @@ message EnvironmentalConditions
     // Their cloud cover is often overestimated. On the other hand,
     // the coverage of thin ice clouds (cirrus) is often underestimated.
     //
+    // \par References:
+    // [1] ISO 15469:2004(E) / CIE S 011/E:2003 : Spatial distribution of skylight 
+    // [2] https://de.wikipedia.org/wiki/Bewölkung
+    //
     enum CloudState
     {
-        // TODO: Check with Sensor Group
-        // TODO: https://de.wikipedia.org/wiki/Bew%C3%B6lkung
-
         // Cloud State is unknown (must not be used in ground truth).
         //
         CLOUD_STATE_UNKNOWN = 0;
@@ -369,7 +362,7 @@ message EnvironmentalConditions
         //
         CLOUD_STATE_COVERED = 10;
         
-        // No Sky (9/8)
+        // No Sky
         //
         CLOUD_STATE_NOSKY = 11;
     }
