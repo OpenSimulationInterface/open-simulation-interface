@@ -12,7 +12,7 @@ package osi3;
 // If there is a duplication with values from the rest of SensorView or SensorData, than these shall be taken.
 //
 // It consists of different messages categorizing the vehicle in:
-// Vehicle-Basics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels, Vehicle-Localization.
+// Basics, powertrain, brake system, vehicle steering, vehicle wheels, vehicle localization.
 //
 // \image html OSI_HostVehicle.svg
 //
@@ -20,7 +20,7 @@ message HostVehicleData
 {
     // The interface version used by the sender.
     //
-    optional InterfaceVersion version = 10;
+    optional InterfaceVersion version = 9;
 
     // The timestamp of the host vehicle data. Zero time is arbitrary but must be
     // identical for all messages. Zero time does not need to coincide with
@@ -30,7 +30,11 @@ message HostVehicleData
     // \note This is the point in time that the host vehicle data message becomes
     // available as snapshot from the board net information.
     //
-    optional Timestamp timestamp = 11;
+    optional Timestamp timestamp = 10;
+
+    // The ID of the host vehicle in any associated GroundTruth data.
+    //
+    optional Identifier host_vehicle_id = 11;
 
     // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
     // Current estimated location based on GPS- and related navigation sensors.
@@ -63,7 +67,7 @@ message HostVehicleData
     //
     optional VehicleSteering vehicle_steering = 6;
 
-    // Interface regarding the wheels.
+    // Interface regarding the internal wheel states.
     //
     optional VehicleWheels vehicle_wheels = 7;
 
@@ -187,7 +191,7 @@ message HostVehicleData
     }
 
     //
-    // \brief The focus here is on the description of the wheels.
+    // \brief The focus here is on the description of internal wheel states.
     //
     message VehicleWheels
     {
@@ -198,7 +202,7 @@ message HostVehicleData
         repeated WheelData wheel_data = 1;
 
         //
-        // \brief The focus here is on the description of a wheel.
+        // \brief The focus here is on the description of internal wheel states.
         //
         message WheelData
         {
