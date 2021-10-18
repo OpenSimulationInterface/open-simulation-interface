@@ -198,6 +198,16 @@ message LogicalDetection
     // Basic classification of the logical detection.
     //
     optional LogicalDetectionClassification classification = 11;
+
+    // Echo pulse width of the detection's echo.
+    //
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
+    //
+    optional double echo_pulse_width = 12;
 }
 
 // Definition of basic logical detection classifications.
