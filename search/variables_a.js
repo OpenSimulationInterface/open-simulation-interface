@@ -11,6 +11,7 @@ var searchData=
   ['lane_5fpairing',['lane_pairing',['../structosi3_1_1Lane_1_1Classification.html#a36c2f60a9ee363fe9e478a56d16a6b4a',1,'osi3::Lane::Classification']]],
   ['last_5fmeasurement_5ftime',['last_measurement_time',['../structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d',1,'osi3::SensorData']]],
   ['lateral_5fdistance_5faction',['lateral_distance_action',['../structosi3_1_1TrafficAction.html#abf5f5f43bb40e015e9e1404db4710e70',1,'osi3::TrafficAction']]],
+  ['latitude',['latitude',['../structosi3_1_1GeodeticPosition.html#ab0f61f18ce97fcee2fdca13be41afe72',1,'osi3::GeodeticPosition']]],
   ['left_5fadjacent_5flane_5fid',['left_adjacent_lane_id',['../structosi3_1_1Lane_1_1Classification.html#afa68d060422444ad5453dd9d3fc414eb',1,'osi3::Lane::Classification']]],
   ['left_5flane_5fboundary_5fid',['left_lane_boundary_id',['../structosi3_1_1Lane_1_1Classification.html#a27cc65913fe78232e6006222612a509e',1,'osi3::Lane::Classification']]],
   ['length',['length',['../structosi3_1_1Dimension3d.html#a5317df4eb25a8527986fd03fcf18a9ce',1,'osi3::Dimension3d']]],
@@ -26,6 +27,7 @@ var searchData=
   ['logical_5fdetection',['logical_detection',['../structosi3_1_1LogicalDetectionData.html#a754762194c10b1f1775b5b495c629834',1,'osi3::LogicalDetectionData']]],
   ['logical_5fdetection_5fdata',['logical_detection_data',['../structosi3_1_1SensorData.html#ab83f422a889c93a36b7fd4e3449463e8',1,'osi3::SensorData']]],
   ['logical_5fdetection_5ftime',['logical_detection_time',['../structosi3_1_1LogicalDetectionDataHeader.html#abf0cf875292df1365859ba88ea20999e',1,'osi3::LogicalDetectionDataHeader']]],
+  ['longitude',['longitude',['../structosi3_1_1GeodeticPosition.html#a25c96a0158fef839de085278a81c1293',1,'osi3::GeodeticPosition']]],
   ['longitudinal_5fdistance_5faction',['longitudinal_distance_action',['../structosi3_1_1TrafficAction.html#a5d5ceb116645e69bdeeceb0bc160ed79',1,'osi3::TrafficAction']]],
   ['luminance',['luminance',['../structosi3_1_1ColorLUV.html#a45866bd50c580f58ffd1e152ff304be2',1,'osi3::ColorLUV']]],
   ['luv',['luv',['../structosi3_1_1ColorDescription.html#adea94a645a9d38d2608f4972032df588',1,'osi3::ColorDescription']]]

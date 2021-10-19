@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['gear_5ftransmission',['gear_transmission',['../structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html#ad7f2f5f81a27f61b8b458f72e3245584',1,'osi3::HostVehicleData::VehiclePowertrain']]],
   ['generic_5flight_5fstate_5fflashing_5famber',['GENERIC_LIGHT_STATE_FLASHING_AMBER',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da7b919374c9e6334b73697b5c8cb8054e',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['generic_5flight_5fstate_5fflashing_5fblue',['GENERIC_LIGHT_STATE_FLASHING_BLUE',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da26de2f33082a8ab84946f2a6b277cf30',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['generic_5flight_5fstate_5fflashing_5fblue_5fand_5fred',['GENERIC_LIGHT_STATE_FLASHING_BLUE_AND_RED',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da724c7456169c9afbe30d21b5ba3b3560',1,'osi3::MovingObject::VehicleClassification::LightState']]],
@@ -12,6 +13,8 @@ var searchData=
   ['genericlightstate',['GenericLightState',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587d',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['genericsensorview',['GenericSensorView',['../structosi3_1_1GenericSensorView.html',1,'osi3']]],
   ['genericsensorviewconfiguration',['GenericSensorViewConfiguration',['../structosi3_1_1GenericSensorViewConfiguration.html',1,'osi3']]],
+  ['geodetic_5fposition',['geodetic_position',['../structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a6bedbbfd8e3fff6b7b5610f300691e94',1,'osi3::HostVehicleData::VehicleLocalization']]],
+  ['geodeticposition',['GeodeticPosition',['../structosi3_1_1GeodeticPosition.html',1,'osi3']]],
   ['geometry',['geometry',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#a4ab80d85ba975dc6aadd41aaa06f9317',1,'osi3::DetectedTrafficSign::DetectedMainSign::geometry()'],['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4',1,'osi3::DetectedTrafficSign::DetectedMainSign::Geometry()']]],
   ['geometry_5farrow_5fleft',['GEOMETRY_ARROW_LEFT',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4a4dd8c54c079acc600507717778353824',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
   ['geometry_5farrow_5fright',['GEOMETRY_ARROW_RIGHT',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4ade68481572cbce82d8332b9f71bcb9fb',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],

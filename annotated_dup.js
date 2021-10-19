@@ -34,6 +34,7 @@ var annotated_dup =
       [ "FileOptions", "structosi3_1_1FileOptions.html", "structosi3_1_1FileOptions" ],
       [ "GenericSensorView", "structosi3_1_1GenericSensorView.html", "structosi3_1_1GenericSensorView" ],
       [ "GenericSensorViewConfiguration", "structosi3_1_1GenericSensorViewConfiguration.html", "structosi3_1_1GenericSensorViewConfiguration" ],
+      [ "GeodeticPosition", "structosi3_1_1GeodeticPosition.html", "structosi3_1_1GeodeticPosition" ],
       [ "GroundTruth", "structosi3_1_1GroundTruth.html", "structosi3_1_1GroundTruth" ],
       [ "HostVehicleData", "structosi3_1_1HostVehicleData.html", "structosi3_1_1HostVehicleData" ],
       [ "Identifier", "structosi3_1_1Identifier.html", "structosi3_1_1Identifier" ],
@@ -52,6 +53,7 @@ var annotated_dup =
       [ "MovingObject", "structosi3_1_1MovingObject.html", "structosi3_1_1MovingObject" ],
       [ "Occupant", "structosi3_1_1Occupant.html", "structosi3_1_1Occupant" ],
       [ "Orientation3d", "structosi3_1_1Orientation3d.html", "structosi3_1_1Orientation3d" ],
+      [ "Pedalry", "structosi3_1_1Pedalry.html", "structosi3_1_1Pedalry" ],
       [ "RadarDetection", "structosi3_1_1RadarDetection.html", "structosi3_1_1RadarDetection" ],
       [ "RadarDetectionData", "structosi3_1_1RadarDetectionData.html", "structosi3_1_1RadarDetectionData" ],
       [ "RadarSensorView", "structosi3_1_1RadarSensorView.html", "structosi3_1_1RadarSensorView" ],
@@ -84,6 +86,7 @@ var annotated_dup =
       [ "UltrasonicSpecificObjectData", "structosi3_1_1UltrasonicSpecificObjectData.html", "structosi3_1_1UltrasonicSpecificObjectData" ],
       [ "Vector2d", "structosi3_1_1Vector2d.html", "structosi3_1_1Vector2d" ],
       [ "Vector3d", "structosi3_1_1Vector3d.html", "structosi3_1_1Vector3d" ],
+      [ "VehicleSteeringWheel", "structosi3_1_1VehicleSteeringWheel.html", "structosi3_1_1VehicleSteeringWheel" ],
       [ "WavelengthData", "structosi3_1_1WavelengthData.html", "structosi3_1_1WavelengthData" ]
     ] ],
     [ "proto", null, [

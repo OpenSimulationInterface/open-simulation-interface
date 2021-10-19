@@ -31,6 +31,7 @@ var searchData=
   ['road_5fmarking',['road_marking',['../structosi3_1_1GroundTruth.html#a9f687169c82faae4e380556d5fabdd8f',1,'osi3::GroundTruth::road_marking()'],['../structosi3_1_1SensorData.html#a30cf0fd83d7f46cead025ce8e7fa5ce0',1,'osi3::SensorData::road_marking()']]],
   ['road_5fmarking_5fheader',['road_marking_header',['../structosi3_1_1SensorData.html#a5921917b8f68c4efed9004ded5ee589d',1,'osi3::SensorData']]],
   ['roll',['roll',['../structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba',1,'osi3::Orientation3d']]],
-  ['rotation_5frate',['rotation_rate',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#aac1cc436ddbf53001ca1a5269b536dc0',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
+  ['rotation_5frate',['rotation_rate',['../structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html#a53912991101e91b79c5794f0c4073d54',1,'osi3::HostVehicleData::VehicleWheels::WheelData::rotation_rate()'],['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#aac1cc436ddbf53001ca1a5269b536dc0',1,'osi3::MovingObject::VehicleAttributes::WheelData::rotation_rate()']]],
+  ['rpm',['rpm',['../structosi3_1_1HostVehicleData_1_1VehiclePowertrain_1_1Motor.html#a86c2e56fc9fd53e94e97ea5acf99eb5d',1,'osi3::HostVehicleData::VehiclePowertrain::Motor']]],
   ['rx_5fantenna_5fdiagram',['rx_antenna_diagram',['../structosi3_1_1RadarSensorViewConfiguration.html#a6d5b88a01eaa071e8bf4d6b13743b9b0',1,'osi3::RadarSensorViewConfiguration']]]
 ];

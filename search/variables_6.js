@@ -1,7 +1,9 @@
 var searchData=
 [
+  ['gear_5ftransmission',['gear_transmission',['../structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html#ad7f2f5f81a27f61b8b458f72e3245584',1,'osi3::HostVehicleData::VehiclePowertrain']]],
   ['generic_5fsensor_5fview',['generic_sensor_view',['../structosi3_1_1SensorView.html#a593426bc89d4b899c9f8b8da1035d161',1,'osi3::SensorView']]],
   ['generic_5fsensor_5fview_5fconfiguration',['generic_sensor_view_configuration',['../structosi3_1_1SensorViewConfiguration.html#aef0fc7dc867ff93107c628b0a18ba7ac',1,'osi3::SensorViewConfiguration']]],
+  ['geodetic_5fposition',['geodetic_position',['../structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a6bedbbfd8e3fff6b7b5610f300691e94',1,'osi3::HostVehicleData::VehicleLocalization']]],
   ['geometry',['geometry',['../structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#a4ab80d85ba975dc6aadd41aaa06f9317',1,'osi3::DetectedTrafficSign::DetectedMainSign']]],
   ['global_5fground_5ftruth',['global_ground_truth',['../structosi3_1_1SensorView.html#afbb7fb861761c9d12b6a49ef1f0b15be',1,'osi3::SensorView']]],
   ['green',['green',['../structosi3_1_1ColorRGB.html#ab79e50077fdc6bef8818e032c4dd920b',1,'osi3::ColorRGB::green()'],['../structosi3_1_1ColorRGBIR.html#af5a51ec96f7ccc60fe3c45634cd1090a',1,'osi3::ColorRGBIR::green()']]],
