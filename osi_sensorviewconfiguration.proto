@@ -434,6 +434,36 @@ message RadarSensorViewConfiguration
     //
     repeated AntennaDiagramEntry rx_antenna_diagram = 11;
 
+    // The update cycle time of the modeled radar sensor front-end.
+    //
+    // This specifies the rate at which the radar sensor front-end
+    // produces new data.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    //
+    optional Timestamp update_cycle_time = 12;
+
+    // Initial update cycle offset of the modeled radar sensor front-end.
+    //
+    // This specifies the initial offset (i.e. initial delay) of the
+    // modeled radar sensor front-end's update cycle
+    // that the simulation should take into account.
+    // It is used to define defined against a simulation start time of 0:
+    // i.e. when the top-level SensorView's update cycle time is 0.04 s
+    // that is used for the FMU in general, and the sensor consists of two front-ends,
+    // a first radar front-end's cycle time could be 0.08 s without offset,
+    // whereas a second front-end could have the same cycle time with 0.04 s offset,
+    // which would lead to alternating filling of RadarSensorViews from rendering.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    optional Timestamp update_cycle_offset = 13;
+
     //
     // \brief The radar antenna diagram.
     //
@@ -561,6 +591,36 @@ message LidarSensorViewConfiguration
     // When reached, propagation is terminated.
     //
     optional uint32 max_path_length = 8;
+
+    // The update cycle time of the modeled lidar sensor front-end.
+    //
+    // This specifies the rate at which the lidar sensor front-end
+    // produces new data.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    //
+    optional Timestamp update_cycle_time = 9;
+
+    // Initial update cycle offset of the modeled lidar sensor front-end.
+    //
+    // This specifies the initial offset (i.e. initial delay) of the
+    // modeled lidar sensor front-end's update cycle
+    // that the simulation should take into account.
+    // It is used to define defined against a simulation start time of 0:
+    // i.e. when the top-level SensorView's update cycle time is 0.04 s
+    // that is used for the FMU in general, and the sensor consists of two front-ends,
+    // a first lidar front-end's cycle time could be 0.08 s without offset,
+    // whereas a second front-end could have the same cycle time with 0.04 s offset,
+    // which would lead to alternating filling of LidarSensorViews from rendering.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    optional Timestamp update_cycle_offset = 10;
 
 }
 
@@ -700,6 +760,36 @@ message CameraSensorViewConfiguration
     // of samples.
     //
     repeated WavelengthData wavelength_data = 11;
+
+    // The update cycle time of the modeled camera sensor front-end.
+    //
+    // This specifies the rate at which the camera sensor front-end
+    // produces new data.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    //
+    optional Timestamp update_cycle_time = 12;
+
+    // Initial update cycle offset of the modeled camera sensor front-end.
+    //
+    // This specifies the initial offset (i.e. initial delay) of the
+    // modeled camera sensor front-end's update cycle
+    // that the simulation should take into account.
+    // It is used to define defined against a simulation start time of 0:
+    // i.e. when the top-level SensorView's update cycle time is 0.04 s
+    // that is used for the FMU in general, and the sensor consists of two front-ends,
+    // a first camera front-end's cycle time could be 0.08 s without offset,
+    // whereas a second front-end could have the same cycle time with 0.04 s offset,
+    // which would lead to alternating filling of CameraSensorViews from rendering.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    optional Timestamp update_cycle_offset = 13;
 
     // Channel format.
     //
@@ -1051,6 +1141,36 @@ message UltrasonicSensorViewConfiguration
     //
     // Unit: rad
     optional double field_of_view_vertical = 5;
+
+    // The update cycle time of the modeled ultrasonic sensor front-end.
+    //
+    // This specifies the rate at which the ultrasonic sensor front-end
+    // produces new data.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    //
+    optional Timestamp update_cycle_time = 6;
+
+    // Initial update cycle offset of the modeled ultrasonic sensor front-end.
+    //
+    // This specifies the initial offset (i.e. initial delay) of the
+    // modeled ultrasonic sensor front-end's update cycle
+    // that the simulation should take into account.
+    // It is used to define defined against a simulation start time of 0:
+    // i.e. when the top-level SensorView's update cycle time is 0.04 s
+    // that is used for the FMU in general, and the sensor consists of two front-ends,
+    // a first ultrasonic front-end's cycle time could be 0.08 s without offset,
+    // whereas a second front-end could have the same cycle time with 0.04 s offset,
+    // which would lead to alternating filling of UltrasonicSensorViews from rendering.
+    //
+    // \note It should be a multiple of the top-level
+    // SensorView's update cycle time.
+    //
+    // Unit: s
+    optional Timestamp update_cycle_offset = 7;
 
     // TBD: Ultrasonic Sensor specific configuration.
     //
