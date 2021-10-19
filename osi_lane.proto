@@ -1032,6 +1032,22 @@ message LaneBoundary
             // A structure (e.g. building or tunnel wall).
             //
             TYPE_STRUCTURE = 13;
+
+            // A barrier (e.g. a concrete barrier on a highway).
+            //
+            TYPE_BARRIER = 14;
+
+            // A sound barrier.
+            //
+            TYPE_SOUND_BARRIER = 15;
+
+            // A railing (e.g. divider between road and sidewalk).
+            //
+            TYPE_RAILING = 16;
+
+            // A line of poles limiting a lane.
+            //
+            TYPE_POLES = 17;
         }
 
         // The semantic color of the lane boundary in case of a lane markings.
