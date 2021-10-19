@@ -1046,10 +1046,6 @@ message LaneBoundary
             // A railing (e.g. divider between road and sidewalk).
             //
             TYPE_RAILING = 16;
-
-            // A line of poles limiting a lane.
-            //
-            TYPE_POLES = 17;
         }
 
         // The semantic color of the lane boundary in case of a lane markings.
