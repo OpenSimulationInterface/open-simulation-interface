@@ -8,8 +8,8 @@ import "osi_common.proto";
 package osi3;
 
 // \brief Host vehicle data is about the perception of the vehicle about its own internal states.
-// It can be understood as an interface container for restbussimulation signals.
-// If there is a duplication with values from the rest of SensorView or SensorData, than these shall be taken.
+// It captures the knowledge the vehicle has internally, which can differ from the actual or global truth for various reasons.
+// This message can also be understood as an interface container for the signals of a rest bus simulation.
 //
 // It consists of different messages categorizing the vehicle in:
 // Basics, powertrain, brake system, vehicle steering, vehicle wheels, vehicle localization.
