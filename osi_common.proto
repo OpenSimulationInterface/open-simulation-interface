@@ -15,19 +15,19 @@ package osi3;
 //
 message Vector3d
 {
-    // The x coordinate.
+    // The x-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
     optional double x = 1;
 
-    // The y coordinate.
+    // The y-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
     optional double y = 2;
 
-    // The z coordinate.
+    // The z-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
@@ -43,13 +43,13 @@ message Vector3d
 //
 message Vector2d
 {
-    // The x coordinate.
+    // The x-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
     optional double x = 1;
 
-    // The y coordinate.
+    // The y-coordinate.
     //
     // Unit: m, m/s, or m/s^2
     //
@@ -803,4 +803,85 @@ message ColorCMYK
     // Range: [0,1]
     //
     optional double key = 4;
+}
+
+//
+// \brief A description for the positions of the pedals.
+//
+message Pedalry
+{
+    // Position of the acceleration pedal.
+    // Range: 0-1 (Unpressed - fully pressed)
+    //
+    optional double pedal_position_acceleration = 1;
+
+    // Position of the brake pedal.
+    // Range: 0-1 (Unpressed - fully pressed)
+    //
+    optional double pedal_position_brake = 2;
+
+    // Position of the clutch pedal.
+    // Range: 0-1 (Unpressed - fully pressed)
+    //
+    optional double pedal_position_clutch = 3;
+}
+
+//
+// \brief A description of the steering wheel.
+//
+message VehicleSteeringWheel
+{
+    // Angle of the steering wheel. 
+    // Zero means the steering wheel is in its center position. A positive value
+    // means the steering wheel is turned to the left. A negative value
+    // means the steering wheel is turned to the right of the center position.
+    //
+    // Unit: rad
+    //
+    optional double angle = 1;
+
+    // Angular speed of the steering wheel. 
+    // Zero means the steering wheel stays in its position. A positive value
+    // means the steering wheel is turned to the left. A negative value
+    // means the steering wheel is turned to the right.
+    //
+    // Unit: rad/s
+    //
+    optional double angular_speed = 2;
+
+    // Torque of the steering wheel to the hand.
+    // Zero means there is no force from the steering wheel to the hand of the driver.
+    // A positive value means that the steering wheel would turn to the left without driver intervention.
+    // A negative value means that the steering wheel would turn to the right without driver intervention.
+    //
+    // Unit: N*m
+    //
+    optional double torque = 3;
+}
+
+//
+// \brief The geodetic position of an object, that is, the center of the 3D bounding box.
+//
+message GeodeticPosition
+{
+    // Longitude in decimal degrees regarding WGS84.
+    //
+    // Unit: Degree
+    // Range: [-180; 180]
+    //
+    optional double longitude = 1;
+
+    // Latitude in decimal degrees regarding WGS84.
+    //
+    // Unit: Degree
+    // Range: [-90; 90]
+    //
+    optional double latitude = 2;
+
+    // Height above sea level regarding EGM96.
+    //
+    // Unit: m
+    // Range: [-300; 10000]
+    //
+    optional double altitude = 3;
 }
