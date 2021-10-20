@@ -10,21 +10,18 @@
 . Open a terminal.
 . Clone the Open Simulation repository.
 +
-[source]
 ----
 git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 ----
 +
 . Switch to the repository directory.
 +
-[source]
 ----
 cd open-simulation-interface
 ----
 +
 . Run the setup script.
 +
-[source]
 ----
 python setup.py install
 ----

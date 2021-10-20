@@ -12,28 +12,24 @@
 . Open a terminal.
 . Clone the Open Simulation repository.
 +
-[source]
 ----
 git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 ----
 +
 . Switch to the repository directory.
 +
-[source]
 ----
 cd open-simulation-interface
 ----
 +
 . Create a new virtual environment.
 +
-[source]
 ----
 virtualenv -p python3 venv
 ----
 +
 . Activate the virtual environment.
 +
-[source]
 ----
 source venv/bin/activate
 ----

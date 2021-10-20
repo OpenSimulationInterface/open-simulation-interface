@@ -11,28 +11,24 @@
 . Open a terminal.
 . Clone the Open Simulation repository.
 +
-[source]
 ----
 git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
 ----
 +
 . Switch to the repository directory.
 +
-[source]
 ----
 cd open-simulation-interface
 ----
 +
 . Create a new directory for the build.
 +
-[source]
 ----
 mkdir build
 ----
 +
 . Switch to the new directory.
 +
-[source]
 ----
 cd build
 ----
@@ -41,21 +37,18 @@ cd build
   To build a 32-bit target under 64-bit Linux, add `-DCMAKE_CXX_FLAGS="-m32"` to the cmake command.
   In this case, protobuf must be in 32-bit mode too.
 +
-[source]
 ----
 cmake ..
 ----
 +
 . Run make.
 +
-[source]
 ----
 make
 ----
 +
 . Install Open Simulation Interface.
 +
-[source]
 ----
 sudo make install
 ----
