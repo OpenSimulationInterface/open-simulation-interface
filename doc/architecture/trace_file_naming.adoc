@@ -4,7 +4,6 @@
 
 The names of OSI trace files should have the following format:
 
-[source]
 ----
 <timestamp>_<type>_<osi-version>_<protobuf-version>_<number-of-frames>_<custom-trace-name>.osi
 ----
@@ -54,7 +53,6 @@ Given an OSI trace file with the following information:
 
 The recommended file name is:
 
-[source]
 ----
 20210818T150542Z_sv_312_300_1523_highway.osi
 ----
