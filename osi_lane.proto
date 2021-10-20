@@ -1035,17 +1035,13 @@ message LaneBoundary
             //
             TYPE_STRUCTURE = 13;
 
-            // A barrier (e.g. a concrete barrier on a highway).
+            // A barrier to guide vehicles and to prevent them from entering other lanes (e.g. a concrete barrier on a highway).
             //
             TYPE_BARRIER = 14;
 
             // A sound barrier.
             //
             TYPE_SOUND_BARRIER = 15;
-
-            // A railing (e.g. divider between road and sidewalk).
-            //
-            TYPE_RAILING = 16;
         }
 
         // The semantic color of the lane boundary in case of a lane markings.
