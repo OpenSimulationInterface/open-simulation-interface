@@ -22,25 +22,6 @@ message EnvironmentalConditions
     // The time of day at the host vehicles location.
     //
     optional TimeOfDay time_of_day = 2;
-    
-    // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
-    // the number of seconds that have elapsed since January 1, 1970
-    // (midnight UTC/GMT [1]), not counting leap seconds [2].
-    // Historically, the origin of UNIX system time was referred to as
-    // "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch
-    // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
-    // a synonym for 'Unix time'. Many Unix systems store epoch dates as
-    // a signed 32-bit integer, which might cause problems on January 19,
-    // 2038 (known as the Year 2038 problem or Y2038). 
-    //
-    // \note You can convert the timestamp using the following [routines
-    // sorted by languages](https://www.epochconverter.com/#code).
-    //
-    // \par References:
-    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommondation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
-    // [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html
-    //
-    optional int64 unix_timestamp = 8;
 
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // Pa).
@@ -87,6 +68,25 @@ message EnvironmentalConditions
     // Description of the fog.
     //
     optional Fog fog = 7;
+
+    // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
+    // the number of seconds that have elapsed since January 1, 1970
+    // (midnight UTC/GMT [1]), not counting leap seconds [2].
+    // Historically, the origin of UNIX system time was referred to as
+    // "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch
+    // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
+    // a synonym for 'Unix time'. Many Unix systems store epoch dates as
+    // a signed 32-bit integer, which might cause problems on January 19,
+    // 2038 (known as the Year 2038 problem or Y2038).
+    //
+    // \note You can convert the timestamp using the following [routines
+    // sorted by languages](https://www.epochconverter.com/#code).
+    //
+    // \par References:
+    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommondation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
+    // [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html
+    //
+    optional int64 unix_timestamp = 8;
     
     // Optional external reference to the environmental condition sources.
     //
@@ -101,13 +101,13 @@ message EnvironmentalConditions
     //
     repeated ExternalReference source_reference = 9;
 
-    // Definition of the wind speed and direction.
+    // Definition of clouds.
+    //
+    optional Clouds clouds = 10;
+
+    // Definition of the wind properties
     //
     optional Wind wind = 11;
-
-    // Definition of cloud states and the skybox.
-    //
-    optional CloudState cloud_state = 10;
 
     // Definition of the Sun.
     //
@@ -338,9 +338,95 @@ message EnvironmentalConditions
     }
 
     //
+    // \brief Specification of the cloud states
+    //
+    // \note within this message there is the cloud state level
+    //
+    message Clouds
+    {
+        // Definition of the cloud state level, i.e. cloud state and sky visualization settings.
+        //
+        optional CloudStateLevel cloud_state_level = 1;
+
+        // Defines the cloud state levels given by observation of total cloud amount in oktas.
+        //
+        // The total degree of coverage indicates how large the part of the sky vault is which is covered
+        // with clouds altogether. It is given in eighths, because this division is easier to estimate
+        // for the observer. 0 eighths means that there are no traces of clouds in the sky,
+        // 4 eighths means that the sky is covered with clouds up to half, 8 eighths means that the sky is
+        // completely covered with clouds and no sky blue can be recognized.
+        //
+        // For cloud determination, the observer will choose a location from which he can overlook the entire sky.
+        // When determining the total cloud cover, all clouds or parts of clouds, regardless of height and genus,
+        // that are above his location will be added. Aircraft contrails are also counted as cloud cover if they remain
+        // in the sky for more than 15 minutes. On the other hand, fog is not counted as cloud cover.
+        //
+        // With a little practice, the observer can easily determine the total amount of cloud cover.
+        // Problems occur only with scattered clouds or many single clouds (cumulus).
+        // Their cloud cover is often overestimated. On the other hand,
+        // the coverage of thin ice clouds (cirrus) is often underestimated.[3]
+        //
+        // \par References:
+        // [1] ISO 15469:2004(E) / CIE S 011/E:2003 : Spatial distribution of skylight
+        // [2] https://en.wikipedia.org/wiki/Cloud_cover
+        // [3] https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
+        //
+        enum CloudStateLevel
+        {
+            // Cloud State is unknown (must not be used in ground truth).
+            //
+            CLOUD_STATE_LEVEL_UNKNOWN = 0;
+
+            // Other (unspecified but known) CloudState.
+            //
+            CLOUD_STATE_LEVEL_OTHER = 1;
+
+            // Cloudless (0/8)
+            //
+            CLOUD_STATE_LEVEL_CLOUDLESS = 2;
+
+            // Sunny (1/8)
+            //
+            CLOUD_STATE_LEVEL_SUNNY = 3;
+
+            // Serene (2/8))
+            //
+            CLOUD_STATE_LEVEL_SERENE = 4;
+
+            // Slightly Cloudy (3/8)
+            //
+            CLOUD_STATE_LEVEL_SLIGHTLY_CLOUDY = 5;
+
+            // Light Cloudy (4/8)
+            //
+            CLOUD_STATE_LEVEL_LIGHT_CLOUDY = 6;
+
+            // Cloudy (5/8)
+            //
+            CLOUD_STATE_LEVEL_CLOUDY = 7;
+
+            // Heavy Cloudy (6/8)
+            //
+            CLOUD_STATE_LEVEL_HEAVY_CLOUDY = 8;
+
+            // Almost Covered (7/8)
+            //
+            CLOUD_STATE_LEVEL_ALMOST_COVERED = 9;
+
+            // Covered (8/8)
+            //
+            CLOUD_STATE_LEVEL_COVERED = 10;
+
+            // No Sky
+            //
+            CLOUD_STATE_LEVEL_NO_SKY = 11;
+        }
+    }
+
+    //
     // \brief Defines wind properties.
     //
-    // \note Describes the wind speed and direction from ASAM OpenSCENARIO
+    // \note Aligns with the wind speed and direction as defined in ASAM OpenSCENARIO
     //
     message Wind
     {
@@ -355,96 +441,42 @@ message EnvironmentalConditions
         optional double speed = 2;
     }
 
-    // Definition of the cloud state, i.e. cloud state and sky visualization settings.
-    //
-    // The total degree of coverage indicates how large the part of the sky vault is which is covered
-    // with clouds altogether. It is given in eighths, because this division is easier to estimate
-    // for the observer. 0 eighths means that there are no traces of clouds in the sky,
-    // 4 eighths means that the sky is covered with clouds up to half, 8 eighths means that the sky is
-    // completely covered with clouds and no sky blue can be recognized.
-    //
-    // For cloud determination, the observer will choose a location from which he can overlook the entire sky.
-    // When determining the total cloud cover, all clouds or parts of clouds, regardless of height and genus,
-    // that are above his location will be added. Aircraft contrails are also counted as cloud cover if they remain
-    // in the sky for more than 15 minutes. On the other hand, fog is not counted as cloud cover.
-    //
-    // With a little practice, the observer can easily determine the total amount of cloud cover.
-    // Problems occur only with scattered clouds or many single clouds (cumulus).
-    // Their cloud cover is often overestimated. On the other hand,
-    // the coverage of thin ice clouds (cirrus) is often underestimated.[3]
-    //
-    // \par References:
-    // [1] ISO 15469:2004(E) / CIE S 011/E:2003 : Spatial distribution of skylight
-    // [2] https://de.wikipedia.org/wiki/Bewölkung
-    // [3] https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
-    //
-    enum CloudState
-    {
-        // Cloud State is unknown (must not be used in ground truth).
-        //
-        CLOUD_STATE_UNKNOWN = 0;
-
-        // Other (unspecified but known) CloudState.
-        //
-        CLOUD_STATE_OTHER = 1;
-
-        // Cloudless (0/8)
-        //
-        CLOUD_STATE_CLOUDLESS = 2;
-
-        // Sunny (1/8)
-        //
-        CLOUD_STATE_SUNNY = 3;
-
-        // Serene (2/8))
-        //
-        CLOUD_STATE_SERENE = 4;
-
-        // Slightly Cloudy (3/8)
-        //
-        CLOUD_STATE_SLIGHTLY_CLOUDY = 5;
-
-        // Light Cloudy (4/8)
-        //
-        CLOUD_STATE_LIGHT_CLOUDY = 6;
-
-        // Cloudy (5/8)
-        //
-        CLOUD_STATE_CLOUDY = 7;
-
-        // Heavy Cloudy (6/8)
-        //
-        CLOUD_STATE_HEAVY_CLOUDY = 8;
-
-        // Almost Covered (7/8)
-        //
-        CLOUD_STATE_ALMOST_COVERED = 9;
-
-        // Covered (8/8)
-        //
-        CLOUD_STATE_COVERED = 10;
-
-        // No Sky
-        //
-        CLOUD_STATE_NO_SKY = 11;
-    }
-
     //
     // \brief Specification of sun properties.
     //
-    // \note Defines the specification of sun properties according to ASAM OpenSCENARIO
+    // \note Aligns with the specification of sun properties according to ASAM OpenSCENARIO
     //
     message Sun
     {
-        // Azimuth of the sun, counted counterclockwise, 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: [0..2PI].
+        // Azimuth of the sun, counted counterclockwise
+        //
+        // Unit: rad
+        //
+        // \rules
+        // is_greater_than_or_equal_to: -PI
+        // is_less_than_or_equal_to: 2PI
+        // \endrules
         //
         optional double azimuth = 1;
 
-        // Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].
+        // Solar elevation angle
+        //
+        // Unit: rad
+        //
+        // \rules
+        // is_greater_than_or_equal_to: -PI
+        // is_less_than_or_equal_to: PI
+        // \endrules
         //
         optional double elevation = 2;
 
-        // Illuminance of the sun, direct sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.
+        // Illuminance of the sun, direct sunlight is around 100,00 lx.
+        //
+        // Unit: lx
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // \endrules
         //
         optional double intensity = 3;
     }
