@@ -75,14 +75,17 @@ message HostVehicleData
     //
     optional VehicleLocalization vehicle_localization = 8;
 
-    // State of driver assistance systems.
+    // State of any automated driving functions.
     //
     // This can include:
     //  - information presented to the driver, for example, parking sensors
     //  - warnings raised by the vehicle, for example, forward collision warning
     //  - corrective action taken by the vehicle, for example, auto emergency braking
+    //  - full level 4 self driving systems
     //
-    repeated DriverAssistState driver_assist_state = 12;
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated VehicleAutomatedDrivingFunction automated_driving_function = 12;
 
     //
     // \brief The absolute base parameters of the vehicle. 
@@ -286,24 +289,23 @@ message HostVehicleData
     }
 
     //
-    // \brief The driver assist state specifically relating to recognised
-    // Advanced Driver Assistance Systems.
+    // \brief State of one automated driving function on the host vehicle.
     //
-    message DriverAssistState
+    message VehicleAutomatedDrivingFunction
     {
-        // The particular feature being reported about.
+        // The particular function being reported about.
         //
-        optional AssistFeature assist_feature = 1;
+        optional FunctionName function_name = 1;
 
-        // Custom feature name.
+        // Custom function name.
         //
-        // Only used if assist_feature is set to ASSIST_FEATURE_OTHER.
+        // Only used if function_name is set to FUNCTION_NAME_OTHER.
         //
         optional string custom_name = 2;
 
-        // The activation state of the feature.
+        // The activation state of the function.
         //
-        // This is whether the feature has actually been triggered, for
+        // This is whether the function has actually been triggered, for
         // example, a warning has been raised, or additional braking is
         // in effect.
         //
@@ -325,101 +327,120 @@ message HostVehicleData
         //
         repeated KeyValuePair custom_detail = 5;
 
-        // ADAS feature that is raising the notification.
+        // A list of possible automated driving features.
         //
-        // \note The naming convention is taken from the SAE guidance on ADAS
-        // nomenclature:
-        // https://www.sae.org/binaries/content/assets/cm/content/miscellaneous/adas-nomenclature.pdf
+        // \note This can span (in theory) from Level 0 all the way to Level 5.
         //
-        enum AssistFeature
+        // References:
+        // - https://www.sae.org/binaries/content/assets/cm/content/miscellaneous/adas-nomenclature.pdf
+        // - https://www.vda.de/en/topics/innovation-and-technology/automated-driving/automated-driving
+        //
+        enum FunctionName
         {
             // Unknown feature, should not be used.
             //
-            ASSIST_FEATURE_UNKNOWN = 0;
+            FUNCTION_NAME_UNKNOWN = 0;
 
             // Custom feature, see custom_name.
             //
-            ASSIST_FEATURE_OTHER = 1;
+            FUNCTION_NAME_OTHER = 1;
 
             // Blind spot warning.
             //
-            ASSIST_FEATURE_BLIND_SPOT_WARNING = 2;
+            FUNCTION_NAME_BLIND_SPOT_WARNING = 2;
 
             // Forward collision warning.
             //
-            ASSIST_FEATURE_FORWARD_COLLISION_WARNING = 3;
+            FUNCTION_NAME_FORWARD_COLLISION_WARNING = 3;
 
             // Lane departure warning.
             //
-            ASSIST_FEATURE_LANE_DEPARTURE_WARNING = 4;
+            FUNCTION_NAME_LANE_DEPARTURE_WARNING = 4;
 
             // Parking collision warning.
             //
-            ASSIST_FEATURE_PARKING_COLLISION_WARNING = 5;
+            FUNCTION_NAME_PARKING_COLLISION_WARNING = 5;
 
             // Rear cross-traffic warning
             //
-            ASSIST_FEATURE_REAR_CROSS_TRAFFIC_WARNING = 6;
+            FUNCTION_NAME_REAR_CROSS_TRAFFIC_WARNING = 6;
 
             // Automatic emergency braking
             //
-            ASSIST_FEATURE_AUTOMATIC_EMERGENCY_BRAKING = 7;
+            FUNCTION_NAME_AUTOMATIC_EMERGENCY_BRAKING = 7;
 
             // Emergency steering
             //
-            ASSIST_FEATURE_AUTOMATIC_EMERGENCY_STEERING = 8;
+            FUNCTION_NAME_AUTOMATIC_EMERGENCY_STEERING = 8;
 
             // Reverse automatic emergency braking
             //
-            ASSIST_FEATURE_REVERSE_AUTOMATIC_EMERGENCY_BRAKING = 9;
+            FUNCTION_NAME_REVERSE_AUTOMATIC_EMERGENCY_BRAKING = 9;
 
             // Adaptive cruise control
             //
-            ASSIST_FEATURE_ADAPTIVE_CRUISE_CONTROL = 10;
+            FUNCTION_NAME_ADAPTIVE_CRUISE_CONTROL = 10;
 
             // Lane keeping assist
             //
-            ASSIST_FEATURE_LANE_KEEPING_ASSIST = 11;
+            FUNCTION_NAME_LANE_KEEPING_ASSIST = 11;
 
             // Active driving assistance
             //
-            ASSIST_FEATURE_ACTIVE_DRIVING_ASSISTANCE = 12;
+            FUNCTION_NAME_ACTIVE_DRIVING_ASSISTANCE = 12;
 
             // Backup camera
             //
-            ASSIST_FEATURE_BACKUP_CAMERA = 13;
+            FUNCTION_NAME_BACKUP_CAMERA = 13;
 
             // Surround view camera
             //
-            ASSIST_FEATURE_SURROUND_VIEW_CAMERA = 14;
+            FUNCTION_NAME_SURROUND_VIEW_CAMERA = 14;
 
             // Active parking assistance
             //
-            ASSIST_FEATURE_ACTIVE_PARKING_ASSISTANCE = 15;
+            FUNCTION_NAME_ACTIVE_PARKING_ASSISTANCE = 15;
 
             // Remote parking assistance
             //
-            ASSIST_FEATURE_REMOTE_PARKING_ASSISTANCE = 16;
+            FUNCTION_NAME_REMOTE_PARKING_ASSISTANCE = 16;
 
             // Trailer assistance
             //
-            ASSIST_FEATURE_TRAILER_ASSISTANCE = 17;
+            FUNCTION_NAME_TRAILER_ASSISTANCE = 17;
 
             // Automatic high beams
             //
-            ASSIST_FEATURE_AUTOMATIC_HIGH_BEAMS = 18;
+            FUNCTION_NAME_AUTOMATIC_HIGH_BEAMS = 18;
 
             // Driver monitoring
             //
-            ASSIST_FEATURE_DRIVER_MONITORING = 19;
+            FUNCTION_NAME_DRIVER_MONITORING = 19;
 
             // Head up display
             //
-            ASSIST_FEATURE_HEAD_UP_DISPLAY = 20;
+            FUNCTION_NAME_HEAD_UP_DISPLAY = 20;
 
             // Night vision
             //
-            ASSIST_FEATURE_NIGHT_VISION = 21;
+            FUNCTION_NAME_NIGHT_VISION = 21;
+
+            // Urban driving
+            //
+            FUNCTION_NAME_URBAN_DRIVING = 22;
+
+            // Highway autopilot.
+            //
+            FUNCTION_NAME_HIGHWAY_AUTOPILOT = 23;
+
+            // Cruise control.
+            //
+            FUNCTION_NAME_CRUISE_CONTROL = 24;
+
+            // Speed limit control
+            //
+            FUNCTION_NAME_SPEED_LIMIT_CONTROL = 25;
+
         }
 
         // The activation state of a feature.
@@ -439,29 +460,33 @@ message HostVehicleData
             //
             ACTIVATION_STATE_OTHER = 1;
 
-            // The feature has been disabled.
+            // The function has been disabled.
             //
             ACTIVATION_STATE_TURNED_OFF = 2;
 
-            // The feature has errored in some way that renders it ineffective.
+            // The function has errored in some way that renders it ineffective.
             //
             ACTIVATION_STATE_ERRORED = 3;
 
-            // The feature is enabled but conditions have not caused it to be
+            // The function is initialized but not ready to start.
+            //
+            ACTIVATION_STATE_UNAVAILABLE = 4;
+
+            // The function is enabled but conditions have not caused it to be
             // triggered, for example, no vehicles in front to trigger a FCW.
             //
-            ACTIVATION_STATE_STANDBY = 4;
+            ACTIVATION_STATE_STANDBY = 5;
 
-            // The feature is currently active, for example, a warning is being
+            // The function is currently active, for example, a warning is being
             // shown to the driver, or emergency braking is being applied/
             //
-            ACTIVATION_STATE_ACTIVE = 5;
+            ACTIVATION_STATE_ACTIVE = 6;
 
-            // The feature would be ACTIVE, but the user has show sufficient
+            // The function would be ACTIVE, but the user has show sufficient
             // input to override, for example, by applying throttle or steering
             // input.
             //
-            ACTIVATION_STATE_ACTIVE_DRIVER_OVERRIDE = 6;
+            ACTIVATION_STATE_ACTIVE_DRIVER_OVERRIDE = 7;
         }
     }
 }
