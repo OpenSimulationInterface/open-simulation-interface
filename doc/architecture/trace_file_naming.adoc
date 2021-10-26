@@ -11,19 +11,19 @@ The names of OSI trace files should have the following format:
 **Types**
 
 `sd`::
-Trace file contains sensor-data messages.
+Trace file contains `SensorData` messages.
 
 `sv`::
-Trace file contains sensor-view messages.
+Trace file contains `SensorView` messages.
 
 `gt`::
-Trace file contains ground-truth messages.
+Trace file contains `GroundTruth` messages.
 
 `tu`::
-Trace file contains traffic-update messages.
+Trace file contains `TrafficUpdate` messages.
 
 `tc`::
-Trace file contains traffic-command messages.
+Trace file contains `TrafficCommand` messages.
 
 
 **Example**
