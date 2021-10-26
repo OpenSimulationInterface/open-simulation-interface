@@ -105,7 +105,7 @@ message EnvironmentalConditions
     //
     optional Clouds clouds = 10;
 
-    // Definition of the wind properties
+    // Definition of the wind properties.
     //
     optional Wind wind = 11;
 
@@ -338,9 +338,9 @@ message EnvironmentalConditions
     }
 
     //
-    // \brief Specification of the cloud states
+    // \brief Specification of the cloud states.
     //
-    // \note within this message there is the cloud state level
+    // \note within this message there is the cloud state level.
     //
     message Clouds
     {
@@ -364,7 +364,7 @@ message EnvironmentalConditions
         // With a little practice, the observer can easily determine the total amount of cloud cover.
         // Problems occur only with scattered clouds or many single clouds (cumulus).
         // Their cloud cover is often overestimated. On the other hand,
-        // the coverage of thin ice clouds (cirrus) is often underestimated.[3]
+        // the coverage of thin ice clouds (cirrus) is often underestimated [3].
         //
         // \par References:
         // [1] ISO 15469:2004(E) / CIE S 011/E:2003 : Spatial distribution of skylight
@@ -416,27 +416,33 @@ message EnvironmentalConditions
             // Covered (8/8)
             //
             CLOUD_STATE_LEVEL_COVERED = 10;
-
-            // No Sky
-            //
-            CLOUD_STATE_LEVEL_NO_SKY = 11;
         }
     }
 
     //
     // \brief Defines wind properties.
     //
-    // \note Aligns with the wind speed and direction as defined in ASAM OpenSCENARIO
+    // \note Aligns with the wind speed and direction as defined in ASAM OpenSCENARIO.
     //
     message Wind
     {
         // The target direction of the wind (not the origin direction) in the ground/xy-plane of the \c
         // world coordinate system. Corresponds to the heading/yaw angle. \c
-        // x-axis-direction is 0 rad. Unit [rad]. Range [0...2 pi[
+        // x-axis-direction is 0 rad.
+        //
+        // Unit: rad
+        //
+        // The preferred angular range is [-pi, pi]
+        //
+        // \note The range in openSCENARIO is Range [0...2 pi[. Mind the conversion.
         //
         optional Vector3d direction = 1;
 
-        // The wind speed. Unit [m/s]. Range [0...inf[
+        // The wind speed.
+        //
+        // Unit m/s
+        //
+        // Range [0...inf[
         //
         optional double speed = 2;
     }
@@ -444,29 +450,23 @@ message EnvironmentalConditions
     //
     // \brief Specification of sun properties.
     //
-    // \note Aligns with the specification of sun properties according to ASAM OpenSCENARIO
+    // \note Aligns with the specification of sun properties according to ASAM OpenSCENARIO.
     //
     message Sun
     {
-        // Azimuth of the sun, counted counterclockwise
+        // Azimuth of the sun, counted counterclockwise.
         //
         // Unit: rad
         //
-        // \rules
-        // is_greater_than_or_equal_to: -PI
-        // is_less_than_or_equal_to: 2PI
-        // \endrules
+        // The preferred angular range is [0, 2pi]
         //
         optional double azimuth = 1;
 
-        // Solar elevation angle
+        // Solar elevation angle.
         //
         // Unit: rad
         //
-        // \rules
-        // is_greater_than_or_equal_to: -PI
-        // is_less_than_or_equal_to: PI
-        // \endrules
+        // The preferred angular range is [-pi, pi]
         //
         optional double elevation = 2;
 
