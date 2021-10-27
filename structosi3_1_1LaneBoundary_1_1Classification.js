@@ -26,7 +26,9 @@ var structosi3_1_1LaneBoundary_1_1Classification =
       [ "TYPE_SOIL_EDGE", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47afb38f2d1b9c401af9c7a6755366bcbc6", null ],
       [ "TYPE_GUARD_RAIL", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a93f729515b18ebc2cd61f6f0846b532b", null ],
       [ "TYPE_CURB", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47abab8bb3d91069f2a550b3a6446d437bb", null ],
-      [ "TYPE_STRUCTURE", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a28987ed47392310a41cbdaff066360d0", null ]
+      [ "TYPE_STRUCTURE", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a28987ed47392310a41cbdaff066360d0", null ],
+      [ "TYPE_BARRIER", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47ae27ca34ecc1ef229e38b7b9d8f3fc3e7", null ],
+      [ "TYPE_SOUND_BARRIER", "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a8db11f0485407ab372b97790b94121f3", null ]
     ] ],
     [ "color", "structosi3_1_1LaneBoundary_1_1Classification.html#a4e5960e264ee7a681ae86fd7fea2f455", null ],
     [ "limiting_structure_id", "structosi3_1_1LaneBoundary_1_1Classification.html#a6e0dc12b94249ce6e56040a45b15dd3e", null ],

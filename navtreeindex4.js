@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1StatePoint.html#acfd675952f416ff9b42a90d4b9a1575f":[2,0,0,67,1],
+"structosi3_1_1StationaryObject.html":[2,0,0,68],
 "structosi3_1_1StationaryObject.html#a56e5a2121b9938dc31aa70ce1ba8ad85":[2,0,0,68,3],
 "structosi3_1_1StationaryObject.html#a5f11a30dc338f7d38e2e90950b415ba2":[2,0,0,68,1],
 "structosi3_1_1StationaryObject.html#aa8d86e0b109f067fa6ba78197aec539c":[2,0,0,68,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1af8d034841eb8ceab5133315c2b15c158":[2,0,0,74,0,11],
 "structosi3_1_1TrafficSignValue.html#add3c5ccd1eea35e546fab4d488479dea":[2,0,0,74,3],
 "structosi3_1_1TrafficSign_1_1MainSign.html":[2,0,0,73,0],
-"structosi3_1_1TrafficSign_1_1MainSign.html#aaa39dda4c96ae6e95648c93ea20020f5":[2,0,0,73,0,1],
-"structosi3_1_1TrafficSign_1_1MainSign.html#ae363de582f13f08df687a1213c7dcaac":[2,0,0,73,0,3],
-"structosi3_1_1TrafficSign_1_1MainSign.html#ae44a444bc475718ee65da09e494b7909":[2,0,0,73,0,2]
+"structosi3_1_1TrafficSign_1_1MainSign.html#aaa39dda4c96ae6e95648c93ea20020f5":[2,0,0,73,0,1]
 };

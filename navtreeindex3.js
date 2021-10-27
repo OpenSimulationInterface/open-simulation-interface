@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a4ff4d25be361bc831238a27a197503a6":[2,0,0,49,2,0,11],
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a62778cf3684febbfd41667f820f0422b":[2,0,0,49,2,0,7],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9151ebc0e2515f3a58f743ff193b7936":[2,0,0,49,2,0,10],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9dd52b3a293d5b296b451a11b077afec":[2,0,0,49,2,0,8],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9e26233cf49cf0efcadac87e9cb90aa6":[2,0,0,49,2,0,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1Spherical3d.html#a92c6f939b6f1771be727b5b94efa0037":[2,0,0,66,0],
 "structosi3_1_1StatePoint.html":[2,0,0,67],
 "structosi3_1_1StatePoint.html#a7caab4a2a76833954583bac62953b131":[2,0,0,67,0],
-"structosi3_1_1StatePoint.html#abc934b324c107f97ccbb2341f2834c10":[2,0,0,67,2],
-"structosi3_1_1StatePoint.html#acfd675952f416ff9b42a90d4b9a1575f":[2,0,0,67,1],
-"structosi3_1_1StationaryObject.html":[2,0,0,68]
+"structosi3_1_1StatePoint.html#abc934b324c107f97ccbb2341f2834c10":[2,0,0,67,2]
 };

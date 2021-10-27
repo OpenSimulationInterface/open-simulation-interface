@@ -59,11 +59,13 @@ var NAVTREEINDEX2 =
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a399d35e8a2886f7c684a2b4824a45a18":[2,0,0,39,1,1,3],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a47ff2eec4f9b3e3a53511852450265d6":[2,0,0,39,1,1,8],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a61149aaefb66a0a303ecd0c93dc588eb":[2,0,0,39,1,1,1],
+"structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a8db11f0485407ab372b97790b94121f3":[2,0,0,39,1,1,15],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a93f729515b18ebc2cd61f6f0846b532b":[2,0,0,39,1,1,11],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a9b268c4182654b7d5907cdc2341c3ffb":[2,0,0,39,1,1,4],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47abab8bb3d91069f2a550b3a6446d437bb":[2,0,0,39,1,1,12],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47ac290918b6dae6700bafc7ff3058e13d3":[2,0,0,39,1,1,2],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47ade3db2ab1f5101ee2cbdc2779a20a545":[2,0,0,39,1,1,9],
+"structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47ae27ca34ecc1ef229e38b7b9d8f3fc3e7":[2,0,0,39,1,1,14],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47afae574db58defb15631aa1e291b1a33a":[2,0,0,39,1,1,7],
 "structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47afb38f2d1b9c401af9c7a6755366bcbc6":[2,0,0,39,1,1,10],
 "structosi3_1_1LaneBoundary_1_1Classification.html#ab65a78f20478e9c3a722c122e80aee6f":[2,0,0,39,1,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#ac035d2f6580e418a8ebffb746a461f21":[2,0,0,49,2,5],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html":[2,0,0,49,2,0],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a27a9f18b2697ae7d2c13f0cd31085997":[2,0,0,49,2,0,4],
-"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a448f9e0b0f0e39b90b2c800f920bc1ac":[2,0,0,49,2,0,3],
-"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a4ff4d25be361bc831238a27a197503a6":[2,0,0,49,2,0,11],
-"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a62778cf3684febbfd41667f820f0422b":[2,0,0,49,2,0,7]
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a448f9e0b0f0e39b90b2c800f920bc1ac":[2,0,0,49,2,0,3]
 };
