@@ -12,7 +12,7 @@ package osi3;
 // This message can also be understood as an interface container for the signals of a rest bus simulation.
 //
 // It consists of different messages categorizing the vehicle in:
-// Basics, powertrain, brake system, vehicle steering, vehicle wheels, vehicle localization.
+// Basics, powertrain, brake system, steering, wheels and localization.
 //
 // \image html OSI_HostVehicle.svg
 //
@@ -36,14 +36,14 @@ message HostVehicleData
     //
     optional Identifier host_vehicle_id = 11;
 
-    // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
+    // Deprecated: Will be removed in next major release. Moved to vehicle_localization.
     // Current estimated location based on GPS- and related navigation sensors.
     //
     // \note Note that dimension and base_polygon need not be set.
     //
     optional BaseMoving location = 1;
 
-    // Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics.
+    // Deprecated: Will be removed in next major release. Moved to vehicle_localization.
     // Current estimated location error based on GPS and related navigation
     // sensors.
     //
@@ -59,7 +59,7 @@ message HostVehicleData
     //
     optional VehiclePowertrain vehicle_powertrain = 4;
 
-    // Interface regarding the brake system
+    // Interface regarding the brake system.
     //
     optional VehicleBrakeSystem vehicle_brake_system = 5;
 
