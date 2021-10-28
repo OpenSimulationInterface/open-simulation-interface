@@ -85,7 +85,7 @@ message HostVehicleData
     //
     // \note OSI uses singular instead of plural for repeated field names.
     //
-    repeated VehicleAutomatedDrivingFunction automated_driving_function = 12;
+    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
 
     //
     // \brief The absolute base parameters of the vehicle. 
@@ -440,7 +440,6 @@ message HostVehicleData
             // Speed limit control
             //
             FUNCTION_NAME_SPEED_LIMIT_CONTROL = 25;
-
         }
 
         // The activation state of a feature.
