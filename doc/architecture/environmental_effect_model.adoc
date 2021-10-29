@@ -1,0 +1,9 @@
+= Environmental effect model
+
+Environmental effect models consume `SensorView` messages and produce `SensorView` messages.
+Environmental effect models may, for example, alter `SensorView` messages to include effects and phenomena caused by:
+
+* Shadows and occlusions
+* Weather effects
+* Physics of a sensor
+* Pre-processing of raw sensor data

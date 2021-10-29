@@ -1,0 +1,7 @@
+= Sensor data
+
+`SensorData` messages imitate the output of real sensors.
+They can be generated from `GroundTruth` messages, `SensorView` messages, `FeatureData` messages, or `SensorData` messages.
+With the exception of feature data, all information regarding the environment is given with respect to the virtual sensor coordinate system.
+Feature data is given with respect to the physical sensor coordinate system.
+Sensor data can be used as input for an automated driving function, a sensor model simulating limited perception, or a sensor fusion model.

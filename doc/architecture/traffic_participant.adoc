@@ -1,0 +1,31 @@
+= Traffic participant
+
+A traffic participant is an element of the simulated world and can change its state during simulation time, for example, its position and orientation.
+A traffic participant represents one of the following:
+
+- Living being.
+- Means of transportation for living beings
+- Means of transportation for goods
+- Any other movable object that may travel on the road network
+
+Pedestrians and animals are examples of traffic participants that are living beings.
+Vehicles are examples of traffic participants that are a means of transportation.
+The ego vehicle is therefore also a traffic participant.
+
+The following figure shows the interface of a traffic participant.
+
+.Interface of a traffic participant
+image::{images_open_simulation_interface}/osi-traffic-participant-principle.png[1100]
+
+Traffic participant models may use other OSI interfaces internally, for example, to model autonomous vehicles.
+The following figure shows a more advanced use case for traffic participants.
+
+.Traffic participant using other OSI interfaces internally
+image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1100]
+
+With every simulation step, an OSI traffic participant model receives ground-truth data from the environment around itself, the sensor view.
+A traffic participant can output its own perceivable state, the traffic update.
+Traffic commands influence the behavior of the traffic participant model.
+They allow event-based communication towards the traffic participant, that is, at certain simulation steps.
+Traffic commands do not necessarily need to come from the environment simulation.
+They may come from a separate source, such as a scenario engine.

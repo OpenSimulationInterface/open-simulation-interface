@@ -1,0 +1,20 @@
+= Coordinate systems and reference points
+
+OSI uses DIN ISO 8855:2013-11 cite:[iso8855] for coordinate systems and transformations between coordinate systems.
+OSI uses three coordinate systems:
+
+Global coordinate system::
+Coordinate system for all entities that are part of ground truth.
+The global coordinate system is an inertial x/y/z-coordinate system.
+The origin is the global reference point that is determined by the environment simulation.
+This reference point may be derived from map data or other considerations.
+Global coordinates can be mapped to a geographic coordinate system via `osi3::GroundTruth::proj_string`.
+
+Sensor coordinate system::
+Coordinate system for all entities that are part of sensor data.
+The origin is the mounting position of the physical sensor or a virtual mounting position, depending on the OSI message.
+
+Object coordinate system::
+Local object coordinate system.
+The origin of the corresponding coordinate system is not necessarily identical to the center of the object's bounding box.
+If the origin of the corresponding coordinate system is not identical to the center of the object's bounding box, the object documentation will provide the actual definition.

@@ -1,0 +1,35 @@
+= Coordinate transformations
+
+== Vehicle and sensor coordinate systems
+
+When running simulations, it is frequently necessary to transform coordinates from the global coordinate system for a specific vehicle and its sensors.
+
+This section provides an overview of the messages and fields involved and their relationship for this task.
+It demonstrates how a global coordinate system, vehicle coordinate system, and sensor coordinate system are related on the basis of a specific (ego) vehicle.
+
+//TODO: Should we add one or more sentences about the mathematical operations involved?
+
+**Corresponding messages**
+
+``GroundTruth::moving_object::base::position``::
+This field defines the position of the vehicle's reference point in global coordinates.
+In Open Simulation Interface, an object's position is defined by the coordinates of the center of the object's 3D bounding box.
+
+``GroundTruth::moving_object::base::orientation``::
+This field defines the orientation of the vehicle's reference point in global coordinates.
+
+``GroundTruth::moving_object::vehicle_attributes::bbcenter_to_rear``::
+This field specifies the vector pointing from the vehicle's reference point to the middle of the rear axle under neutral load conditions in the vehicle coordinates.
+
+``SensorData::mounting_position``::
+This field defines the sensor's position and orientation and thereby the origin of the sensor coordinate system.
+The mounting position is given in the vehicle coordinate system.
+
+**Example**
+
+The following image shows the relationship between the coordinate systems.
+The reference point of the vehicle is given by a vector in the global coordinate system.
+A vector pointing from the reference position of the vehicle to the center of the rear axle then yields the origin of the vehicle coordinate system.
+The mounting positions of the sensors and therefore the origins of the corresponding sensor coordinate systems are given with respect to the vehicle coordinate system.
+
+image::{images_open_simulation_interface}/osi_example_coordinate_systems.png[]

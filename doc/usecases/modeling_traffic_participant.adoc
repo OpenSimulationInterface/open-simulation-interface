@@ -1,0 +1,49 @@
+= Modeling a traffic participant
+
+Different models may be involved in modeling a traffic participant.
+In all the use cases, a simulator loads and interprets a scenario and a map prior to execution.
+The scenario is, for example, provided by OpenSCENARIO.
+The map data is, for example, provided by OpenDRIVE.
+During runtime the simulator interacts with the traffic participants via OSI messages.
+There may be multiple instances of a traffic participant.
+The traffic participants are co-simulated.
+
+The following figure shows a very simple use case.
+
+.Simple traffic participant
+image::{images_open_simulation_interface}/osi-traffic-participant-use-case-1.png[1100]
+
+The traffic participant bases its behavior only on an idealized view of the area around it.
+The traffic participant's dynamics are included in the model if they exist.
+
+The following figure shows a traffic participant with separately modeled behavior and dynamics.
+
+.Traffic participants with separate dynamics
+image::{images_open_simulation_interface}/osi-traffic-participant-use-case-2.png[1100]
+
+OSI currently provides only limited support for data structures that describe measured internal states of the traffic participant.
+OSI does not currently cover actuator intentions.
+These must be handled with a different data description format.
+
+The following figure shows a more complex traffic participant.
+
+.Traffic participant with sensor models, AD function, and dynamics model
+image::{images_open_simulation_interface}/osi-traffic-participant-use-case-3.png[1100]
+
+This use case will probably be relevant for modeling the ego vehicle, which includes the system under test.
+The traffic participant includes an arbitrary number of sensor models.
+The sensor models consume sensor view and produce sensor data.
+The AD function consumes sensor data and produces input for the dynamics model.
+OSI currently does not support data flow to dynamics models.
+The loop to the environment simulation is closed via traffic update.
+
+The following figure shows a cooperative use case with both an AD function and a human driver.
+
+.Traffic participant with an AD function and human driver
+image::{images_open_simulation_interface}/osi-traffic-participant-use-case-4.png[1100]
+
+It is possible to model a traffic participant with an AD function in the loop, but a human driver can still override the actuation command.
+This type of cooperative use case is, for example, relevant to studies on human-machine interaction.
+In this example, a virtual on-screen representation of the scenario, or mock-up, is added after the AD function.
+The driver-in-the-loop interacts with the dynamics model via this mock-up.
+OSI's limitations regarding dynamics-model input apply in this example as well.

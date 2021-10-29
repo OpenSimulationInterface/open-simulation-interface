@@ -1,0 +1,58 @@
+= OSI trace file naming conventions
+
+**Name format**
+
+The names of OSI trace files should have the following format:
+
+----
+<timestamp>_<type>_<osi-version>_<protobuf-version>_<number-of-frames>_<custom-trace-name>.osi
+----
+
+**Types**
+
+`sd`::
+Trace file contains `SensorData` messages.
+
+`sv`::
+Trace file contains `SensorView` messages.
+
+`gt`::
+Trace file contains `GroundTruth` messages.
+
+`tu`::
+Trace file contains `TrafficUpdate` messages.
+
+`tc`::
+Trace file contains `TrafficCommand` messages.
+
+
+**Example**
+
+Given an OSI trace file with the following information:
+
+[cols="1,1"]
+|===
+|Timestamp (ISO 8601) cite:[iso8601]
+|20210818T150542Z
+
+|Type
+|SensorView
+
+|OSI version
+|3.1.2
+
+|Protobuf version
+|3.0.0
+
+|Number of frames
+|1523
+
+|Custom trace name
+|highway
+|===
+
+The recommended file name is:
+
+----
+20210818T150542Z_sv_312_300_1523_highway.osi
+----

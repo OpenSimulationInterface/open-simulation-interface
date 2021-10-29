@@ -1,0 +1,48 @@
+= Installing OSI for Python on Linux
+
+**Prerequisites**
+
+* You have installed _pip3_.
+* You have installed _python-setuptools_.
+* You have installed _protobuf_.
+* For a local installation, you have installed _virtualenv_.
+
+**Steps**
+
+. Open a terminal.
+. Clone the Open Simulation repository.
++
+----
+git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+----
++
+. Switch to the repository directory.
++
+----
+cd open-simulation-interface
+----
++
+. Create a new virtual environment.
++
+----
+virtualenv -p python3 venv
+----
++
+. Activate the virtual environment.
++
+----
+source venv/bin/activate
+----
++
+. Install Open Simulation Interface.
+.. Local installation
++
+----
+pip3 install .
+----
++
+.. Global installation
++
+----
+sudo pip3 install .
+----

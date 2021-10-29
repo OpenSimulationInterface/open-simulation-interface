@@ -1,0 +1,48 @@
+= Installing OSI for C++ on Windows
+
+**Prerequisites**
+
+* You have installed _cmake_ as an administrator.
+* You have installed _protobuf_ as an administrator.
+
+**Steps**
+
+. Open a terminal as administrator.
+. Clone the Open Simulation repository.
++
+----
+git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+----
++
+. Switch to the repository directory.
++
+----
+cd open-simulation-interface
+----
++
+. Create a new directory for the build.
++
+----
+mkdir build
+----
++
+. Switch to the new directory.
++
+----
+cd build
+----
++
+. Run cmake.
+  To build a 64-bit target, add `Win64` to the generator name.
+  In this case, protobuf and protoc.exe must be in 64-bit mode too.
++
+----
+cmake .. [-G <generator>] [-DCMAKE_INSTALL_PREFIX=<osi-install-directory>]
+----
++
+. Build and install OSI.
++
+----
+cmake --build . [--config Release]
+cmake --build . --target install
+----

@@ -1,0 +1,13 @@
+= Packaging layer
+
+The OSI packaging layer specifies how components that use the OSI data layer, for example, sensor models, are packaged for exchange.
+
+This specifies model types and their mandatory and optional OSI inputs, OSI outputs, and parameter interfaces.
+A model type may be, for example, a sensor model or a traffic participant model.
+The packaging layer also specifies component technology standards.
+This makes it possible to encapsulate model types in easily exchangeable component packages that can be used across platforms and implementations.
+
+Multiple packaging layer implementations are possible within the OSI framework.
+The shared data layer ensures easy bridging between the different implementations.
+The currently defined central packaging layer is the OSI Sensor Model Packaging (OSMP) specification.
+It is based on FMI 2.0 cite:[fmi2.0] and uses certain additional conventions to allow packaging of OSI using models as FMUs.

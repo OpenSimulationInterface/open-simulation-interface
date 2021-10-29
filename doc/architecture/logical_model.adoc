@@ -1,0 +1,6 @@
+= Logical model
+
+Logical models consume `SensorData` messages and produce `SensorData` messages.
+
+An example of a logical model is a sensor-fusion model, which combines the output of multiple sensor models to produce data with less uncertainty.
+Another use case is the fault-injection model which, contrary to a sensor-fusion model, may be used to increase uncertainties.

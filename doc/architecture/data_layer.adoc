@@ -1,0 +1,14 @@
+= Data layer
+
+The OSI data layer is defined in the message specifications using the ProtoBuf IDL cite:[protobuf].
+This defines the data that can be transmitted using OSI, including the structure and the semantics of the data.
+
+Additionally, it specifies the encoding to be used when OSI data is transmitted.
+Currently, ProtoBuf encoding is used, but other encodings are possible with the ProtoBuf IDL.
+FlatBuffer encoding has been implemented as an experimental feature.
+
+The data layer does not directly define components and transmission routes.
+These are defined in the OSI packaging layer.
+There may be different packaging layer implementations using the shared data layer definitions.
+The data that is exchanged remains compatible regardless of the packaging layer implementation.
+The use of a shared data layer ensures easy bridging between different packaging layer implementations.

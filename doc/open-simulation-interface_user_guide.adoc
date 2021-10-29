@@ -1,0 +1,117 @@
+ifndef::THIS_STANDARD[]
+
+:asciidoc-resources: ../asciidoc-resources
+include::{asciidoc-resources}/preamble.adoc[]
+
+:revnumber: --localbuild--
+:revdate: {docdate}
+
+:topicdir: topics
+:reusedir: reuse
+
+:imagesdir: .
+:images_open_simulation_interface: ./images
+
+
+endif::[]
+
+= Open Simulation Interface
+
+
+include::./misc/osi_vision.adoc[leveloffset=+1]
+
+== The basic design of OSI
+
+include::./architecture/architecture_overview.adoc[leveloffset=+2]
+
+=== Top-level interfaces
+
+include::./architecture/ground_truth.adoc[leveloffset=+3]
+
+include::./architecture/feature_data.adoc[leveloffset=+3]
+
+include::./architecture/sensor_view.adoc[leveloffset=+3]
+
+include::./architecture/sensor_view_configuration.adoc[leveloffset=+3]
+
+include::./architecture/sensor_data.adoc[leveloffset=+3]
+
+include::./architecture/traffic_command.adoc[leveloffset=+3]
+
+include::./architecture/traffic_update.adoc[leveloffset=+3]
+
+=== Model types
+
+include::./architecture/environmental_effect_model.adoc[leveloffset=+3]
+
+include::./architecture/sensor_model.adoc[leveloffset=+3]
+
+include::./architecture/logical_model.adoc[leveloffset=+3]
+
+include::./architecture/traffic_participant.adoc[leveloffset=+3]
+
+include::./usecases/modeling_traffic_participant.adoc[leveloffset=+4]
+
+//include::./architecture/vehicle_dynamics.adoc[leveloffset=+3]
+
+=== Coordinate systems and reference points
+
+include::./architecture/reference_points_coordinate_systems.adoc[leveloffset=+3]
+
+include::./usecases/transforming_coordinate_systems.adoc[leveloffset=+3]
+
+=== Layering
+
+include::./architecture/data_layer.adoc[leveloffset=+3]
+
+include::./architecture/packaging_layer.adoc[leveloffset=+3]
+
+=== OSI trace files
+
+include::./architecture/trace_file_formats.adoc[leveloffset=+3]
+
+include::./architecture/trace_file_naming.adoc[leveloffset=+3]
+
+// === Files and scripts
+
+// include::./architecture/proto-files.adoc[leveloffset=+3]
+
+// include::./architecture/test_scripts.adoc[leveloffset=+3]
+
+include::./architecture/formatting_scripts.adoc[leveloffset=+3]
+
+== Setting up OSI
+
+include::./setup/installing_linux_cpp.adoc[leveloffset=+2]
+
+include::./setup/installing_linux_python.adoc[leveloffset=+2]
+
+include::./setup/installing_windows_cpp.adoc[leveloffset=+2]
+
+include::./setup/installing_windows_python.adoc[leveloffset=+2]
+
+//include::./setup/installing_macos.adoc[leveloffset=+2]
+
+//include::./setup/using_osi_support_tools.adoc[leveloffset=+2]
+
+//include::./setup/including_osi_dev_projects.adoc[leveloffset=+2]
+
+//== Example use cases for OSI
+
+//include::./usecases/modeling_lidar_sensor.adoc[leveloffset=+2]
+
+//include::./usecases/modeling_camera_electronics.adoc[leveloffset=+2]
+
+//include::./usecases/injecting_faults.adoc[leveloffset=+2]
+
+//include::./usecases/fusing_sensor_outputs.adoc[leveloffset=+2]
+
+//include::./usecases/modeling_traffic_participant.adoc[leveloffset=+2]
+
+//include::./usecases/benchmark_integration_gpu_radar.adoc[leveloffset=+2]
+
+//include::./usecases/generating_osi_traces.adoc[leveloffset=+2]
+
+//== Improving performance
+
+//TODO: Define topics and issues regarding performance.

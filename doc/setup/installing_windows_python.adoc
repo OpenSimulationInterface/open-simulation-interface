@@ -1,0 +1,27 @@
+= Installing OSI for Python on Windows
+
+**Prerequisites**
+
+* You have installed _Python_ with administrator rights.
+* Make sure _Python_ is added to `PATH`.
+
+**Steps**
+
+. Open a terminal.
+. Clone the Open Simulation repository.
++
+----
+git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+----
++
+. Switch to the repository directory.
++
+----
+cd open-simulation-interface
+----
++
+. Run the setup script.
++
+----
+python setup.py install
+----
