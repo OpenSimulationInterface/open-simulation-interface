@@ -360,4 +360,11 @@ message MicrophoneSensorView
     // Microphone view configuration valid at the time the data was created.
     //
     optional MicrophoneSensorViewConfiguration view_configuration = 1;
+    
+    // Spectral density or loudness level per frequency.
+    //
+    // The raw Spectral density data in the memory layout and order specified by the
+    // microphone sensor input configuration.
+    //
+    optional bytes microphone_data = 2;
 }

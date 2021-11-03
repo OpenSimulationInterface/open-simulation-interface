@@ -1097,7 +1097,7 @@ message MicrophoneDetectionSpecificHeader
 
     // Upper bound of frequency range of the microphone sensor.
     //
-    // Unit: kHz
+    // Unit: Hz
     //
     optional double frequency_bound_upper = 3;
 }

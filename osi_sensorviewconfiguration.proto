@@ -984,15 +984,6 @@ message MicrophoneSensorViewConfiguration
     // Unit: rad
     optional double field_of_view_horizontal = 4;
 
-    // Field of View in vertical orientation of the physical sensor.
-    //
-    // Viewing range: [- \c #field_of_view_vertical/2,  \c
-    // #field_of_view_vertical/2] elevation in the sensor frame at zero azimuth
-    // as defined in \c Spherical3d.
-    //
-    // Unit: rad
-    optional double field_of_view_vertical = 5;
-
     // TBD: Microphone Sensor specific configuration.
     //
 }
