@@ -171,7 +171,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Host vehicle data is about the perception of the vehicle about its own internal states. It captures the knowledge the vehicle has internally, which can differ from the actual or global truth for various reasons. This message can also be understood as an interface container for the signals of a rest bus simulation. </p>
-<p>It consists of different messages categorizing the vehicle in: Basics, powertrain, brake system, vehicle steering, vehicle wheels, vehicle localization.</p>
+<p>It consists of different messages categorizing the vehicle in: Basics, powertrain, brake system, steering, wheels and localization.</p>
 <div class="image">
 <object type="image/svg+xml" data="OSI_HostVehicle.svg">OSI_HostVehicle.svg</object>
 </div>
@@ -202,7 +202,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics. Current estimated location based on GPS- and related navigation sensors.</p>
+<p>Deprecated: Will be removed in next major release. Moved to vehicle_localization. Current estimated location based on GPS- and related navigation sensors.</p>
 <dl class="section note"><dt>Note</dt><dd>Note that dimension and base_polygon need not be set. </dd></dl>
 
 </div>
@@ -218,7 +218,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Deprecated: Will be removed in next major release. Moved to VehiclePositionAndKinematics. Current estimated location error based on GPS and related navigation sensors.</p>
+<p>Deprecated: Will be removed in next major release. Moved to vehicle_localization. Current estimated location error based on GPS and related navigation sensors.</p>
 <dl class="section note"><dt>Note</dt><dd>Note that dimension and base_polygon need not be set. </dd></dl>
 
 </div>
@@ -265,7 +265,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Interface regarding the brake system </p>
+<p>Interface regarding the brake system. </p>
 
 </div>
 </div>
