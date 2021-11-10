@@ -35,5 +35,14 @@ source venv/bin/activate
 ----
 +
 . Install Open Simulation Interface.
-Local installation:: `pip3 install .`
-Global installation:: `sudo pip3 install .`
+.. Local installation
++
+----
+pip3 install .
+----
++
+.. Global installation
++
+----
+sudo pip3 install .
+----
