@@ -315,17 +315,18 @@ message SensorData
     //
     optional LogicalDetectionData logical_detection_data = 27;
 
-    // Pre-Processed Data interface
+    // Preprocessed data interface.
     //
-    // Preprocessed Data are provided during the first evaluation
+    // Preprocessed data are provided during the first evaluation
     // of raw physical and/or virtual sensor views. These basic data will
-    // be afterwards clustered and condensed to features and detections
+    // be afterwards clustered and condensed to features and detections.
     // Preprocessed data may be the first depth estimation of the scene
     // or rough movement determination. It may contain data from only one
-    // input sensor, or it can be the result of sensor data fusion of multiple
-    // inputs. 
-    // The Preprocessed Data may hold the intermediate results of the processing chain and/or 
-    // variants of algorithmics and/or encodings
+    // input sensor, or it can be the result of sensor data fusion of
+    // multiple inputs. 
+    // 
+    // The preprocessed data may hold the intermediate results of the
+    // processing chain and/or variants of algorithms and/or encodings.
     //
-    optional PreprocessedData  pre_processed_data = 28;
+    optional PreprocessedData  preprocessed_data = 28;
 }
