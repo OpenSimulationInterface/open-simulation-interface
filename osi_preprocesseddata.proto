@@ -3,28 +3,50 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_version.proto";
-import "osi_common.proto"; // for Vector2d
-import "osi_featuredata.proto"; // for CameraDetection, CameraDetectionData
-import "osi_sensorviewconfiguration.proto"; // CameraSensorViewConfiguration.ChannelFormat
+import "osi_common.proto";
+import "osi_featuredata.proto";
+import "osi_sensorviewconfiguration.proto";
 
 package osi3;
 
 //
-// \brief preprocessed data from one or multiple sensors 
-// Preprocessed Data is derived as first evaluation level in processing the sensor view information
-// E.g. the depth image estimation of the observed scene without knowing the sematic interpretation 
-// of each measurement. Afterwards these elementary data are condensed to features and detections 
-// of known, observed and classified object instances
+// \brief Preprocessed data from one or multiple sensors
 //
-// The Data is given with respect to the logical/virtual sensor in its coodinate system
+// Preprocessed data is derived as a first evaluation level in processing
+// the sensor view information. For example, for a camera sensor, this
+// can be the depth image estimation of the observed scene without any
+// semantic interpretation of each measurement. Further processing will
+// then condense these elementary data to features and detections of
+// known, observed and classified object instances.
 //
+// All data is given with respect to the sensor coordinate system
+// specified in \c SensorDetectionHeader::mounting_position.
+//
+message PreprocessedData
+{
+    // The interface version used by the sender 
+    //
+    optional InterfaceVersion version = 1;
 
-//##################################################################################################
-// Camera related messages
-//##################################################################################################
+    // Camera-specific preprocessed data
+    //
+    optional CameraPreprocessedData camera_data = 2;
+
+    // Radar-specific preprocessed data
+    //
+    optional RadarPreprocessedData radar_data = 3;
+
+    // Lidar-specific preprocessed data
+    //
+    optional LidarPreprocessedData lidar_data = 4;
+
+    // Ultrasonic-specific preprocessed data
+    //
+    optional UltrasonicPreprocessedData ultrasonic_data = 5;
+}
 
 //
-// \brief preprocessed Data from one camera sensor including a list of detections.
+// \brief Preprocessed image data from one camera sensor
 //
 message CameraPreprocessedImageData
 {
@@ -36,21 +58,27 @@ message CameraPreprocessedImageData
     //
     optional CameraDetectionSpecificHeader specific_header = 2;
 
-    // The preprocessed data is organized as image structure like the input inside the sensor view.
-    // The interpreation of that preprocessed data is given by the channel format
+    // Format for image data (includes number, kind and format of channels).
+    //
+    // The preprocessed data is organized as an image structure similar
+    // to the input inside the sensor view. The interpretation of the
+    // preprocessed data is given by the channel format.
     //
     optional CameraSensorViewConfiguration.ChannelFormat channel_format = 3;
 
-    // This is the ID describes the origin(s) of physical or virtual sensor
-    // normally one input sensor produces one preprocessed data. In case of sensor fusion or 
-    // e.g. stereo vision, two or more input sensors produce an intermediate result, all input
-    // sensor ids are given in that repeated message field
+    // The IDs of the sensors producing the preprocessed data.
+    //
+    // Normally one input sensor produces one preprocessed data. In the
+    // case of sensor fusion or stereo vision, where two or more input
+    // sensors produce an intermediate result, all input sensor IDs are
+    // given.
     //
     repeated Identifier sensor_id = 4;
 
-    // Raw preprocessed image data.
+    // Raw preprocessed image data
     //
-    // The image data in the memory layout and order is specified the by the channel format
+    // The image data is in the memory layout and order as specified by
+    // the channel format field.
     //
     optional bytes image_data = 5;
 
@@ -60,101 +88,59 @@ message CameraPreprocessedImageData
     //
     repeated CameraDetection detection = 6;
 
-    // preprocessed detections refers to that point container to describe the bounding boxes inside the image
+    // List of points which are used by detections.
     //
-    // The image coordinates has the origin in the upper left image corner, 
-    // the x-axis goes to the right and the y-axis goes down
+    // Preprocessed detections refer to this point container to describe
+    // the bounding boxes inside the image.
+    //
+    // The image coordinates have the origin in the upper left image
+    //
+    // corner, the x-axis goes to the right and the y-axis goes down.
+    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Vector2d  point = 7;
-
 }
 
-
+//
+// \brief Preprocessed data from camera sensors
+//
 message CameraPreprocessedData
 {
-    // preprocessed image data. The first low level results of interpretating the sensor views
+    // Preprocessed image data
     //
-    // The included sensor ids refer to the sensors the information relies on. 
-    // (normally one input sensor produces one preprocessed data. In case of sensor fusion or 
-    // e.g. stereo vision, two or more input sensors produce an intermediate result, all input
-    // sensor ids are given in that repeated message field)
+    // This is a repeated field to support configurations of multiple
+    // camera sensor input and/or where the system architecture provides
+    // multiple preprocessed data sets (for example, different stages
+    // along the processing chain, different variants of algorithmic
+    // output, different encodings, different combiniations of multiple
+    // camera setups in sensor data fusion).
     //
-    // included channel format describes the preprocessed data itself.
-    // The data is provided in the sensor specific coordinate system
-    // 
-    // Preprocessed image data is an array to support configurations of multiple camera sensor input 
-    // and/or the system architecture provides multiple preprocessed data sets (e.g. different stages
-    // along the processing chain, different variants of algorithmic, different encodings, different 
-    // combiniations of the multiple camera setup in sensor data fusion)
-    //
-    repeated CameraPreprocessedImageData  preprocessed_data = 1;
-
+    repeated CameraPreprocessedImageData preprocessed_data = 1;
 }
 
-
-//##################################################################################################
-// Radar related messages
-//##################################################################################################
-
-
+//
+// \brief Preprocessed data from radar sensors
+//
 message RadarPreprocessedData
 {
     // currently a placeholder for Radar, to be filled up in future
     //
 }
 
-
-//##################################################################################################
-// Lidar related messages
-//##################################################################################################
-
-
+//
+// \brief Preprocessed data from lidar sensors
+//
 message LidarPreprocessedData
 {
     // currently a placeholder for Lidar, to be filled up in future
     //
 }
 
-
-//##################################################################################################
-// Ultrasonic related messages
-//##################################################################################################
-
-
+//
+// \brief Preprocessed data from ultrasonic sensors
+//
 message UltrasonicPreprocessedData
 {
     // currently a placeholder for Ultrasonic, to be filled up in future
     //
 }
-
-
-//##################################################################################################
-//##################################################################################################
-
-//
-// \brief Preprocessed Data is derived as first evaluation level in processing the sensor view information
-//
-message PreprocessedData
-{
-    // The interface version used by the sender 
-    //
-    optional InterfaceVersion version = 1;
-
-    // camera specific preprocessed data
-    //
-    optional CameraPreprocessedData camera_data = 2;
-
-    // radar specific preprocessed data
-    //
-    optional RadarPreprocessedData radar_data = 3;
-
-    // lidar specific preprocessed data
-    //
-    optional LidarPreprocessedData lidar_data = 4;
-
-    // ultrasonic specific preprocessed data
-    //
-    optional UltrasonicPreprocessedData ultrasonic_data = 5;
-
-}
-
