@@ -76,6 +76,7 @@ set(OSI_PROTO_FILES
     osi_featuredata.proto
     osi_logicaldetectiondata.proto
     osi_object.proto
+    osi_preprocesseddata.proto
     osi_occupant.proto
     osi_sensordata.proto
     osi_sensorviewconfiguration.proto
