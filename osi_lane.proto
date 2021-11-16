@@ -376,6 +376,22 @@ message Lane
         //
         optional Subtype subtype = 12;
 
+        // Lane boundaries which mark the outer borders of intersections towards
+        // non-drivable space, for example sidewalks.
+        // 
+        // They must share a \c LaneBoundary::boundary_line (i.e. a boundary point) 
+        // which is linked as left_lane_boundary_id or right_lane_boundary_id from 
+        // a lane of TYPE_DRIVING. 
+        //
+        // note The intersection area is defined as the area spanned by those 
+        // boundaries and straight lines over the successor/antecessor lanes of \c #type =
+        // \c #DRIVING. TODO: pictures, rules for start/end points?
+        //
+        // \note The \c #intersection_outer_border_id is undefined for \c #type =
+        // \c #DRIVING and \c #type = #NON_DRIVING.        
+        //
+        repeated Identifier intersection_outer_border_id = 13;        
+
         // Definition of available lane types.
         //
         enum Type
