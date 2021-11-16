@@ -30,7 +30,7 @@ def main():
 
     sv_ground_truth = sensorview.global_ground_truth
     sv_ground_truth.version.version_major = 3
-    sv_ground_truth.version.version_minor = 3
+    sv_ground_truth.version.version_minor = 4
     sv_ground_truth.version.version_patch = 0
 
     sv_ground_truth.timestamp.seconds = 0
