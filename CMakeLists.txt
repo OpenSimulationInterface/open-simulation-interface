@@ -84,7 +84,6 @@ set(OSI_PROTO_FILES
     osi_sensorview.proto
     sl45_dynamicsrequest.proto
     sl45_motioncommand.proto
-    sl45_vehiclecommunicationdata.proto
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HEADERS ${OSI_PROTO_FILES})
