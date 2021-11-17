@@ -72,8 +72,7 @@ class GenerateProtobufCommand(build_py):
         'osi_sensorspecific.proto',
         'osi_sensorview.proto',
         'sl45_dynamicsrequest.proto',
-        'sl45_motioncommand.proto',
-        'sl45_vehiclecommunicationdata.proto')
+        'sl45_motioncommand.proto')
 
     """ Generate Protobuf Messages """
 

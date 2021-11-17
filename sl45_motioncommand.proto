@@ -95,15 +95,10 @@ message MotionCommand
     //
     optional osi3.Timestamp timestamp = 2;
 
-    // The current dynamic state of the vehicle. All positions are given in the
-    // the global coordinate system.
-    //
-    optional DynamicState current_state = 3;
-
     // The trajectory the vehicle should follow on. All positions are given in the
     // the global coordinate system.
     //
-    optional Trajectory trajectory = 4;
+    optional Trajectory trajectory = 3;
 
 
     // \brief A trajectory.
