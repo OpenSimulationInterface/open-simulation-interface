@@ -144,27 +144,7 @@ message HostVehicleData
 
             // The current availability status of the Motor system.
             //
-            optional MotorStatus motor_status = 4;
-
-            
-            // Definition current availability status for motor.
-            //
-            enum MotorStatus
-            {
-                // System is fully available.
-                //
-                Fully_available = 0;
-
-                // System is in partial failure mode, and partially available
-                // going to garage at later point recommended.
-                //
-                Limp_home = 1;
-            
-                // System is in major failure mode.
-                // System state relevant for ongoing drive.
-                //
-                Limp_aside = 2;
-            }
+            optional AvailabilityStatus motor_status = 4;
 
             // Definition which type of motor is used.
             //
@@ -205,24 +185,7 @@ message HostVehicleData
 
         // The current availability status of the braking system.
         //
-        optional BrakingStatus braking_status = 2;
-
-        enum BrakingStatus
-        {
-            // Braking system is fully available.
-            //
-            Fully_available = 0;
-
-            // Braking system is in partial failure mode, and partially available
-            // going to garage at later point recommended.
-            //
-            Limp_home = 1;
-           
-            // Braking system is in major failure mode.
-            // Braking system state relevant for ongoing drive.
-            //
-            Limp_aside = 2;
-        }
+        optional AvailabilityStatus braking_status = 2;
     }
     
     
@@ -237,27 +200,7 @@ message HostVehicleData
 
         // The current availability status of the Steering system.
         //
-        optional SteeringStatus steering_status = 2;
-
-            
-        // Definition current availability status for steering.
-        //
-        enum SteeringStatus
-        {
-            // System is fully available.
-            //
-            Fully_available = 0;
-
-            // System is in partial failure mode, and partially available
-            // going to garage at later point recommended.
-            //
-            Limp_home = 1;
-            
-            // System is in major failure mode.
-            // System state relevant for ongoing drive.
-            //
-            Limp_aside = 2;
-        }
+        optional AvailabilityStatus steering_status = 2;
     }
 
     //
@@ -365,5 +308,32 @@ message HostVehicleData
         // in context to the vehicle coordinate system.
         //
         optional Vector3d acceleration = 6;
+    }
+
+    // Definition current availability status for a sub-system.
+    //
+    enum AvailabilityStatus
+    {
+        // The availability status is unknown.
+        //
+        AVAILABILITY_STATUS_UNKNOWN = 0;
+
+        // The availability status is other.
+        //
+        AVAILABILITY_STATUS_OTHER = 1;
+
+        // The system is fully available.
+        //
+        AVAILABILITY_STATUS_FULLY_AVAILABLE = 2;
+
+        // The system is in partial failure mode, and partially available,
+        // going to a garage at a later point is recommended.
+        //
+        AVAILABILITY_STATUS_LIMP_HOME = 3;
+            
+        // The system is in major failure mode.
+        // The system status is relevant for the ongoing drive.
+        //
+        AVAILABILITY_STATUS_LIMP_ASIDE = 4;
     }
 }
