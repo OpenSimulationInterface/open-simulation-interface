@@ -76,6 +76,7 @@ set(OSI_PROTO_FILES
     osi_trafficcommand.proto
     osi_roadmarking.proto
     osi_lane.proto
+    osi_logicallane.proto
     osi_featuredata.proto
     osi_logicaldetectiondata.proto
     osi_object.proto
