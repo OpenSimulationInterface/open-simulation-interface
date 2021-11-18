@@ -54,9 +54,14 @@ jobs:
     - name: Prepare C++ Build
       run: mkdir build
 
-    - name: Prepare Documentation Bukd
+    # Versioning
+    - name: Get versioning
+      id: get_version
+      run: echo ::set-output name=VERSION::$(git describe --always)
+
+    - name: Prepare Documentation Build
       run: |
-        sed -i 's/@VERSION_PATCH@/@VERSION_PATCH@_GitHub_MasterBranch/g' doxygen_config.cmake.in
+        sed -i 's/PROJECT_NUMBER\s*= @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@/PROJECT_NUMBER = master (${{ steps.get_version.outputs.VERSION }})/g' doxygen_config.cmake.in
         echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-3.15.8/* */proto2cpp/*" >> doxygen_config.cmake.in
         echo "GENERATE_TREEVIEW = YES" >> doxygen_config.cmake.in
 
