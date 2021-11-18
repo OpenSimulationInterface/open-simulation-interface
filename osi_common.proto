@@ -339,6 +339,45 @@ message Spherical3d
 }
 
 //
+// \brief Assignment of an object to a logical lane
+//
+// An object is assigned to a logical lane if it overlaps the logical lane.
+// Assignment happens even if the reference point is outside the lane, and only
+// a part of the object overlaps.
+//
+// As an exception to this, \c TrafficSign and \c TrafficLight are assigned to
+// a logical lane if they control traffic on that lane.
+//
+message LogicalLaneAssignment
+{
+    // ID of the LogicalLane the object is assigned to.
+    //
+    optional Identifier assigned_lane_id = 1;
+
+    // S position of the object reference point on the lane, in the ST
+    // coordinate system of the lane.
+    //
+    // s_position might be outside [s_start,s_end] of the lane (and even
+    // outside [startS,endS] of the reference line) if the reference point is
+    // outside the lane, but the object overlaps the lane or a TrafficSign or
+    // TrafficLight is assigned to a lane.
+    //
+    optional double s_position = 2;
+
+    // T position of the object reference point on the lane, in the ST
+    // coordinate system of the lane.
+    //
+    optional double t_position = 3;
+
+    // Angle of the object relative to the lane.
+    // See the ReferenceLine description how the angle is calculated.
+    //
+    // Unit: rad
+    //
+    optional double angle_to_lane = 4;
+}
+
+//
 // \brief The base attributes of a stationary object or entity.
 //
 // This includes the \c StationaryObject , \c TrafficSign ,
@@ -398,6 +437,10 @@ message BaseStationary
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 4;
+
+    // Assignment of this object to logical lanes
+    //
+    repeated LogicalLaneAssignment logical_lane_assignment = 5;
 }
 
 //
@@ -520,6 +563,10 @@ message BaseMoving
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 7;
+
+    // Assignment of this object to logical lanes
+    //
+    repeated LogicalLaneAssignment logical_lane_assignment = 9;
 }
 
 //
