@@ -208,7 +208,13 @@ message Lane
         // cl: center line
         // lb: lane boundary
         //
+<<<<<<< HEAD
         // \attention The points desribing the center line must be set in the 
+=======
+        // \image html strassenquerschnitt_surfacelines.png "Lane shape surfacelines" width=500px
+        // 
+        // \attention The points desribing the surface line must be set in the 
+>>>>>>> Update osi_lane.proto
         // same ordering (ascending or descending) as the points desribing the 
         // lane boundaries. Example: If the points are deducted from a map format, 
         // the order of points is recommended to be in line with the road coordinate 
