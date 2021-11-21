@@ -205,6 +205,8 @@ message Lane
         // sl: surface line
         // lb: lane boundary
         //
+        // \image html strassenquerschnitt_surfacelines.png "Lane shape surfacelines" width=500px
+        // 
         // \attention The points desribing the surface line must be set in the 
         // same ordering (ascending or descending) as the points desribing the 
         // lane boundaries. Example: If the points are deducted from a map format, 
