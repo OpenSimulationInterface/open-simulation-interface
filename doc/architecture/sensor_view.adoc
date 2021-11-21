@@ -1,7 +1,7 @@
 = Sensor view
 
 The sensor view provides the input to OSI sensor models.
-Sensor-view messages are derived from ground-truth messages.
+`SensorView` messages are derived from `GroundTruth` messages.
 All information regarding the environment is given with respect to the virtual sensor coordinate system, with two exceptions:
 
 * Physical technology-specific data, given with respect to the physical sensor coordinate system specified in the corresponding physical sensor's mounting position.

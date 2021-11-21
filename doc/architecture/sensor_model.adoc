@@ -1,5 +1,4 @@
 = Sensor model
 
-Sensor models consume sensor-view messages and produce sensor-data messages.
-
+Sensor models consume `SensorView` messages and produce `SensorData` messages.
 Sensor-model output does not represent raw data but detected features or classified objects.

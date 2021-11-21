@@ -4,7 +4,6 @@
 
 The names of OSI trace files should have the following format:
 
-[source]
 ----
 <timestamp>_<type>_<osi-version>_<protobuf-version>_<number-of-frames>_<custom-trace-name>.osi
 ----
@@ -12,19 +11,19 @@ The names of OSI trace files should have the following format:
 **Types**
 
 `sd`::
-Trace file contains sensor-data messages.
+Trace file contains `SensorData` messages.
 
 `sv`::
-Trace file contains sensor-view messages.
+Trace file contains `SensorView` messages.
 
 `gt`::
-Trace file contains ground-truth messages.
+Trace file contains `GroundTruth` messages.
 
 `tu`::
-Trace file contains traffic-update messages.
+Trace file contains `TrafficUpdate` messages.
 
 `tc`::
-Trace file contains traffic-command messages.
+Trace file contains `TrafficCommand` messages.
 
 
 **Example**
@@ -33,7 +32,7 @@ Given an OSI trace file with the following information:
 
 [cols="1,1"]
 |===
-|Timestamp (ISO 8601)
+|Timestamp (ISO 8601) cite:[iso8601]
 |20210818T150542Z
 
 |Type
@@ -54,7 +53,6 @@ Given an OSI trace file with the following information:
 
 The recommended file name is:
 
-[source]
 ----
 20210818T150542Z_sv_312_300_1523_highway.osi
 ----
