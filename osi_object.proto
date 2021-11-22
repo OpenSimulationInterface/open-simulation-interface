@@ -731,6 +731,9 @@ message MovingObject
 
         // Definition of vehicle types.
         //
+        // \note OSI deliberately aims to provide a richer set of vehicle types than both
+        // OpenLabel and OpenScenario 2.x.  This is because ...
+        //
         enum Type
         {
             // Type of vehicle is unknown (must not be used in ground truth).
