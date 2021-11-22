@@ -745,11 +745,15 @@ message MovingObject
             //
             // Definition: Hatchback car with maximum length 4 m.
             //
+            // This is one of the OSI types which map from "car" in both OpenScenario 1.x and 2.x.
+            //
             TYPE_SMALL_CAR = 2;
 
             // Vehicle is a compact car.
             //
             // Definition: Hatchback car with length between 4 and 4.5 m.
+            //
+            // This is one of the OSI types which map from "car" in both OpenScenario 1.x and 2.x.
             //
             TYPE_COMPACT_CAR = 3;
 
@@ -757,11 +761,15 @@ message MovingObject
             //
             // Definition: Hatchback or sedan with lenght between 4.5 and 5 m.
             //
+            // This is one of the OSI types which map from "car" in both OpenScenario 1.x and 2.x.
+            //
             TYPE_MEDIUM_CAR = 4;
 
             // Vehicle is a luxury  car.
             //
             // Definition: Sedan or coupe that is longer then 5 m.
+            //
+            // This is one of the OSI types which map from "car" in both OpenScenario 1.x and 2.x.
             //
             TYPE_LUXURY_CAR = 5;
 
@@ -769,56 +777,100 @@ message MovingObject
             //
             // Definition: A delivery van.
             //
+            // This corresponds to "van" in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "truck" in OpenScenario 2.x.
+            //
             TYPE_DELIVERY_VAN = 6;
 
-            // This vehicle type is deprecated.  See TYPE_TRUCK for more
-            // details.
+            // Vehicle is a (heavy) truck.
+            //
+            // Definition: A rigid-body truck that cannot pull a semi-trailer.
+            //
+            // This corresponds to "truck" in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "truck" in OpenScenario 2.x.
             //
             TYPE_HEAVY_TRUCK = 7;
 
-            // This vehicle type is deprecated.  See TYPE_TRUCK for more
-            // details.
+            // Vehicle is a tractor unit capable of pulling a semi-trailer.
+            //
+            // Definition: The cab for an articulated vehicle.
+            //
+            // This has no equivalent in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "truck" in OpenScenario 2.x.
+            //
+            TYPE_SEMITRACTOR = 16;
+
+            // This vehicle is a trailer unit for an articulated vehicle.
+            //
+            // Definition: A trailer that can be pulled by a semi-tractor.
+            // There is no precise definition of this vs a typical trailer, although
+            // typically it is used for trailers with a non-trivial bounding box
+            // overlap with the tractor unit.
+            //
+            // This corresponds to "semitrailer" in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "trailer" in OpenScenario 2.x.
             //
             TYPE_SEMITRAILER = 8;
 
             // Vehicle is a trailer (possibly attached to another vehicle).
             //
+            // Definition: A trailer that isn't pulled by a semi-tractor.
+            //
+            // This corresponds to "trailer" in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "trailer" in OpenScenario 2.x.
+            //
             TYPE_TRAILER = 9;
 
             // Vehicle is a motorbike or moped.
+            //
+            // This corresponds to "motorbike" in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "VRU_vehicle" in OpenScenario 2.x.
             //
             TYPE_MOTORBIKE = 10;
 
             // Vehicle is a bicycle (without motor and specific lights).
             //
+            // This corresponds to "bicycle" in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "VRU_vehicle" in OpenScenario 2.x.
+            //
             TYPE_BICYCLE = 11;
 
             // Vehicle is a bus.
+            //
+            // This corresponds to "bus" in both OpenScenario 1.x and 2.x.
             //
             TYPE_BUS = 12;
 
             // Vehicle is a tram.
             //
+            // This corresponds to "tram" in OpenScenario 1.x.
+            //
+            // This has no equivalent in OpenScenario 2.x.
+            //
             TYPE_TRAM = 13;
 
             // Vehicle is a train.
+            //
+            // This corresponds to "train" in OpenScenario 1.x.
+            //
+            // This has no equivalent in OpenScenario 2.x.
             //
             TYPE_TRAIN = 14;
 
             // Vehicle is a wheelchair.
             //
+            // This has no equivalent in OpenScenario 1.x.
+            //
+            // This is one of the OSI types which map from "VRU_vehicle" in OpenScenario 2.x.
+            //
             TYPE_WHEELCHAIR = 15;
-
-            // Vehicle is a truck.
-            //
-            // Definition: any large vehicle used for transport of goods
-            // or materials.  Covers all rigid body vehicles, irrespective
-            // of the number of axles.  For articulated vehicles, the tractor
-            // and trailer(s) should be reported as separate moving objects
-            // with TYPE_TRUCK used for the tractor, and TYPE_TRAILER used
-            // for all trailers.
-            //
-            TYPE_TRUCK = 16;
         }
 
         //
