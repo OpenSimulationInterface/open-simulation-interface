@@ -788,7 +788,7 @@ message MovingObject
 
             // Vehicle is a (heavy) truck.
             //
-            // Definition: A rigid-body truck that cannot pull a semi-trailer.
+            // Definition: A rigid-body truck.
             //
             // This corresponds to "truck" in OpenScenario 1.x.
             //
@@ -841,7 +841,7 @@ message MovingObject
             //
             // This corresponds to "bicycle" in OpenScenario 1.x.
             //
-            // This is one of the OSI types which map from "bus" in OpenScenario 2.x.
+            // This is one of the OSI types which map from "VRU_vehicle" in OpenScenario 2.x.
             //
             TYPE_BICYCLE = 11;
 
