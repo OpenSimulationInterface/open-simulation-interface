@@ -346,7 +346,12 @@ message Spherical3d
 // a part of the object overlaps.
 //
 // As an exception to this, \c TrafficSign and \c TrafficLight are assigned to
-// a logical lane if they control traffic on that lane.
+// a logical lane if they control traffic on that lane. For \c TrafficSign and
+// \c TrafficLight , s_position refers to the position where the sign or light
+// is valid (e.g. where vehicles should stop in case of a red traffic light),
+// not the physical position (where the sign or light is in the world).
+// Typically, t_position and angle_to_lane do not have any meaning in this
+// case, and will be 0.
 //
 message LogicalLaneAssignment
 {

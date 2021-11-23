@@ -56,6 +56,13 @@ message ReferenceLine
     // Together, these rules allow directly putting OpenDRIVE S coordinates
     // into an OSI ReferenceLine.
     //
+    // If the reference line approximates a curve (e.g. a clothoid in
+    // OpenDRIVE), the points must be chosen in a way that the lateral distance
+    // to the ideal line does not exceed 5cm. As shown in the following image:
+    //
+    // \image html line_approximation_error.svg "Approximation error"
+    // Approximation error green line.
+    //
     // Between two ReferenceLinePoints, both the world coordinate and the S
     // coordinate is interpolated linearly. So each S value uniquely describes
     // a point on the polyline.
@@ -106,7 +113,8 @@ message ReferenceLine
     //   coordinate is no longer calculated in the XY plane (as proposed for
     //   OSI). It doesn't seem feasable to implement the same tilting for OSI,
     //   so simulation tools will have to consider superElevation and convert
-    //   the T coordinate accordingly.
+    //   the T coordinate accordingly: t_OSI = t_OpenDRIVE * cos(alpha), where
+    //   alpha is the superelevation angle.
     // - The angle will not be perfectly the same, due to the use of line
     //   segments in OSI, and curves in OpenDRIVE. In the authors opinion, the
     //   difference will be negligible if the poly_line is suitably sampled.
@@ -119,9 +127,6 @@ message ReferenceLine
     // - The rules on T coordinates are there to ensure OpenDRIVE compatibility
     //   for lanes without superelevation, and to make it easier to convert
     //   between OSI and OpenDRIVE in case superelevation is present.
-    //
-    // TODO Describe needed precision.
-    // TODO Describe how large angles between line segments are allowed to be.
     //
     repeated ReferenceLinePoint poly_line = 2;
 
@@ -185,6 +190,21 @@ message LogicalLaneBoundary
     // ---------- reference line --------------
     // At the place where the boundary suddenly increases, two points will have
     // the same S coordinate.
+    //
+    // If the boundary approximates a curve (e.g. a cubic function in
+    // OpenDRIVE), the points must be chosen in a way that the lateral distance
+    // to the ideal line does not exceed 5cm. As shown in the following image:
+    //
+    // \image html line_approximation_error.svg "Approximation error"
+    // Approximation error green line.
+    //
+    // The Z error (difference in Z height between boundary_line and the "real"
+    // line) must also not exceed 5cm.
+    //
+    // Note: if two lanes have different Z heights (e.g. a driving lane is
+    // beside a sidewalk, where the sidewalk is 10cm higher than the road),
+    // then these lanes cannot share a boundary, since their boundaries have
+    // different Z heights.
     //
     repeated LogicalBoundaryPoint boundary_line = 2;
 
@@ -366,18 +386,21 @@ message LogicalLane
     // Lanes that are directly right of this lane, without gap or overlap.
     // "Right" is in definition direction (not driving direction), so right lanes
     // have smaller T coordinates.
+    // Entries must be ordered: first by start_s, then by end_s.
     //
     repeated LaneRelation right_adjacent_lane = 9;
 
     // Lanes that are directly left of this lane, without gap or overlap.
     // "Left" is in definition direction (not driving direction), so left lanes
     // have larger T coordinates.
+    // Entries must be ordered: first by start_s, then by end_s.
     //
     repeated LaneRelation left_adjacent_lane = 10;
 
     // Lanes that partially or completely overlap this lane. Only overlaps
     // laterally larger than 5cm are considered overlaps for the purpose of
     // this relation.
+    // Entries must be ordered: first by start_s, then by end_s.
     //
     repeated LaneRelation overlapping_lane = 11;
 
@@ -386,7 +409,11 @@ message LogicalLane
     // All LogicalLaneBoundary elements referenced here must refer to the same
     // ReferenceLine as this lane.
     // The boundaries together must cover the whole length of the lane (the
-    // range [start_s,end_s]) without gap or overlap.
+    // range [start_s,end_s]) without gap or overlap. The boundaries must be
+    // stored in ascending order, starting with the smallest S position.
+    // Consecutive boundaries must share a point: the last point of the
+    // previous boundary must be identical to the first point of the next
+    // boundary.
     //
     // TODO Is it allowed for the boundaries to be longer than the lane?
     // Theoretically, this could be done. Then the user would have to limit the
@@ -399,7 +426,11 @@ message LogicalLane
     // All LogicalLaneBoundary elements referenced here must refer to the same
     // ReferenceLine as this lane.
     // The boundaries together must cover the whole length of the lane (the
-    // range [start_s,end_s]) without gap or overlap.
+    // range [start_s,end_s]) without gap or overlap. The boundaries must be
+    // stored in ascending order, starting with the smallest S position.
+    // Consecutive boundaries must share a point: the last point of the
+    // previous boundary must be identical to the first point of the next
+    // boundary.
     //
     // TODO Is it allowed for the boundaries to be longer than the lane?
     // Theoretically, this could be done. Then the user would have to limit the
