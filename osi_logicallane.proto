@@ -56,7 +56,7 @@ message ReferenceLine
     // Together, these rules allow directly putting OpenDRIVE S coordinates
     // into an OSI ReferenceLine.
     //
-    // Between to ReferenceLinePoints, both the world coordinate and the S
+    // Between two ReferenceLinePoints, both the world coordinate and the S
     // coordinate is interpolated linearly. So each S value uniquely describes
     // a point on the polyline.
     //
