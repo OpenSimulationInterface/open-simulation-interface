@@ -208,97 +208,6 @@ message EnvironmentalConditions
         FOG_DENSE = 9;
     }
 
-    // Definition of discretized ambient illumination states:
-    // Ambient light is any light in the vehicle's environment that is not
-    // emitted by the vehicle itself. It can include sun/moon light, light from
-    // other cars, street lights etc.
-    //
-    // lx ("lux") is the SI unit of luminance or illumination of an area of exact
-    // one square meter, which is equal to one lumen per square meter 1 lx =
-    // 1 lm/m^2 [1].
-    // lm ("lumen") is the SI derived unit of luminous flux and a measure of
-    // the total quantity of visible light emitted by a source. The lumen is
-    // defined in relation to cd ("candela") as 1 lm = 1 cd sr, where sr
-    // denotes steradian, the unit of solid angle used in 3D geometry analogous
-    // to the radian [1].
-    //
-    // Categorization is done based on natural day/night time illuminance levels
-    // [2] and standards for required lighting levels on roads [2, 3, 4, 5].
-    //
-    // \par References:
-    // [1] DIN Deutsches Institut fuer Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Groessen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
-    // [2] National Optical Astronomy Observatory. (2015, December 02). <em>Recommended Light Levels</em>. Retrieved January 25, 2020, from https://www.noao.edu/education/QLTkit/ACTIVITY_Documents/Safety/LightLevels_outdoor+indoor.pdf \n
-    // [3] Wang, Y. & Zou, Y., (2016, March). <em>Study on Illumination for State Highways</em>. Washington State Department of Transportation. Retrieved January 25, 2020, from http://www.wsdot.wa.gov/research/reports/fullreports/847.1.pdf \n
-    // [4] Laperriere, A. (2011, May). <em>LED street lighting in the municipality of Saint-Gedeon-de-Beauce within the framework of advanced lighting technologies</em>. Retrieved January 25, 2020, from http://sslnet.ca/wp-content/uploads/2011/10/LTE-RT-2011-0076-Anglais.pdf \n
-    // [5] Crabb, G. I., Beaumont, R. & Webster, D. (2008, October 17). <em>Review of the class and quality of street lighting</em>. Transport Research Laboratory. Retrieved January 25, 2020, from http://courtneystrong.com/wp-content/uploads/2017/07/css-sl1-class-and-quality-of-street-lighting.pdf
-    //
-    enum AmbientIllumination
-    {
-        // Ambient illumination is unknown (must not be used in ground truth).
-        //
-        AMBIENT_ILLUMINATION_UNKNOWN = 0;
-
-        // Other (unspecified but known) ambient illumination.
-        //
-        AMBIENT_ILLUMINATION_OTHER = 1;
-
-        // Level 1 illumination in ]0.001, 0.01[ lx
-        // E.g. Night with no artificial light.
-        //
-        // \note Use \c #AMBIENT_ILLUMINATION_LEVEL1 if illumination is less
-        // than 0.001 lx
-        //
-        AMBIENT_ILLUMINATION_LEVEL1 = 2;
-
-        // Level 2 illumination in [0.01, 1[ lx
-        // E.g. Night full moon / Deep twilight.
-        //
-        AMBIENT_ILLUMINATION_LEVEL2 = 3;
-
-        // Level 3 illumination in [1, 3[ lx
-        // E.g. Deep to average twilight / Minimum lighting on local low
-        // pedestrian conflict roads.
-        //
-        AMBIENT_ILLUMINATION_LEVEL3 = 4;
-
-        // Level 4 illumination in [3, 10[ lx
-        // E.g. Average to full twilight / Minimum lighting on collector roads /
-        // Minimum lighting on major and expressway roads with low to average
-        // pedestrian conflict.
-        //
-        AMBIENT_ILLUMINATION_LEVEL4 = 5;
-
-        // Level 5 illumination in [10, 20[ lx
-        // E.g. Minimum lighting on major and expressway roads with high
-        // pedestrian conflict.
-        //
-        AMBIENT_ILLUMINATION_LEVEL5 = 6;
-
-        // Level 6 illumination in [20, 400[ lx
-        // E.g. Roads with more lighting / Very dark overcast day to sunrise or
-        // sunset on a clear day.
-        //
-        AMBIENT_ILLUMINATION_LEVEL6 = 7;
-
-        // Level 7 illumination in [400, 1000[ lx
-        // E.g. Sunrise or sunset on a clear day / Overcast day.
-        //
-        AMBIENT_ILLUMINATION_LEVEL7 = 8;
-
-        // Level 8 illumination in [1000, 10000[ lx
-        // E.g. Average to full daylight.
-        //
-        AMBIENT_ILLUMINATION_LEVEL8 = 9;
-
-        // Level 9 illumination in [10000, 120000[ lx
-        // E.g. Full daylight to intense sunlight.
-        //
-        // \note Use \c #AMBIENT_ILLUMINATION_LEVEL9 if illumination is more
-        // than 120000 lx
-        //
-        AMBIENT_ILLUMINATION_LEVEL9 = 10;
-    }
-
     //
     // \brief The time of day at a specified location.
     //
@@ -323,5 +232,103 @@ message EnvironmentalConditions
         // \endrules
         //
         optional uint32 seconds_since_midnight = 1;
+    }
+
+    //
+    // \brief Definition of the ambient illumination
+    //
+    // \note Ambient light is any light in the vehicle's environment that is not
+    // emitted by the vehicle itself. It can include sun/moon light, light from
+    // other cars, street lights etc.
+    //
+    message AmbientIllumination
+    {
+        // Definition of discretized ambient illumination states:
+        //
+        // lx ("lux") is the SI unit of luminance or illumination of an area of exact
+        // one square meter, which is equal to one lumen per square meter 1 lx =
+        // 1 lm/m^2 [1].
+        // lm ("lumen") is the SI derived unit of luminous flux and a measure of
+        // the total quantity of visible light emitted by a source. The lumen is
+        // defined in relation to cd ("candela") as 1 lm = 1 cd sr, where sr
+        // denotes steradian, the unit of solid angle used in 3D geometry analogous
+        // to the radian [1].
+        //
+        // Categorization is done based on natural day/night time illuminance levels
+        // [2] and standards for required lighting levels on roads [2, 3, 4, 5].
+        //
+        // \par References:
+        // [1] DIN Deutsches Institut fuer Normung e. V. (1982). <em>DIN 5031-3 Strahlungsphysik im optischen Bereich und Lichttechnik - Groessen, Formelzeichen und Einheiten der Lichttechnik</em>. (DIN 5031-3:1982-03). Berlin, Germany. \n
+        // [2] National Optical Astronomy Observatory. (2015, December 02). <em>Recommended Light Levels</em>. Retrieved January 25, 2020, from https://www.noao.edu/education/QLTkit/ACTIVITY_Documents/Safety/LightLevels_outdoor+indoor.pdf \n
+        // [3] Wang, Y. & Zou, Y., (2016, March). <em>Study on Illumination for State Highways</em>. Washington State Department of Transportation. Retrieved January 25, 2020, from http://www.wsdot.wa.gov/research/reports/fullreports/847.1.pdf \n
+        // [4] Laperriere, A. (2011, May). <em>LED street lighting in the municipality of Saint-Gedeon-de-Beauce within the framework of advanced lighting technologies</em>. Retrieved January 25, 2020, from http://sslnet.ca/wp-content/uploads/2011/10/LTE-RT-2011-0076-Anglais.pdf \n
+        // [5] Crabb, G. I., Beaumont, R. & Webster, D. (2008, October 17). <em>Review of the class and quality of street lighting</em>. Transport Research Laboratory. Retrieved January 25, 2020, from http://courtneystrong.com/wp-content/uploads/2017/07/css-sl1-class-and-quality-of-street-lighting.pdf
+        //
+        enum AmbientIlluminationLevel
+        {
+            // Ambient illumination is unknown (must not be used in ground truth).
+            //
+            AMBIENT_ILLUMINATION_UNKNOWN = 0;
+
+            // Other (unspecified but known) ambient illumination.
+            //
+            AMBIENT_ILLUMINATION_OTHER = 1;
+
+            // Level 1 illumination in ]0.001, 0.01[ lx
+            // E.g. Night with no artificial light.
+            //
+            // \note Use \c #AMBIENT_ILLUMINATION_LEVEL1 if illumination is less
+            // than 0.001 lx
+            //
+            AMBIENT_ILLUMINATION_LEVEL1 = 2;
+
+            // Level 2 illumination in [0.01, 1[ lx
+            // E.g. Night full moon / Deep twilight.
+            //
+            AMBIENT_ILLUMINATION_LEVEL2 = 3;
+
+            // Level 3 illumination in [1, 3[ lx
+            // E.g. Deep to average twilight / Minimum lighting on local low
+            // pedestrian conflict roads.
+            //
+            AMBIENT_ILLUMINATION_LEVEL3 = 4;
+
+            // Level 4 illumination in [3, 10[ lx
+            // E.g. Average to full twilight / Minimum lighting on collector roads /
+            // Minimum lighting on major and expressway roads with low to average
+            // pedestrian conflict.
+            //
+            AMBIENT_ILLUMINATION_LEVEL4 = 5;
+
+            // Level 5 illumination in [10, 20[ lx
+            // E.g. Minimum lighting on major and expressway roads with high
+            // pedestrian conflict.
+            //
+            AMBIENT_ILLUMINATION_LEVEL5 = 6;
+
+            // Level 6 illumination in [20, 400[ lx
+            // E.g. Roads with more lighting / Very dark overcast day to sunrise or
+            // sunset on a clear day.
+            //
+            AMBIENT_ILLUMINATION_LEVEL6 = 7;
+
+            // Level 7 illumination in [400, 1000[ lx
+            // E.g. Sunrise or sunset on a clear day / Overcast day.
+            //
+            AMBIENT_ILLUMINATION_LEVEL7 = 8;
+
+            // Level 8 illumination in [1000, 10000[ lx
+            // E.g. Average to full daylight.
+            //
+            AMBIENT_ILLUMINATION_LEVEL8 = 9;
+
+            // Level 9 illumination in [10000, 120000[ lx
+            // E.g. Full daylight to intense sunlight.
+            //
+            // \note Use \c #AMBIENT_ILLUMINATION_LEVEL9 if illumination is more
+            // than 120000 lx
+            //
+            AMBIENT_ILLUMINATION_LEVEL9 = 10;
+        }
     }
 }
