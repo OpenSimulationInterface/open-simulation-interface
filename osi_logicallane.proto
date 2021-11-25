@@ -50,7 +50,7 @@ message ReferenceLine
     // - The S distance between two points may be larger than the 2D euclidean
     //   distance, but should be not much larger. It is allowed to be larger if
     //   the underlying reference line (e.g. in an OpenDRIVE map) is a curve,
-    //   and thus the sampled road has a smaller length than the original
+    //   and thus the sampled reference line has a smaller length than the original
     //   curve.
     //
     // Together, these rules allow directly putting OpenDRIVE S coordinates
