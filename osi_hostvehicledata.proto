@@ -308,6 +308,11 @@ message HostVehicleData
         // in context to the vehicle coordinate system.
         //
         optional Vector3d acceleration = 6;
+
+        // Most accurate vehicle's velocity information of the vehicle available in the on-board network
+        // in context to the vehicle coordinate system.
+        //
+        optional Vector3d velocity = 7;
     }
 
     // Definition current availability status for a sub-system.
