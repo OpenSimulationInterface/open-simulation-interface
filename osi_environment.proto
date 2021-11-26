@@ -23,6 +23,25 @@ message EnvironmentalConditions
     //
     optional TimeOfDay time_of_day = 2;
 
+    // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
+    // the number of seconds that have elapsed since January 1, 1970
+    // (midnight UTC/GMT [1]), not counting leap seconds [2].
+    // Historically, the origin of UNIX system time was referred to as
+    // "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch
+    // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
+    // a synonym for 'Unix time'. Many Unix systems store epoch dates as
+    // a signed 32-bit integer, which might cause problems on January 19,
+    // 2038 (known as the Year 2038 problem or Y2038).
+    //
+    // \note You can convert the timestamp using the following [routines
+    // sorted by languages](https://www.epochconverter.com/#code).
+    //
+    // \par References:
+    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommondation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
+    // [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html
+    //
+    optional int64 unix_timestamp = 8;
+
     // Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325
     // Pa).
     //
@@ -68,25 +87,6 @@ message EnvironmentalConditions
     // Description of the fog.
     //
     optional Fog fog = 7;
-
-    // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
-    // the number of seconds that have elapsed since January 1, 1970
-    // (midnight UTC/GMT [1]), not counting leap seconds [2].
-    // Historically, the origin of UNIX system time was referred to as
-    // "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch
-    // is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as
-    // a synonym for 'Unix time'. Many Unix systems store epoch dates as
-    // a signed 32-bit integer, which might cause problems on January 19,
-    // 2038 (known as the Year 2038 problem or Y2038).
-    //
-    // \note You can convert the timestamp using the following [routines
-    // sorted by languages](https://www.epochconverter.com/#code).
-    //
-    // \par References:
-    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommondation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
-    // [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html
-    //
-    optional int64 unix_timestamp = 8;
     
     // Optional external reference to the environmental condition sources.
     //
@@ -103,7 +103,7 @@ message EnvironmentalConditions
 
     // Definition of clouds.
     //
-    optional Clouds clouds = 10;
+    optional CloudLayer clouds = 10;
 
     // Definition of the wind properties.
     //
@@ -338,11 +338,11 @@ message EnvironmentalConditions
     }
 
     //
-    // \brief Specification of the cloud states.
+    // \brief Specification of the cloud layer.
     //
     // \note within this message there is the cloud state level.
     //
-    message Clouds
+    message CloudLayer
     {
         // Definition of the cloud state level, i.e. cloud state and sky visualization settings.
         //
@@ -422,11 +422,11 @@ message EnvironmentalConditions
     //
     // \brief Defines wind properties.
     //
-    // \note Aligns with the wind speed and direction as defined in ASAM OpenSCENARIO.
+    // \note Inspired by the wind speed and direction as defined in ASAM OpenSCENARIO.
     //
     message Wind
     {
-        // The target direction of the wind (not the origin direction) in the ground/xy-plane of the \c
+        // The origin direction of the wind (not the target direction) in the ground/xy-plane of the \c
         // world coordinate system. Corresponds to the heading/yaw angle. \c
         // x-axis-direction is 0 rad.
         //
@@ -434,9 +434,10 @@ message EnvironmentalConditions
         //
         // The preferred angular range is [-pi, pi]
         //
-        // \note The range in openSCENARIO is Range [0...2 pi[. Mind the conversion.
+        // \note The direction is the origin, not the target direction. \c
+        // The range in openSCENARIO is Range [0...2 pi[. Mind the conversion.
         //
-        optional Vector3d direction = 1;
+        optional Vector3d origin_direction = 1;
 
         // The wind speed.
         //
@@ -458,7 +459,7 @@ message EnvironmentalConditions
         //
         // Unit: rad
         //
-        // The preferred angular range is [0, 2pi]
+        // The preferred angular range is [-pi, pi]
         //
         optional double azimuth = 1;
 
