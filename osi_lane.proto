@@ -856,8 +856,8 @@ message LaneBoundary
             DASH_END = 4;
 
             // The current \c BoundaryPoint is located in the gap between
-            // two dashes on a dashed line.
-            //
+            // two dashes on a dashed line or indicates the start or end of 
+            // a lane boundary off the dash.
             DASH_GAP = 5;
         }
     }
