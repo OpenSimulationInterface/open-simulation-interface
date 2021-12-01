@@ -305,12 +305,12 @@ message HostVehicleData
         optional Orientation3d orientation_rate = 5;
 
         // Most accurate vehicle's acceleration information of the vehicle available in the on-board network
-        // in context to the vehicle coordinate system.
+        // measured along the vehicle orientation but still in context of the global inertial system.
         //
         optional Vector3d acceleration = 6;
 
         // Most accurate vehicle's velocity information of the vehicle available in the on-board network
-        // in context to the vehicle coordinate system.
+        // measured along the vehicle orientation but still in context of the global inertial system.
         //
         optional Vector3d velocity = 7;
     }
