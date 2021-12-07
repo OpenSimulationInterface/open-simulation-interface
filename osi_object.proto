@@ -761,17 +761,11 @@ message MovingObject
             //
             // Definition: Hatchback car with maximum length 4 m.
             //
-            // This is one of the OSI types which map from "car" in both
-            // OpenScenario 1.x and 2.x.
-            //
             TYPE_SMALL_CAR = 2;
 
             // Vehicle is a compact car.
             //
             // Definition: Hatchback car with length between 4 and 4.5 m.
-            //
-            // This is one of the OSI types which map from "car" in both
-            // OpenScenario 1.x and 2.x.
             //
             TYPE_COMPACT_CAR = 3;
 
@@ -779,17 +773,11 @@ message MovingObject
             //
             // Definition: Hatchback or sedan with lenght between 4.5 and 5 m.
             //
-            // This is one of the OSI types which map from "car" in both
-            // OpenScenario 1.x and 2.x.
-            //
             TYPE_MEDIUM_CAR = 4;
 
             // Vehicle is a luxury  car.
             //
             // Definition: Sedan or coupe that is longer then 5 m.
-            //
-            // This is one of the OSI types which map from "car" in both
-            // OpenScenario 1.x and 2.x.
             //
             TYPE_LUXURY_CAR = 5;
 
@@ -797,32 +785,21 @@ message MovingObject
             //
             // This corresponds to "van" in OpenScenario 1.x.
             //
-            // This is one of the OSI types which map from "truck" in
-            // OpenScenario 2.x.
-            //
             TYPE_DELIVERY_VAN = 6;
 
             // Vehicle is a (heavy) truck.
             //
-            // This is one of the OSI types which map from "truck" in
-            // both OpenScenario 1.x and 2.x.
-            //
             TYPE_HEAVY_TRUCK = 7;
 
             // Vehicle is a tractor capable of pulling a semi-trailer.
-            //
-            // This is one of the OSI types which map from "truck" in
-            // both OpenScenario 1.x and 2.x.
             //
             TYPE_SEMITRACTOR = 16;
 
             // This vehicle is a semi-trailer that can be pulled by a
             // semi-tractor.
             //
-            // This corresponds to "semitrailer" in OpenScenario 1.x.
-            //
-            // This is one of the OSI types which map from "trailer" in
-            // OpenScenario 2.x.
+            // \note The vehicle can be, but doesn't need to be,
+            // attached to another vehicle.
             //
             TYPE_SEMITRAILER = 8;
 
@@ -831,55 +808,29 @@ message MovingObject
             // \note The vehicle can be, but doesn't need to be,
             // attached to another vehicle.
             //
-            // This corresponds to "trailer" in OpenScenario 1.x.
-            //
-            // This is one of the OSI types which map from "trailer" in
-            // OpenScenario 2.x.
-            //
             TYPE_TRAILER = 9;
 
             // Vehicle is a motorbike or moped.
-            //
-            // This corresponds to "motorbike" in OpenScenario 1.x.
-            //
-            // This is one of the OSI types which map from "VRU_vehicle" in
-            // OpenScenario 2.x.
             //
             TYPE_MOTORBIKE = 10;
 
             // Vehicle is a bicycle (without motor and specific lights).
             //
-            // This corresponds to "bicycle" in OpenScenario 1.x.
-            //
-            // This is one of the OSI types which map from "VRU_vehicle" in
-            // OpenScenario 2.x.
-            //
             TYPE_BICYCLE = 11;
 
             // Vehicle is a bus.
-            //
-            // This corresponds to "bus" in both OpenScenario 1.x and 2.x.
             //
             TYPE_BUS = 12;
 
             // Vehicle is a tram.
             //
-            // This corresponds to "tram" in OpenScenario 1.x.
-            //
             TYPE_TRAM = 13;
 
             // Vehicle is a train.
             //
-            // This corresponds to "train" in OpenScenario 1.x.
-            //
             TYPE_TRAIN = 14;
 
             // Vehicle is a wheelchair.
-            //
-            // This has no equivalent in OpenScenario 1.x.
-            //
-            // This is one of the OSI types which map from "VRU_vehicle" in
-            // OpenScenario 2.x.
             //
             TYPE_WHEELCHAIR = 15;
         }
