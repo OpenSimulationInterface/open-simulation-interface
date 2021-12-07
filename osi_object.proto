@@ -783,8 +783,6 @@ message MovingObject
 
             // Vehicle is a delivery van.
             //
-            // This corresponds to "van" in OpenScenario 1.x.
-            //
             TYPE_DELIVERY_VAN = 6;
 
             // Vehicle is a (heavy) truck.
