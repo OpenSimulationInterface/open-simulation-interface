@@ -22,12 +22,11 @@ package osi3;
 
 //
 // 
-//  \brief  Road facilities(roadmarking,lane boundary, lane, traffic light,traffic sign), stationary and moving objects detected by RSU alike devices. 
+//  \brief  Road facilities(roadmarking, lane boundary, lane, traffic light, traffic sign), stationary and moving objects detected by RSU alike devices.
 //
 //
 
 message V2I {
-
 
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
@@ -75,8 +74,6 @@ message V2I {
     repeated Lane lane = 7;
 
     // The list of roads in current visible area (circle area, with default radius)
-    
-
 
 }
 
@@ -84,8 +81,6 @@ message V2I {
 message GetEnvInfoReq{
     optional Vector3d position = 1;
     int radius =2 ;
-
-
 }
 
 message GetEnvInfoResp {
@@ -197,7 +192,6 @@ message V2X {
     // refers_to: V2I
     // \endrules
     //
-
     optional V2I v2i = 4;
 
     // Ground truth version of infrastructure in simulated environment, including stationary and moving objects detected by RSU.
@@ -206,7 +200,6 @@ message V2X {
     // refers_to: V2I
     // \endrules
     //
-
    optional V2I v2i_gt = 5;
 
     //  Network in simulated environment, internet, communication network.
@@ -216,15 +209,14 @@ message V2X {
     // \endrules
     //
    optional V2N v2n = 6;
+
    //  Groud truth version of network (Internet, communication network) in simulated environment 
     //
     // \rules
     // refers_to: V2N
     // \endrules
     //
-
    optional  V2N v2n_gt = 7;
-
 
     //  Simulated pedestrain.
     //
@@ -232,16 +224,14 @@ message V2X {
     // refers_to: V2P
     // \endrules
     //
-
    repeated V2P v2p = 8;
 
-   //  Ground truth of simulated pedestrain.
+    //  Ground truth of simulated pedestrain.
     //
     // \rules
     // refers_to: V2P
     // \endrules
     //
-
    repeated V2P v2p_gt = 9;
 
     //  Vehicles in simulated environment.
@@ -250,8 +240,6 @@ message V2X {
     // refers_to: V2V
     // \endrules
     //
-    
-
    repeated V2V v2v = 10;
 
     //  Gound truth version of  vehicles in  simulated environment.
@@ -260,7 +248,6 @@ message V2X {
     // refers_to: V2V
     // \endrules
     //
-
    repeated V2V v2v_gt = 11;
 
 }
