@@ -269,12 +269,12 @@ message SurfaceLine
         //
         optional Vector3d position = 1;
 
-        // S position of the SurfaceLinePoint, measured along the parent's
+        // S position of the SurfaceLinePoint, measured along the logical lane's
         // reference_line_id.
         //
         optional double s_position = 2;
 
-        // T position of the SurfaceLinePoint, measured along the parent's
+        // T position of the SurfaceLinePoint, measured along the logical lane's
         // reference_line_id.
         //
         optional double t_position = 3;
