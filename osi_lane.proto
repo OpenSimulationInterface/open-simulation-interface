@@ -192,91 +192,73 @@ message Lane
         //
         optional bool is_host_vehicle_lane = 2;
 
-        // A lane's surface line (as a list of segments).
+        // The lane's center line (as a list of segments).
         //
-        // The surfaceline describes a height profile along the lane at a certain offset to the lane boundary.
-        // It is intended to replace the centerline as a physical representation of the lane. The use of the 
-        // centerline for driving/steering inputs should rather be solved with a logical information, that is not 
-        // mandatory based on the true center of the lane.
+        // The centerline describes the middle of the lane.
         //
-        // \image html OSI_LaneBoundaries_And_SurfaceLines.svg "Surfacelines" width=500px
+        // \image html OSI_LaneCenterline.svg "Centerline" width=500px
+        //
+        // Example: In image \ref HighwayExit,
+        // the centerline of lane l4 (black line) is given by
+        // (cl4_1, cl4_2, cl4_3, cl4_4, cl4_5).
+        //
+        // \image html OSI_LaneBoundaries_And_CenterLine.svg "Centerline" width=500px
         //
         // \note 
-        // sl: surface line
+        // cl: center line
         // lb: lane boundary
         //
-        // \image html strassenquerschnitt_surfacelines.png "Lane shape surfacelines" width=500px
-        // 
-        // \attention The points desribing the surface line must be set in the 
+        // \attention The points desribing the center line must be set in the 
         // same ordering (ascending or descending) as the points desribing the 
         // lane boundaries. Example: If the points are deducted from a map format, 
         // the order of points is recommended to be in line with the road coordinate 
         // (e.g. s-coordinate in OpenDRIVE). 
         //
-        // \attention The points describing the surface line might be set at
-        // arbitrary distances. This allowes to model certain height changes along the 
-        // lane like speed bumps etc. more detailed while still allow very few points 
-        // at parts of the lane where height does not change much.
+        // \attention The points describing the center line might be set at
+        // arbitrary distances. When the points are pairwise linearly connected,
+        // the lateral distance to the real ideal line (as used by the
+        // simulation environment internally) must not exceed 5cm. As shown in
+        // the following image:
         //
-        // \note The surface line is the line that describes the height profile 
-        // along the lane. Multiple surface lines can be used to create a certain road shape
-        // if needed. The simplest case would be no surface line for a flat road, since the 
-        // lane boundaries can be used in this case.
-        // 
-        // \attention If more than one surface line exists, they are not allowed to cross each other 
-        // or the lane boundaries, otherwise you could have conflicting height information at these points.
+        // \image html line_approximation_error.svg "Approximation error"
+        // Approximation error green line.
         //
-        repeated Vector3d surfaceline = 3;
-        
-        // The ID of the surface line.
-        // Example: sl4 (see reference picture HighwayExit).
+        // \note The center line is the line that a typical vehicle follows more
+        // or less (depending on the situation, a little more to the left or
+        // right of the center line). The intended direction of travel on the
+        // lane is given by the direction defined by the sequence of points
+        // forming the \c #centerline w.r.t. \c
+        // #centerline_is_driving_direction.
         //
-        // \note Note ID is global unique.
+        // \note The \c #centerline is defined only for \c #type =
+        // \c #TYPE_DRIVING and if exactly one or no \c #lane_pairing pair
+        // exists.
         //
-        // \rules
-        // is_globally_unique
-        // \endrules
+        // \note Intersections and non-driving lanes do not have a center line.
+        // A vehicle must calculate this individually and depending on the
+        // situation.
         //
-        optional Identifier surfaceline_id = 4;
+        // \note Should be deprectated in favor of SurfaceLine
+        //
+        repeated Vector3d centerline = 3;
 
-        // Definition of the placement of the newly introduced surfaceline in the center of the lane.
+        // Definition of the intended driving direction.
         //
         // Defined and used for driving lanes.
-        // \c true means that the surface line is also the centerline of the lane4.
+        // \c true means driving direction is according to ascending storage
+        // order of center line points. \c false means driving direction is
+        // according to descending storage order of center line points.
         //
-        // Example: \c #surfaceline_is_centerline = \c true for surfaceline sl2
-        // and \c #surfaceline_is_centerline = \c false for surfacelane sl1 in
+        // Example: \c #centerline_is_driving_direction = \c true for lane l4
+        // and \c #centerline_is_driving_direction = \c false for lane l2 in
         // image \ref HighwayExit .
         //
-        // \note The \c #centerline is currently only defined for \c #type
+        // \note The \c #centerline_is_driving_direction is defined for \c #type
         // = \c #TYPE_DRIVING .
         //
-        optional bool surfaceline_is_centerline = 5;
-        
-        // List of IDs of all surfaceline segments that are directly adjacent to the
-        // surfaceline on the left side (w.r.t. ascending order of surfaceline points
-        // and lane boundary points). Note that lengths of surfaceline segments are 
-        // not synchronized and therefore can contain multiple adjacent segments.
+        // \note Should be deprectated in favor of SurfaceLine
         //
-        // \note If none or just one surfaceline is present, this may be empty.
-        //
-        // \note Up for discussion: If surface line is adjacent to a left lane boundary,
-        // this could contain the left_lane_boundary_id
-        //
-        repeated Identifier left_adjacent_surfaceline_id = 6;
-
-        // List of IDs of all surfaceline segments that are directly adjacent to the
-        // surfaceline on the right side (w.r.t. ascending order of surfaceline points
-        // and lane boundary points). Note that lengths of surfaceline segments are 
-        // not synchronized and therefore can contain multiple adjacent segments.
-        //
-        // \note If none or just one surfaceline is present, this may be empty.
-        //
-        // \note Up for discussion: If surface line is adjacent to a right lane boundary,
-        // this could contain the right_lane_boundary_id
-        //
-        repeated Identifier right_adjacent_surfaceline_id = 7;
-
+        optional bool centerline_is_driving_direction = 4;
 
         // List of IDs of all lane segments that are directly adjacent to the
         // lane on the left side (w.r.t. ascending order of centerline points
@@ -296,7 +278,7 @@ message Lane
         // check_if this.type is_different_to 4 else do_check is_set
         // \endrules
         //
-        repeated Identifier left_adjacent_lane_id = 8;
+        repeated Identifier left_adjacent_lane_id = 5;
 
         // List of IDs of all lane segments that are directly adjacent to the
         // lane on the right side (w.r.t. ascending order of centerline points
@@ -316,7 +298,7 @@ message Lane
         // check_if this.type is_different_to 4 else do_check is_set
         // \endrules
         //
-        repeated Identifier right_adjacent_lane_id = 9;
+        repeated Identifier right_adjacent_lane_id = 6;
 
         // The antecessor/successor lane pairings of this lane. There can be
         // multiple pairings with the same antecessor and different successor
@@ -328,7 +310,7 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated LanePairing lane_pairing = 10;
+        repeated LanePairing lane_pairing = 7;
 
         // The right adjacent lane boundaries \c #right_lane_boundary_id may
         // only be shared with/as the left adjacent lane boundaries \c
@@ -349,7 +331,7 @@ message Lane
         // check_if this.type is_different_to 4 else do_check is_set
         // \endrules
         //
-        repeated Identifier right_lane_boundary_id = 11;
+        repeated Identifier right_lane_boundary_id = 8;
 
         // The left adjacent lane boundaries \c #left_lane_boundary_id may only
         // be shared with/as the right adjacent lane boundaries \c
@@ -370,7 +352,7 @@ message Lane
         // check_if this.type is_different_to 4 else do_check is_set
         // \endrules
         //
-        repeated Identifier left_lane_boundary_id = 12;
+        repeated Identifier left_lane_boundary_id = 9;
 
         // The free boundaries which have no/unknown assignment to left/right.
         //
@@ -386,17 +368,17 @@ message Lane
         // check_if this.type is_different_to 4 else do_check is_set
         // \endrules
         //
-        repeated Identifier free_lane_boundary_id = 13;
+        repeated Identifier free_lane_boundary_id = 10;
 
         // The condition of the lane, e.g. influenced by weather.
         //
-        optional RoadCondition road_condition = 14;
+        optional RoadCondition road_condition = 11;
 
         // The subtype of the lane. 
         // 
         // This subtype specifies a lane more concretely.
         //
-        optional Subtype subtype = 15;
+        optional Subtype subtype = 12;
 
         // Definition of available lane types.
         //
