@@ -12,7 +12,7 @@ package osi3;
 // A logical lane boundary describes the boundary between two logical lanes. As
 // such, there will always be exactly one logical lane boundary between two
 // lanes at a given S position. Contrary to that, there can be 0 to N physical
-// lane boundaries (i.e.  type LaneBoundary) between two logical lanes at a
+// lane boundaries (i.e. type LaneBoundary) between two logical lanes at a
 // given S position.
 //
 // If there are multiple physical lane boundaries at one S position between two
@@ -121,15 +121,16 @@ message LogicalLaneBoundary
     //
     // Example:
     //      Lane 1
-    // --------a------------------ - - - -c- - - -
+    // --------a------------------ - - - -c- - - -           ---->
     // - - - -b- - - -
-    //      Lane 2
+    //      Lane -1
     //
-    // This shows the boundary between lane 1 and lane 2. First there is a
-    // solid-broken line (a and b), then there is only a solid line (a), then
-    // there is a broken line (c). There would be three LogicalLaneBoundary
-    // objects between Lane1 and Lane2: the first would reference a and b, the
-    // second would reference only a, and the third would reference c.
+    // This shows the boundary between lane 1 and lane -1, with the reference
+    // line going from left to right. First there is a solid-broken line (a and
+    // b), then there is only a solid line (a), then there is a broken line
+    // (c). There would be three LogicalLaneBoundary objects between Lane1 and
+    // Lane2: the first would reference first b and then a, the second would
+    // reference only a, and the third would reference c.
     //
     // \rules
     // refers_to: LaneBoundary
