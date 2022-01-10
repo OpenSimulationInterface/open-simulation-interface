@@ -182,30 +182,44 @@ message LogicalLaneBoundary
     // (i.e. it may be overridden by signs).
     //
     enum PassingRule {
-        // Passing rule cannot be determined, e.g. because it depends on the
-        // agent type.
+        // Passing rule is unknown (must not be used in ground truth).
         //
-        CANNOT_BE_DETERMINED = 0;
+        PASSING_RULE_UNKNOWN = 0;
 
         // No passing is allowed (neither from left to right nor from right to
         // left).
         //
-        NONE_ALLOWED = 1;
+        PASSING_RULE_NONE_ALLOWED = 1;
 
-        // Only passing from left to right (in definition direction, so in
-        // decreasing T direction) is allowed.
+        // Only passing in increasing T direction allowed. Passing is allowed
+        // from one lane to the other if the points on the target lane have
+        // larger T values than points on the source lane (at the same S
+        // position). In reference line direction (but not necessarily in
+        // driving direction), this means changing from right to left is
+        // allowed.
         //
-        LEFT_TO_RIGHT = 2;
+        PASSING_RULE_INCREASING_T = 2;
 
-        // Only passing from right to left (in definition direction, so in
-        // increasing T direction) is allowed.
+        // Only passing in decreasing T direction allowed. Passing is allowed
+        // from one lane to the other if the points on the target lane have
+        // smaller T values than points on the source lane (at the same S
+        // position). In reference line direction (but not necessarily in
+        // driving direction), this means changing from left to right is
+        // allowed.
         //
-        RIGHT_TO_LEFT = 3;
+        PASSING_RULE_DECREASING_T = 3;
 
         // Passing is allowed in both directions (left to right and right to
         // left).
         //
-        BOTH_ALLOWD = 4;
+        PASSING_RULE_BOTH_ALLOWED = 4;
+
+        // Passing rule fits neither of the above categories.
+        //
+        // Example: this type needs to be used if passing depends on the agent
+        // type, e.g. if cars may change lane, but trucks may not.
+        //
+        PASSING_RULE_OTHER = 5;
     }
 }
 
