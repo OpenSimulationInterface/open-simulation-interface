@@ -384,43 +384,43 @@ message EnvironmentalConditions
             //
             CLOUD_LAYER_LEVEL_OTHER = 1;
 
-            // Cloudless (0/8)
+            // 0/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_0 = 2;
 
-            // Sunny (1/8)
+            // 1/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_1 = 3;
 
-            // Serene (2/8))
+            // 2/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_2 = 4;
 
-            // Slightly Cloudy (3/8)
+            // 3/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_3 = 5;
 
-            // Light Cloudy (4/8)
+            // 4/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_4 = 6;
 
-            // Cloudy (5/8)
+            // 5/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_5 = 7;
 
-            // Heavy Cloudy (6/8)
+            // 6/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_6 = 8;
 
-            // Almost Covered (7/8)
+            // 7/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_7 = 9;
 
-            // Covered (8/8)
+            // 8/8 of the sky is covered with clouds.
             //
             CLOUD_LAYER_LEVEL_8 = 10;
 
-            // Sky obscured, describes situations where the sky is not perceivable.
+            // Sky obscured, describes situations where the sky is not perceivable, e.g. in dense fog.
             //
             CLOUD_LAYER_LEVEL_SKY_OBSCURED = 11;
         }
