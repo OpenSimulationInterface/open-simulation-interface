@@ -338,9 +338,7 @@ message EnvironmentalConditions
     }
 
     //
-    // \brief Specification of the cloud layer.
-    //
-    // \note within this message there is the cloud state level.
+    // \brief Specification of a cloud layer.
     //
     message CloudLayer
     {
@@ -350,7 +348,7 @@ message EnvironmentalConditions
 
         // Defines the cloud state levels given by observation of total cloud amount in oktas.
         //
-        // For visual alignment please call the reference[1]
+        // For visual alignment please see reference[1].
         //
         // The total degree of coverage indicates how large the part of the sky vault is which is covered
         // with clouds altogether. It is given in eighths, because this division is easier to estimate
@@ -439,16 +437,16 @@ message EnvironmentalConditions
         //
         // Unit: rad
         //
-        // The preferred angular range is [-pi, pi]
+        // The preferred angular range is [-pi, pi].
         //
         // \note The direction is the origin, not the target direction. \c
         // The range in openSCENARIO is Range [0...2 pi[. Mind the conversion.
         //
-        optional Vector3d origin_direction = 1;
+        optional double origin_direction = 1;
 
         // The wind speed.
         //
-        // Unit m/s
+        // Unit: m/s
         //
         // Range [0...inf[
         //
@@ -466,7 +464,7 @@ message EnvironmentalConditions
         //
         // Unit: rad
         //
-        // The preferred angular range is [-pi, pi]
+        // The preferred angular range is [-pi, pi].
         //
         optional double azimuth = 1;
 
@@ -474,11 +472,11 @@ message EnvironmentalConditions
         //
         // Unit: rad
         //
-        // The preferred angular range is [-pi, pi]
+        // The preferred angular range is [-pi, pi].
         //
         optional double elevation = 2;
 
-        // Illuminance of the sun, direct sunlight is around 100,00 lx.
+        // Illuminance of the sun, direct sunlight is around 100000 lx.
         //
         // Unit: lx
         //
