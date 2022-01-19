@@ -9,7 +9,7 @@ It demonstrates how a global coordinate system, vehicle coordinate system, and s
 
 **Mathematical Definitions of Coordinate Transformations**
 
-All vectors and matrices are noted with reference frame as a superscript index and the direction of translation as a supscript index.[reuper2020]
+All vectors and matrices are noted with reference frame as a superscript index and the direction of translation as a supscript index. cite:[reuper2020]
 The translation direction is from the first index to the second index (src: source coordinate system, trg: target coordinate system).
 The vector latexmath:[\boldsymbol{v}^x] denotes the 3D position of an object in the coordinate frame latexmath:[x].
 Vector latexmath:[\boldsymbol{t}] is the translation vector between two coordinate systems with the described indices for reference frame and direction.
@@ -29,7 +29,7 @@ Transformation back from target latexmath:[trg] to source latexmath:[src] coordi
 ++++
 
 
-With the rotation matrix (from rotating the coordinate system)[wiki_rotation_matrix]:
+With the rotation matrix (from rotating the coordinate system) cite:[wiki_rotation_matrix]:
 [latexmath]
 ++++
 \boldsymbol{R}_{srv}^{trg}=\boldsymbol{R}_{yaw,pitch,roll} = \boldsymbol{R}_{z,y,x} = \boldsymbol{R}_{x}(\phi) \boldsymbol{R}_{y}(\theta) \boldsymbol{R}_{z}(\psi) \\
@@ -59,7 +59,7 @@ With the rotation matrix (from rotating the coordinate system)[wiki_rotation_mat
 \end{pmatrix}
 ++++
 
-Get Tait–Bryan angles from rotation matrix[wiki_euler_angles]:
+Get Tait–Bryan angles from rotation matrix cite:[wiki_euler_angles]:
 [latexmath]
 ++++
 \theta = -\arcsin(R_{13}) \\
