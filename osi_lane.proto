@@ -440,6 +440,9 @@ message Lane
             // Since it is not intended to be used for normal automotive
             // driving, it should be used in combination with TYPE_NONDRIVING.
             //
+            // \note A typical lane boundary for this lane-subtype has the type
+            // TYPE_CURB_UPPER_EDGE.
+            //
             SUBTYPE_SIDEWALK = 4;
             
             // A lane with parking spaces.
@@ -723,7 +726,10 @@ message LaneBoundary
     // Example: If the points are deducted from a map format, the order of points 
     // is recommended to be in line with the road coordinate (e.g. s-coordinate in 
     // OpenDRIVE). 
-
+    //    
+    // \note For curbs, the boundary line represents the lower edge of the curb and 
+    // not the physical curb itself. 
+    //
     // \note For dashed lines, one \c BoundaryPoint has to be at the start and
     // another at the end of each dashed line segment. The first
     // \c BoundaryPoint defines the beginning of the first dashed lane marking.
@@ -799,6 +805,8 @@ message LaneBoundary
         // \c BoundaryPoint .
         // Used for lines forming lane markings.
         //
+        // \attention Shall not be used for curbs.                 
+        //
         // \image html OSI_LaneBoundaryWidth.svg "" width=600px
         //
         // \note Field need not be set if it is defined previous.
@@ -808,7 +816,10 @@ message LaneBoundary
 
         // The overall height of the lane boundary at the position of the
         // \c BoundaryPoint .
-        // Used for guard rails, curbstone, or similar.
+        // This field can be used for guard rails, curbs, barriers and sound 
+        // barriers and reflects the maximal physical hight of those items and thereby the height
+        // of the boundary line at this point. It does not specify the direction 
+        // in which the height points to; for this the concept of surface lines is used.
         //
         // \image html OSI_LaneBoundaryHeight.svg "" width=600px
         //
@@ -1023,25 +1034,45 @@ message LaneBoundary
             //
             TYPE_SOIL_EDGE = 10;
 
-            // A guard rail.
+            // The guard rail projected to the ground.
             //
             TYPE_GUARD_RAIL = 11;
 
-            // A curb.
+            // A curb. TODO: Suggestion to deprecate with this PR.
             //
             TYPE_CURB = 12;
 
-            // A structure (e.g. building or tunnel wall).
+            // The lower edge of a structure (e.g. building or tunnel wall).
             //
             TYPE_STRUCTURE = 13;
 
-            // A barrier to guide vehicles and to prevent them from entering other lanes (e.g. a concrete barrier on a highway).
+            // The lower edge of a barrier to guide vehicles and to prevent them from entering other lanes (e.g. a concrete barrier on a highway).
             //
             TYPE_BARRIER = 14;
 
-            // A sound barrier.
+            // The lower edge of a sound barrier.
             //
             TYPE_SOUND_BARRIER = 15;
+
+            // The lower edge of a curb.
+            //
+            // \note If a curb stands on its own (no sidewalk attached), it has 
+            // two lower edges.
+            //            
+            TYPE_CURB_LOWER_EDGE = 16;    
+
+            // The upper edge of a curb. 
+            //
+            // Note that the shape of the curb (e.g. a phase)
+            // is currently not supported by OSI. The upper edge reflects the
+            // first point of the curb's cross-section that has the maximum height
+            // (following the profile from the lower edge).
+            // More detailed hight profiles can be supported with surface lines.
+            //
+            // \note If a curb stands on its own (no sidewalk attached), it has 
+            // two upper edges.            
+            //            
+            TYPE_CURB_UPPER_EDGE = 17;                       
         }
 
         // The semantic color of the lane boundary in case of a lane markings.
