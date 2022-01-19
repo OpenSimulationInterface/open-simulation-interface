@@ -343,7 +343,8 @@ message Spherical3d
 //
 // An object is assigned to a logical lane if it overlaps the logical lane.
 // Assignment happens even if the reference point is outside the lane, and only
-// a part of the object overlaps.
+// a part of the object overlaps (any object overlapping the lane more than 5cm
+// has to be assigned to the lane).
 //
 // As an exception to this, \c TrafficSign and \c TrafficLight are assigned to
 // a logical lane if they control traffic on that lane. For \c TrafficSign and
