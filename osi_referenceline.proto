@@ -82,17 +82,17 @@ message ReferenceLine
     // A point is "before" the reference line, if its s coordinate is < sStart.
     // A point is "after" the reference line, if its s coordinate is > sEnd.
     //
-    // To describe points that are not directly on the polyline, a T
-    // coordinate is added. T is the signed 2D distance (i.e. hypot(A.X-B.X,
-    // A.Y-B.Y), if A and B are the two points) between the point to describe
-    // and the nearest point on the polyline (this point might either be on a
-    // line segment or at an edge between two line segments). The distance is
-    // positive if the point is left of the polyline (in definition direction),
-    // negative if it is right of it. Note that the "nearest point on the
-    // polyline" is calculated in 3D, in order to choose the correct point for
-    // 3D curves (think reference lines for roads in parking decks). If there
-    // are several "nearest points", the one with the smallest S coordinate on
-    // the polyline is chosen.
+    // To describe points that are not directly on the polyline, a T coordinate
+    // is added. T is the signed 2D distance (i.e. <code>hypot(A.X-B.X,
+    // A.Y-B.Y)</code>, if A and B are the two points) between the point to
+    // describe and the nearest point on the polyline (this point might either
+    // be on a line segment or at an edge between two line segments). The
+    // distance is positive if the point is left of the polyline (in definition
+    // direction), negative if it is right of it. Note that the "nearest point
+    // on the polyline" is calculated in 3D, in order to choose the correct
+    // point for 3D curves (think reference lines for roads in parking decks).
+    // If there are several "nearest points", the one with the smallest S
+    // coordinate on the polyline is chosen.
     //
     // Sometimes an angle to a reference line is needed. This shall be defined
     // as follows:
@@ -129,12 +129,17 @@ message ReferenceLine
     //
     repeated ReferenceLinePoint poly_line = 2;
 
-    // A point on the reference line
-    message ReferenceLinePoint {
+    //
+    // \brief A point on the reference line
+    //
+    message ReferenceLinePoint
+    {
         // A world position
+	//
         optional Vector3d world_position = 1;
 
         // S position on the reference line
+	//
         optional double s_position = 2;
     }
 }

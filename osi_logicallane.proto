@@ -7,6 +7,9 @@ import "osi_lane.proto";
 
 package osi3;
 
+//
+// \brief Boundary line of a LogicalLane
+//
 // Similar to a LaneBoundary, but with a reference and ST positions.
 //
 // A logical lane boundary describes the boundary between two logical lanes. As
@@ -58,11 +61,13 @@ message LogicalLaneBoundary
     // line. So S positions should increase along the line. Note that S
     // positions will not always increase strictly monotonically.
     // Example:
+    // <pre>
     //                |---------\
     //                |          \
-    //  /---boundary--|           \------------
+    //  /---boundary--|           \\------------
     // /
     // ---------- reference line --------------
+    // </pre>
     // At the place where the boundary suddenly increases, two points will have
     // the same S coordinate.
     //
@@ -120,10 +125,12 @@ message LogicalLaneBoundary
     //   LogicalLaneBoundary which references them, but must never be shorter.
     //
     // Example:
-    //      Lane 1
-    // --------a------------------ - - - -c- - - -           ---->
-    // - - - -b- - - -
-    //      Lane -1
+    // <pre>
+    //       Lane 1
+    //  --------a------------------ - - - -c- - - -           ----&gt;
+    //  \- - - -b- - - -
+    //       Lane -1
+    // </pre>
     //
     // This shows the boundary between lane 1 and lane -1, with the reference
     // line going from left to right. First there is a solid-broken line (a and
@@ -157,9 +164,11 @@ message LogicalLaneBoundary
     //
     repeated ExternalReference source_reference = 6;
 
-    // A point on the boundary
     //
-    message LogicalBoundaryPoint {
+    // \brief A point on the boundary
+    //
+    message LogicalBoundaryPoint
+    {
 
         // The position of the \c LaneBoundaryPoint.
         //
@@ -176,13 +185,15 @@ message LogicalLaneBoundary
         optional double t_position = 3;
     }
 
-    // Passing rule of the LogicalLaneBoundary.
+    //
+    // \brief Passing rule of the LogicalLaneBoundary.
     //
     // This describes how vehicles may move across the LogicalLaneBoundary. The
     // PassingRule is determined solely based on the road, not on any signs
     // (i.e. it may be overridden by signs).
     //
-    enum PassingRule {
+    enum PassingRule
+    {
         // Passing rule is unknown (must not be used in ground truth).
         //
         PASSING_RULE_UNKNOWN = 0;
@@ -299,11 +310,13 @@ message LogicalLane
     // condition, etc..
     //
     // TODO Should this be a repeated field? Imagine the following scenario:
+    // <pre>
     // ---------------------------------
     //  l1                       l2
     // ----------    l3        ---------
     //  l4                       l5
     // ---------------------------------
+    // </pre>
     //
     // In this case, we have five physical lanes: l1, l2, l4 and l5 where a
     // lane marking is present. And l3 is one lane covering the whole road
@@ -452,10 +465,11 @@ message LogicalLane
     //
     repeated LaneConnection successor_lane = 15;
 
-    // Connection to another lane (predecessor or successor)
     //
-    message LaneConnection {
-
+    // \brief Connection to another lane (predecessor or successor)
+    //
+    message LaneConnection
+    {
         // Id of the other logical lane that is connected
         //
         // \rules
@@ -471,10 +485,11 @@ message LogicalLane
 
     }
 
-    // Relation of this lane to another logical lane
     //
-    message LaneRelation {
-
+    // \brief Relation of this lane to another logical lane
+    //
+    message LaneRelation
+    {
         // Id of the other logical lane
         //
         // \rules
