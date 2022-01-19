@@ -357,6 +357,10 @@ message LogicalLaneAssignment
 {
     // ID of the LogicalLane the object is assigned to.
     //
+    // \rules
+    // refers_to: LogicalLane
+    // \endrules
+    //
     optional Identifier assigned_lane_id = 1;
 
     // S position of the object reference point on the lane, in the ST
