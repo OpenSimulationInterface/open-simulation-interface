@@ -726,9 +726,6 @@ message LaneBoundary
     // Example: If the points are deducted from a map format, the order of points 
     // is recommended to be in line with the road coordinate (e.g. s-coordinate in 
     // OpenDRIVE). 
-    //    
-    // \note For curbs, the boundary line represents the lower edge of the curb and 
-    // not the physical curb itself. 
     //
     // \note For dashed lines, one \c BoundaryPoint has to be at the start and
     // another at the end of each dashed line segment. The first
