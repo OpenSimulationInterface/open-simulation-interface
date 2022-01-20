@@ -152,8 +152,6 @@ message TrafficSign
     // Additional supplementary signs, e.g. time limits, modifying the traffic
     // sign.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated SupplementarySign supplementary_sign = 3;
 
 

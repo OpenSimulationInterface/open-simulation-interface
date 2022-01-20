@@ -19,8 +19,6 @@ message DetectedLane
 
     // A list of candidates for this lane as estimated by the sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CandidateLane candidate = 2;
 
     //
@@ -64,8 +62,6 @@ message DetectedLaneBoundary
 
     // A list of candidates for this lane boundary as estimated by the
     // sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateLaneBoundary candidate = 2;
 

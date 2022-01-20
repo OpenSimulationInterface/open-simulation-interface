@@ -198,8 +198,6 @@ message SensorData
     // for reference purposes.  For complex sensors or logic models this
     // can be multiple copies.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated SensorView sensor_view = 8;
 
     // The timestamp of the last real-world measurement (e.g. GT input) that
@@ -226,8 +224,6 @@ message SensorData
     // The list of moving objects detected by the sensor as perceived by
     // the sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedMovingObject moving_object = 13;
 
     // General information about the \c DetectedTrafficSign .
@@ -236,8 +232,6 @@ message SensorData
 
     // The list of traffic signs detected by the sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedTrafficSign traffic_sign = 15;
 
     // General information about the \c DetectedTrafficLight .
@@ -245,8 +239,6 @@ message SensorData
     optional DetectedEntityHeader traffic_light_header = 16;
 
     // The list of traffic lights detected by the sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedTrafficLight traffic_light = 17;
 
@@ -257,8 +249,6 @@ message SensorData
     // The list of road markings detected by the sensor.
     // This excludes lane boundary markings.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedRoadMarking road_marking = 19;
 
     // General information about the \c DetectedLaneBoundary .
@@ -266,8 +256,6 @@ message SensorData
     optional DetectedEntityHeader lane_boundary_header = 20;
 
     // The list of lane boundary markings detected by the sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedLaneBoundary lane_boundary = 21;
 
@@ -277,8 +265,6 @@ message SensorData
 
     // The list of lanes detected by the sensor
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedLane lane = 23;
 
     // General information about the \c DetectedOccupant .
@@ -286,8 +272,6 @@ message SensorData
     optional DetectedEntityHeader occupant_header = 24;
 
     // The list of occupants of the host vehicle
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedOccupant occupant = 25;
 

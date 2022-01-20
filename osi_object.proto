@@ -408,8 +408,6 @@ message MovingObject
     // \note Might be multiple if the object is switching lanes or moving from
     // one lane into another following lane.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     // \note DEPRECATED: Use assigned_lane_id in MovingObjectClassification
     // instead.
     //

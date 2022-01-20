@@ -131,31 +131,21 @@ message SensorView
 
     // Generic SensorView(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated GenericSensorView generic_sensor_view = 1000;
 
     // Radar-specific SensorView(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RadarSensorView radar_sensor_view = 1001;
 
     // Lidar-specific SensorView(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated LidarSensorView lidar_sensor_view = 1002;
 
     // Camera-specific SensorView(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CameraSensorView camera_sensor_view = 1003;
 
     // Ultrasonic-specific SensorView(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated UltrasonicSensorView ultrasonic_sensor_view = 1004;
 }
@@ -187,8 +177,6 @@ message RadarSensorView
     //
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think of scan lines in a TV).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Reflection reflection = 2;
 
@@ -260,8 +248,6 @@ message LidarSensorView
     //
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think of scan lines in a TV).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Reflection reflection = 2;
 
