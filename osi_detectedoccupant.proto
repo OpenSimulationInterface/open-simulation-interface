@@ -19,8 +19,6 @@ message DetectedOccupant
     // A list of candidates for this occupant as estimated by the
     // sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CandidateOccupant candidate = 2;
 
     //
