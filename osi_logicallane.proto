@@ -427,15 +427,14 @@ message LogicalLane
     // All LogicalLaneBoundary elements referenced here must refer to the same
     // ReferenceLine as this lane.
     // The boundaries together must cover the whole length of the lane (the
-    // range [start_s,end_s]) without gap or overlap. The boundaries must be
+    // range \[#start_s,#end_s\]) without gap or overlap. The boundaries must be
     // stored in ascending order, starting with the smallest S position.
     // Consecutive boundaries must share a point: the last point of the
     // previous boundary must be identical to the first point of the next
     // boundary.
     //
-    // TODO Is it allowed for the boundaries to be longer than the lane?
-    // Theoretically, this could be done. Then the user would have to limit the
-    // boundary itself to [start_s,end_s].
+    // Note: the referenced boundaries may have points outside of
+    // \[#start_s,#end_s\] (e.g. a boundary may extend beyond the end of a lane).
     //
     // \rules
     // refers_to: LogicalLaneBoundary
@@ -448,15 +447,14 @@ message LogicalLane
     // All LogicalLaneBoundary elements referenced here must refer to the same
     // ReferenceLine as this lane.
     // The boundaries together must cover the whole length of the lane (the
-    // range [start_s,end_s]) without gap or overlap. The boundaries must be
+    // range \[#start_s,#end_s\]) without gap or overlap. The boundaries must be
     // stored in ascending order, starting with the smallest S position.
     // Consecutive boundaries must share a point: the last point of the
     // previous boundary must be identical to the first point of the next
     // boundary.
     //
-    // TODO Is it allowed for the boundaries to be longer than the lane?
-    // Theoretically, this could be done. Then the user would have to limit the
-    // boundary itself to [start_s,end_s].
+    // Note: the referenced boundaries may have points outside of
+    // \[#start_s,#end_s\] (e.g. a boundary may extend beyond the end of a lane).
     //
     // \rules
     // refers_to: LogicalLaneBoundary
