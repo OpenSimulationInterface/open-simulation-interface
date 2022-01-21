@@ -348,7 +348,7 @@ message Spherical3d
 //
 // As an exception to this, \c TrafficSign and \c TrafficLight are assigned to
 // a logical lane if they control traffic on that lane. For \c TrafficSign and
-// \c TrafficLight , s_position refers to the position where the sign or light
+// \c TrafficLight , #s_position refers to the position where the sign or light
 // is valid (e.g. where vehicles should stop in case of a red traffic light),
 // not the physical position (where the sign or light is in the world).
 // Typically, t_position and angle_to_lane do not have any meaning in this
@@ -367,7 +367,7 @@ message LogicalLaneAssignment
     // S position of the object reference point on the lane, in the ST
     // coordinate system of the lane.
     //
-    // s_position might be outside [s_start,s_end] of the lane (and even
+    // #s_position might be outside [s_start,s_end] of the lane (and even
     // outside [startS,endS] of the reference line) if the reference point is
     // outside the lane, but the object overlaps the lane or a TrafficSign or
     // TrafficLight is assigned to a lane.
