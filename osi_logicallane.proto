@@ -3,7 +3,6 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
-import "osi_lane.proto";
 
 package osi3;
 
@@ -277,7 +276,7 @@ message LogicalLane
 
     // The type of the logical lane.
     //
-    optional Lane.Classification.Subtype type = 2;
+    optional Type type = 2;
 
     // Optional external reference to the lane source.
     //
@@ -464,6 +463,96 @@ message LogicalLane
     // Lanes that directly are connected to this lane at the end
     //
     repeated LaneConnection successor_lane = 15;
+
+    //
+    // \brief Definition of available lane types.
+    //
+    // This is mostly aligned with OpenDRIVE, except that lane types modelling
+    // access restrictions (e.g. "taxi") are not made available here. These are
+    // already deprecated in OpenDRIVE.  To support this, access restrictions
+    // should be added later, in alignment with OpenDRIVE.
+    //
+    enum Type
+    {
+        // %Lane of unknown type. Do not use in ground truth.
+        //
+        TYPE_UNKNOWN = 0;
+
+        // Any other type of lane.
+        //
+        TYPE_OTHER = 1;
+
+        // A normal driving lane.
+        // Example: Lanes with IDs l1, l2, l3 and l4 in image \ref
+        // HighwayExit.
+        // This matches the OpenDRIVE type "driving".
+        //
+        TYPE_NORMAL = 2;
+
+        // A lane that is designated for bicylists.
+        //
+        TYPE_BIKING = 3;
+
+        // A lane that is designated for pedestrians (sidewalk).
+        //
+        TYPE_SIDEWALK = 4;
+
+        // A lane with parking spaces.
+        //
+        TYPE_PARKING = 5;
+
+        // A hard shoulder on motorways for emergency stops.
+        // Example: Lane l5 in image \ref
+        // HighwayExit.
+        //
+        TYPE_STOP = 6;
+
+        // A lane on which cars should not drive.
+        //
+        TYPE_RESTRICTED = 7;
+
+        // A hard border on the edge of a road.
+        //
+        TYPE_BORDER = 8;
+
+        // A soft border on the edge of a road.
+        //
+        TYPE_SHOULDER = 9;
+
+        // A deceleration lane in parallel to the main road.
+        // Example: Lane l6 in image \ref
+        // HighwayExit.
+        //
+        TYPE_EXIT = 10;
+
+        // An acceleration lane in parallel to the main road.
+        //
+        TYPE_ENTRY = 11;
+
+        // A ramp from rural or urban roads joining a motorway.
+        //
+        TYPE_ONRAMP = 12;
+
+        // A ramp leading off a motorway onto rural or urban roads.
+        //
+        TYPE_OFFRAMP = 13;
+
+        // A ramp that connect two motorways.
+        //
+        TYPE_CONNECTINGRAMP = 14;
+
+        // A lane that sits between driving lanes
+        // that lead in opposite directions. It is
+        // typically used to separate traffic in
+        // towns on large roads.
+        //
+        TYPE_MEDIAN = 15;
+
+        // Curb stones. Curb stones have a different
+        // height than the adjacent drivable lanes.
+        //
+        TYPE_CURB = 16;
+    }
 
     //
     // \brief Connection to another lane (predecessor or successor)
