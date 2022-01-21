@@ -47,7 +47,7 @@ message Control
 
     // The duration of the ping.
     //
-    // Unit: [ms]
+    // Unit: ms
     //
     optional double ping = 7;
 
