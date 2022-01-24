@@ -240,27 +240,69 @@ message LogicalLaneBoundary
 // A logical lane is part of a road. Compared to a physical lane (OSI type
 // \c Lane), its existence doesn't hinge on the existence of road markings. So
 // e.g. a narrow urban road with two driving directions but no road markings
-// in-between would be presented as two LogicalLanes, but only one Lane. So one
-// Lane can consist of multiple LogicalLanes. E.g. on intersections, each
-// driving path is one LogicalLane, but the whole area is one \c Lane of type
-// \c #TYPE_INTERSECTION.
+// in-between would be presented as two \link LogicalLane LogicalLanes\endlink,
+// but only one Lane. So one Lane can consist of multiple \link LogicalLane
+// LogicalLanes\endlink. E.g. on intersections, each driving path is one
+// LogicalLane, but the whole area is one \c Lane of type \link
+// osi3::Lane::Classification::TYPE_INTERSECTION \c TYPE_INTERSECTION \endlink.
 //
 // Outside of junctions, logical lanes are constructed such that each point on
 // the road belongs to at least one (typically: exactly one) logical lane. So
 // there are no gaps between logical lanes, and no areas that don't belong to a
 // logical lane.
 //
-// If OSI is generated from OpenDRIVE, then LogicalLanes map directly to
-// OpenDRIVE lanes. However, it is allowed to merge multiple consecutive
-// OpenDRIVE lanes with the same type into one OSI LogicalLane: if an OpenDRIVE
-// lane has a single successor, which has the same lane type, and this
-// successor has only one predecessor (so no lane merging or splitting) then
-// the two lanes may be presented as one continuous LogicalLane. This may be
-// done recursively.
+// If OSI is generated from OpenDRIVE, then \link LogicalLane
+// LogicalLanes\endlink map directly to OpenDRIVE lanes. However, it is allowed
+// to merge multiple consecutive OpenDRIVE lanes with the same type into one
+// OSI LogicalLane: if an OpenDRIVE lane has a single successor, which has the
+// same lane type, and this successor has only one predecessor (so no lane
+// merging or splitting) then the two lanes may be presented as one continuous
+// LogicalLane. This may be done recursively.
 //
-// The reference line pointed to by reference_line_id defines an ST coordinate
-// system for the lane. This ST coordinate system is used to describe positions
-// on the lane.
+// The \link ReferenceLine reference line\endlink pointed to by
+// #reference_line_id defines an ST coordinate system for the lane. This ST
+// coordinate system is used to describe positions on the lane.
+//
+// ## Example
+//
+// The example below shows two logical lanes on an intersection, with a focus
+// on the left-turn lane (\c l1):
+// \image html OSI_LogicalLane1.png "Two logical lanes on an intersection"
+//
+// Assumptions not shown in the image:
+// - This is right-hand traffic (and thus vehicles on \c l1 drive from the bottom
+//   to the left, vehicles on \c l2 drive from right to left).
+// - The yellow line is a ReferenceLine, defined starting at the bottom, and
+//   going to the left.
+//
+// Some features shown in the image relative to \c l1:
+// - The yellow line is the ReferenceLine of \c l1 . The ReferenceLine can be
+//   shared with other lanes.  Because the ReferenceLine has the same direction
+//   as the driving direction of \c l1 in this example,
+//   <code>#reference_line_is_driving_direction == true</code>.
+// - The red line marks the area where \c l2 is left of
+//   \c l1 - this info is recorded in #left_adjacent_lane of \c l1.
+// - The red area is the area where \c l2 overlaps \c l1. This is recorded in
+//   #overlapping_lane of \c l1.
+//
+// The image below shows the same two lanes, but from the perspective of \c l2:
+// \image html OSI_LogicalLane2.png "Two logical lanes on an intersection"
+//
+// Assumptions not shown in the image:
+// - The yellow line is a ReferenceLine, defined starting at the right, going
+//   to the left.
+//
+// Some features shown in the image relative to \c l2:
+// - The yellow line is the ReferenceLine of \c l2 . The ReferenceLine can be
+//   shared with other lanes.  Because the ReferenceLine has the same direction
+//   as the driving direction of \c l2 in this example,
+//   <code>#reference_line_is_driving_direction == true</code>.
+// - The green line marks the area where \c l1 is right of
+//   \c l2 - this info is recorded in #right_adjacent_lane of \c l2.
+// - The red area is the area where \c l1 overlaps \c l2. This is recorded in
+//   #overlapping_lane of \c l1.
+//
+// Note: all these relations are also defined outside of intersections.
 //
 message LogicalLane
 {
