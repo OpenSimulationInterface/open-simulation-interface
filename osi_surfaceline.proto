@@ -14,12 +14,17 @@ package osi3;
 // A lane's surface line (as a list of segments).
 //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // The surfaceline describes a height profile along the lane on or at a certain offset to the lane boundary.
 // It is also intended to replace the centerline as a physical representation of the lane. The use of the 
 =======
 // The surfaceline describes a height profile along the lane at a certain offset to the lane boundary.
 // It is intended to replace the centerline as a physical representation of the lane. The use of the 
 >>>>>>> Create osi_surfaceline.proto
+=======
+// The surfaceline describes a height profile along the lane on or at a certain offset to the lane boundary.
+// It is also intended to replace the centerline as a physical representation of the lane. The use of the 
+>>>>>>> Update osi_surfaceline.proto
 // centerline for driving/steering inputs should rather be solved with a logical information, that is not 
 // mandatory based on the true center of the lane.
 //
@@ -34,10 +39,14 @@ package osi3;
 // \attention The points desribing the surface line must be set in the 
 // same ordering (ascending or descending) as the points desribing the 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // lane boundaries or lane. Example: If the points are deducted from 
 =======
 // lane boundaries or reference line. Example: If the points are deducted from 
 >>>>>>> Create osi_surfaceline.proto
+=======
+// lane boundaries or lane. Example: If the points are deducted from 
+>>>>>>> Update osi_surfaceline.proto
 // a map format, the order of points is recommended to be in line with the 
 // road coordinate (e.g. s-coordinate in OpenDRIVE). 
 //
@@ -49,22 +58,31 @@ package osi3;
 // \note The surface line is the line that describes the height profile 
 // along the lane. Multiple surface lines can be used to create a certain road shape
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update osi_surfaceline.proto
 // if needed. 
 // Up for discusssion: Should a flat road consist of no surface line, since the 
 // lane boundaries can be used in this case. Other option would be a mandatory surfaceline
 // at each LaneBoundary, in simple flat roads it will consist of just 2 points.
+<<<<<<< HEAD
 =======
 // if needed. The simplest case would be no surface line for a flat road, since the 
 // lane boundaries can be used in this case.
 >>>>>>> Create osi_surfaceline.proto
+=======
+>>>>>>> Update osi_surfaceline.proto
 // 
 // \attention If more than one surface line exists, they are not allowed to cross each other 
 // or the lane boundaries, otherwise you could have conflicting height information at these points.
 //
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // Up for discussion: SurfaceLines can be in the same x/y coordinates with different z values 
 // in order to model vertical surfaces like curbstones 
+=======
+>>>>>>> Update osi_surfaceline.proto
 
 >>>>>>> Create osi_surfaceline.proto
 message SurfaceLine
@@ -82,6 +100,7 @@ message SurfaceLine
     
     // points making up the surfaceline
 <<<<<<< HEAD
+<<<<<<< HEAD
     // The surfaceline must be defined in the same direction as the 
     // lane or lane boundaries.
 =======
@@ -90,6 +109,10 @@ message SurfaceLine
     // should increase along the line. Note that Spositions will not always 
     // increase strictly monotonically.
 >>>>>>> Create osi_surfaceline.proto
+=======
+    // The surfaceline must be defined in the same direction as the 
+    // lane or lane boundaries.
+>>>>>>> Update osi_surfaceline.proto
     //
     // If the surfaceline approximates a curve (e.g. a cubic function in
     // OpenDRIVE), the points must be chosen in a way that the lateral distance
@@ -102,12 +125,15 @@ message SurfaceLine
     // line) must not exceed 2cm, since height gaps are more noticable.
     //
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     // Note: if two lanes have different Z heights (e.g. a driving lane is
     // beside a sidewalk, where the sidewalk is 10cm higher than the road),
     // then these lanes cannot share a boundary, since their boundaries have
     // different Z heights.    
 >>>>>>> Create osi_surfaceline.proto
+=======
+>>>>>>> Update osi_surfaceline.proto
     repeated SurfaceLinePoint surfaceline = 2;
        
     // Definition of the placement of the newly introduced surfaceline in the center of the lane.
@@ -216,68 +242,39 @@ message SurfaceLine
     //
     optional bool surfaceline_is_centerline = 3;
         
-    // ID of the surfaceline that is directly adjacent to the
-    // surfaceline on the left side (w.r.t. ascending order of surfaceline points
-    // and lane boundary points/reference line). 
-    // Up for discussion, if lengths of surfaceline segments are 
-    // synchronized or not and therefore can contain multiple adjacent segments.
+    // ID of the surfaceline that is directly adjacent to the surfaceline on 
+    // the left side (w.r.t. ascending order of surfaceline points
+    // and lane boundary points). 
     //
-    // \note If none or just one surfaceline is present, this should be empty.
-    //
-    // \note If this surfaceline is neighboring the left LaneBoundary or LogicalLaneBoundary,
-    // should this field be empty? Other proposal would be a surfaceline would have to 
-    // be placed also on every boundary, which may impose inconsistencies between surface
-    // represenation by surfacelines and boundaries
+    // \note If there is no left adjacent surface line, this will mean its located at the 
+    // left LaneBoundary.
     // 
-    // \proposal In order to model curb stones more accurately, there could be 
-    // two surfacelines with different z-values on top of each other. This would
-    // impose curbstones to shift from a lane boundary to a lane type.
-    // Must be discussed if the upper one is the "most left" surfaceline or 
-    // if the driving lane "stops" at the lower surface line e.g lane boundary
-    // and the next lane just starts with the upper surface line / lane boundary.
+    // \proposal In order to model curb stones, one surface line will be placed at the lower edge
+    // of the curb that belongs to the border lane/driving lane and another one on the upper edge
+    // that will belong to the sidewalk 
+    // (see https://github.com/OpenSimulationInterface/open-simulation-interface/pull/608)
     //
     optional Identifier left_adjacent_surfaceline_id = 4;
     
-    // List of IDs of all surfaceline segments that are directly adjacent to the
+    // ID of the surfaceline that are directly adjacent to the
     // surfaceline on the right side (w.r.t. ascending order of surfaceline points
-    // and lane boundary points). Note that lengths of surfaceline segments are 
-    // not synchronized and therefore can contain multiple adjacent segments.
+    // and lane boundary points). 
     //
-    // \note If none or just one surfaceline is present, this should be empty.
-    //
-    // \note If this surfaceline is neighboring the right LaneBoundary or LogicalLaneBoundary,
-    // should this field be empty? Same proposal as for left_adjacent_surfaceline_id
-    //
+    // \note If there is no right adjacent surface line, this will mean its located at the 
+    // right LaneBoundary
+    // 
     optional Identifier right_adjacent_surfaceline_id = 5;
     
-    // if no surfaceline is placed at each LaneBoundary/LogicalLaneBoundary
-    // we may need to have different fields for these too or in addition
-    //
-    // \note Needs to be discussed if these fields are always filled or just for
-    // the most left or right surface line, that is directly adjacent to the 
-    // boundaries.
-    //optional LaneBoundary.Identifier left_lane_boundary_id = 6;
-    //optional LaneBoundary.Identifier left_lane_boundary_id = 7;
-    //optional LogicalLaneBoundary.Identifier left_logicallane_boundary_id = 8;
-    //optional LogicalLaneBoundary.Identifier left_logicallane_boundary_id = 9;
+    // \note Needs to be discussed if we reference the most left surfaceline
+    // to the left LaneBoundary id or just state that it is at the boundary.
+    //optional LaneBoundary.Identifier is_left_lane_boundary_id = 6;
+    //optional LaneBoundary.Identifier is_right_lane_boundary_id = 7;
     
-    // one point of the surface line
-    // 
     message SurfaceLinePoint {
     
         // The position of the \c SurfaceLinePoint.
         //
         optional Vector3d position = 1;
-
-        // S position of the SurfaceLinePoint, measured along the logical lane's
-        // reference_line_id.
-        //
-        optional double s_position = 2;
-
-        // T position of the SurfaceLinePoint, measured along the logical lane's
-        // reference_line_id.
-        //
-        optional double t_position = 3;
     }
 }
 >>>>>>> Create osi_surfaceline.proto
