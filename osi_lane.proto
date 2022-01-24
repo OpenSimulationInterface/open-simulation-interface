@@ -404,18 +404,21 @@ message Lane
             //
             TYPE_OTHER = 1;
 
-            // A normal lane.
+            // A lane on which PKW driving is permitted and which does not 
+            // belong to an intersection.
             // Example: Lanes with IDs l1, l2, l3, l4 and l6 in image \ref
             // HighwayExit.
             //
             TYPE_DRIVING = 2;
 
-            // A road where driving is normally not permitted.
+            // A lane where PKW driving is normally not permitted.
             // Example: Lane with ID l5 in image \ref HighwayExit.
             //
             TYPE_NONDRIVING = 3;
 
-            // An intersection as a lane.
+            // An area in the form of a polygon, where logical lanes 
+            // of TYPE_NORMAL may overlap and typically do in parts of
+            // the area.
             // Example: Lane with ID l7 in image \ref Intersection.
             //
             // \image html OSI_X-Junction.svg "" width=600px
