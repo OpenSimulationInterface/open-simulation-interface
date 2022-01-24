@@ -265,10 +265,11 @@ message SurfaceLine
     // 
     optional Identifier right_adjacent_surfaceline_id = 5;
     
-    // \note Needs to be discussed if we reference the most left surfaceline
-    // to the left LaneBoundary id or just state that it is at the boundary.
-    //optional LaneBoundary.Identifier is_left_lane_boundary_id = 6;
-    //optional LaneBoundary.Identifier is_right_lane_boundary_id = 7;
+    // \note If this surface line is located at the left/right 
+    // LaneBoundary we reference the appropriate id and can use 
+    // the information about the points
+    optional LaneBoundary.Identifier is_left_lane_boundary_id = 6;
+    optional LaneBoundary.Identifier is_right_lane_boundary_id = 7;
     
     message SurfaceLinePoint {
     
