@@ -9,8 +9,8 @@ package osi3;
 //
 // \brief A lane in the road network.
 //
-// A lane is part of a road and mainly characterized by its center line. It also
-// knows about any adjacent lanes, antecessor and successor lanes.
+// A lane is part of a road and its shape is mainly characterized by its boundaries. All lanes also
+// know about any adjacent lanes, and driving lanes also know about their antecessor and successor lanes.
 // The following images will be referred to by later comments. The lane
 // l4 in image HighwayExit is used  as reference if not mentioned otherwise.
 //
@@ -376,21 +376,44 @@ message Lane
         //
         optional Subtype subtype = 12;
 
-        // Lane boundaries which mark the outer borders of intersections towards
-        // non-drivable space, for example sidewalks.
+        // Lane boundaries which mark the outer boundaries of intersections towards
+        // space which is not qualified for PKW driving, for example borders, shoulders or sidewalks.
         // 
-        // They must share a \c LaneBoundary::boundary_line (i.e. a boundary point) 
-        // which is linked as left_lane_boundary_id or right_lane_boundary_id from 
-        // a lane of TYPE_DRIVING. 
+        // Qualified for PKW driving are logical lanes of type normal, i.e. LogicalLane.Type = TYPE_NORMAL.
+        // 
+        // Outer boundaries of intersections must share the position value of one 
+        // LogicalLaneBoundary.LogicalBoundaryPoint with the LogicalLaneBoundary.LogicalBoundaryPoint
+        // of another LogicalLaneBoundary which is linked as left_lane_boundary_id or right_lane_boundary_id from a 
+        // successor or predecessor logical lane with LogicalLane.Type = TYPE_NORMAL.
         //
-        // note The intersection area is defined as the area spanned by those 
-        // boundaries and straight lines over the successor/antecessor lanes of \c #type =
-        // \c #DRIVING. TODO: pictures, rules for start/end points?
+        // \note The intersection area is defined as the polygon spanned by those 
+        // boundaries and straight lines connecting the shared boundary points over 
+        // the drivable space. The exact line for the "cut" between logical lanes 
+        // outside and inside the intersection area is thereby up to implementation. 
+        // It is recommended to cut intersections generously (e.g. including right-turning lanes
+        // for right-hand traffic and left-turning lanes for left-hand traffic). 
+        // TODO: TBD: introduce on_intersection field for logical lanes?
         //
         // \note The \c #intersection_outer_border_id is undefined for \c #type =
+        // \c #DRIVING and \c #type = #NON_DRIVING.     
+        //
+        // ## Example
+        //
+        // The example below shows the lane boundaries of an intersection that are regarded as 
+        // outer boundaries. The red dots connected with red lines illustrate outer boundaries of the intersection.
+        // The orange lines illustrate the connecting (virtual) lines to complete the intersection polygon.
+        // \image html OSI_Intersection_outer_boundary.png "The outer boundary of an intersection"   
+        //
+        repeated Identifier intersection_outer_boundary_id = 13;        
+
+        // Lane boundaries which span "islands" inside the intersection area where no
+        // logical lane of TYPE_NORMAL shares the space. 
+        // TODO: TBD is this necessary? How should areas be treated that are normally paved but don't have logical lanes associated?
+        //
+        // \note The \c #intersection_island_border_id is undefined for \c #type =
         // \c #DRIVING and \c #type = #NON_DRIVING.        
         //
-        repeated Identifier intersection_outer_border_id = 13;        
+        repeated Identifier intersection_island_boundary_id = 14;      
 
         // Definition of available lane types.
         //
@@ -405,20 +428,28 @@ message Lane
             TYPE_OTHER = 1;
 
             // A lane on which PKW driving is permitted and which does not 
-            // belong to an intersection.
+            // belong to an intersection. A more detailed classification can 
+            // be achieved with the Subtype. 
             // Example: Lanes with IDs l1, l2, l3, l4 and l6 in image \ref
             // HighwayExit.
             //
             TYPE_DRIVING = 2;
 
-            // A lane where PKW driving is normally not permitted.
+            // A lane where PKW driving is normally not permitted. A more detailed classification can 
+            // be achieved with the Subtype. 
             // Example: Lane with ID l5 in image \ref HighwayExit.
             //
             TYPE_NONDRIVING = 3;
 
             // An area in the form of a polygon, where logical lanes 
-            // of TYPE_NORMAL may overlap and typically do in parts of
-            // the area.
+            // of TYPE_NORMAL (i.e. LogicalLane.Type = TYPE_NORMAL) may overlap and typically do in parts of
+            // the area. For explanations on the points defining the polygon 
+            // see the documentation of the field Lane.Classification.intersection_outer_boundary_id.
+            //
+            // \note Areas where lanes qualified for PKW driving cross lanes not qualified for PKW driving 
+            // (e.g. zebra crossings) are not recommended to be modelled as intersections. 
+            // Also highway entries and exits are currently not recommended to be modelled as intersections.
+            //          
             // Example: Lane with ID l7 in image \ref Intersection.
             //
             // \image html OSI_X-Junction.svg "" width=600px
