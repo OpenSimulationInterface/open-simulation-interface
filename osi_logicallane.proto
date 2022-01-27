@@ -47,7 +47,7 @@ package osi3;
 //
 message LogicalLaneBoundary
 {
-    // The ID of the lane boundary.
+    // \brief The ID of the lane boundary.
     //
     // \rules
     // is_globally_unique
@@ -55,7 +55,8 @@ message LogicalLaneBoundary
     //
     optional Identifier id = 1;
 
-    // points making up the lane boundary.
+    // \brief Points making up the lane boundary.
+    //
     // The boundary must be defined in the same direction as the reference
     // line. So S positions should increase along the line. Note that S
     // positions will not always increase strictly monotonically.
@@ -87,11 +88,11 @@ message LogicalLaneBoundary
     //
     repeated LogicalBoundaryPoint boundary_line = 2;
 
-    // The reference line for this boundary.
+    // \brief The reference line for this boundary.
     //
     // The reference line is used as a coordinate system for this boundary.
     // All points of this LogicalLaneBoundary must have S coordinates in the
-    // range [sStart,sEnd].
+    // range [\c sStart,\c sEnd].
     //
     // The reference line should roughly have the same shape as the boundary (so
     // roughly parallel to the lane middle), so that S coordinates continually
@@ -103,8 +104,8 @@ message LogicalLaneBoundary
     //
     optional Identifier reference_line_id = 3;
 
-    // Reference to the physical lane boundary or boundaries that make up this
-    // logical boundary.
+    // \brief Reference to the physical lane boundary or boundaries that make
+    // up this logical boundary.
     //
     // Rules and notes:
     // - This list is empty if there are no physical lane boundaries to delimit
@@ -144,12 +145,12 @@ message LogicalLaneBoundary
     //
     repeated Identifier physical_boundary_id = 4;
 
-    // The passing rules, insomuch as they can be determined just from road
-    // markings.
+    // \brief The passing rules, insomuch as they can be determined just from
+    // road markings.
     //
     optional PassingRule passing_rule = 5;
 
-    // Optional external reference to the lane boundary source.
+    // \brief Optional external reference to the lane boundary source.
     //
     // \note For OpenDRIVE, there is no direct possibility to reference the
     //       RoadMark, as there is no unique identifier in this sub-object.
@@ -306,7 +307,7 @@ message LogicalLaneBoundary
 //
 message LogicalLane
 {
-    // The ID of the logical lane.
+    // \brief The ID of the logical lane.
     //
     // \note Note ID is global unique.
     //
@@ -316,11 +317,11 @@ message LogicalLane
     //
     optional Identifier id = 1;
 
-    // The type of the logical lane.
+    // \brief The type of the logical lane.
     //
     optional Type type = 2;
 
-    // Optional external reference to the lane source.
+    // \brief Optional external reference to the lane source.
     //
     // The external reference points to the source of the lane, if it is derived
     // from one or more objects or external references.
@@ -344,7 +345,7 @@ message LogicalLane
     //
     repeated ExternalReference source_reference = 3;
 
-    // Reference to the physical lanes this logical lane belongs to.
+    // \brief Reference to the physical lanes this logical lane belongs to.
     //
     // This makes it possible to get detailed information on the physical lane
     // properties, e.g. the visual colors of the boundaries, the road
@@ -388,7 +389,7 @@ message LogicalLane
     //
     repeated PhysicalLaneReference physical_lane_reference = 4;
 
-    // The reference line for this logical lane
+    // \brief The \link ReferenceLine reference line\endlink for this logical lane
     //
     // The reference line is used as a coordinate system on this lane.
     //
@@ -405,6 +406,8 @@ message LogicalLane
     // object is next on a lane, using the LogicalLaneAssignment of the
     // objects.
     //
+    // The reference trajectory must be sampled such that there are no two
+    // positions on the lane more than 5cm apart with the same ST coordinate.
     //
     // \rules
     // refers_to: ReferenceLine
@@ -412,26 +415,29 @@ message LogicalLane
     //
     optional Identifier reference_line_id = 5;
 
-    // Start S position of the lane. Must be in range [sStart,sEnd] of the
-    // reference line.
+    // \brief Start S position of the lane.
+    //
+    // Must be in range [\c sStart,\c sEnd] of the reference line.
     //
     optional double start_s = 6;
 
-    // End S position of the lane. Must be in range [sStart,sEnd] of the
-    // reference line.
+    // \brief End S position of the lane.
+    //
+    // Must be in range [\c sStart,\c sEnd] of the reference line.
     //
     // Requirement: #end_s > #start_s
     //
     optional double end_s = 7;
 
-    // Definition of the intended driving direction.
+    // \brief Definition of the intended driving direction.
     //
     // \c true means driving direction is according to ascending S position.
     // \c false means driving direction is according to descending S position.
     //
     optional bool reference_line_is_driving_direction = 8;
 
-    // Lanes that are directly right of this lane, without gap or overlap.
+    // \brief Lanes that are directly right of this lane, without gap or overlap.
+    //
     // "Right" is in definition direction (not driving direction), so right lanes
     // have smaller T coordinates.
     // Entries must be ordered: first by #start_s, then by #end_s.
@@ -447,7 +453,8 @@ message LogicalLane
     //
     repeated LaneRelation right_adjacent_lane = 9;
 
-    // Lanes that are directly left of this lane, without gap or overlap.
+    // \brief Lanes that are directly left of this lane, without gap or overlap.
+    //
     // "Left" is in definition direction (not driving direction), so left lanes
     // have larger T coordinates.
     // Entries must be ordered: first by #start_s, then by #end_s.
@@ -463,14 +470,17 @@ message LogicalLane
     //
     repeated LaneRelation left_adjacent_lane = 10;
 
-    // Lanes that partially or completely overlap this lane. Only overlaps
-    // laterally larger than 5cm are considered overlaps for the purpose of
-    // this relation.
+    // \brief Lanes that partially or completely overlap this lane.
+    //
+    // Only overlaps laterally larger than 5cm are considered overlaps for the
+    // purpose of this relation.
+    //
     // Entries must be ordered: first by #start_s, then by #end_s.
     //
     repeated LaneRelation overlapping_lane = 11;
 
-    // Right boundary of this lane.
+    // \brief Right boundary of this lane.
+    //
     // References to LogicalLaneBoundary elements.
     // All LogicalLaneBoundary elements referenced here must refer to the same
     // ReferenceLine as this lane.
@@ -490,7 +500,8 @@ message LogicalLane
     //
     repeated Identifier right_boundary_id = 12;
 
-    // Left boundary of this lane.
+    // \brief Left boundary of this lane.
+    //
     // References to LogicalLaneBoundary elements.
     // All LogicalLaneBoundary elements referenced here must refer to the same
     // ReferenceLine as this lane.
@@ -510,11 +521,11 @@ message LogicalLane
     //
     repeated Identifier left_boundary_id = 13;
 
-    // Lanes that directly are connected to this lane at the beginning
+    // \brief Lanes that directly are connected to this lane at the beginning.
     //
     repeated LaneConnection predecessor_lane = 14;
 
-    // Lanes that directly are connected to this lane at the end
+    // \brief Lanes that directly are connected to this lane at the end.
     //
     repeated LaneConnection successor_lane = 15;
 
@@ -613,7 +624,7 @@ message LogicalLane
     //
     message PhysicalLaneReference
     {
-        // Id of the physical lane referenced.
+        // \brief Id of the physical lane referenced.
         //
         // \rules
         // refers_to: Lane
@@ -621,11 +632,11 @@ message LogicalLane
         //
         optional Identifier physical_lane_id = 1;
 
-        // S position on the logical lane where the physical lane starts
+        // \brief S position on the logical lane where the physical lane starts.
         //
         optional double start_s = 2;
 
-        // S position on the logical lane where the physical lane ends
+        // \brief S position on the logical lane where the physical lane ends.
         //
         // Requirement: #end_s > #start_s
         //
@@ -637,7 +648,7 @@ message LogicalLane
     //
     message LaneConnection
     {
-        // Id of the other logical lane that is connected
+        // \brief Id of the other logical lane that is connected.
         //
         // \rules
         // refers_to: LogicalLane
@@ -657,7 +668,7 @@ message LogicalLane
     //
     message LaneRelation
     {
-        // Id of the other logical lane
+        // \brief Id of the other logical lane.
         //
         // \rules
         // refers_to: LogicalLane
@@ -665,24 +676,24 @@ message LogicalLane
         //
         optional Identifier other_lane_id = 1;
 
-        // Start s position of the relation
+        // \brief Start s position of the relation.
         //
         optional double start_s = 2;
 
-        // End s position of the relation
+        // \brief End s position of the relation.
         //
         // Requirement: #end_s > #start_s
         //
         optional double end_s = 3;
 
-        // Start s position of the relation on the other lane.
+        // \brief Start s position of the relation on the other lane.
         //
         // This is the same place as #start_s, but measured along the reference
         // line of the other lane.
         //
         optional double start_s_other = 4;
 
-        // End s position of the relation on the other lane.
+        // \brief End s position of the relation on the other lane.
         //
         // This is the same place as #end_s, but measured along the reference
         // line of the other lane.
