@@ -55,7 +55,7 @@ message StationaryObject
     // * identifier[1] = id of t_road_objects_object or t_road_objects_bridge
     //
     // For example, to reference OpenSCENARIO entities of the type MiscObject,
-    // which describe partly stationary objects, the items should be set as
+    // which describe partly stationary objects, the items should be set as 
     // follows:
     // * reference = URI to the OpenSCENARIO File
     // * type = "net.asam.openscenario"
@@ -442,7 +442,7 @@ message MovingObject
     // The trajectory that this moving object expects to follow in the future.
     //
     // This is not externally perceivable information, rather this is to aid
-    // realistic simulation of traffic participants that are not under test.
+    // realistic simulation of traffic participants that are not under test.  
     // This information should not be made available to the stack under test.
     //
     // \note Moving objects are not required to stick to this trajectory, it is
@@ -453,7 +453,7 @@ message MovingObject
 
     // Specific information about the classification of the vehicle.
     //
-    optional MovingObjectClassification moving_object_classification = 9;
+    optional MovingObjectClassification moving_object_classification = 9;    
 
     // Optional external reference to the moving-object source
     //
@@ -469,7 +469,7 @@ message MovingObject
     // * identifier[1] = name of Vehicle/Pedestrian in Entity
     //
     // \todo OpenSCENARIO currently does not provide an animal type.
-    //
+    // 
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
@@ -575,9 +575,9 @@ message MovingObject
         //
         optional Vector3d bbcenter_to_front = 5;
 
-        // Static minimal distance or space from the lowest point of the vehicle's
+        // Static minimal distance or space from the lowest point of the vehicle's 
         // body to the surface plane below it under neutral load conditions. This
-        // distance disregards, for example, driving-dynamic effects or
+        // distance disregards, for example, driving-dynamic effects or 
         // road-surface effects. Can be useful to approximate the clearance area
         // under a vehicle that a sensor can see through.
         // \note \c ground_clearance is included in the bounding box height.
@@ -590,7 +590,7 @@ message MovingObject
         //
         repeated WheelData wheel_data = 7;
 
-        // Angle of the steering wheel.
+        // Angle of the steering wheel. 
         // Zero means the steering wheel is in its center postion, a positive value
         // means the steering wheel is turned to the left and a negative value
         // means the steering wheel is turned to the right of the center position.
@@ -600,8 +600,8 @@ message MovingObject
         optional double steering_wheel_angle = 8;
 
         // \brief Detailed wheel data.
-        // The focus is on the description of a wheel regarding the perceivable
-        // information from the outside.
+        // The focus is on the description of a wheel regarding the perceivable 
+        // information from the outside. 
         // It is not intended to be used for dynamic calculations, for example.
         //
         message WheelData
@@ -620,8 +620,8 @@ message MovingObject
             // This concept works also for twin tires.
             //
             optional uint32 index = 2;
-
-            // A vector pointing from the vehicle's reference system (center of bounding
+            
+            // A vector pointing from the vehicle's reference system (center of bounding 
             // box) to the geometric center of the wheel.
             //
             optional Vector3d position = 3;
@@ -638,7 +638,7 @@ message MovingObject
             // Unit: m
             //
             optional double rim_radius = 5;
-
+            
             // Median width of the tire.
             //
             // Unit: m
@@ -653,7 +653,7 @@ message MovingObject
 
             // Rotation rate of the wheel.
             // The rotation rate around the y-axis with respect to the wheel's coordinate system.
-            //
+            // 
             // Unit: rad/s.
             //
             // The sign convention is defined using the right-hand rule.
@@ -664,7 +664,7 @@ message MovingObject
             // \note The vehicle's reference coordinate system is only used to determine the sign convention of the rotation rate.
             //
             optional double rotation_rate = 8;
-
+            
             // Opaque reference of an associated 3D model of the wheel.
             //
             // \note It is implementation-specific how model_references are resolved to
@@ -696,8 +696,8 @@ message MovingObject
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated double assigned_lane_percentage = 2;
-
+        repeated double assigned_lane_percentage = 2;        
+        
     }
 
     //
@@ -728,10 +728,6 @@ message MovingObject
         // \endrules
         //
         optional Identifier trailer_id = 4;
-
-        // The role of the vehicle.
-        //
-        optional Role role = 5;
 
         // Definition of vehicle types.
         //
@@ -953,47 +949,6 @@ message MovingObject
                 // stronger braking).
                 BRAKE_LIGHT_STATE_STRONG = 4;
             }
-        }
-
-        // Definition of vehicle roles.
-        //
-        enum Role
-        {
-            // Role of vehicle is unknown (must not be used in ground truth).
-            //
-            ROLE_UNKNOWN = 0;
-
-            // Other (unspecified but known) role of vehicle.
-            //
-            ROLE_OTHER = 1;
-
-            // The vehicle role is ambulance.
-            //
-            ROLE_AMBULANCE = 2;
-
-            // The vehicle role is civil.
-            //
-            ROLE_CIVIL = 3;
-
-            // The vehicle role is fire fighting, e.g. fire engine.
-            //
-            ROLE_FIRE = 4;
-
-            // The vehicle role is military, e.g. camouflaged truck.
-            //
-            ROLE_MILITARY = 5;
-
-            // The vehicle role is police.
-            //
-            ROLE_POLICE = 6;
-
-            // The vehicle role is public transport, e.g. a school bus.
-            //
-            ROLE_PUBLIC_TRANSPORT = 7;
-
-            // The vehicle role is roadside assistance, e.g. tow truck.
-            //
-            ROLE_ROAD_ASSISTANCE = 8;
         }
     }
 }
