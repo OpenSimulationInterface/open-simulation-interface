@@ -134,7 +134,7 @@ message ReferenceLine
     //   dotted line).  Following the rules above, the one with the smallest S
     //   value is chosen (the red dotted line).
     // - \c P3 has a unique "nearest point" on the polyline. However, multiple
-    //   points map to the same ST coordinate as that of \c P3, e.g. \C P4
+    //   points map to the same ST coordinate as that of \c P3, e.g. \c P4
     //   (drawn in grey).
     // - Finally, \c P5 shows how the reference line is extended infinitely for
     //   points that are "outside" the reference line.
