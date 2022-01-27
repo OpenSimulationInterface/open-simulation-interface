@@ -44,7 +44,7 @@ message TrafficLight
 
     // Optional external reference to the traffic light source.
     //
-    // The external reference points to the source of the traffic light, if it 
+    // The external reference points to the source of the traffic light, if it
     // is derived from one or more objects or external references.
     //
     // For example, to reference a signal defined in an OpenDRIVE map
@@ -66,7 +66,7 @@ message TrafficLight
     // The visual color of the traffic light.
     //
     // \note This does not represent the semantic classification but the visual
-    // appearance.  For semantic classification of the traffic light use the color
+    // appearance.  For semantic classification of the traffic light use the phase
     // field in \c Classification.
     //
     optional ColorDescription color_description = 6;
@@ -78,7 +78,11 @@ message TrafficLight
     {
         // The semantic color of the traffic light.
         //
-        // \note The color types represent the semantic color classification of a 
+        // \attention DEPRECATED: This color enum will be removed in version
+        // 4.0.0. Use the field \c #phase (\c Phase) of
+        // \c Classification instead.
+        //
+        // \note The color types represent the semantic color classification of a
         // traffic light only. They do not represent an actual visual appearance.
         //
         // \note If the color of the traffic light is known (from history or
@@ -92,11 +96,23 @@ message TrafficLight
 
         // The icon of the traffic light.
         //
+        // \attention DEPRECATED: This icon enum will be removed in version
+        // 4.0.0. Use the field \c #symbol (\c Symbol) of
+        // \c Classification instead.
+        //
         optional Icon icon = 2;
 
         // The operating mode of the traffic light.
         //
         optional Mode mode = 3;
+
+        // The phase of the traffic light.
+        //
+        optional Phase phase = 4;
+
+        // The symbol of the traffic light.
+        //
+        optional Symbol symbol = 5;
 
         // The value of the countdown counter.
         // Unit: % or s
@@ -107,7 +123,29 @@ message TrafficLight
         // is_greater_than_or_equal_to: 0
         // \endrules
         //
-        optional double counter = 4;
+        optional double counter = 6;
+
+        // The value of the on duration of a flashing traffic light.
+        // Unit: s
+        //
+        // \note Set value only if traffic light mode is set to flashing.
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // \endrules
+        //
+        optional double flashing_on_duration = 7;
+
+        // The value of the off duration of a flashing traffic light.
+        // Unit: s
+        //
+        // \note Set value only if traffic light mode is set to flashing.
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // \endrules
+        //
+        optional double flashing_off_duration = 8;
 
         // The IDs of the lanes that the traffic light is assigned to.
         // Might be multiple if the traffic light is valid for multiple driving
@@ -119,15 +157,18 @@ message TrafficLight
         // refers_to: Lane
         // \endrules
         //
-        repeated Identifier assigned_lane_id = 5;
+        repeated Identifier assigned_lane_id = 9;
 
         // Boolean flag to indicate that the traffic light is taken out of service.
         // This can be achieved by visibly crossing the light, covering it completely
         // or swiching the traffic light off.
         //
-        optional bool is_out_of_service = 6;
+        optional bool is_out_of_service = 10;
 
         // Definition of semantic colors for traffic lights.
+        //
+        // \attention DEPRECATED: This color enum will be removed in version
+        // 4.0.0. Use the enum \c Phase instead.
         //
         // \note The color types represent the semantic classification of a traffic light
         // only. They do not represent an actual visual appearance.
@@ -164,6 +205,9 @@ message TrafficLight
         }
 
         // Definition of traffic light bulb icon.
+        //
+        // \attention DEPRECATED: This icon enum will be removed in version
+        // 4.0.0. Use the enum \c Symbol instead.
         //
         enum Icon
         {
@@ -316,6 +360,273 @@ message TrafficLight
             // Light is counting.
             //
             MODE_COUNTING = 5;
+        }
+
+        // Definition of phases for the traffic light
+        //
+        enum Phase
+        {
+            // Phase is unknown (must not be used in ground truth).
+            //
+            PHASE_UNKNOWN = 0;
+
+            // Other (unspecified but known) phase.
+            //
+            PHASE_OTHER = 1;
+
+            // Traffic light is in phase off.
+            //
+            PHASE_OFF = 2;
+
+            // Traffic light is in phase stop.
+            //
+            PHASE_STOP = 3;
+
+            // Traffic light is in phase attention.
+            //
+            PHASE_ATTENTION = 4;
+
+            // Traffic light is in phase stop attention.
+            //
+            PHASE_STOP_ATTENTION = 5;
+
+            // Traffic light is in phase go.
+            //
+            PHASE_GO = 6;
+
+            // Traffic light is in phase go exclusive.
+            //
+            PHASE_GO_EXCLUSIVE = 7;
+        }
+
+        // Definition of traffic light bulb symbol.
+        //
+        enum Symbol
+        {
+            // Unknown symbol of traffic light (must not be used in ground truth).
+            //
+            SYMBOL_UNKNOWN = 0;
+
+            // Other (unspecified but known) symbol of traffic light.
+            //
+            SYMBOL_OTHER = 1;
+
+            // This is a normal traffic light without specification of e.g.
+            // direction.
+            //
+            SYMBOL_NONE = 2;
+
+            // This traffic light applies to the lane straight ahead.
+            //
+            SYMBOL_ARROW_STRAIGHT_AHEAD = 3;
+
+            // This traffic light applies to left turns.
+            //
+            SYMBOL_ARROW_LEFT = 4;
+
+            // This traffic light applies to diagonal left turns.
+            //
+            SYMBOL_ARROW_DIAG_LEFT = 5;
+
+            // This traffic light applies to left u-turns.
+            //
+            SYMBOL_ARROW_LEFT_U_TURN = 6;
+
+            // This traffic light applies to a lane allowing to drive straight
+            // ahead or to turn left.
+            //
+            SYMBOL_ARROW_STRAIGHT_AHEAD_LEFT = 7;
+
+            // This traffic light applies to right turns.
+            //
+            SYMBOL_ARROW_RIGHT = 8;
+
+            // This traffic light applies to diagonal right turns.
+            //
+            SYMBOL_ARROW_DIAG_RIGHT = 9;
+
+            // This traffic light applies to right u-turns.
+            //
+            SYMBOL_ARROW_RIGHT_U_TURN = 10;
+
+            // This traffic light applies to a lane allowing to drive straight
+            // ahead or to turn right.
+            //
+            SYMBOL_ARROW_STRAIGHT_AHEAD_RIGHT = 11;
+
+            // This traffic light applies to a lane allowing to turn left or
+            // right.
+            //
+            SYMBOL_ARROW_LEFT_RIGHT = 12;
+
+            // This traffic light indicates that the assigned lane is open for
+            // driving.
+            //
+            SYMBOL_ARROW_DOWN = 13;
+
+            // This traffic light indicates a necessary lane change to the left
+            // ahead.
+            //
+            SYMBOL_ARROW_DOWN_LEFT = 14;
+
+            // This traffic light indicates a necessary lane change to the right
+            // ahead.
+            //
+            SYMBOL_ARROW_DOWN_RIGHT = 15;
+
+            // This traffic light indicates that the assigned lane is not open
+            // for driving.
+            //
+            SYMBOL_ARROW_CROSS = 16;
+
+            // This traffic light is valid for pedestrians.
+            //
+            SYMBOL_PEDESTRIAN = 17;
+
+            // This traffic light is valid for pedestrians with letters 'walk'.
+            //
+            SYMBOL_WALK = 18;
+
+            // This traffic light is valid for pedestrians with letters 'don't
+            // walk'.
+            //
+            SYMBOL_DONT_WALK = 19;
+
+            // This traffic light is valid for bicyclists.
+            //
+            SYMBOL_BICYCLE = 20;
+
+            // This traffic light is valid for bicyclists and applies to left
+            // turns.
+            //
+            SYMBOL_BICYCLE_LEFT = 21;
+
+            // This traffic light is valid for bicyclists and applies to right
+            // turns.
+            //
+            SYMBOL_BICYCLE_RIGHT = 22;
+
+            // This traffic light is valid for pedestrians and bicyclists.
+            //
+            SYMBOL_PEDESTRIAN_AND_BICYCLE = 23;
+
+            // This traffic light counter in second.
+            //
+            SYMBOL_COUNTDOWN_SECONDS = 24;
+
+            // This traffic light counter in percent.
+            //
+            SYMBOL_COUNTDOWN_PERCENT = 25;
+
+            // This traffic light is warning that buses can cross.
+            //
+            SYMBOL_BUS_WARNING = 26;
+
+            // This traffic light is warning that trams can cross.
+            //
+            SYMBOL_TRAM_WARNING = 27;
+
+            // This traffic light is warning that bicyclists can cross.
+            //
+            SYMBOL_BICYCLE_WARNING = 28;
+
+            // This traffic light is warning that pedestrians can cross.
+            //
+            SYMBOL_PEDESTRIAN_WARNING = 29;
+
+            // This traffic light is warning that bicyclists or
+            // pedestrians can cross.
+            //
+            SYMBOL_PEDESTRIAN_AND_BICYCLE_WARNING = 30;
+
+            // This traffic light is warning that horses can cross.
+            //
+            SYMBOL_HORSE_WARNING = 31;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 0.
+            //
+            SYMBOL_F_0 = 32;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 1.
+            //
+            SYMBOL_F_1 = 33;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 2.
+            //
+            SYMBOL_F_2 = 34;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 3.
+            //
+            SYMBOL_F_3 = 35;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 4.
+            //
+            SYMBOL_F_4 = 36;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 5.
+            //
+            SYMBOL_F_5 = 37;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type W and subtype 0.
+            //
+            SYMBOL_W_0 = 38;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type W and subtype 1.
+            //
+            SYMBOL_W_1 = 39;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 2.
+            //
+            SYMBOL_W_2 = 40;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type W and subtype 3.
+            //
+            SYMBOL_W_3 = 41;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type W and subtype 11.
+            //
+            SYMBOL_W_11 = 42;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type W and subtype 12.
+            //
+            SYMBOL_W_12 = 43;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type F and subtype 13.
+            //
+            SYMBOL_W_13 = 44;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type W and subtype 14.
+            //
+            SYMBOL_W_14 = 45;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type A and subtype 1.
+            //
+            SYMBOL_A_1 = 46;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type A and subtype X.
+            //
+            SYMBOL_A_X = 47;
+
+            // This traffic light is valid for bus and tram. It is of
+            // type A and subtype 2B.
+            //
+            SYMBOL_A_2B = 48;
         }
     }
 }
