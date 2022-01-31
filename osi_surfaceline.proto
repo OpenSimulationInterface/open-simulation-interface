@@ -81,8 +81,9 @@ message SurfaceLine
     // and \c #surfaceline_is_centerline = \c false for surfacelane sl1 in
     // image \ref HighwayExit .
     //
-    // \note The \c #centerline is currently only defined for \c #type
-    // = \c #TYPE_DRIVING .
+    // \note The \c #centerline is defined only for \c #type =
+    // \c #TYPE_DRIVING and if exactly one or no \c #lane_pairing pair
+    // exists.
     //
     optional bool surfaceline_is_centerline = 3;
         
