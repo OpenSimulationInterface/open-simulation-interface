@@ -5,9 +5,12 @@ option optimize_for = SPEED;
 import "osi_common.proto";
 import "osi_lane.proto";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import "osi_logicallane.proto";
 >>>>>>> Create osi_surfaceline.proto
+=======
+>>>>>>> Update osi_surfaceline.proto
 
 package osi3;
 
