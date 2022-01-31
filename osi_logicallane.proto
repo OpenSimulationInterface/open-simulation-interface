@@ -538,9 +538,29 @@ message LogicalLane
 
     // \brief Lanes that directly are connected to this lane at the beginning.
     //
+    // "Beginning" is relative to the reference line, so connections at #start_s.
+    //
+    // Lane predecessors and successors shall only be used to connect lanes if
+    // a physical connection at the beginning or end of both lanes exist. Both
+    // lanes have a non-zero width at the connection point and they are
+    // semantically connected.
+    //
+    // A lane may have several predecessors e.g. on intersections, or if a wide
+    // lane splits into two, or two merge into one.
+    //
     repeated LaneConnection predecessor_lane = 14;
 
     // \brief Lanes that directly are connected to this lane at the end.
+    //
+    // "End" is relative to the reference line, so connections at #end_s.
+    //
+    // Lane predecessors and successors shall only be used to connect lanes if
+    // a physical connection at the beginning or end of both lanes exist. Both
+    // lanes have a non-zero width at the connection point and they are
+    // semantically connected.
+    //
+    // A lane may have several successors e.g. on intersections, or if a wide
+    // lane splits into two, or two merge into one.
     //
     repeated LaneConnection successor_lane = 15;
 
