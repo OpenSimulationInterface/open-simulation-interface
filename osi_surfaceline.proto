@@ -20,10 +20,14 @@ package osi3;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // \brief Surfacelines describe the height profile along the lane
 =======
 // \\brief Surfacelines describe the height profile along the lane
+>>>>>>> Update osi_surfaceline.proto
+=======
+// \brief Surfacelines describe the height profile along the lane
 >>>>>>> Update osi_surfaceline.proto
 //
 >>>>>>> Update osi_surfaceline.proto
@@ -322,7 +326,8 @@ message SurfaceLine
         optional Vector3d position = 1;
     }
     
-    // \brief Sections for different numbers of surface lines along a lnae
+    // \brief Sections for different numbers of surface lines along a lane
+    //
     // In order to be able to increase/decrease the accuracy or detail of the surface description
     // by adding more surfacelines for a certain part of a lane, the corresponding 
     // surfacelines are grouped in sections. Whenever a different number of surfacelines is needed
