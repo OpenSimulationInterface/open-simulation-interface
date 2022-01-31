@@ -567,10 +567,14 @@ message LogicalLane
         TYPE_NORMAL = 2;
 
         // A lane that is designated for bicylists.
+        // Note that biking lanes that cross the road (e.g. on an intersection)
+        // are also labeled with this type.
         //
         TYPE_BIKING = 3;
 
         // A lane that is designated for pedestrians (sidewalk).
+        // Note that pedestrian lanes that cross the road (e.g. on an
+        // intersection) are also labeled with this type.
         //
         TYPE_SIDEWALK = 4;
 
