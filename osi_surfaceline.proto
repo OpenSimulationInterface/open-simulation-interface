@@ -18,6 +18,11 @@ package osi3;
 //
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+// \brief Surfacelines describe the height profile along the lane
+//
+>>>>>>> Update osi_surfaceline.proto
 // The surfaceline describes a height profile along the lane on or at a certain offset to the lane boundary.
 // It is also intended to replace the centerline as a physical representation of the lane. The use of the 
 =======
@@ -161,6 +166,7 @@ message SurfaceLine
     //
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // \note The \c #centerline is defined only for \c #type =
     // \c #TYPE_DRIVING and if exactly one or no \c #lane_pairing pair
     // exists.
@@ -254,6 +260,12 @@ message SurfaceLine
     // \note The \c #centerline is defined only for \c #type =
     // \c #TYPE_DRIVING and if exactly one or no \c #lane_pairing pair
     // exists.
+>>>>>>> Update osi_surfaceline.proto
+=======
+    // \note The \c osi3::Lane::Classification::#centerline is defined only for 
+    // \c osi3::Lane::Classification::#type =
+    // \c osi3::Lane::Classification::Type::#TYPE_DRIVING and if exactly one or no 
+    // \c osi3::Lane::Classification::#lane_pairing pair exists.
 >>>>>>> Update osi_surfaceline.proto
     //
     optional bool surfaceline_is_centerline = 3;
