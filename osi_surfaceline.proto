@@ -9,7 +9,7 @@ package osi3;
 
 // A lane's surface line (as a list of segments).
 //
-// \\brief Surfacelines describe the height profile along the lane
+// \brief Surfacelines describe the height profile along the lane
 //
 // The surfaceline describes a height profile along the lane on or at a certain offset to the lane boundary.
 // It is also intended to replace the centerline as a physical representation of the lane. The use of the 
@@ -138,7 +138,8 @@ message SurfaceLine
         optional Vector3d position = 1;
     }
     
-    // \brief Sections for different numbers of surface lines along a lnae
+    // \brief Sections for different numbers of surface lines along a lane
+    //
     // In order to be able to increase/decrease the accuracy or detail of the surface description
     // by adding more surfacelines for a certain part of a lane, the corresponding 
     // surfacelines are grouped in sections. Whenever a different number of surfacelines is needed
