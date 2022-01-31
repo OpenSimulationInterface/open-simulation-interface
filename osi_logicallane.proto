@@ -286,7 +286,7 @@ message LogicalLaneBoundary
 // - The yellow line is the ReferenceLine of \c l1 . The ReferenceLine can be
 //   shared with other lanes.  Because the ReferenceLine has the same direction
 //   as the driving direction of \c l1 in this example,
-//   <code>#reference_line_is_driving_direction == true</code>.
+//   <code>#move_direction == #MOVE_DIRECTION_INCREASING_S</code>.
 // - The red line marks the area where \c l2 is left of
 //   \c l1 - this info is recorded in #left_adjacent_lane of \c l1.
 // - The red area is the area where \c l2 overlaps \c l1. This is recorded in
@@ -303,7 +303,7 @@ message LogicalLaneBoundary
 // - The yellow line is the ReferenceLine of \c l2 . The ReferenceLine can be
 //   shared with other lanes.  Because the ReferenceLine has the same direction
 //   as the driving direction of \c l2 in this example,
-//   <code>#reference_line_is_driving_direction == true</code>.
+//   <code>#move_direction == #MOVE_DIRECTION_INCREASING_S</code>.
 // - The green line marks the area where \c l1 is right of
 //   \c l2 - this info is recorded in #right_adjacent_lane of \c l2.
 // - The red area is the area where \c l1 overlaps \c l2. This is recorded in
@@ -442,10 +442,7 @@ message LogicalLane
 
     // \brief Definition of the intended driving direction.
     //
-    // \c true means driving direction is according to ascending S position.
-    // \c false means driving direction is according to descending S position.
-    //
-    optional bool reference_line_is_driving_direction = 8;
+    optional MoveDirection move_direction = 8;
 
     // \brief Lanes that are directly right of this lane, without gap or overlap.
     //
@@ -587,6 +584,10 @@ message LogicalLane
         // HighwayExit.
         // This matches the OpenDRIVE type "driving".
         //
+        // Note: a lane with OpenDRIVE type "bidirectional" will have an OSI
+        // type of TYPE_NORMAL, with <code>#move_direction ==
+        // #MOVE_DIRECTION_BOTH_ALLOWED</code>.
+        //
         TYPE_NORMAL = 2;
 
         // A lane that is designated for bicylists.
@@ -692,6 +693,48 @@ message LogicalLane
         // Requirement: #end_s > #start_s
         //
         optional double end_s = 3;
+    }
+
+    //
+    // \brief Describes in which direction moving objects may typically move
+    // along a lane.
+    //
+    // This describes the allowed typical driving direction on a lane, or (in
+    // the case of pedestrian) the allowed walking direction.
+    //
+    // Note: Allowed overtaking (e.g. on country roads) does not automatically
+    // make a lane bidirectional, since vehicles may normally only drive in the
+    // other direction during the overtake maneuver, not for longer periods of
+    // time.
+    //
+    enum MoveDirection
+    {
+        // Move direction is unknown. Do not use in ground truth.
+        //
+        MOVE_DIRECTION_UNKNOWN = 0;
+
+        // Move direction fits neither of the other categories.
+        //
+        // Example: a lane where cars may only drive in one direction, but
+        // bikes may drive in both.
+        //
+        MOVE_DIRECTION_OTHER = 1;
+
+        // Objects may move in increasing S direction.
+        //
+        // This means they move in the same direction as the reference line.
+        //
+        MOVE_DIRECTION_INCREASING_S = 2;
+
+        // Objects may move in decreasing S direction.
+        //
+        // This means they move in the opposite direction as the reference line.
+        //
+        MOVE_DIRECTION_DECREASING_S = 3;
+
+        // Objects may move in both directions.
+        //
+        MOVE_DIRECTION_BOTH_ALLOWED = 4;
     }
 
     //
