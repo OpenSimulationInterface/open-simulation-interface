@@ -483,6 +483,10 @@ message LogicalLane
     // Only overlaps laterally larger than 5cm are considered overlaps for the
     // purpose of this relation.
     //
+    // This will typically contain a lot of entries on intersections, but might
+    // also be used outside of intersections (e.g. if a #TYPE_BIKING lane
+    // overlaps a #TYPE_NORMAL lane).
+    //
     // Entries must be ordered: first by #start_s, then by #end_s.
     //
     repeated LaneRelation overlapping_lane = 11;
