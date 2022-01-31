@@ -250,7 +250,7 @@ message LogicalLaneBoundary
 // LogicalLane, but the whole area is one \c Lane of type \link
 // osi3::Lane::Classification::TYPE_INTERSECTION \c TYPE_INTERSECTION \endlink.
 //
-// Outside of junctions, logical lanes are constructed such that each point on
+// Outside of intersections, logical lanes are constructed such that each point on
 // the road belongs to at least one (typically: exactly one) logical lane. So
 // there are no gaps between logical lanes, and no areas that don't belong to a
 // logical lane.
