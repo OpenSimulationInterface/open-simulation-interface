@@ -238,7 +238,6 @@ message LogicalLaneBoundary
         // left).
         //
         PASSING_RULE_BOTH_ALLOWED = 5;
-
     }
 }
 
@@ -261,11 +260,11 @@ message LogicalLaneBoundary
 //
 // If OSI is generated from OpenDRIVE, then \link LogicalLane
 // LogicalLanes\endlink map directly to OpenDRIVE lanes. However, it is allowed
-// to merge multiple consecutive OpenDRIVE lanes with the same type into one
-// OSI LogicalLane: if an OpenDRIVE lane has a single successor, which has the
-// same lane type, and this successor has only one predecessor (so no lane
-// merging or splitting) then the two lanes may be presented as one continuous
-// LogicalLane. This may be done recursively.
+// to merge multiple consecutive (in S direction) OpenDRIVE lanes with the same
+// type into one OSI LogicalLane: if an OpenDRIVE lane has a single successor,
+// which has the same lane type, and this successor has only one predecessor
+// (so no lane merging or splitting) then the two lanes may be presented as one
+// continuous LogicalLane. This may be done recursively.
 //
 // The \link ReferenceLine reference line\endlink pointed to by
 // #reference_line_id defines an ST coordinate system for the lane. This ST
