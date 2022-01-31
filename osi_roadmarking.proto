@@ -90,6 +90,10 @@ message RoadMarking
     //
     optional ColorDescription color_description = 5;
 
+    // Assignment of this object to logical lanes
+    //
+    repeated LogicalLaneAssignment logical_lane_assignment = 6;
+
     //
     // \brief \c Classification data for a road surface marking.
     //

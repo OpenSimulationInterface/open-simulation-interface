@@ -71,6 +71,10 @@ message TrafficLight
     //
     optional ColorDescription color_description = 6;
 
+    // Assignment of this object to logical lanes
+    //
+    repeated LogicalLaneAssignment logical_lane_assignment = 7;
+
     //
     // \brief \c Classification data for a traffic light.
     //

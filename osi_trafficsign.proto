@@ -214,6 +214,10 @@ message TrafficSign
         //
         optional string model_reference = 3;
 
+        // Assignment of this object to logical lanes
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 4;
+
         //
         // \brief \c Classification data for a traffic sign.
         //
@@ -5568,6 +5572,10 @@ message TrafficSign
         // 3d models.
         //
         optional string model_reference = 3;
+
+        // Assignment of this object to logical lanes
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 4;
 
         //
         // \brief \c Classification data for a supplementary traffic sign.
