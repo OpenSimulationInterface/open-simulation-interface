@@ -79,6 +79,10 @@ message StationaryObject
     //
     optional ColorDescription color_description = 6;
 
+    // Assignment of this object to logical lanes
+    //
+    repeated LogicalLaneAssignment logical_lane_assignment = 7;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -482,6 +486,10 @@ message MovingObject
     // The dominating color of the material of the moving object.
     //
     optional ColorDescription color_description = 11;
+
+    // Assignment of this object to logical lanes
+    //
+    repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
     // Definition of object types.
     //
