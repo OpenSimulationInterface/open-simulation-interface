@@ -140,10 +140,14 @@ message SurfaceLine
     //
     // Defined and used for driving lanes.
 <<<<<<< HEAD
+<<<<<<< HEAD
     // \c true means that the surface line is also the centerline of the lane.
 =======
     // \c true means that the surface line is also the centerline of the lane4.
 >>>>>>> Create osi_surfaceline.proto
+=======
+    // \c true means that the surface line is also the centerline of the lane.
+>>>>>>> Update osi_surfaceline.proto
     //
     // Example: \c #surfaceline_is_centerline = \c true for surfaceline sl2
     // and \c #surfaceline_is_centerline = \c false for surfacelane sl1 in
@@ -271,11 +275,46 @@ message SurfaceLine
     optional LaneBoundary.Identifier is_left_lane_boundary_id = 6;
     optional LaneBoundary.Identifier is_right_lane_boundary_id = 7;
     
-    message SurfaceLinePoint {
+    // Id of the corresponding lane that this surface line belongs to
+    optional Lane.Identifier lane = 8;
     
+    message SurfaceLinePoint {
+   
         // The position of the \c SurfaceLinePoint.
         //
         optional Vector3d position = 1;
     }
+    
+    // In order to be able to increase/decrease the accuracy or detail of the surface description
+    // by adding more surfacelines for a certain part of a lane, the corresponding 
+    // surfacelines are grouped in sections. Whenever a different number of surfacelines is needed
+    // along the course of the lane, a new section is introduced
+    //
+    // Example:
+    //
+    // <          sls_1           >|<          sls_2         >|<           sls_3         >|
+    // |--------- sl_1 ------------|---------- sl_3 ----------|----------- ls_6 ----------|
+    // |                           |                          |----------- ls_7 ----------|
+    // |                           |---------- sl_4 ----------|----------- ls_8 ----------|
+    // |                           |                          |----------- ls_9 ----------|
+    // |--------- sl_2 ------------|---------- sl_5 ----------|----------- ls_10 ---------|
+    message SurfaceLineSection {
+        // Id of the corresponding lane that this section belongs to
+        optional Lane.Identifier lane = 1;
+        
+        // Sections are indexed in increasing order along the lane direction.
+        // That way we have an automatic successor/predecessor for faster access
+        optional Identifier sectionindex = 2;
+        
+        // Each section contains a list of the included surfacelines
+        repeated SurfaceLine surfacelines = 3;    
+            
+    }
+
 }
+<<<<<<< HEAD
 >>>>>>> Create osi_surfaceline.proto
+=======
+    
+
+>>>>>>> Update osi_surfaceline.proto
