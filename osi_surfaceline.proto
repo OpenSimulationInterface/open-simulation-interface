@@ -43,7 +43,6 @@ package osi3;
 // \attention If more than one surface line exists, they are not allowed to cross each other 
 // or the lane boundaries, otherwise you could have conflicting height information at these points.
 //
-
 message SurfaceLine
 {
     // The ID of the surface line.
@@ -110,15 +109,24 @@ message SurfaceLine
     // 
     optional Identifier right_adjacent_surfaceline_id = 5;
     
-    // \note If this surface line is located at the left/right 
+    // \note If this surface line is located at the left 
     // LaneBoundary we reference the appropriate id and can use 
     // the information about the points
+    //
     optional LaneBoundary.Identifier is_left_lane_boundary_id = 6;
+    
+    // \note If this surface line is located at the right 
+    // LaneBoundary we reference the appropriate id and can use 
+    // the information about the points
+    //
     optional LaneBoundary.Identifier is_right_lane_boundary_id = 7;
     
     // Id of the corresponding lane that this surface line belongs to
+    //
     optional Lane.Identifier lane = 8;
     
+    // Definition of the points that make up a surface line
+    //
     message SurfaceLinePoint {
    
         // The position of the \c SurfaceLinePoint.
@@ -139,19 +147,22 @@ message SurfaceLine
     // |                           |---------- sl_4 ----------|----------- ls_8 ----------|
     // |                           |                          |----------- ls_9 ----------|
     // |--------- sl_2 ------------|---------- sl_5 ----------|----------- ls_10 ---------|
+    //
     message SurfaceLineSection {
+    
         // Id of the corresponding lane that this section belongs to
+        //
         optional Lane.Identifier lane = 1;
         
         // Sections are indexed in increasing order along the lane direction.
         // That way we have an automatic successor/predecessor for faster access
+        //
         optional Identifier sectionindex = 2;
         
         // Each section contains a list of the included surfacelines
-        repeated SurfaceLine surfacelines = 3;    
-            
+        //
+        repeated SurfaceLine surfacelines = 3;               
     }
-
 }
     
 
