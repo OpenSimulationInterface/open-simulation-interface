@@ -200,10 +200,17 @@ message LogicalLaneBoundary
         //
         PASSING_RULE_UNKNOWN = 0;
 
+        // Passing rule fits neither of the other categories.
+        //
+        // Example: this type needs to be used if passing depends on the agent
+        // type, e.g. if cars may change lane, but trucks may not.
+        //
+        PASSING_RULE_OTHER = 1;
+
         // No passing is allowed (neither from left to right nor from right to
         // left).
         //
-        PASSING_RULE_NONE_ALLOWED = 1;
+        PASSING_RULE_NONE_ALLOWED = 2;
 
         // Only passing in increasing T direction allowed. Passing is allowed
         // from one lane to the other if the points on the target lane have
@@ -212,7 +219,7 @@ message LogicalLaneBoundary
         // driving direction), this means changing from right to left is
         // allowed.
         //
-        PASSING_RULE_INCREASING_T = 2;
+        PASSING_RULE_INCREASING_T = 3;
 
         // Only passing in decreasing T direction allowed. Passing is allowed
         // from one lane to the other if the points on the target lane have
@@ -221,19 +228,13 @@ message LogicalLaneBoundary
         // driving direction), this means changing from left to right is
         // allowed.
         //
-        PASSING_RULE_DECREASING_T = 3;
+        PASSING_RULE_DECREASING_T = 4;
 
         // Passing is allowed in both directions (left to right and right to
         // left).
         //
-        PASSING_RULE_BOTH_ALLOWED = 4;
+        PASSING_RULE_BOTH_ALLOWED = 5;
 
-        // Passing rule fits neither of the above categories.
-        //
-        // Example: this type needs to be used if passing depends on the agent
-        // type, e.g. if cars may change lane, but trucks may not.
-        //
-        PASSING_RULE_OTHER = 5;
     }
 }
 
