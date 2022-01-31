@@ -78,8 +78,10 @@ message LogicalLaneBoundary
     // \image html line_approximation_error.svg "Approximation error"
     // Approximation error green line.
     //
-    // The Z error (difference in Z height between boundary_line and the "real"
-    // line) must also not exceed 5cm.
+    // The Z error (difference in Z height between #boundary_line and the
+    // "real" line) must not exceed 2cm. This is a stricter requirements than
+    // for errors in the XY plane, because Z differences between lanes
+    // influence driving very much.
     //
     // Note: if two lanes have different Z heights (e.g. a driving lane is
     // beside a sidewalk, where the sidewalk is 10cm higher than the road),
