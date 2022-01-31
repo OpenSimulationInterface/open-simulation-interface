@@ -633,6 +633,18 @@ message LogicalLane
         // height than the adjacent drivable lanes.
         //
         TYPE_CURB = 16;
+
+        // A rail lane. This lane covers the area a train needs to drive along
+        // its rails.
+        // #overlapping_lane then describes where a train crosses other lanes.
+        //
+        TYPE_RAIL = 17;
+
+        // A tram lane. This lane covers the area a tram needs to drive along
+        // its rails.
+        // #overlapping_lane then describes where a tram crosses other lanes.
+        //
+        TYPE_TRAM = 18;
     }
 
     //
