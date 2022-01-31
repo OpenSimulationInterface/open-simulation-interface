@@ -240,9 +240,9 @@ message LogicalLaneBoundary
 //
 // A logical lane is part of a road. Compared to a physical lane (OSI type
 // \c Lane), its existence doesn't hinge on the existence of road markings. So
-// e.g. a narrow urban road with two driving directions but no road markings
-// in-between would be presented as two \link LogicalLane LogicalLanes\endlink,
-// but only one Lane. So one Lane can consist of multiple \link LogicalLane
+// e.g. a road with two driving directions but no road markings in-between
+// would be presented as two \link LogicalLane LogicalLanes\endlink, but only
+// one Lane. So one Lane can consist of multiple \link LogicalLane
 // LogicalLanes\endlink. E.g. on intersections, each driving path is one
 // LogicalLane, but the whole area is one \c Lane of type \link
 // osi3::Lane::Classification::TYPE_INTERSECTION \c TYPE_INTERSECTION \endlink.
