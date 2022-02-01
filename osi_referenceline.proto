@@ -179,11 +179,11 @@ message ReferenceLine
     message ReferenceLinePoint
     {
         // \brief A world position
-	//
+        //
         optional Vector3d world_position = 1;
 
         // \brief S position on the reference line
-	//
+        //
         optional double s_position = 2;
     }
 }
