@@ -442,9 +442,7 @@ message RadarSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_time_quanta = 12;
+    optional uint32 update_cycle_time_quanta = 12;
 
     // Initial offset time quanta of the modeled radar sensor front-end.
     //
@@ -467,9 +465,7 @@ message RadarSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_offset_quanta = 13;
+    optional uint32 update_cycle_offset_quanta = 13;
 
     //
     // \brief The radar antenna diagram.
@@ -607,9 +603,7 @@ message LidarSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_time_quanta = 9;
+    optional uint32 update_cycle_time_quanta = 9;
 
     // Initial offset time quanta of the modeled lidar sensor front-end.
     //
@@ -632,9 +626,7 @@ message LidarSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_offset_quanta = 10;
+    optional uint32 update_cycle_offset_quanta = 10;
 
 }
 
@@ -783,9 +775,7 @@ message CameraSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_time_quanta = 12;
+    optional uint32 update_cycle_time_quanta = 12;
 
     // Initial offset time quanta of the modeled camera sensor front-end.
     //
@@ -808,9 +798,7 @@ message CameraSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_offset_quanta = 13;
+    optional uint32 update_cycle_offset_quanta = 13;
 
     // Channel format.
     //
@@ -1171,9 +1159,7 @@ message UltrasonicSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_time_quanta = 6;
+    optional uint32 update_cycle_time_quanta = 6;
 
     // Initial offset time quanta of the modeled ultrasonic sensor front-end.
     //
@@ -1197,9 +1183,7 @@ message UltrasonicSensorViewConfiguration
     // \note It is given in time quanta of the overall SensorView's
     // update cycle time.
     //
-    // Unit: /
-    //
-    optional uint8 update_cycle_offset_quanta = 7;
+    optional uint32 update_cycle_offset_quanta = 7;
 
     // TBD: Ultrasonic Sensor specific configuration.
     //
