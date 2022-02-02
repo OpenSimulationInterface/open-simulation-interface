@@ -79,10 +79,6 @@ message StationaryObject
     //
     optional ColorDescription color_description = 6;
 
-    // Assignment of this object to logical lanes
-    //
-    repeated LogicalLaneAssignment logical_lane_assignment = 7;
-
     //
     // \brief Classification data for a stationary object.
     //
@@ -127,6 +123,12 @@ message StationaryObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated double assigned_lane_percentage = 7;
+
+        // Assignment of this object to logical lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 8;
 
         // Definition of object types.
         //
@@ -487,10 +489,6 @@ message MovingObject
     //
     optional ColorDescription color_description = 11;
 
-    // Assignment of this object to logical lanes
-    //
-    repeated LogicalLaneAssignment logical_lane_assignment = 12;
-
     // Definition of object types.
     //
     enum Type
@@ -704,8 +702,13 @@ message MovingObject
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated double assigned_lane_percentage = 2;        
-        
+        repeated double assigned_lane_percentage = 2;
+
+        // Assignment of this object to logical lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 3;
     }
 
     //

@@ -214,10 +214,6 @@ message TrafficSign
         //
         optional string model_reference = 3;
 
-        // Assignment of this object to logical lanes
-        //
-        repeated LogicalLaneAssignment logical_lane_assignment = 4;
-
         //
         // \brief \c Classification data for a traffic sign.
         //
@@ -380,6 +376,13 @@ message TrafficSign
             // e.g. http://www.vzkat.de/2017/VzKat.htm
             //
             optional string sub_code = 11;
+
+            // Assignment of this object to logical lanes.
+            //
+            // \note OSI uses singular instead of plural for repeated field
+            // names.
+            //
+            repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
             // Definition of traffic sign types.
             // Numbers are given according to German StVO.
@@ -5573,10 +5576,6 @@ message TrafficSign
         //
         optional string model_reference = 3;
 
-        // Assignment of this object to logical lanes
-        //
-        repeated LogicalLaneAssignment logical_lane_assignment = 4;
-
         //
         // \brief \c Classification data for a supplementary traffic sign.
         //
@@ -5705,6 +5704,13 @@ message TrafficSign
             // e.g. http://www.vzkat.de/2017/VzKat.htm
             //
             optional string sub_code = 11;
+
+            // Assignment of this object to logical lanes.
+            //
+            // \note OSI uses singular instead of plural for repeated field
+            // names.
+            //
+            repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
             // Definition of supplementary sign types.
             //
