@@ -21,7 +21,7 @@ package osi3;
 //
 message ReferenceLine
 {
-    // \brief The ID of the logical lane.
+    // The ID of the logical lane.
     //
     // \note Note ID is global unique.
     //
@@ -31,7 +31,7 @@ message ReferenceLine
     //
     optional Identifier id = 1;
 
-    // \brief Points comprising the polyline.
+    // Points comprising the polyline.
     //
     // At least 2 points must be given.
     // The polyline is defined as the lines between consecutive points.
@@ -178,11 +178,11 @@ message ReferenceLine
     //
     message ReferenceLinePoint
     {
-        // \brief A world position
+        // A world position
         //
         optional Vector3d world_position = 1;
 
-        // \brief S position on the reference line
+        // S position on the reference line
         //
         optional double s_position = 2;
     }
