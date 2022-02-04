@@ -39,6 +39,7 @@ var annotated_dup =
       [ "HostVehicleData", "structosi3_1_1HostVehicleData.html", "structosi3_1_1HostVehicleData" ],
       [ "Identifier", "structosi3_1_1Identifier.html", "structosi3_1_1Identifier" ],
       [ "InterfaceVersion", "structosi3_1_1InterfaceVersion.html", "structosi3_1_1InterfaceVersion" ],
+      [ "KeyValuePair", "structosi3_1_1KeyValuePair.html", "structosi3_1_1KeyValuePair" ],
       [ "Lane", "structosi3_1_1Lane.html", "structosi3_1_1Lane" ],
       [ "LaneBoundary", "structosi3_1_1LaneBoundary.html", "structosi3_1_1LaneBoundary" ],
       [ "LidarDetection", "structosi3_1_1LidarDetection.html", "structosi3_1_1LidarDetection" ],

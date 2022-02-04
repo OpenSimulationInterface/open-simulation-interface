@@ -1,5 +1,6 @@
 var structosi3_1_1HostVehicleData =
 [
+    [ "VehicleAutomatedDrivingFunction", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction" ],
     [ "VehicleBasics", "structosi3_1_1HostVehicleData_1_1VehicleBasics.html", "structosi3_1_1HostVehicleData_1_1VehicleBasics" ],
     [ "VehicleBrakeSystem", "structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html", "structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem" ],
     [ "VehicleLocalization", "structosi3_1_1HostVehicleData_1_1VehicleLocalization.html", "structosi3_1_1HostVehicleData_1_1VehicleLocalization" ],
@@ -10,6 +11,7 @@ var structosi3_1_1HostVehicleData =
     [ "location", "structosi3_1_1HostVehicleData.html#a51624586db59bccb270eabf886860ffd", null ],
     [ "location_rmse", "structosi3_1_1HostVehicleData.html#a134f274a754bdbb4d6d231de530bf46d", null ],
     [ "timestamp", "structosi3_1_1HostVehicleData.html#aa0d85144c79aa90f0ca90d6fb2b5f05c", null ],
+    [ "vehicle_automated_driving_function", "structosi3_1_1HostVehicleData.html#a02fd3acdf85d92c3cfe933d250a3c69b", null ],
     [ "vehicle_basics", "structosi3_1_1HostVehicleData.html#a111e30515db9f900a8d4b962706a3f02", null ],
     [ "vehicle_brake_system", "structosi3_1_1HostVehicleData.html#a9bf7a889227aad3fc50a21d08fbbb8ad", null ],
     [ "vehicle_localization", "structosi3_1_1HostVehicleData.html#ac5bd08e8c364e0c962e78288b568c455", null ],

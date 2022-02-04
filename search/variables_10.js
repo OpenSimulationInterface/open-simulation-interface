@@ -46,6 +46,7 @@ var searchData=
   ['specific_5fheader',['specific_header',['../structosi3_1_1UltrasonicDetectionData.html#aa9ebd0b90782a774aa0844fa62972e29',1,'osi3::UltrasonicDetectionData::specific_header()'],['../structosi3_1_1CameraDetectionData.html#a11cef014d85334c612d4bf8d37e5276a',1,'osi3::CameraDetectionData::specific_header()']]],
   ['speed_5faction',['speed_action',['../structosi3_1_1TrafficAction.html#ad871b1104f7d3da64095ffef284d9c7f',1,'osi3::TrafficAction']]],
   ['start',['start',['../structosi3_1_1WavelengthData.html#a8ee43ccfe4916625ba392485bcffa34d',1,'osi3::WavelengthData']]],
+  ['state',['state',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4cacefe3f78435cddf532c5f04b8c6fb',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction']]],
   ['stationary_5fobject',['stationary_object',['../structosi3_1_1GroundTruth.html#ab3ed9b77d4db3fda6a8a03a4cbd37d50',1,'osi3::GroundTruth::stationary_object()'],['../structosi3_1_1SensorData.html#a88c9ebfc5962c362385bb7ca80b3a696',1,'osi3::SensorData::stationary_object()']]],
   ['stationary_5fobject_5fheader',['stationary_object_header',['../structosi3_1_1SensorData.html#a8919ed1a34cf43726b59721fa688e240',1,'osi3::SensorData']]],
   ['steering_5fcontrol',['steering_control',['../structosi3_1_1Occupant_1_1Classification.html#a3c558469319b38ab91d21fd208893151',1,'osi3::Occupant::Classification']]],

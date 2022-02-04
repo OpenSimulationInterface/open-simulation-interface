@@ -24,6 +24,9 @@ var searchData=
   ['curb_5fweight',['curb_weight',['../structosi3_1_1HostVehicleData_1_1VehicleBasics.html#ac82a61506a899b9c5b30d1a4e5692842',1,'osi3::HostVehicleData::VehicleBasics']]],
   ['current_5finterface_5fversion',['current_interface_version',['../structosi3_1_1FileOptions.html#a0f5d907af93f7e7ee0ce42cdac0221e1',1,'osi3::FileOptions']]],
   ['custom_5faction',['custom_action',['../structosi3_1_1TrafficAction.html#aaf959088db53d9ce041d2b365af0feb4',1,'osi3::TrafficAction']]],
+  ['custom_5fdetail',['custom_detail',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a77f10f9c7df2deeb706b5c1531837929',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction']]],
+  ['custom_5fname',['custom_name',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a5d790968959f4484d4ee3e37ab2eb408',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction']]],
+  ['custom_5fstate',['custom_state',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a2daa801c356b3bb1c00a723c86f70be7',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction']]],
   ['cyan',['cyan',['../structosi3_1_1ColorCMYK.html#a7e2a256e07c5610d1b16ce2ee0b22a49',1,'osi3::ColorCMYK']]],
   ['cycle_5fcounter',['cycle_counter',['../structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92',1,'osi3::SensorDetectionHeader::cycle_counter()'],['../structosi3_1_1DetectedEntityHeader.html#a189ceeaab3390c89f13442df1a70563f',1,'osi3::DetectedEntityHeader::cycle_counter()']]]
 ];

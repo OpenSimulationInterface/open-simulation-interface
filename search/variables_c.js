@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['name',['name',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#ad20ff01191d39945553035ea2d523ffb',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction']]],
   ['nanos',['nanos',['../structosi3_1_1Timestamp.html#aa3937d70fbeef3c023708adc95d81905',1,'osi3::Timestamp']]],
   ['normal_5fto_5fsurface',['normal_to_surface',['../structosi3_1_1LidarSensorView_1_1Reflection.html#a8c68f21a375a0aa52ad9cc5634dd1aa2',1,'osi3::LidarSensorView::Reflection']]],
   ['num_5fof_5fpixels',['num_of_pixels',['../structosi3_1_1LidarSensorViewConfiguration.html#a55ae2af0ac4a312ee6eca8d4e28f5b3e',1,'osi3::LidarSensorViewConfiguration']]],

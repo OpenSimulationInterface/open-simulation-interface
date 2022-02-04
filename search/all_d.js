@@ -9,5 +9,6 @@ var searchData=
   ['orientation3d',['Orientation3d',['../structosi3_1_1Orientation3d.html',1,'osi3']]],
   ['orientation_5facceleration',['orientation_acceleration',['../structosi3_1_1BaseMoving.html#ae042af32022871003d8abeeb284577bf',1,'osi3::BaseMoving']]],
   ['orientation_5frate',['orientation_rate',['../structosi3_1_1BaseMoving.html#a8cfdbe7e278814652a96b85b2c909df3',1,'osi3::BaseMoving']]],
-  ['othermessage',['OtherMessage',['../structproto_1_1test_1_1ProtoMessage_1_1OtherMessage.html',1,'proto::test::ProtoMessage']]]
+  ['othermessage',['OtherMessage',['../structproto_1_1test_1_1ProtoMessage_1_1OtherMessage.html',1,'proto::test::ProtoMessage']]],
+  ['override_5freason',['override_reason',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a52f19d9c1fb53734e532400b0b366717',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction::DriverOverride']]]
 ];

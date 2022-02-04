@@ -1,0 +1,47 @@
+var structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction =
+[
+    [ "DriverOverride", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride" ],
+    [ "Name", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401", [
+      [ "NAME_UNKNOWN", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a136452eb1f8fa9e89b1e4cfb735cd478", null ],
+      [ "NAME_OTHER", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401af717ecb192b5990a6f1f535935e9013e", null ],
+      [ "NAME_BLIND_SPOT_WARNING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a8abace040f208d2117267dd460573663", null ],
+      [ "NAME_FORWARD_COLLISION_WARNING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401af3d73705859f6871e98c9f56d337ee1f", null ],
+      [ "NAME_LANE_DEPARTURE_WARNING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a05819bada1d498d4f6b457be3277b4f0", null ],
+      [ "NAME_PARKING_COLLISION_WARNING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a631642bc6aa40da0a475e9f7e725c01e", null ],
+      [ "NAME_REAR_CROSS_TRAFFIC_WARNING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a3f8cf5853b914b6fbdee87822a417bee", null ],
+      [ "NAME_AUTOMATIC_EMERGENCY_BRAKING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a6316b206bcf43729f38ccaac1400a452", null ],
+      [ "NAME_AUTOMATIC_EMERGENCY_STEERING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a58ab35641a3ae271386c6b2feefb5a09", null ],
+      [ "NAME_REVERSE_AUTOMATIC_EMERGENCY_BRAKING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a3dedb4ee203412388e51522310a28cca", null ],
+      [ "NAME_ADAPTIVE_CRUISE_CONTROL", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401adc4ca90cd863d051f3580f9d1a5f6869", null ],
+      [ "NAME_LANE_KEEPING_ASSIST", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401aa2b3c1c97329a447285e231d4ac53dd7", null ],
+      [ "NAME_ACTIVE_DRIVING_ASSISTANCE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401ac427256b3d9bac252461cda74dff977f", null ],
+      [ "NAME_BACKUP_CAMERA", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a057101b91662955e8bbf25959252a18c", null ],
+      [ "NAME_SURROUND_VIEW_CAMERA", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a1652a19242c432227d54cf18b76b5ec1", null ],
+      [ "NAME_ACTIVE_PARKING_ASSISTANCE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401acd6342127bf114a03a76f094dbbe561d", null ],
+      [ "NAME_REMOTE_PARKING_ASSISTANCE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a421e3efadc4a5444d741735b58794273", null ],
+      [ "NAME_TRAILER_ASSISTANCE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a1cd1723178fbc8d86d8ef2d535bd66a3", null ],
+      [ "NAME_AUTOMATIC_HIGH_BEAMS", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401ab5830fe0d8913863bc2a8b29c095ad1b", null ],
+      [ "NAME_DRIVER_MONITORING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a88564d3a892a9dd2eb61edc937527b3c", null ],
+      [ "NAME_HEAD_UP_DISPLAY", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401ac5f07020617759ab639af4cd87f13505", null ],
+      [ "NAME_NIGHT_VISION", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401ae7adf582bcac30f90e7ccac772af6508", null ],
+      [ "NAME_URBAN_DRIVING", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a6f66511876d9f4064f109c0968c250c0", null ],
+      [ "NAME_HIGHWAY_AUTOPILOT", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a473b4a03d80a5f354b2b9033d4da6097", null ],
+      [ "NAME_CRUISE_CONTROL", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401ae72a8093320719738b642dcb1f35c18d", null ],
+      [ "NAME_SPEED_LIMIT_CONTROL", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#abdd98fc1a55499180e55079e26c28401a162e33f48d0c397795b8d708bed2b680", null ]
+    ] ],
+    [ "State", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772d", [
+      [ "STATE_UNKNOWN", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772da200caaab574f41011ca0cb3d6fb311bc", null ],
+      [ "STATE_OTHER", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772da9230ba84ca7b5e09ca3a0b8466ef8c9c", null ],
+      [ "STATE_ERRORED", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772dae68f65e4740eb7e5647fe88713e25d97", null ],
+      [ "STATE_UNAVAILABLE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772dabc1767b21ba63b3a86544416a12571f0", null ],
+      [ "STATE_AVAILABLE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772daf7e6f6ef4c8a774cd947db68c9f30d51", null ],
+      [ "STATE_STANDBY", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772dac32775ee4ac367835a7671979e1a0d70", null ],
+      [ "STATE_ACTIVE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772da817cd0a88d2cc2394375338837124d1e", null ]
+    ] ],
+    [ "custom_detail", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a77f10f9c7df2deeb706b5c1531837929", null ],
+    [ "custom_name", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a5d790968959f4484d4ee3e37ab2eb408", null ],
+    [ "custom_state", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a2daa801c356b3bb1c00a723c86f70be7", null ],
+    [ "driver_override", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#ad02a7d5d87b002b5f585af7e3acca20b", null ],
+    [ "name", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#ad20ff01191d39945553035ea2d523ffb", null ],
+    [ "state", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4cacefe3f78435cddf532c5f04b8c6fb", null ]
+];

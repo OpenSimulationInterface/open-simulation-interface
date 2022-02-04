@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['reference_5fpoint_5fcenter',['REFERENCE_POINT_CENTER',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aab2a14323c6f6439b740a6098d0818b7c',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5ffront_5fleft',['REFERENCE_POINT_FRONT_LEFT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa83e02fdb86f71da9dabc87e94d9a4d38',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5ffront_5fmiddle',['REFERENCE_POINT_FRONT_MIDDLE',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa77c3b47e965ce23828b82a8d317e19ba',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5ffront_5fright',['REFERENCE_POINT_FRONT_RIGHT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa829bb6d7abfb547c66cd58d8eb517b54',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5fmiddle_5fleft',['REFERENCE_POINT_MIDDLE_LEFT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aae9277417c8401f773d607fb28b1ca831',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5fmiddle_5fright',['REFERENCE_POINT_MIDDLE_RIGHT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aaff75477b04bc27b13c7ed3b4b01f7318',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5fother',['REFERENCE_POINT_OTHER',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa4a6328ac82e22e23b7e046e34bcef9a5',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5frear_5fleft',['REFERENCE_POINT_REAR_LEFT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa872e4fc68085494dfe424e5655e73003',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5frear_5fmiddle',['REFERENCE_POINT_REAR_MIDDLE',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa231b49bc4489076438861d6a9bdb8c16',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5frear_5fright',['REFERENCE_POINT_REAR_RIGHT',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aa0e572bf2a3ea3e0b57e4d1fea60adef2',1,'osi3::DetectedMovingObject']]],
-  ['reference_5fpoint_5funknown',['REFERENCE_POINT_UNKNOWN',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602aadfb68f359b585fb5948c5fcd715544a0',1,'osi3::DetectedMovingObject']]]
+  ['precipitation_5fextreme',['PRECIPITATION_EXTREME',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afaf41ee9c2bb22eef1efebb9a3b80cc1a0',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5fheavy',['PRECIPITATION_HEAVY',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afaec3857664ea661c118114315a12a1c40',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5flight',['PRECIPITATION_LIGHT',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040aface33c254338088a0f5adf1ddde5ffa19',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5fmoderate',['PRECIPITATION_MODERATE',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afa61b329c4db8a2836af0f37eaa405193d',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5fnone',['PRECIPITATION_NONE',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afa1a11050634ed848a80efe441c1eace34',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5fother',['PRECIPITATION_OTHER',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afa34bac5c0bb380425379ff8f9597c76e7',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5funknown',['PRECIPITATION_UNKNOWN',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afa5273e6f45ad82928bf2c68d046e6b618',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5fvery_5fheavy',['PRECIPITATION_VERY_HEAVY',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afab5077fd27d3f9988f7aa119ab2a64bf1',1,'osi3::EnvironmentalConditions']]],
+  ['precipitation_5fvery_5flight',['PRECIPITATION_VERY_LIGHT',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afa634daeea73401871c45d3eb7c25d0751',1,'osi3::EnvironmentalConditions']]]
 ];
