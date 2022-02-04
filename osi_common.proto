@@ -885,3 +885,20 @@ message GeodeticPosition
     //
     optional double altitude = 3;
 }
+
+//
+// \brief Generic key-value pair structure
+//
+// A generic key-value pair structure which can be used to capture information
+// which is opaque to the general OSI interface.
+//
+message KeyValuePair
+{
+    // A generic string key.
+    //
+    optional string key = 1;
+
+    // A generic string value.
+    //
+    optional string value = 2;
+}
