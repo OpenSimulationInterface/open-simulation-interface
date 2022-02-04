@@ -75,8 +75,20 @@ message HostVehicleData
     //
     optional VehicleLocalization vehicle_localization = 8;
 
+    // State of any automated driving functions.
     //
-    // \brief The absolute base parameters of the vehicle. 
+    // This can include:
+    //  - information presented to the driver, for example, parking sensors
+    //  - warnings raised by the vehicle, for example, forward collision warning
+    //  - corrective action taken by the vehicle, for example, auto emergency braking
+    //  - full level 4 self driving systems
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
+
+    //
+    // \brief The absolute base parameters of the vehicle.
     //
     message VehicleBasics
     {
@@ -170,7 +182,7 @@ message HostVehicleData
     }
 
     //
-    // \brief The focus here is on the description of the brake system. 
+    // \brief The focus here is on the description of the brake system.
     //
     message VehicleBrakeSystem
     {
@@ -181,7 +193,7 @@ message HostVehicleData
     }
 
     //
-    // \brief The focus here is on the description of the steering train. 
+    // \brief The focus here is on the description of the steering train.
     //
     message VehicleSteering
     {
@@ -223,7 +235,7 @@ message HostVehicleData
 
             // Rotation rate of the wheel based on the processed output of the hall sensor measurements at the wheel.
             // The rotation rate around the y-axis with respect to the wheel's coordinate system.
-            // 
+            //
             // Unit: rad/s.
             //
             // The sign convention is defined using the right-hand rule.
@@ -237,7 +249,7 @@ message HostVehicleData
 
             // Contains the longitudinal, measured slip of the tire.
             // \par References:
-            // - https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
+            // [1] kfz-tech.de, Schlupf, Retrieved June 30, 2021, from https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
             //
             // Unit: %
             //
@@ -270,9 +282,242 @@ message HostVehicleData
         // in context to the global coordinate system.
         //
         optional Orientation3d orientation = 2;
- 
+
         // Most accurate geodetic information of the vehicle available in the on-board network.
         //
         optional GeodeticPosition geodetic_position = 3;
+    }
+
+    //
+    // \brief State of one automated driving function on the host vehicle.
+    //
+    message VehicleAutomatedDrivingFunction
+    {
+        // The particular driving function being reported about.
+        //
+        optional Name name = 1;
+
+        // Custom driving function name.
+        //
+        // Only used if name is set to NAME_OTHER.
+        //
+        optional string custom_name = 2;
+
+        // The state of the function.
+        //
+        // This is whether the function has actually been triggered, for
+        // example, a warning has been raised, or additional braking is
+        // in effect.
+        //
+        optional State state = 3;
+
+        // Custom state.
+        //
+        // Only used if the state is set to STATE_OTHER.
+        //
+        optional string custom_state = 4;
+
+        // Whether, and how, the driver has overridden this function.
+        //
+        optional DriverOverride driver_override = 5;
+
+        // Custom detail.
+        //
+        // An opaque set of key-value pairs which capture any user specific
+        // details that may be relevant.  This could include details about
+        // how a warning was raised (dashboard, audible, etc.) or it could
+        // be about settings which would influence evaluation, such as
+        // sensitivity settings.
+        //
+        repeated KeyValuePair custom_detail = 6;
+
+        // A list of possible automated driving features.
+        //
+        // \note This can span (in theory) from Level 0 all the way to Level 5.
+        //
+        // \par References:
+        // [1] CLEARING THE CONFUSION: Recommended Common Naming for Advanced Driver Assistance Technologies, SAE International, Retrieved October 22, 2021, from https://www.sae.org/binaries/content/assets/cm/content/miscellaneous/adas-nomenclature.pdf
+        // [2] Automated Driving, German Association of the Automotive Industry (VDA), Retrieved October 22, 2021, from https://www.vda.de/en/topics/innovation-and-technology/automated-driving/automated-driving
+        //
+        enum Name
+        {
+            // Unknown feature, should not be used.
+            //
+            NAME_UNKNOWN = 0;
+
+            // Custom feature, see custom_name.
+            //
+            NAME_OTHER = 1;
+
+            // Blind spot warning.
+            //
+            NAME_BLIND_SPOT_WARNING = 2;
+
+            // Forward collision warning.
+            //
+            NAME_FORWARD_COLLISION_WARNING = 3;
+
+            // Lane departure warning.
+            //
+            NAME_LANE_DEPARTURE_WARNING = 4;
+
+            // Parking collision warning.
+            //
+            NAME_PARKING_COLLISION_WARNING = 5;
+
+            // Rear cross-traffic warning
+            //
+            NAME_REAR_CROSS_TRAFFIC_WARNING = 6;
+
+            // Automatic emergency braking
+            //
+            NAME_AUTOMATIC_EMERGENCY_BRAKING = 7;
+
+            // Emergency steering
+            //
+            NAME_AUTOMATIC_EMERGENCY_STEERING = 8;
+
+            // Reverse automatic emergency braking
+            //
+            NAME_REVERSE_AUTOMATIC_EMERGENCY_BRAKING = 9;
+
+            // Adaptive cruise control
+            //
+            NAME_ADAPTIVE_CRUISE_CONTROL = 10;
+
+            // Lane keeping assist
+            //
+            NAME_LANE_KEEPING_ASSIST = 11;
+
+            // Active driving assistance
+            //
+            NAME_ACTIVE_DRIVING_ASSISTANCE = 12;
+
+            // Backup camera
+            //
+            NAME_BACKUP_CAMERA = 13;
+
+            // Surround view camera
+            //
+            NAME_SURROUND_VIEW_CAMERA = 14;
+
+            // Active parking assistance
+            //
+            NAME_ACTIVE_PARKING_ASSISTANCE = 15;
+
+            // Remote parking assistance
+            //
+            NAME_REMOTE_PARKING_ASSISTANCE = 16;
+
+            // Trailer assistance
+            //
+            NAME_TRAILER_ASSISTANCE = 17;
+
+            // Automatic high beams
+            //
+            NAME_AUTOMATIC_HIGH_BEAMS = 18;
+
+            // Driver monitoring
+            //
+            NAME_DRIVER_MONITORING = 19;
+
+            // Head up display
+            //
+            NAME_HEAD_UP_DISPLAY = 20;
+
+            // Night vision
+            //
+            NAME_NIGHT_VISION = 21;
+
+            // Urban driving
+            //
+            NAME_URBAN_DRIVING = 22;
+
+            // Highway autopilot.
+            //
+            NAME_HIGHWAY_AUTOPILOT = 23;
+
+            // Cruise control.
+            //
+            NAME_CRUISE_CONTROL = 24;
+
+            // Speed limit control
+            //
+            NAME_SPEED_LIMIT_CONTROL = 25;
+        }
+
+        // The state that the feature is in.
+        //
+        // \note Not all of these will be applicable for all vehicles
+        // and features.
+        //
+        enum State
+        {
+            // An unknown state, this should not be used.
+            //
+            STATE_UNKNOWN = 0;
+
+            // Used for custom states not covered by the definitions below.
+            //
+            // A string state can be specified in custom_state.
+            //
+            STATE_OTHER = 1;
+
+            // The function has errored in some way that renders it ineffective.
+            //
+            STATE_ERRORED = 2;
+
+            // The function cannot be used due to unfulfilled preconditions,
+            // for example it is a highway only feature and the vehicle is in
+            // an urban environment.
+            //
+            STATE_UNAVAILABLE = 3;
+
+            // The function can be used as all preconditions are satisfied, but
+            // it hasn't been enabled.
+            //
+            STATE_AVAILABLE = 4;
+
+            // The function is available but conditions have not caused it to be
+            // triggered, for example, no vehicles in front to trigger a FCW.
+            //
+            STATE_STANDBY = 5;
+
+            // The function is currently active, for example, a warning is being
+            // shown to the driver, or emergency braking is being applied/
+            //
+            STATE_ACTIVE = 6;
+        }
+
+        //
+        // \brief Driver override information
+        //
+        // Information about whether and how and driver may have overridden
+        // an automated driving function.
+        //
+        message DriverOverride
+        {
+            // The feature has been overridden by a driver action.
+            //
+            // \note If false, the rest of this message should be ignored.
+            optional bool active = 1;
+
+            // What driver inputs have caused the override.
+            //
+            repeated Reason override_reason = 2;
+
+            // Ways in which a driver could override a driving function.
+            //
+            enum Reason
+            {
+                // The driver has applied sufficient input via the break pedal.
+                //
+                REASON_BRAKE_PEDAL = 0;
+
+                // The driver has applied sufficient steering input.
+                //
+                REASON_STEERING_INPUT = 1;
+            }
+        }
     }
 }
