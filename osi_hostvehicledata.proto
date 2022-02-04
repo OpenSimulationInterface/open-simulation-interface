@@ -88,7 +88,7 @@ message HostVehicleData
     repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
 
     //
-    // \brief The absolute base parameters of the vehicle. 
+    // \brief The absolute base parameters of the vehicle.
     //
     message VehicleBasics
     {
@@ -182,7 +182,7 @@ message HostVehicleData
     }
 
     //
-    // \brief The focus here is on the description of the brake system. 
+    // \brief The focus here is on the description of the brake system.
     //
     message VehicleBrakeSystem
     {
@@ -193,7 +193,7 @@ message HostVehicleData
     }
 
     //
-    // \brief The focus here is on the description of the steering train. 
+    // \brief The focus here is on the description of the steering train.
     //
     message VehicleSteering
     {
@@ -235,7 +235,7 @@ message HostVehicleData
 
             // Rotation rate of the wheel based on the processed output of the hall sensor measurements at the wheel.
             // The rotation rate around the y-axis with respect to the wheel's coordinate system.
-            // 
+            //
             // Unit: rad/s.
             //
             // The sign convention is defined using the right-hand rule.
@@ -249,7 +249,7 @@ message HostVehicleData
 
             // Contains the longitudinal, measured slip of the tire.
             // \par References:
-            // - https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
+            // [1] kfz-tech.de, Schlupf, Retrieved June 30, 2021, from https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm
             //
             // Unit: %
             //
@@ -282,7 +282,7 @@ message HostVehicleData
         // in context to the global coordinate system.
         //
         optional Orientation3d orientation = 2;
- 
+
         // Most accurate geodetic information of the vehicle available in the on-board network.
         //
         optional GeodeticPosition geodetic_position = 3;
@@ -335,9 +335,9 @@ message HostVehicleData
         //
         // \note This can span (in theory) from Level 0 all the way to Level 5.
         //
-        // References:
-        // - https://www.sae.org/binaries/content/assets/cm/content/miscellaneous/adas-nomenclature.pdf
-        // - https://www.vda.de/en/topics/innovation-and-technology/automated-driving/automated-driving
+        // \par References:
+        // [1] CLEARING THE CONFUSION: Recommended Common Naming for Advanced Driver Assistance Technologies, SAE International, Retrieved October 22, 2021, from https://www.sae.org/binaries/content/assets/cm/content/miscellaneous/adas-nomenclature.pdf
+        // [2] Automated Driving, German Association of the Automotive Industry (VDA), Retrieved October 22, 2021, from https://www.vda.de/en/topics/innovation-and-technology/automated-driving/automated-driving
         //
         enum Name
         {
