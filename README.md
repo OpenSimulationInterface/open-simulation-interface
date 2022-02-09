@@ -1,7 +1,15 @@
-Open Simulation Interface (OSI)
+SETLevel Open Simulation Interface (OSI) Fork
 ===============================
 
-[![Travis Build Status](https://travis-ci.com/OpenSimulationInterface/open-simulation-interface.svg?branch=master)](https://travis-ci.com/OpenSimulationInterface/open-simulation-interface)
+This repository provides releases of the Open Simulation Interface fork maintained within the [SETLevel](https://setlevel.de/) research project.
+
+It contains SETLevel-specific changes and enhancements of the official
+[ASAM OSI](https://www.asam.net/standards/detail/osi/) standard, and is
+made available to support the other releases from the SETLevel project.
+
+Note that all changes in this fork that are considered generally useful
+have been, and will continue to be provided back into the ASAM OSI
+development process, as seen in the [official GitHub repository](https://github.com/OpenSimulationInterface/open-simulation-interface).
 
 The Open Simulation Interface <sup>[[1]](https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/)</sup> (OSI) is a generic interface based on [Google's protocol buffers](https://developers.google.com/protocol-buffers/) for the environmental perception of automated driving functions in virtual scenarios.
 
