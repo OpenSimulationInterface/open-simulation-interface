@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1MovingObject.html#ab9f1f3095ace29da7d14954bc8d113f0":[2,0,0,50,6],
 "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721e":[2,0,0,50,3],
 "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea34271d85b37fc38a053e9d81e2e2eac2":[2,0,0,50,3,4],
 "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea4b608f86c88c57a54ca0619793deadcd":[2,0,0,50,3,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154":[2,0,0,63,1,4],
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8d9126ec3008db318aec64dc4b64d41c":[2,0,0,63,1,7],
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba9b274acacd19847eb783da3141aaad09":[2,0,0,63,1,9],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6":[2,0,0,63,1,0],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bab2f08e9e0e7d35d0390e03a26164da07":[2,0,0,63,1,12]
+"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6":[2,0,0,63,1,0]
 };

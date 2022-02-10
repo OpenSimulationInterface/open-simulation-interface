@@ -87,6 +87,7 @@ var NAVTREEINDEX2 =
 "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93a6c2574d05890aa72fd6d26bde9a6445a":[2,0,0,40,0,0,2],
 "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93a74434ec1c6aa0acddf59e9a2291ce281":[2,0,0,40,0,0,4],
 "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93a94b0f40fac2cdef5ca85f598db1368de":[2,0,0,40,0,0,0],
+"structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93ab7854cf92547c380bbd0439eca2d06b2":[2,0,0,40,0,0,5],
 "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#aab512ff550b26c0def46d45f704df838":[2,0,0,40,0,4],
 "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ad20352b7a3390b3dd608c7bfb7a58622":[2,0,0,40,0,1],
 "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ae8687f50d44774617a8ad44269266d74":[2,0,0,40,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structosi3_1_1MovingObject.html#a977066d08847f96bd98dffcc0aff80ca":[2,0,0,50,10],
 "structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8":[2,0,0,50,5],
 "structosi3_1_1MovingObject.html#aa2d750449efff1e937d9c9a69ad7fd71":[2,0,0,50,12],
-"structosi3_1_1MovingObject.html#aad46113ea5b9f84a4094f671630a010c":[2,0,0,50,13],
-"structosi3_1_1MovingObject.html#ab9f1f3095ace29da7d14954bc8d113f0":[2,0,0,50,6]
+"structosi3_1_1MovingObject.html#aad46113ea5b9f84a4094f671630a010c":[2,0,0,50,13]
 };
