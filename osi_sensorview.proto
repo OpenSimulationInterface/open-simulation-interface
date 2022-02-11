@@ -361,9 +361,9 @@ message MicrophoneSensorView
     //
     optional MicrophoneSensorViewConfiguration view_configuration = 1;
     
-    // Spectral density or loudness level per frequency.
+    // Frequency spectrum.
     //
-    // The raw Spectral density data in the memory layout and order specified by the
+    // The raw frequency spectrum data in the memory layout and order specified by the
     // microphone sensor input configuration.
     //
     optional bytes microphone_data = 2;
