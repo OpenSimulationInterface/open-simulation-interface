@@ -91,7 +91,7 @@ Install `pip3` and missing python packages:
 ```bash
 $ sudo apt-get install python3-pip python3-setuptools
 ```
-Install `protobuf` 3.0.0:
+Install `protobuf`:
 ```bash
 $ sudo apt-get install libprotobuf-dev protobuf-compiler
 ```
