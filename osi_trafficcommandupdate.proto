@@ -10,7 +10,7 @@ package osi3;
 //
 // \brief This message enables the traffic participant model to send updates 
 // to the scenario engine about the execution of its received \c TrafficCommand input. 
-// While traffic actions are usually executed successfully by the traffic participant 
+// While traffic actions are usually executed successfully by the traffic participant,
 // there may be actions which the traffic participant is not able to execute
 // either for capability or situation-specific reasons. This message gives
 // the traffic participant the basic possiblity to send feedback if an action 
@@ -67,7 +67,7 @@ message TrafficCommandUpdate
 
         // Information about the reason of failure.
         // 
-        // \note This is just a custom, informal string without a standardized meaning. 
+        // \note This is a custom, informal string without a standardized meaning. 
         //
         optional string failure_reason = 2;
     }

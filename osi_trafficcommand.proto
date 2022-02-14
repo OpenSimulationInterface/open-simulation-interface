@@ -65,8 +65,9 @@ message TrafficCommand
 // model that certain actions must or shall be terminated, there are 
 // explicit actions nested inside this message (AbortActionsAction, 
 // EndActionsAction), which hold a reference to the respective actions.
-// It is highly recommended for the scenario engine to handle the state 
-// machine of traffic actions and to use AbortActionsActions / 
+//
+// It is highly recommended that the scenario engine handles the state 
+// machine of traffic actions and uses AbortActionsActions / 
 // EndActionsAction to transfer information to the traffic participant. 
 // Furthermore, the scenario engine shall listen to DismissedActions of 
 // \c TrafficCommandUpdate to reflect this in the evaluation of the 
