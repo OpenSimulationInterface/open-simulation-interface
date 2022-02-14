@@ -12,8 +12,9 @@ package osi3;
 // to the scenario engine about the execution of its received \c TrafficCommand input. 
 // While traffic actions are usually executed successfully by the traffic participant,
 // there may be actions which the traffic participant is not able to execute
-// either for capability or situation-specific reasons. This message gives
-// the traffic participant the basic possiblity to send feedback if an action 
+// either for capability or situation-specific reasons. 
+// 
+// This message allows a traffic participant to send feedback if an action 
 // cannot happen as requested by the \c TrafficCommand. Currently, it is out of
 // scope to standardize the exact reason for non-executability or failed execution 
 // because the reason can have multiple explantions. The point in time 
@@ -46,7 +47,7 @@ message TrafficCommandUpdate
 
     // Actions which a traffic participant dismisses.
     //
-    // \note If more than one action id is supplied it means that
+    // \note If more than one dismissed action is supplied it means that
     // multiple actions are regarded as dismissed.
     //
     repeated DismissedAction dismissed_action = 4;
@@ -56,7 +57,7 @@ message TrafficCommandUpdate
     //
     message DismissedAction 
     {
-        // Dismissed traffic action id from the perspective of a traffic participant, if any.
+        // Dismissed traffic action id from the perspective of this traffic participant, if any.
         //
         // \note A dismissed traffic action id identifies a \c TrafficAction which cannot be executed or 
         // completed by the traffic participant. This field must have the same value as 
