@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('structosi3_1_1LogicalDetectionData.htm
 </div><!--header-->
 <div class="contents">
 
-<p>Processed data from one or multiple sensors as a list of logical detections. Logical detections are derived from sensor detections in a logical model through processing steps like fusion filtering, tracking etc.  
+<p>Processed data from one or multiple sensors as a list of logical detections.  
  <a href="structosi3_1_1LogicalDetectionData.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::LogicalDetectionData:</div>
@@ -113,16 +113,37 @@ Collaboration diagram for osi3::LogicalDetectionData:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae01fdd0d2ba0b99bb2f3e95c4a92b481"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalDetectionData.html#ae01fdd0d2ba0b99bb2f3e95c4a92b481">version</a> = 1</td></tr>
+<tr class="memdesc:ae01fdd0d2ba0b99bb2f3e95c4a92b481"><td class="mdescLeft">&#160;</td><td class="mdescRight">The interface version used by the sender (i.e.  <a href="#ae01fdd0d2ba0b99bb2f3e95c4a92b481">More...</a><br /></td></tr>
 <tr class="separator:ae01fdd0d2ba0b99bb2f3e95c4a92b481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34055185af45ddc052b2e182ab9fd1db"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html">LogicalDetectionDataHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalDetectionData.html#a34055185af45ddc052b2e182ab9fd1db">header</a> = 2</td></tr>
+<tr class="memdesc:a34055185af45ddc052b2e182ab9fd1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header attributes of fused detections from multiple sensors and sensor types.  <a href="#a34055185af45ddc052b2e182ab9fd1db">More...</a><br /></td></tr>
 <tr class="separator:a34055185af45ddc052b2e182ab9fd1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a754762194c10b1f1775b5b495c629834"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LogicalDetection.html">LogicalDetection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalDetectionData.html#a754762194c10b1f1775b5b495c629834">logical_detection</a> = 3</td></tr>
+<tr class="memdesc:a754762194c10b1f1775b5b495c629834"><td class="mdescLeft">&#160;</td><td class="mdescRight">logical detections consisting of transformed (and potentially fused) detections from one or multiple sensors and sensor types.  <a href="#a754762194c10b1f1775b5b495c629834">More...</a><br /></td></tr>
 <tr class="separator:a754762194c10b1f1775b5b495c629834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Processed data from one or multiple sensors as a list of logical detections. Logical detections are derived from sensor detections in a logical model through processing steps like fusion filtering, tracking etc. </p>
-<p>All information is given with respect to the reference frame of the logical/virtual sensor <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7">SensorView::mounting_position</a></code> (e.g. center of rear axle of the ego car) in Cartesian coordinates. </p>
+<div class="textblock"><p>Processed data from one or multiple sensors as a list of logical detections. </p>
+<p>Logical detections are derived from sensor detections in a logical model through processing steps like fusion filtering, tracking etc.</p>
+<p>All information is given with respect to the reference frame of the logical/virtual sensor <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) ...">SensorView::mounting_position</a></code> (e.g. center of rear axle of the ego car) in Cartesian coordinates. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae01fdd0d2ba0b99bb2f3e95c4a92b481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae01fdd0d2ba0b99bb2f3e95c4a92b481">&#9670;&nbsp;</a></span>version</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a> osi3::LogicalDetectionData::version = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The interface version used by the sender (i.e. </p>
+<p>the simulation environment). </p>
+
+</div>
+</div>
 <a id="a34055185af45ddc052b2e182ab9fd1db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34055185af45ddc052b2e182ab9fd1db">&#9670;&nbsp;</a></span>header</h2>
 
@@ -134,6 +155,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Header attributes of fused detections from multiple sensors and sensor types. </p>
 
 </div>
@@ -149,23 +171,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>logical detections consisting of transformed (and potentially fused) detections from one or multiple sensors and sensor types. Logical detections are given with respect to the reference frame of the logical/virtual sensor <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7">SensorView::mounting_position</a></code> (e.g. center of rear axle of the ego car)</p>
+
+<p>logical detections consisting of transformed (and potentially fused) detections from one or multiple sensors and sensor types. </p>
+<p>Logical detections are given with respect to the reference frame of the logical/virtual sensor <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) ...">SensorView::mounting_position</a></code> (e.g. center of rear axle of the ego car)</p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
-
-</div>
-</div>
-<a id="ae01fdd0d2ba0b99bb2f3e95c4a92b481"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae01fdd0d2ba0b99bb2f3e95c4a92b481">&#9670;&nbsp;</a></span>version</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a> osi3::LogicalDetectionData::version = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The interface version used by the sender (i.e. the simulation environment). </p>
 
 </div>
 </div>

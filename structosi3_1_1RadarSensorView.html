@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -119,31 +119,16 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae25cff303336cd7feef28f46847b82a1"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1RadarSensorViewConfiguration.html">RadarSensorViewConfiguration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RadarSensorView.html#ae25cff303336cd7feef28f46847b82a1">view_configuration</a> = 1</td></tr>
+<tr class="memdesc:ae25cff303336cd7feef28f46847b82a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radar view configuration valid at the time the data was created.  <a href="#ae25cff303336cd7feef28f46847b82a1">More...</a><br /></td></tr>
 <tr class="separator:ae25cff303336cd7feef28f46847b82a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1737584b02a81a31da4cf31cc7c5f8d"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html">Reflection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d">reflection</a> = 2</td></tr>
+<tr class="memdesc:ad1737584b02a81a31da4cf31cc7c5f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ray tracing data.  <a href="#ad1737584b02a81a31da4cf31cc7c5f8d">More...</a><br /></td></tr>
 <tr class="separator:ad1737584b02a81a31da4cf31cc7c5f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definition of the radar sensor view. </p>
 <p>Radar specific sensor view data. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad1737584b02a81a31da4cf31cc7c5f8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1737584b02a81a31da4cf31cc7c5f8d">&#9670;&nbsp;</a></span>reflection</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">repeated <a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html">Reflection</a> osi3::RadarSensorView::reflection = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Ray tracing data.</p>
-<p>This field includes one entry for each ray, in left-to-right, top-to-bottom order (think of scan lines in a TV).</p>
-<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
-
-</div>
-</div>
 <a id="ae25cff303336cd7feef28f46847b82a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae25cff303336cd7feef28f46847b82a1">&#9670;&nbsp;</a></span>view_configuration</h2>
 
@@ -155,7 +140,26 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Radar view configuration valid at the time the data was created. </p>
+
+</div>
+</div>
+<a id="ad1737584b02a81a31da4cf31cc7c5f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1737584b02a81a31da4cf31cc7c5f8d">&#9670;&nbsp;</a></span>reflection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html">Reflection</a> osi3::RadarSensorView::reflection = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ray tracing data. </p>
+<p>This field includes one entry for each ray, in left-to-right, top-to-bottom order (think of scan lines in a TV).</p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -117,30 +117,18 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad2a4088a6137bbc3afd706f16fa6cc0a"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Occupant.html#ad2a4088a6137bbc3afd706f16fa6cc0a">id</a> = 1</td></tr>
+<tr class="memdesc:ad2a4088a6137bbc3afd706f16fa6cc0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the driver.  <a href="#ad2a4088a6137bbc3afd706f16fa6cc0a">More...</a><br /></td></tr>
 <tr class="separator:ad2a4088a6137bbc3afd706f16fa6cc0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd47ce667b01a2bacd521fc13cf4a96f"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Occupant_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Occupant.html#afd47ce667b01a2bacd521fc13cf4a96f">classification</a> = 2</td></tr>
+<tr class="memdesc:afd47ce667b01a2bacd521fc13cf4a96f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specific information about the classification of the occupant.  <a href="#afd47ce667b01a2bacd521fc13cf4a96f">More...</a><br /></td></tr>
 <tr class="separator:afd47ce667b01a2bacd521fc13cf4a96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41352dc0f3cf58591a6ba2afeff4d4e6"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Occupant.html#a41352dc0f3cf58591a6ba2afeff4d4e6">source_reference</a> = 3</td></tr>
+<tr class="memdesc:a41352dc0f3cf58591a6ba2afeff4d4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">External reference to the occupant source.  <a href="#a41352dc0f3cf58591a6ba2afeff4d4e6">More...</a><br /></td></tr>
 <tr class="separator:a41352dc0f3cf58591a6ba2afeff4d4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An occupant of a host vehicle, especially the driver of the vehicle. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="afd47ce667b01a2bacd521fc13cf4a96f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd47ce667b01a2bacd521fc13cf4a96f">&#9670;&nbsp;</a></span>classification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Occupant_1_1Classification.html">Classification</a> osi3::Occupant::classification = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Specific information about the classification of the occupant. </p>
-
-</div>
-</div>
 <a id="ad2a4088a6137bbc3afd706f16fa6cc0a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2a4088a6137bbc3afd706f16fa6cc0a">&#9670;&nbsp;</a></span>id</h2>
 
@@ -152,8 +140,25 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID of the driver.</p>
-<p>is_globally_unique  </p>
+
+<p>The ID of the driver. </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_globally_unique</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="afd47ce667b01a2bacd521fc13cf4a96f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd47ce667b01a2bacd521fc13cf4a96f">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Occupant_1_1Classification.html">Classification</a> osi3::Occupant::classification = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specific information about the classification of the occupant. </p>
 
 </div>
 </div>
@@ -168,7 +173,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>External reference to the occupant source.</p>
+
+<p>External reference to the occupant source. </p>
 <dl class="section note"><dt>Note</dt><dd>For OpenDRIVE and OpenSCENARIO there is no direct counterpart.</dd>
 <dd>
 For non-ASAM Standards, it is implementation-specific how source_reference is resolved.</dd>

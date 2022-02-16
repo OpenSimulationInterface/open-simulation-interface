@@ -35,6 +35,6 @@ var structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow =
       [ "DIRECTION_KEEP_LEFT_DRIVE_BACK_TO_TURN_90_DEG_RIGHT", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba445e59eb5d7b9dbc22935aaedc55de2d", null ],
       [ "DIRECTION_KEEP_RIGHT_DRIVE_BACK_TO_TURN_90_DEG_LEFT", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba2ce6a6e896b4877dd4e5bba026e21a66", null ]
     ] ],
-    [ "direction", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a1a613da05972035a56d89f9b010617ae", null ],
-    [ "lane_id", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a36da63c5a8975fdb3930ebfabf611cdb", null ]
+    [ "lane_id", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a36da63c5a8975fdb3930ebfabf611cdb", null ],
+    [ "direction", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a1a613da05972035a56d89f9b010617ae", null ]
 ];

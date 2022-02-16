@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('structosi3_1_1TrafficCommand.html','')
 </div><!--header-->
 <div class="contents">
 
-<p>The scenario engine provides control commands in the traffic command message to traffic participant models. The control commands are based on the scenario.  
+<p>The scenario engine provides control commands in the traffic command message to traffic participant models.  
  <a href="structosi3_1_1TrafficCommand.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::TrafficCommand:</div>
@@ -123,31 +123,36 @@ Collaboration diagram for osi3::TrafficCommand:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a39d0be3ab5f87d40d309236fed587bab"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficCommand.html#a39d0be3ab5f87d40d309236fed587bab">version</a> = 1</td></tr>
+<tr class="memdesc:a39d0be3ab5f87d40d309236fed587bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">The interface version used by the sender (scenario engine).  <a href="#a39d0be3ab5f87d40d309236fed587bab">More...</a><br /></td></tr>
 <tr class="separator:a39d0be3ab5f87d40d309236fed587bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af593b71857620300c54cdfe3f8c5d695"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficCommand.html#af593b71857620300c54cdfe3f8c5d695">timestamp</a> = 2</td></tr>
+<tr class="memdesc:af593b71857620300c54cdfe3f8c5d695"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data timestamp of the simulation environment.  <a href="#af593b71857620300c54cdfe3f8c5d695">More...</a><br /></td></tr>
 <tr class="separator:af593b71857620300c54cdfe3f8c5d695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a1c42d3330cfe402429e57a6b6125d8"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficCommand.html#a3a1c42d3330cfe402429e57a6b6125d8">traffic_participant_id</a> = 3</td></tr>
+<tr class="memdesc:a3a1c42d3330cfe402429e57a6b6125d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of this traffic participant.  <a href="#a3a1c42d3330cfe402429e57a6b6125d8">More...</a><br /></td></tr>
 <tr class="separator:a3a1c42d3330cfe402429e57a6b6125d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c6c3e03dfb3304df6ac539d0200e1fe"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1TrafficAction.html">TrafficAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficCommand.html#a2c6c3e03dfb3304df6ac539d0200e1fe">action</a> = 4</td></tr>
+<tr class="memdesc:a2c6c3e03dfb3304df6ac539d0200e1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commanded traffic action(s) if any.  <a href="#a2c6c3e03dfb3304df6ac539d0200e1fe">More...</a><br /></td></tr>
 <tr class="separator:a2c6c3e03dfb3304df6ac539d0200e1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The scenario engine provides control commands in the traffic command message to traffic participant models. The control commands are based on the scenario. </p>
+<div class="textblock"><p>The scenario engine provides control commands in the traffic command message to traffic participant models. </p>
+<p>The control commands are based on the scenario.</p>
 <dl class="section note"><dt>Note</dt><dd>This interface is currently just a placeholder and will be changed in experimental ways to support basic scenario execution. In the future this interface shall be aligned with the level of atomic actions as described in OpenSCENARIO 1.0 or later. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a2c6c3e03dfb3304df6ac539d0200e1fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c6c3e03dfb3304df6ac539d0200e1fe">&#9670;&nbsp;</a></span>action</h2>
+<a id="a39d0be3ab5f87d40d309236fed587bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d0be3ab5f87d40d309236fed587bab">&#9670;&nbsp;</a></span>version</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">repeated <a class="el" href="structosi3_1_1TrafficAction.html">TrafficAction</a> osi3::TrafficCommand::action = 4</td>
+          <td class="memname">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a> osi3::TrafficCommand::version = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Commanded traffic action(s) if any.</p>
-<dl class="section note"><dt>Note</dt><dd>If more than one action is supplied in one command message all actions are executed in parallel. </dd></dl>
+
+<p>The interface version used by the sender (scenario engine). </p>
 
 </div>
 </div>
@@ -162,7 +167,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The data timestamp of the simulation environment. Zero time is arbitrary but must be identical for all messages. Zero time does not need to coincide with the UNIX epoch. It is recommended to use zero timestamp as the starting time point of the simulation.</p>
+
+<p>The data timestamp of the simulation environment. </p>
+<p>Zero time is arbitrary but must be identical for all messages. Zero time does not need to coincide with the UNIX epoch. It is recommended to use zero timestamp as the starting time point of the simulation.</p>
 <dl class="section note"><dt>Note</dt><dd>For traffic command data the timestamp coincides both with the notional simulation time the data applies to and the time it was sent There is no inherent latency for traffic command data, as opposed to sensor data. </dd></dl>
 
 </div>
@@ -178,22 +185,25 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The ID of this traffic participant. </p>
 
 </div>
 </div>
-<a id="a39d0be3ab5f87d40d309236fed587bab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39d0be3ab5f87d40d309236fed587bab">&#9670;&nbsp;</a></span>version</h2>
+<a id="a2c6c3e03dfb3304df6ac539d0200e1fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c6c3e03dfb3304df6ac539d0200e1fe">&#9670;&nbsp;</a></span>action</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a> osi3::TrafficCommand::version = 1</td>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1TrafficAction.html">TrafficAction</a> osi3::TrafficCommand::action = 4</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The interface version used by the sender (scenario engine). </p>
+
+<p>Commanded traffic action(s) if any. </p>
+<dl class="section note"><dt>Note</dt><dd>If more than one action is supplied in one command message all actions are executed in parallel. </dd></dl>
 
 </div>
 </div>

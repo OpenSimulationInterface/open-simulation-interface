@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -103,8 +103,8 @@ Collaboration diagram for osi3::MovingObject::VehicleAttributes:</div>
 <div class="center"><img src="structosi3_1_1MovingObject_1_1VehicleAttributes__coll__graph.png" border="0" usemap="#osi3_1_1MovingObject_1_1VehicleAttributes_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1MovingObject_1_1VehicleAttributes_coll__map" id="osi3_1_1MovingObject_1_1VehicleAttributes_coll__map">
 <area shape="rect" id="node2" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="563,7,677,33"/>
-<area shape="rect" id="node4" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information..." alt="" coords="547,184,693,240"/>
-<area shape="rect" id="node5" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="209,176,356,203"/>
+<area shape="rect" id="node4" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. " alt="" coords="547,184,693,240"/>
+<area shape="rect" id="node5" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="209,176,356,203"/>
 <area shape="rect" id="node7" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="225,75,340,101"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -112,65 +112,43 @@ Collaboration diagram for osi3::MovingObject::VehicleAttributes:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html">WheelData</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information from the outside. It is not intended to be used for dynamic calculations, for example.  <a href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed wheel data.  <a href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aba30c025ec374d4bcb9dead3913438ec"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#aba30c025ec374d4bcb9dead3913438ec">driver_id</a> = 1</td></tr>
+<tr class="memdesc:aba30c025ec374d4bcb9dead3913438ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the driver of the (host) vehicle.  <a href="#aba30c025ec374d4bcb9dead3913438ec">More...</a><br /></td></tr>
 <tr class="separator:aba30c025ec374d4bcb9dead3913438ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a848ab52664318bb5f56acf5db0c21248"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a848ab52664318bb5f56acf5db0c21248">radius_wheel</a> = 2</td></tr>
+<tr class="memdesc:a848ab52664318bb5f56acf5db0c21248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deprecated: Will be removed in next major release.  <a href="#a848ab52664318bb5f56acf5db0c21248">More...</a><br /></td></tr>
 <tr class="separator:a848ab52664318bb5f56acf5db0c21248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41139d820fbf7d590d68f09f5322a4e4"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a41139d820fbf7d590d68f09f5322a4e4">number_wheels</a> = 3</td></tr>
+<tr class="memdesc:a41139d820fbf7d590d68f09f5322a4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of independent wheels.  <a href="#a41139d820fbf7d590d68f09f5322a4e4">More...</a><br /></td></tr>
 <tr class="separator:a41139d820fbf7d590d68f09f5322a4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a310be4844cd22fcd937ee65f865c8bc5"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a310be4844cd22fcd937ee65f865c8bc5">bbcenter_to_rear</a> = 4</td></tr>
+<tr class="memdesc:a310be4844cd22fcd937ee65f865c8bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vector pointing from the bounding box center point (<code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> .  <a href="#a310be4844cd22fcd937ee65f865c8bc5">More...</a><br /></td></tr>
 <tr class="separator:a310be4844cd22fcd937ee65f865c8bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f681fb05df13db0e9df73e664621ccf"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a7f681fb05df13db0e9df73e664621ccf">bbcenter_to_front</a> = 5</td></tr>
+<tr class="memdesc:a7f681fb05df13db0e9df73e664621ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vector pointing from the bounding box center point (<code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> .  <a href="#a7f681fb05df13db0e9df73e664621ccf">More...</a><br /></td></tr>
 <tr class="separator:a7f681fb05df13db0e9df73e664621ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08e4d735182136ee84337ef910f89ae1"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a08e4d735182136ee84337ef910f89ae1">ground_clearance</a> = 6</td></tr>
+<tr class="memdesc:a08e4d735182136ee84337ef910f89ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static minimal distance or space from the lowest point of the vehicle's body to the surface plane below it under neutral load conditions.  <a href="#a08e4d735182136ee84337ef910f89ae1">More...</a><br /></td></tr>
 <tr class="separator:a08e4d735182136ee84337ef910f89ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27d7ffb7cfe89c54fc94532b4e6869cd"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html">WheelData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a27d7ffb7cfe89c54fc94532b4e6869cd">wheel_data</a> = 7</td></tr>
+<tr class="memdesc:a27d7ffb7cfe89c54fc94532b4e6869cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description of each wheel.  <a href="#a27d7ffb7cfe89c54fc94532b4e6869cd">More...</a><br /></td></tr>
 <tr class="separator:a27d7ffb7cfe89c54fc94532b4e6869cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73ee49dc2b6b48f16c474f12f52c5ddf"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a73ee49dc2b6b48f16c474f12f52c5ddf">steering_wheel_angle</a> = 8</td></tr>
+<tr class="memdesc:a73ee49dc2b6b48f16c474f12f52c5ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle of the steering wheel.  <a href="#a73ee49dc2b6b48f16c474f12f52c5ddf">More...</a><br /></td></tr>
 <tr class="separator:a73ee49dc2b6b48f16c474f12f52c5ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The vehicle attributes for <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> (host or other). </p>
-<p>This is an extension to the <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> with additional attributes, such as type and lights. The origin of the rear (front) axis coordinate system in global coordinates is calculated as: <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">BaseMoving::position</a></code> + R * <code><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a310be4844cd22fcd937ee65f865c8bc5">MovingObject::VehicleAttributes::bbcenter_to_rear</a></code> (front) for the host vehicle (R rotates from vehicle to world frame, i.e. inverse orientation of <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">BaseMoving::orientation</a></code>).</p>
-<p>For all vehicles, including host vehicles, the position given in <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">BaseMoving::position</a></code> points to the center of the vehicle's bounding box.</p>
+<p>This is an extension to the <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a></code> with additional attributes, such as type and lights. The origin of the rear (front) axis coordinate system in global coordinates is calculated as: <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6" title="The reference point for position and orientation: the center (x,y,z) of the bounding box...">BaseMoving::position</a></code> + R * <code><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a310be4844cd22fcd937ee65f865c8bc5" title="The vector pointing from the bounding box center point (MovingObject::base . ">MovingObject::VehicleAttributes::bbcenter_to_rear</a></code> (front) for the host vehicle (R rotates from vehicle to world frame, i.e. inverse orientation of <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667" title="The relative orientation of the moving object w.r.t. ">BaseMoving::orientation</a></code>).</p>
+<p>For all vehicles, including host vehicles, the position given in <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6" title="The reference point for position and orientation: the center (x,y,z) of the bounding box...">BaseMoving::position</a></code> points to the center of the vehicle's bounding box.</p>
 <p>The vehicle object coordinates are defined as x-axis is the direction from rear to front of the vehicle, y-axis corresponds to rear axle and z-axis points to vehicle ceiling [1]. The coordinate system is right-handed. Therefore the positive y-axis points to the left of the vehicle.</p>
 <dl class="section user"><dt>Reference:</dt><dd>[1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7f681fb05df13db0e9df73e664621ccf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f681fb05df13db0e9df73e664621ccf">&#9670;&nbsp;</a></span>bbcenter_to_front</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a> osi3::MovingObject::VehicleAttributes::bbcenter_to_front = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The vector pointing from the bounding box center point (<code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">BaseMoving::position</a></code>) to the middle (in x, y and z) of the front axle under neutral load conditions. In object coordinates. </p>
-
-</div>
-</div>
-<a id="a310be4844cd22fcd937ee65f865c8bc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a310be4844cd22fcd937ee65f865c8bc5">&#9670;&nbsp;</a></span>bbcenter_to_rear</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a> osi3::MovingObject::VehicleAttributes::bbcenter_to_rear = 4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The vector pointing from the bounding box center point (<code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">BaseMoving::position</a></code>) to the middle (in x, y and z) of the rear axle under neutral load conditions. In object coordinates. </p>
-
-</div>
-</div>
 <a id="aba30c025ec374d4bcb9dead3913438ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba30c025ec374d4bcb9dead3913438ec">&#9670;&nbsp;</a></span>driver_id</h2>
 
@@ -182,39 +160,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID of the driver of the (host) vehicle.</p>
+
+<p>The ID of the driver of the (host) vehicle. </p>
 <dl class="section note"><dt>Note</dt><dd>Field need not be set if host_vehicle is set to false or use value for non valid id. </dd></dl>
-
-</div>
-</div>
-<a id="a08e4d735182136ee84337ef910f89ae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08e4d735182136ee84337ef910f89ae1">&#9670;&nbsp;</a></span>ground_clearance</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::ground_clearance = 6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Static minimal distance or space from the lowest point of the vehicle's body to the surface plane below it under neutral load conditions. This distance disregards, for example, driving-dynamic effects or road-surface effects. Can be useful to approximate the clearance area under a vehicle that a sensor can see through. </p><dl class="section note"><dt>Note</dt><dd><code>ground_clearance</code> is included in the bounding box height. </dd></dl>
-
-</div>
-</div>
-<a id="a41139d820fbf7d590d68f09f5322a4e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41139d820fbf7d590d68f09f5322a4e4">&#9670;&nbsp;</a></span>number_wheels</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional uint32 osi3::MovingObject::VehicleAttributes::number_wheels = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Number of independent wheels.</p>
-<p>is_greater_than_or_equal_to: 1  </p>
 
 </div>
 </div>
@@ -229,25 +177,79 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Deprecated: Will be removed in next major release. Moved to <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information...">WheelData</a>. Median radius of the wheels measured from a center of the wheel including tire.</p>
+
+<p>Deprecated: Will be removed in next major release. </p>
+<p>Moved to <a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data. ">WheelData</a>. Median radius of the wheels measured from a center of the wheel including tire.</p>
 <p>Unit: m</p>
-<p>is_greater_than_or_equal_to: 0  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
-<a id="a73ee49dc2b6b48f16c474f12f52c5ddf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73ee49dc2b6b48f16c474f12f52c5ddf">&#9670;&nbsp;</a></span>steering_wheel_angle</h2>
+<a id="a41139d820fbf7d590d68f09f5322a4e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41139d820fbf7d590d68f09f5322a4e4">&#9670;&nbsp;</a></span>number_wheels</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::steering_wheel_angle = 8</td>
+          <td class="memname">optional uint32 osi3::MovingObject::VehicleAttributes::number_wheels = 3</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Angle of the steering wheel. Zero means the steering wheel is in its center postion, a positive value means the steering wheel is turned to the left and a negative value means the steering wheel is turned to the right of the center position.</p>
-<p>Unit: rad </p>
+
+<p>Number of independent wheels. </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 1</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a310be4844cd22fcd937ee65f865c8bc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310be4844cd22fcd937ee65f865c8bc5">&#9670;&nbsp;</a></span>bbcenter_to_rear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a> osi3::MovingObject::VehicleAttributes::bbcenter_to_rear = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The vector pointing from the bounding box center point (<code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . </p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6" title="The reference point for position and orientation: the center (x,y,z) of the bounding box...">BaseMoving::position</a></code>) to the middle (in x, y and z) of the rear axle under neutral load conditions. In object coordinates. </p>
+
+</div>
+</div>
+<a id="a7f681fb05df13db0e9df73e664621ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f681fb05df13db0e9df73e664621ccf">&#9670;&nbsp;</a></span>bbcenter_to_front</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a> osi3::MovingObject::VehicleAttributes::bbcenter_to_front = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The vector pointing from the bounding box center point (<code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . </p>
+<p><code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6" title="The reference point for position and orientation: the center (x,y,z) of the bounding box...">BaseMoving::position</a></code>) to the middle (in x, y and z) of the front axle under neutral load conditions. In object coordinates. </p>
+
+</div>
+</div>
+<a id="a08e4d735182136ee84337ef910f89ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e4d735182136ee84337ef910f89ae1">&#9670;&nbsp;</a></span>ground_clearance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::ground_clearance = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Static minimal distance or space from the lowest point of the vehicle's body to the surface plane below it under neutral load conditions. </p>
+<p>This distance disregards, for example, driving-dynamic effects or road-surface effects. Can be useful to approximate the clearance area under a vehicle that a sensor can see through. </p><dl class="section note"><dt>Note</dt><dd><code>ground_clearance</code> is included in the bounding box height. </dd></dl>
 
 </div>
 </div>
@@ -262,8 +264,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Description of each wheel.</p>
+
+<p>Description of each wheel. </p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
+
+</div>
+</div>
+<a id="a73ee49dc2b6b48f16c474f12f52c5ddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ee49dc2b6b48f16c474f12f52c5ddf">&#9670;&nbsp;</a></span>steering_wheel_angle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::steering_wheel_angle = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Angle of the steering wheel. </p>
+<p>Zero means the steering wheel is in its center postion, a positive value means the steering wheel is turned to the left and a negative value means the steering wheel is turned to the right of the center position.</p>
+<p>Unit: rad </p>
 
 </div>
 </div>

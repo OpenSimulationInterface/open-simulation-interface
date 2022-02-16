@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -110,8 +110,8 @@ Collaboration diagram for osi3::DetectedTrafficLight:</div>
 <area shape="rect" id="node8" href="structosi3_1_1ColorHSV.html" title="HSV color model. " alt="" coords="439,487,557,513"/>
 <area shape="rect" id="node9" href="structosi3_1_1ColorLUV.html" title="LUV color model. " alt="" coords="440,563,556,589"/>
 <area shape="rect" id="node10" href="structosi3_1_1DetectedItemHeader.html" title="The common information for a detected item as estimated by the sensor. " alt="" coords="401,955,595,981"/>
-<area shape="rect" id="node14" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="425,781,571,808"/>
-<area shape="rect" id="node15" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="427,660,569,687"/>
+<area shape="rect" id="node14" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="425,781,571,808"/>
+<area shape="rect" id="node15" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="427,660,569,687"/>
 <area shape="rect" id="node16" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="441,723,555,749"/>
 <area shape="rect" id="node17" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="441,848,555,875"/>
 <area shape="rect" id="node18" href="structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html" title="A candidate for a detected traffic light as estimated by the sensor. " alt="" coords="737,123,924,165"/>
@@ -130,14 +130,19 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:afbf2a1d95b8449639bcfc1d41241e566"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficLight.html#afbf2a1d95b8449639bcfc1d41241e566">header</a> = 1</td></tr>
+<tr class="memdesc:afbf2a1d95b8449639bcfc1d41241e566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common information of one detected item.  <a href="#afbf2a1d95b8449639bcfc1d41241e566">More...</a><br /></td></tr>
 <tr class="separator:afbf2a1d95b8449639bcfc1d41241e566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68780cf7406985d7115c8a159e8d7834"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1BaseStationary.html">BaseStationary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficLight.html#a68780cf7406985d7115c8a159e8d7834">base</a> = 2</td></tr>
+<tr class="memdesc:a68780cf7406985d7115c8a159e8d7834"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base parameters of the traffic light.  <a href="#a68780cf7406985d7115c8a159e8d7834">More...</a><br /></td></tr>
 <tr class="separator:a68780cf7406985d7115c8a159e8d7834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a178d2e0e9e29a71ca09f976bb52273e6"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1BaseStationary.html">BaseStationary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficLight.html#a178d2e0e9e29a71ca09f976bb52273e6">base_rmse</a> = 3</td></tr>
+<tr class="memdesc:a178d2e0e9e29a71ca09f976bb52273e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root mean squared error of the base parameters of the detected traffic light's geometry.  <a href="#a178d2e0e9e29a71ca09f976bb52273e6">More...</a><br /></td></tr>
 <tr class="separator:a178d2e0e9e29a71ca09f976bb52273e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a378510d38fe3785e89ae50c86b36a4e0"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html">CandidateTrafficLight</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficLight.html#a378510d38fe3785e89ae50c86b36a4e0">candidate</a> = 4</td></tr>
+<tr class="memdesc:a378510d38fe3785e89ae50c86b36a4e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of candidates for this traffic light as estimated by the sensor.  <a href="#a378510d38fe3785e89ae50c86b36a4e0">More...</a><br /></td></tr>
 <tr class="separator:a378510d38fe3785e89ae50c86b36a4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab092883c53ae5289594451be98464ded"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1ColorDescription.html">ColorDescription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficLight.html#ab092883c53ae5289594451be98464ded">color_description</a> = 5</td></tr>
+<tr class="memdesc:ab092883c53ae5289594451be98464ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">The visual color of the traffic light.  <a href="#ab092883c53ae5289594451be98464ded">More...</a><br /></td></tr>
 <tr class="separator:ab092883c53ae5289594451be98464ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -147,6 +152,22 @@ Public Attributes</h2></td></tr>
 </div>
 <p>One detected traffic light message defines a single 'bulb' and not a box of several bulbs, e.g. red, yellow, green are three separate detected traffic lights. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="afbf2a1d95b8449639bcfc1d41241e566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbf2a1d95b8449639bcfc1d41241e566">&#9670;&nbsp;</a></span>header</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a> osi3::DetectedTrafficLight::header = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Common information of one detected item. </p>
+
+</div>
+</div>
 <a id="a68780cf7406985d7115c8a159e8d7834"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a68780cf7406985d7115c8a159e8d7834">&#9670;&nbsp;</a></span>base</h2>
 
@@ -158,8 +179,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The base parameters of the traffic light.</p>
-<p><code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">BaseStationary::orientation</a></code> x-axis is view normal of the traffic light's icon. </p>
+
+<p>The base parameters of the traffic light. </p>
+<p><code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826" title="The relative orientation of the stationary object w.r.t. ">BaseStationary::orientation</a></code> x-axis is view normal of the traffic light's icon. </p>
 
 </div>
 </div>
@@ -174,7 +196,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The root mean squared error of the base parameters of the detected traffic light's geometry. <code><a class="el" href="structosi3_1_1TrafficLight.html#aeefce8098088bda54a5c1659b30204d6">TrafficLight::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedTrafficLight.html#a378510d38fe3785e89ae50c86b36a4e0">candidate</a></code> traffic lights. </p>
+
+<p>The root mean squared error of the base parameters of the detected traffic light's geometry. </p>
+<p><code><a class="el" href="structosi3_1_1TrafficLight.html#aeefce8098088bda54a5c1659b30204d6" title="The base parameters of the traffic light. ">TrafficLight::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedTrafficLight.html#a378510d38fe3785e89ae50c86b36a4e0" title="A list of candidates for this traffic light as estimated by the sensor. ">candidate</a></code> traffic lights. </p>
 
 </div>
 </div>
@@ -189,7 +213,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A list of candidates for this traffic light as estimated by the sensor.</p>
+
+<p>A list of candidates for this traffic light as estimated by the sensor. </p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
@@ -205,23 +230,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The visual color of the traffic light.</p>
-<dl class="section note"><dt>Note</dt><dd>This does not represent the semantic classification but the visual appearance. For semantic classification of the traffic light use the color field in <code><a class="el" href="structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html#a2c2004e2ec9dea73e28895026aeec208">CandidateTrafficLight::classification</a></code>. </dd></dl>
 
-</div>
-</div>
-<a id="afbf2a1d95b8449639bcfc1d41241e566"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbf2a1d95b8449639bcfc1d41241e566">&#9670;&nbsp;</a></span>header</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a> osi3::DetectedTrafficLight::header = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Common information of one detected item. </p>
+<p>The visual color of the traffic light. </p>
+<dl class="section note"><dt>Note</dt><dd>This does not represent the semantic classification but the visual appearance. For semantic classification of the traffic light use the color field in <code><a class="el" href="structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html#a2c2004e2ec9dea73e28895026aeec208" title="The classification of one traffic light that define this candidate. ">CandidateTrafficLight::classification</a></code>. </dd></dl>
 
 </div>
 </div>

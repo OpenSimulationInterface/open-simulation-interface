@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -120,7 +120,8 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aef6fdb12bcdd4ce603b3c1b018682c80a564b511ff8b87c467222a1aeceed6f5a">TRILATERATION_STATUS_OTHER</a> = 1, 
 <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aef6fdb12bcdd4ce603b3c1b018682c80ab7a111d504f2dbf699d16a123536b81d">TRILATERATION_STATUS_NOT_TRILATERATED</a> = 2, 
 <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aef6fdb12bcdd4ce603b3c1b018682c80a8fe3e471041626c585873608fbaee76c">TRILATERATION_STATUS_TRILATERATED</a> = 3
- }</td></tr>
+ }<tr class="memdesc:aef6fdb12bcdd4ce603b3c1b018682c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">This indicates if the object was calculated based on one or multiple sensors.  <a href="structosi3_1_1UltrasonicSpecificObjectData.html#aef6fdb12bcdd4ce603b3c1b018682c80">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:aef6fdb12bcdd4ce603b3c1b018682c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea70914c04b483f055d9a29ca2a0da61"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61">Trend</a> { <br />
 &#160;&#160;<a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61a201c86ddac8c94c65f589aee0dd8b0f0">TREND_UNKNOWN</a> = 0, 
@@ -131,54 +132,31 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61a781c99e513742356298a50c414c467ab">TREND_APPROACHING</a> = 4, 
 <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61a0c167d316d2b5f2add5c873d1f8fdfe4">TREND_DEPARTING</a> = 5
 <br />
- }</td></tr>
+ }<tr class="memdesc:aea70914c04b483f055d9a29ca2a0da61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes the general moving direction of the detection.  <a href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:aea70914c04b483f055d9a29ca2a0da61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a3624cf06ea54e19d95aed5b12764b2a6"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#a3624cf06ea54e19d95aed5b12764b2a6">maximum_measurement_distance_sensor</a> = 1</td></tr>
+<tr class="memdesc:a3624cf06ea54e19d95aed5b12764b2a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum measured distance from one sensor which leads to the calculation of this object.  <a href="#a3624cf06ea54e19d95aed5b12764b2a6">More...</a><br /></td></tr>
 <tr class="separator:a3624cf06ea54e19d95aed5b12764b2a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a0839ac93e815e32dbf5401dc5fd849"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#a7a0839ac93e815e32dbf5401dc5fd849">probability</a> = 2</td></tr>
+<tr class="memdesc:a7a0839ac93e815e32dbf5401dc5fd849"><td class="mdescLeft">&#160;</td><td class="mdescRight">This value indicates the propability height for the classification in the calculated object.  <a href="#a7a0839ac93e815e32dbf5401dc5fd849">More...</a><br /></td></tr>
 <tr class="separator:a7a0839ac93e815e32dbf5401dc5fd849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a702aa36075ca0a020bbe4883c26bfe6e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aef6fdb12bcdd4ce603b3c1b018682c80">TrilaterationStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#a702aa36075ca0a020bbe4883c26bfe6e">trilateration_status</a> = 3</td></tr>
+<tr class="memdesc:a702aa36075ca0a020bbe4883c26bfe6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This indicates if the detection was calculated based on one or multiple sensors.  <a href="#a702aa36075ca0a020bbe4883c26bfe6e">More...</a><br /></td></tr>
 <tr class="separator:a702aa36075ca0a020bbe4883c26bfe6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74c14595948c2dd7dba6f2efcaea15ad"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61">Trend</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#a74c14595948c2dd7dba6f2efcaea15ad">trend</a> = 4</td></tr>
+<tr class="memdesc:a74c14595948c2dd7dba6f2efcaea15ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes the general moving direction of the detection.  <a href="#a74c14595948c2dd7dba6f2efcaea15ad">More...</a><br /></td></tr>
 <tr class="separator:a74c14595948c2dd7dba6f2efcaea15ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f94e3f7535aa788b16b7ee723599937"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html">Signalway</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#a2f94e3f7535aa788b16b7ee723599937">signalway</a> = 5</td></tr>
+<tr class="memdesc:a2f94e3f7535aa788b16b7ee723599937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ultrasonic signalway.  <a href="#a2f94e3f7535aa788b16b7ee723599937">More...</a><br /></td></tr>
 <tr class="separator:a2f94e3f7535aa788b16b7ee723599937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Message encapsulates all data for detected objects that is specific to ultrasonic sensors. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="aea70914c04b483f055d9a29ca2a0da61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea70914c04b483f055d9a29ca2a0da61">&#9670;&nbsp;</a></span>Trend</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61">osi3::UltrasonicSpecificObjectData::Trend</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Describes the general moving direction of the detection. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a201c86ddac8c94c65f589aee0dd8b0f0"></a>TREND_UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown (must not be used in ground truth). </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a47ec3bd7780c945293e307860b64fec9"></a>TREND_OTHER&#160;</td><td class="fielddoc"><p>Other (unspecified but known). </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61ad8fefcbe24fe3cf394d88ec385bb6bbb"></a>TREND_CONSTANT_APPROACHING&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is constant. The object has approached in the past before it was constant. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61ab67925d336e05704dc1670b5b109dab0"></a>TREND_CONSTANT&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is constant. The object has departed in the past before it was constant or there is no history. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a781c99e513742356298a50c414c467ab"></a>TREND_APPROACHING&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is decreasing. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a0c167d316d2b5f2add5c873d1f8fdfe4"></a>TREND_DEPARTING&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is increasing. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a id="aef6fdb12bcdd4ce603b3c1b018682c80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef6fdb12bcdd4ce603b3c1b018682c80">&#9670;&nbsp;</a></span>TrilaterationStatus</h2>
 
@@ -190,6 +168,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>This indicates if the object was calculated based on one or multiple sensors. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aef6fdb12bcdd4ce603b3c1b018682c80ad15b28d6b361ffa361bfdf9f1607c5de"></a>TRILATERATION_STATUS_UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown (must not be used in ground truth). </p>
@@ -199,6 +178,38 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="aef6fdb12bcdd4ce603b3c1b018682c80ab7a111d504f2dbf699d16a123536b81d"></a>TRILATERATION_STATUS_NOT_TRILATERATED&#160;</td><td class="fielddoc"><p>No trilateration used. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aef6fdb12bcdd4ce603b3c1b018682c80a8fe3e471041626c585873608fbaee76c"></a>TRILATERATION_STATUS_TRILATERATED&#160;</td><td class="fielddoc"><p>Trilateration used. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aea70914c04b483f055d9a29ca2a0da61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea70914c04b483f055d9a29ca2a0da61">&#9670;&nbsp;</a></span>Trend</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61">osi3::UltrasonicSpecificObjectData::Trend</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Describes the general moving direction of the detection. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a201c86ddac8c94c65f589aee0dd8b0f0"></a>TREND_UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown (must not be used in ground truth). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a47ec3bd7780c945293e307860b64fec9"></a>TREND_OTHER&#160;</td><td class="fielddoc"><p>Other (unspecified but known). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61ad8fefcbe24fe3cf394d88ec385bb6bbb"></a>TREND_CONSTANT_APPROACHING&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is constant. </p>
+<p>The object has approached in the past before it was constant. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61ab67925d336e05704dc1670b5b109dab0"></a>TREND_CONSTANT&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is constant. </p>
+<p>The object has departed in the past before it was constant or there is no history. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a781c99e513742356298a50c414c467ab"></a>TREND_APPROACHING&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is decreasing. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aea70914c04b483f055d9a29ca2a0da61a0c167d316d2b5f2add5c873d1f8fdfe4"></a>TREND_DEPARTING&#160;</td><td class="fielddoc"><p>Distance (object, sensor) is increasing. </p>
 </td></tr>
 </table>
 
@@ -216,9 +227,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maximum measured distance from one sensor which leads to the calculation of this object.</p>
+
+<p>Maximum measured distance from one sensor which leads to the calculation of this object. </p>
 <p>Unit: m</p>
-<p>is_greater_than_or_equal_to: 0  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -233,40 +245,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This value indicates the propability height for the classification in the calculated object.</p>
+
+<p>This value indicates the propability height for the classification in the calculated object. </p>
 <p>Unit: %</p>
-<p>is_less_than_or_equal_to: 1 is_greater_than_or_equal_to: 0  </p>
-
-</div>
-</div>
-<a id="a2f94e3f7535aa788b16b7ee723599937"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f94e3f7535aa788b16b7ee723599937">&#9670;&nbsp;</a></span>signalway</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">repeated <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html">Signalway</a> osi3::UltrasonicSpecificObjectData::signalway = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Ultrasonic signalway. Sender to receiver.</p>
-<dl class="section note"><dt>Note</dt><dd>This information can also be derived from the corresponding <code><a class="el" href="structosi3_1_1UltrasonicDetection.html" title="Ultrasonic detection from the sensor (same sensor as sender and receiver). ">UltrasonicDetection</a></code>. <code><a class="el" href="structosi3_1_1UltrasonicDetection.html" title="Ultrasonic detection from the sensor (same sensor as sender and receiver). ">UltrasonicDetection</a></code> refer to DetectedXXX by <code><a class="el" href="structosi3_1_1UltrasonicDetection.html#ac2828d1150a0cda1ba5d26ef7e089d30">UltrasonicDetection::object_id</a></code>. </dd></dl>
-
-</div>
-</div>
-<a id="a74c14595948c2dd7dba6f2efcaea15ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74c14595948c2dd7dba6f2efcaea15ad">&#9670;&nbsp;</a></span>trend</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61">Trend</a> osi3::UltrasonicSpecificObjectData::trend = 4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Describes the general moving direction of the detection. </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_less_than_or_equal_to: 1</div><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -281,7 +263,42 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>This indicates if the detection was calculated based on one or multiple sensors. </p>
+
+</div>
+</div>
+<a id="a74c14595948c2dd7dba6f2efcaea15ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c14595948c2dd7dba6f2efcaea15ad">&#9670;&nbsp;</a></span>trend</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData.html#aea70914c04b483f055d9a29ca2a0da61">Trend</a> osi3::UltrasonicSpecificObjectData::trend = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Describes the general moving direction of the detection. </p>
+
+</div>
+</div>
+<a id="a2f94e3f7535aa788b16b7ee723599937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f94e3f7535aa788b16b7ee723599937">&#9670;&nbsp;</a></span>signalway</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html">Signalway</a> osi3::UltrasonicSpecificObjectData::signalway = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ultrasonic signalway. </p>
+<p>Sender to receiver.</p>
+<dl class="section note"><dt>Note</dt><dd>This information can also be derived from the corresponding <code><a class="el" href="structosi3_1_1UltrasonicDetection.html" title="Ultrasonic detection from the sensor (same sensor as sender and receiver). ">UltrasonicDetection</a></code>. <code><a class="el" href="structosi3_1_1UltrasonicDetection.html" title="Ultrasonic detection from the sensor (same sensor as sender and receiver). ">UltrasonicDetection</a></code> refer to DetectedXXX by <code><a class="el" href="structosi3_1_1UltrasonicDetection.html#ac2828d1150a0cda1ba5d26ef7e089d30" title="ID of the detected object this detection is associated to. ">UltrasonicDetection::object_id</a></code>. </dd></dl>
 
 </div>
 </div>

@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -116,33 +116,21 @@ Collaboration diagram for osi3::CameraDetectionData:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a1d2aad406cbb074785c0847c93ccd935"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1SensorDetectionHeader.html">SensorDetectionHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraDetectionData.html#a1d2aad406cbb074785c0847c93ccd935">header</a> = 1</td></tr>
+<tr class="memdesc:a1d2aad406cbb074785c0847c93ccd935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header attributes of camera detection from one camera sensor.  <a href="#a1d2aad406cbb074785c0847c93ccd935">More...</a><br /></td></tr>
 <tr class="separator:a1d2aad406cbb074785c0847c93ccd935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11cef014d85334c612d4bf8d37e5276a"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1CameraDetectionSpecificHeader.html">CameraDetectionSpecificHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraDetectionData.html#a11cef014d85334c612d4bf8d37e5276a">specific_header</a> = 3</td></tr>
+<tr class="memdesc:a11cef014d85334c612d4bf8d37e5276a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional header attributes of camera detection from one camera sensor.  <a href="#a11cef014d85334c612d4bf8d37e5276a">More...</a><br /></td></tr>
 <tr class="separator:a11cef014d85334c612d4bf8d37e5276a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41e699d87cef1b0518736c2766c680cf"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1CameraDetection.html">CameraDetection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraDetectionData.html#a41e699d87cef1b0518736c2766c680cf">detection</a> = 2</td></tr>
+<tr class="memdesc:a41e699d87cef1b0518736c2766c680cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of camera detections.  <a href="#a41e699d87cef1b0518736c2766c680cf">More...</a><br /></td></tr>
 <tr class="separator:a41e699d87cef1b0518736c2766c680cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d8a350f844932627350d38e12ba923c"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1CameraPoint.html">CameraPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1CameraDetectionData.html#a0d8a350f844932627350d38e12ba923c">point</a> = 4</td></tr>
+<tr class="memdesc:a0d8a350f844932627350d38e12ba923c"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of points which are used by detections.  <a href="#a0d8a350f844932627350d38e12ba923c">More...</a><br /></td></tr>
 <tr class="separator:a0d8a350f844932627350d38e12ba923c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Data from one camera sensor including a list of detections. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a41e699d87cef1b0518736c2766c680cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41e699d87cef1b0518736c2766c680cf">&#9670;&nbsp;</a></span>detection</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">repeated <a class="el" href="structosi3_1_1CameraDetection.html">CameraDetection</a> osi3::CameraDetectionData::detection = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>List of camera detections.</p>
-<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
-
-</div>
-</div>
 <a id="a1d2aad406cbb074785c0847c93ccd935"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d2aad406cbb074785c0847c93ccd935">&#9670;&nbsp;</a></span>header</h2>
 
@@ -154,23 +142,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Header attributes of camera detection from one camera sensor. </p>
-
-</div>
-</div>
-<a id="a0d8a350f844932627350d38e12ba923c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d8a350f844932627350d38e12ba923c">&#9670;&nbsp;</a></span>point</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">repeated <a class="el" href="structosi3_1_1CameraPoint.html">CameraPoint</a> osi3::CameraDetectionData::point = 4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>List of points which are used by detections.</p>
-<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>
@@ -185,7 +158,42 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Additional header attributes of camera detection from one camera sensor. </p>
+
+</div>
+</div>
+<a id="a41e699d87cef1b0518736c2766c680cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41e699d87cef1b0518736c2766c680cf">&#9670;&nbsp;</a></span>detection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1CameraDetection.html">CameraDetection</a> osi3::CameraDetectionData::detection = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List of camera detections. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
+
+</div>
+</div>
+<a id="a0d8a350f844932627350d38e12ba923c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8a350f844932627350d38e12ba923c">&#9670;&nbsp;</a></span>point</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1CameraPoint.html">CameraPoint</a> osi3::CameraDetectionData::point = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List of points which are used by detections. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

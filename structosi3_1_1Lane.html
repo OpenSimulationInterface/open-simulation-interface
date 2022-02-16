@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -120,10 +120,13 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a385f1fbc783753cbb5e1f8c3a5f095f0"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane.html#a385f1fbc783753cbb5e1f8c3a5f095f0">id</a> = 1</td></tr>
+<tr class="memdesc:a385f1fbc783753cbb5e1f8c3a5f095f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the lane.  <a href="#a385f1fbc783753cbb5e1f8c3a5f095f0">More...</a><br /></td></tr>
 <tr class="separator:a385f1fbc783753cbb5e1f8c3a5f095f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a909afdc238fe0c0ddd818f81f78b4277"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane.html#a909afdc238fe0c0ddd818f81f78b4277">classification</a> = 2</td></tr>
+<tr class="memdesc:a909afdc238fe0c0ddd818f81f78b4277"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of the lane.  <a href="#a909afdc238fe0c0ddd818f81f78b4277">More...</a><br /></td></tr>
 <tr class="separator:a909afdc238fe0c0ddd818f81f78b4277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf3e3baefd151b75a14674afccc0b226"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane.html#abf3e3baefd151b75a14674afccc0b226">source_reference</a> = 3</td></tr>
+<tr class="memdesc:abf3e3baefd151b75a14674afccc0b226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional external reference to the lane source.  <a href="#abf3e3baefd151b75a14674afccc0b226">More...</a><br /></td></tr>
 <tr class="separator:abf3e3baefd151b75a14674afccc0b226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -149,23 +152,8 @@ HighwayExit</div></div>
 Intersection</div></div>
  </td></tr>
 </table>
-<dl class="section note"><dt>Note</dt><dd>In the examples, the symbols l1, l2, ... and lb1, lb2, ... stand for the lane ids and lane boundary ids respectively, i.e. for integers (uint64). The symbols cl1, cl2, ... represent the <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42">osi3::Lane::Classification::centerline</a> elements of the lanes with the respective ids. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>In the examples, the symbols l1, l2, ... and lb1, lb2, ... stand for the lane ids and lane boundary ids respectively, i.e. for integers (uint64). The symbols cl1, cl2, ... represent the <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42" title="The lane&#39;s center line (as a list of segments). ">osi3::Lane::Classification::centerline</a> elements of the lanes with the respective ids. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a909afdc238fe0c0ddd818f81f78b4277"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a909afdc238fe0c0ddd818f81f78b4277">&#9670;&nbsp;</a></span>classification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html">Classification</a> osi3::Lane::classification = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The classification of the lane. </p>
-
-</div>
-</div>
 <a id="a385f1fbc783753cbb5e1f8c3a5f095f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a385f1fbc783753cbb5e1f8c3a5f095f0">&#9670;&nbsp;</a></span>id</h2>
 
@@ -177,9 +165,27 @@ Intersection</div></div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID of the lane. Example: l4 (see reference picture HighwayExit).</p>
+
+<p>The ID of the lane. </p>
+<p>Example: l4 (see reference picture HighwayExit).</p>
 <dl class="section note"><dt>Note</dt><dd>Note ID is global unique.</dd></dl>
-<p>is_globally_unique  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_globally_unique</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a909afdc238fe0c0ddd818f81f78b4277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909afdc238fe0c0ddd818f81f78b4277">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Lane_1_1Classification.html">Classification</a> osi3::Lane::classification = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The classification of the lane. </p>
 
 </div>
 </div>
@@ -194,10 +200,11 @@ Intersection</div></div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Optional external reference to the lane source.</p>
+
+<p>Optional external reference to the lane source. </p>
 <p>The external reference points to the source of the lane, if it is derived from one or more objects or external references.</p>
 <p>For example, to reference a lane defined in an OpenDRIVE map the items should be set as follows:</p><ul>
-<li>reference = URI to map, can remain empty if identical with definiton in <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e">GroundTruth::map_reference</a></code> </li>
+<li>reference = URI to map, can remain empty if identical with definiton in <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e" title="Opaque reference of a map. ">GroundTruth::map_reference</a></code> </li>
 <li>type = "net.asam.opendrive"</li>
 <li>identifier[0] = id of t_road</li>
 <li>identifier[1] = s of t_road_lanes_laneSection</li>

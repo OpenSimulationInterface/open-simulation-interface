@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -103,35 +103,22 @@ Collaboration diagram for osi3::DetectedStationaryObject::CandidateStationaryObj
 <map name="osi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject_coll__map" id="osi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject_coll__map">
 <area shape="rect" id="node2" href="structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object. " alt="" coords="469,153,636,194"/>
 <area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="67,109,182,136"/>
-<area shape="rect" id="node7" href="structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure. The horizontal_angle and the vertical_angle in emitted_spatial..." alt="" coords="5,211,244,267"/>
+<area shape="rect" id="node7" href="structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure. " alt="" coords="5,211,244,267"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab51e5d548856d1c3f541e22257c8edc3"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html#ab51e5d548856d1c3f541e22257c8edc3">probability</a> = 1</td></tr>
+<tr class="memdesc:ab51e5d548856d1c3f541e22257c8edc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The estimated probability that this candidate is the true value.  <a href="#ab51e5d548856d1c3f541e22257c8edc3">More...</a><br /></td></tr>
 <tr class="separator:ab51e5d548856d1c3f541e22257c8edc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38ad22078331991744f7718fb4cbcb64"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html">StationaryObject::Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html#a38ad22078331991744f7718fb4cbcb64">classification</a> = 2</td></tr>
+<tr class="memdesc:a38ad22078331991744f7718fb4cbcb64"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of the stationary object (e.g.  <a href="#a38ad22078331991744f7718fb4cbcb64">More...</a><br /></td></tr>
 <tr class="separator:a38ad22078331991744f7718fb4cbcb64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A candidate for a detected stationary object as estimated by the sensor. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a38ad22078331991744f7718fb4cbcb64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38ad22078331991744f7718fb4cbcb64">&#9670;&nbsp;</a></span>classification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html">StationaryObject::Classification</a> osi3::DetectedStationaryObject::CandidateStationaryObject::classification = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The classification of the stationary object (e.g. landmark). </p>
-
-</div>
-</div>
 <a id="ab51e5d548856d1c3f541e22257c8edc3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab51e5d548856d1c3f541e22257c8edc3">&#9670;&nbsp;</a></span>probability</h2>
 
@@ -143,9 +130,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The estimated probability that this candidate is the true value.</p>
-<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html#ab51e5d548856d1c3f541e22257c8edc3">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
-<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
+
+<p>The estimated probability that this candidate is the true value. </p>
+<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html#ab51e5d548856d1c3f541e22257c8edc3" title="The estimated probability that this candidate is the true value. ">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div><div class="line">is_less_than_or_equal_to: 1</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a38ad22078331991744f7718fb4cbcb64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ad22078331991744f7718fb4cbcb64">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html">StationaryObject::Classification</a> osi3::DetectedStationaryObject::CandidateStationaryObject::classification = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The classification of the stationary object (e.g. </p>
+<p>landmark). </p>
 
 </div>
 </div>

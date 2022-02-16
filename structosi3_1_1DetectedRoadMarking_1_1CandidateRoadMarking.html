@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -110,29 +110,15 @@ Collaboration diagram for osi3::DetectedRoadMarking::CandidateRoadMarking:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5914c3bf1a92788ec1dd7f977db15606"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedRoadMarking_1_1CandidateRoadMarking.html#a5914c3bf1a92788ec1dd7f977db15606">probability</a> = 1</td></tr>
+<tr class="memdesc:a5914c3bf1a92788ec1dd7f977db15606"><td class="mdescLeft">&#160;</td><td class="mdescRight">The estimated probability that this candidate is the true value.  <a href="#a5914c3bf1a92788ec1dd7f977db15606">More...</a><br /></td></tr>
 <tr class="separator:a5914c3bf1a92788ec1dd7f977db15606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a470e0f9da1498a03cae253eddfb8e08b"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html">RoadMarking::Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedRoadMarking_1_1CandidateRoadMarking.html#a470e0f9da1498a03cae253eddfb8e08b">classification</a> = 2</td></tr>
+<tr class="memdesc:a470e0f9da1498a03cae253eddfb8e08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of the road marking.  <a href="#a470e0f9da1498a03cae253eddfb8e08b">More...</a><br /></td></tr>
 <tr class="separator:a470e0f9da1498a03cae253eddfb8e08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A candidate for a detected road marking as estimated by the sensor. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a470e0f9da1498a03cae253eddfb8e08b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a470e0f9da1498a03cae253eddfb8e08b">&#9670;&nbsp;</a></span>classification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html">RoadMarking::Classification</a> osi3::DetectedRoadMarking::CandidateRoadMarking::classification = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The classification of the road marking.</p>
-<dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
-
-</div>
-</div>
 <a id="a5914c3bf1a92788ec1dd7f977db15606"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5914c3bf1a92788ec1dd7f977db15606">&#9670;&nbsp;</a></span>probability</h2>
 
@@ -144,9 +130,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The estimated probability that this candidate is the true value.</p>
-<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedRoadMarking_1_1CandidateRoadMarking.html#a5914c3bf1a92788ec1dd7f977db15606">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
-<p>is_less_than_or_equal_to: 1 is_greater_than_or_equal_to: 0  </p>
+
+<p>The estimated probability that this candidate is the true value. </p>
+<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedRoadMarking_1_1CandidateRoadMarking.html#a5914c3bf1a92788ec1dd7f977db15606" title="The estimated probability that this candidate is the true value. ">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_less_than_or_equal_to: 1</div><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a470e0f9da1498a03cae253eddfb8e08b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a470e0f9da1498a03cae253eddfb8e08b">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html">RoadMarking::Classification</a> osi3::DetectedRoadMarking::CandidateRoadMarking::classification = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The classification of the road marking. </p>
+<dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
 
 </div>
 </div>

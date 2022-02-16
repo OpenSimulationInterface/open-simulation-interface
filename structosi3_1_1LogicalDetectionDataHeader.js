@@ -10,8 +10,8 @@ var structosi3_1_1LogicalDetectionDataHeader =
       [ "DATA_QUALIFIER_TEMPORARY_AVAILABLE", "structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693a766a8977146010003fa32631ba85b869", null ],
       [ "DATA_QUALIFIER_INVALID", "structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693acb52b8556a6156e3a4314cfe4facaf0f", null ]
     ] ],
-    [ "data_qualifier", "structosi3_1_1LogicalDetectionDataHeader.html#abbd970780d5c1df185b70ebff7162917", null ],
     [ "logical_detection_time", "structosi3_1_1LogicalDetectionDataHeader.html#abf0cf875292df1365859ba88ea20999e", null ],
+    [ "data_qualifier", "structosi3_1_1LogicalDetectionDataHeader.html#abbd970780d5c1df185b70ebff7162917", null ],
     [ "number_of_valid_logical_detections", "structosi3_1_1LogicalDetectionDataHeader.html#a4cd7e87077822b2999e562df52096922", null ],
     [ "sensor_id", "structosi3_1_1LogicalDetectionDataHeader.html#a00278711e9bd3eaeb8252e809df656b9", null ]
 ];

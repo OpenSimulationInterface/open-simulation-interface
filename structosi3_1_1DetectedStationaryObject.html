@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('structosi3_1_1DetectedStationaryObject
 </div><!--header-->
 <div class="contents">
 
-<p>A stationary object (e.g. landmark) in the environment as detected by the sensor.  
+<p>A stationary object (e.g.  
  <a href="structosi3_1_1DetectedStationaryObject.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::DetectedStationaryObject:</div>
@@ -112,8 +112,8 @@ Collaboration diagram for osi3::DetectedStationaryObject:</div>
 <area shape="rect" id="node10" href="structosi3_1_1ColorRGB.html" title="RGB color model. " alt="" coords="439,385,557,412"/>
 <area shape="rect" id="node11" href="structosi3_1_1ColorHSV.html" title="HSV color model. " alt="" coords="439,520,557,547"/>
 <area shape="rect" id="node12" href="structosi3_1_1ColorLUV.html" title="LUV color model. " alt="" coords="440,452,556,479"/>
-<area shape="rect" id="node16" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="425,121,571,148"/>
-<area shape="rect" id="node17" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="427,244,569,271"/>
+<area shape="rect" id="node16" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="425,121,571,148"/>
+<area shape="rect" id="node17" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="427,244,569,271"/>
 <area shape="rect" id="node18" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="441,56,555,83"/>
 <area shape="rect" id="node19" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="441,176,555,203"/>
 <area shape="rect" id="node6" href="structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces. " alt="" coords="778,520,943,547"/>
@@ -130,22 +130,44 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a0deb22fcf4bb95a870e93601ed28f055"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedStationaryObject.html#a0deb22fcf4bb95a870e93601ed28f055">header</a> = 1</td></tr>
+<tr class="memdesc:a0deb22fcf4bb95a870e93601ed28f055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common information of one detected item.  <a href="#a0deb22fcf4bb95a870e93601ed28f055">More...</a><br /></td></tr>
 <tr class="separator:a0deb22fcf4bb95a870e93601ed28f055"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f2e987daa04a3ad0b163407c69d78b1"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1BaseStationary.html">BaseStationary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedStationaryObject.html#a4f2e987daa04a3ad0b163407c69d78b1">base</a> = 2</td></tr>
+<tr class="memdesc:a4f2e987daa04a3ad0b163407c69d78b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base parameters of the stationary object.  <a href="#a4f2e987daa04a3ad0b163407c69d78b1">More...</a><br /></td></tr>
 <tr class="separator:a4f2e987daa04a3ad0b163407c69d78b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9344118d88b18d48dad62446d02fdee"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1BaseStationary.html">BaseStationary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedStationaryObject.html#ad9344118d88b18d48dad62446d02fdee">base_rmse</a> = 3</td></tr>
+<tr class="memdesc:ad9344118d88b18d48dad62446d02fdee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root mean squared error of the base parameters of the detected stationary object (e.g.  <a href="#ad9344118d88b18d48dad62446d02fdee">More...</a><br /></td></tr>
 <tr class="separator:ad9344118d88b18d48dad62446d02fdee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7161d3bf96e124d79a8d7f4e8fb22a09"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html">CandidateStationaryObject</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedStationaryObject.html#a7161d3bf96e124d79a8d7f4e8fb22a09">candidate</a> = 4</td></tr>
+<tr class="memdesc:a7161d3bf96e124d79a8d7f4e8fb22a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of candidates for this stationary object as estimated by the sensor.  <a href="#a7161d3bf96e124d79a8d7f4e8fb22a09">More...</a><br /></td></tr>
 <tr class="separator:a7161d3bf96e124d79a8d7f4e8fb22a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb26a7757cb028e1b588bb5b9c00f41e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1ColorDescription.html">ColorDescription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedStationaryObject.html#aeb26a7757cb028e1b588bb5b9c00f41e">color_description</a> = 5</td></tr>
+<tr class="memdesc:aeb26a7757cb028e1b588bb5b9c00f41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dominating color of the material of the structure.  <a href="#aeb26a7757cb028e1b588bb5b9c00f41e">More...</a><br /></td></tr>
 <tr class="separator:aeb26a7757cb028e1b588bb5b9c00f41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A stationary object (e.g. landmark) in the environment as detected by the sensor. </p>
+<div class="textblock"><p>A stationary object (e.g. </p>
+<p>landmark) in the environment as detected by the sensor.</p>
 <div class="image">
 <object type="image/svg+xml" data="OSI_DetectedStationaryObject.svg">OSI_DetectedStationaryObject.svg</object>
 </div>
  </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0deb22fcf4bb95a870e93601ed28f055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0deb22fcf4bb95a870e93601ed28f055">&#9670;&nbsp;</a></span>header</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a> osi3::DetectedStationaryObject::header = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Common information of one detected item. </p>
+
+</div>
+</div>
 <a id="a4f2e987daa04a3ad0b163407c69d78b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f2e987daa04a3ad0b163407c69d78b1">&#9670;&nbsp;</a></span>base</h2>
 
@@ -157,6 +179,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The base parameters of the stationary object. </p>
 
 </div>
@@ -172,7 +195,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The root mean squared error of the base parameters of the detected stationary object (e.g. landmark). <code><a class="el" href="structosi3_1_1StationaryObject.html#a5f11a30dc338f7d38e2e90950b415ba2">StationaryObject::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedStationaryObject.html#a7161d3bf96e124d79a8d7f4e8fb22a09">candidate</a></code> stationary objects. </p>
+
+<p>The root mean squared error of the base parameters of the detected stationary object (e.g. </p>
+<p>landmark). <code><a class="el" href="structosi3_1_1StationaryObject.html#a5f11a30dc338f7d38e2e90950b415ba2" title="The base parameters of the stationary object. ">StationaryObject::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedStationaryObject.html#a7161d3bf96e124d79a8d7f4e8fb22a09" title="A list of candidates for this stationary object as estimated by the sensor. ">candidate</a></code> stationary objects. </p>
 
 </div>
 </div>
@@ -187,7 +212,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A list of candidates for this stationary object as estimated by the sensor.</p>
+
+<p>A list of candidates for this stationary object as estimated by the sensor. </p>
 <dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
@@ -203,22 +229,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The dominating color of the material of the structure. </p>
-
-</div>
-</div>
-<a id="a0deb22fcf4bb95a870e93601ed28f055"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0deb22fcf4bb95a870e93601ed28f055">&#9670;&nbsp;</a></span>header</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1DetectedItemHeader.html">DetectedItemHeader</a> osi3::DetectedStationaryObject::header = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Common information of one detected item. </p>
 
 </div>
 </div>

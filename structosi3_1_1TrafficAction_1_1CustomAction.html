@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -109,10 +109,13 @@ Collaboration diagram for osi3::TrafficAction::CustomAction:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a85545684990a28949535044637e15e37"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction_1_1ActionHeader.html">ActionHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1CustomAction.html#a85545684990a28949535044637e15e37">action_header</a> = 1</td></tr>
+<tr class="memdesc:a85545684990a28949535044637e15e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Action Header.  <a href="#a85545684990a28949535044637e15e37">More...</a><br /></td></tr>
 <tr class="separator:a85545684990a28949535044637e15e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99dd77e27ab1d104a50fffb1a51c165b"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1CustomAction.html#a99dd77e27ab1d104a50fffb1a51c165b">command</a> = 2</td></tr>
+<tr class="memdesc:a99dd77e27ab1d104a50fffb1a51c165b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The custom command given to the traffic participant.  <a href="#a99dd77e27ab1d104a50fffb1a51c165b">More...</a><br /></td></tr>
 <tr class="separator:a99dd77e27ab1d104a50fffb1a51c165b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12895dbe3fbca4c0c1ac8184b997aa26"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1CustomAction.html#a12895dbe3fbca4c0c1ac8184b997aa26">command_type</a> = 3</td></tr>
+<tr class="memdesc:a12895dbe3fbca4c0c1ac8184b997aa26"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the custom command given to the traffic participant.  <a href="#a12895dbe3fbca4c0c1ac8184b997aa26">More...</a><br /></td></tr>
 <tr class="separator:a12895dbe3fbca4c0c1ac8184b997aa26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -131,6 +134,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The Action Header. </p>
 
 </div>
@@ -146,7 +150,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The custom command given to the traffic participant. Used to convey a specific instruction (for example, "exit_highway"), or event (for example, "left_indicator_activated").</p>
+
+<p>The custom command given to the traffic participant. </p>
+<p>Used to convey a specific instruction (for example, "exit_highway"), or event (for example, "left_indicator_activated").</p>
 <dl class="section note"><dt>Note</dt><dd>This corresponds to the content of the OpenSCENARIO 1.0 CustomCommandAction field. </dd></dl>
 
 </div>
@@ -162,7 +168,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The type of the custom command given to the traffic participant. Can be used to simplify how commands are grouped. For example, the command_type could be "sensor_failure" and the command value could be "front_right_camera". This avoids long commands, like "sensor_failure: front_right_camera".</p>
+
+<p>The type of the custom command given to the traffic participant. </p>
+<p>Can be used to simplify how commands are grouped. For example, the command_type could be "sensor_failure" and the command value could be "front_right_camera". This avoids long commands, like "sensor_failure: front_right_camera".</p>
 <dl class="section note"><dt>Note</dt><dd>This corresponds to the "type" attribute of the OpenSCENARIO 1.0 CustomCommandAction. </dd></dl>
 
 </div>

@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('structosi3_1_1TrafficUpdate.html','');
 </div><!--header-->
 <div class="contents">
 
-<p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment. The message is designed to update data of exactly one traffic participant, optionally with an attached trailer.  
+<p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment.  
  <a href="structosi3_1_1TrafficUpdate.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::TrafficUpdate:</div>
@@ -102,7 +102,7 @@ Collaboration diagram for osi3::TrafficUpdate:</div>
 <div class="center"><img src="structosi3_1_1TrafficUpdate__coll__graph.png" border="0" usemap="#osi3_1_1TrafficUpdate_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficUpdate_coll__map" id="osi3_1_1TrafficUpdate_coll__map">
 <area shape="rect" id="node2" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="231,211,361,237"/>
-<area shape="rect" id="node6" href="structosi3_1_1HostVehicleData.html" title="Host vehicle data is about the perception of the vehicle about its own internal states. It captures the knowledge the vehicle has internally, which can differ from the actual or global truth for various reasons. This message can also be understood as an interface container for the signals of a rest bus simulation. " alt="" coords="1019,417,1184,444"/>
+<area shape="rect" id="node6" href="structosi3_1_1HostVehicleData.html" title="Host vehicle data is about the perception of the vehicle about its own internal states. " alt="" coords="1019,417,1184,444"/>
 <area shape="rect" id="node23" href="structosi3_1_1StatePoint.html" title="The StatePoint definition. " alt="" coords="590,749,714,776"/>
 <area shape="rect" id="node5" href="structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="571,632,733,659"/>
 <area shape="rect" id="node20" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other). " alt="" coords="579,1045,725,1086"/>
@@ -126,34 +126,36 @@ Collaboration diagram for osi3::TrafficUpdate:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4d1b1ce8e0789b3e4bef89ee4d5b3fca"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficUpdate.html#a4d1b1ce8e0789b3e4bef89ee4d5b3fca">version</a> = 1</td></tr>
+<tr class="memdesc:a4d1b1ce8e0789b3e4bef89ee4d5b3fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The interface version used by the sender (traffic participant model).  <a href="#a4d1b1ce8e0789b3e4bef89ee4d5b3fca">More...</a><br /></td></tr>
 <tr class="separator:a4d1b1ce8e0789b3e4bef89ee4d5b3fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc394afcae59b5491032f1c2fbc43bd6"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficUpdate.html#acc394afcae59b5491032f1c2fbc43bd6">timestamp</a> = 2</td></tr>
+<tr class="memdesc:acc394afcae59b5491032f1c2fbc43bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data timestamp of the simulation environment.  <a href="#acc394afcae59b5491032f1c2fbc43bd6">More...</a><br /></td></tr>
 <tr class="separator:acc394afcae59b5491032f1c2fbc43bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf3c4f0f6851d1ce2e7ddcdc7684f6cd"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1MovingObject.html">MovingObject</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficUpdate.html#adf3c4f0f6851d1ce2e7ddcdc7684f6cd">update</a> = 3</td></tr>
+<tr class="memdesc:adf3c4f0f6851d1ce2e7ddcdc7684f6cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updated traffic participant data.  <a href="#adf3c4f0f6851d1ce2e7ddcdc7684f6cd">More...</a><br /></td></tr>
 <tr class="separator:adf3c4f0f6851d1ce2e7ddcdc7684f6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c5cbc21bc062678cb2585d6ea953748"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1HostVehicleData.html">HostVehicleData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficUpdate.html#a7c5cbc21bc062678cb2585d6ea953748">internal_state</a> = 4</td></tr>
+<tr class="memdesc:a7c5cbc21bc062678cb2585d6ea953748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal state for each vehicle.  <a href="#a7c5cbc21bc062678cb2585d6ea953748">More...</a><br /></td></tr>
 <tr class="separator:a7c5cbc21bc062678cb2585d6ea953748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment. The message is designed to update data of exactly one traffic participant, optionally with an attached trailer. </p>
+<div class="textblock"><p>The traffic update message is provided by traffic participant models to provide updates to their position, state and future trajectory back to the simulation environment. </p>
+<p>The message is designed to update data of exactly one traffic participant, optionally with an attached trailer.</p>
 <dl class="section note"><dt>Note</dt><dd>For reasons of convenience and consistency, the updated information is provided as a <a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). ">MovingObject</a>. Certain fields of this sub-message are not required to be set and will be ignored by the simulation environment, because they are static information. Instead of creating a seperate message type for only the non-static information, re-use existing message. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7c5cbc21bc062678cb2585d6ea953748"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c5cbc21bc062678cb2585d6ea953748">&#9670;&nbsp;</a></span>internal_state</h2>
+<a id="a4d1b1ce8e0789b3e4bef89ee4d5b3fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1b1ce8e0789b3e4bef89ee4d5b3fca">&#9670;&nbsp;</a></span>version</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">repeated <a class="el" href="structosi3_1_1HostVehicleData.html">HostVehicleData</a> osi3::TrafficUpdate::internal_state = 4</td>
+          <td class="memname">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a> osi3::TrafficUpdate::version = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Internal state for each vehicle.</p>
-<p>This is an optional field as internal state may not be known or relevant, for example, a trailer might not have any internal state. It is also allowed to only specify internal_state for a subset of the objects referenced in the update.</p>
-<dl class="section note"><dt>Note</dt><dd>This covers any information which cannot be externally perceived and therefore cannot be included in messages available in ground truth.</dd>
-<dd>
-The id field from this should match the id in the update field above where the same vehicle is being referenced. </dd></dl>
+
+<p>The interface version used by the sender (traffic participant model). </p>
 
 </div>
 </div>
@@ -168,7 +170,9 @@ The id field from this should match the id in the update field above where the s
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The data timestamp of the simulation environment. Zero time is arbitrary but must be identical for all messages. Zero time does not need to coincide with the UNIX epoch. Recommended is the starting time point of the simulation.</p>
+
+<p>The data timestamp of the simulation environment. </p>
+<p>Zero time is arbitrary but must be identical for all messages. Zero time does not need to coincide with the UNIX epoch. Recommended is the starting time point of the simulation.</p>
 <dl class="section note"><dt>Note</dt><dd>For moving object update data the timestamp coincides both with the notional simulation time the data applies to and the time it was sent. There is no inherent latency for moving object update data, as opposed to sensor data. </dd></dl>
 
 </div>
@@ -184,25 +188,31 @@ The id field from this should match the id in the update field above where the s
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Updated traffic participant data</p>
+
+<p>Updated traffic participant data. </p>
 <dl class="section note"><dt>Note</dt><dd>It is not expected that static fields are populated. If they are, they may be ignored by the receiver of this message, for example, dimensions, or vehicle category. All dynamic fields should be populated where known, for example, velocity, light states, or future trajectory.</dd>
 <dd>
-The field is repeated because it is possible to have a trailer attached to a vehicle, see <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6">MovingObject::VehicleClassification::has_trailer</a> and <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482">MovingObject::VehicleClassification::trailer_id</a>. </dd></dl>
+The field is repeated because it is possible to have a trailer attached to a vehicle, see <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6" title="Flag defining whether the vehicle has an attached trailer. ">MovingObject::VehicleClassification::has_trailer</a> and <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482" title="Id of the attached trailer. ">MovingObject::VehicleClassification::trailer_id</a>. </dd></dl>
 
 </div>
 </div>
-<a id="a4d1b1ce8e0789b3e4bef89ee4d5b3fca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d1b1ce8e0789b3e4bef89ee4d5b3fca">&#9670;&nbsp;</a></span>version</h2>
+<a id="a7c5cbc21bc062678cb2585d6ea953748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5cbc21bc062678cb2585d6ea953748">&#9670;&nbsp;</a></span>internal_state</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1InterfaceVersion.html">InterfaceVersion</a> osi3::TrafficUpdate::version = 1</td>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1HostVehicleData.html">HostVehicleData</a> osi3::TrafficUpdate::internal_state = 4</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The interface version used by the sender (traffic participant model). </p>
+
+<p>Internal state for each vehicle. </p>
+<p>This is an optional field as internal state may not be known or relevant, for example, a trailer might not have any internal state. It is also allowed to only specify internal_state for a subset of the objects referenced in the update.</p>
+<dl class="section note"><dt>Note</dt><dd>This covers any information which cannot be externally perceived and therefore cannot be included in messages available in ground truth.</dd>
+<dd>
+The id field from this should match the id in the update field above where the same vehicle is being referenced. </dd></dl>
 
 </div>
 </div>

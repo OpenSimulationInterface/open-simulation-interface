@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -109,68 +109,42 @@ Collaboration diagram for osi3::LidarDetection:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa43288d7437026989c17abbc466d29d2"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#aa43288d7437026989c17abbc466d29d2">existence_probability</a> = 1</td></tr>
+<tr class="memdesc:aa43288d7437026989c17abbc466d29d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Existence probability of the detection not based on history.  <a href="#aa43288d7437026989c17abbc466d29d2">More...</a><br /></td></tr>
 <tr class="separator:aa43288d7437026989c17abbc466d29d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a744d7f8e6e5be6c25dce2f4bb3d2755c"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a744d7f8e6e5be6c25dce2f4bb3d2755c">object_id</a> = 2</td></tr>
+<tr class="memdesc:a744d7f8e6e5be6c25dce2f4bb3d2755c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of the detected object this detection is associated to.  <a href="#a744d7f8e6e5be6c25dce2f4bb3d2755c">More...</a><br /></td></tr>
 <tr class="separator:a744d7f8e6e5be6c25dce2f4bb3d2755c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae732995aaab1ef629a09896f1ab04317"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Spherical3d.html">Spherical3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#ae732995aaab1ef629a09896f1ab04317">position</a> = 3</td></tr>
+<tr class="memdesc:ae732995aaab1ef629a09896f1ab04317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measured position of the detection given in spherical coordinates in the sensor coordinate system.  <a href="#ae732995aaab1ef629a09896f1ab04317">More...</a><br /></td></tr>
 <tr class="separator:ae732995aaab1ef629a09896f1ab04317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa648b223b72897239e0120be863a4439"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Spherical3d.html">Spherical3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#aa648b223b72897239e0120be863a4439">position_rmse</a> = 4</td></tr>
+<tr class="memdesc:aa648b223b72897239e0120be863a4439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root mean squared error of the measured position of the detection.  <a href="#aa648b223b72897239e0120be863a4439">More...</a><br /></td></tr>
 <tr class="separator:aa648b223b72897239e0120be863a4439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3307991b913cb5b5451257e49f5234d9"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a3307991b913cb5b5451257e49f5234d9">height</a> = 5</td></tr>
+<tr class="memdesc:a3307991b913cb5b5451257e49f5234d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The height value which is required when multiple scan points are vertically clustered.  <a href="#a3307991b913cb5b5451257e49f5234d9">More...</a><br /></td></tr>
 <tr class="separator:a3307991b913cb5b5451257e49f5234d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6799498adedc0b59775d547106557029"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a6799498adedc0b59775d547106557029">height_rmse</a> = 6</td></tr>
+<tr class="memdesc:a6799498adedc0b59775d547106557029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root mean squared error of the object height.  <a href="#a6799498adedc0b59775d547106557029">More...</a><br /></td></tr>
 <tr class="separator:a6799498adedc0b59775d547106557029"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c2ea1eb70a1d1c31d5bc1481572f4e7"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a1c2ea1eb70a1d1c31d5bc1481572f4e7">intensity</a> = 7</td></tr>
+<tr class="memdesc:a1c2ea1eb70a1d1c31d5bc1481572f4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intensity or equivalent value of the detection's echo.  <a href="#a1c2ea1eb70a1d1c31d5bc1481572f4e7">More...</a><br /></td></tr>
 <tr class="separator:a1c2ea1eb70a1d1c31d5bc1481572f4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a211052d77b3fd978c00659d3d1b98a06"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a211052d77b3fd978c00659d3d1b98a06">free_space_probability</a> = 8</td></tr>
+<tr class="memdesc:a211052d77b3fd978c00659d3d1b98a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">The free space probability in the range [0.0, 1.0] from the origin of the sensor up to this detection, as given by the distance.  <a href="#a211052d77b3fd978c00659d3d1b98a06">More...</a><br /></td></tr>
 <tr class="separator:a211052d77b3fd978c00659d3d1b98a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44833637161c94126c8ba84bf47b377a"><td class="memItemLeft" align="right" valign="top">optional DetectionClassification&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a44833637161c94126c8ba84bf47b377a">classification</a> = 9</td></tr>
+<tr class="memdesc:a44833637161c94126c8ba84bf47b377a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic classification of the detection.  <a href="#a44833637161c94126c8ba84bf47b377a">More...</a><br /></td></tr>
 <tr class="separator:a44833637161c94126c8ba84bf47b377a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20bdc24a0eaadbd9c2fa48f416f30f42"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42">reflectivity</a> = 10</td></tr>
+<tr class="memdesc:a20bdc24a0eaadbd9c2fa48f416f30f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambertian reflectivity.  <a href="#a20bdc24a0eaadbd9c2fa48f416f30f42">More...</a><br /></td></tr>
 <tr class="separator:a20bdc24a0eaadbd9c2fa48f416f30f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d179981ada5ea4281adda2aa1e6f612"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LidarDetection.html#a5d179981ada5ea4281adda2aa1e6f612">echo_pulse_width</a> = 11</td></tr>
+<tr class="memdesc:a5d179981ada5ea4281adda2aa1e6f612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Echo pulse width of the detection's echo.  <a href="#a5d179981ada5ea4281adda2aa1e6f612">More...</a><br /></td></tr>
 <tr class="separator:a5d179981ada5ea4281adda2aa1e6f612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A point or vertical line in a lidar point cloud. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a44833637161c94126c8ba84bf47b377a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44833637161c94126c8ba84bf47b377a">&#9670;&nbsp;</a></span>classification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional DetectionClassification osi3::LidarDetection::classification = 9</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Basic classification of the detection. </p>
-
-</div>
-</div>
-<a id="a5d179981ada5ea4281adda2aa1e6f612"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d179981ada5ea4281adda2aa1e6f612">&#9670;&nbsp;</a></span>echo_pulse_width</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::LidarDetection::echo_pulse_width = 11</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Echo pulse width of the detection's echo. Several sensors output an echo pulse width instead of an intensity for each individual detection. The echo pulse is measured in m and measures the extent of the object parts or atmospheric particles that produce the echo. </p><dl class="section note"><dt>Note</dt><dd>For more details see [1] Fig. 7 and 8. </dd>
-<dd>
-Fig. 7 shows an example where the two echos are reflected from the edges A-B and C-D. </dd>
-<dd>
-Fig. 8 shows how the echo pulse width is measured as the range between the rising edge and the falling edge that crosses the intensity threshold.</dd></dl>
-<p>Unit: m</p>
-<p>is_greater_than_or_equal_to: 0 </p>
-<dl class="section user"><dt>Reference:</dt><dd>[1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automot. Engine Technol. 5, Fig 7, Fig 8. Retrieved May 10, 2021, from <a href="https://doi.org/10.1007/s41104-020-00066-x">https://doi.org/10.1007/s41104-020-00066-x</a> </dd></dl>
-
-</div>
-</div>
 <a id="aa43288d7437026989c17abbc466d29d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa43288d7437026989c17abbc466d29d2">&#9670;&nbsp;</a></span>existence_probability</h2>
 
@@ -182,76 +156,11 @@ Fig. 8 shows how the echo pulse width is measured as the range between the risin
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.</p>
+
+<p>Existence probability of the detection not based on history. </p>
+<p>Value does not depend on any past experience with similar detections.</p>
 <dl class="section note"><dt>Note</dt><dd>Used as confidence measure where a low value means less confidence and a high value indicates strong confidence.</dd></dl>
-<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
-
-</div>
-</div>
-<a id="a211052d77b3fd978c00659d3d1b98a06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a211052d77b3fd978c00659d3d1b98a06">&#9670;&nbsp;</a></span>free_space_probability</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::LidarDetection::free_space_probability = 8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The free space probability in the range [0.0, 1.0] from the origin of the sensor up to this detection, as given by the distance.</p>
-<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
-
-</div>
-</div>
-<a id="a3307991b913cb5b5451257e49f5234d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3307991b913cb5b5451257e49f5234d9">&#9670;&nbsp;</a></span>height</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::LidarDetection::height = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The height value which is required when multiple scan points are vertically clustered. Only vertical clustering is allowed (z-axis).</p>
-<p>Unit: m</p>
-<p>is_greater_than_or_equal_to: 0  </p>
-
-</div>
-</div>
-<a id="a6799498adedc0b59775d547106557029"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6799498adedc0b59775d547106557029">&#9670;&nbsp;</a></span>height_rmse</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::LidarDetection::height_rmse = 6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Root mean squared error of the object height.</p>
-<p>Unit: m</p>
-<p>is_greater_than_or_equal_to: 0  </p>
-
-</div>
-</div>
-<a id="a1c2ea1eb70a1d1c31d5bc1481572f4e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c2ea1eb70a1d1c31d5bc1481572f4e7">&#9670;&nbsp;</a></span>intensity</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::LidarDetection::intensity = 7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Intensity or equivalent value of the detection's echo.</p>
-<p>Unit: %</p>
-<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 100  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div><div class="line">is_less_than_or_equal_to: 1</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -266,9 +175,10 @@ Fig. 8 shows how the echo pulse width is measured as the range between the risin
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ID of the detected object this detection is associated to.</p>
+
+<p>ID of the detected object this detection is associated to. </p>
 <dl class="section note"><dt>Note</dt><dd>ID = MAX(uint64) indicates no reference to an object.</dd></dl>
-<p>refers_to: DetectedObject  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">refers_to: DetectedObject</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -283,6 +193,7 @@ Fig. 8 shows how the echo pulse width is measured as the range between the risin
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Measured position of the detection given in spherical coordinates in the sensor coordinate system. </p>
 
 </div>
@@ -298,7 +209,96 @@ Fig. 8 shows how the echo pulse width is measured as the range between the risin
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Root mean squared error of the measured position of the detection. </p>
+
+</div>
+</div>
+<a id="a3307991b913cb5b5451257e49f5234d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3307991b913cb5b5451257e49f5234d9">&#9670;&nbsp;</a></span>height</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::LidarDetection::height = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The height value which is required when multiple scan points are vertically clustered. </p>
+<p>Only vertical clustering is allowed (z-axis).</p>
+<p>Unit: m</p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a6799498adedc0b59775d547106557029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6799498adedc0b59775d547106557029">&#9670;&nbsp;</a></span>height_rmse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::LidarDetection::height_rmse = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Root mean squared error of the object height. </p>
+<p>Unit: m</p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a1c2ea1eb70a1d1c31d5bc1481572f4e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c2ea1eb70a1d1c31d5bc1481572f4e7">&#9670;&nbsp;</a></span>intensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::LidarDetection::intensity = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intensity or equivalent value of the detection's echo. </p>
+<p>Unit: %</p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div><div class="line">is_less_than_or_equal_to: 100</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a211052d77b3fd978c00659d3d1b98a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a211052d77b3fd978c00659d3d1b98a06">&#9670;&nbsp;</a></span>free_space_probability</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::LidarDetection::free_space_probability = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The free space probability in the range [0.0, 1.0] from the origin of the sensor up to this detection, as given by the distance. </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div><div class="line">is_less_than_or_equal_to: 1</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a44833637161c94126c8ba84bf47b377a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44833637161c94126c8ba84bf47b377a">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional DetectionClassification osi3::LidarDetection::classification = 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Basic classification of the detection. </p>
 
 </div>
 </div>
@@ -313,7 +313,32 @@ Fig. 8 shows how the echo pulse width is measured as the range between the risin
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Lambertian reflectivity. </p>
+
+</div>
+</div>
+<a id="a5d179981ada5ea4281adda2aa1e6f612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d179981ada5ea4281adda2aa1e6f612">&#9670;&nbsp;</a></span>echo_pulse_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::LidarDetection::echo_pulse_width = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Echo pulse width of the detection's echo. </p>
+<p>Several sensors output an echo pulse width instead of an intensity for each individual detection. The echo pulse is measured in m and measures the extent of the object parts or atmospheric particles that produce the echo. </p><dl class="section note"><dt>Note</dt><dd>For more details see [1] Fig. 7 and 8. </dd>
+<dd>
+Fig. 7 shows an example where the two echos are reflected from the edges A-B and C-D. </dd>
+<dd>
+Fig. 8 shows how the echo pulse width is measured as the range between the rising edge and the falling edge that crosses the intensity threshold.</dd></dl>
+<p>Unit: m</p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Reference:</dt><dd>[1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automot. Engine Technol. 5, Fig 7, Fig 8. Retrieved May 10, 2021, from <a href="https://doi.org/10.1007/s41104-020-00066-x">https://doi.org/10.1007/s41104-020-00066-x</a> </dd></dl>
 
 </div>
 </div>

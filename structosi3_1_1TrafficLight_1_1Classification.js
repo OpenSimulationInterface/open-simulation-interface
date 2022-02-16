@@ -44,10 +44,10 @@ var structosi3_1_1TrafficLight_1_1Classification =
       [ "MODE_FLASHING", "structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a7fb20b9069e10298f28e212ed25a2adf", null ],
       [ "MODE_COUNTING", "structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a32a0a5e3db2827d4e0b6d693eae8eb88", null ]
     ] ],
-    [ "assigned_lane_id", "structosi3_1_1TrafficLight_1_1Classification.html#ae2d2c56139343d677a4eb633b785ed57", null ],
     [ "color", "structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034", null ],
-    [ "counter", "structosi3_1_1TrafficLight_1_1Classification.html#a3e26403ad1b31fe8392c15b2efe78f3a", null ],
     [ "icon", "structosi3_1_1TrafficLight_1_1Classification.html#a7b85ec64acb7871ba0a1704d4a5b7771", null ],
-    [ "is_out_of_service", "structosi3_1_1TrafficLight_1_1Classification.html#aee3d096860fd93660d119b9c3a8d5743", null ],
-    [ "mode", "structosi3_1_1TrafficLight_1_1Classification.html#afc685a8d448f2cabe2e5b92af8229259", null ]
+    [ "mode", "structosi3_1_1TrafficLight_1_1Classification.html#afc685a8d448f2cabe2e5b92af8229259", null ],
+    [ "counter", "structosi3_1_1TrafficLight_1_1Classification.html#a3e26403ad1b31fe8392c15b2efe78f3a", null ],
+    [ "assigned_lane_id", "structosi3_1_1TrafficLight_1_1Classification.html#ae2d2c56139343d677a4eb633b785ed57", null ],
+    [ "is_out_of_service", "structosi3_1_1TrafficLight_1_1Classification.html#aee3d096860fd93660d119b9c3a8d5743", null ]
 ];

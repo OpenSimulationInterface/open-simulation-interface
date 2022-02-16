@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -107,8 +107,10 @@ Collaboration diagram for osi3::UltrasonicDetectionSpecificHeader:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8609fb5f62d6d2e2d8c95bfba5c4eadf"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicDetectionSpecificHeader.html#a8609fb5f62d6d2e2d8c95bfba5c4eadf">max_range</a> = 1</td></tr>
+<tr class="memdesc:a8609fb5f62d6d2e2d8c95bfba5c4eadf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal range of the ultrasonic sensor.  <a href="#a8609fb5f62d6d2e2d8c95bfba5c4eadf">More...</a><br /></td></tr>
 <tr class="separator:a8609fb5f62d6d2e2d8c95bfba5c4eadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad65b2c07067df2554fba54b3780350f4"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicDetectionSpecificHeader.html#ad65b2c07067df2554fba54b3780350f4">number_of_valid_indirect_detections</a> = 2</td></tr>
+<tr class="memdesc:ad65b2c07067df2554fba54b3780350f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current number of valid indirect detections in the detections list.  <a href="#ad65b2c07067df2554fba54b3780350f4">More...</a><br /></td></tr>
 <tr class="separator:ad65b2c07067df2554fba54b3780350f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -125,7 +127,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maximal range of the ultrasonic sensor.</p>
+
+<p>Maximal range of the ultrasonic sensor. </p>
 <p>Unit: m </p>
 
 </div>
@@ -141,7 +144,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The current number of valid indirect detections in the detections list. The detections are measured by a virtual sensor (i.e. sender and receiver are different sensors).</p>
+
+<p>The current number of valid indirect detections in the detections list. </p>
+<p>The detections are measured by a virtual sensor (i.e. sender and receiver are different sensors).</p>
 <dl class="section note"><dt>Note</dt><dd>This value has to be set if the list contains invalid detections. </dd></dl>
 
 </div>

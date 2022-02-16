@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -109,29 +109,15 @@ Collaboration diagram for osi3::DetectedLaneBoundary::CandidateLaneBoundary:</di
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a01d4e5d4677f71116f84b1b6169d19f8"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html#a01d4e5d4677f71116f84b1b6169d19f8">probability</a> = 1</td></tr>
+<tr class="memdesc:a01d4e5d4677f71116f84b1b6169d19f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The estimated probability that this candidate is the true value.  <a href="#a01d4e5d4677f71116f84b1b6169d19f8">More...</a><br /></td></tr>
 <tr class="separator:a01d4e5d4677f71116f84b1b6169d19f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef5a6e6b9e362c541191709fb462b5a8"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">LaneBoundary::Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html#aef5a6e6b9e362c541191709fb462b5a8">classification</a> = 2</td></tr>
+<tr class="memdesc:aef5a6e6b9e362c541191709fb462b5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of one lane boundary that defines this candidate.  <a href="#aef5a6e6b9e362c541191709fb462b5a8">More...</a><br /></td></tr>
 <tr class="separator:aef5a6e6b9e362c541191709fb462b5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A candidate for a detected lane boundary as estimated by the sensor. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="aef5a6e6b9e362c541191709fb462b5a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef5a6e6b9e362c541191709fb462b5a8">&#9670;&nbsp;</a></span>classification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">LaneBoundary::Classification</a> osi3::DetectedLaneBoundary::CandidateLaneBoundary::classification = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The classification of one lane boundary that defines this candidate.</p>
-<dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
-
-</div>
-</div>
 <a id="a01d4e5d4677f71116f84b1b6169d19f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01d4e5d4677f71116f84b1b6169d19f8">&#9670;&nbsp;</a></span>probability</h2>
 
@@ -143,9 +129,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The estimated probability that this candidate is the true value.</p>
-<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html#a01d4e5d4677f71116f84b1b6169d19f8">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
-<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
+
+<p>The estimated probability that this candidate is the true value. </p>
+<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html#a01d4e5d4677f71116f84b1b6169d19f8" title="The estimated probability that this candidate is the true value. ">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div><div class="line">is_less_than_or_equal_to: 1</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="aef5a6e6b9e362c541191709fb462b5a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef5a6e6b9e362c541191709fb462b5a8">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html">LaneBoundary::Classification</a> osi3::DetectedLaneBoundary::CandidateLaneBoundary::classification = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The classification of one lane boundary that defines this candidate. </p>
+<dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
 
 </div>
 </div>

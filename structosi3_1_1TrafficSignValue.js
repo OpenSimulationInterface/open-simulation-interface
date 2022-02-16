@@ -17,7 +17,7 @@ var structosi3_1_1TrafficSignValue =
       [ "UNIT_DAY", "structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a38720316e6afa3d74a0b24dfbdec13a4", null ],
       [ "UNIT_PERCENTAGE", "structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a7df3d3de74257eb7f44e515404c5a16f", null ]
     ] ],
-    [ "text", "structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90", null ],
     [ "value", "structosi3_1_1TrafficSignValue.html#a22b163aa13b94ffa2082f710703260cc", null ],
-    [ "value_unit", "structosi3_1_1TrafficSignValue.html#add3c5ccd1eea35e546fab4d488479dea", null ]
+    [ "value_unit", "structosi3_1_1TrafficSignValue.html#add3c5ccd1eea35e546fab4d488479dea", null ],
+    [ "text", "structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90", null ]
 ];

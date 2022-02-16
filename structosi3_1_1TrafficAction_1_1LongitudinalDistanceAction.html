@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -110,16 +110,22 @@ Collaboration diagram for osi3::TrafficAction::LongitudinalDistanceAction:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a654eb958853b42b41a8d10cc9bb2c19c"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction_1_1ActionHeader.html">ActionHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#a654eb958853b42b41a8d10cc9bb2c19c">action_header</a> = 1</td></tr>
+<tr class="memdesc:a654eb958853b42b41a8d10cc9bb2c19c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action Header of the message.  <a href="#a654eb958853b42b41a8d10cc9bb2c19c">More...</a><br /></td></tr>
 <tr class="separator:a654eb958853b42b41a8d10cc9bb2c19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a061e9fb4e643af3fcd42b8be22d183fe"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#a061e9fb4e643af3fcd42b8be22d183fe">target_traffic_participant_id</a> = 2</td></tr>
+<tr class="memdesc:a061e9fb4e643af3fcd42b8be22d183fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique Id of the reference traffic participant to which the distance is defined.  <a href="#a061e9fb4e643af3fcd42b8be22d183fe">More...</a><br /></td></tr>
 <tr class="separator:a061e9fb4e643af3fcd42b8be22d183fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e077ee11f27eae739cbdd720969976b"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#a1e077ee11f27eae739cbdd720969976b">distance</a> = 3</td></tr>
+<tr class="memdesc:a1e077ee11f27eae739cbdd720969976b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The distance to reach along the lane.  <a href="#a1e077ee11f27eae739cbdd720969976b">More...</a><br /></td></tr>
 <tr class="separator:a1e077ee11f27eae739cbdd720969976b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32cc72e36926d7a2f4a761754699d479"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#a32cc72e36926d7a2f4a761754699d479">freespace</a> = 4</td></tr>
+<tr class="memdesc:a32cc72e36926d7a2f4a761754699d479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the measurement of longitudinal distance between the traffic participant receiving this action and the reference traffic participant.  <a href="#a32cc72e36926d7a2f4a761754699d479">More...</a><br /></td></tr>
 <tr class="separator:a32cc72e36926d7a2f4a761754699d479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99de3bedcc35721ebba9ddb1800627ae"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#a99de3bedcc35721ebba9ddb1800627ae">follow</a> = 5</td></tr>
+<tr class="memdesc:a99de3bedcc35721ebba9ddb1800627ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define wheather the traffic participant should only reach the distance once or if it should also keep the distance after having reached it.  <a href="#a99de3bedcc35721ebba9ddb1800627ae">More...</a><br /></td></tr>
 <tr class="separator:a99de3bedcc35721ebba9ddb1800627ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab09e26527907a9ef72ab28946486307"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction_1_1DynamicConstraints.html">DynamicConstraints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html#aab09e26527907a9ef72ab28946486307">dynamic_constraints</a> = 6</td></tr>
+<tr class="memdesc:aab09e26527907a9ef72ab28946486307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameter that assings either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action.  <a href="#aab09e26527907a9ef72ab28946486307">More...</a><br /></td></tr>
 <tr class="separator:aab09e26527907a9ef72ab28946486307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -140,68 +146,8 @@ Limitation: This concept currently only works for lanes with a centerline, i.e. 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Action Header of the message </p>
 
-</div>
-</div>
-<a id="a1e077ee11f27eae739cbdd720969976b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e077ee11f27eae739cbdd720969976b">&#9670;&nbsp;</a></span>distance</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::TrafficAction::LongitudinalDistanceAction::distance = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The distance to reach along the lane</p>
-<p>Unit: m </p>
-
-</div>
-</div>
-<a id="aab09e26527907a9ef72ab28946486307"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab09e26527907a9ef72ab28946486307">&#9670;&nbsp;</a></span>dynamic_constraints</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1TrafficAction_1_1DynamicConstraints.html">DynamicConstraints</a> osi3::TrafficAction::LongitudinalDistanceAction::dynamic_constraints = 6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Parameter that assings either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action. </p>
-
-</div>
-</div>
-<a id="a99de3bedcc35721ebba9ddb1800627ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99de3bedcc35721ebba9ddb1800627ae">&#9670;&nbsp;</a></span>follow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional bool osi3::TrafficAction::LongitudinalDistanceAction::follow = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Define wheather the traffic participant should only reach the distance once or if it should also keep the distance after having reached it. True: the traffic participant shall approach the reference participant and follow with the distance specified until the action is aborted (communicate with <a class="el" href="structosi3_1_1TrafficAction_1_1AbortActionsAction.html" title="AbortActionsAction. ">AbortActionsAction</a>). False: the action ends as soon as the traffic participant has reached the specified distance (communicate with <a class="el" href="structosi3_1_1TrafficAction_1_1EndActionsAction.html" title="End actions action. ">EndActionsAction</a>). </p>
-
-</div>
-</div>
-<a id="a32cc72e36926d7a2f4a761754699d479"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32cc72e36926d7a2f4a761754699d479">&#9670;&nbsp;</a></span>freespace</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional bool osi3::TrafficAction::LongitudinalDistanceAction::freespace = 4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Determine the measurement of longitudinal distance between the traffic participant receiving this action and the reference traffic participant. True: Longitudinal distance is measured using the distance between closest bounding box points. False: Longitudinal distance is mesasured using the distance between the center of each object's bounding box. </p>
+<p>Action Header of the message. </p>
 
 </div>
 </div>
@@ -216,7 +162,75 @@ Limitation: This concept currently only works for lanes with a centerline, i.e. 
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Unique Id of the reference traffic participant to which the distance is defined. </p>
+
+</div>
+</div>
+<a id="a1e077ee11f27eae739cbdd720969976b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e077ee11f27eae739cbdd720969976b">&#9670;&nbsp;</a></span>distance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::TrafficAction::LongitudinalDistanceAction::distance = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The distance to reach along the lane. </p>
+<p>Unit: m </p>
+
+</div>
+</div>
+<a id="a32cc72e36926d7a2f4a761754699d479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32cc72e36926d7a2f4a761754699d479">&#9670;&nbsp;</a></span>freespace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional bool osi3::TrafficAction::LongitudinalDistanceAction::freespace = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determine the measurement of longitudinal distance between the traffic participant receiving this action and the reference traffic participant. </p>
+<p>True: Longitudinal distance is measured using the distance between closest bounding box points. False: Longitudinal distance is mesasured using the distance between the center of each object's bounding box. </p>
+
+</div>
+</div>
+<a id="a99de3bedcc35721ebba9ddb1800627ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99de3bedcc35721ebba9ddb1800627ae">&#9670;&nbsp;</a></span>follow</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional bool osi3::TrafficAction::LongitudinalDistanceAction::follow = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define wheather the traffic participant should only reach the distance once or if it should also keep the distance after having reached it. </p>
+<p>True: the traffic participant shall approach the reference participant and follow with the distance specified until the action is aborted (communicate with <a class="el" href="structosi3_1_1TrafficAction_1_1AbortActionsAction.html" title="AbortActionsAction. ">AbortActionsAction</a>). False: the action ends as soon as the traffic participant has reached the specified distance (communicate with <a class="el" href="structosi3_1_1TrafficAction_1_1EndActionsAction.html" title="End actions action. ">EndActionsAction</a>). </p>
+
+</div>
+</div>
+<a id="aab09e26527907a9ef72ab28946486307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab09e26527907a9ef72ab28946486307">&#9670;&nbsp;</a></span>dynamic_constraints</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1TrafficAction_1_1DynamicConstraints.html">DynamicConstraints</a> osi3::TrafficAction::LongitudinalDistanceAction::dynamic_constraints = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parameter that assings either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action. </p>
 
 </div>
 </div>

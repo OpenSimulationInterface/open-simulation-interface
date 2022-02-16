@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -107,10 +107,13 @@ Collaboration diagram for osi3::ExternalReference:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a757ed9bd47b1c02f82524aa2227970e5"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1ExternalReference.html#a757ed9bd47b1c02f82524aa2227970e5">reference</a> = 1</td></tr>
+<tr class="memdesc:a757ed9bd47b1c02f82524aa2227970e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The source of the external references.  <a href="#a757ed9bd47b1c02f82524aa2227970e5">More...</a><br /></td></tr>
 <tr class="separator:a757ed9bd47b1c02f82524aa2227970e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab24251f22ad6c93b01af4687bdc796e5"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1ExternalReference.html#ab24251f22ad6c93b01af4687bdc796e5">type</a> = 2</td></tr>
+<tr class="memdesc:ab24251f22ad6c93b01af4687bdc796e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the external references.  <a href="#ab24251f22ad6c93b01af4687bdc796e5">More...</a><br /></td></tr>
 <tr class="separator:ab24251f22ad6c93b01af4687bdc796e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5dff8ade7e6bb5f552a093d8f83122d"><td class="memItemLeft" align="right" valign="top">repeated string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1ExternalReference.html#ac5dff8ade7e6bb5f552a093d8f83122d">identifier</a> = 3</td></tr>
+<tr class="memdesc:ac5dff8ade7e6bb5f552a093d8f83122d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The external identifier reference value.  <a href="#ac5dff8ade7e6bb5f552a093d8f83122d">More...</a><br /></td></tr>
 <tr class="separator:ac5dff8ade7e6bb5f552a093d8f83122d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -118,43 +121,6 @@ Public Attributes</h2></td></tr>
 <p>The external reference is an optional recommendation to refer to objects defined outside of OSI. This could be other OpenX standards, 3rd-party standards or user-defined objects.</p>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="structosi3_1_1ExternalReference.html" title="References to external objects. ">ExternalReference</a> is optional and can be left empty. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac5dff8ade7e6bb5f552a093d8f83122d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5dff8ade7e6bb5f552a093d8f83122d">&#9670;&nbsp;</a></span>identifier</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">repeated string osi3::ExternalReference::identifier = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The external identifier reference value.</p>
-<p>The repeated string is chosen as a common description of the external identifier, because a variety of identificatier types could be involved .</p>
-<p>For example, referencing a unique lane in OpenDRIVE requires the following identifiers:</p><ul>
-<li>RoadId: String</li>
-<li>S-Value of LaneSection: Double</li>
-<li>LaneId: Int</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>The detailed description of the identifiers and how they are used for referencing external objects is given in the individual messages where the external identifier is used.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a9d6eb78f198f9dd989d3f69f0f9af4c8">EnvironmentalConditions::source_reference</a> </dd>
-<dd>
-<a class="el" href="structosi3_1_1Lane.html#abf3e3baefd151b75a14674afccc0b226">Lane::source_reference</a> </dd>
-<dd>
-<a class="el" href="structosi3_1_1LaneBoundary.html#aefd5280ba5c8c61425706ff9a029b5a4">LaneBoundary::source_reference</a> </dd>
-<dd>
-<a class="el" href="structosi3_1_1StationaryObject.html#aa8d86e0b109f067fa6ba78197aec539c">StationaryObject::source_reference</a> </dd>
-<dd>
-<a class="el" href="structosi3_1_1MovingObject.html#a28102f7b1679219e151881c74c716073">MovingObject::source_reference</a> </dd>
-<dd>
-<a class="el" href="structosi3_1_1RoadMarking.html#ab40669e568d7b6cfc476cb42c39270ef">RoadMarking::source_reference</a> </dd>
-<dd>
-<a class="el" href="structosi3_1_1TrafficLight.html#a7bb33694fadf4dae08bf7ab61a15fc5b">TrafficLight::source_reference</a> </dd>
-<dd>
-<a class="el" href="structosi3_1_1TrafficSign.html#a27f837ee6a72a61bd73f626a8ac5b5c8">TrafficSign::source_reference</a> </dd></dl>
-
-</div>
-</div>
 <a id="a757ed9bd47b1c02f82524aa2227970e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a757ed9bd47b1c02f82524aa2227970e5">&#9670;&nbsp;</a></span>reference</h2>
 
@@ -166,8 +132,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The source of the external references.</p>
-<p>Defines the original source of an object as uniquely identifiable reference. In case of using <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e">GroundTruth::map_reference</a></code> or <code><a class="el" href="structosi3_1_1GroundTruth.html#a83042861723a4a9e890a53aa98d88858">GroundTruth::model_reference</a></code>, the reference can be left empty. If not otherwise required, an URI is suggested. The syntax should follow <a class="el" href="">RFC 3986</a>. </p>
+
+<p>The source of the external references. </p>
+<p>Defines the original source of an object as uniquely identifiable reference. In case of using <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e" title="Opaque reference of a map. ">GroundTruth::map_reference</a></code> or <code><a class="el" href="structosi3_1_1GroundTruth.html#a83042861723a4a9e890a53aa98d88858" title="Opaque reference of an associated 3D model. ">GroundTruth::model_reference</a></code>, the reference can be left empty. If not otherwise required, an URI is suggested. The syntax should follow <a class="el" href="">RFC 3986</a>. </p>
 
 </div>
 </div>
@@ -182,13 +149,52 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The type of the external references.</p>
+
+<p>The type of the external references. </p>
 <p>Mandatory value describing the type of the original source.</p>
 <p>For OpenX/ASAM standards it is specified as follows:</p><ul>
 <li>net.asam.opendrive</li>
 <li>net.asam.openscenario</li>
 </ul>
 <p>For third-party standards and user-defined objects, reverse domain name notation with lower-case type field is recommended to guarantee unique and interoperable identification. </p>
+
+</div>
+</div>
+<a id="ac5dff8ade7e6bb5f552a093d8f83122d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5dff8ade7e6bb5f552a093d8f83122d">&#9670;&nbsp;</a></span>identifier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated string osi3::ExternalReference::identifier = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The external identifier reference value. </p>
+<p>The repeated string is chosen as a common description of the external identifier, because a variety of identificatier types could be involved .</p>
+<p>For example, referencing a unique lane in OpenDRIVE requires the following identifiers:</p><ul>
+<li>RoadId: String</li>
+<li>S-Value of LaneSection: Double</li>
+<li>LaneId: Int</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>The detailed description of the identifiers and how they are used for referencing external objects is given in the individual messages where the external identifier is used.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a9d6eb78f198f9dd989d3f69f0f9af4c8" title="Optional external reference to the environmental condition sources. ">EnvironmentalConditions::source_reference</a> </dd>
+<dd>
+<a class="el" href="structosi3_1_1Lane.html#abf3e3baefd151b75a14674afccc0b226" title="Optional external reference to the lane source. ">Lane::source_reference</a> </dd>
+<dd>
+<a class="el" href="structosi3_1_1LaneBoundary.html#aefd5280ba5c8c61425706ff9a029b5a4" title="Optional external reference to the lane boundary source. ">LaneBoundary::source_reference</a> </dd>
+<dd>
+<a class="el" href="structosi3_1_1StationaryObject.html#aa8d86e0b109f067fa6ba78197aec539c" title="External reference to the stationary-object source. ">StationaryObject::source_reference</a> </dd>
+<dd>
+<a class="el" href="structosi3_1_1MovingObject.html#a28102f7b1679219e151881c74c716073" title="Optional external reference to the moving-object source. ">MovingObject::source_reference</a> </dd>
+<dd>
+<a class="el" href="structosi3_1_1RoadMarking.html#ab40669e568d7b6cfc476cb42c39270ef" title="Optional external reference to the road-marking source. ">RoadMarking::source_reference</a> </dd>
+<dd>
+<a class="el" href="structosi3_1_1TrafficLight.html#a7bb33694fadf4dae08bf7ab61a15fc5b" title="Optional external reference to the traffic light source. ">TrafficLight::source_reference</a> </dd>
+<dd>
+<a class="el" href="structosi3_1_1TrafficSign.html#a27f837ee6a72a61bd73f626a8ac5b5c8" title="Optional external reference to the traffic sign source. ">TrafficSign::source_reference</a> </dd></dl>
 
 </div>
 </div>

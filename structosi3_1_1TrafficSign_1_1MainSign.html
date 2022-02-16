@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -106,8 +106,8 @@ Collaboration diagram for osi3::TrafficSign::MainSign:</div>
 <area shape="rect" id="node5" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="231,5,346,32"/>
 <area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="209,213,369,240"/>
 <area shape="rect" id="node10" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="565,517,721,544"/>
-<area shape="rect" id="node11" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="215,467,362,493"/>
-<area shape="rect" id="node12" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. the size of a 3D bounding box or its uncertainties. " alt="" coords="217,517,360,544"/>
+<area shape="rect" id="node11" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="215,467,362,493"/>
+<area shape="rect" id="node12" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="217,517,360,544"/>
 <area shape="rect" id="node13" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="231,568,346,595"/>
 <area shape="rect" id="node14" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="231,619,346,645"/>
 </map>
@@ -122,10 +122,13 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aaa39dda4c96ae6e95648c93ea20020f5"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1BaseStationary.html">BaseStationary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#aaa39dda4c96ae6e95648c93ea20020f5">base</a> = 1</td></tr>
+<tr class="memdesc:aaa39dda4c96ae6e95648c93ea20020f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base parameters of the traffic sign.  <a href="#aaa39dda4c96ae6e95648c93ea20020f5">More...</a><br /></td></tr>
 <tr class="separator:aaa39dda4c96ae6e95648c93ea20020f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae44a444bc475718ee65da09e494b7909"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html">Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#ae44a444bc475718ee65da09e494b7909">classification</a> = 2</td></tr>
+<tr class="memdesc:ae44a444bc475718ee65da09e494b7909"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of the traffic sign.  <a href="#ae44a444bc475718ee65da09e494b7909">More...</a><br /></td></tr>
 <tr class="separator:ae44a444bc475718ee65da09e494b7909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae363de582f13f08df687a1213c7dcaac"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#ae363de582f13f08df687a1213c7dcaac">model_reference</a> = 3</td></tr>
+<tr class="memdesc:ae363de582f13f08df687a1213c7dcaac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opaque reference of an associated 3D model of the traffic sign.  <a href="#ae363de582f13f08df687a1213c7dcaac">More...</a><br /></td></tr>
 <tr class="separator:ae363de582f13f08df687a1213c7dcaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -145,8 +148,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The base parameters of the traffic sign.</p>
-<p>The orientation of the bounding box <code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#aaa39dda4c96ae6e95648c93ea20020f5">base</a></code> ( <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">BaseStationary::orientation</a></code> ) is defined as follows: The z-axis of the given <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">BaseStationary::orientation</a></code> is the vector from the bottom to the top of the traffic sign's 2D image plate. (Normally it is equal to the ground truth z-axis.) The x-axis of the given <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826">BaseStationary::orientation</a></code> is view normal of the traffic sign's image. This x-axis points from the traffic sign's image in the direction from where a 'viewer' could see the traffic sign image. </p>
+
+<p>The base parameters of the traffic sign. </p>
+<p>The orientation of the bounding box <code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign.html#aaa39dda4c96ae6e95648c93ea20020f5" title="The base parameters of the traffic sign. ">base</a></code> ( <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826" title="The relative orientation of the stationary object w.r.t. ">BaseStationary::orientation</a></code> ) is defined as follows: The z-axis of the given <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826" title="The relative orientation of the stationary object w.r.t. ">BaseStationary::orientation</a></code> is the vector from the bottom to the top of the traffic sign's 2D image plate. (Normally it is equal to the ground truth z-axis.) The x-axis of the given <code><a class="el" href="structosi3_1_1BaseStationary.html#a811a76e0a95abc696f60bfc0f3987826" title="The relative orientation of the stationary object w.r.t. ">BaseStationary::orientation</a></code> is view normal of the traffic sign's image. This x-axis points from the traffic sign's image in the direction from where a 'viewer' could see the traffic sign image. </p>
 
 </div>
 </div>
@@ -161,6 +165,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The classification of the traffic sign. </p>
 
 </div>
@@ -176,7 +181,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Opaque reference of an associated 3D model of the traffic sign.</p>
+
+<p>Opaque reference of an associated 3D model of the traffic sign. </p>
 <dl class="section note"><dt>Note</dt><dd>It is implementation-specific how model_references are resolved to 3d models. </dd></dl>
 
 </div>

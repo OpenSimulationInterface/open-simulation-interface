@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -108,10 +108,13 @@ Collaboration diagram for osi3::UltrasonicDetection:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a57cc9b3e327cc7274db3f16c509be4aa"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicDetection.html#a57cc9b3e327cc7274db3f16c509be4aa">existence_probability</a> = 1</td></tr>
+<tr class="memdesc:a57cc9b3e327cc7274db3f16c509be4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Existence probability of the detection not based on history.  <a href="#a57cc9b3e327cc7274db3f16c509be4aa">More...</a><br /></td></tr>
 <tr class="separator:a57cc9b3e327cc7274db3f16c509be4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2828d1150a0cda1ba5d26ef7e089d30"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicDetection.html#ac2828d1150a0cda1ba5d26ef7e089d30">object_id</a> = 2</td></tr>
+<tr class="memdesc:ac2828d1150a0cda1ba5d26ef7e089d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of the detected object this detection is associated to.  <a href="#ac2828d1150a0cda1ba5d26ef7e089d30">More...</a><br /></td></tr>
 <tr class="separator:ac2828d1150a0cda1ba5d26ef7e089d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb0a30da407b4c5e468798d8e71ff752"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicDetection.html#acb0a30da407b4c5e468798d8e71ff752">distance</a> = 3</td></tr>
+<tr class="memdesc:acb0a30da407b4c5e468798d8e71ff752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measured distance (radius) of the detection.  <a href="#acb0a30da407b4c5e468798d8e71ff752">More...</a><br /></td></tr>
 <tr class="separator:acb0a30da407b4c5e468798d8e71ff752"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -124,23 +127,6 @@ Public Attributes</h2></td></tr>
 </div>
 <dl class="section note"><dt>Note</dt><dd>Direct detecions lies on circles with the sensor as centre. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="acb0a30da407b4c5e468798d8e71ff752"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb0a30da407b4c5e468798d8e71ff752">&#9670;&nbsp;</a></span>distance</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::UltrasonicDetection::distance = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Measured distance (radius) of the detection.</p>
-<p>Unit: m</p>
-<p>is_greater_than_or_equal_to: 0  </p>
-
-</div>
-</div>
 <a id="a57cc9b3e327cc7274db3f16c509be4aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57cc9b3e327cc7274db3f16c509be4aa">&#9670;&nbsp;</a></span>existence_probability</h2>
 
@@ -152,9 +138,11 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Existence probability of the detection not based on history. Value does not depend on any past experience with similar detections.</p>
+
+<p>Existence probability of the detection not based on history. </p>
+<p>Value does not depend on any past experience with similar detections.</p>
 <dl class="section note"><dt>Note</dt><dd>Used as confidence measure where a low value means less confidence and a high value indicates strong confidence.</dd></dl>
-<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 1  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div><div class="line">is_less_than_or_equal_to: 1</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -169,9 +157,28 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ID of the detected object this detection is associated to.</p>
+
+<p>ID of the detected object this detection is associated to. </p>
 <dl class="section note"><dt>Note</dt><dd>ID = MAX(uint64) indicates no reference to an object.</dd></dl>
-<p>refers_to: DetectedObject  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">refers_to: DetectedObject</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="acb0a30da407b4c5e468798d8e71ff752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0a30da407b4c5e468798d8e71ff752">&#9670;&nbsp;</a></span>distance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::UltrasonicDetection::distance = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Measured distance (radius) of the detection. </p>
+<p>Unit: m</p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>

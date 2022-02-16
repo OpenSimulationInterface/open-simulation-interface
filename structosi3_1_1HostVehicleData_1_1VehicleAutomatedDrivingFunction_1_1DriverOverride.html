@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -109,14 +109,17 @@ Collaboration diagram for osi3::HostVehicleData::VehicleAutomatedDrivingFunction
 Public Types</h2></td></tr>
 <tr class="memitem:a7f4d6124a6c897aada700e3b538204ed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204ed">Reason</a> { <a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204eda1cbfa154d04dcd270058087e8fd543c7">REASON_BRAKE_PEDAL</a> = 0, 
 <a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204edacf09cfd5d066e4eeedc0943fd708a3b7">REASON_STEERING_INPUT</a> = 1
- }</td></tr>
+ }<tr class="memdesc:a7f4d6124a6c897aada700e3b538204ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ways in which a driver could override a driving function.  <a href="structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204ed">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a7f4d6124a6c897aada700e3b538204ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a0b4226b29de2debdb243294bb80f0a7f"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a0b4226b29de2debdb243294bb80f0a7f">active</a> = 1</td></tr>
+<tr class="memdesc:a0b4226b29de2debdb243294bb80f0a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The feature has been overridden by a driver action.  <a href="#a0b4226b29de2debdb243294bb80f0a7f">More...</a><br /></td></tr>
 <tr class="separator:a0b4226b29de2debdb243294bb80f0a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52f19d9c1fb53734e532400b0b366717"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204ed">Reason</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a52f19d9c1fb53734e532400b0b366717">override_reason</a> = 2</td></tr>
+<tr class="memdesc:a52f19d9c1fb53734e532400b0b366717"><td class="mdescLeft">&#160;</td><td class="mdescRight">What driver inputs have caused the override.  <a href="#a52f19d9c1fb53734e532400b0b366717">More...</a><br /></td></tr>
 <tr class="separator:a52f19d9c1fb53734e532400b0b366717"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -134,6 +137,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Ways in which a driver could override a driving function. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7f4d6124a6c897aada700e3b538204eda1cbfa154d04dcd270058087e8fd543c7"></a>REASON_BRAKE_PEDAL&#160;</td><td class="fielddoc"><p>The driver has applied sufficient input via the break pedal. </p>
@@ -156,7 +160,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The feature has been overridden by a driver action.</p>
+
+<p>The feature has been overridden by a driver action. </p>
 <dl class="section note"><dt>Note</dt><dd>If false, the rest of this message should be ignored. </dd></dl>
 
 </div>
@@ -172,6 +177,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>What driver inputs have caused the override. </p>
 
 </div>

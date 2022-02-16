@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('structosi3_1_1Orientation3d.html','');
 </div><!--header-->
 <div class="contents">
 
-<p>A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertainties denoted in euler angles.  
+<p>A 3D orientation, orientation rate or orientation acceleration (i.e.  
  <a href="structosi3_1_1Orientation3d.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::Orientation3d:</div>
@@ -107,14 +107,18 @@ Collaboration diagram for osi3::Orientation3d:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a68b9d059dc5f98668f88cf0879e814ba"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba">roll</a> = 1</td></tr>
+<tr class="memdesc:a68b9d059dc5f98668f88cf0879e814ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The roll angle/rate/acceleration.  <a href="#a68b9d059dc5f98668f88cf0879e814ba">More...</a><br /></td></tr>
 <tr class="separator:a68b9d059dc5f98668f88cf0879e814ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f855b7cd2ecc13fee682b13d174759a"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Orientation3d.html#a1f855b7cd2ecc13fee682b13d174759a">pitch</a> = 2</td></tr>
+<tr class="memdesc:a1f855b7cd2ecc13fee682b13d174759a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pitch angle/rate/acceleration.  <a href="#a1f855b7cd2ecc13fee682b13d174759a">More...</a><br /></td></tr>
 <tr class="separator:a1f855b7cd2ecc13fee682b13d174759a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8926d20dd01c344c45f5670fa791fb21"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Orientation3d.html#a8926d20dd01c344c45f5670fa791fb21">yaw</a> = 3</td></tr>
+<tr class="memdesc:a8926d20dd01c344c45f5670fa791fb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">The yaw angle/rate/acceleration.  <a href="#a8926d20dd01c344c45f5670fa791fb21">More...</a><br /></td></tr>
 <tr class="separator:a8926d20dd01c344c45f5670fa791fb21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertainties denoted in euler angles. </p>
+<div class="textblock"><p>A 3D orientation, orientation rate or orientation acceleration (i.e. </p>
+<p>derivatives) or its uncertainties denoted in euler angles.</p>
 <p>Units are rad for orientation, rad/s for rates, and rad/s^2 for accelerations</p>
 <p>The coordinate system is defined as right-handed. For the sense of each rotation, the right-hand rule applies.</p>
 <p>The rotations are to be performed <b>yaw</b> <b>first</b> (around the z-axis), <b>pitch</b> <b>second</b> (around the new y-axis) and <b>roll</b> <b>third</b> (around the new x-axis) to follow the definition according to <a href="Tait-Bryan / Euler
@@ -125,22 +129,6 @@ convention z-y" title="-x&apos;">1</a>. The preferred angular range is [-pi, pi]
 <dl class="section attention"><dt>Attention</dt><dd>This definition changed in OSI version 3.0.0. Previous OSI versions (V2.xx) had an other definition.</dd></dl>
 <dl class="section user"><dt>Reference:</dt><dd>[1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1f855b7cd2ecc13fee682b13d174759a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f855b7cd2ecc13fee682b13d174759a">&#9670;&nbsp;</a></span>pitch</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::Orientation3d::pitch = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The pitch angle/rate/acceleration.</p>
-<p>Unit: rad, rad/s, or rad/s^2 </p>
-
-</div>
-</div>
 <a id="a68b9d059dc5f98668f88cf0879e814ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a68b9d059dc5f98668f88cf0879e814ba">&#9670;&nbsp;</a></span>roll</h2>
 
@@ -152,7 +140,25 @@ convention z-y" title="-x&apos;">1</a>. The preferred angular range is [-pi, pi]
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The roll angle/rate/acceleration.</p>
+
+<p>The roll angle/rate/acceleration. </p>
+<p>Unit: rad, rad/s, or rad/s^2 </p>
+
+</div>
+</div>
+<a id="a1f855b7cd2ecc13fee682b13d174759a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f855b7cd2ecc13fee682b13d174759a">&#9670;&nbsp;</a></span>pitch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::Orientation3d::pitch = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The pitch angle/rate/acceleration. </p>
 <p>Unit: rad, rad/s, or rad/s^2 </p>
 
 </div>
@@ -168,7 +174,8 @@ convention z-y" title="-x&apos;">1</a>. The preferred angular range is [-pi, pi]
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The yaw angle/rate/acceleration.</p>
+
+<p>The yaw angle/rate/acceleration. </p>
 <p>Unit: rad, rad/s, or rad/s^2 </p>
 
 </div>

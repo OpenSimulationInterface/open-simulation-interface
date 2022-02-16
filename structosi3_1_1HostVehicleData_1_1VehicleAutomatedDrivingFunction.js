@@ -38,10 +38,10 @@ var structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction =
       [ "STATE_STANDBY", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772dac32775ee4ac367835a7671979e1a0d70", null ],
       [ "STATE_ACTIVE", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772da817cd0a88d2cc2394375338837124d1e", null ]
     ] ],
-    [ "custom_detail", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a77f10f9c7df2deeb706b5c1531837929", null ],
+    [ "name", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#ad20ff01191d39945553035ea2d523ffb", null ],
     [ "custom_name", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a5d790968959f4484d4ee3e37ab2eb408", null ],
+    [ "state", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4cacefe3f78435cddf532c5f04b8c6fb", null ],
     [ "custom_state", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a2daa801c356b3bb1c00a723c86f70be7", null ],
     [ "driver_override", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#ad02a7d5d87b002b5f585af7e3acca20b", null ],
-    [ "name", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#ad20ff01191d39945553035ea2d523ffb", null ],
-    [ "state", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4cacefe3f78435cddf532c5f04b8c6fb", null ]
+    [ "custom_detail", "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a77f10f9c7df2deeb706b5c1531837929", null ]
 ];

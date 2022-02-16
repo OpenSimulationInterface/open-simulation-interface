@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -107,12 +107,16 @@ Collaboration diagram for osi3::HostVehicleData::VehicleWheels::WheelData:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7e5fa9f9bd1e2a624e90ee428f5e78e8"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html#a7e5fa9f9bd1e2a624e90ee428f5e78e8">axle</a> = 1</td></tr>
+<tr class="memdesc:a7e5fa9f9bd1e2a624e90ee428f5e78e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The axle which contains this wheel.  <a href="#a7e5fa9f9bd1e2a624e90ee428f5e78e8">More...</a><br /></td></tr>
 <tr class="separator:a7e5fa9f9bd1e2a624e90ee428f5e78e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a471df5f6416df0ecdb509a39820b4d7c"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html#a471df5f6416df0ecdb509a39820b4d7c">index</a> = 2</td></tr>
+<tr class="memdesc:a471df5f6416df0ecdb509a39820b4d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the wheel on the axle, counted in positive y- direction, that is, right-to-left.  <a href="#a471df5f6416df0ecdb509a39820b4d7c">More...</a><br /></td></tr>
 <tr class="separator:a471df5f6416df0ecdb509a39820b4d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53912991101e91b79c5794f0c4073d54"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html#a53912991101e91b79c5794f0c4073d54">rotation_rate</a> = 3</td></tr>
+<tr class="memdesc:a53912991101e91b79c5794f0c4073d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation rate of the wheel based on the processed output of the hall sensor measurements at the wheel.  <a href="#a53912991101e91b79c5794f0c4073d54">More...</a><br /></td></tr>
 <tr class="separator:a53912991101e91b79c5794f0c4073d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af277d9fb7e4e7fbe229ad1a126d51487"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html#af277d9fb7e4e7fbe229ad1a126d51487">slip</a> = 4</td></tr>
+<tr class="memdesc:af277d9fb7e4e7fbe229ad1a126d51487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the longitudinal, measured slip of the tire.  <a href="#af277d9fb7e4e7fbe229ad1a126d51487">More...</a><br /></td></tr>
 <tr class="separator:af277d9fb7e4e7fbe229ad1a126d51487"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -129,7 +133,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The axle which contains this wheel. A value of 0 represents the foremost axle of the vehicle, with higher numbers ascending towards the rearmost axle. </p>
+
+<p>The axle which contains this wheel. </p>
+<p>A value of 0 represents the foremost axle of the vehicle, with higher numbers ascending towards the rearmost axle. </p>
 
 </div>
 </div>
@@ -144,7 +150,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The index of the wheel on the axle, counted in positive y- direction, that is, right-to-left.</p>
+
+<p>The index of the wheel on the axle, counted in positive y- direction, that is, right-to-left. </p>
 <p>For example, on a standard 2-axle, 4-wheel car, the rear-right wheel would be (axle=1, index=0). This concept also works for twin tires. </p>
 
 </div>
@@ -160,7 +167,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Rotation rate of the wheel based on the processed output of the hall sensor measurements at the wheel. The rotation rate around the y-axis with respect to the wheel's coordinate system.</p>
+
+<p>Rotation rate of the wheel based on the processed output of the hall sensor measurements at the wheel. </p>
+<p>The rotation rate around the y-axis with respect to the wheel's coordinate system.</p>
 <p>Unit: rad/s.</p>
 <p>The sign convention is defined using the right-hand rule. It is applied on the y-axis of the vehicle's reference system, that is, the center of bounding box. Counterclockwise is positive and clockwise is negative.</p>
 <div class="image">
@@ -181,7 +190,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Contains the longitudinal, measured slip of the tire. </p><dl class="section user"><dt>References:</dt><dd>[1] kfz-tech.de, Schlupf, Retrieved June 30, 2021, from <a href="https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm">https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm</a></dd></dl>
+
+<p>Contains the longitudinal, measured slip of the tire. </p>
+<dl class="section user"><dt>References:</dt><dd>[1] kfz-tech.de, Schlupf, Retrieved June 30, 2021, from <a href="https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm">https://www.kfz-tech.de/Biblio/Formelsammlung/Schlupf.htm</a></dd></dl>
 <p>Unit: %</p>
 <p>The sign convention is defined using the right-hand rule. It is applied on the y-axis of the vehicle's reference system, that is, the center of bounding box. Counterclockwise is positive and clockwise is negative. </p>
 

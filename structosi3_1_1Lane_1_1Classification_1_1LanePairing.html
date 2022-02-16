@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -108,8 +108,10 @@ Collaboration diagram for osi3::Lane::Classification::LanePairing:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aad3a4f155fe17140317054f3270a27eb"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane_1_1Classification_1_1LanePairing.html#aad3a4f155fe17140317054f3270a27eb">antecessor_lane_id</a> = 1</td></tr>
+<tr class="memdesc:aad3a4f155fe17140317054f3270a27eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The antecessor lane ID.  <a href="#aad3a4f155fe17140317054f3270a27eb">More...</a><br /></td></tr>
 <tr class="separator:aad3a4f155fe17140317054f3270a27eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6451767f0167f56c441f1db538b4d97a"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Lane_1_1Classification_1_1LanePairing.html#a6451767f0167f56c441f1db538b4d97a">successor_lane_id</a> = 2</td></tr>
+<tr class="memdesc:a6451767f0167f56c441f1db538b4d97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The successor lane ID.  <a href="#a6451767f0167f56c441f1db538b4d97a">More...</a><br /></td></tr>
 <tr class="separator:a6451767f0167f56c441f1db538b4d97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -135,7 +137,7 @@ Public Attributes</h2></td></tr>
 </table>
 </td></tr>
 </table>
-<dl class="section note"><dt>Note</dt><dd>In the example, the symbols l1, l2, ... stand for the respective lane ids, i.e. for integers (uint64). The symbols cl1, cl2, ... represent the <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42">osi3::Lane::Classification::centerline</a> elements of the lanes with the respective ids. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>In the example, the symbols l1, l2, ... stand for the respective lane ids, i.e. for integers (uint64). The symbols cl1, cl2, ... represent the <a class="el" href="structosi3_1_1Lane_1_1Classification.html#a0085c16a3e1677daf76db0ad23d79e42" title="The lane&#39;s center line (as a list of segments). ">osi3::Lane::Classification::centerline</a> elements of the lanes with the respective ids. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="aad3a4f155fe17140317054f3270a27eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad3a4f155fe17140317054f3270a27eb">&#9670;&nbsp;</a></span>antecessor_lane_id</h2>
@@ -148,8 +150,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The antecessor lane ID.</p>
-<p>refers_to: <a class="el" href="structosi3_1_1Lane.html" title="A lane in the road network. ">Lane</a>  </p>
+
+<p>The antecessor lane ID. </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">refers_to: Lane</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -164,8 +167,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The successor lane ID.</p>
-<p>refers_to: <a class="el" href="structosi3_1_1Lane.html" title="A lane in the road network. ">Lane</a>  </p>
+
+<p>The successor lane ID. </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">refers_to: Lane</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>

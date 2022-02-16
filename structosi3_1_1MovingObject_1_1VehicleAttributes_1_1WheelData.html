@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -94,14 +94,14 @@ $(document).ready(function(){initNavTree('structosi3_1_1MovingObject_1_1VehicleA
 </div><!--header-->
 <div class="contents">
 
-<p>Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information from the outside. It is not intended to be used for dynamic calculations, for example.  
+<p>Detailed wheel data.  
  <a href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for osi3::MovingObject::VehicleAttributes::WheelData:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData__coll__graph.png" border="0" usemap="#osi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData_coll__map" id="osi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData_coll__map">
-<area shape="rect" id="node2" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="115,140,262,167"/>
+<area shape="rect" id="node2" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="115,140,262,167"/>
 <area shape="rect" id="node4" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="286,140,400,167"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -109,26 +109,36 @@ Collaboration diagram for osi3::MovingObject::VehicleAttributes::WheelData:</div
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a094de989f5a2aab080f9a65f0feb3867"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a094de989f5a2aab080f9a65f0feb3867">axle</a> = 1</td></tr>
+<tr class="memdesc:a094de989f5a2aab080f9a65f0feb3867"><td class="mdescLeft">&#160;</td><td class="mdescRight">The axle which contains this wheel.  <a href="#a094de989f5a2aab080f9a65f0feb3867">More...</a><br /></td></tr>
 <tr class="separator:a094de989f5a2aab080f9a65f0feb3867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2095585cdc9eb8968fe576af7c43d5a3"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a2095585cdc9eb8968fe576af7c43d5a3">index</a> = 2</td></tr>
+<tr class="memdesc:a2095585cdc9eb8968fe576af7c43d5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the wheel on the axle, counting in the direction of positive-y, that is, right-to-left.  <a href="#a2095585cdc9eb8968fe576af7c43d5a3">More...</a><br /></td></tr>
 <tr class="separator:a2095585cdc9eb8968fe576af7c43d5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfe9b8868b4a50e8b20476aadd217268"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#abfe9b8868b4a50e8b20476aadd217268">position</a> = 3</td></tr>
+<tr class="memdesc:abfe9b8868b4a50e8b20476aadd217268"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector pointing from the vehicle's reference system (center of bounding box) to the geometric center of the wheel.  <a href="#abfe9b8868b4a50e8b20476aadd217268">More...</a><br /></td></tr>
 <tr class="separator:abfe9b8868b4a50e8b20476aadd217268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a103fad79e18f7443b50e4d81160c8d56"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a103fad79e18f7443b50e4d81160c8d56">wheel_radius</a> = 4</td></tr>
+<tr class="memdesc:a103fad79e18f7443b50e4d81160c8d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Median radius of the wheel measured from the center of the wheel to the outer part of the tire.  <a href="#a103fad79e18f7443b50e4d81160c8d56">More...</a><br /></td></tr>
 <tr class="separator:a103fad79e18f7443b50e4d81160c8d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdacaf4b3b87153099953937da698297"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#afdacaf4b3b87153099953937da698297">rim_radius</a> = 5</td></tr>
+<tr class="memdesc:afdacaf4b3b87153099953937da698297"><td class="mdescLeft">&#160;</td><td class="mdescRight">Median radius of the rim measured from the center to the outer, visible part of the rim.  <a href="#afdacaf4b3b87153099953937da698297">More...</a><br /></td></tr>
 <tr class="separator:afdacaf4b3b87153099953937da698297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99c73124e0eace722696b019306d1614"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a99c73124e0eace722696b019306d1614">width</a> = 6</td></tr>
+<tr class="memdesc:a99c73124e0eace722696b019306d1614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Median width of the tire.  <a href="#a99c73124e0eace722696b019306d1614">More...</a><br /></td></tr>
 <tr class="separator:a99c73124e0eace722696b019306d1614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a844a2e4eacc8dee9449f8e3a17afb577"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a844a2e4eacc8dee9449f8e3a17afb577">orientation</a> = 7</td></tr>
+<tr class="memdesc:a844a2e4eacc8dee9449f8e3a17afb577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation of the wheel.  <a href="#a844a2e4eacc8dee9449f8e3a17afb577">More...</a><br /></td></tr>
 <tr class="separator:a844a2e4eacc8dee9449f8e3a17afb577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac1cc436ddbf53001ca1a5269b536dc0"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#aac1cc436ddbf53001ca1a5269b536dc0">rotation_rate</a> = 8</td></tr>
+<tr class="memdesc:aac1cc436ddbf53001ca1a5269b536dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation rate of the wheel.  <a href="#aac1cc436ddbf53001ca1a5269b536dc0">More...</a><br /></td></tr>
 <tr class="separator:aac1cc436ddbf53001ca1a5269b536dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af71580c96768174a1c294d7d9e4d9cb4"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#af71580c96768174a1c294d7d9e4d9cb4">model_reference</a> = 9</td></tr>
+<tr class="memdesc:af71580c96768174a1c294d7d9e4d9cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opaque reference of an associated 3D model of the wheel.  <a href="#af71580c96768174a1c294d7d9e4d9cb4">More...</a><br /></td></tr>
 <tr class="separator:af71580c96768174a1c294d7d9e4d9cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Detailed wheel data. The focus is on the description of a wheel regarding the perceivable information from the outside. It is not intended to be used for dynamic calculations, for example. </p>
+<div class="textblock"><p>Detailed wheel data. </p>
+<p>The focus is on the description of a wheel regarding the perceivable information from the outside. It is not intended to be used for dynamic calculations, for example. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a094de989f5a2aab080f9a65f0feb3867"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a094de989f5a2aab080f9a65f0feb3867">&#9670;&nbsp;</a></span>axle</h2>
@@ -141,7 +151,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The axle which contains this wheel. A value of 0 represents the front-most axle of the vehicle with higher numbers incrementing towards the rear-most axle. </p>
+
+<p>The axle which contains this wheel. </p>
+<p>A value of 0 represents the front-most axle of the vehicle with higher numbers incrementing towards the rear-most axle. </p>
 
 </div>
 </div>
@@ -156,40 +168,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The index of the wheel on the axle, counting in the direction of positive-y, that is, right-to-left.</p>
+
+<p>The index of the wheel on the axle, counting in the direction of positive-y, that is, right-to-left. </p>
 <p>For example, on a standard 2-axle, 4-wheel car, the rear-right wheel would be (axle=1, index=0). This concept works also for twin tires. </p>
-
-</div>
-</div>
-<a id="af71580c96768174a1c294d7d9e4d9cb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af71580c96768174a1c294d7d9e4d9cb4">&#9670;&nbsp;</a></span>model_reference</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional string osi3::MovingObject::VehicleAttributes::WheelData::model_reference = 9</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Opaque reference of an associated 3D model of the wheel.</p>
-<dl class="section note"><dt>Note</dt><dd>It is implementation-specific how model_references are resolved to 3d models. </dd></dl>
-
-</div>
-</div>
-<a id="a844a2e4eacc8dee9449f8e3a17afb577"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a844a2e4eacc8dee9449f8e3a17afb577">&#9670;&nbsp;</a></span>orientation</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a> osi3::MovingObject::VehicleAttributes::WheelData::orientation = 7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Orientation of the wheel.</p>
-<p>The reference system is the vehicle frame (center of bounding box). </p>
 
 </div>
 </div>
@@ -204,44 +185,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>A vector pointing from the vehicle's reference system (center of bounding box) to the geometric center of the wheel. </p>
-
-</div>
-</div>
-<a id="afdacaf4b3b87153099953937da698297"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdacaf4b3b87153099953937da698297">&#9670;&nbsp;</a></span>rim_radius</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::WheelData::rim_radius = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Median radius of the rim measured from the center to the outer, visible part of the rim.</p>
-<p>Unit: m </p>
-
-</div>
-</div>
-<a id="aac1cc436ddbf53001ca1a5269b536dc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac1cc436ddbf53001ca1a5269b536dc0">&#9670;&nbsp;</a></span>rotation_rate</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::WheelData::rotation_rate = 8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Rotation rate of the wheel. The rotation rate around the y-axis with respect to the wheel's coordinate system.</p>
-<p>Unit: rad/s.</p>
-<p>The sign convention is defined using the right-hand rule. It is applied on the y-axis of the vehicle's reference system (center of bounding box). Counterclockwise is positive and clockwise is negative.</p>
-<div class="image">
-<object type="image/svg+xml" data="OSI_RotationRate.svg">OSI_RotationRate.svg</object>
-</div>
- <dl class="section note"><dt>Note</dt><dd>The vehicle's reference coordinate system is only used to determine the sign convention of the rotation rate. </dd></dl>
 
 </div>
 </div>
@@ -256,7 +201,25 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Median radius of the wheel measured from the center of the wheel to the outer part of the tire.</p>
+
+<p>Median radius of the wheel measured from the center of the wheel to the outer part of the tire. </p>
+<p>Unit: m </p>
+
+</div>
+</div>
+<a id="afdacaf4b3b87153099953937da698297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdacaf4b3b87153099953937da698297">&#9670;&nbsp;</a></span>rim_radius</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::WheelData::rim_radius = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Median radius of the rim measured from the center to the outer, visible part of the rim. </p>
 <p>Unit: m </p>
 
 </div>
@@ -272,8 +235,66 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Median width of the tire.</p>
+
+<p>Median width of the tire. </p>
 <p>Unit: m </p>
+
+</div>
+</div>
+<a id="a844a2e4eacc8dee9449f8e3a17afb577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a844a2e4eacc8dee9449f8e3a17afb577">&#9670;&nbsp;</a></span>orientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a> osi3::MovingObject::VehicleAttributes::WheelData::orientation = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Orientation of the wheel. </p>
+<p>The reference system is the vehicle frame (center of bounding box). </p>
+
+</div>
+</div>
+<a id="aac1cc436ddbf53001ca1a5269b536dc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1cc436ddbf53001ca1a5269b536dc0">&#9670;&nbsp;</a></span>rotation_rate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::MovingObject::VehicleAttributes::WheelData::rotation_rate = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotation rate of the wheel. </p>
+<p>The rotation rate around the y-axis with respect to the wheel's coordinate system.</p>
+<p>Unit: rad/s.</p>
+<p>The sign convention is defined using the right-hand rule. It is applied on the y-axis of the vehicle's reference system (center of bounding box). Counterclockwise is positive and clockwise is negative.</p>
+<div class="image">
+<object type="image/svg+xml" data="OSI_RotationRate.svg">OSI_RotationRate.svg</object>
+</div>
+ <dl class="section note"><dt>Note</dt><dd>The vehicle's reference coordinate system is only used to determine the sign convention of the rotation rate. </dd></dl>
+
+</div>
+</div>
+<a id="af71580c96768174a1c294d7d9e4d9cb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af71580c96768174a1c294d7d9e4d9cb4">&#9670;&nbsp;</a></span>model_reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::MovingObject::VehicleAttributes::WheelData::model_reference = 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opaque reference of an associated 3D model of the wheel. </p>
+<dl class="section note"><dt>Note</dt><dd>It is implementation-specific how model_references are resolved to 3d models. </dd></dl>
 
 </div>
 </div>

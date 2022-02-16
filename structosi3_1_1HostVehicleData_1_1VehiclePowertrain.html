@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -115,17 +115,55 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a1dc5b7311246f6b370ed014a3a57a3f8"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html#a1dc5b7311246f6b370ed014a3a57a3f8">pedal_position_acceleration</a> = 1</td></tr>
+<tr class="memdesc:a1dc5b7311246f6b370ed014a3a57a3f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position of the acceleration pedal.  <a href="#a1dc5b7311246f6b370ed014a3a57a3f8">More...</a><br /></td></tr>
 <tr class="separator:a1dc5b7311246f6b370ed014a3a57a3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18305048b2b45d5810c8532694fd7925"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html#a18305048b2b45d5810c8532694fd7925">pedal_position_clutch</a> = 2</td></tr>
+<tr class="memdesc:a18305048b2b45d5810c8532694fd7925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position of the clutch pedal.  <a href="#a18305048b2b45d5810c8532694fd7925">More...</a><br /></td></tr>
 <tr class="separator:a18305048b2b45d5810c8532694fd7925"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7f2f5f81a27f61b8b458f72e3245584"><td class="memItemLeft" align="right" valign="top">optional int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html#ad7f2f5f81a27f61b8b458f72e3245584">gear_transmission</a> = 3</td></tr>
+<tr class="memdesc:ad7f2f5f81a27f61b8b458f72e3245584"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual gear of the transmission.  <a href="#ad7f2f5f81a27f61b8b458f72e3245584">More...</a><br /></td></tr>
 <tr class="separator:ad7f2f5f81a27f61b8b458f72e3245584"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8e146d82c31b57fd4d812d48798c723"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1HostVehicleData_1_1VehiclePowertrain_1_1Motor.html">Motor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html#aa8e146d82c31b57fd4d812d48798c723">motor</a> = 4</td></tr>
+<tr class="memdesc:aa8e146d82c31b57fd4d812d48798c723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information about the motor(s).  <a href="#aa8e146d82c31b57fd4d812d48798c723">More...</a><br /></td></tr>
 <tr class="separator:aa8e146d82c31b57fd4d812d48798c723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>State description of the powertrain. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1dc5b7311246f6b370ed014a3a57a3f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dc5b7311246f6b370ed014a3a57a3f8">&#9670;&nbsp;</a></span>pedal_position_acceleration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::HostVehicleData::VehiclePowertrain::pedal_position_acceleration = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Position of the acceleration pedal. </p>
+<p>Range: 0-1 (Unpressed - fully pressed) </p>
+
+</div>
+</div>
+<a id="a18305048b2b45d5810c8532694fd7925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18305048b2b45d5810c8532694fd7925">&#9670;&nbsp;</a></span>pedal_position_clutch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::HostVehicleData::VehiclePowertrain::pedal_position_clutch = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Position of the clutch pedal. </p>
+<p>Range: 0-1 (Unpressed - fully pressed) </p>
+
+</div>
+</div>
 <a id="ad7f2f5f81a27f61b8b458f72e3245584"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7f2f5f81a27f61b8b458f72e3245584">&#9670;&nbsp;</a></span>gear_transmission</h2>
 
@@ -137,7 +175,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The actual gear of the transmission. For example, a gear lever can be on "D" and the transmission on "4", but not the other way around.</p>
+
+<p>The actual gear of the transmission. </p>
+<p>For example, a gear lever can be on "D" and the transmission on "4", but not the other way around.</p>
 <p>The sign of this field is linked to the gear's mode as following:</p><ul>
 <li>zero: neutral position</li>
 <li>positive: driving forward mode</li>
@@ -157,37 +197,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Information about the motor(s). </p>
-
-</div>
-</div>
-<a id="a1dc5b7311246f6b370ed014a3a57a3f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dc5b7311246f6b370ed014a3a57a3f8">&#9670;&nbsp;</a></span>pedal_position_acceleration</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::HostVehicleData::VehiclePowertrain::pedal_position_acceleration = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Position of the acceleration pedal. Range: 0-1 (Unpressed - fully pressed) </p>
-
-</div>
-</div>
-<a id="a18305048b2b45d5810c8532694fd7925"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18305048b2b45d5810c8532694fd7925">&#9670;&nbsp;</a></span>pedal_position_clutch</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::HostVehicleData::VehiclePowertrain::pedal_position_clutch = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Position of the clutch pedal. Range: 0-1 (Unpressed - fully pressed) </p>
 
 </div>
 </div>

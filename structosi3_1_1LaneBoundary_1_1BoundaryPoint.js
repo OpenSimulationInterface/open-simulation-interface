@@ -8,8 +8,8 @@ var structosi3_1_1LaneBoundary_1_1BoundaryPoint =
       [ "DASH_END", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93a74434ec1c6aa0acddf59e9a2291ce281", null ],
       [ "DASH_GAP", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93ab7854cf92547c380bbd0439eca2d06b2", null ]
     ] ],
-    [ "dash", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ad20352b7a3390b3dd608c7bfb7a58622", null ],
-    [ "height", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ae8687f50d44774617a8ad44269266d74", null ],
     [ "position", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a42f6f777d8a31a8b76fbaf8ebb2a6beb", null ],
-    [ "width", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#aab512ff550b26c0def46d45f704df838", null ]
+    [ "width", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#aab512ff550b26c0def46d45f704df838", null ],
+    [ "height", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ae8687f50d44774617a8ad44269266d74", null ],
+    [ "dash", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ad20352b7a3390b3dd608c7bfb7a58622", null ]
 ];

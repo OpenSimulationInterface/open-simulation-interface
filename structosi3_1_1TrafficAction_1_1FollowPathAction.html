@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -104,7 +104,7 @@ Collaboration diagram for osi3::TrafficAction::FollowPathAction:</div>
 <area shape="rect" id="node2" href="structosi3_1_1TrafficAction_1_1ActionHeader.html" title="The action header. " alt="" coords="295,5,433,47"/>
 <area shape="rect" id="node3" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="21,13,136,39"/>
 <area shape="rect" id="node5" href="structosi3_1_1StatePoint.html" title="The StatePoint definition. " alt="" coords="302,122,426,149"/>
-<area shape="rect" id="node6" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="5,71,152,98"/>
+<area shape="rect" id="node6" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="5,71,152,98"/>
 <area shape="rect" id="node7" href="structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="13,122,144,149"/>
 <area shape="rect" id="node8" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="21,173,136,199"/>
 </map>
@@ -113,12 +113,16 @@ Collaboration diagram for osi3::TrafficAction::FollowPathAction:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7f01f900123f4d2602d60b570b149efe"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction_1_1ActionHeader.html">ActionHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1FollowPathAction.html#a7f01f900123f4d2602d60b570b149efe">action_header</a> = 1</td></tr>
+<tr class="memdesc:a7f01f900123f4d2602d60b570b149efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The action header.  <a href="#a7f01f900123f4d2602d60b570b149efe">More...</a><br /></td></tr>
 <tr class="separator:a7f01f900123f4d2602d60b570b149efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9560d0669c321be9819e513c37816e85"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1StatePoint.html">StatePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1FollowPathAction.html#a9560d0669c321be9819e513c37816e85">path_point</a> = 2</td></tr>
+<tr class="memdesc:a9560d0669c321be9819e513c37816e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of path StatePoints.  <a href="#a9560d0669c321be9819e513c37816e85">More...</a><br /></td></tr>
 <tr class="separator:a9560d0669c321be9819e513c37816e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeaef64a7d4e51714d4b8da4d2cda7fd"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1FollowPathAction.html#afeaef64a7d4e51714d4b8da4d2cda7fd">constrain_orientation</a> = 3</td></tr>
+<tr class="memdesc:afeaef64a7d4e51714d4b8da4d2cda7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrain the orientation of the traffic participant as specified by the path points.  <a href="#afeaef64a7d4e51714d4b8da4d2cda7fd">More...</a><br /></td></tr>
 <tr class="separator:afeaef64a7d4e51714d4b8da4d2cda7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e46f4f1b342942c8bb22d099dd0224e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction.html#a6acd32ce009c17611259c5bc1e317858">FollowingMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1FollowPathAction.html#a2e46f4f1b342942c8bb22d099dd0224e">following_mode</a> = 4</td></tr>
+<tr class="memdesc:a2e46f4f1b342942c8bb22d099dd0224e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify the following mode that should be employed in executing the path.  <a href="#a2e46f4f1b342942c8bb22d099dd0224e">More...</a><br /></td></tr>
 <tr class="separator:a2e46f4f1b342942c8bb22d099dd0224e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -139,7 +143,26 @@ This action is aligned with the <a class="el" href="structosi3_1_1TrafficAction_
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The action header </p>
+
+<p>The action header. </p>
+
+</div>
+</div>
+<a id="a9560d0669c321be9819e513c37816e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9560d0669c321be9819e513c37816e85">&#9670;&nbsp;</a></span>path_point</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1StatePoint.html">StatePoint</a> osi3::TrafficAction::FollowPathAction::path_point = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A list of path StatePoints. </p>
+<p>Set the position fields for all path points. The timestamp field are not required and ignored. The orientation fields can be set depending on the constrain_orientation field being true.</p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>
@@ -154,7 +177,8 @@ This action is aligned with the <a class="el" href="structosi3_1_1TrafficAction_
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constrain the orientation of the traffic participant as specified by the path points.</p>
+
+<p>Constrain the orientation of the traffic participant as specified by the path points. </p>
 <p>This boolean flag defines whether orientation values supplied in the path points shall be used to constrain the orientation of the traffic participant or not. </p>
 
 </div>
@@ -170,24 +194,8 @@ This action is aligned with the <a class="el" href="structosi3_1_1TrafficAction_
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Specify the following mode that should be employed in executing the path. </p>
-
-</div>
-</div>
-<a id="a9560d0669c321be9819e513c37816e85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9560d0669c321be9819e513c37816e85">&#9670;&nbsp;</a></span>path_point</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">repeated <a class="el" href="structosi3_1_1StatePoint.html">StatePoint</a> osi3::TrafficAction::FollowPathAction::path_point = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>A list of path StatePoints</p>
-<p>Set the position fields for all path points. The timestamp field are not required and ignored. The orientation fields can be set depending on the constrain_orientation field being true.</p>
-<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

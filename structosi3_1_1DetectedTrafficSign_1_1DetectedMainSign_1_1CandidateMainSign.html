@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -110,29 +110,15 @@ Collaboration diagram for osi3::DetectedTrafficSign::DetectedMainSign::Candidate
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad00e89ee25f8337b2dfe3c12c8e701ee"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign_1_1CandidateMainSign.html#ad00e89ee25f8337b2dfe3c12c8e701ee">probability</a> = 1</td></tr>
+<tr class="memdesc:ad00e89ee25f8337b2dfe3c12c8e701ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The estimated probability that this candidate is the true value.  <a href="#ad00e89ee25f8337b2dfe3c12c8e701ee">More...</a><br /></td></tr>
 <tr class="separator:ad00e89ee25f8337b2dfe3c12c8e701ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac142b053f26563a01a221fae13d8454e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html">TrafficSign::MainSign::Classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign_1_1CandidateMainSign.html#ac142b053f26563a01a221fae13d8454e">classification</a> = 2</td></tr>
+<tr class="memdesc:ac142b053f26563a01a221fae13d8454e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classification of one main sign that defines this candidate.  <a href="#ac142b053f26563a01a221fae13d8454e">More...</a><br /></td></tr>
 <tr class="separator:ac142b053f26563a01a221fae13d8454e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A candidate for a detected main sign as estimated by the sensor. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac142b053f26563a01a221fae13d8454e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac142b053f26563a01a221fae13d8454e">&#9670;&nbsp;</a></span>classification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html">TrafficSign::MainSign::Classification</a> osi3::DetectedTrafficSign::DetectedMainSign::CandidateMainSign::classification = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The classification of one main sign that defines this candidate.</p>
-<dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
-
-</div>
-</div>
 <a id="ad00e89ee25f8337b2dfe3c12c8e701ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad00e89ee25f8337b2dfe3c12c8e701ee">&#9670;&nbsp;</a></span>probability</h2>
 
@@ -144,9 +130,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The estimated probability that this candidate is the true value.</p>
-<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign_1_1CandidateMainSign.html#ad00e89ee25f8337b2dfe3c12c8e701ee">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
-<p>is_less_than_or_equal_to: 1 is_greater_than_or_equal_to: 0  </p>
+
+<p>The estimated probability that this candidate is the true value. </p>
+<dl class="section note"><dt>Note</dt><dd>The sum of all <code><a class="el" href="structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign_1_1CandidateMainSign.html#ad00e89ee25f8337b2dfe3c12c8e701ee" title="The estimated probability that this candidate is the true value. ">probability</a></code> must be one. This probability is given under the condition of <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">DetectedItemHeader::existence_probability</a></code>.</dd></dl>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_less_than_or_equal_to: 1</div><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="ac142b053f26563a01a221fae13d8454e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac142b053f26563a01a221fae13d8454e">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html">TrafficSign::MainSign::Classification</a> osi3::DetectedTrafficSign::DetectedMainSign::CandidateMainSign::classification = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The classification of one main sign that defines this candidate. </p>
+<dl class="section note"><dt>Note</dt><dd>IDs, which are referenced in this message, usually reference to <code>DetectedXXX::tracking_id</code> IDs. </dd></dl>
 
 </div>
 </div>

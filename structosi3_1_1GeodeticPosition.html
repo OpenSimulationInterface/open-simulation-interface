@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -107,28 +107,32 @@ Collaboration diagram for osi3::GeodeticPosition:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a25c96a0158fef839de085278a81c1293"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1GeodeticPosition.html#a25c96a0158fef839de085278a81c1293">longitude</a> = 1</td></tr>
+<tr class="memdesc:a25c96a0158fef839de085278a81c1293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longitude in decimal degrees regarding WGS84.  <a href="#a25c96a0158fef839de085278a81c1293">More...</a><br /></td></tr>
 <tr class="separator:a25c96a0158fef839de085278a81c1293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0f61f18ce97fcee2fdca13be41afe72"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1GeodeticPosition.html#ab0f61f18ce97fcee2fdca13be41afe72">latitude</a> = 2</td></tr>
+<tr class="memdesc:ab0f61f18ce97fcee2fdca13be41afe72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Latitude in decimal degrees regarding WGS84.  <a href="#ab0f61f18ce97fcee2fdca13be41afe72">More...</a><br /></td></tr>
 <tr class="separator:ab0f61f18ce97fcee2fdca13be41afe72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9a3ac5d2c24e030d8bb8ed49f287f45"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1GeodeticPosition.html#ac9a3ac5d2c24e030d8bb8ed49f287f45">altitude</a> = 3</td></tr>
+<tr class="memdesc:ac9a3ac5d2c24e030d8bb8ed49f287f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Height above sea level regarding EGM96.  <a href="#ac9a3ac5d2c24e030d8bb8ed49f287f45">More...</a><br /></td></tr>
 <tr class="separator:ac9a3ac5d2c24e030d8bb8ed49f287f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The geodetic position of an object, that is, the center of the 3D bounding box. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac9a3ac5d2c24e030d8bb8ed49f287f45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9a3ac5d2c24e030d8bb8ed49f287f45">&#9670;&nbsp;</a></span>altitude</h2>
+<a id="a25c96a0158fef839de085278a81c1293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25c96a0158fef839de085278a81c1293">&#9670;&nbsp;</a></span>longitude</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional double osi3::GeodeticPosition::altitude = 3</td>
+          <td class="memname">optional double osi3::GeodeticPosition::longitude = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Height above sea level regarding EGM96.</p>
-<p>Unit: m Range: [-300; 10000] </p>
+
+<p>Longitude in decimal degrees regarding WGS84. </p>
+<p>Unit: Degree Range: [-180; 180] </p>
 
 </div>
 </div>
@@ -143,24 +147,26 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Latitude in decimal degrees regarding WGS84.</p>
+
+<p>Latitude in decimal degrees regarding WGS84. </p>
 <p>Unit: Degree Range: [-90; 90] </p>
 
 </div>
 </div>
-<a id="a25c96a0158fef839de085278a81c1293"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25c96a0158fef839de085278a81c1293">&#9670;&nbsp;</a></span>longitude</h2>
+<a id="ac9a3ac5d2c24e030d8bb8ed49f287f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9a3ac5d2c24e030d8bb8ed49f287f45">&#9670;&nbsp;</a></span>altitude</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional double osi3::GeodeticPosition::longitude = 1</td>
+          <td class="memname">optional double osi3::GeodeticPosition::altitude = 3</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Longitude in decimal degrees regarding WGS84.</p>
-<p>Unit: Degree Range: [-180; 180] </p>
+
+<p>Height above sea level regarding EGM96. </p>
+<p>Unit: m Range: [-300; 10000] </p>
 
 </div>
 </div>

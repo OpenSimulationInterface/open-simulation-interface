@@ -19,8 +19,8 @@ var structosi3_1_1MovingObject_1_1VehicleClassification =
       [ "TYPE_TRAIN", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a763f1bcda4dc3bf98b9bc01cf6b2b35d", null ],
       [ "TYPE_WHEELCHAIR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02", null ]
     ] ],
-    [ "has_trailer", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6", null ],
+    [ "type", "structosi3_1_1MovingObject_1_1VehicleClassification.html#ac035d2f6580e418a8ebffb746a461f21", null ],
     [ "light_state", "structosi3_1_1MovingObject_1_1VehicleClassification.html#abbb92dd5780b3abe7a87162043e919a0", null ],
-    [ "trailer_id", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482", null ],
-    [ "type", "structosi3_1_1MovingObject_1_1VehicleClassification.html#ac035d2f6580e418a8ebffb746a461f21", null ]
+    [ "has_trailer", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6", null ],
+    [ "trailer_id", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482", null ]
 ];

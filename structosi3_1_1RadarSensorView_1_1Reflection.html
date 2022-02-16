@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -107,36 +107,24 @@ Collaboration diagram for osi3::RadarSensorView::Reflection:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a22d86f03243ff116d145268b71b42008"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html#a22d86f03243ff116d145268b71b42008">signal_strength</a> = 1</td></tr>
+<tr class="memdesc:a22d86f03243ff116d145268b71b42008"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relative signal level of the reflection.  <a href="#a22d86f03243ff116d145268b71b42008">More...</a><br /></td></tr>
 <tr class="separator:a22d86f03243ff116d145268b71b42008"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac66401f3e6e296a3133d12681161e537"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html#ac66401f3e6e296a3133d12681161e537">time_of_flight</a> = 2</td></tr>
+<tr class="memdesc:ac66401f3e6e296a3133d12681161e537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time of flight.  <a href="#ac66401f3e6e296a3133d12681161e537">More...</a><br /></td></tr>
 <tr class="separator:ac66401f3e6e296a3133d12681161e537"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58cf8f2eb4f068bda705ef530ca5da1f"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html#a58cf8f2eb4f068bda705ef530ca5da1f">doppler_shift</a> = 3</td></tr>
+<tr class="memdesc:a58cf8f2eb4f068bda705ef530ca5da1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Doppler shift.  <a href="#a58cf8f2eb4f068bda705ef530ca5da1f">More...</a><br /></td></tr>
 <tr class="separator:a58cf8f2eb4f068bda705ef530ca5da1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a742f95122eba3b187623a07e08b8d0b4"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html#a742f95122eba3b187623a07e08b8d0b4">source_horizontal_angle</a> = 4</td></tr>
+<tr class="memdesc:a742f95122eba3b187623a07e08b8d0b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX horizontal angle (azimuth).  <a href="#a742f95122eba3b187623a07e08b8d0b4">More...</a><br /></td></tr>
 <tr class="separator:a742f95122eba3b187623a07e08b8d0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8aef801568939be8168ecaf34dacf5af"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RadarSensorView_1_1Reflection.html#a8aef801568939be8168ecaf34dacf5af">source_vertical_angle</a> = 5</td></tr>
+<tr class="memdesc:a8aef801568939be8168ecaf34dacf5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX vertical angle (elevation).  <a href="#a8aef801568939be8168ecaf34dacf5af">More...</a><br /></td></tr>
 <tr class="separator:a8aef801568939be8168ecaf34dacf5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definition of the radar reflection. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a58cf8f2eb4f068bda705ef530ca5da1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58cf8f2eb4f068bda705ef530ca5da1f">&#9670;&nbsp;</a></span>doppler_shift</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::RadarSensorView::Reflection::doppler_shift = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Doppler shift.</p>
-<p>Shift in frequency based on the specified TX frequency.</p>
-<p>Unit: Hz </p>
-
-</div>
-</div>
 <a id="a22d86f03243ff116d145268b71b42008"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22d86f03243ff116d145268b71b42008">&#9670;&nbsp;</a></span>signal_strength</h2>
 
@@ -148,9 +136,46 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Relative signal level of the reflection.</p>
+
+<p>Relative signal level of the reflection. </p>
 <p>This takes the combined antenna diagram (losses in TX and RX) as well as the signal losses due to scattering and absorption into account, and will, when multiplied by TX power yield the actual RX power.</p>
 <p>Unit: dB </p>
+
+</div>
+</div>
+<a id="ac66401f3e6e296a3133d12681161e537"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac66401f3e6e296a3133d12681161e537">&#9670;&nbsp;</a></span>time_of_flight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::RadarSensorView::Reflection::time_of_flight = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Time of flight. </p>
+<p>This is the time of flight of the reflection, which is directly proportional to the distance traveled.</p>
+<p>Unit: s </p>
+
+</div>
+</div>
+<a id="a58cf8f2eb4f068bda705ef530ca5da1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58cf8f2eb4f068bda705ef530ca5da1f">&#9670;&nbsp;</a></span>doppler_shift</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::RadarSensorView::Reflection::doppler_shift = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Doppler shift. </p>
+<p>Shift in frequency based on the specified TX frequency.</p>
+<p>Unit: Hz </p>
 
 </div>
 </div>
@@ -165,7 +190,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>TX horizontal angle (azimuth).</p>
+
+<p>TX horizontal angle (azimuth). </p>
 <p>Horizontal angle of incidence of the source of the reflection at the TX antenna.</p>
 <p>Unit: rad </p>
 
@@ -182,26 +208,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>TX vertical angle (elevation).</p>
+
+<p>TX vertical angle (elevation). </p>
 <p>Vertical angle of incidence of the source of the reflection at the TX antenna.</p>
 <p>Unit: rad </p>
-
-</div>
-</div>
-<a id="ac66401f3e6e296a3133d12681161e537"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac66401f3e6e296a3133d12681161e537">&#9670;&nbsp;</a></span>time_of_flight</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::RadarSensorView::Reflection::time_of_flight = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Time of flight.</p>
-<p>This is the time of flight of the reflection, which is directly proportional to the distance traveled.</p>
-<p>Unit: s </p>
 
 </div>
 </div>

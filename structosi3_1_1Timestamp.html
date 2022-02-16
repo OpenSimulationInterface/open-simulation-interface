@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -107,32 +107,16 @@ Collaboration diagram for osi3::Timestamp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a684a2426e26687ac21cd531216efffb0"><td class="memItemLeft" align="right" valign="top">optional int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Timestamp.html#a684a2426e26687ac21cd531216efffb0">seconds</a> = 1</td></tr>
+<tr class="memdesc:a684a2426e26687ac21cd531216efffb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of seconds since the start of e.g.  <a href="#a684a2426e26687ac21cd531216efffb0">More...</a><br /></td></tr>
 <tr class="separator:a684a2426e26687ac21cd531216efffb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3937d70fbeef3c023708adc95d81905"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Timestamp.html#aa3937d70fbeef3c023708adc95d81905">nanos</a> = 2</td></tr>
+<tr class="memdesc:aa3937d70fbeef3c023708adc95d81905"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of nanoseconds since the start of the last second.  <a href="#aa3937d70fbeef3c023708adc95d81905">More...</a><br /></td></tr>
 <tr class="separator:aa3937d70fbeef3c023708adc95d81905"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A timestamp. </p>
 <p>Names and types of fields are chosen in accordance to google/protobuf/timestamp.proto to allow a possible switch in the future. There is no definition of the zero point in time neither it is the Unix epoch. A simulation may start at the zero point in time but it is not mandatory. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa3937d70fbeef3c023708adc95d81905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3937d70fbeef3c023708adc95d81905">&#9670;&nbsp;</a></span>nanos</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional uint32 osi3::Timestamp::nanos = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of nanoseconds since the start of the last second.</p>
-<p>Range: [0, 999.999.999]</p>
-<p>Unit: ns</p>
-<p>is_greater_than_or_equal_to: 0 is_less_than_or_equal_to: 999999999  </p>
-
-</div>
-</div>
 <a id="a684a2426e26687ac21cd531216efffb0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a684a2426e26687ac21cd531216efffb0">&#9670;&nbsp;</a></span>seconds</h2>
 
@@ -144,9 +128,30 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The number of seconds since the start of e.g. the simulation / system / vehicle.</p>
+
+<p>The number of seconds since the start of e.g. </p>
+<p>the simulation / system / vehicle.</p>
 <p>Unit: s</p>
-<p>is_greater_than_or_equal_to: 0  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="aa3937d70fbeef3c023708adc95d81905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3937d70fbeef3c023708adc95d81905">&#9670;&nbsp;</a></span>nanos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional uint32 osi3::Timestamp::nanos = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The number of nanoseconds since the start of the last second. </p>
+<p>Range: [0, 999.999.999]</p>
+<p>Unit: ns</p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div><div class="line">is_less_than_or_equal_to: 999999999</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>

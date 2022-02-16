@@ -25,12 +25,12 @@ var structosi3_1_1SensorDetectionHeader =
       [ "EXTENDED_QUALIFIER_EXTERNAL_DISTURBANCE", "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bad37357a35d2de54083d98be935fbb9b7", null ],
       [ "EXTENDED_QUALIFIER_BEGINNING_BLOCKAGE", "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bab2f08e9e0e7d35d0390e03a26164da07", null ]
     ] ],
-    [ "cycle_counter", "structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92", null ],
-    [ "data_qualifier", "structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb", null ],
-    [ "extended_qualifier", "structosi3_1_1SensorDetectionHeader.html#a3048b910775f81bb7628db42562f841f", null ],
     [ "measurement_time", "structosi3_1_1SensorDetectionHeader.html#a7276bbdf40b2da4fed4397df62f167aa", null ],
+    [ "cycle_counter", "structosi3_1_1SensorDetectionHeader.html#a66bcd17ab25dda7d4545e10472188e92", null ],
     [ "mounting_position", "structosi3_1_1SensorDetectionHeader.html#a3b73ec96c144a7e32094ddebe37cc4a8", null ],
     [ "mounting_position_rmse", "structosi3_1_1SensorDetectionHeader.html#a5087f8e26b2b52d6b2d9f727cf7e5684", null ],
+    [ "data_qualifier", "structosi3_1_1SensorDetectionHeader.html#a58f3c5dfbf1e4a04dd12c884a3f67cdb", null ],
     [ "number_of_valid_detections", "structosi3_1_1SensorDetectionHeader.html#a49fcf349c4dbda9b88d5784cd3cdb078", null ],
-    [ "sensor_id", "structosi3_1_1SensorDetectionHeader.html#a9c13b81d1462b146286921ca41f3661b", null ]
+    [ "sensor_id", "structosi3_1_1SensorDetectionHeader.html#a9c13b81d1462b146286921ca41f3661b", null ],
+    [ "extended_qualifier", "structosi3_1_1SensorDetectionHeader.html#a3048b910775f81bb7628db42562f841f", null ]
 ];

@@ -16,8 +16,8 @@ var structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign =
       [ "GEOMETRY_ARROW_RIGHT", "structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4ade68481572cbce82d8332b9f71bcb9fb", null ],
       [ "GEOMETRY_OCTAGON", "structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#aa1dd962adbc0971fcb91fa9b692995f4ae380d43348e2ad74d083f8c33b420b3d", null ]
     ] ],
+    [ "candidate", "structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#ae8b753499f6949a52547b2da86a61da0", null ],
     [ "base", "structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#a3176558cbd89d3d18ebabe77a83f313c", null ],
     [ "base_rmse", "structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#a699ff24a5b4b772e242da3c00135312e", null ],
-    [ "candidate", "structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#ae8b753499f6949a52547b2da86a61da0", null ],
     [ "geometry", "structosi3_1_1DetectedTrafficSign_1_1DetectedMainSign.html#a4ab80d85ba975dc6aadd41aaa06f9317", null ]
 ];

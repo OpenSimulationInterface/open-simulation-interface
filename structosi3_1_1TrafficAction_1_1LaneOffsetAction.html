@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -109,10 +109,13 @@ Collaboration diagram for osi3::TrafficAction::LaneOffsetAction:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:af40d53b5ba0e2295691b120067767d6f"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction_1_1ActionHeader.html">ActionHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LaneOffsetAction.html#af40d53b5ba0e2295691b120067767d6f">action_header</a> = 1</td></tr>
+<tr class="memdesc:af40d53b5ba0e2295691b120067767d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Action Header.  <a href="#af40d53b5ba0e2295691b120067767d6f">More...</a><br /></td></tr>
 <tr class="separator:af40d53b5ba0e2295691b120067767d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ccf06c47eeef124acbef2da0b27fe6d"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LaneOffsetAction.html#a9ccf06c47eeef124acbef2da0b27fe6d">target_lane_offset</a> = 2</td></tr>
+<tr class="memdesc:a9ccf06c47eeef124acbef2da0b27fe6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Targeted lane offset in meters relative to the centerline of the current traffic participant's lane.  <a href="#a9ccf06c47eeef124acbef2da0b27fe6d">More...</a><br /></td></tr>
 <tr class="separator:a9ccf06c47eeef124acbef2da0b27fe6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7fa69fcf14c87bfa5bbcbf560e51491"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3d">DynamicsShape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LaneOffsetAction.html#af7fa69fcf14c87bfa5bbcbf560e51491">dynamics_shape</a> = 3</td></tr>
+<tr class="memdesc:af7fa69fcf14c87bfa5bbcbf560e51491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specified transition shape of reaching the lane offset.  <a href="#af7fa69fcf14c87bfa5bbcbf560e51491">More...</a><br /></td></tr>
 <tr class="separator:af7fa69fcf14c87bfa5bbcbf560e51491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -131,22 +134,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Action Header </p>
 
-</div>
-</div>
-<a id="af7fa69fcf14c87bfa5bbcbf560e51491"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7fa69fcf14c87bfa5bbcbf560e51491">&#9670;&nbsp;</a></span>dynamics_shape</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3d">DynamicsShape</a> osi3::TrafficAction::LaneOffsetAction::dynamics_shape = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Specified transition shape of reaching the lane offset. If the shape is unspecified (enum value 0), the shape of the transition is open to the traffic participant model. </p>
+<p>The Action Header. </p>
 
 </div>
 </div>
@@ -161,8 +150,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Targeted lane offset in meters relative to the centerline of the current traffic participant's lane. Positive values mean left of the centerline, negative values mean right of the centerline.</p>
+
+<p>Targeted lane offset in meters relative to the centerline of the current traffic participant's lane. </p>
+<p>Positive values mean left of the centerline, negative values mean right of the centerline.</p>
 <p>Unit: m </p>
+
+</div>
+</div>
+<a id="af7fa69fcf14c87bfa5bbcbf560e51491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7fa69fcf14c87bfa5bbcbf560e51491">&#9670;&nbsp;</a></span>dynamics_shape</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3d">DynamicsShape</a> osi3::TrafficAction::LaneOffsetAction::dynamics_shape = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specified transition shape of reaching the lane offset. </p>
+<p>If the shape is unspecified (enum value 0), the shape of the transition is open to the traffic participant model. </p>
 
 </div>
 </div>

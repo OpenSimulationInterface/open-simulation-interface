@@ -28,15 +28,15 @@ var structosi3_1_1CameraSensorViewConfiguration =
       [ "CHANNEL_FORMAT_RCCB_U32_LIN", "structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92aa50dae2cdaf20fc88ddc1a0a10a53045", null ],
       [ "CHANNEL_FORMAT_RCCB_F32_LIN", "structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a50fe189921fa05fe4894bc7880ac37e8", null ]
     ] ],
-    [ "channel_format", "structosi3_1_1CameraSensorViewConfiguration.html#ae202276d96b78a2fdb13cd915aeb47b7", null ],
-    [ "field_of_view_horizontal", "structosi3_1_1CameraSensorViewConfiguration.html#aaa296b7ae5320108b25c87b19e098be4", null ],
-    [ "field_of_view_vertical", "structosi3_1_1CameraSensorViewConfiguration.html#a94aab05a912cfcd394fbb21058c0bab5", null ],
-    [ "max_number_of_interactions", "structosi3_1_1CameraSensorViewConfiguration.html#afca07adefc8e9ae84d4400a31c1c42cd", null ],
+    [ "sensor_id", "structosi3_1_1CameraSensorViewConfiguration.html#a8944708e064585712a97a94c78f80529", null ],
     [ "mounting_position", "structosi3_1_1CameraSensorViewConfiguration.html#ac0ef2d98869b73c7b10c18d7873803a0", null ],
     [ "mounting_position_rmse", "structosi3_1_1CameraSensorViewConfiguration.html#a5555039d4c31e32e9595c1b29227241b", null ],
+    [ "field_of_view_horizontal", "structosi3_1_1CameraSensorViewConfiguration.html#aaa296b7ae5320108b25c87b19e098be4", null ],
+    [ "field_of_view_vertical", "structosi3_1_1CameraSensorViewConfiguration.html#a94aab05a912cfcd394fbb21058c0bab5", null ],
     [ "number_of_pixels_horizontal", "structosi3_1_1CameraSensorViewConfiguration.html#a83447cfc40ac783eda6b33b6d2f920d7", null ],
     [ "number_of_pixels_vertical", "structosi3_1_1CameraSensorViewConfiguration.html#ae71698d9be703a4d372cdaffe60b9c82", null ],
+    [ "channel_format", "structosi3_1_1CameraSensorViewConfiguration.html#ae202276d96b78a2fdb13cd915aeb47b7", null ],
     [ "samples_per_pixel", "structosi3_1_1CameraSensorViewConfiguration.html#a5fd2b58e82f420f0c8d1fc98d2388ddc", null ],
-    [ "sensor_id", "structosi3_1_1CameraSensorViewConfiguration.html#a8944708e064585712a97a94c78f80529", null ],
+    [ "max_number_of_interactions", "structosi3_1_1CameraSensorViewConfiguration.html#afca07adefc8e9ae84d4400a31c1c42cd", null ],
     [ "wavelength_data", "structosi3_1_1CameraSensorViewConfiguration.html#abc3a44291ec7e392dc466425a454d435", null ]
 ];

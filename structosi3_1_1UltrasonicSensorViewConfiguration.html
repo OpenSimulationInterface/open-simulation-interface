@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -102,7 +102,7 @@ Collaboration diagram for osi3::UltrasonicSensorViewConfiguration:</div>
 <div class="center"><img src="structosi3_1_1UltrasonicSensorViewConfiguration__coll__graph.png" border="0" usemap="#osi3_1_1UltrasonicSensorViewConfiguration_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1UltrasonicSensorViewConfiguration_coll__map" id="osi3_1_1UltrasonicSensorViewConfiguration_coll__map">
 <area shape="rect" id="node2" href="structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="127,228,297,255"/>
-<area shape="rect" id="node3" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. derivatives) or its uncertaintie..." alt="" coords="69,124,216,151"/>
+<area shape="rect" id="node3" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="69,124,216,151"/>
 <area shape="rect" id="node5" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="240,124,355,151"/>
 <area shape="rect" id="node6" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="376,228,491,255"/>
 </map>
@@ -111,50 +111,39 @@ Collaboration diagram for osi3::UltrasonicSensorViewConfiguration:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a857ff0b1a82ae4e72b6b5cc4923243d9"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a857ff0b1a82ae4e72b6b5cc4923243d9">sensor_id</a> = 1</td></tr>
+<tr class="memdesc:a857ff0b1a82ae4e72b6b5cc4923243d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the sensor at host vehicle's mounting_position.  <a href="#a857ff0b1a82ae4e72b6b5cc4923243d9">More...</a><br /></td></tr>
 <tr class="separator:a857ff0b1a82ae4e72b6b5cc4923243d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75effdf0ba9c72ffa74ea5f81783aea2"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MountingPosition.html">MountingPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a75effdf0ba9c72ffa74ea5f81783aea2">mounting_position</a> = 2</td></tr>
+<tr class="memdesc:a75effdf0ba9c72ffa74ea5f81783aea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The physical mounting position of the sensor (origin and orientation of the sensor coordinate system) given in vehicle coordinates [1].  <a href="#a75effdf0ba9c72ffa74ea5f81783aea2">More...</a><br /></td></tr>
 <tr class="separator:a75effdf0ba9c72ffa74ea5f81783aea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a655f38c2a008a81b51e02674b2b4b701"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MountingPosition.html">MountingPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a655f38c2a008a81b51e02674b2b4b701">mounting_position_rmse</a> = 3</td></tr>
+<tr class="memdesc:a655f38c2a008a81b51e02674b2b4b701"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root mean squared error of the mounting position.  <a href="#a655f38c2a008a81b51e02674b2b4b701">More...</a><br /></td></tr>
 <tr class="separator:a655f38c2a008a81b51e02674b2b4b701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac576573013280863221640ee8f6286b6"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#ac576573013280863221640ee8f6286b6">field_of_view_horizontal</a> = 4</td></tr>
+<tr class="memdesc:ac576573013280863221640ee8f6286b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Field of View in horizontal orientation of the physical sensor.  <a href="#ac576573013280863221640ee8f6286b6">More...</a><br /></td></tr>
 <tr class="separator:ac576573013280863221640ee8f6286b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61de58d0b99c513982cd83b7112c3b48"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a61de58d0b99c513982cd83b7112c3b48">field_of_view_vertical</a> = 5</td></tr>
+<tr class="memdesc:a61de58d0b99c513982cd83b7112c3b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Field of View in vertical orientation of the physical sensor.  <a href="#a61de58d0b99c513982cd83b7112c3b48">More...</a><br /></td></tr>
 <tr class="separator:a61de58d0b99c513982cd83b7112c3b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The configuration settings for the Ultrasonic Sensor View to be provided by the environment simulation. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac576573013280863221640ee8f6286b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac576573013280863221640ee8f6286b6">&#9670;&nbsp;</a></span>field_of_view_horizontal</h2>
+<a id="a857ff0b1a82ae4e72b6b5cc4923243d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a857ff0b1a82ae4e72b6b5cc4923243d9">&#9670;&nbsp;</a></span>sensor_id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional double osi3::UltrasonicSensorViewConfiguration::field_of_view_horizontal = 4</td>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a> osi3::UltrasonicSensorViewConfiguration::sensor_id = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Field of View in horizontal orientation of the physical sensor.</p>
-<p>Viewing range: [- <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#ac576573013280863221640ee8f6286b6">field_of_view_horizontal</a>/2</code>, <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#ac576573013280863221640ee8f6286b6">field_of_view_horizontal</a>/2</code>] azimuth in the sensor frame as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>.</p>
-<p>Unit: rad </p>
 
-</div>
-</div>
-<a id="a61de58d0b99c513982cd83b7112c3b48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61de58d0b99c513982cd83b7112c3b48">&#9670;&nbsp;</a></span>field_of_view_vertical</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional double osi3::UltrasonicSensorViewConfiguration::field_of_view_vertical = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Field of View in vertical orientation of the physical sensor.</p>
-<p>Viewing range: [- <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a61de58d0b99c513982cd83b7112c3b48">field_of_view_vertical</a>/2</code>, <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a61de58d0b99c513982cd83b7112c3b48">field_of_view_vertical</a>/2</code>] elevation in the sensor frame at zero azimuth as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>.</p>
-<p>Unit: rad </p>
+<p>The ID of the sensor at host vehicle's mounting_position. </p>
+<p>This is the ID of the physical sensor, to be used in its detected features output; it is distinct from the ID of its virtual sensor.</p>
+<p>The ID is to be provided by the environment simulation, the sensor model is not in a position to provide a useful default value. </p>
 
 </div>
 </div>
@@ -169,14 +158,16 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The physical mounting position of the sensor (origin and orientation of the sensor coordinate system) given in vehicle coordinates [1]. The physical position pertains to this detector individually, and governs the sensor-relative coordinates in features detected by this detector.</p>
+
+<p>The physical mounting position of the sensor (origin and orientation of the sensor coordinate system) given in vehicle coordinates [1]. </p>
+<p>The physical position pertains to this detector individually, and governs the sensor-relative coordinates in features detected by this detector.</p>
 <ul>
 <li><b>x-direction</b> of sensor coordinate system: sensor viewing direction </li>
 <li><b>z-direction</b> of sensor coordinate system: sensor (up) </li>
 <li><b>y-direction</b> of sensor coordinate system: perpendicular to x and z right hand system</li>
 </ul>
 <dl class="section user"><dt>Reference:</dt><dd>[1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The origin of vehicle's coordinate system in world frame is ( <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6">BaseMoving::position</a></code> + Inverse_Rotation_yaw_pitch_roll( <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">BaseMoving::orientation</a></code>) * <code><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a310be4844cd22fcd937ee65f865c8bc5">MovingObject::VehicleAttributes::bbcenter_to_rear</a></code>) . The orientation of the vehicle's coordinate system is equal to the orientation of the vehicle's bounding box <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667">BaseMoving::orientation</a></code>. </dd>
+<dl class="section note"><dt>Note</dt><dd>The origin of vehicle's coordinate system in world frame is ( <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a189c6f025650f630b92adb277bf59db6" title="The reference point for position and orientation: the center (x,y,z) of the bounding box...">BaseMoving::position</a></code> + Inverse_Rotation_yaw_pitch_roll( <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667" title="The relative orientation of the moving object w.r.t. ">BaseMoving::orientation</a></code>) * <code><a class="el" href="structosi3_1_1MovingObject_1_1VehicleAttributes.html#a310be4844cd22fcd937ee65f865c8bc5" title="The vector pointing from the bounding box center point (MovingObject::base . ">MovingObject::VehicleAttributes::bbcenter_to_rear</a></code>) . The orientation of the vehicle's coordinate system is equal to the orientation of the vehicle's bounding box <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle. ">MovingObject::base</a></code> . <code><a class="el" href="structosi3_1_1BaseMoving.html#a9d5923d72125e326e53083eb57551667" title="The relative orientation of the moving object w.r.t. ">BaseMoving::orientation</a></code>. </dd>
 <dd>
 A default position can be provided by the sensor model (e.g. to indicate the position the model was validated for), but this is optional; the environment simulation must provide a valid mounting position (based on the vehicle configuration) when setting the view configuration. </dd></dl>
 
@@ -193,24 +184,44 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The root mean squared error of the mounting position. </p>
 
 </div>
 </div>
-<a id="a857ff0b1a82ae4e72b6b5cc4923243d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a857ff0b1a82ae4e72b6b5cc4923243d9">&#9670;&nbsp;</a></span>sensor_id</h2>
+<a id="ac576573013280863221640ee8f6286b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac576573013280863221640ee8f6286b6">&#9670;&nbsp;</a></span>field_of_view_horizontal</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a> osi3::UltrasonicSensorViewConfiguration::sensor_id = 1</td>
+          <td class="memname">optional double osi3::UltrasonicSensorViewConfiguration::field_of_view_horizontal = 4</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID of the sensor at host vehicle's mounting_position.</p>
-<p>This is the ID of the physical sensor, to be used in its detected features output; it is distinct from the ID of its virtual sensor.</p>
-<p>The ID is to be provided by the environment simulation, the sensor model is not in a position to provide a useful default value. </p>
+
+<p>Field of View in horizontal orientation of the physical sensor. </p>
+<p>Viewing range: [- <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#ac576573013280863221640ee8f6286b6" title="Field of View in horizontal orientation of the physical sensor. ">field_of_view_horizontal</a>/2</code>, <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#ac576573013280863221640ee8f6286b6" title="Field of View in horizontal orientation of the physical sensor. ">field_of_view_horizontal</a>/2</code>] azimuth in the sensor frame as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>.</p>
+<p>Unit: rad </p>
+
+</div>
+</div>
+<a id="a61de58d0b99c513982cd83b7112c3b48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61de58d0b99c513982cd83b7112c3b48">&#9670;&nbsp;</a></span>field_of_view_vertical</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional double osi3::UltrasonicSensorViewConfiguration::field_of_view_vertical = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Field of View in vertical orientation of the physical sensor. </p>
+<p>Viewing range: [- <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a61de58d0b99c513982cd83b7112c3b48" title="Field of View in vertical orientation of the physical sensor. ">field_of_view_vertical</a>/2</code>, <code><a class="el" href="structosi3_1_1UltrasonicSensorViewConfiguration.html#a61de58d0b99c513982cd83b7112c3b48" title="Field of View in vertical orientation of the physical sensor. ">field_of_view_vertical</a>/2</code>] elevation in the sensor frame at zero azimuth as defined in <code><a class="el" href="structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. ">Spherical3d</a></code>.</p>
+<p>Unit: rad </p>
 
 </div>
 </div>

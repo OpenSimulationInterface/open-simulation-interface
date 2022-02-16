@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -108,8 +108,10 @@ Collaboration diagram for osi3::MovingObject::MovingObjectClassification:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aed7d82827143b64b4b1d312117fe5c70"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1MovingObjectClassification.html#aed7d82827143b64b4b1d312117fe5c70">assigned_lane_id</a> = 1</td></tr>
+<tr class="memdesc:aed7d82827143b64b4b1d312117fe5c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">The IDs of the lanes that this object is assigned to.  <a href="#aed7d82827143b64b4b1d312117fe5c70">More...</a><br /></td></tr>
 <tr class="separator:aed7d82827143b64b4b1d312117fe5c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae28d19cb839da33ea9015475b76928b8"><td class="memItemLeft" align="right" valign="top">repeated double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1MovingObjectClassification.html#ae28d19cb839da33ea9015475b76928b8">assigned_lane_percentage</a> = 2</td></tr>
+<tr class="memdesc:ae28d19cb839da33ea9015475b76928b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Percentage value of the object width in the corresponding lane.  <a href="#ae28d19cb839da33ea9015475b76928b8">More...</a><br /></td></tr>
 <tr class="separator:ae28d19cb839da33ea9015475b76928b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -126,7 +128,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The IDs of the lanes that this object is assigned to.</p>
+
+<p>The IDs of the lanes that this object is assigned to. </p>
 <dl class="section note"><dt>Note</dt><dd>Might be multiple if the object is switching lanes or moving from one lane into another following lane.</dd>
 <dd>
 OSI uses singular instead of plural for repeated field names. </dd></dl>
@@ -144,7 +147,8 @@ OSI uses singular instead of plural for repeated field names. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Percentage value of the object width in the corresponding lane.</p>
+
+<p>Percentage value of the object width in the corresponding lane. </p>
 <dl class="section note"><dt>Note</dt><dd>Might be multiple if the object is switching lanes or moving from one lane into another following lane.</dd>
 <dd>
 OSI uses singular instead of plural for repeated field names. </dd></dl>

@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(394e7b1)</span>
+   &#160;<span id="projectnumber">master(49eafc5)</span>
    </div>
   </td>
  </tr>
@@ -120,18 +120,23 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693a766a8977146010003fa32631ba85b869">DATA_QUALIFIER_TEMPORARY_AVAILABLE</a> = 6, 
 <a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693acb52b8556a6156e3a4314cfe4facaf0f">DATA_QUALIFIER_INVALID</a> = 7
 <br />
- }</td></tr>
+ }<tr class="memdesc:a8db6d1c100582b1685c01a6ce0f06693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data qualifier communicates the overall availability of the interface.  <a href="structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a8db6d1c100582b1685c01a6ce0f06693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:abf0cf875292df1365859ba88ea20999e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#abf0cf875292df1365859ba88ea20999e">logical_detection_time</a> = 1</td></tr>
+<tr class="memdesc:abf0cf875292df1365859ba88ea20999e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time stamp at which the transformation and optional fusion was finished in the global synchronized time.  <a href="#abf0cf875292df1365859ba88ea20999e">More...</a><br /></td></tr>
 <tr class="separator:abf0cf875292df1365859ba88ea20999e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbd970780d5c1df185b70ebff7162917"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693">DataQualifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#abbd970780d5c1df185b70ebff7162917">data_qualifier</a> = 2</td></tr>
+<tr class="memdesc:abbd970780d5c1df185b70ebff7162917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Qualifier expresses to what extent the content of this event can be relied on.  <a href="#abbd970780d5c1df185b70ebff7162917">More...</a><br /></td></tr>
 <tr class="separator:abbd970780d5c1df185b70ebff7162917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cd7e87077822b2999e562df52096922"><td class="memItemLeft" align="right" valign="top">optional uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#a4cd7e87077822b2999e562df52096922">number_of_valid_logical_detections</a> = 3</td></tr>
+<tr class="memdesc:a4cd7e87077822b2999e562df52096922"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current number of valid detections in the logical detections list.  <a href="#a4cd7e87077822b2999e562df52096922">More...</a><br /></td></tr>
 <tr class="separator:a4cd7e87077822b2999e562df52096922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00278711e9bd3eaeb8252e809df656b9"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#a00278711e9bd3eaeb8252e809df656b9">sensor_id</a> = 4</td></tr>
+<tr class="memdesc:a00278711e9bd3eaeb8252e809df656b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID(s) of the sensor(s) that produced the detections for transformation and - in case of multiple sensors - fusion into logical detections.  <a href="#a00278711e9bd3eaeb8252e809df656b9">More...</a><br /></td></tr>
 <tr class="separator:a00278711e9bd3eaeb8252e809df656b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -148,6 +153,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Data qualifier communicates the overall availability of the interface. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8db6d1c100582b1685c01a6ce0f06693a572a21aab81dd03a6b6c5c48b0e4469a"></a>DATA_QUALIFIER_UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown (must not be used in ground truth). </p>
@@ -171,21 +177,6 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="abbd970780d5c1df185b70ebff7162917"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbd970780d5c1df185b70ebff7162917">&#9670;&nbsp;</a></span>data_qualifier</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">optional <a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693">DataQualifier</a> osi3::LogicalDetectionDataHeader::data_qualifier = 2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Data Qualifier expresses to what extent the content of this event can be relied on. </p>
-
-</div>
-</div>
 <a id="abf0cf875292df1365859ba88ea20999e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf0cf875292df1365859ba88ea20999e">&#9670;&nbsp;</a></span>logical_detection_time</h2>
 
@@ -197,8 +188,25 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Time stamp at which the transformation and optional fusion was finished in the global synchronized time.</p>
-<dl class="section note"><dt>Note</dt><dd>See <code><a class="el" href="structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c">SensorData::timestamp</a></code> and <code><a class="el" href="structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d">SensorData::last_measurement_time</a></code> for detailed discussions on the semantics of time-related fields. </dd></dl>
+
+<p>Time stamp at which the transformation and optional fusion was finished in the global synchronized time. </p>
+<dl class="section note"><dt>Note</dt><dd>See <code><a class="el" href="structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c" title="The timestamp of the sensor data. ">SensorData::timestamp</a></code> and <code><a class="el" href="structosi3_1_1SensorData.html#a9baaaa40491c5f241c117a7dacbe0d9d" title="The timestamp of the last real-world measurement (e.g. ">SensorData::last_measurement_time</a></code> for detailed discussions on the semantics of time-related fields. </dd></dl>
+
+</div>
+</div>
+<a id="abbd970780d5c1df185b70ebff7162917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd970780d5c1df185b70ebff7162917">&#9670;&nbsp;</a></span>data_qualifier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1LogicalDetectionDataHeader.html#a8db6d1c100582b1685c01a6ce0f06693">DataQualifier</a> osi3::LogicalDetectionDataHeader::data_qualifier = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Data Qualifier expresses to what extent the content of this event can be relied on. </p>
 
 </div>
 </div>
@@ -213,9 +221,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The current number of valid detections in the logical detections list.</p>
+
+<p>The current number of valid detections in the logical detections list. </p>
 <dl class="section note"><dt>Note</dt><dd>This value has to be set if the list contains invalid logical detections.</dd></dl>
-<p>is_greater_than_or_equal_to: 0  </p>
+<dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">is_greater_than_or_equal_to: 0</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -230,6 +239,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The ID(s) of the sensor(s) that produced the detections for transformation and - in case of multiple sensors - fusion into logical detections. </p>
 
 </div>
