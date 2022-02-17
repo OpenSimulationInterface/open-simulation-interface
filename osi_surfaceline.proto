@@ -39,11 +39,15 @@ package osi3;
 >>>>>>> Create osi_surfaceline.proto
 =======
 // The surfaceline describes a height profile along the lane on or at a certain offset to the lane boundary.
+<<<<<<< HEAD
 // It is also intended to replace the centerline as a physical representation of the lane. The use of the 
 >>>>>>> Update osi_surfaceline.proto
 // centerline for driving/steering inputs should rather be solved with a logical information, that is not 
 // mandatory based on the true center of the lane.
 //
+=======
+
+>>>>>>> Update osi_surfaceline.proto
 // \image html OSI_LaneBoundaries_And_SurfaceLines.svg "Surfacelines" width=500px
 //
 // \note 
@@ -78,6 +82,7 @@ package osi3;
 =======
 >>>>>>> Update osi_surfaceline.proto
 // if needed. 
+<<<<<<< HEAD
 // Up for discusssion: Should a flat road consist of no surface line, since the 
 // lane boundaries can be used in this case. Other option would be a mandatory surfaceline
 // at each LaneBoundary, in simple flat roads it will consist of just 2 points.
@@ -86,6 +91,8 @@ package osi3;
 // if needed. The simplest case would be no surface line for a flat road, since the 
 // lane boundaries can be used in this case.
 >>>>>>> Create osi_surfaceline.proto
+=======
+>>>>>>> Update osi_surfaceline.proto
 =======
 >>>>>>> Update osi_surfaceline.proto
 // 
@@ -305,13 +312,13 @@ message SurfaceLine
     // LaneBoundary we reference the appropriate id and can use 
     // the information about the points
     //
-    optional LaneBoundary.Identifier is_left_lane_boundary_id = 6;
+    optional bool is_at_left_lane_boundary = 6;
     
     // \note If this surface line is located at the right 
     // LaneBoundary we reference the appropriate id and can use 
     // the information about the points
     //
-    optional LaneBoundary.Identifier is_right_lane_boundary_id = 7;
+    optional bool is_at_right_lane_boundary = 7;
     
     // Id of the corresponding lane that this surface line belongs to
     //
@@ -324,39 +331,39 @@ message SurfaceLine
         // The position of the \c SurfaceLinePoint.
         //
         optional Vector3d position = 1;
-    }
+    }    
+}
+
+// \brief Sections for different numbers of surface lines along a lane
+//
+// In order to be able to increase/decrease the accuracy or detail of the surface description
+// by adding more surfacelines for a certain part of a lane, the corresponding 
+// surfacelines are grouped in sections. Whenever a different number of surfacelines is needed
+// along the course of the lane, a new section is introduced
+//
+// Example:
+//
+// <          sls_1           >|<          sls_2         >|<           sls_3         >|
+// |--------- sl_1 ------------|---------- sl_3 ----------|----------- ls_6 ----------|
+// |                           |                          |----------- ls_7 ----------|
+// |                           |---------- sl_4 ----------|----------- ls_8 ----------|
+// |                           |                          |----------- ls_9 ----------|
+// |--------- sl_2 ------------|---------- sl_5 ----------|----------- ls_10 ---------|
+//
+message SurfaceLineSection {
     
-    // \brief Sections for different numbers of surface lines along a lane
+    // Id of the corresponding lane that this section belongs to
     //
-    // In order to be able to increase/decrease the accuracy or detail of the surface description
-    // by adding more surfacelines for a certain part of a lane, the corresponding 
-    // surfacelines are grouped in sections. Whenever a different number of surfacelines is needed
-    // along the course of the lane, a new section is introduced
+    optional Lane.Identifier lane = 1;
+      
+    // Sections are indexed in increasing order along the lane direction.
+    // That way we have an automatic successor/predecessor for faster access
     //
-    // Example:
-    //
-    // <          sls_1           >|<          sls_2         >|<           sls_3         >|
-    // |--------- sl_1 ------------|---------- sl_3 ----------|----------- ls_6 ----------|
-    // |                           |                          |----------- ls_7 ----------|
-    // |                           |---------- sl_4 ----------|----------- ls_8 ----------|
-    // |                           |                          |----------- ls_9 ----------|
-    // |--------- sl_2 ------------|---------- sl_5 ----------|----------- ls_10 ---------|
-    //
-    message SurfaceLineSection {
-    
-        // Id of the corresponding lane that this section belongs to
-        //
-        optional Lane.Identifier lane = 1;
+    optional Identifier sectionindex = 2;
         
-        // Sections are indexed in increasing order along the lane direction.
-        // That way we have an automatic successor/predecessor for faster access
-        //
-        optional Identifier sectionindex = 2;
-        
-        // Each section contains a list of the included surfacelines
-        //
-        repeated SurfaceLine surfacelines = 3;               
-    }
+    // Each section contains a list of the included surfacelines
+    //
+    repeated SurfaceLine surfacelines = 3;               
 }
 <<<<<<< HEAD
 >>>>>>> Create osi_surfaceline.proto
