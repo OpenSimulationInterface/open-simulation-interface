@@ -15,15 +15,20 @@ RECURSIVE              = YES
 # There is no standard configuration for .proto files documentation.
 # A Doxygen filter for .proto files has to be added under the directory doc/.
 # proto2cpp.py is an external script. See README.md for more informations.
-JAVADOC_AUTOBRIEF      = NO
+JAVADOC_AUTOBRIEF      = YES
+REPEAT_BRIEF           = YES
+ALWAYS_DETAILED_SEC    = YES
 EXTENSION_MAPPING      = proto=C++
 FILE_PATTERNS          = *.proto
 INPUT_FILTER           = "python @FILTER_PROTO2CPP_PY_PATH@/proto2cpp.py"
 HAVE_DOT               = YES
 HIDE_UNDOC_RELATIONS   = NO
 MAX_DOT_GRAPH_DEPTH    = 2
-SORT_MEMBER_DOCS       = YES
+SORT_MEMBER_DOCS       = NO
 USE_MATHJAX            = YES
+
+# Translate \rules and \endrules to something more readable
+ALIASES = "rules=\par Rules\n\code{.unparsed}" "endrules=\endcode"
 
 # If someone wants UML diagrams in the documentation, the next parameter must 
 # be commented in.
