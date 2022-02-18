@@ -783,13 +783,19 @@ message MovingObject
 
             // Vehicle is a delivery van.
             //
+            // \image html OSI_TYPE_DELIVERY_VAN.svg
+            //
             TYPE_DELIVERY_VAN = 6;
 
             // Vehicle is a (heavy) truck.
             //
+            // \image html OSI_TYPE_HEAVY_TRUCK.svg
+            //
             TYPE_HEAVY_TRUCK = 7;
 
             // Vehicle is a tractor capable of pulling a semi-trailer.
+            //
+            // \image html OSI_TYPE_SEMITRACTOR.svg
             //
             TYPE_SEMITRACTOR = 16;
 
@@ -799,12 +805,16 @@ message MovingObject
             // \note The vehicle can be, but doesn't need to be,
             // attached to another vehicle.
             //
+            // \image html OSI_TYPE_SEMITRAILER.svg
+            //
             TYPE_SEMITRAILER = 8;
 
             // Vehicle is a trailer.
             //
             // \note The vehicle can be, but doesn't need to be,
             // attached to another vehicle.
+            //
+            // \image html OSI_TYPE_TRAILER.svg
             //
             TYPE_TRAILER = 9;
 
