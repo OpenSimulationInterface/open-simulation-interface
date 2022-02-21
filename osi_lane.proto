@@ -392,7 +392,6 @@ message Lane
         // outside and inside the intersection area is thereby up to implementation. 
         // It is recommended to cut intersections generously (e.g. including right-turning lanes
         // for right-hand traffic and left-turning lanes for left-hand traffic). 
-        // TODO: TBD: introduce on_intersection field for logical lanes?
         //
         // \note The \c #intersection_outer_border_id is undefined for \c #type =
         // \c #DRIVING and \c #type = #NON_DRIVING.     
@@ -404,16 +403,7 @@ message Lane
         // The orange lines illustrate the connecting (virtual) lines to complete the intersection polygon.
         // \image html OSI_Intersection_outer_boundary.png "The outer boundary of an intersection"   
         //
-        repeated Identifier intersection_outer_boundary_id = 13;        
-
-        // Lane boundaries which span "islands" inside the intersection area where no
-        // logical lane of TYPE_NORMAL shares the space. 
-        // TODO: TBD is this necessary? How should areas be treated that are normally paved but don't have logical lanes associated?
-        //
-        // \note The \c #intersection_island_border_id is undefined for \c #type =
-        // \c #DRIVING and \c #type = #NON_DRIVING.        
-        //
-        repeated Identifier intersection_island_boundary_id = 14;      
+        repeated Identifier intersection_outer_boundary_id = 13;
 
         // Definition of available lane types.
         //
