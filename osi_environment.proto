@@ -342,11 +342,11 @@ message EnvironmentalConditions
     //
     message CloudLayer
     {
-        // Definition of the cloud state level, i.e. cloud state and sky visualization settings.
+        // Definition of the cloud layer, i.e. cloud layer level and sky visualization settings.
         //
         optional CloudLayerLevel cloud_layer_level = 1;
 
-        // Defines the cloud state levels given by observation of total cloud amount in oktas.
+        // Defines the cloud layer levels given by observation of total cloud amount in oktas.
         //
         // For visual alignment please see reference[1].
         //
@@ -374,11 +374,11 @@ message EnvironmentalConditions
         //
         enum CloudLayerLevel
         {
-            // Cloud State is unknown (must not be used in ground truth).
+            // Cloud layer level is unknown (must not be used in ground truth).
             //
             CLOUD_LAYER_LEVEL_UNKNOWN = 0;
 
-            // Other (unspecified but known) CloudState.
+            // Other (unspecified but known) cloud layer level.
             //
             CLOUD_LAYER_LEVEL_OTHER = 1;
 
@@ -427,20 +427,21 @@ message EnvironmentalConditions
     //
     // \brief Defines wind properties.
     //
-    // \note Inspired by the wind speed and direction as defined in ASAM OpenSCENARIO.
-    //
     message Wind
     {
         // The origin direction of the wind (not the target direction) in the ground/xy-plane of the \c
-        // world coordinate system. Corresponds to the heading/yaw angle. \c
-        // x-axis-direction is 0 rad.
+        // world coordinate system. Corresponds to the heading/yaw angle, counted counterclockwise. \c
+        // 0 pointing north. If north not explicitly defined via proj4 reference in ground truth, \c
+        // then north is pointing in y-axis direction. The default orientation (x, y, z) is easting, northing, up [1].
         //
         // Unit: rad
         //
-        // The preferred angular range is [-pi, pi].
+        // The preferred angular range is [0, 2pi].
         //
-        // \note The direction is the origin, not the target direction. \c
-        // The range in openSCENARIO is Range [0...2 pi[. Mind the conversion.
+        // \note The direction is the origin, not the target direction.
+        //
+        // \par References:
+        // [1] https://proj.org/usage/projections.html#:~:text=E%20%20%20%200dN%200.000-,Axis%20orientation,%C2%B6,-Starting%20in%20PROJ
         //
         optional double origin_direction = 1;
 
@@ -456,23 +457,31 @@ message EnvironmentalConditions
     //
     // \brief Specification of sun properties.
     //
-    // \note Aligns with the specification of sun properties according to ASAM OpenSCENARIO.
-    //
     message Sun
     {
         // Azimuth of the sun, counted counterclockwise.
+        // 0 pointing north. If north not explicitly defined via proj4 reference in ground truth, \c
+        // then north is pointing in y-axis direction. The default orientation (x, y, z) is “easting, northing, up” [1].
+        //
+        // \note 0: north; +pi/2: west; pi: south, 3/2 pi: east.
         //
         // Unit: rad
         //
-        // The preferred angular range is [-pi, pi].
+        // The preferred angular range is [0, 2pi].
+        //
+        // \par References:
+        // [1] https://proj.org/usage/projections.html#:~:text=E%20%20%20%200dN%200.000-,Axis%20orientation,%C2%B6,-Starting%20in%20PROJ
         //
         optional double azimuth = 1;
 
-        // Solar elevation angle.
+        // Solar elevation angle. Counted in positive direction around x-axis.
+        //
+        // \note This is different to ASAM OpenSCENARIO for an unique definition of azimuth and elevation.\c
+        // 0: xy-plane; +pi/2: zenith.
         //
         // Unit: rad
         //
-        // The preferred angular range is [-pi, pi].
+        // The preferred angular range is [-pi/2, +pi/2].
         //
         optional double elevation = 2;
 
