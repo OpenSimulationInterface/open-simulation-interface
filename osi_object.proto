@@ -1026,7 +1026,7 @@ message MovingObject
             //
             ROLE_AMBULANCE = 2;
 
-            // The vehicle role is civil.
+            // The vehicle role is civil, e.g. a "normal" car.
             //
             ROLE_CIVIL = 3;
 
