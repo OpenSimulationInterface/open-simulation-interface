@@ -115,7 +115,7 @@ if(BUILD_FLATBUFFER)
     set(fbh "${flat_base}_generated.h")
     add_custom_command(
       OUTPUT "include/${fbh}"
-      COMMAND $<TARGET_FILE:flatc> -o "${CMAKE_CURRENT_BINARY_DIR}/include" --cpp --gen-mutable --gen-name-strings --scoped-enums "${fbs}"
+      COMMAND $<TARGET_FILE:flatc> -o "${CMAKE_CURRENT_BINARY_DIR}/include" --cpp --gen-mutable --gen-object-api --gen-name-strings --scoped-enums "${fbs}"
       DEPENDS "${FLAT_FBS}" flatc
       WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
       COMMENT "Process ${fbs} to ${fbh} using flatc"
