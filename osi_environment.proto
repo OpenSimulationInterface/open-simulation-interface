@@ -101,15 +101,15 @@ message EnvironmentalConditions
     //
     repeated ExternalReference source_reference = 9;
 
-    // Definition of clouds.
+    // Description of the clouds.
     //
     optional CloudLayer clouds = 10;
 
-    // Definition of the wind properties.
+    // Description of the wind.
     //
     optional Wind wind = 11;
 
-    // Definition of the Sun.
+    // Description of the sun.
     //
     optional Sun sun = 12;
 
@@ -338,89 +338,75 @@ message EnvironmentalConditions
     }
 
     //
-    // \brief Specification of a cloud layer.
+    // \brief Description of a cloud layer.
     //
     message CloudLayer
     {
-        // Definition of the cloud layer, i.e. cloud layer level and sky visualization settings.
+        // Properties of a cloud layer by discrete cloud layer levels.
         //
-        optional CloudLayerLevel cloud_layer_level = 1;
+        optional FractionalCloudCover cloud_layer_level = 1;
 
-        // Defines the cloud layer levels given by observation of total cloud amount in oktas.
+        // Defines the fractional cloud cover given by observation of total cloud amount in eights (oktas) of the sky.
         //
         // For visual alignment please see reference[1].
         //
-        // The total degree of coverage indicates how large the part of the sky vault is which is covered
-        // with clouds altogether. It is given in eighths, because this division is easier to estimate
-        // for the observer. 0 eighths means that there are no traces of clouds in the sky,
-        // 4 eighths means that the sky is covered with clouds up to half, 8 eighths means that the sky is
-        // completely covered with clouds and no sky blue can be recognized.
-        //
-        // For cloud determination, the observer will choose a location from which he can overlook the entire sky.
-        // When determining the total cloud cover, all clouds or parts of clouds, regardless of height and genus,
-        // that are above his location will be added. Aircraft contrails are also counted as cloud cover if they remain
-        // in the sky for more than 15 minutes. On the other hand, fog is not counted as cloud cover.
-        //
-        // With a little practice, the observer can easily determine the total amount of cloud cover.
-        // Problems occur only with scattered clouds or many single clouds (cumulus).
-        // Their cloud cover is often overestimated. On the other hand,
-        // the coverage of thin ice clouds (cirrus) is often underestimated [2].
+        // The total degree of coverage indicates how much of the sky is covered with clouds altogether.
+        // 0 oktas means that there are no traces of clouds in the sky, \c
+        // 8 oktas means that the sky is completely covered with clouds and no sky blue can be recognized.
         //
         // \par References:
-        // ISO 15469:2004(E) / CIE S 011/E:2003 : Spatial distribution of skylight
-        // https://en.wikipedia.org/wiki/Cloud_cover
+        // https://cie.co.at/eilvterm/17-29-116
         // [1] https://www.eoas.ubc.ca/courses/atsc113/flying/met_concepts/01-met_concepts/01c-cloud_coverage/index.html
-        // [2] https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv2=100932&lv3=101016
         //
-        enum CloudLayerLevel
+        enum FractionalCloudCover
         {
             // Cloud layer level is unknown (must not be used in ground truth).
             //
-            CLOUD_LAYER_LEVEL_UNKNOWN = 0;
+            FRACTIONAL_CLOUD_COVER_UNKNOWN = 0;
 
             // Other (unspecified but known) cloud layer level.
             //
-            CLOUD_LAYER_LEVEL_OTHER = 1;
+            FRACTIONAL_CLOUD_COVER_OTHER = 1;
 
             // 0/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_0 = 2;
+            FRACTIONAL_CLOUD_COVER_ZERO_OKTAS = 2;
 
             // 1/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_1 = 3;
+            FRACTIONAL_CLOUD_COVER_ONE_OKTAS = 3;
 
             // 2/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_2 = 4;
+            FRACTIONAL_CLOUD_COVER_TWO_OKTAS = 4;
 
             // 3/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_3 = 5;
+            FRACTIONAL_CLOUD_COVER_THREE_OKTAS = 5;
 
             // 4/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_4 = 6;
+            FRACTIONAL_CLOUD_COVER_FOUR_OKTAS = 6;
 
             // 5/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_5 = 7;
+            FRACTIONAL_CLOUD_COVER_FIVE_OKTAS = 7;
 
             // 6/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_6 = 8;
+            FRACTIONAL_CLOUD_COVER_SIX_OKTAS = 8;
 
             // 7/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_7 = 9;
+            FRACTIONAL_CLOUD_COVER_SEVEN_OKTAS = 9;
 
             // 8/8 of the sky is covered with clouds.
             //
-            CLOUD_LAYER_LEVEL_8 = 10;
+            FRACTIONAL_CLOUD_COVER_EIGHT_OKTAS = 10;
 
             // Sky obscured, describes situations where the sky is not perceivable, e.g. in dense fog.
             //
-            CLOUD_LAYER_LEVEL_SKY_OBSCURED = 11;
+            FRACTIONAL_CLOUD_COVER_SKY_OBSCURED = 11;
         }
     }
 
@@ -434,11 +420,11 @@ message EnvironmentalConditions
         // 0 pointing north. If north not explicitly defined via proj4 reference in ground truth, \c
         // then north is pointing in y-axis direction. The default orientation (x, y, z) is easting, northing, up [1].
         //
+        // \note 0: north; +pi/2: west; pi: south, 3/2 pi: east.
+        //
         // Unit: rad
         //
         // The preferred angular range is [0, 2pi].
-        //
-        // \note The direction is the origin, not the target direction.
         //
         // \par References:
         // [1] https://proj.org/usage/projections.html#:~:text=E%20%20%20%200dN%200.000-,Axis%20orientation,%C2%B6,-Starting%20in%20PROJ
@@ -449,19 +435,21 @@ message EnvironmentalConditions
         //
         // Unit: m/s
         //
-        // Range [0...inf[
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // \endrules
         //
         optional double speed = 2;
     }
 
     //
-    // \brief Specification of sun properties.
+    // \brief Properties of the sun.
     //
     message Sun
     {
         // Azimuth of the sun, counted counterclockwise.
         // 0 pointing north. If north not explicitly defined via proj4 reference in ground truth, \c
-        // then north is pointing in y-axis direction. The default orientation (x, y, z) is “easting, northing, up” [1].
+        // then north is pointing in y-axis direction. The default orientation (x, y, z) is easting, northing, up [1].
         //
         // \note 0: north; +pi/2: west; pi: south, 3/2 pi: east.
         //
@@ -470,14 +458,13 @@ message EnvironmentalConditions
         // The preferred angular range is [0, 2pi].
         //
         // \par References:
-        // [1] https://proj.org/usage/projections.html#:~:text=E%20%20%20%200dN%200.000-,Axis%20orientation,%C2%B6,-Starting%20in%20PROJ
+        // [1] https://proj.org/usage/projections.html
         //
         optional double azimuth = 1;
 
-        // Solar elevation angle. Counted in positive direction around x-axis.
+        // Solar elevation angle. Counted in positive direction (clockwise) around xy-plane.
         //
-        // \note This is different to ASAM OpenSCENARIO for an unique definition of azimuth and elevation.\c
-        // 0: xy-plane; +pi/2: zenith.
+        // \note 0: xy-plane; +pi/2: zenith.
         //
         // Unit: rad
         //
