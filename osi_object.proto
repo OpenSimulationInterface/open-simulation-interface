@@ -731,6 +731,22 @@ message MovingObject
 
         // Definition of vehicle types.
         //
+        // \note OSI provides a richer set of vehicle types than is supported by some
+        // other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel).
+        // This is primarily for historical reasons.  Where a single type from a
+        // different standard can map to multiple OSI types it is left up to the
+        // discretion of the OSI implementor how that mapping is achieved.  For example,
+        // a simulator may use the dimensions of a provided 3d model of a vehicle with type
+        // "car" in OpenScenario, to determine whether it should be a TYPE_SMALL_CAR or
+        // TYPE_MEDIUM_CAR in OSI.
+        //
+        // \note Vehicle type classification is a complex area and there are no
+        // universally recognised standards.  As such, the boundaries between some of the
+        // OSI vehicle types are not well-defined.  It is left to the implementor to
+        // decide how to distinguish between them and agree that with any applications which
+        // make use of that specific interface instance.  For example, how to distinguish
+        // between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER.
+        //
         enum Type
         {
             // Type of vehicle is unknown (must not be used in ground truth).
@@ -767,19 +783,38 @@ message MovingObject
 
             // Vehicle is a delivery van.
             //
-            // Definition: A delivery van.
+            // \image html OSI_TYPE_DELIVERY_VAN.svg
             //
             TYPE_DELIVERY_VAN = 6;
 
-            // Vehicle is a heavy truck.
+            // Vehicle is a (heavy) truck.
+            //
+            // \image html OSI_TYPE_HEAVY_TRUCK.svg
             //
             TYPE_HEAVY_TRUCK = 7;
 
-            // Vehicle is a truck with semitrailer.
+            // Vehicle is a tractor capable of pulling a semi-trailer.
+            //
+            // \image html OSI_TYPE_SEMITRACTOR.svg
+            //
+            TYPE_SEMITRACTOR = 16;
+
+            // This vehicle is a semi-trailer that can be pulled by a
+            // semi-tractor.
+            //
+            // \note The vehicle can be, but doesn't need to be,
+            // attached to another vehicle.
+            //
+            // \image html OSI_TYPE_SEMITRAILER.svg
             //
             TYPE_SEMITRAILER = 8;
 
-            // Vehicle is a trailer (possibly attached to another vehicle).
+            // Vehicle is a trailer.
+            //
+            // \note The vehicle can be, but doesn't need to be,
+            // attached to another vehicle.
+            //
+            // \image html OSI_TYPE_TRAILER.svg
             //
             TYPE_TRAILER = 9;
 
