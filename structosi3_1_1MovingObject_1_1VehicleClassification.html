@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(49eafc5)</span>
+   &#160;<span id="projectnumber">master(c70229e)</span>
    </div>
   </td>
  </tr>
@@ -127,15 +127,17 @@ Public Types</h2></td></tr>
 <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a32997755078624bff21f884bba6390a4">TYPE_DELIVERY_VAN</a> = 6, 
 <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab0c863afde22fc252f1cfdc5017e9bee">TYPE_HEAVY_TRUCK</a> = 7, 
 <br />
-&#160;&#160;<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ad699ae83bd8e73abfb186a0f3de31032">TYPE_SEMITRAILER</a> = 8, 
+&#160;&#160;<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189af6451148d7da17a6ab3a57b82a458da2">TYPE_SEMITRACTOR</a> = 16, 
+<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ad699ae83bd8e73abfb186a0f3de31032">TYPE_SEMITRAILER</a> = 8, 
 <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab9b04f1b060bb4489db8ad60a6879e4e">TYPE_TRAILER</a> = 9, 
 <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab53bad6d89068f83e36d674c913b6b8d">TYPE_MOTORBIKE</a> = 10, 
-<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a72cc520d97695dc8aa981f9954d7df20">TYPE_BICYCLE</a> = 11, 
 <br />
-&#160;&#160;<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a9c6e20f0148178e2f06f1894b6af62dc">TYPE_BUS</a> = 12, 
+&#160;&#160;<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a72cc520d97695dc8aa981f9954d7df20">TYPE_BICYCLE</a> = 11, 
+<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a9c6e20f0148178e2f06f1894b6af62dc">TYPE_BUS</a> = 12, 
 <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a336aedac92512e3d90315397f09a283e">TYPE_TRAM</a> = 13, 
 <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a763f1bcda4dc3bf98b9bc01cf6b2b35d">TYPE_TRAIN</a> = 14, 
-<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02">TYPE_WHEELCHAIR</a> = 15
+<br />
+&#160;&#160;<a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02">TYPE_WHEELCHAIR</a> = 15
 <br />
  }<tr class="memdesc:a65c82aaafe22ed6996ab78713354d189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of vehicle types.  <a href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189">More...</a><br /></td></tr>
 </td></tr>
@@ -172,6 +174,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition of vehicle types. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI provides a richer set of vehicle types than is supported by some other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel). This is primarily for historical reasons. Where a single type from a different standard can map to multiple OSI types it is left up to the discretion of the OSI implementor how that mapping is achieved. For example, a simulator may use the dimensions of a provided 3d model of a vehicle with type "car" in OpenScenario, to determine whether it should be a TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI.</dd>
+<dd>
+Vehicle type classification is a complex area and there are no universally recognised standards. As such, the boundaries between some of the OSI vehicle types are not well-defined. It is left to the implementor to decide how to distinguish between them and agree that with any applications which make use of that specific interface instance. For example, how to distinguish between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER. </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189aec66603fc9aa8b1d34018624bbec3108"></a>TYPE_UNKNOWN&#160;</td><td class="fielddoc"><p>Type of vehicle is unknown (must not be used in ground truth). </p>
 </td></tr>
@@ -190,14 +195,32 @@ Public Attributes</h2></td></tr>
 <p>Definition: Sedan or coupe that is longer then 5 m. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189a32997755078624bff21f884bba6390a4"></a>TYPE_DELIVERY_VAN&#160;</td><td class="fielddoc"><p>Vehicle is a delivery van. </p>
-<p>Definition: A delivery van. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ab0c863afde22fc252f1cfdc5017e9bee"></a>TYPE_HEAVY_TRUCK&#160;</td><td class="fielddoc"><p>Vehicle is a heavy truck. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ad699ae83bd8e73abfb186a0f3de31032"></a>TYPE_SEMITRAILER&#160;</td><td class="fielddoc"><p>Vehicle is a truck with semitrailer. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ab9b04f1b060bb4489db8ad60a6879e4e"></a>TYPE_TRAILER&#160;</td><td class="fielddoc"><p>Vehicle is a trailer (possibly attached to another vehicle). </p>
-</td></tr>
+<div class="image">
+<object type="image/svg+xml" data="OSI_TYPE_DELIVERY_VAN.svg">OSI_TYPE_DELIVERY_VAN.svg</object>
+</div>
+ </td></tr>
+<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ab0c863afde22fc252f1cfdc5017e9bee"></a>TYPE_HEAVY_TRUCK&#160;</td><td class="fielddoc"><p>Vehicle is a (heavy) truck. </p>
+<div class="image">
+<object type="image/svg+xml" data="OSI_TYPE_HEAVY_TRUCK.svg">OSI_TYPE_HEAVY_TRUCK.svg</object>
+</div>
+ </td></tr>
+<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189af6451148d7da17a6ab3a57b82a458da2"></a>TYPE_SEMITRACTOR&#160;</td><td class="fielddoc"><p>Vehicle is a tractor capable of pulling a semi-trailer. </p>
+<div class="image">
+<object type="image/svg+xml" data="OSI_TYPE_SEMITRACTOR.svg">OSI_TYPE_SEMITRACTOR.svg</object>
+</div>
+ </td></tr>
+<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ad699ae83bd8e73abfb186a0f3de31032"></a>TYPE_SEMITRAILER&#160;</td><td class="fielddoc"><p>This vehicle is a semi-trailer that can be pulled by a semi-tractor. </p>
+<dl class="section note"><dt>Note</dt><dd>The vehicle can be, but doesn't need to be, attached to another vehicle.</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="OSI_TYPE_SEMITRAILER.svg">OSI_TYPE_SEMITRAILER.svg</object>
+</div>
+ </td></tr>
+<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ab9b04f1b060bb4489db8ad60a6879e4e"></a>TYPE_TRAILER&#160;</td><td class="fielddoc"><p>Vehicle is a trailer. </p>
+<dl class="section note"><dt>Note</dt><dd>The vehicle can be, but doesn't need to be, attached to another vehicle.</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="OSI_TYPE_TRAILER.svg">OSI_TYPE_TRAILER.svg</object>
+</div>
+ </td></tr>
 <tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ab53bad6d89068f83e36d674c913b6b8d"></a>TYPE_MOTORBIKE&#160;</td><td class="fielddoc"><p>Vehicle is a motorbike or moped. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189a72cc520d97695dc8aa981f9954d7df20"></a>TYPE_BICYCLE&#160;</td><td class="fielddoc"><p>Vehicle is a bicycle (without motor and specific lights). </p>

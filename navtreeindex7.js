@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structosi3_1_1UltrasonicSensorViewConfiguration.html#a857ff0b1a82ae4e72b6b5cc4923243d9":[2,0,0,82,0],
 "structosi3_1_1UltrasonicSensorViewConfiguration.html#ac576573013280863221640ee8f6286b6":[2,0,0,82,3],
 "structosi3_1_1UltrasonicSpecificObjectData.html":[2,0,0,83],
 "structosi3_1_1UltrasonicSpecificObjectData.html#a2f94e3f7535aa788b16b7ee723599937":[2,0,0,83,7],
