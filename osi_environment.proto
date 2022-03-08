@@ -342,29 +342,29 @@ message EnvironmentalConditions
     //
     message CloudLayer
     {
-        // Properties of a cloud layer by discrete cloud layer levels.
+        // Properties of a cloud layer given by fractional cloud cover levels.
         //
-        optional FractionalCloudCover cloud_layer_level = 1;
+        optional FractionalCloudCover fractional_cloud_cover = 1;
 
-        // Defines the fractional cloud cover given by observation of total cloud amount in eights (oktas) of the sky.
+        // Defines the fractional cloud cover [1] given by observation of total cloud amount in eights (oktas) of the sky.
         //
-        // For visual alignment please see reference[1].
+        // For visual alignment please see reference[2].
         //
         // The total degree of coverage indicates how much of the sky is covered with clouds altogether.
         // 0 oktas means that there are no traces of clouds in the sky, \c
         // 8 oktas means that the sky is completely covered with clouds and no sky blue can be recognized.
         //
         // \par References:
-        // https://cie.co.at/eilvterm/17-29-116
-        // [1] https://www.eoas.ubc.ca/courses/atsc113/flying/met_concepts/01-met_concepts/01c-cloud_coverage/index.html
+        // [1] CIE engl. International Commission on Illumination. (2020). <em>CIE S017:2020 ILV: Intl. Lighitng Vocabulary, 2nd edn.</em>. Retrieved March 8, 2022, from https://cie.co.at/eilvterm/17-29-116
+        // [2] UBC The University of British Columbia. (2018). <em>ATSC 113 Weather for Sailing, Flying & Snow Sports</em>. Retrieved March 8, 2022, from https://www.eoas.ubc.ca/courses/atsc113/flying/met_concepts/01-met_concepts/01c-cloud_coverage/index.html
         //
         enum FractionalCloudCover
         {
-            // Cloud layer level is unknown (must not be used in ground truth).
+            // Fractional cloud cover level is unknown (must not be used in ground truth).
             //
             FRACTIONAL_CLOUD_COVER_UNKNOWN = 0;
 
-            // Other (unspecified but known) cloud layer level.
+            // Other (unspecified but known) fractional cloud cover level.
             //
             FRACTIONAL_CLOUD_COVER_OTHER = 1;
 
@@ -427,7 +427,7 @@ message EnvironmentalConditions
         // The preferred angular range is [0, 2pi].
         //
         // \par References:
-        // [1] https://proj.org/usage/projections.html#:~:text=E%20%20%20%200dN%200.000-,Axis%20orientation,%C2%B6,-Starting%20in%20PROJ
+        // [1] PROJ contributors. (2019). <em>PROJ coordinate transformation software library</em>. Open Source Geospatial Foundation. Retrieved January 25, 2019, from https://proj.org/usage/projections.html
         //
         optional double origin_direction = 1;
 
@@ -458,7 +458,7 @@ message EnvironmentalConditions
         // The preferred angular range is [0, 2pi].
         //
         // \par References:
-        // [1] https://proj.org/usage/projections.html
+        // [1] PROJ contributors. (2019). <em>PROJ coordinate transformation software library</em>. Open Source Geospatial Foundation. Retrieved January 25, 2019, from https://proj.org/usage/projections.html
         //
         optional double azimuth = 1;
 
