@@ -238,6 +238,8 @@ message Lane
         // A vehicle must calculate this individually and depending on the
         // situation.
         //
+        // \note Should be deprectated in favor of SurfaceLine
+        //
         repeated Vector3d centerline = 3;
 
         // Definition of the intended driving direction.
@@ -253,6 +255,8 @@ message Lane
         //
         // \note The \c #centerline_is_driving_direction is defined for \c #type
         // = \c #TYPE_DRIVING .
+        //
+        // \note Should be deprectated in favor of SurfaceLine
         //
         optional bool centerline_is_driving_direction = 4;
 
