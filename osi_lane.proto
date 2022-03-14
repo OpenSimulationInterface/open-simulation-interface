@@ -379,7 +379,10 @@ message Lane
         // The list of surfacelines of the lanes.
         // 
         // This surfacelines decribe the height or road shape profile along the lane.
-        repeated SurfaceLine surfacelines = 13;
+        // It is currently undefined in lanes of \c #Type = \c #TYPE_INTERSECTION
+        // because shapes of interesections are very different from typical roads and
+        // the surfaceline concept should incorporate that
+        repeated SurfaceLine surfaceline = 13;
 
         // Definition of available lane types.
         //
