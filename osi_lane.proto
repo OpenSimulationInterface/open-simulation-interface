@@ -238,6 +238,9 @@ message Lane
         // A vehicle must calculate this individually and depending on the
         // situation.
         //
+        // \attention Centerline will be deprecated in the near future
+        // please use logical lanes to navigate
+        //
         repeated Vector3d centerline = 3;
 
         // Definition of the intended driving direction.
@@ -253,6 +256,8 @@ message Lane
         //
         // \note The \c #centerline_is_driving_direction is defined for \c #type
         // = \c #TYPE_DRIVING .
+        //
+        // \attention will be deprecated
         //
         optional bool centerline_is_driving_direction = 4;
 
@@ -383,7 +388,7 @@ message Lane
         // because shapes of interesections are very different from typical roads and
         // the surfaceline concept should incorporate that
         repeated SurfaceLine surfaceline = 13;
-
+        
         // Definition of available lane types.
         //
         enum Type
@@ -718,6 +723,12 @@ message Lane
         // \attention If more than one surfaceline exists, they are not allowed to cross each other 
         // or the lane boundaries, otherwise you could have conflicting height information at these points.
         //
+        // \proposal In order to model curb stones, one surfaceline will be placed at the lower edge
+        // of the curb that belongs to the border lane/driving lane and another one on the upper edge
+        // that will belong to the sidewalk 
+        // (see https://github.com/OpenSimulationInterface/open-simulation-interface/pull/608)
+        //
+        //
         message SurfaceLine
         {
             // The ID of the surfaceline.
@@ -753,6 +764,9 @@ message Lane
             // Example: \c #surfaceline_is_centerline = \c true for surfaceline sl2
             // and \c #surfaceline_is_centerline = \c false for surfacelane sl1 in
             // image \ref Surfacelines .
+            // 
+            // \note Centerline should be deprecated in the near future in favor of 
+            // the logical lanes for driving and navigation purposes
             //
             optional bool surfaceline_is_centerline = 3;
         
@@ -762,11 +776,6 @@ message Lane
             // \note If there is no surfaceline to the left, this will mean its located at the 
             // left LaneBoundary.
             // 
-            // \proposal In order to model curb stones, one surfaceline will be placed at the lower edge
-            // of the curb that belongs to the border lane/driving lane and another one on the upper edge
-            // that will belong to the sidewalk 
-            // (see https://github.com/OpenSimulationInterface/open-simulation-interface/pull/608)
-            //
             optional Identifier left_surfaceline_id = 4;
             
             // ID of the surfaceline that is next right to the surfaceline 
@@ -777,13 +786,17 @@ message Lane
             // 
             optional Identifier right_surfaceline_id = 5;
             
-            // \note If this surfaceline is located at the left LaneBoundary 
-            // we can double check with an empty left_surfaceline_id 
+            // One surfaceline should be located at the left LaneBoundary which 
+            // enables us to just use the surfaceline for the height representation
+            // of lanes without the need to also interprete the LaneBoundary values.
+            // Can be double checked with an empty left_surfaceline_id 
             //
             optional bool is_at_left_lane_boundary = 6;
     
-            // \note If this surfaceline is located at the right LaneBoundary 
-            // we can double check with an empty right_surfaceline_id  
+            // One surfaceline should be located at the right LaneBoundary which 
+            // enables us to just use the surfaceline for the height representation
+            // of lanes without the need to also interprete the LaneBoundary values.
+            // Can be double checked with an empty right_surfaceline_id 
             //
             optional bool is_at_right_lane_boundary = 7;
     
