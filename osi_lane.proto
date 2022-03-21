@@ -732,7 +732,7 @@ message Lane
         message SurfaceLine
         {
             // The ID of the surfaceline.
-            // Example: sl1 (see \ref Surfacelines).
+            // Example: sl 3 (see \ref Surfacelines).
             //
             // \note Note ID is global unique.
             //
@@ -744,15 +744,21 @@ message Lane
     
             // points making up the surfaceline
             //
-            // If the surfaceline approximates a curve (e.g. a cubic function in
-            // OpenDRIVE), the points must be chosen in a way that the lateral distance
-            // to the ideal line does not exceed 5cm. As shown in the following image:
+            // If the surfaceline approximates a height curve, the points must be chosen 
+            // in a way that the lateral distance to the ideal line does not exceed 2cm. 
+            // As shown in the following image:
             //
             // \image html line_approximation_error.svg "Approximation error"
             // Approximation error green line.
             //
-            // The Z error (difference in Z height between surfaceline and the "real"
-            // line) must not exceed 2cm, since height gaps are more noticable.
+            // This only applies to the approximation in height in comparison to the 
+            // surrounding flat surface plane.
+            //
+            // The "first" point of a surfaceline does not necessarily have to be at the 
+            // start of the lane it describes if the height does not change along its course.
+            // For the two surfaceline at the LaneBoundary it does make sense to start
+            // at the very beginning of that LaneBoundary in order to be able to describe the
+            // height plane of that Lane accordingly.
             //
             repeated SurfaceLinePoint surfaceline = 2;
        
@@ -761,8 +767,8 @@ message Lane
             // Defined and used for driving lanes.
             // \c true means that the surfaceline is also the centerline of the lane.
             //
-            // Example: \c #surfaceline_is_centerline = \c true for surfaceline sl2
-            // and \c #surfaceline_is_centerline = \c false for surfacelane sl1 in
+            // Example: \c #surfaceline_is_centerline = \c true for surfaceline sl3 
+            // and \c #surfaceline_is_centerline = \c false for surfacelane sl6 in
             // image \ref Surfacelines .
             // 
             // \note Centerline should be deprecated in the near future in favor of 
@@ -786,20 +792,12 @@ message Lane
             // 
             optional Identifier right_surfaceline_id = 5;
             
-            // One surfaceline should be located at the left LaneBoundary which 
+            // One surfaceline should be located at each LaneBoundary which 
             // enables us to just use the surfaceline for the height representation
             // of lanes without the need to also interprete the LaneBoundary values.
-            // Can be double checked with an empty left_surfaceline_id 
             //
-            optional bool is_at_left_lane_boundary = 6;
-    
-            // One surfaceline should be located at the right LaneBoundary which 
-            // enables us to just use the surfaceline for the height representation
-            // of lanes without the need to also interprete the LaneBoundary values.
-            // Can be double checked with an empty right_surfaceline_id 
-            //
-            optional bool is_at_right_lane_boundary = 7;
-    
+            optional bool is_at_lane_boundary = 6;
+   
             // \brief Definition of the points that make up a surfaceline
             //
             message SurfaceLinePoint {
@@ -1236,4 +1234,3 @@ message LaneBoundary
         }
     }
 }
-
