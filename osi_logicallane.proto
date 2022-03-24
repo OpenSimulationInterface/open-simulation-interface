@@ -9,7 +9,7 @@ package osi3;
 //
 // \brief Boundary line of a LogicalLane
 //
-// Similar to a LaneBoundary, but with a reference and ST positions.
+// Similar to a LaneBoundary, but with a reference line and ST positions.
 //
 // A logical lane boundary describes the boundary between two logical lanes. As
 // such, there will always be exactly one logical lane boundary between two
@@ -22,6 +22,11 @@ package osi3;
 // LaneBoundary objects, one for the solid lane marking, one for the broken lane
 // marking), then the single LogicalLaneBoundary describing the boundary between
 // two logical lanes should be between the physical boundaries.
+//
+// A logical lane boundary consists of a list of \link LogicalBoundaryPoint
+// LogicalBoundaryPoints\endlink. Each point has a XYZ and an ST coordinate.
+// The XYZ coordinates describe the position and height of the boundary in the
+// world.
 //
 // Notes on design decisions:
 // - The LogicalLaneBoundary has ST coordinates, and is thus a separate type
@@ -79,7 +84,7 @@ message LogicalLaneBoundary
     // Approximation error green line.
     //
     // The Z error (difference in Z height between #boundary_line and the
-    // "real" line) must not exceed 2cm. This is a stricter requirements than
+    // "real" line) must not exceed 2cm. This is a stricter requirement than
     // for errors in the XY plane, because Z differences between lanes
     // influence driving very much.
     //
