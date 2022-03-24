@@ -144,6 +144,23 @@ message ReferenceLine
     // precision is defined for each user, where the reference line is
     // referenced.
     //
+    // ## Creating reference lines
+    //
+    // When OSI is generated from OpenDRIVE, typically the reference lines will
+    // be taken directly from the road reference lines in OpenDRIVE, and
+    // sampled according to the accuracy requirements outlined above.
+    //
+    // Other map formats may not have reference lines, so they will have to be
+    // synthesized by the tool generating OSI data. A few guidelines on this
+    // process:
+    //
+    // - The reference line should follow the road
+    // - It is preferable to have the reference line in the center of the road
+    //   (e.g. on a highway, it should be in the middle between the two driving
+    //   directions). Rationale: this makes S differences better approximate
+    //   euclidean distances, compared to having the reference line at one side
+    //   of a curvy road.
+    //
     // ## Various notes
     //
     // Notes on OpenDRIVE compatibility:
