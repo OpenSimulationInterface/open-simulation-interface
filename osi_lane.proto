@@ -383,11 +383,24 @@ message Lane
         
         // The list of surfacelines of the lanes.
         // 
-        // This surfacelines decribe the height or road shape profile along the lane.
+        // These surfacelines describe the height shape profile along the lane.
         // It is currently undefined in lanes of \c #Type = \c #TYPE_INTERSECTION
         // because shapes of intersections are very different from typical roads and
-        // the surfacelines have to be adapted to that in the future
+        // the surfacelines have to be adapted to that in the future.
         repeated SurfaceLine surfaceline = 13;
+        
+        // Id of a surfaceline that is also located in the center of the lane.
+        // Defined and used currently only for driving lanes.
+        //
+        // Example: \c #center_surfaceline_id = \c s13 for surfaceline sl3 
+        // in image \ref Surfacelines . Will be empty if no surfaceline is placed
+        // at the center of that lane.
+        // 
+        // \note Centerline should be deprecated in the near future in favor of 
+        // the logical lanes for driving and navigation purposes
+        //
+        optional Identifier center_surfaceline_id = 14;
+        
         
         // Definition of available lane types.
         //
@@ -694,8 +707,8 @@ message Lane
         
         // A lane's surfaceline (as a list of segments).
         //
-        // \brief Surfacelines describe the height profile along the lane
-        // Multiple surfacelines can be used to create a certain road shape if needed
+        // \brief Surfacelines describe the height profile along the lane.
+        // Multiple surfacelines can be used to create a certain road shape if needed.
 
         // The surfaceline describes a height profile along the lane on or at a certain offset to the lane boundary.
         // \image html OSI_LaneBoundaries_And_SurfaceLines.svg "Surfacelines" width=500px
@@ -717,16 +730,13 @@ message Lane
         // lane like speed bumps etc. more detailed while still allow very few points 
         // at parts of the lane where height does not change much.
         //
-        // \note The surfaceline is the line that describes the height profile 
-        // along the lane.
-        // 
         // \attention If more than one surfaceline exists, they are not allowed to cross each other 
         // or the lane boundaries, otherwise you could have conflicting height information at these points.
         //
         // \proposal In order to model curb stones, one surfaceline will be placed at the lower edge
         // of the curb that belongs to the border lane/driving lane and another one on the upper edge
         // that will belong to the sidewalk 
-        // (see https://github.com/OpenSimulationInterface/open-simulation-interface/pull/608)
+        // (see https://github.com/OpenSimulationInterface/open-simulation-interface/pull/608).
         //
         //
         message SurfaceLine
@@ -742,63 +752,45 @@ message Lane
             //
             optional Identifier surfaceline_id = 1;
     
-            // points making up the surfaceline
+            // Points forming the surfaceline.
             //
-            // If the surfaceline approximates a height curve, the points must be chosen 
-            // in a way that the lateral distance to the ideal line does not exceed 2cm. 
-            // As shown in the following image:
+            // The points must be chosen in a way that the error in vertical direction
+            // (for example to an ideal line) does not exceed 2cm, as shown in the following image:
             //
             // \image html line_approximation_error.svg "Approximation error"
             // Approximation error green line.
             //
-            // This only applies to the approximation in height in comparison to the 
-            // surrounding flat surface plane.
-            //
             // The "first" point of a surfaceline does not necessarily have to be at the 
             // start of the lane it describes if the height does not change along its course.
-            // For the two surfaceline at the LaneBoundary it does make sense to start
-            // at the very beginning of that LaneBoundary in order to be able to describe the
-            // height plane of that Lane accordingly.
+            // The two surfacelines at the LaneBoundary usually start at the very beginning of 
+            // that LaneBoundary in order to be able to describe the height plane of that Lane accordingly.
             //
             repeated SurfaceLinePoint surfaceline = 2;
        
-            // Definition of the placement of the newly introduced surfaceline in the center of the lane.
-            //
-            // Defined and used for driving lanes.
-            // \c true means that the surfaceline is also the centerline of the lane.
-            //
-            // Example: \c #surfaceline_is_centerline = \c true for surfaceline sl3 
-            // and \c #surfaceline_is_centerline = \c false for surfacelane sl6 in
-            // image \ref Surfacelines .
-            // 
-            // \note Centerline should be deprecated in the near future in favor of 
-            // the logical lanes for driving and navigation purposes
-            //
-            optional bool surfaceline_is_centerline = 3;
-        
+            
             // ID of the surfaceline that is next left to the surfaceline 
             // (w.r.t. ascending order of surfaceline points). 
             //
             // \note If there is no surfaceline to the left, this will mean its located at the 
             // left LaneBoundary.
             // 
-            optional Identifier left_surfaceline_id = 4;
+            optional Identifier left_surfaceline_id = 3;
             
             // ID of the surfaceline that is next right to the surfaceline 
-            // (w.r.t. ascending order of surfaceline points)
+            // (w.r.t. ascending order of surfaceline points).
             //
             // \note If there is no surfaceline to the right, this will mean its located at the 
-            // right LaneBoundary
+            // right LaneBoundary.
             // 
-            optional Identifier right_surfaceline_id = 5;
+            optional Identifier right_surfaceline_id = 4;
             
             // One surfaceline should be located at each LaneBoundary which 
             // enables us to just use the surfaceline for the height representation
             // of lanes without the need to also interprete the LaneBoundary values.
             //
-            optional bool is_at_lane_boundary = 6;
+            optional bool is_at_lane_boundary = 5;
    
-            // \brief Definition of the points that make up a surfaceline
+            // \brief Definition of the points that make up a surfaceline.
             //
             message SurfaceLinePoint {
    
