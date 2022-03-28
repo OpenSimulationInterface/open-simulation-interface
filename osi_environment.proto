@@ -90,7 +90,7 @@ message EnvironmentalConditions
     
     // Optional external reference to the environmental condition sources.
     //
-    // \note For OpenDRIVE and OpenSECNARIO there is no direct counterpart.
+    // \note For OpenDRIVE and OpenSCENARIO there is no direct counterpart.
     //
     // \note For non-ASAM standards, it is implementation-specific how
     //       source_reference is resolved.
@@ -254,55 +254,55 @@ message EnvironmentalConditions
         //
         AMBIENT_ILLUMINATION_OTHER = 1;
 
-        // Level 1 illumination in ]0.001, 0.01[ lx
+        // Level 1 illumination in ]0.001, 0.01[ lx. \n
         // E.g. Night with no artificial light.
         //
         // \note Use \c #AMBIENT_ILLUMINATION_LEVEL1 if illumination is less
-        // than 0.001 lx
+        // than 0.001 lx.
         //
         AMBIENT_ILLUMINATION_LEVEL1 = 2;
 
-        // Level 2 illumination in [0.01, 1[ lx
+        // Level 2 illumination in [0.01, 1[ lx. \n
         // E.g. Night full moon / Deep twilight.
         //
         AMBIENT_ILLUMINATION_LEVEL2 = 3;
 
-        // Level 3 illumination in [1, 3[ lx
+        // Level 3 illumination in [1, 3[ lx. \n
         // E.g. Deep to average twilight / Minimum lighting on local low
         // pedestrian conflict roads.
         //
         AMBIENT_ILLUMINATION_LEVEL3 = 4;
 
-        // Level 4 illumination in [3, 10[ lx
+        // Level 4 illumination in [3, 10[ lx. \n
         // E.g. Average to full twilight / Minimum lighting on collector roads /
         // Minimum lighting on major and expressway roads with low to average
         // pedestrian conflict.
         //
         AMBIENT_ILLUMINATION_LEVEL4 = 5;
 
-        // Level 5 illumination in [10, 20[ lx
+        // Level 5 illumination in [10, 20[ lx. \n
         // E.g. Minimum lighting on major and expressway roads with high
         // pedestrian conflict.
         //
         AMBIENT_ILLUMINATION_LEVEL5 = 6;
 
-        // Level 6 illumination in [20, 400[ lx
+        // Level 6 illumination in [20, 400[ lx. \n
         // E.g. Roads with more lighting / Very dark overcast day to sunrise or
         // sunset on a clear day.
         //
         AMBIENT_ILLUMINATION_LEVEL6 = 7;
 
-        // Level 7 illumination in [400, 1000[ lx
+        // Level 7 illumination in [400, 1000[ lx. \n
         // E.g. Sunrise or sunset on a clear day / Overcast day.
         //
         AMBIENT_ILLUMINATION_LEVEL7 = 8;
 
-        // Level 8 illumination in [1000, 10000[ lx
+        // Level 8 illumination in [1000, 10000[ lx. \n
         // E.g. Average to full daylight.
         //
         AMBIENT_ILLUMINATION_LEVEL8 = 9;
 
-        // Level 9 illumination in [10000, 120000[ lx
+        // Level 9 illumination in [10000, 120000[ lx. \n
         // E.g. Full daylight to intense sunlight.
         //
         // \note Use \c #AMBIENT_ILLUMINATION_LEVEL9 if illumination is more
@@ -348,14 +348,14 @@ message EnvironmentalConditions
 
         // Defines the fractional cloud cover [1] given by observation of total cloud amount in eights (oktas) of the sky.
         //
-        // For visual alignment please see reference[2].
+        // For visual alignment please see reference [2].
         //
         // The total degree of coverage indicates how much of the sky is covered with clouds altogether.
-        // 0 oktas means that there are no traces of clouds in the sky, \c
+        // 0 oktas means that there are no traces of clouds in the sky,
         // 8 oktas means that the sky is completely covered with clouds and no sky blue can be recognized.
         //
         // \par References:
-        // [1] CIE engl. International Commission on Illumination. (2020). <em>CIE S017:2020 ILV: Intl. Lighitng Vocabulary, 2nd edn.</em>. Retrieved March 8, 2022, from https://cie.co.at/eilvterm/17-29-116
+        // [1] CIE engl. International Commission on Illumination. (2020). <em>CIE S017:2020 ILV: Intl. Lighitng Vocabulary, 2nd edn.</em>. Retrieved March 8, 2022, from https://cie.co.at/eilvterm/17-29-116 \n
         // [2] UBC The University of British Columbia. (2018). <em>ATSC 113 Weather for Sailing, Flying & Snow Sports</em>. Retrieved March 8, 2022, from https://www.eoas.ubc.ca/courses/atsc113/flying/met_concepts/01-met_concepts/01c-cloud_coverage/index.html
         //
         enum FractionalCloudCover
@@ -415,9 +415,9 @@ message EnvironmentalConditions
     //
     message Wind
     {
-        // The origin direction of the wind (not the target direction) in the ground/xy-plane of the \c
-        // world coordinate system. Corresponds to the heading/yaw angle, counted counterclockwise. \c
-        // 0 pointing north. If north not explicitly defined via proj4 reference in ground truth, \c
+        // The origin direction of the wind (not the target direction) in the ground/xy-plane of the
+        // world coordinate system. Corresponds to the heading/yaw angle, counted counterclockwise.
+        // 0 pointing north. If north is not explicitly defined via \c #osi3::GroundTruth::proj_string,
         // then north is pointing in y-axis direction. The default orientation (x, y, z) is easting, northing, up [1].
         //
         // \note 0: north; +pi/2: west; pi: south, 3/2 pi: east.
@@ -448,7 +448,7 @@ message EnvironmentalConditions
     message Sun
     {
         // Azimuth of the sun, counted counterclockwise.
-        // 0 pointing north. If north not explicitly defined via proj4 reference in ground truth, \c
+        // 0 pointing north. If north is not explicitly defined via \c #osi3::GroundTruth::proj_string,
         // then north is pointing in y-axis direction. The default orientation (x, y, z) is easting, northing, up [1].
         //
         // \note 0: north; +pi/2: west; pi: south, 3/2 pi: east.
