@@ -195,8 +195,9 @@ message LogicalLaneBoundary
     //
     // Passing rule of the LogicalLaneBoundary.
     //
-    // This describes how vehicles may move across the LogicalLaneBoundary. The
-    // PassingRule is determined solely based on the road, not on any signs
+    // This describes how vehicles are legally allowed to move across the 
+    // LogicalLaneBoundary. The PassingRule is determined solely based 
+    // on the semantics of (physical) lane boundaries, not on any signs
     // (i.e. it may be overridden by signs).
     //
     enum PassingRule
@@ -210,9 +211,11 @@ message LogicalLaneBoundary
         // Example: this type needs to be used if passing depends on the agent
         // type, e.g. if cars may change lane, but trucks may not.
         //
-        // This value is also used between non-drivable lanes where the traffic
-        // regulations do not say anything about passing rules (e.g. for a lane
-        // boundary between lanes of TYPE_BORDER and TYPE_SHOULDER).
+        // This value is also used between LogicalLanes where the traffic
+        // regulations do not say anything about passing rules (e.g. for a 
+        // LogicalLaneBoundary between LogicalLanes of TYPE_NORMAL 
+        // and TYPE_CURB or between LogicalLanes of TYPE_BORDER and 
+        // TYPE_SHOULDER) .
         //
         PASSING_RULE_OTHER = 1;
 
@@ -398,6 +401,9 @@ message LogicalLane
     // physical_lane_reference does not give any information how much of the
     // area of a physical lane is covered by a logical lane.
     //
+    // For LogicalLanes without a correspondence to a Lane.Classification.Subtype 
+    // (i.e. TYPE_MEDIAN, TYPE_CURB, TYPE_TRAM, TYPE_RAIL) this field has no value.
+    //
     // \rules
     // refers_to: Lane
     // \endrules
@@ -511,6 +517,11 @@ message LogicalLane
     // Note: the referenced boundaries may have points outside of
     // \[#start_s,#end_s\] (e.g. a boundary may extend beyond the end of a lane).
     //
+    // Note: A curb is a type of LogicalLane and of LaneBoundary. 
+    // If LogicalLane.Type == TYPE_CURB, by convention this
+    // field references the respective LaneBoundary of TYPE_CURB
+    // identically to the left_boundary_id of this LogicalLane.
+    //
     // \rules
     // refers_to: LogicalLaneBoundary
     // \endrules
@@ -531,6 +542,11 @@ message LogicalLane
     //
     // Note: the referenced boundaries may have points outside of
     // \[#start_s,#end_s\] (e.g. a boundary may extend beyond the end of a lane).
+    //
+    // Note: A curb is a type of LogicalLane and of LaneBoundary. 
+    // If LogicalLane.Type == TYPE_CURB, by convention this
+    // field references the respective LaneBoundary of TYPE_CURB.
+    // identically to the right_boundary_id of this LogicalLane.    
     //
     // \rules
     // refers_to: LogicalLaneBoundary
