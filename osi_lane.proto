@@ -390,14 +390,11 @@ message Lane
         repeated SurfaceLine surfaceline = 13;
         
         // Id of a surfaceline that is also located in the center of the lane.
-        // Defined and used currently only for driving lanes.
+        // This is not limited to driving lanes only as the (soon to be deprecated) \c #centerline.
         //
         // Example: \c #center_surfaceline_id = \c s13 for surfaceline sl3 
         // in image \ref Surfacelines . Will be empty if no surfaceline is placed
         // at the center of that lane.
-        // 
-        // \note Centerline should be deprecated in the near future in favor of 
-        // the logical lanes for driving and navigation purposes
         //
         optional Identifier center_surfaceline_id = 14;
         
@@ -735,9 +732,8 @@ message Lane
         //
         // \proposal In order to model curb stones, one surfaceline will be placed at the lower edge
         // of the curb that belongs to the border lane/driving lane and another one on the upper edge
-        // that will belong to the sidewalk 
+        // that will belong to the sidewalk
         // (see https://github.com/OpenSimulationInterface/open-simulation-interface/pull/608).
-        //
         //
         message SurfaceLine
         {
