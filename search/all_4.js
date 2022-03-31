@@ -11,6 +11,8 @@ var searchData=
   ['emittingstructureattribute',['EmittingStructureAttribute',['../structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html',1,'osi3::StationaryObject::Classification']]],
   ['end',['end',['../structosi3_1_1WavelengthData.html#a664957f7ae83f8fb8a42c80434290ea9',1,'osi3::WavelengthData']]],
   ['end_5factions_5faction',['end_actions_action',['../structosi3_1_1TrafficAction.html#a359ddf5c1cdf870ad2695bb168488517',1,'osi3::TrafficAction']]],
+  ['end_5fs',['end_s',['../structosi3_1_1LogicalLane.html#adcfa464e035acec1eb060091bcbee3b5',1,'osi3::LogicalLane::end_s()'],['../structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html#a5de7289196f38a07a7c88bfacf3bcc62',1,'osi3::LogicalLane::PhysicalLaneReference::end_s()'],['../structosi3_1_1LogicalLane_1_1LaneRelation.html#aee7b08fa1c3c4507f3336ce1b7329783',1,'osi3::LogicalLane::LaneRelation::end_s()']]],
+  ['end_5fs_5fother',['end_s_other',['../structosi3_1_1LogicalLane_1_1LaneRelation.html#af678d4410a2ccae9fad1fc27fb46a4de',1,'osi3::LogicalLane::LaneRelation']]],
   ['endactionsaction',['EndActionsAction',['../structosi3_1_1TrafficAction_1_1EndActionsAction.html',1,'osi3::TrafficAction']]],
   ['environmental_5fconditions',['environmental_conditions',['../structosi3_1_1GroundTruth.html#aee1873cbe2ed79701c6790ddcb14b420',1,'osi3::GroundTruth']]],
   ['environmentalconditions',['EnvironmentalConditions',['../structosi3_1_1EnvironmentalConditions.html',1,'osi3']]],

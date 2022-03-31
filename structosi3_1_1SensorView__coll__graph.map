@@ -1,37 +1,40 @@
 <map id="osi3::SensorView" name="osi3::SensorView">
-<area shape="rect" id="node2" href="$structosi3_1_1UltrasonicSensorView.html" title="Definition of the ultrasonic sensor view. " alt="" coords="913,216,1112,243"/>
-<area shape="rect" id="node3" href="$structosi3_1_1UltrasonicSensorViewConfiguration.html" title="The configuration settings for the Ultrasonic Sensor View to be provided by the environment simulatio..." alt="" coords="449,138,648,179"/>
-<area shape="rect" id="node4" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="5,153,175,180"/>
-<area shape="rect" id="node12" href="$structosi3_1_1RadarSensorViewConfiguration.html" title="The configuration settings for the Radar Sensor View to be provided by the environment simulation..." alt="" coords="419,341,678,368"/>
-<area shape="rect" id="node14" href="$structosi3_1_1GenericSensorViewConfiguration.html" title="The configuration settings for the Generic Sensor View to be provided by the environment simulation..." alt="" coords="413,251,684,277"/>
-<area shape="rect" id="node26" href="$structosi3_1_1CameraSensorViewConfiguration.html" title="The configuration settings for the Camera Sensor View to be provided by the environment simulation..." alt="" coords="413,628,684,655"/>
-<area shape="rect" id="node30" href="$structosi3_1_1LidarSensorViewConfiguration.html" title="The configuration settings for the Lidar Sensor View to be provided by the environment simulation..." alt="" coords="423,577,675,604"/>
-<area shape="rect" id="node5" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="33,828,147,855"/>
-<area shape="rect" id="node15" href="$structosi3_1_1HostVehicleData.html" title="Host vehicle data is about the perception of the vehicle about its own internal states. " alt="" coords="930,1725,1095,1752"/>
-<area shape="rect" id="node29" href="$structosi3_1_1LidarSensorView_1_1Reflection.html" title="Definition of the lidar reflection. " alt="" coords="466,511,631,553"/>
-<area shape="rect" id="node31" href="$structosi3_1_1GroundTruth.html" title="The ground truth information from the simulation environment. " alt="" coords="945,1096,1081,1123"/>
-<area shape="rect" id="node33" href="$structosi3_1_1TrafficSign.html" title="A traffic sign. " alt="" coords="487,832,611,859"/>
-<area shape="rect" id="node34" href="$structosi3_1_1Occupant.html" title="An occupant of a host vehicle, especially the driver of the vehicle. " alt="" coords="489,887,608,913"/>
-<area shape="rect" id="node35" href="$structosi3_1_1LaneBoundary.html" title="A lane boundary defining the border of a lane. " alt="" coords="473,944,624,971"/>
-<area shape="rect" id="node36" href="$structosi3_1_1TrafficLight.html" title="A traffic light. " alt="" coords="485,1096,613,1123"/>
-<area shape="rect" id="node37" href="$structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). " alt="" coords="475,1415,622,1441"/>
-<area shape="rect" id="node38" href="$structosi3_1_1StationaryObject.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g. " alt="" coords="465,1209,632,1236"/>
-<area shape="rect" id="node39" href="$structosi3_1_1RoadMarking.html" title="A road surface marking. " alt="" coords="478,995,619,1021"/>
-<area shape="rect" id="node40" href="$structosi3_1_1Lane.html" title="A lane in the road network. " alt="" coords="505,1045,593,1072"/>
-<area shape="rect" id="node6" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="483,1567,614,1593"/>
-<area shape="rect" id="node32" href="$structosi3_1_1EnvironmentalConditions.html" title="The conditions of the environment. " alt="" coords="438,1465,659,1492"/>
-<area shape="rect" id="node9" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="467,1516,630,1543"/>
-<area shape="rect" id="node10" href="$structosi3_1_1RadarSensorView.html" title="Definition of the radar sensor view. " alt="" coords="927,400,1098,427"/>
-<area shape="rect" id="node11" href="$structosi3_1_1RadarSensorView_1_1Reflection.html" title="Definition of the radar reflection. " alt="" coords="463,393,634,434"/>
-<area shape="rect" id="node13" href="$structosi3_1_1GenericSensorView.html" title="Definition of the generic sensor view. " alt="" coords="921,291,1104,317"/>
-<area shape="rect" id="node16" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="22,1757,158,1784"/>
-<area shape="rect" id="node17" href="$structosi3_1_1HostVehicleData_1_1VehicleBasics.html" title="The absolute base parameters of the vehicle. " alt="" coords="466,1618,631,1659"/>
-<area shape="rect" id="node18" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html" title="State of one automated driving function on the host vehicle. " alt="" coords="423,1749,674,1790"/>
-<area shape="rect" id="node20" href="$structosi3_1_1HostVehicleData_1_1VehicleSteering.html" title="The focus here is on the description of the steering train. " alt="" coords="466,1683,631,1725"/>
-<area shape="rect" id="node21" href="$structosi3_1_1HostVehicleData_1_1VehicleLocalization.html" title="Current calculated and estimated location that can be based on GNSS and related navigation sensors..." alt="" coords="466,1814,631,1855"/>
-<area shape="rect" id="node22" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html" title="State description of the powertrain. " alt="" coords="466,1879,631,1921"/>
-<area shape="rect" id="node23" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels.html" title="The focus here is on the description of internal wheel states. " alt="" coords="466,1945,631,1986"/>
-<area shape="rect" id="node24" href="$structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html" title="The focus here is on the description of the brake system. " alt="" coords="466,2010,631,2051"/>
-<area shape="rect" id="node25" href="$structosi3_1_1CameraSensorView.html" title="Definition of the camera sensor view. " alt="" coords="921,628,1105,655"/>
-<area shape="rect" id="node28" href="$structosi3_1_1LidarSensorView.html" title="Definition of the lidar sensor view. " alt="" coords="930,575,1095,601"/>
+<area shape="rect" id="node2" href="$structosi3_1_1UltrasonicSensorView.html" title="Definition of the ultrasonic sensor view. " alt="" coords="913,215,1112,241"/>
+<area shape="rect" id="node3" href="$structosi3_1_1UltrasonicSensorViewConfiguration.html" title="The configuration settings for the Ultrasonic Sensor View to be provided by the environment simulatio..." alt="" coords="449,137,648,178"/>
+<area shape="rect" id="node4" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="5,152,175,179"/>
+<area shape="rect" id="node12" href="$structosi3_1_1RadarSensorViewConfiguration.html" title="The configuration settings for the Radar Sensor View to be provided by the environment simulation..." alt="" coords="419,340,678,367"/>
+<area shape="rect" id="node14" href="$structosi3_1_1GenericSensorViewConfiguration.html" title="The configuration settings for the Generic Sensor View to be provided by the environment simulation..." alt="" coords="413,249,684,276"/>
+<area shape="rect" id="node26" href="$structosi3_1_1CameraSensorViewConfiguration.html" title="The configuration settings for the Camera Sensor View to be provided by the environment simulation..." alt="" coords="413,627,684,653"/>
+<area shape="rect" id="node30" href="$structosi3_1_1LidarSensorViewConfiguration.html" title="The configuration settings for the Lidar Sensor View to be provided by the environment simulation..." alt="" coords="423,576,675,603"/>
+<area shape="rect" id="node5" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="33,940,147,967"/>
+<area shape="rect" id="node15" href="$structosi3_1_1HostVehicleData.html" title="Host vehicle data is about the perception of the vehicle about its own internal states. " alt="" coords="930,1957,1095,1984"/>
+<area shape="rect" id="node29" href="$structosi3_1_1LidarSensorView_1_1Reflection.html" title="Definition of the lidar reflection. " alt="" coords="466,510,631,551"/>
+<area shape="rect" id="node31" href="$structosi3_1_1GroundTruth.html" title="The ground truth information from the simulation environment. " alt="" coords="945,1244,1081,1271"/>
+<area shape="rect" id="node32" href="$structosi3_1_1ReferenceLine.html" title="A reference line for defining a non&#45;euclidean ST coordinate system. " alt="" coords="474,843,623,869"/>
+<area shape="rect" id="node34" href="$structosi3_1_1TrafficSign.html" title="A traffic sign. " alt="" coords="487,933,611,960"/>
+<area shape="rect" id="node35" href="$structosi3_1_1Occupant.html" title="An occupant of a host vehicle, especially the driver of the vehicle. " alt="" coords="489,1016,608,1043"/>
+<area shape="rect" id="node36" href="$structosi3_1_1LaneBoundary.html" title="A lane boundary defining the border of a lane. " alt="" coords="473,1067,624,1093"/>
+<area shape="rect" id="node37" href="$structosi3_1_1LogicalLaneBoundary.html" title="Boundary line of a LogicalLane. " alt="" coords="451,1117,647,1144"/>
+<area shape="rect" id="node38" href="$structosi3_1_1TrafficLight.html" title="A traffic light. " alt="" coords="485,1433,613,1460"/>
+<area shape="rect" id="node39" href="$structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian, etc), but not a stationary object (TrafficLight, TrafficSign, or StationaryObject). " alt="" coords="475,1639,622,1665"/>
+<area shape="rect" id="node40" href="$structosi3_1_1StationaryObject.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g. " alt="" coords="465,1269,632,1296"/>
+<area shape="rect" id="node41" href="$structosi3_1_1RoadMarking.html" title="A road surface marking. " alt="" coords="478,1168,619,1195"/>
+<area shape="rect" id="node42" href="$structosi3_1_1Lane.html" title="A lane in the road network. " alt="" coords="505,1219,593,1245"/>
+<area shape="rect" id="node43" href="$structosi3_1_1LogicalLane.html" title="A logical lane in the road network. " alt="" coords="481,1320,616,1347"/>
+<area shape="rect" id="node6" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="483,1791,614,1817"/>
+<area shape="rect" id="node33" href="$structosi3_1_1EnvironmentalConditions.html" title="The conditions of the environment. " alt="" coords="438,1689,659,1716"/>
+<area shape="rect" id="node9" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="467,1740,630,1767"/>
+<area shape="rect" id="node10" href="$structosi3_1_1RadarSensorView.html" title="Definition of the radar sensor view. " alt="" coords="927,399,1098,425"/>
+<area shape="rect" id="node11" href="$structosi3_1_1RadarSensorView_1_1Reflection.html" title="Definition of the radar reflection. " alt="" coords="463,391,634,433"/>
+<area shape="rect" id="node13" href="$structosi3_1_1GenericSensorView.html" title="Definition of the generic sensor view. " alt="" coords="921,289,1104,316"/>
+<area shape="rect" id="node16" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="22,1965,158,1992"/>
+<area shape="rect" id="node17" href="$structosi3_1_1HostVehicleData_1_1VehicleBasics.html" title="The absolute base parameters of the vehicle. " alt="" coords="466,1973,631,2014"/>
+<area shape="rect" id="node18" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html" title="State of one automated driving function on the host vehicle. " alt="" coords="423,1842,674,1883"/>
+<area shape="rect" id="node20" href="$structosi3_1_1HostVehicleData_1_1VehicleSteering.html" title="The focus here is on the description of the steering train. " alt="" coords="466,2038,631,2079"/>
+<area shape="rect" id="node21" href="$structosi3_1_1HostVehicleData_1_1VehicleLocalization.html" title="Current calculated and estimated location that can be based on GNSS and related navigation sensors..." alt="" coords="466,2103,631,2145"/>
+<area shape="rect" id="node22" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html" title="State description of the powertrain. " alt="" coords="466,2169,631,2210"/>
+<area shape="rect" id="node23" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels.html" title="The focus here is on the description of internal wheel states. " alt="" coords="466,2313,631,2354"/>
+<area shape="rect" id="node24" href="$structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html" title="The focus here is on the description of the brake system. " alt="" coords="466,1907,631,1949"/>
+<area shape="rect" id="node25" href="$structosi3_1_1CameraSensorView.html" title="Definition of the camera sensor view. " alt="" coords="921,627,1105,653"/>
+<area shape="rect" id="node28" href="$structosi3_1_1LidarSensorView.html" title="Definition of the lidar sensor view. " alt="" coords="930,547,1095,573"/>
 </map>

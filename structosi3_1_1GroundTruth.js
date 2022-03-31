@@ -15,5 +15,8 @@ var structosi3_1_1GroundTruth =
     [ "country_code", "structosi3_1_1GroundTruth.html#a162349535ee11aee7b68aaa61f1dc661", null ],
     [ "proj_string", "structosi3_1_1GroundTruth.html#af5f78f308a00d74ece79410eb7913006", null ],
     [ "map_reference", "structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e", null ],
-    [ "model_reference", "structosi3_1_1GroundTruth.html#a83042861723a4a9e890a53aa98d88858", null ]
+    [ "model_reference", "structosi3_1_1GroundTruth.html#a83042861723a4a9e890a53aa98d88858", null ],
+    [ "reference_line", "structosi3_1_1GroundTruth.html#ab4dd23af08d690a88854a33f344c38da", null ],
+    [ "logical_lane_boundary", "structosi3_1_1GroundTruth.html#af275fe4a5e5c4b7f38cefa61cb87ce8e", null ],
+    [ "logical_lane", "structosi3_1_1GroundTruth.html#ad7f6468e1983b67adfbb4e0d3cf19b7b", null ]
 ];

@@ -9,7 +9,7 @@ var searchData=
   ['bbcenter_5fto_5ffront',['bbcenter_to_front',['../structosi3_1_1MovingObject_1_1VehicleAttributes.html#a7f681fb05df13db0e9df73e664621ccf',1,'osi3::MovingObject::VehicleAttributes']]],
   ['bbcenter_5fto_5frear',['bbcenter_to_rear',['../structosi3_1_1MovingObject_1_1VehicleAttributes.html#a310be4844cd22fcd937ee65f865c8bc5',1,'osi3::MovingObject::VehicleAttributes']]],
   ['blue',['blue',['../structosi3_1_1ColorRGB.html#af9fd98fbaf361815469f6a0576e0f04f',1,'osi3::ColorRGB::blue()'],['../structosi3_1_1ColorRGBIR.html#aabb9433a22ec7243137c5931bc483c30',1,'osi3::ColorRGBIR::blue()']]],
-  ['boundary_5fline',['boundary_line',['../structosi3_1_1DetectedLaneBoundary.html#aad023da83f979508a2b8436d757b6ba6',1,'osi3::DetectedLaneBoundary::boundary_line()'],['../structosi3_1_1LaneBoundary.html#a682939954b5e9c43e1a51dd2f0d9f625',1,'osi3::LaneBoundary::boundary_line()']]],
+  ['boundary_5fline',['boundary_line',['../structosi3_1_1DetectedLaneBoundary.html#aad023da83f979508a2b8436d757b6ba6',1,'osi3::DetectedLaneBoundary::boundary_line()'],['../structosi3_1_1LaneBoundary.html#a682939954b5e9c43e1a51dd2f0d9f625',1,'osi3::LaneBoundary::boundary_line()'],['../structosi3_1_1LogicalLaneBoundary.html#af5f6c6095ce566b94c0e40c786253d15',1,'osi3::LogicalLaneBoundary::boundary_line()']]],
   ['boundary_5fline_5fconfidences',['boundary_line_confidences',['../structosi3_1_1DetectedLaneBoundary.html#a51bce9c2256d87f9c72c229be92386a1',1,'osi3::DetectedLaneBoundary']]],
   ['boundary_5fline_5frmse',['boundary_line_rmse',['../structosi3_1_1DetectedLaneBoundary.html#a3fa345c67f974ea15c71acb24ef6e5d6',1,'osi3::DetectedLaneBoundary']]],
   ['boundarypoint',['BoundaryPoint',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html',1,'osi3::LaneBoundary']]],

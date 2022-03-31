@@ -31,5 +31,6 @@ var structosi3_1_1RoadMarking_1_1Classification =
     [ "country", "structosi3_1_1RoadMarking_1_1Classification.html#a4171832ae6bbaacb2399c55b040fb49f", null ],
     [ "country_revision", "structosi3_1_1RoadMarking_1_1Classification.html#a360cf40474ea7013c32f0375e86b1288", null ],
     [ "code", "structosi3_1_1RoadMarking_1_1Classification.html#a2b03366b7996d1e48ee16fb627aec824", null ],
-    [ "sub_code", "structosi3_1_1RoadMarking_1_1Classification.html#abf65b99396648c9737f8d1b248403e40", null ]
+    [ "sub_code", "structosi3_1_1RoadMarking_1_1Classification.html#abf65b99396648c9737f8d1b248403e40", null ],
+    [ "logical_lane_assignment", "structosi3_1_1RoadMarking_1_1Classification.html#a114060597a4492c26af42187b59ef93f", null ]
 ];

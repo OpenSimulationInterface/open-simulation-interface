@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(c70229e)</span>
+   &#160;<span id="projectnumber">master(ce35bc3)</span>
    </div>
   </td>
  </tr>
@@ -102,8 +102,9 @@ Collaboration diagram for osi3::TrafficSign::MainSign::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map" id="osi3_1_1TrafficSign_1_1MainSign_1_1Classification_coll__map">
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="281,108,395,135"/>
-<area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="258,316,418,343"/>
+<area shape="rect" id="node3" href="structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane. " alt="" coords="293,127,504,153"/>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="9,84,124,111"/>
+<area shape="rect" id="node10" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="319,279,479,305"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -463,6 +464,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad9a1663492cb55490689425039832562"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#ad9a1663492cb55490689425039832562">sub_code</a> = 11</td></tr>
 <tr class="memdesc:ad9a1663492cb55490689425039832562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sub-code specification of the traffic sign catalog specification that identifies the actual traffic sign.  <a href="#ad9a1663492cb55490689425039832562">More...</a><br /></td></tr>
 <tr class="separator:ad9a1663492cb55490689425039832562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579c30aa921e2cf4d5a70488559f5e6c"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a579c30aa921e2cf4d5a70488559f5e6c">logical_lane_assignment</a> = 12</td></tr>
+<tr class="memdesc:a579c30aa921e2cf4d5a70488559f5e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment of this object to logical lanes.  <a href="#a579c30aa921e2cf4d5a70488559f5e6c">More...</a><br /></td></tr>
+<tr class="separator:a579c30aa921e2cf4d5a70488559f5e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html" title="Classification data for a traffic sign. ">Classification</a></code> data for a traffic sign. </p>
@@ -3665,6 +3669,23 @@ StVO 629</div></div>
 <p>Sub-code identifier according to country, country revision and code, corresponds to the subtype field of OpenDRIVE. <br />
  sub_code is only unique in combination with <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#acc4bdab6899311c6db79e3669b312c58" title="Country specification of the traffic sign catalog specification that identifies the actual traffic si...">country</a>, <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a636fa97efbac96ce7918c80ee0032b41" title="Revision specification of the traffic sign catalog specification that identifies the actual traffic s...">country_revision</a>, and <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a77cdfd9370fed7a71ba534d130261501" title="Code specification of the traffic sign catalog specification that identifies the actual traffic sign...">code</a>. <br />
  e.g. <a href="http://www.vzkat.de/2017/VzKat.htm">http://www.vzkat.de/2017/VzKat.htm</a> </p>
+
+</div>
+</div>
+<a id="a579c30aa921e2cf4d5a70488559f5e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579c30aa921e2cf4d5a70488559f5e6c">&#9670;&nbsp;</a></span>logical_lane_assignment</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a> osi3::TrafficSign::MainSign::Classification::logical_lane_assignment = 12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment of this object to logical lanes. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

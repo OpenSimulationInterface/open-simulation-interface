@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(c70229e)</span>
+   &#160;<span id="projectnumber">master(ce35bc3)</span>
    </div>
   </td>
  </tr>
@@ -103,10 +103,11 @@ Collaboration diagram for osi3::StationaryObject::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1StationaryObject_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1StationaryObject_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1StationaryObject_1_1Classification_coll__map" id="osi3_1_1StationaryObject_1_1Classification_coll__map">
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="466,109,581,136"/>
-<area shape="rect" id="node7" href="structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure. " alt="" coords="404,211,643,267"/>
-<area shape="rect" id="node8" href="structosi3_1_1WavelengthData.html" title="Detailed WavelengthRange message. " alt="" coords="21,196,187,223"/>
-<area shape="rect" id="node9" href="structosi3_1_1SpatialSignalStrength.html" title="Definition of a spatial signal strength distribution for an emitting / transmitting / receiving entit..." alt="" coords="5,256,203,283"/>
+<area shape="rect" id="node3" href="structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane. " alt="" coords="702,140,913,167"/>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="331,68,445,95"/>
+<area shape="rect" id="node9" href="structosi3_1_1WavelengthData.html" title="Detailed WavelengthRange message. " alt="" coords="305,212,471,239"/>
+<area shape="rect" id="node10" href="structosi3_1_1SpatialSignalStrength.html" title="Definition of a spatial signal strength distribution for an emitting / transmitting / receiving entit..." alt="" coords="289,268,487,295"/>
+<area shape="rect" id="node8" href="structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure. " alt="" coords="688,191,927,247"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -217,6 +218,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a494840e66a2d734e3f33a3a968887a79"><td class="memItemLeft" align="right" valign="top">repeated double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a494840e66a2d734e3f33a3a968887a79">assigned_lane_percentage</a> = 7</td></tr>
 <tr class="memdesc:a494840e66a2d734e3f33a3a968887a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Percentage values of the object width in the corresponding lane.  <a href="#a494840e66a2d734e3f33a3a968887a79">More...</a><br /></td></tr>
 <tr class="separator:a494840e66a2d734e3f33a3a968887a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae68b87dbf142c99fe952668aa79280"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a8ae68b87dbf142c99fe952668aa79280">logical_lane_assignment</a> = 8</td></tr>
+<tr class="memdesc:a8ae68b87dbf142c99fe952668aa79280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment of this object to logical lanes.  <a href="#a8ae68b87dbf142c99fe952668aa79280">More...</a><br /></td></tr>
+<tr class="separator:a8ae68b87dbf142c99fe952668aa79280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object. ">Classification</a> data for a stationary object. </p>
@@ -509,6 +513,23 @@ OSI uses singular instead of plural for repeated field names. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Might be multiple percentages if the object stretches over multiple lanes.</dd>
 <dd>
 OSI uses singular instead of plural for repeated field names. </dd></dl>
+
+</div>
+</div>
+<a id="a8ae68b87dbf142c99fe952668aa79280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae68b87dbf142c99fe952668aa79280">&#9670;&nbsp;</a></span>logical_lane_assignment</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a> osi3::StationaryObject::Classification::logical_lane_assignment = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment of this object to logical lanes. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

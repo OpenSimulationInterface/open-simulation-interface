@@ -5,6 +5,8 @@ var searchData=
   ['radarsensorview',['RadarSensorView',['../structosi3_1_1RadarSensorView.html',1,'osi3']]],
   ['radarsensorviewconfiguration',['RadarSensorViewConfiguration',['../structosi3_1_1RadarSensorViewConfiguration.html',1,'osi3']]],
   ['radarspecificobjectdata',['RadarSpecificObjectData',['../structosi3_1_1RadarSpecificObjectData.html',1,'osi3']]],
+  ['referenceline',['ReferenceLine',['../structosi3_1_1ReferenceLine.html',1,'osi3']]],
+  ['referencelinepoint',['ReferenceLinePoint',['../structosi3_1_1ReferenceLine_1_1ReferenceLinePoint.html',1,'osi3::ReferenceLine']]],
   ['reflection',['Reflection',['../structosi3_1_1LidarSensorView_1_1Reflection.html',1,'osi3::LidarSensorView::Reflection'],['../structosi3_1_1RadarSensorView_1_1Reflection.html',1,'osi3::RadarSensorView::Reflection']]],
   ['roadcondition',['RoadCondition',['../structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html',1,'osi3::Lane::Classification']]],
   ['roadmarking',['RoadMarking',['../structosi3_1_1RoadMarking.html',1,'osi3']]]

@@ -61,5 +61,6 @@ var structosi3_1_1StationaryObject_1_1Classification =
     [ "color", "structosi3_1_1StationaryObject_1_1Classification.html#ae22a9a0e707d85d8883ddccf0cb4f32f", null ],
     [ "emitting_structure_attribute", "structosi3_1_1StationaryObject_1_1Classification.html#a9cae44e84de3eb884ae7cc1d708e29df", null ],
     [ "assigned_lane_id", "structosi3_1_1StationaryObject_1_1Classification.html#ab73e891def240ff1fdeb0e0e4c1df16e", null ],
-    [ "assigned_lane_percentage", "structosi3_1_1StationaryObject_1_1Classification.html#a494840e66a2d734e3f33a3a968887a79", null ]
+    [ "assigned_lane_percentage", "structosi3_1_1StationaryObject_1_1Classification.html#a494840e66a2d734e3f33a3a968887a79", null ],
+    [ "logical_lane_assignment", "structosi3_1_1StationaryObject_1_1Classification.html#a8ae68b87dbf142c99fe952668aa79280", null ]
 ];

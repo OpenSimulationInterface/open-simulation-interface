@@ -3,8 +3,10 @@ var searchData=
   ['lane',['Lane',['../structosi3_1_1Lane.html',1,'osi3']]],
   ['laneboundary',['LaneBoundary',['../structosi3_1_1LaneBoundary.html',1,'osi3']]],
   ['lanechangeaction',['LaneChangeAction',['../structosi3_1_1TrafficAction_1_1LaneChangeAction.html',1,'osi3::TrafficAction']]],
+  ['laneconnection',['LaneConnection',['../structosi3_1_1LogicalLane_1_1LaneConnection.html',1,'osi3::LogicalLane']]],
   ['laneoffsetaction',['LaneOffsetAction',['../structosi3_1_1TrafficAction_1_1LaneOffsetAction.html',1,'osi3::TrafficAction']]],
   ['lanepairing',['LanePairing',['../structosi3_1_1Lane_1_1Classification_1_1LanePairing.html',1,'osi3::Lane::Classification']]],
+  ['lanerelation',['LaneRelation',['../structosi3_1_1LogicalLane_1_1LaneRelation.html',1,'osi3::LogicalLane']]],
   ['lateraldistanceaction',['LateralDistanceAction',['../structosi3_1_1TrafficAction_1_1LateralDistanceAction.html',1,'osi3::TrafficAction']]],
   ['lidardetection',['LidarDetection',['../structosi3_1_1LidarDetection.html',1,'osi3']]],
   ['lidardetectiondata',['LidarDetectionData',['../structosi3_1_1LidarDetectionData.html',1,'osi3']]],
@@ -12,8 +14,12 @@ var searchData=
   ['lidarsensorviewconfiguration',['LidarSensorViewConfiguration',['../structosi3_1_1LidarSensorViewConfiguration.html',1,'osi3']]],
   ['lidarspecificobjectdata',['LidarSpecificObjectData',['../structosi3_1_1LidarSpecificObjectData.html',1,'osi3']]],
   ['lightstate',['LightState',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html',1,'osi3::MovingObject::VehicleClassification']]],
+  ['logicalboundarypoint',['LogicalBoundaryPoint',['../structosi3_1_1LogicalLaneBoundary_1_1LogicalBoundaryPoint.html',1,'osi3::LogicalLaneBoundary']]],
   ['logicaldetection',['LogicalDetection',['../structosi3_1_1LogicalDetection.html',1,'osi3']]],
   ['logicaldetectiondata',['LogicalDetectionData',['../structosi3_1_1LogicalDetectionData.html',1,'osi3']]],
   ['logicaldetectiondataheader',['LogicalDetectionDataHeader',['../structosi3_1_1LogicalDetectionDataHeader.html',1,'osi3']]],
+  ['logicallane',['LogicalLane',['../structosi3_1_1LogicalLane.html',1,'osi3']]],
+  ['logicallaneassignment',['LogicalLaneAssignment',['../structosi3_1_1LogicalLaneAssignment.html',1,'osi3']]],
+  ['logicallaneboundary',['LogicalLaneBoundary',['../structosi3_1_1LogicalLaneBoundary.html',1,'osi3']]],
   ['longitudinaldistanceaction',['LongitudinalDistanceAction',['../structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html',1,'osi3::TrafficAction']]]
 ];

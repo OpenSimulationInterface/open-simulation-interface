@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(c70229e)</span>
+   &#160;<span id="projectnumber">master(ce35bc3)</span>
    </div>
   </td>
  </tr>
@@ -102,7 +102,8 @@ Collaboration diagram for osi3::TrafficLight::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1TrafficLight_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1TrafficLight_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1TrafficLight_1_1Classification_coll__map" id="osi3_1_1TrafficLight_1_1Classification_coll__map">
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="219,107,333,133"/>
+<area shape="rect" id="node3" href="structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane. " alt="" coords="293,171,504,197"/>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="9,87,124,113"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -190,6 +191,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aee3d096860fd93660d119b9c3a8d5743"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#aee3d096860fd93660d119b9c3a8d5743">is_out_of_service</a> = 6</td></tr>
 <tr class="memdesc:aee3d096860fd93660d119b9c3a8d5743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean flag to indicate that the traffic light is taken out of service.  <a href="#aee3d096860fd93660d119b9c3a8d5743">More...</a><br /></td></tr>
 <tr class="separator:aee3d096860fd93660d119b9c3a8d5743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab84a64ff6cf736e4543be3fd69e7056c"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html#ab84a64ff6cf736e4543be3fd69e7056c">logical_lane_assignment</a> = 7</td></tr>
+<tr class="memdesc:ab84a64ff6cf736e4543be3fd69e7056c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment of this object to logical lanes.  <a href="#ab84a64ff6cf736e4543be3fd69e7056c">More...</a><br /></td></tr>
+<tr class="separator:ab84a64ff6cf736e4543be3fd69e7056c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light. ">Classification</a></code> data for a traffic light. </p>
@@ -433,6 +437,23 @@ If the color of the traffic light is known (from history or geometrical arrangem
 
 <p>Boolean flag to indicate that the traffic light is taken out of service. </p>
 <p>This can be achieved by visibly crossing the light, covering it completely or swiching the traffic light off. </p>
+
+</div>
+</div>
+<a id="ab84a64ff6cf736e4543be3fd69e7056c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84a64ff6cf736e4543be3fd69e7056c">&#9670;&nbsp;</a></span>logical_lane_assignment</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a> osi3::TrafficLight::Classification::logical_lane_assignment = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment of this object to logical lanes. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

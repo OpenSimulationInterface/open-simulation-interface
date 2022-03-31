@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(c70229e)</span>
+   &#160;<span id="projectnumber">master(ce35bc3)</span>
    </div>
   </td>
  </tr>
@@ -91,6 +91,10 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>t
 : <a class="el" href="structproto_1_1test_1_1ProtoMessage.html#a012b3aad43d9071c9cb7c1014ab5896d">proto::test::ProtoMessage</a>
+</li>
+<li>t_position
+: <a class="el" href="structosi3_1_1LogicalLaneAssignment.html#a4c23e6744fc65e7bff0656b4f3d1bb58">osi3::LogicalLaneAssignment</a>
+, <a class="el" href="structosi3_1_1LogicalLaneBoundary_1_1LogicalBoundaryPoint.html#af14e8c573c6be4145174f8920f41682d">osi3::LogicalLaneBoundary::LogicalBoundaryPoint</a>
 </li>
 <li>target_action_id
 : <a class="el" href="structosi3_1_1TrafficAction_1_1AbortActionsAction.html#afbd73abca3d78c6357161a8d39964d87">osi3::TrafficAction::AbortActionsAction</a>
@@ -231,40 +235,48 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 </li>
 <li>Type
 : <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47">osi3::LaneBoundary::Classification</a>
-, <a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721e">osi3::MovingObject</a>
+</li>
+<li>type
+: <a class="el" href="structosi3_1_1LogicalLane.html#a448cf4dc7382957bae5bc761b7e8872e">osi3::LogicalLane</a>
+</li>
+<li>Type
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3">osi3::LogicalLane</a>
 </li>
 <li>type
 : <a class="el" href="structosi3_1_1MovingObject.html#aa2d750449efff1e937d9c9a69ad7fd71">osi3::MovingObject</a>
 </li>
 <li>Type
-: <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189">osi3::MovingObject::VehicleClassification</a>
+: <a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721e">osi3::MovingObject</a>
 </li>
 <li>type
 : <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#ac035d2f6580e418a8ebffb746a461f21">osi3::MovingObject::VehicleClassification</a>
 </li>
 <li>Type
-: <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cb">osi3::RoadMarking::Classification</a>
+: <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189">osi3::MovingObject::VehicleClassification</a>
 </li>
 <li>type
 : <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e">osi3::RoadMarking::Classification</a>
 </li>
 <li>Type
-: <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457d">osi3::StationaryObject::Classification</a>
+: <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cb">osi3::RoadMarking::Classification</a>
 </li>
 <li>type
 : <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a1d9400e4e1404fba9b80ac08c744d396">osi3::StationaryObject::Classification</a>
 </li>
 <li>Type
-: <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88d">osi3::TrafficSign::MainSign::Classification</a>
+: <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457d">osi3::StationaryObject::Classification</a>
 </li>
 <li>type
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#a428061f28509c9707b380f8f90be4bf0">osi3::TrafficSign::MainSign::Classification</a>
 </li>
 <li>Type
-: <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85">osi3::TrafficSign::SupplementarySign::Classification</a>
+: <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88d">osi3::TrafficSign::MainSign::Classification</a>
 </li>
 <li>type
 : <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#aaca540ea9916a9ea3479f25bf8e2f8f7">osi3::TrafficSign::SupplementarySign::Classification</a>
+</li>
+<li>Type
+: <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85">osi3::TrafficSign::SupplementarySign::Classification</a>
 </li>
 <li>TYPE_ACCIDENT
 : <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a076b903ad92169aac37b6099f9ebb473">osi3::TrafficSign::SupplementarySign::Classification</a>
@@ -342,6 +354,12 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TYPE_BICYCLES_PROHIBITED
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da75252235425ae946f21b35205a4c0d56">osi3::TrafficSign::MainSign::Classification</a>
 </li>
+<li>TYPE_BIKING
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3adf62797bcf45b65f9ad34861db69e218">osi3::LogicalLane</a>
+</li>
+<li>TYPE_BORDER
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3ae197a0876afc8b2eabe4b37dc882e62e">osi3::LogicalLane</a>
+</li>
 <li>TYPE_BOTTS_DOTS
 : <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a1ad4d31b4239003e6c67c111711f188b">osi3::LaneBoundary::Classification</a>
 </li>
@@ -408,6 +426,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TYPE_COMPACT_CAR
 : <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab40589ead1b3d66b0960e3f0e44dc99d">osi3::MovingObject::VehicleClassification</a>
 </li>
+<li>TYPE_CONNECTINGRAMP
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3aa0f7b8acad61973dff80cd4f964bc961">osi3::LogicalLane</a>
+</li>
 <li>TYPE_CONSOLIDATED_DIRECTIONS
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dad3b5a031716dcec6d08096ce04e3562a">osi3::TrafficSign::MainSign::Classification</a>
 </li>
@@ -422,6 +443,7 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 </li>
 <li>TYPE_CURB
 : <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47abab8bb3d91069f2a550b3a6446d437bb">osi3::LaneBoundary::Classification</a>
+, <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a6b787d05ace1b30c643ec3cc1e704c6d">osi3::LogicalLane</a>
 </li>
 <li>TYPE_CURBSTONE
 : <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da6bdaba100e01c55375fce090386bd1a6">osi3::StationaryObject::Classification</a>
@@ -528,6 +550,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TYPE_EMITTING_STRUCTURE
 : <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da2ad7dab15df9369f54e873a079d26f02">osi3::StationaryObject::Classification</a>
 </li>
+<li>TYPE_ENTRY
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3ae444d6a5c23e1324dfe4c9d89906f499">osi3::LogicalLane</a>
+</li>
 <li>TYPE_ENVIRONMENTAL_ZONE_BEGIN
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88daa6dbc1d28ac5df52929718f178738560">osi3::TrafficSign::MainSign::Classification</a>
 </li>
@@ -539,6 +564,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 </li>
 <li>TYPE_EXCEPT
 : <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85acde5436800aeb71db86a8970ce626ba4">osi3::TrafficSign::SupplementarySign::Classification</a>
+</li>
+<li>TYPE_EXIT
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a1caf50d593829375c28f849403769738">osi3::LogicalLane</a>
 </li>
 <li>TYPE_EXPRESSWAY_BEGIN
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dac1b51fb17dde2939d746ee9daecd755b">osi3::TrafficSign::MainSign::Classification</a>
@@ -693,6 +721,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TYPE_LUXURY_CAR
 : <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab33b4a7846b43eebad650ba75fa77f21">osi3::MovingObject::VehicleClassification</a>
 </li>
+<li>TYPE_MEDIAN
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3aae616deafc5b9691919e3d10529697e3">osi3::LogicalLane</a>
+</li>
 <li>TYPE_MEDIUM_CAR
 : <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189aa4cc83f7e97bef135062b2d10ed96ecc">osi3::MovingObject::VehicleClassification</a>
 </li>
@@ -774,8 +805,14 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TYPE_NONDRIVING
 : <a class="el" href="structosi3_1_1Lane_1_1Classification.html#ac3ca1e440d72a4bd5a640212edf73168af153d5add6abb90188751f479a2c5397">osi3::Lane::Classification</a>
 </li>
+<li>TYPE_NORMAL
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3aa6189472ec9c6e01bb300c8be9554a08">osi3::LogicalLane</a>
+</li>
 <li>TYPE_NUMBERED_DETOUR
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da721cdb198d3e1f141acc2789075038a8">osi3::TrafficSign::MainSign::Classification</a>
+</li>
+<li>TYPE_OFFRAMP
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a155569acef6be417555eb51939d6ba40">osi3::LogicalLane</a>
 </li>
 <li>TYPE_ONEWAY_LEFT
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da787faf8ea7c039788a945db60863b12d">osi3::TrafficSign::MainSign::Classification</a>
@@ -785,6 +822,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 </li>
 <li>TYPE_ONEWAY_STREET
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da443eefd117df8bc4edeb0c388aafb4ce">osi3::TrafficSign::MainSign::Classification</a>
+</li>
+<li>TYPE_ONRAMP
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a747b1b7ecb8537f158e7ed2c5cdf8cd3">osi3::LogicalLane</a>
 </li>
 <li>TYPE_OPTIONAL_DETOUR
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da9ce2f5e3883616c2fb08f55a6fde5814">osi3::TrafficSign::MainSign::Classification</a>
@@ -796,6 +836,7 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 : <a class="el" href="structosi3_1_1HostVehicleData_1_1VehiclePowertrain_1_1Motor.html#a3aad04a2ab1e9b58b0bd811c20035b63ac2abbe27db7091c2b9390f7c622db063">osi3::HostVehicleData::VehiclePowertrain::Motor</a>
 , <a class="el" href="structosi3_1_1Lane_1_1Classification.html#ac3ca1e440d72a4bd5a640212edf73168acec59eb35bb5073e89cd5f8af75d01e1">osi3::Lane::Classification</a>
 , <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a61149aaefb66a0a303ecd0c93dc588eb">osi3::LaneBoundary::Classification</a>
+, <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3af7f24f688813626fc366250345bb791d">osi3::LogicalLane</a>
 , <a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea4b608f86c88c57a54ca0619793deadcd">osi3::MovingObject</a>
 , <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189acb1dee27892b248476d04004a935af0e">osi3::MovingObject::VehicleClassification</a>
 , <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331">osi3::RoadMarking::Classification</a>
@@ -829,6 +870,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 </li>
 <li>TYPE_PAINTED_TRAFFIC_SIGN
 : <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cbaaa850220d5bb3adde51b1ddc4ae1eaa4">osi3::RoadMarking::Classification</a>
+</li>
+<li>TYPE_PARKING
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a996835910ae0f49106c40502fb411916">osi3::LogicalLane</a>
 </li>
 <li>TYPE_PARKING_CONSTRAINT
 : <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a25e96872f8e19ce9cb302138e64d69c6">osi3::TrafficSign::SupplementarySign::Classification</a>
@@ -968,6 +1012,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TYPE_PYLON
 : <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da0e33b264a89e8b4c8bb688e03b17393b">osi3::StationaryObject::Classification</a>
 </li>
+<li>TYPE_RAIL
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3ade6626410ad787c905cb1b0978ba894d">osi3::LogicalLane</a>
+</li>
 <li>TYPE_RAILWAY_TRAFFIC_PRIORITY
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da754b1c19c73f2342eebb3337fd0b922e">osi3::TrafficSign::MainSign::Classification</a>
 </li>
@@ -985,6 +1032,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 </li>
 <li>TYPE_REPAIR_SERVICE
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da27a013cb67b750f80a5941c7ef30cec0">osi3::TrafficSign::MainSign::Classification</a>
+</li>
+<li>TYPE_RESTRICTED
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a25330b30dee085adc8d5d91be2658016">osi3::LogicalLane</a>
 </li>
 <li>TYPE_RIGHT_ARROW
 : <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a6cf6ddeb4bb61372e4a544294aeba16b">osi3::TrafficSign::SupplementarySign::Classification</a>
@@ -1052,6 +1102,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 <li>TYPE_SERVICES
 : <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a51ffccce0079f7e4b59df7992d1d50c9">osi3::TrafficSign::SupplementarySign::Classification</a>
 </li>
+<li>TYPE_SHOULDER
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a961931d7fce3e7d49d2a32bc89b61fa8">osi3::LogicalLane</a>
+</li>
 <li>TYPE_SHOULDER_NOT_PASSABLE_MOTOR_VEHICLES
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da25f3e3d9e8b23c14afeb32954349c806">osi3::TrafficSign::MainSign::Classification</a>
 </li>
@@ -1069,6 +1122,9 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 </li>
 <li>TYPE_SIDE_WINDS
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dae5f782a5fe3e52b1702e66da156198f0">osi3::TrafficSign::MainSign::Classification</a>
+</li>
+<li>TYPE_SIDEWALK
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3adb93c963eb74fa9413abf795e2e230f3">osi3::LogicalLane</a>
 </li>
 <li>TYPE_SIDEWALK_HALF_PARKING_LEFT
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88daa13239a50fe37405abc8e16a7f4647fd">osi3::TrafficSign::MainSign::Classification</a>
@@ -1140,7 +1196,8 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 : <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dafbcf6f2c79032975194d8ae4542ce2d3">osi3::TrafficSign::MainSign::Classification</a>
 </li>
 <li>TYPE_STOP
-: <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da666da38f31da6348763c1ff69de6611a">osi3::TrafficSign::MainSign::Classification</a>
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a505d3e610f4bbeac6e0501acb28aeb77">osi3::LogicalLane</a>
+, <a class="el" href="structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da666da38f31da6348763c1ff69de6611a">osi3::TrafficSign::MainSign::Classification</a>
 </li>
 <li>TYPE_STOP_4_WAY
 : <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85ac07b49c99f11de02dbe4bb1f73049e20">osi3::TrafficSign::SupplementarySign::Classification</a>
@@ -1231,7 +1288,8 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 : <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a763f1bcda4dc3bf98b9bc01cf6b2b35d">osi3::MovingObject::VehicleClassification</a>
 </li>
 <li>TYPE_TRAM
-: <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a336aedac92512e3d90315397f09a283e">osi3::MovingObject::VehicleClassification</a>
+: <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a9f35c35d7b219a2528a1fb4eb4f560e1">osi3::LogicalLane</a>
+, <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a336aedac92512e3d90315397f09a283e">osi3::MovingObject::VehicleClassification</a>
 </li>
 <li>TYPE_TREE
 : <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da7f2213df87e569d5a6ec7e6d2dd863a9">osi3::StationaryObject::Classification</a>
@@ -1267,6 +1325,7 @@ $(document).ready(function(){initNavTree('functions_t.html','');});
 : <a class="el" href="structosi3_1_1HostVehicleData_1_1VehiclePowertrain_1_1Motor.html#a3aad04a2ab1e9b58b0bd811c20035b63a449f5b651b98dc25f555f625d40542e0">osi3::HostVehicleData::VehiclePowertrain::Motor</a>
 , <a class="el" href="structosi3_1_1Lane_1_1Classification.html#ac3ca1e440d72a4bd5a640212edf73168af9e5f2255ab47c3a135c6a1b44fc69ab">osi3::Lane::Classification</a>
 , <a class="el" href="structosi3_1_1LaneBoundary_1_1Classification.html#a9576e0ea6592a1f986bfc9ae2b5a8b47a27f3526f41278923da0e7dc2b788784f">osi3::LaneBoundary::Classification</a>
+, <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a5bc03e629bc12cbea2949af563ecc607">osi3::LogicalLane</a>
 , <a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721eadba6d9163601a0c4761c130132a7a457">osi3::MovingObject</a>
 , <a class="el" href="structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189aec66603fc9aa8b1d34018624bbec3108">osi3::MovingObject::VehicleClassification</a>
 , <a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba9005ae9c0364fa3c8e74b262184a625b">osi3::RoadMarking::Classification</a>

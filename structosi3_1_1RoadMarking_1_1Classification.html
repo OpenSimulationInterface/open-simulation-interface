@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(c70229e)</span>
+   &#160;<span id="projectnumber">master(ce35bc3)</span>
    </div>
   </td>
  </tr>
@@ -102,8 +102,9 @@ Collaboration diagram for osi3::RoadMarking::Classification:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1RoadMarking_1_1Classification__coll__graph.png" border="0" usemap="#osi3_1_1RoadMarking_1_1Classification_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1RoadMarking_1_1Classification_coll__map" id="osi3_1_1RoadMarking_1_1Classification_coll__map">
-<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="272,107,387,133"/>
-<area shape="rect" id="node9" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="249,329,409,356"/>
+<area shape="rect" id="node3" href="structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane. " alt="" coords="293,128,504,155"/>
+<area shape="rect" id="node4" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="9,85,124,112"/>
+<area shape="rect" id="node10" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text..." alt="" coords="319,280,479,307"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -175,6 +176,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:abf65b99396648c9737f8d1b248403e40"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#abf65b99396648c9737f8d1b248403e40">sub_code</a> = 11</td></tr>
 <tr class="memdesc:abf65b99396648c9737f8d1b248403e40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sub-code specification of the traffic sign catalog specification that identifies the actual traffic sign.  <a href="#abf65b99396648c9737f8d1b248403e40">More...</a><br /></td></tr>
 <tr class="separator:abf65b99396648c9737f8d1b248403e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114060597a4492c26af42187b59ef93f"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a114060597a4492c26af42187b59ef93f">logical_lane_assignment</a> = 12</td></tr>
+<tr class="memdesc:a114060597a4492c26af42187b59ef93f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment of this object to logical lanes.  <a href="#a114060597a4492c26af42187b59ef93f">More...</a><br /></td></tr>
+<tr class="separator:a114060597a4492c26af42187b59ef93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html" title="Classification data for a road surface marking. ">Classification</a></code> data for a road surface marking. </p>
@@ -475,6 +479,23 @@ Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMar
 <dd>
 Field need not be set (or set to <code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#af73299847f0cbcd33b492d8e8b6427cba61772d1752a9cefb2856abef21d09331" title="Other (unspecified but known) type of road marking. ">TYPE_OTHER</a></code>) if road marking type (<code><a class="el" href="structosi3_1_1RoadMarking_1_1Classification.html#a6fd9cb8216af8321e341e8b79c6f916e" title="The type of the road marking. ">type</a></code>) does not require it.</dd></dl>
 <dl class="section user"><dt>Rules</dt><dd><div class="fragment"><div class="line">check_if this.type is_greater_than_or_equal_to 2 else do_check is_set</div><div class="line">check_if this.type is_less_than_or_equal_to 4 else do_check is_set</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="a114060597a4492c26af42187b59ef93f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a114060597a4492c26af42187b59ef93f">&#9670;&nbsp;</a></span>logical_lane_assignment</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1LogicalLaneAssignment.html">LogicalLaneAssignment</a> osi3::RoadMarking::Classification::logical_lane_assignment = 12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment of this object to logical lanes. </p>
+<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>

@@ -112,5 +112,6 @@ var structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification =
     [ "country", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#abd025de2647abbd860c3ce79716b5b24", null ],
     [ "country_revision", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#adb057ce06a75a691aef7d8aaabe9af4e", null ],
     [ "code", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a49f23bec0dc18491912698b8f1011a4b", null ],
-    [ "sub_code", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a9640ed4c4445a9618bca9c90f99f3976", null ]
+    [ "sub_code", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a9640ed4c4445a9618bca9c90f99f3976", null ],
+    [ "logical_lane_assignment", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a4271abc8dd7f2c220178e2b1a4ebab7d", null ]
 ];

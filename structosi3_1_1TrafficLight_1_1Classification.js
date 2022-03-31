@@ -49,5 +49,6 @@ var structosi3_1_1TrafficLight_1_1Classification =
     [ "mode", "structosi3_1_1TrafficLight_1_1Classification.html#afc685a8d448f2cabe2e5b92af8229259", null ],
     [ "counter", "structosi3_1_1TrafficLight_1_1Classification.html#a3e26403ad1b31fe8392c15b2efe78f3a", null ],
     [ "assigned_lane_id", "structosi3_1_1TrafficLight_1_1Classification.html#ae2d2c56139343d677a4eb633b785ed57", null ],
-    [ "is_out_of_service", "structosi3_1_1TrafficLight_1_1Classification.html#aee3d096860fd93660d119b9c3a8d5743", null ]
+    [ "is_out_of_service", "structosi3_1_1TrafficLight_1_1Classification.html#aee3d096860fd93660d119b9c3a8d5743", null ],
+    [ "logical_lane_assignment", "structosi3_1_1TrafficLight_1_1Classification.html#ab84a64ff6cf736e4543be3fd69e7056c", null ]
 ];
