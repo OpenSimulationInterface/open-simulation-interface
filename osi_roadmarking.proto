@@ -256,6 +256,12 @@ message RoadMarking
         //
         optional string sub_code = 11;
 
+        // Assignment of this object to logical lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 12;
+
         // Definition of road marking types.
         //
         enum Type

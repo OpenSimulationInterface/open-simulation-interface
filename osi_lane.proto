@@ -854,6 +854,13 @@ message LaneBoundary
             // The current \c BoundaryPoint indicates the end of a dash.
             //
             DASH_END = 4;
+
+            // The current \c BoundaryPoint is located in the gap between
+            // two dashes. When used to describe a first/last point of a lane 
+            // boundary, it indicates that the lane boundary starts/ends in
+            // a gap.
+            //
+            DASH_GAP = 5;
         }
     }
 

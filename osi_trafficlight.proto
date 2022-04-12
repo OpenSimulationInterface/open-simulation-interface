@@ -127,6 +127,12 @@ message TrafficLight
         //
         optional bool is_out_of_service = 6;
 
+        // Assignment of this object to logical lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 7;
+
         // Definition of semantic colors for traffic lights.
         //
         // \note The color types represent the semantic classification of a traffic light
