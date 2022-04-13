@@ -51,7 +51,7 @@ message HostVehicleData
     //
     optional BaseMoving location_rmse = 2;
 
-    // The basic parameters of the vehicle.
+    // The basic parameters and overall states of the vehicle.
     //
     optional VehicleBasics vehicle_basics = 3;
 
@@ -88,7 +88,7 @@ message HostVehicleData
     repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
 
     //
-    // \brief The absolute base parameters of the vehicle.
+    // \brief Base parameters and overall states of the vehicle.
     //
     message VehicleBasics
     {
@@ -100,6 +100,37 @@ message HostVehicleData
         // Paragraph 42 of the German Road Traffic Admission Regulations (StVZO).
         //
         optional double curb_weight = 1;
+
+        // The operating status of the vehicle.
+        //
+        optional OperatingStatus operating_status = 2;
+
+        // Possible operating stati of the vehicle.
+        //
+        enum OperatingStatus
+        {
+            // The operating status is unknown.
+            //
+            OPERATING_STATUS_UNKNOWN = 0;
+
+            // The operating status is another one.
+            //
+            OPERATING_STATUS_OTHER = 1;
+
+            // The minimum electrical state the vehicle reaches after a while.
+            // Usually the driver has left the car a few hours ago.
+            //
+            OPERATING_STATUS_OFF = 2;
+
+            // Some electrical consumers are operating e.g. interior lights or radio.
+            // Usually the driver sits in the car before or after a drive.
+            //
+            OPERATING_STATUS_READY = 3;
+
+            // The electrical state that is necessary to drive the vehicle.
+            //
+            OPERATING_STATUS_ON = 4;
+        }
     }
 
     //
