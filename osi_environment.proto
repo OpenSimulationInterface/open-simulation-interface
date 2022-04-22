@@ -462,9 +462,11 @@ message EnvironmentalConditions
         //
         optional double azimuth = 1;
 
-        // Solar elevation angle. Counted in positive direction (clockwise) around xy-plane.
+        // Solar elevation angle.
+        // The elevation angle is positive when the sun is above the xy-plane, negative when
+        // the sun is below the xy-plane.
         //
-        // \note 0: xy-plane; +pi/2: zenith.
+        // \note 0: xy-plane; +pi/2: zenith; -pi/2: nadir.
         //
         // Unit: rad
         //
