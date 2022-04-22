@@ -23,6 +23,9 @@ message EnvironmentalConditions
     //
     optional TimeOfDay time_of_day = 2;
 
+    // The unix timestamp describes the time and date at the host vehicle's
+    // location, referring to UTC.
+    //
     // The Unix epoch (or Unix time or POSIX time or Unix timestamp) is
     // the number of seconds that have elapsed since January 1, 1970
     // (midnight UTC/GMT [1]), not counting leap seconds [2].
