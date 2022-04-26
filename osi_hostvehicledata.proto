@@ -107,7 +107,7 @@ message HostVehicleData
 
         // Possible operating states of the vehicle.
         //
-        enum OperatingStatus
+        enum OperatingState
         {
             // The operating state is unknown.
             //
