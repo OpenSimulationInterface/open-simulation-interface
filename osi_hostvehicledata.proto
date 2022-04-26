@@ -101,35 +101,35 @@ message HostVehicleData
         //
         optional double curb_weight = 1;
 
-        // The operating status of the vehicle.
+        // The operating state of the vehicle.
         //
-        optional OperatingStatus operating_status = 2;
+        optional OperatingState operating_state = 2;
 
-        // Possible operating stati of the vehicle.
+        // Possible operating states of the vehicle.
         //
         enum OperatingStatus
         {
-            // The operating status is unknown.
+            // The operating state is unknown.
             //
-            OPERATING_STATUS_UNKNOWN = 0;
+            OPERATING_STATE_UNKNOWN = 0;
 
-            // The operating status is another one.
+            // The operating state is another one.
             //
-            OPERATING_STATUS_OTHER = 1;
+            OPERATING_STATE_OTHER = 1;
 
             // The minimum electrical state the vehicle reaches after a while.
             // Usually the driver has left the car a few hours ago.
             //
-            OPERATING_STATUS_OFF = 2;
+            OPERATING_STATE_OFF = 2;
 
             // Some electrical consumers are operating e.g. interior lights or radio.
             // Usually the driver sits in the car before or after a drive.
             //
-            OPERATING_STATUS_READY = 3;
+            OPERATING_STATE_READY = 3;
 
             // The electrical state that is necessary to drive the vehicle.
             //
-            OPERATING_STATUS_ON = 4;
+            OPERATING_STATE_ON = 4;
         }
     }
 
