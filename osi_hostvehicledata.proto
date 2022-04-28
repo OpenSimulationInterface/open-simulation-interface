@@ -101,11 +101,11 @@ message HostVehicleData
         //
         optional double curb_weight = 1;
 
-        // The operating state of the vehicle from an user's perspective.
+        // The operating state of the vehicle.
         //
         optional OperatingState operating_state = 2;
 
-        // Possible operating states of the vehicle from an user's perspective.
+        // Possible operating states of the vehicle.
         //
         enum OperatingState
         {
@@ -118,25 +118,25 @@ message HostVehicleData
             OPERATING_STATE_OTHER = 1;
 
             // The minimum electrical state of the vehicle (and its ECUs).
-            // Usually the driver has left the car a while ago.
+            // Usually the driver has left the vehicle a while ago.
             //
             OPERATING_STATE_SLEEP = 2;
 
             // Cabin lights and entertainment are off. The vehicle can not be driven.
             // Some ECUs are still operating and not in their minimum electrical sate.
-            // Usually the driver has left the car recently.
+            // Usually the driver has left the vehicle recently.
             //
             OPERATING_STATE_OFF = 3;
 
             // Some features of the vehicle are available e.g. cabin lights.
             // Entertainment is off and the vehicle can not be driven.
-            // Usually the driver wants to enter or leave the car.
+            // Usually the driver wants to enter or leave the vehicle.
             //
             OPERATING_STATE_BOARDING = 4;
 
             // Entertainment, navigation or similiar systems can be used by the driver.
             // The vehicle can not be driven.
-            // Usually the driver sits in the car before or after a drive.
+            // Usually the driver sits in the vehicle before or after a drive.
             //
             OPERATING_STATE_ENTERTAINMENT = 5;
 
