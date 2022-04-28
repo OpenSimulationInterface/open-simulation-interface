@@ -746,7 +746,6 @@ message CameraSensorViewConfiguration
     // Orientation hint for to interpred the image pixel data (EXIF orientation tag)
     //
     // Indicates how this image pixels are to be interpreted
-    // Reference https://web.archive.org/web/20180921145139if_/http://www.cipa.jp:80/std/documents/e/DC-010-2017_E.pdf
     //
     // value    operation to perform on image
     // 1        correct orientation, no adjustment is required
@@ -757,7 +756,10 @@ message CameraSensorViewConfiguration
     // 6        rotate 90 degrees (counterclockwise)
     // 7        rotate 270 degrees (counterclockwise), then flip upside-down
     // 8        rotate 270 degrees (counterclockwise)
-
+    //
+    // \par References
+    // [1] Camera and Imaging Products Association. <em>CIPA DC-010-2017 Exif 2.31 metadata for XMP</em>. Retrieved 04 28, 2022, from https://web.archive.org/web/20180921145139if_/http://www.cipa.jp:80/std/documents/e/DC-010-2017_E.pdf .
+    //
     // \rules
     // is_greater_than_or_equal_to: 1
     // is_less_than_or_equal_to: 8
