@@ -453,6 +453,7 @@ message EnvironmentalConditions
         // Azimuth of the sun, counted counterclockwise.
         // 0 pointing north. If north is not explicitly defined via \c #osi3::GroundTruth::proj_string,
         // then north is pointing in y-axis direction. The default orientation (x, y, z) is easting, northing, up [1].
+        // The point of observation is defined to be the global coordinate system's origin.
         //
         // \note 0: north; +pi/2: west; pi: south, 3/2 pi: east.
         //
@@ -468,6 +469,7 @@ message EnvironmentalConditions
         // Solar elevation angle.
         // The elevation angle is positive when the sun is above the xy-plane, negative when
         // the sun is below the xy-plane.
+        // The point of observation is defined to be the global coordinate system's origin.
         //
         // \note 0: xy-plane; +pi/2: zenith; -pi/2: nadir.
         //
