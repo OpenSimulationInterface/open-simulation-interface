@@ -87,5 +87,5 @@ var searchData=
   ['at_5fbegin_5fof_5fother_5flane',['at_begin_of_other_lane',['../structosi3_1_1LogicalLane_1_1LaneConnection.html#ab085701a80074a89300c163706158560',1,'osi3::LogicalLane::LaneConnection']]],
   ['atmospheric_5fpressure',['atmospheric_pressure',['../structosi3_1_1EnvironmentalConditions.html#a6d9bbc1bd9eea510498792ff09a9b23d',1,'osi3::EnvironmentalConditions']]],
   ['axle',['axle',['../structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html#a7e5fa9f9bd1e2a624e90ee428f5e78e8',1,'osi3::HostVehicleData::VehicleWheels::WheelData::axle()'],['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a094de989f5a2aab080f9a65f0feb3867',1,'osi3::MovingObject::VehicleAttributes::WheelData::axle()']]],
-  ['azimuth',['azimuth',['../structosi3_1_1Spherical3d.html#a92c6f939b6f1771be727b5b94efa0037',1,'osi3::Spherical3d']]]
+  ['azimuth',['azimuth',['../structosi3_1_1Spherical3d.html#a92c6f939b6f1771be727b5b94efa0037',1,'osi3::Spherical3d::azimuth()'],['../structosi3_1_1EnvironmentalConditions_1_1Sun.html#aa5f6d8133b674367ae92b639e2843486',1,'osi3::EnvironmentalConditions::Sun::azimuth()']]]
 ];

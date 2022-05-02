@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(76bdd74)</span>
+   &#160;<span id="projectnumber">master(b289970)</span>
    </div>
   </td>
  </tr>
@@ -103,15 +103,27 @@ Collaboration diagram for osi3::EnvironmentalConditions:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1EnvironmentalConditions__coll__graph.png" border="0" usemap="#osi3_1_1EnvironmentalConditions_coll__map" alt="Collaboration graph"/></div>
 <map name="osi3_1_1EnvironmentalConditions_coll__map" id="osi3_1_1EnvironmentalConditions_coll__map">
-<area shape="rect" id="node3" href="structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="361,56,537,83"/>
-<area shape="rect" id="node9" href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html" title="The time of day at a specified location. " alt="" coords="339,259,560,301"/>
+<area shape="rect" id="node3" href="structosi3_1_1EnvironmentalConditions_1_1Wind.html" title="Defines wind properties. " alt="" coords="412,149,633,190"/>
+<area shape="rect" id="node10" href="structosi3_1_1EnvironmentalConditions_1_1Sun.html" title="Properties of the sun. " alt="" coords="396,215,649,241"/>
+<area shape="rect" id="node5" href="structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="435,265,611,292"/>
+<area shape="rect" id="node12" href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html" title="The time of day at a specified location. " alt="" coords="412,469,633,510"/>
+<area shape="rect" id="node14" href="structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html" title="Description of a cloud layer. " alt="" coords="412,534,633,575"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html">CloudLayer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description of a cloud layer.  <a href="structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions_1_1Sun.html">Sun</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Properties of the sun.  <a href="structosi3_1_1EnvironmentalConditions_1_1Sun.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html">TimeOfDay</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time of day at a specified location.  <a href="structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions_1_1Wind.html">Wind</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines wind properties.  <a href="structosi3_1_1EnvironmentalConditions_1_1Wind.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -177,7 +189,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:aebd011399675b0a3582e5a64a5f93be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time of day at the host vehicles location.  <a href="#aebd011399675b0a3582e5a64a5f93be2">More...</a><br /></td></tr>
 <tr class="separator:aebd011399675b0a3582e5a64a5f93be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a636bb78627046f34208f42f586ab2086"><td class="memItemLeft" align="right" valign="top">optional int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a636bb78627046f34208f42f586ab2086">unix_timestamp</a> = 8</td></tr>
-<tr class="memdesc:a636bb78627046f34208f42f586ab2086"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT [1]), not counting leap seconds [2].  <a href="#a636bb78627046f34208f42f586ab2086">More...</a><br /></td></tr>
+<tr class="memdesc:a636bb78627046f34208f42f586ab2086"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unix timestamp describes the time and date at the host vehicle's location, referring to UTC.  <a href="#a636bb78627046f34208f42f586ab2086">More...</a><br /></td></tr>
 <tr class="separator:a636bb78627046f34208f42f586ab2086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d9bbc1bd9eea510498792ff09a9b23d"><td class="memItemLeft" align="right" valign="top">optional double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a6d9bbc1bd9eea510498792ff09a9b23d">atmospheric_pressure</a> = 3</td></tr>
 <tr class="memdesc:a6d9bbc1bd9eea510498792ff09a9b23d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atmospheric pressure in Pascal at z=0.0 in world frame (about 101325 Pa).  <a href="#a6d9bbc1bd9eea510498792ff09a9b23d">More...</a><br /></td></tr>
@@ -197,6 +209,15 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9d6eb78f198f9dd989d3f69f0f9af4c8"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1ExternalReference.html">ExternalReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a9d6eb78f198f9dd989d3f69f0f9af4c8">source_reference</a> = 9</td></tr>
 <tr class="memdesc:a9d6eb78f198f9dd989d3f69f0f9af4c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional external reference to the environmental condition sources.  <a href="#a9d6eb78f198f9dd989d3f69f0f9af4c8">More...</a><br /></td></tr>
 <tr class="separator:a9d6eb78f198f9dd989d3f69f0f9af4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ffbc1ff083c15404fc1b5eb6bf4be4d"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html">CloudLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a8ffbc1ff083c15404fc1b5eb6bf4be4d">clouds</a> = 10</td></tr>
+<tr class="memdesc:a8ffbc1ff083c15404fc1b5eb6bf4be4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description of the clouds.  <a href="#a8ffbc1ff083c15404fc1b5eb6bf4be4d">More...</a><br /></td></tr>
+<tr class="separator:a8ffbc1ff083c15404fc1b5eb6bf4be4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bc2cf3c47495d111bb188749a4e1dcf"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1EnvironmentalConditions_1_1Wind.html">Wind</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a1bc2cf3c47495d111bb188749a4e1dcf">wind</a> = 11</td></tr>
+<tr class="memdesc:a1bc2cf3c47495d111bb188749a4e1dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description of the wind.  <a href="#a1bc2cf3c47495d111bb188749a4e1dcf">More...</a><br /></td></tr>
+<tr class="separator:a1bc2cf3c47495d111bb188749a4e1dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b0b3c1f999a5809939a9d88324ada4"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1EnvironmentalConditions_1_1Sun.html">Sun</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a22b0b3c1f999a5809939a9d88324ada4">sun</a> = 12</td></tr>
+<tr class="memdesc:a22b0b3c1f999a5809939a9d88324ada4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description of the sun.  <a href="#a22b0b3c1f999a5809939a9d88324ada4">More...</a><br /></td></tr>
+<tr class="separator:a22b0b3c1f999a5809939a9d88324ada4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The conditions of the environment. </p>
@@ -311,34 +332,43 @@ Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba79d0a203e727523fb7b1454af6209fb6"></a>AMBIENT_ILLUMINATION_OTHER&#160;</td><td class="fielddoc"><p>Other (unspecified but known) ambient illumination. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba971aa350d4d33410b9f9c6ede341e18e"></a>AMBIENT_ILLUMINATION_LEVEL1&#160;</td><td class="fielddoc"><p>Level 1 illumination in ]0.001, 0.01[ lx E.g. </p>
-<p>Night with no artificial light.</p>
-<dl class="section note"><dt>Note</dt><dd>Use <code><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4ba971aa350d4d33410b9f9c6ede341e18e" title="Level 1 illumination in ]0.001, 0.01[ lx E.g. ">AMBIENT_ILLUMINATION_LEVEL1</a></code> if illumination is less than 0.001 lx </dd></dl>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba971aa350d4d33410b9f9c6ede341e18e"></a>AMBIENT_ILLUMINATION_LEVEL1&#160;</td><td class="fielddoc"><p>Level 1 illumination in ]0.001, 0.01[ lx. </p>
+<p><br />
+E.g. Night with no artificial light.</p>
+<dl class="section note"><dt>Note</dt><dd>Use <code><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4ba971aa350d4d33410b9f9c6ede341e18e" title="Level 1 illumination in ]0.001, 0.01[ lx. ">AMBIENT_ILLUMINATION_LEVEL1</a></code> if illumination is less than 0.001 lx. </dd></dl>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba1fbb769192bdc2f19229130f59041536"></a>AMBIENT_ILLUMINATION_LEVEL2&#160;</td><td class="fielddoc"><p>Level 2 illumination in [0.01, 1[ lx E.g. </p>
-<p>Night full moon / Deep twilight. </p>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba1fbb769192bdc2f19229130f59041536"></a>AMBIENT_ILLUMINATION_LEVEL2&#160;</td><td class="fielddoc"><p>Level 2 illumination in [0.01, 1[ lx. </p>
+<p><br />
+E.g. Night full moon / Deep twilight. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4badd4cbdd8cb6e2fb24643df35ba99ce47"></a>AMBIENT_ILLUMINATION_LEVEL3&#160;</td><td class="fielddoc"><p>Level 3 illumination in [1, 3[ lx E.g. </p>
-<p>Deep to average twilight / Minimum lighting on local low pedestrian conflict roads. </p>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4badd4cbdd8cb6e2fb24643df35ba99ce47"></a>AMBIENT_ILLUMINATION_LEVEL3&#160;</td><td class="fielddoc"><p>Level 3 illumination in [1, 3[ lx. </p>
+<p><br />
+E.g. Deep to average twilight / Minimum lighting on local low pedestrian conflict roads. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba7aedf9f4800d561de3d9a3b3584898e6"></a>AMBIENT_ILLUMINATION_LEVEL4&#160;</td><td class="fielddoc"><p>Level 4 illumination in [3, 10[ lx E.g. </p>
-<p>Average to full twilight / Minimum lighting on collector roads / Minimum lighting on major and expressway roads with low to average pedestrian conflict. </p>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba7aedf9f4800d561de3d9a3b3584898e6"></a>AMBIENT_ILLUMINATION_LEVEL4&#160;</td><td class="fielddoc"><p>Level 4 illumination in [3, 10[ lx. </p>
+<p><br />
+E.g. Average to full twilight / Minimum lighting on collector roads / Minimum lighting on major and expressway roads with low to average pedestrian conflict. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba4c87fc794ecd2204f2afdb893cb4b802"></a>AMBIENT_ILLUMINATION_LEVEL5&#160;</td><td class="fielddoc"><p>Level 5 illumination in [10, 20[ lx E.g. </p>
-<p>Minimum lighting on major and expressway roads with high pedestrian conflict. </p>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba4c87fc794ecd2204f2afdb893cb4b802"></a>AMBIENT_ILLUMINATION_LEVEL5&#160;</td><td class="fielddoc"><p>Level 5 illumination in [10, 20[ lx. </p>
+<p><br />
+E.g. Minimum lighting on major and expressway roads with high pedestrian conflict. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4babfa9bc2252d335423e64a1472eb79503"></a>AMBIENT_ILLUMINATION_LEVEL6&#160;</td><td class="fielddoc"><p>Level 6 illumination in [20, 400[ lx E.g. </p>
-<p>Roads with more lighting / Very dark overcast day to sunrise or sunset on a clear day. </p>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4babfa9bc2252d335423e64a1472eb79503"></a>AMBIENT_ILLUMINATION_LEVEL6&#160;</td><td class="fielddoc"><p>Level 6 illumination in [20, 400[ lx. </p>
+<p><br />
+E.g. Roads with more lighting / Very dark overcast day to sunrise or sunset on a clear day. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba0ec785758b786300bb8df5e8456d2d77"></a>AMBIENT_ILLUMINATION_LEVEL7&#160;</td><td class="fielddoc"><p>Level 7 illumination in [400, 1000[ lx E.g. </p>
-<p>Sunrise or sunset on a clear day / Overcast day. </p>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba0ec785758b786300bb8df5e8456d2d77"></a>AMBIENT_ILLUMINATION_LEVEL7&#160;</td><td class="fielddoc"><p>Level 7 illumination in [400, 1000[ lx. </p>
+<p><br />
+E.g. Sunrise or sunset on a clear day / Overcast day. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba81b0a86a1062c84694bbc65b0de54446"></a>AMBIENT_ILLUMINATION_LEVEL8&#160;</td><td class="fielddoc"><p>Level 8 illumination in [1000, 10000[ lx E.g. </p>
-<p>Average to full daylight. </p>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4ba81b0a86a1062c84694bbc65b0de54446"></a>AMBIENT_ILLUMINATION_LEVEL8&#160;</td><td class="fielddoc"><p>Level 8 illumination in [1000, 10000[ lx. </p>
+<p><br />
+E.g. Average to full daylight. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4bae7c67175f6db7526d05fecdf66f97a6c"></a>AMBIENT_ILLUMINATION_LEVEL9&#160;</td><td class="fielddoc"><p>Level 9 illumination in [10000, 120000[ lx E.g. </p>
-<p>Full daylight to intense sunlight.</p>
-<dl class="section note"><dt>Note</dt><dd>Use <code><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4bae7c67175f6db7526d05fecdf66f97a6c" title="Level 9 illumination in [10000, 120000[ lx E.g. ">AMBIENT_ILLUMINATION_LEVEL9</a></code> if illumination is more than 120000 lx </dd></dl>
+<tr><td class="fieldname"><a id="a9af62398fb21a5314539815afa733d4bae7c67175f6db7526d05fecdf66f97a6c"></a>AMBIENT_ILLUMINATION_LEVEL9&#160;</td><td class="fielddoc"><p>Level 9 illumination in [10000, 120000[ lx. </p>
+<p><br />
+E.g. Full daylight to intense sunlight.</p>
+<dl class="section note"><dt>Note</dt><dd>Use <code><a class="el" href="structosi3_1_1EnvironmentalConditions.html#a9af62398fb21a5314539815afa733d4bae7c67175f6db7526d05fecdf66f97a6c" title="Level 9 illumination in [10000, 120000[ lx. ">AMBIENT_ILLUMINATION_LEVEL9</a></code> if illumination is more than 120000 lx </dd></dl>
 </td></tr>
 </table>
 
@@ -389,8 +419,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT [1]), not counting leap seconds [2]. </p>
-<p>Historically, the origin of UNIX system time was referred to as "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as a synonym for 'Unix time'. Many Unix systems store epoch dates as a signed 32-bit integer, which might cause problems on January 19, 2038 (known as the Year 2038 problem or Y2038).</p>
+<p>The unix timestamp describes the time and date at the host vehicle's location, referring to UTC. </p>
+<p>The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT [1]), not counting leap seconds [2]. Historically, the origin of UNIX system time was referred to as "00:00:00 GMT, January 1, 1970" [2]. Literally speaking the epoch is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as a synonym for 'Unix time'. Many Unix systems store epoch dates as a signed 32-bit integer, which might cause problems on January 19, 2038 (known as the Year 2038 problem or Y2038).</p>
 <dl class="section note"><dt>Note</dt><dd>You can convert the timestamp using the following <a href="https://www.epochconverter.com/#code">routines sorted by languages</a>.</dd></dl>
 <dl class="section user"><dt>References:</dt><dd>[1] ITU Radiocommunication Assembly. (2002). <em>Recommondation ITU-R TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec. ITU-R TF.460-6). Retrieved January 25, 2020, from <a href="http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf">http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf</a> <br />
 [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from <a href="https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html">https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html</a> </dd></dl>
@@ -497,11 +527,59 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Optional external reference to the environmental condition sources. </p>
-<dl class="section note"><dt>Note</dt><dd>For OpenDRIVE and OpenSECNARIO there is no direct counterpart.</dd>
+<dl class="section note"><dt>Note</dt><dd>For OpenDRIVE and OpenSCENARIO there is no direct counterpart.</dd>
 <dd>
 For non-ASAM standards, it is implementation-specific how source_reference is resolved.</dd>
 <dd>
 The value has to be repeated because one object may be derived from more than one origin source, for example, from a scenario file and from sensors. </dd></dl>
+
+</div>
+</div>
+<a id="a8ffbc1ff083c15404fc1b5eb6bf4be4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffbc1ff083c15404fc1b5eb6bf4be4d">&#9670;&nbsp;</a></span>clouds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html">CloudLayer</a> osi3::EnvironmentalConditions::clouds = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Description of the clouds. </p>
+
+</div>
+</div>
+<a id="a1bc2cf3c47495d111bb188749a4e1dcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bc2cf3c47495d111bb188749a4e1dcf">&#9670;&nbsp;</a></span>wind</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1EnvironmentalConditions_1_1Wind.html">Wind</a> osi3::EnvironmentalConditions::wind = 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Description of the wind. </p>
+
+</div>
+</div>
+<a id="a22b0b3c1f999a5809939a9d88324ada4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22b0b3c1f999a5809939a9d88324ada4">&#9670;&nbsp;</a></span>sun</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1EnvironmentalConditions_1_1Sun.html">Sun</a> osi3::EnvironmentalConditions::sun = 12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Description of the sun. </p>
 
 </div>
 </div>

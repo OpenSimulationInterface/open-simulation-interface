@@ -32,6 +32,7 @@ var hierarchy =
     [ "osi3::StationaryObject::Classification", "structosi3_1_1StationaryObject_1_1Classification.html", null ],
     [ "osi3::Occupant::Classification", "structosi3_1_1Occupant_1_1Classification.html", null ],
     [ "osi3::RoadMarking::Classification", "structosi3_1_1RoadMarking_1_1Classification.html", null ],
+    [ "osi3::EnvironmentalConditions::CloudLayer", "structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html", null ],
     [ "osi3::ColorCMYK", "structosi3_1_1ColorCMYK.html", null ],
     [ "osi3::ColorDescription", "structosi3_1_1ColorDescription.html", null ],
     [ "osi3::ColorGrey", "structosi3_1_1ColorGrey.html", null ],
@@ -114,8 +115,8 @@ var hierarchy =
     [ "osi3::RadarSpecificObjectData", "structosi3_1_1RadarSpecificObjectData.html", null ],
     [ "osi3::ReferenceLine", "structosi3_1_1ReferenceLine.html", null ],
     [ "osi3::ReferenceLine::ReferenceLinePoint", "structosi3_1_1ReferenceLine_1_1ReferenceLinePoint.html", null ],
-    [ "osi3::LidarSensorView::Reflection", "structosi3_1_1LidarSensorView_1_1Reflection.html", null ],
     [ "osi3::RadarSensorView::Reflection", "structosi3_1_1RadarSensorView_1_1Reflection.html", null ],
+    [ "osi3::LidarSensorView::Reflection", "structosi3_1_1LidarSensorView_1_1Reflection.html", null ],
     [ "osi3::Lane::Classification::RoadCondition", "structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html", null ],
     [ "osi3::RoadMarking", "structosi3_1_1RoadMarking.html", null ],
     [ "osi3::SensorData", "structosi3_1_1SensorData.html", null ],
@@ -130,6 +131,7 @@ var hierarchy =
     [ "osi3::Spherical3d", "structosi3_1_1Spherical3d.html", null ],
     [ "osi3::StatePoint", "structosi3_1_1StatePoint.html", null ],
     [ "osi3::StationaryObject", "structosi3_1_1StationaryObject.html", null ],
+    [ "osi3::EnvironmentalConditions::Sun", "structosi3_1_1EnvironmentalConditions_1_1Sun.html", null ],
     [ "osi3::TrafficSign::SupplementarySign", "structosi3_1_1TrafficSign_1_1SupplementarySign.html", null ],
     [ "osi3::TrafficAction::TeleportAction", "structosi3_1_1TrafficAction_1_1TeleportAction.html", null ],
     [ "osi3::EnvironmentalConditions::TimeOfDay", "structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html", null ],
@@ -161,5 +163,6 @@ var hierarchy =
     [ "osi3::HostVehicleData::VehicleWheels", "structosi3_1_1HostVehicleData_1_1VehicleWheels.html", null ],
     [ "osi3::WavelengthData", "structosi3_1_1WavelengthData.html", null ],
     [ "osi3::HostVehicleData::VehicleWheels::WheelData", "structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html", null ],
-    [ "osi3::MovingObject::VehicleAttributes::WheelData", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html", null ]
+    [ "osi3::MovingObject::VehicleAttributes::WheelData", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html", null ],
+    [ "osi3::EnvironmentalConditions::Wind", "structosi3_1_1EnvironmentalConditions_1_1Wind.html", null ]
 ];

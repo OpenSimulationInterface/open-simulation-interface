@@ -1,6 +1,9 @@
 var structosi3_1_1EnvironmentalConditions =
 [
+    [ "CloudLayer", "structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html", "structosi3_1_1EnvironmentalConditions_1_1CloudLayer" ],
+    [ "Sun", "structosi3_1_1EnvironmentalConditions_1_1Sun.html", "structosi3_1_1EnvironmentalConditions_1_1Sun" ],
     [ "TimeOfDay", "structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html", "structosi3_1_1EnvironmentalConditions_1_1TimeOfDay" ],
+    [ "Wind", "structosi3_1_1EnvironmentalConditions_1_1Wind.html", "structosi3_1_1EnvironmentalConditions_1_1Wind" ],
     [ "Precipitation", "structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040af", [
       [ "PRECIPITATION_UNKNOWN", "structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afa5273e6f45ad82928bf2c68d046e6b618", null ],
       [ "PRECIPITATION_OTHER", "structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040afa34bac5c0bb380425379ff8f9597c76e7", null ],
@@ -45,5 +48,8 @@ var structosi3_1_1EnvironmentalConditions =
     [ "relative_humidity", "structosi3_1_1EnvironmentalConditions.html#a05b6f530a842deef881608e131f3b98a", null ],
     [ "precipitation", "structosi3_1_1EnvironmentalConditions.html#a9bf9ca7c8f724860d0b8b6d0276d33d1", null ],
     [ "fog", "structosi3_1_1EnvironmentalConditions.html#a9da9ca8657ae124eb3daddfee3b52451", null ],
-    [ "source_reference", "structosi3_1_1EnvironmentalConditions.html#a9d6eb78f198f9dd989d3f69f0f9af4c8", null ]
+    [ "source_reference", "structosi3_1_1EnvironmentalConditions.html#a9d6eb78f198f9dd989d3f69f0f9af4c8", null ],
+    [ "clouds", "structosi3_1_1EnvironmentalConditions.html#a8ffbc1ff083c15404fc1b5eb6bf4be4d", null ],
+    [ "wind", "structosi3_1_1EnvironmentalConditions.html#a1bc2cf3c47495d111bb188749a4e1dcf", null ],
+    [ "sun", "structosi3_1_1EnvironmentalConditions.html#a22b0b3c1f999a5809939a9d88324ada4", null ]
 ];

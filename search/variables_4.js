@@ -1,7 +1,7 @@
 var searchData=
 [
   ['echo_5fpulse_5fwidth',['echo_pulse_width',['../structosi3_1_1LidarDetection.html#a5d179981ada5ea4281adda2aa1e6f612',1,'osi3::LidarDetection']]],
-  ['elevation',['elevation',['../structosi3_1_1Spherical3d.html#a440c7dfe0d994e5168de2cafa75ba851',1,'osi3::Spherical3d']]],
+  ['elevation',['elevation',['../structosi3_1_1Spherical3d.html#a440c7dfe0d994e5168de2cafa75ba851',1,'osi3::Spherical3d::elevation()'],['../structosi3_1_1EnvironmentalConditions_1_1Sun.html#ae002062dd74ed1016b9269f63805e490',1,'osi3::EnvironmentalConditions::Sun::elevation()']]],
   ['ellipsoid_5faxial',['ellipsoid_axial',['../structosi3_1_1UltrasonicIndirectDetection.html#a486263493b3eea64c92cd607c86bc7f4',1,'osi3::UltrasonicIndirectDetection']]],
   ['ellipsoid_5fradial',['ellipsoid_radial',['../structosi3_1_1UltrasonicIndirectDetection.html#ae27488fe133f3e50b4894c7616466989',1,'osi3::UltrasonicIndirectDetection']]],
   ['emergency_5fvehicle_5fillumination',['emergency_vehicle_illumination',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a27a9f18b2697ae7d2c13f0cd31085997',1,'osi3::MovingObject::VehicleClassification::LightState']]],

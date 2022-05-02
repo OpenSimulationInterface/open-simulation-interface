@@ -6,5 +6,6 @@ var searchData=
   ['wheel_5fradius',['wheel_radius',['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a103fad79e18f7443b50e4d81160c8d56',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
   ['wheeldata',['WheelData',['../structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html',1,'osi3::HostVehicleData::VehicleWheels::WheelData'],['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html',1,'osi3::MovingObject::VehicleAttributes::WheelData']]],
   ['width',['width',['../structosi3_1_1Dimension3d.html#a4c00624e4e18beb2b76147f313e5548c',1,'osi3::Dimension3d::width()'],['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#aab512ff550b26c0def46d45f704df838',1,'osi3::LaneBoundary::BoundaryPoint::width()'],['../structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a99c73124e0eace722696b019306d1614',1,'osi3::MovingObject::VehicleAttributes::WheelData::width()']]],
+  ['wind',['Wind',['../structosi3_1_1EnvironmentalConditions_1_1Wind.html',1,'osi3::EnvironmentalConditions::Wind'],['../structosi3_1_1EnvironmentalConditions.html#a1bc2cf3c47495d111bb188749a4e1dcf',1,'osi3::EnvironmentalConditions::wind()']]],
   ['world_5fposition',['world_position',['../structosi3_1_1ReferenceLine_1_1ReferenceLinePoint.html#a9a0582963f66f2dea8c63efea498ebc1',1,'osi3::ReferenceLine::ReferenceLinePoint']]]
 ];

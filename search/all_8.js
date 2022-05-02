@@ -51,7 +51,7 @@ var searchData=
   ['indicatorstate',['IndicatorState',['../structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#a9e26233cf49cf0efcadac87e9cb90aa6',1,'osi3::MovingObject::VehicleClassification::LightState']]],
   ['indirect_5fdetection',['indirect_detection',['../structosi3_1_1UltrasonicDetectionData.html#aec69e18a0401e37c7cdaca6b6fe7ecff',1,'osi3::UltrasonicDetectionData']]],
   ['infrared',['infrared',['../structosi3_1_1ColorRGBIR.html#a5acb420c48f6844f4f2047c1dce38d9d',1,'osi3::ColorRGBIR']]],
-  ['intensity',['intensity',['../structosi3_1_1LidarDetection.html#a1c2ea1eb70a1d1c31d5bc1481572f4e7',1,'osi3::LidarDetection::intensity()'],['../structosi3_1_1LogicalDetection.html#afde871107570e1b1f33dca07f5eac823',1,'osi3::LogicalDetection::intensity()']]],
+  ['intensity',['intensity',['../structosi3_1_1EnvironmentalConditions_1_1Sun.html#afea53a7f575273950e284ab5a9c51a50',1,'osi3::EnvironmentalConditions::Sun::intensity()'],['../structosi3_1_1LidarDetection.html#a1c2ea1eb70a1d1c31d5bc1481572f4e7',1,'osi3::LidarDetection::intensity()'],['../structosi3_1_1LogicalDetection.html#afde871107570e1b1f33dca07f5eac823',1,'osi3::LogicalDetection::intensity()']]],
   ['interfaceversion',['InterfaceVersion',['../structosi3_1_1InterfaceVersion.html',1,'osi3']]],
   ['internal_5fstate',['internal_state',['../structosi3_1_1TrafficUpdate.html#a7c5cbc21bc062678cb2585d6ea953748',1,'osi3::TrafficUpdate']]],
   ['is_5fdriver',['is_driver',['../structosi3_1_1Occupant_1_1Classification.html#a11253875c26faa04aa090e3ef3e7303a',1,'osi3::Occupant::Classification']]],
