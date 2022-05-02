@@ -35,7 +35,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master(5c44f27)</span>
+   &#160;<span id="projectnumber">master(76bdd74)</span>
    </div>
   </td>
  </tr>
@@ -199,7 +199,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The ID of the original detected item in the ground truth. </p>
-<dl class="section note"><dt>Note</dt><dd>OSI uses singular instead of plural for repeated field names. </dd></dl>
 
 </div>
 </div>
@@ -269,9 +268,7 @@ Public Attributes</h2></td></tr>
 
 <p>A list of physical sensors which detected this detected item. </p>
 <p>If <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models. ">SensorData</a></code> has detected entities and all detections are missing, then e.g. the number of sensors can confirm the <code><a class="el" href="structosi3_1_1DetectedItemHeader.html#a8d2238e55c8b92bf6310bce3c0c228e2" title="The estimated probability that this detected item really exists, not based on history. ">existence_probability</a></code>.</p>
-<dl class="section note"><dt>Note</dt><dd>This information can be determined via the detected entities' detections ( <code></code>...Detection::object_id = 'this detected item' ) and the sensors (their IDs) to which these detections belong.</dd>
-<dd>
-OSI uses singular instead of plural for repeated field names. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This information can be determined via the detected entities' detections ( <code></code>...Detection::object_id = 'this detected item' ) and the sensors (their IDs) to which these detections belong. </dd></dl>
 
 </div>
 </div>
