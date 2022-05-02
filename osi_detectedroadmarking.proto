@@ -55,8 +55,6 @@ message DetectedRoadMarking
     // A list of candidates for this road marking as estimated by the
     // sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CandidateRoadMarking candidate = 4;
 
     // The visual color of the material of the road marking.

@@ -26,19 +26,13 @@ message FeatureData
 
     // Radar detections for multiple radar sensors (sensor fusion).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated RadarDetectionData radar_sensor = 2;
 
     // Lidar detections for multiple lidar sensors (sensor fusion).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated LidarDetectionData lidar_sensor = 3;
 
     // Ultrasonic detections for multiple ultrasonic sensors (sensor fusion).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     // \note Required for ultrasonic sensors: Detections will be send by the
     // emitting ultrasonic sensor, including all indirect detections received
@@ -47,8 +41,6 @@ message FeatureData
     repeated UltrasonicDetectionData ultrasonic_sensor = 4;
 
     // Camera detections for multiple camera sensors (sensor fusion).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CameraDetectionData camera_sensor = 5;
 }
@@ -249,8 +241,6 @@ message RadarDetectionData
 
     // List of radar detections constituting the radar detection list.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated RadarDetection detection = 2;
 }
 
@@ -357,8 +347,6 @@ message LidarDetectionData
     optional SensorDetectionHeader header = 1;
 
     // List of lidar detections.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated LidarDetection detection = 2;
 }
@@ -519,14 +507,10 @@ message UltrasonicDetectionData
 
     // List of ultrasonic detections.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated UltrasonicDetection detection = 2;
 
     // List of ultrasonic indirect detections (sender and receiver sensors are
     // not the same).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated UltrasonicIndirectDetection indirect_detection = 4;
 }
@@ -676,13 +660,9 @@ message CameraDetectionData
 
     // List of camera detections.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CameraDetection detection = 2;
 
     // List of points which are used by detections.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CameraPoint point = 4;
 }
