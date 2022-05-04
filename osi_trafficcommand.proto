@@ -59,19 +59,14 @@ message TrafficCommand
 // regarding that are not part of this message, yet are seen as a task of the 
 // scenario description, for example, OpenSCENARIO. 
 //
-// \attention All traffic actions are sent only once just before they are about 
+// \note All traffic actions are sent only once just before they are about 
 // to start. This is also true, if their execution is expected to 
 // take simulation time. To inform the traffic participant 
 // model that certain actions must or shall be terminated, there are 
 // explicit actions nested inside this message (AbortActionsAction, 
 // EndActionsAction), which hold a reference to the respective actions.
-//
-// It is highly recommended that the scenario engine handles the state 
-// machine of traffic actions and uses AbortActionsActions / 
-// EndActionsAction to transfer information to the traffic participant. 
-// Furthermore, the scenario engine shall listen to DismissedActions of 
-// \c TrafficCommandUpdate to reflect this in the evaluation of the 
-// scenario run. 
+// Futhermore, there exists a \c TrafficCommandUpdate message for the 
+// traffic participant to report back on potentially dismissed actions. 
 //
 message TrafficAction
 {
