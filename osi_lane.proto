@@ -10,9 +10,9 @@ package osi3;
 // \brief A lane in the road network.
 //
 // A lane is part of a road and its shape is mainly characterized by its boundaries. All lanes also
-// know about any adjacent lanes, and driving lanes also know about their antecessor and successor lanes.
+// know about any adjacent lanes, and driving lanes and intersections also know about their antecessor and successor lanes.
 // The following images will be referred to by later comments. The lane
-// l4 in image HighwayExit is used  as reference if not mentioned otherwise.
+// l4 in image HighwayExit is used as reference if not mentioned otherwise.
 //
 // <table border=0>
 // <tr>
