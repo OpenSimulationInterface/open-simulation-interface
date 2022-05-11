@@ -106,6 +106,7 @@ message HostVehicleData
         optional OperatingState operating_state = 2;
 
         // Possible operating states of the vehicle.
+        // It is user specific which states are used and how their transitions work.
         //
         enum OperatingState
         {
@@ -124,9 +125,9 @@ message HostVehicleData
 
             // Cabin lights and entertainment are off. The vehicle can not be driven.
             // Some ECUs are still operating and not in their minimum electrical sate.
-            // Usually the driver has left the vehicle recently.
+            // Usually the driver has left (and closed) the vehicle recently.
             //
-            OPERATING_STATE_OFF = 3;
+            OPERATING_STATE_STANDBY = 3;
 
             // Some features of the vehicle are available e.g. cabin lights.
             // Entertainment is off and the vehicle can not be driven.
