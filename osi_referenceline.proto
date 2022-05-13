@@ -21,7 +21,7 @@ package osi3;
 //
 message ReferenceLine
 {
-    // The ID of the logical lane.
+    // The ID of the reference line.
     //
     // \note Note ID is global unique.
     //
