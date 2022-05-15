@@ -65,6 +65,8 @@ message TrafficCommand
 // model that certain actions must or shall be terminated, there are 
 // explicit actions nested inside this message (AbortActionsAction, 
 // EndActionsAction), which hold a reference to the respective actions.
+// Futhermore, there exists a \c TrafficCommandUpdate message for the 
+// traffic participant to report back on potentially dismissed actions. 
 //
 message TrafficAction
 {
