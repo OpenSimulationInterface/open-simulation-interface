@@ -13,6 +13,7 @@ var searchData=
   ['detectedtrafficlight',['DetectedTrafficLight',['../structosi3_1_1DetectedTrafficLight.html',1,'osi3']]],
   ['detectedtrafficsign',['DetectedTrafficSign',['../structosi3_1_1DetectedTrafficSign.html',1,'osi3']]],
   ['dimension3d',['Dimension3d',['../structosi3_1_1Dimension3d.html',1,'osi3']]],
+  ['dismissedaction',['DismissedAction',['../structosi3_1_1TrafficCommandUpdate_1_1DismissedAction.html',1,'osi3::TrafficCommandUpdate']]],
   ['driveroverride',['DriverOverride',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction']]],
   ['dynamicconstraints',['DynamicConstraints',['../structosi3_1_1TrafficAction_1_1DynamicConstraints.html',1,'osi3::TrafficAction']]]
 ];

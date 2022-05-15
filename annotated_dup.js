@@ -78,6 +78,7 @@ var annotated_dup =
       [ "Timestamp", "structosi3_1_1Timestamp.html", "structosi3_1_1Timestamp" ],
       [ "TrafficAction", "structosi3_1_1TrafficAction.html", "structosi3_1_1TrafficAction" ],
       [ "TrafficCommand", "structosi3_1_1TrafficCommand.html", "structosi3_1_1TrafficCommand" ],
+      [ "TrafficCommandUpdate", "structosi3_1_1TrafficCommandUpdate.html", "structosi3_1_1TrafficCommandUpdate" ],
       [ "TrafficLight", "structosi3_1_1TrafficLight.html", "structosi3_1_1TrafficLight" ],
       [ "TrafficSign", "structosi3_1_1TrafficSign.html", "structosi3_1_1TrafficSign" ],
       [ "TrafficSignValue", "structosi3_1_1TrafficSignValue.html", "structosi3_1_1TrafficSignValue" ],
