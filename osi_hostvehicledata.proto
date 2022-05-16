@@ -51,7 +51,7 @@ message HostVehicleData
     //
     optional BaseMoving location_rmse = 2;
 
-    // The basic parameters of the vehicle.
+    // The basic parameters and overall states of the vehicle.
     //
     optional VehicleBasics vehicle_basics = 3;
 
@@ -88,7 +88,7 @@ message HostVehicleData
     repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
 
     //
-    // \brief The absolute base parameters of the vehicle.
+    // \brief Base parameters and overall states of the vehicle.
     //
     message VehicleBasics
     {
@@ -100,6 +100,55 @@ message HostVehicleData
         // Paragraph 42 of the German Road Traffic Admission Regulations (StVZO).
         //
         optional double curb_weight = 1;
+
+        // The operating state of the vehicle.
+        //
+        optional OperatingState operating_state = 2;
+
+        // Possible operating states of the vehicle.
+        // It is user specific which states are used and how their transitions work.
+        //
+        enum OperatingState
+        {
+            // The operating state is unknown.
+            //
+            OPERATING_STATE_UNKNOWN = 0;
+
+            // The operating state is another one.
+            //
+            OPERATING_STATE_OTHER = 1;
+
+            // The minimum electrical state of the vehicle (and its ECUs).
+            // Usually the driver has left the vehicle a while ago.
+            //
+            OPERATING_STATE_SLEEP = 2;
+
+            // Cabin lights and entertainment are off. The vehicle can not be driven.
+            // Some ECUs are still operating and not in their minimum electrical sate.
+            // Usually the driver has left (and closed) the vehicle recently.
+            //
+            OPERATING_STATE_STANDBY = 3;
+
+            // Some features of the vehicle are available e.g. cabin lights.
+            // Entertainment is off and the vehicle can not be driven.
+            // Usually the driver wants to enter or leave the vehicle.
+            //
+            OPERATING_STATE_BOARDING = 4;
+
+            // Entertainment, navigation or similiar systems can be used by the driver.
+            // The vehicle can not be driven.
+            // Usually the driver sits in the vehicle before or after a drive.
+            //
+            OPERATING_STATE_ENTERTAINMENT = 5;
+
+            // The electrical state that is necessary to drive the vehicle.
+            //
+            OPERATING_STATE_DRIVING = 6;
+
+            // The electrical state that is necessary for analysis and diagnostics.
+            //
+            OPERATING_STATE_DIAGNOSTIC = 7;
+        }
     }
 
     //
