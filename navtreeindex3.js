@@ -1,5 +1,16 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1LogicalDetection.html#aa1841e2e9f9454fc13e01039ae6c5528":[2,0,0,46,5],
+"structosi3_1_1LogicalDetection.html#aa9a33e155552270021915e4a46cb4da6":[2,0,0,46,0],
+"structosi3_1_1LogicalDetection.html#ad322a867d1dee308fe88e4ffcfe8b64e":[2,0,0,46,2],
+"structosi3_1_1LogicalDetection.html#add0360419823cb2a98a2720c3b02e482":[2,0,0,46,7],
+"structosi3_1_1LogicalDetection.html#af828843ecd0a837079def7031d78888c":[2,0,0,46,10],
+"structosi3_1_1LogicalDetection.html#af926e8e4010f7294962154cd0eb318ad":[2,0,0,46,8],
+"structosi3_1_1LogicalDetection.html#afde871107570e1b1f33dca07f5eac823":[2,0,0,46,6],
+"structosi3_1_1LogicalDetectionData.html":[2,0,0,47],
+"structosi3_1_1LogicalDetectionData.html#a34055185af45ddc052b2e182ab9fd1db":[2,0,0,47,1],
+"structosi3_1_1LogicalDetectionData.html#a754762194c10b1f1775b5b495c629834":[2,0,0,47,2],
+"structosi3_1_1LogicalDetectionData.html#ae01fdd0d2ba0b99bb2f3e95c4a92b481":[2,0,0,47,0],
 "structosi3_1_1LogicalDetectionDataHeader.html":[2,0,0,48],
 "structosi3_1_1LogicalDetectionDataHeader.html#a00278711e9bd3eaeb8252e809df656b9":[2,0,0,48,4],
 "structosi3_1_1LogicalDetectionDataHeader.html#a4cd7e87077822b2999e562df52096922":[2,0,0,48,3],
@@ -238,16 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1RadarDetection.html#a863eb66f96f5a64aa0989fcbe360ae4a":[2,0,0,57,9],
 "structosi3_1_1RadarDetection.html#ac3d2984048cbe1994a379bc9be004799":[2,0,0,57,6],
 "structosi3_1_1RadarDetection.html#acbc842b645808a6e0af72a8e7bd470a4":[2,0,0,57,5],
-"structosi3_1_1RadarDetection.html#acc74a1188f9f0095a1b38f46ee856db1":[2,0,0,57,7],
-"structosi3_1_1RadarDetectionData.html":[2,0,0,58],
-"structosi3_1_1RadarDetectionData.html#a4e29c5e759b75a319096fe1e37835113":[2,0,0,58,0],
-"structosi3_1_1RadarDetectionData.html#ab43214f3069072d8a7a2e9e0b50f265b":[2,0,0,58,1],
-"structosi3_1_1RadarSensorView.html":[2,0,0,59],
-"structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d":[2,0,0,59,2],
-"structosi3_1_1RadarSensorView.html#ae25cff303336cd7feef28f46847b82a1":[2,0,0,59,1],
-"structosi3_1_1RadarSensorViewConfiguration.html":[2,0,0,60],
-"structosi3_1_1RadarSensorViewConfiguration.html#a0432063a6735dc06b7c6068030a501ae":[2,0,0,60,4],
-"structosi3_1_1RadarSensorViewConfiguration.html#a0fba9494590cda2bb4d705089a43b31f":[2,0,0,60,3],
-"structosi3_1_1RadarSensorViewConfiguration.html#a16bcecae0130a7770ede9fcb934dc3c1":[2,0,0,60,9],
-"structosi3_1_1RadarSensorViewConfiguration.html#a3dfd1c0ad1e506a377e8bd8f63b58fca":[2,0,0,60,1]
+"structosi3_1_1RadarDetection.html#acc74a1188f9f0095a1b38f46ee856db1":[2,0,0,57,7]
 };

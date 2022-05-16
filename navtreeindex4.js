@@ -1,5 +1,16 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1RadarDetectionData.html":[2,0,0,58],
+"structosi3_1_1RadarDetectionData.html#a4e29c5e759b75a319096fe1e37835113":[2,0,0,58,0],
+"structosi3_1_1RadarDetectionData.html#ab43214f3069072d8a7a2e9e0b50f265b":[2,0,0,58,1],
+"structosi3_1_1RadarSensorView.html":[2,0,0,59],
+"structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d":[2,0,0,59,2],
+"structosi3_1_1RadarSensorView.html#ae25cff303336cd7feef28f46847b82a1":[2,0,0,59,1],
+"structosi3_1_1RadarSensorViewConfiguration.html":[2,0,0,60],
+"structosi3_1_1RadarSensorViewConfiguration.html#a0432063a6735dc06b7c6068030a501ae":[2,0,0,60,4],
+"structosi3_1_1RadarSensorViewConfiguration.html#a0fba9494590cda2bb4d705089a43b31f":[2,0,0,60,3],
+"structosi3_1_1RadarSensorViewConfiguration.html#a16bcecae0130a7770ede9fcb934dc3c1":[2,0,0,60,9],
+"structosi3_1_1RadarSensorViewConfiguration.html#a3dfd1c0ad1e506a377e8bd8f63b58fca":[2,0,0,60,1],
 "structosi3_1_1RadarSensorViewConfiguration.html#a6d5b88a01eaa071e8bf4d6b13743b9b0":[2,0,0,60,11],
 "structosi3_1_1RadarSensorViewConfiguration.html#a7e71f6337ffa47e1a56d720d2040e988":[2,0,0,60,7],
 "structosi3_1_1RadarSensorViewConfiguration.html#a8d18654b6e5063c50b6175bbb61854fe":[2,0,0,60,2],
@@ -238,16 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1StationaryObject_1_1Classification.html#afeb7027b4c8d6098f1fed2ce5f065467":[2,0,0,73,0,7],
 "structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html":[2,0,0,73,0,0],
 "structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html#a910a37d9bdc772b6f7db39e112f85274":[2,0,0,73,0,0,0],
-"structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html#a9eb02ca713137ec26381d91460a461cf":[2,0,0,73,0,0,1],
-"structosi3_1_1Timestamp.html":[2,0,0,74],
-"structosi3_1_1Timestamp.html#a684a2426e26687ac21cd531216efffb0":[2,0,0,74,0],
-"structosi3_1_1Timestamp.html#aa3937d70fbeef3c023708adc95d81905":[2,0,0,74,1],
-"structosi3_1_1TrafficAction.html":[2,0,0,75],
-"structosi3_1_1TrafficAction.html#a359ddf5c1cdf870ad2695bb168488517":[2,0,0,75,22],
-"structosi3_1_1TrafficAction.html#a35c5eac575dc1961b5b085398a1a2b6d":[2,0,0,75,27],
-"structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3d":[2,0,0,75,15],
-"structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da3869f6dbef35766a1f22223615bec457":[2,0,0,75,15,0],
-"structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da423872cff5fae3a2ce5c6be470c83d35":[2,0,0,75,15,4],
-"structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da7214bae96c3649236eb8a8decb4ac091":[2,0,0,75,15,3],
-"structosi3_1_1TrafficAction.html#a4b1d9e6cfa18ce7da019ad5e0fe07b3da797226e1ce2f1682d54f02b0039bbe15":[2,0,0,75,15,2]
+"structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html#a9eb02ca713137ec26381d91460a461cf":[2,0,0,73,0,0,1]
 };

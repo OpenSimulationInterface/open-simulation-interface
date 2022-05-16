@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['seat',['Seat',['../structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6',1,'osi3::Occupant::Classification']]],
-  ['state',['State',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html#a4733dc6baa3a32a3366786485fc1772d',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction']]],
-  ['steeringcontrol',['SteeringControl',['../structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4eca',1,'osi3::Occupant::Classification']]],
-  ['subtype',['Subtype',['../structosi3_1_1Lane_1_1Classification.html#a14fa7be357dbbf8eb6b090a9e5b5dd21',1,'osi3::Lane::Classification']]]
+  ['reason',['Reason',['../structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204ed',1,'osi3::HostVehicleData::VehicleAutomatedDrivingFunction::DriverOverride']]],
+  ['referencepoint',['ReferencePoint',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602a',1,'osi3::DetectedMovingObject']]]
 ];

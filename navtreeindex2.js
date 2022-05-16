@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structosi3_1_1HostVehicleData.html#a51624586db59bccb270eabf886860ffd":[2,0,0,35,10],
 "structosi3_1_1HostVehicleData.html#a626d4c472186e1bcf4dd4056ae96c0e1":[2,0,0,35,13],
 "structosi3_1_1HostVehicleData.html#a67a7b4a6e8e308abcf044fdf199cabd3":[2,0,0,35,9],
 "structosi3_1_1HostVehicleData.html#a96b5ea513d8dfff144e201527416740d":[2,0,0,35,15],
@@ -57,7 +58,17 @@ var NAVTREEINDEX2 =
 "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204eda1cbfa154d04dcd270058087e8fd543c7":[2,0,0,35,0,0,0,0],
 "structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html#a7f4d6124a6c897aada700e3b538204edacf09cfd5d066e4eeedc0943fd708a3b7":[2,0,0,35,0,0,0,1],
 "structosi3_1_1HostVehicleData_1_1VehicleBasics.html":[2,0,0,35,1],
-"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#ac82a61506a899b9c5b30d1a4e5692842":[2,0,0,35,1,0],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702":[2,0,0,35,1,0],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702a2f050931bf02c7f306de1450b9709f8e":[2,0,0,35,1,0,6],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702a460c3f34f1e339f5914ccfbd71eb13d5":[2,0,0,35,1,0,2],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702a52485b5c9acb0ff58c1126c1d0e94de7":[2,0,0,35,1,0,1],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702a54ea3192bb3ff676ba4970793e2ca229":[2,0,0,35,1,0,7],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702a5567bde21c7b1dc6c782a88e81108038":[2,0,0,35,1,0,0],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702aa8b0a1d0ef96c762696edf097cff6168":[2,0,0,35,1,0,5],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702ac6c23f8ec28db0fb25f8a9c0296d81be":[2,0,0,35,1,0,3],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702af6146e63d6aca0f15c946ce26f249aa9":[2,0,0,35,1,0,4],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#ac82a61506a899b9c5b30d1a4e5692842":[2,0,0,35,1,1],
+"structosi3_1_1HostVehicleData_1_1VehicleBasics.html#aede0142d783877f468b63e57548a14c3":[2,0,0,35,1,2],
 "structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html":[2,0,0,35,2],
 "structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html#a1d9a524e27c53bf479c585a6347d5e9d":[2,0,0,35,2,0],
 "structosi3_1_1HostVehicleData_1_1VehicleLocalization.html":[2,0,0,35,3],
@@ -238,16 +249,5 @@ var NAVTREEINDEX2 =
 "structosi3_1_1LogicalDetection.html#a50c73f91dee8b09639564f59cd164578":[2,0,0,46,3],
 "structosi3_1_1LogicalDetection.html#a50fa3651cd1da3ff3e32aaa46c011181":[2,0,0,46,9],
 "structosi3_1_1LogicalDetection.html#a6787127196b87da540b47f84d85b9d71":[2,0,0,46,4],
-"structosi3_1_1LogicalDetection.html#a8a64923b6510df2e5645c6b506028ed7":[2,0,0,46,1],
-"structosi3_1_1LogicalDetection.html#aa1841e2e9f9454fc13e01039ae6c5528":[2,0,0,46,5],
-"structosi3_1_1LogicalDetection.html#aa9a33e155552270021915e4a46cb4da6":[2,0,0,46,0],
-"structosi3_1_1LogicalDetection.html#ad322a867d1dee308fe88e4ffcfe8b64e":[2,0,0,46,2],
-"structosi3_1_1LogicalDetection.html#add0360419823cb2a98a2720c3b02e482":[2,0,0,46,7],
-"structosi3_1_1LogicalDetection.html#af828843ecd0a837079def7031d78888c":[2,0,0,46,10],
-"structosi3_1_1LogicalDetection.html#af926e8e4010f7294962154cd0eb318ad":[2,0,0,46,8],
-"structosi3_1_1LogicalDetection.html#afde871107570e1b1f33dca07f5eac823":[2,0,0,46,6],
-"structosi3_1_1LogicalDetectionData.html":[2,0,0,47],
-"structosi3_1_1LogicalDetectionData.html#a34055185af45ddc052b2e182ab9fd1db":[2,0,0,47,1],
-"structosi3_1_1LogicalDetectionData.html#a754762194c10b1f1775b5b495c629834":[2,0,0,47,2],
-"structosi3_1_1LogicalDetectionData.html#ae01fdd0d2ba0b99bb2f3e95c4a92b481":[2,0,0,47,0]
+"structosi3_1_1LogicalDetection.html#a8a64923b6510df2e5645c6b506028ed7":[2,0,0,46,1]
 };

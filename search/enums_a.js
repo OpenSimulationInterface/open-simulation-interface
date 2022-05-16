@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['passingrule',['PassingRule',['../structosi3_1_1LogicalLaneBoundary.html#a70220609b04d4bf0e8a4b432fb278fa8',1,'osi3::LogicalLaneBoundary']]],
-  ['precipitation',['Precipitation',['../structosi3_1_1EnvironmentalConditions.html#ad80739a39034abc45bcf9941b47040af',1,'osi3::EnvironmentalConditions']]]
+  ['operatingstate',['OperatingState',['../structosi3_1_1HostVehicleData_1_1VehicleBasics.html#a058a150670b43dceac811652c9429702',1,'osi3::HostVehicleData::VehicleBasics']]]
 ];
