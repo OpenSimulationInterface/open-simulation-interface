@@ -676,20 +676,16 @@ message MovingObject
             //
             optional string model_reference = 9;
 
-            // Dry friction is a force that opposes the relative lateral motion of two solid surfaces 
-            // in contact. It is subdivided into static friction between non-moving surfaces and kinetic
-            // friction between moving surfaces.
-            // Used here is the dry friction coefficient of the paired materials (see reference).
-            // Dimensionless.
-            //
-            // The value describes the average friction of the tyre's contact points.
+            // The value describes the kinetic friction of the tyre's contact point.
+            // If different friction coefficients due to more than one contact points are available,
+            // this value contains the average.
             //
             // Unit: []
             //
             // \par References:
-            // - http://adaptivemap.ma.psu.edu/websites/6_friction/dry_friction/dryfriction.html
+            // - https://www.britannica.com/science/coefficient-of-friction
             //
-            optional double kinetic_friction_coefficient = 10;
+            optional double friction_coefficient = 10;
         }
     }
 
