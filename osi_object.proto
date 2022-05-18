@@ -680,7 +680,7 @@ message MovingObject
             // If different friction coefficients due to more than one contact points are available,
             // this value contains the average.
             //
-            // Unit: []
+            // Unit: Dimensionless
             //
             // \par References:
             // - https://www.britannica.com/science/coefficient-of-friction
