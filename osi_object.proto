@@ -683,7 +683,7 @@ message MovingObject
             // Unit: Dimensionless
             //
             // \par References:
-            // - https://www.britannica.com/science/coefficient-of-friction
+            // [1] Britannica, T. Editors of Encyclopaedia. (2020, June 24). <em>coefficient of friction</em>. Retrieved May 18, 2022, from https://www.britannica.com/science/coefficient-of-friction
             //
             optional double friction_coefficient = 10;
         }
