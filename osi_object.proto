@@ -1010,7 +1010,17 @@ message MovingObject
             }
         }
 
-        // Definition of vehicle roles.
+        // Definition of vehicle roles. 
+        //
+        // The role specifies the perceived role of a vehicle. Therfore, a 
+        // civil police car is set to ROLE_CIVIL as long as it cannot be 
+        // perceived as a ROLE_POLICE. 
+        // The normal use case will consist of 99% ROLE_CIVIL, as this role is 
+        // used for normal vehicles.
+        // To check whether a role is "active" (e.g. blue flashing light of an 
+        // ambulance or an amber flashing light of a sweeper) can be looked up 
+        // in message LightState.
+        // 
         //
         enum Role
         {
@@ -1049,6 +1059,14 @@ message MovingObject
             // The vehicle role is roadside assistance, e.g. tow truck.
             //
             ROLE_ROAD_ASSISTANCE = 8;
+            
+            // The vehicle role is garbage collection, e.g. a garbage truck or sweeper.
+            //
+            ROLE_GARBAGE_COLLECTION = 9;
+
+            // The vehicle role is road construction, e.g. a excavator or tipper truck.
+            //
+            ROLE_ROAD_CONSTRUCTION = 10;
         }
     }
 }
