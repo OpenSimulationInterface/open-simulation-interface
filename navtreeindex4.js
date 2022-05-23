@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1RadarDetection.html#acc74a1188f9f0095a1b38f46ee856db1":[2,0,0,57,7],
 "structosi3_1_1RadarDetectionData.html":[2,0,0,58],
 "structosi3_1_1RadarDetectionData.html#a4e29c5e759b75a319096fe1e37835113":[2,0,0,58,0],
 "structosi3_1_1RadarDetectionData.html#ab43214f3069072d8a7a2e9e0b50f265b":[2,0,0,58,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1StationaryObject_1_1Classification.html#af7041eb960ee28815dbf9ca469f65832":[2,0,0,73,0,6],
 "structosi3_1_1StationaryObject_1_1Classification.html#afeb7027b4c8d6098f1fed2ce5f065467":[2,0,0,73,0,7],
 "structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html":[2,0,0,73,0,0],
-"structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html#a910a37d9bdc772b6f7db39e112f85274":[2,0,0,73,0,0,0],
-"structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html#a9eb02ca713137ec26381d91460a461cf":[2,0,0,73,0,0,1]
+"structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html#a910a37d9bdc772b6f7db39e112f85274":[2,0,0,73,0,0,0]
 };

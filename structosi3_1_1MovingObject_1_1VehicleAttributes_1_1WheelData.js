@@ -8,5 +8,6 @@ var structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData =
     [ "width", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a99c73124e0eace722696b019306d1614", null ],
     [ "orientation", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a844a2e4eacc8dee9449f8e3a17afb577", null ],
     [ "rotation_rate", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#aac1cc436ddbf53001ca1a5269b536dc0", null ],
-    [ "model_reference", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#af71580c96768174a1c294d7d9e4d9cb4", null ]
+    [ "model_reference", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#af71580c96768174a1c294d7d9e4d9cb4", null ],
+    [ "friction_coefficient", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html#a5ac26fb2f2fbb605d36b5f68184b1c2d", null ]
 ];
