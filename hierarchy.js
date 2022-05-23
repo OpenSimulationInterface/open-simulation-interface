@@ -25,8 +25,8 @@ var hierarchy =
     [ "osi3::DetectedTrafficSign::DetectedSupplementarySign::CandidateSupplementarySign", "structosi3_1_1DetectedTrafficSign_1_1DetectedSupplementarySign_1_1CandidateSupplementarySign.html", null ],
     [ "osi3::DetectedTrafficLight::CandidateTrafficLight", "structosi3_1_1DetectedTrafficLight_1_1CandidateTrafficLight.html", null ],
     [ "osi3::TrafficLight::Classification", "structosi3_1_1TrafficLight_1_1Classification.html", null ],
-    [ "osi3::TrafficSign::MainSign::Classification", "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html", null ],
     [ "osi3::TrafficSign::SupplementarySign::Classification", "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html", null ],
+    [ "osi3::TrafficSign::MainSign::Classification", "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html", null ],
     [ "osi3::Lane::Classification", "structosi3_1_1Lane_1_1Classification.html", null ],
     [ "osi3::LaneBoundary::Classification", "structosi3_1_1LaneBoundary_1_1Classification.html", null ],
     [ "osi3::StationaryObject::Classification", "structosi3_1_1StationaryObject_1_1Classification.html", null ],
@@ -116,8 +116,8 @@ var hierarchy =
     [ "osi3::RadarSpecificObjectData", "structosi3_1_1RadarSpecificObjectData.html", null ],
     [ "osi3::ReferenceLine", "structosi3_1_1ReferenceLine.html", null ],
     [ "osi3::ReferenceLine::ReferenceLinePoint", "structosi3_1_1ReferenceLine_1_1ReferenceLinePoint.html", null ],
-    [ "osi3::RadarSensorView::Reflection", "structosi3_1_1RadarSensorView_1_1Reflection.html", null ],
     [ "osi3::LidarSensorView::Reflection", "structosi3_1_1LidarSensorView_1_1Reflection.html", null ],
+    [ "osi3::RadarSensorView::Reflection", "structosi3_1_1RadarSensorView_1_1Reflection.html", null ],
     [ "osi3::Lane::Classification::RoadCondition", "structosi3_1_1Lane_1_1Classification_1_1RoadCondition.html", null ],
     [ "osi3::RoadMarking", "structosi3_1_1RoadMarking.html", null ],
     [ "osi3::SensorData", "structosi3_1_1SensorData.html", null ],
@@ -164,7 +164,7 @@ var hierarchy =
     [ "osi3::VehicleSteeringWheel", "structosi3_1_1VehicleSteeringWheel.html", null ],
     [ "osi3::HostVehicleData::VehicleWheels", "structosi3_1_1HostVehicleData_1_1VehicleWheels.html", null ],
     [ "osi3::WavelengthData", "structosi3_1_1WavelengthData.html", null ],
-    [ "osi3::HostVehicleData::VehicleWheels::WheelData", "structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html", null ],
     [ "osi3::MovingObject::VehicleAttributes::WheelData", "structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html", null ],
+    [ "osi3::HostVehicleData::VehicleWheels::WheelData", "structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html", null ],
     [ "osi3::EnvironmentalConditions::Wind", "structosi3_1_1EnvironmentalConditions_1_1Wind.html", null ]
 ];
