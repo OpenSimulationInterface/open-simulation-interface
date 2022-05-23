@@ -675,6 +675,17 @@ message MovingObject
             // 3d models.
             //
             optional string model_reference = 9;
+
+            // The value describes the kinetic friction of the tyre's contact point.
+            // If different friction coefficients due to more than one contact points are available,
+            // this value contains the average.
+            //
+            // Unit: Dimensionless
+            //
+            // \par References:
+            // [1] Britannica, T. Editors of Encyclopaedia. (2020, June 24). <em>coefficient of friction</em>. Retrieved May 18, 2022, from https://www.britannica.com/science/coefficient-of-friction
+            //
+            optional double friction_coefficient = 10;
         }
     }
 
