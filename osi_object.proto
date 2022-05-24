@@ -1032,13 +1032,13 @@ message MovingObject
             //
             ROLE_OTHER = 1;
 
-            // The vehicle role is ambulance.
-            //
-            ROLE_AMBULANCE = 2;
-
             // The vehicle role is civil, e.g. a "normal" car.
             //
-            ROLE_CIVIL = 3;
+            ROLE_CIVIL = 2;
+            
+            // The vehicle role is ambulance.
+            //
+            ROLE_AMBULANCE = 3;
 
             // The vehicle role is fire fighting, e.g. fire engine.
             //
