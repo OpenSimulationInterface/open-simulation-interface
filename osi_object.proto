@@ -1012,7 +1012,7 @@ message MovingObject
 
         // Definition of vehicle roles. 
         //
-        // The role specifies the perceived role of a vehicle. Therfore, a 
+        // The role specifies the perceived role of a vehicle. Therefore, a 
         // civil police car is set to ROLE_CIVIL as long as it cannot be 
         // perceived as a ROLE_POLICE. 
         // The normal use case will consist of 99% ROLE_CIVIL, as this role is 
@@ -1044,29 +1044,29 @@ message MovingObject
             //
             ROLE_FIRE = 4;
 
-            // The vehicle role is military, e.g. camouflaged truck.
-            //
-            ROLE_MILITARY = 5;
-
             // The vehicle role is police.
             //
-            ROLE_POLICE = 6;
+            ROLE_POLICE = 5;
 
             // The vehicle role is public transport, e.g. a school bus.
             //
-            ROLE_PUBLIC_TRANSPORT = 7;
+            ROLE_PUBLIC_TRANSPORT = 6;
 
             // The vehicle role is roadside assistance, e.g. tow truck.
             //
-            ROLE_ROAD_ASSISTANCE = 8;
+            ROLE_ROAD_ASSISTANCE = 7;
             
             // The vehicle role is garbage collection, e.g. a garbage truck or sweeper.
             //
-            ROLE_GARBAGE_COLLECTION = 9;
+            ROLE_GARBAGE_COLLECTION = 8;
 
             // The vehicle role is road construction, e.g. a excavator or tipper truck.
             //
-            ROLE_ROAD_CONSTRUCTION = 10;
+            ROLE_ROAD_CONSTRUCTION = 9;
+            
+            // The vehicle role is military, e.g. camouflaged truck.
+            //
+            ROLE_MILITARY = 10;
         }
     }
 }
