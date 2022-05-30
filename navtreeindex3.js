@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structosi3_1_1LogicalDetection.html#aa1841e2e9f9454fc13e01039ae6c5528":[2,0,0,46,5],
-"structosi3_1_1LogicalDetection.html#aa9a33e155552270021915e4a46cb4da6":[2,0,0,46,0],
 "structosi3_1_1LogicalDetection.html#ad322a867d1dee308fe88e4ffcfe8b64e":[2,0,0,46,2],
 "structosi3_1_1LogicalDetection.html#add0360419823cb2a98a2720c3b02e482":[2,0,0,46,7],
 "structosi3_1_1LogicalDetection.html#af828843ecd0a837079def7031d78888c":[2,0,0,46,10],
@@ -249,5 +247,7 @@ var NAVTREEINDEX3 =
 "structosi3_1_1RadarDetection.html#a814c6d11af6c17024a8735e229137d87":[2,0,0,57,8],
 "structosi3_1_1RadarDetection.html#a863eb66f96f5a64aa0989fcbe360ae4a":[2,0,0,57,9],
 "structosi3_1_1RadarDetection.html#ac3d2984048cbe1994a379bc9be004799":[2,0,0,57,6],
-"structosi3_1_1RadarDetection.html#acbc842b645808a6e0af72a8e7bd470a4":[2,0,0,57,5]
+"structosi3_1_1RadarDetection.html#acbc842b645808a6e0af72a8e7bd470a4":[2,0,0,57,5],
+"structosi3_1_1RadarDetection.html#acc74a1188f9f0095a1b38f46ee856db1":[2,0,0,57,7],
+"structosi3_1_1RadarDetectionData.html":[2,0,0,58]
 };

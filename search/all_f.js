@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['r',['r',['../structproto_1_1test_1_1ProtoMessage.html#af6675bb371b8cd54acdaa958f46152a5',1,'proto::test::ProtoMessage']]],
   ['radar_5fsensor',['radar_sensor',['../structosi3_1_1FeatureData.html#aa3a918f4021c8f994ba8f2408814d7b5',1,'osi3::FeatureData']]],
   ['radar_5fsensor_5fview',['radar_sensor_view',['../structosi3_1_1SensorView.html#a1fa04807874e695156b9f29fbc3dfcd8',1,'osi3::SensorView']]],
   ['radar_5fsensor_5fview_5fconfiguration',['radar_sensor_view_configuration',['../structosi3_1_1SensorViewConfiguration.html#a704763486c7c724727d96e108c6e560a',1,'osi3::SensorViewConfiguration']]],
@@ -40,7 +39,7 @@ var searchData=
   ['referenceline',['ReferenceLine',['../structosi3_1_1ReferenceLine.html',1,'osi3']]],
   ['referencelinepoint',['ReferenceLinePoint',['../structosi3_1_1ReferenceLine_1_1ReferenceLinePoint.html',1,'osi3::ReferenceLine']]],
   ['referencepoint',['ReferencePoint',['../structosi3_1_1DetectedMovingObject.html#a586690081dd400b0794f1e013995602a',1,'osi3::DetectedMovingObject']]],
-  ['reflection',['Reflection',['../structosi3_1_1LidarSensorView_1_1Reflection.html',1,'osi3::LidarSensorView::Reflection'],['../structosi3_1_1RadarSensorView_1_1Reflection.html',1,'osi3::RadarSensorView::Reflection'],['../structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d',1,'osi3::RadarSensorView::reflection()'],['../structosi3_1_1LidarSensorView.html#abd48c19b5ae9ddee52c269b0dbc11686',1,'osi3::LidarSensorView::reflection()']]],
+  ['reflection',['Reflection',['../structosi3_1_1RadarSensorView_1_1Reflection.html',1,'osi3::RadarSensorView::Reflection'],['../structosi3_1_1LidarSensorView_1_1Reflection.html',1,'osi3::LidarSensorView::Reflection'],['../structosi3_1_1RadarSensorView.html#ad1737584b02a81a31da4cf31cc7c5f8d',1,'osi3::RadarSensorView::reflection()'],['../structosi3_1_1LidarSensorView.html#abd48c19b5ae9ddee52c269b0dbc11686',1,'osi3::LidarSensorView::reflection()']]],
   ['reflectivity',['reflectivity',['../structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42',1,'osi3::LidarDetection']]],
   ['relative_5fhumidity',['relative_humidity',['../structosi3_1_1EnvironmentalConditions.html#a05b6f530a842deef881608e131f3b98a',1,'osi3::EnvironmentalConditions']]],
   ['relative_5ftarget_5flane',['relative_target_lane',['../structosi3_1_1TrafficAction_1_1LaneChangeAction.html#a32a03cef4a8fc4742c1fe58e0b2b707d',1,'osi3::TrafficAction::LaneChangeAction']]],
