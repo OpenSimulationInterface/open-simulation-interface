@@ -323,6 +323,12 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \note The boundary between adjacent lanes at different heights
+        //       (e.g. a curb between a driving lane and a sidewalk)
+        //       should not be shared, but modeled as two separate lane
+        //       boundaries with individual ids. One for the upper, the
+        //       other one for the lower lane.
+        //
         // \rules
         // check_if this.type is_different_to 4 else do_check is_set
         // \endrules
@@ -343,6 +349,12 @@ message Lane
         // \c #TYPE_INTERSECTION .
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \note The boundary between adjacent lanes at different heights
+        //       (e.g. a curb between a driving lane and a sidewalk)
+        //       should not be shared, but modeled as two separate lane
+        //       boundaries with individual ids. One for the upper, the
+        //       other one for the lower lane.
         //
         // \rules
         // check_if this.type is_different_to 4 else do_check is_set
@@ -813,6 +825,13 @@ message LaneBoundary
         // \image html OSI_LaneBoundaryHeight.svg "" width=600px
         //
         // \note Field need not be set if it is previously defined.
+        //
+        // \note The boundary point height should not be used to model the boundary 
+        //       between two adjacent lanes at different heights as a single, shared 
+        //       boundary.
+        //       Boundaries between adjacent lanes at different heights should be 
+        //       modeled as two separate lane boundaries.
+        //
         // See \c LaneBoundary .
         //
         optional double height = 3;
