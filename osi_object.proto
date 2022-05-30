@@ -1017,6 +1017,7 @@ message MovingObject
         // perceived as a ROLE_POLICE. 
         // The normal use case will consist of 99% ROLE_CIVIL, as this role is 
         // used for normal vehicles.
+        // These roles may influence the behavior in traffic of the surrounding vehicles.
         // To check whether a role is "active" (e.g. blue flashing light of an 
         // ambulance or an amber flashing light of a sweeper) can be looked up 
         // in message LightState.
