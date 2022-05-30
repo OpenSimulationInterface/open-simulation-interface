@@ -62,7 +62,7 @@ jobs:
     - name: Prepare Documentation Build
       run: |
         sed -i 's/PROJECT_NUMBER\s*= @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@/PROJECT_NUMBER = master (${{ steps.get_version.outputs.VERSION }})/g' doxygen_config.cmake.in
-        echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-3.20.1/* */proto2cpp/*" >> doxygen_config.cmake.in
+        echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-3.20.1/* */proto2cpp/* */flatbuffers/*" >> doxygen_config.cmake.in
         echo "GENERATE_TREEVIEW = YES" >> doxygen_config.cmake.in
 
     - name: Configure C++ Build
@@ -74,7 +74,7 @@ jobs:
       run: cmake --build . --config Release -j 4
 
     - name: Build Python
-      run: python setup.py build && python setup.py sdist 
+      run: python setup.py build && python setup.py sdist
 
     - name: Install Python
       run: python -m pip install .
@@ -153,7 +153,7 @@ jobs:
       run: cmake --build . --config Release -j 4
 
     - name: Build Python
-      run: python setup.py build && python setup.py sdist 
+      run: python setup.py build && python setup.py sdist
 
     - name: Install Python
       run: python -m pip install .
