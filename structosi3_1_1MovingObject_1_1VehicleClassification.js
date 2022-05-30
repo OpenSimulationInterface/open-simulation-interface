@@ -20,8 +20,22 @@ var structosi3_1_1MovingObject_1_1VehicleClassification =
       [ "TYPE_TRAIN", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a763f1bcda4dc3bf98b9bc01cf6b2b35d", null ],
       [ "TYPE_WHEELCHAIR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02", null ]
     ] ],
+    [ "Role", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3", [
+      [ "ROLE_UNKNOWN", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a01950a07bd698222e3b2d2992b784b16", null ],
+      [ "ROLE_OTHER", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3af20b7e0b23f9700980cb497fdbe20de2", null ],
+      [ "ROLE_CIVIL", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3ad2a569f63a55580c744e3f6dca05ece1", null ],
+      [ "ROLE_AMBULANCE", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b2c41ffb4db0bad32898bb3470477c9", null ],
+      [ "ROLE_FIRE", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b87b7899d18d70603eeadfe9c899bce", null ],
+      [ "ROLE_POLICE", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b4f890ea653e99da17a32fbdc2dde4f", null ],
+      [ "ROLE_PUBLIC_TRANSPORT", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a7b64790b69e65cbf6657d1a5d3ee9c10", null ],
+      [ "ROLE_ROAD_ASSISTANCE", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a39c971c73cde55d3d506b5d8966cfc38", null ],
+      [ "ROLE_GARBAGE_COLLECTION", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a34229229035ce0e3fe03cd4fd8e01ab4", null ],
+      [ "ROLE_ROAD_CONSTRUCTION", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a2c846369a32a21eb5ac3dac875194e2b", null ],
+      [ "ROLE_MILITARY", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5be92dc45dde3bf4f7e45acdf25d9739", null ]
+    ] ],
     [ "type", "structosi3_1_1MovingObject_1_1VehicleClassification.html#ac035d2f6580e418a8ebffb746a461f21", null ],
     [ "light_state", "structosi3_1_1MovingObject_1_1VehicleClassification.html#abbb92dd5780b3abe7a87162043e919a0", null ],
     [ "has_trailer", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6", null ],
-    [ "trailer_id", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482", null ]
+    [ "trailer_id", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a12a530dffb8ca980ee9909072c54e482", null ],
+    [ "role", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a9faa7ef6b4a2dfd674d1304fc440c2d1", null ]
 ];
