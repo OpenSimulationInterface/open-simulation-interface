@@ -830,10 +830,7 @@ message LaneBoundary
         //       between two adjacent lanes at different heights as a single, shared 
         //       boundary.
         //       Boundaries between adjacent lanes at different heights should be 
-        //       modeled as two separate lane boundaries. The height attribute of the 
-        //       lower boundary points will be the difference in height between
-        //       the upper and the lower boundary at the point's position.
-        //       The height attribute of the upper boundary points will be zero.
+        //       modeled as two separate lane boundaries.
         //
         // See \c LaneBoundary .
         //
