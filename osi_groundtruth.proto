@@ -9,6 +9,8 @@ import "osi_trafficsign.proto";
 import "osi_trafficlight.proto";
 import "osi_roadmarking.proto";
 import "osi_lane.proto";
+import "osi_logicallane.proto";
+import "osi_referenceline.proto";
 import "osi_object.proto";
 import "osi_occupant.proto";
 
@@ -73,50 +75,34 @@ message GroundTruth
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated StationaryObject stationary_object = 4;
 
     // The list of all other moving objects including all (host) vehicles.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated MovingObject moving_object = 5;
 
     // The list of traffic signs.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated TrafficSign traffic_sign = 6;
 
     // The list of traffic lights.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated TrafficLight traffic_light = 7;
 
     // The list of road surface markings (lane markings are excluded and
     // defined as \c LaneBoundary).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated RoadMarking road_marking = 8;
 
     // The list of lane boundaries.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated LaneBoundary lane_boundary = 9;
 
     // The list of lanes forming a road network.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated Lane lane = 10;
 
     // The list of passengers in the (host) vehicle(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Occupant occupant = 11;
 
@@ -171,4 +157,16 @@ message GroundTruth
     // derives street geometries automatically from a map reference.
     //
     optional string model_reference = 16;
+
+    // Reference lines used by LogicalLane
+    //
+    repeated ReferenceLine reference_line = 17;
+
+    // Logical lane boundaries used by LogicalLane
+    //
+    repeated LogicalLaneBoundary logical_lane_boundary = 18;
+
+    // Logical lanes used e.g. by traffic agents
+    //
+    repeated LogicalLane logical_lane = 19;
 }

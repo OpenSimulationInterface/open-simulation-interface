@@ -339,6 +339,55 @@ message Spherical3d
 }
 
 //
+// \brief Assignment of an object to a logical lane
+//
+// An object is assigned to a logical lane if it overlaps the logical lane.
+// Assignment happens even if the reference point is outside the lane, and only
+// a part of the object overlaps (any object overlapping the lane more than 5cm
+// has to be assigned to the lane).
+//
+// As an exception to this, \c TrafficSign and \c TrafficLight are assigned to
+// a logical lane if they control traffic on that lane. For \c TrafficSign and
+// \c TrafficLight , #s_position refers to the position where the sign or light
+// is valid (e.g. where vehicles should stop in case of a red traffic light),
+// not the physical position (where the sign or light is in the world).
+// Typically, t_position and angle_to_lane do not have any meaning in this
+// case, and will be 0.
+//
+message LogicalLaneAssignment
+{
+    // ID of the LogicalLane the object is assigned to.
+    //
+    // \rules
+    // refers_to: LogicalLane
+    // \endrules
+    //
+    optional Identifier assigned_lane_id = 1;
+
+    // S position of the object reference point on the lane, in the ST
+    // coordinate system of the lane.
+    //
+    // #s_position might be outside [s_start,s_end] of the lane (and even
+    // outside [startS,endS] of the reference line) if the reference point is
+    // outside the lane, but the object overlaps the lane or a TrafficSign or
+    // TrafficLight is assigned to a lane.
+    //
+    optional double s_position = 2;
+
+    // T position of the object reference point on the lane, in the ST
+    // coordinate system of the lane.
+    //
+    optional double t_position = 3;
+
+    // Angle of the object relative to the lane.
+    // See the ReferenceLine description how the angle is calculated.
+    //
+    // Unit: rad
+    //
+    optional double angle_to_lane = 4;
+}
+
+//
 // \brief The base attributes of a stationary object or entity.
 //
 // This includes the \c StationaryObject , \c TrafficSign ,
@@ -884,4 +933,21 @@ message GeodeticPosition
     // Range: [-300; 10000]
     //
     optional double altitude = 3;
+}
+
+//
+// \brief Generic key-value pair structure
+//
+// A generic key-value pair structure which can be used to capture information
+// which is opaque to the general OSI interface.
+//
+message KeyValuePair
+{
+    // A generic string key.
+    //
+    optional string key = 1;
+
+    // A generic string value.
+    //
+    optional string value = 2;
 }

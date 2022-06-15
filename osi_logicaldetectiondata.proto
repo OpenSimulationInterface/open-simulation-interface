@@ -29,8 +29,6 @@ message LogicalDetectionData
     // Logical detections are given with respect to the reference frame of the logical/virtual sensor
     // \c SensorView::mounting_position (e.g. center of rear axle of the ego car)
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated LogicalDetection logical_detection = 3;
 }
 

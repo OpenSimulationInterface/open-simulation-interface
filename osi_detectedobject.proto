@@ -21,8 +21,6 @@ message DetectedItemHeader
 
     // The ID of the original detected item in the ground truth.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated Identifier ground_truth_id = 2;
 
     // The estimated probability that this detected item really exists, not
@@ -62,8 +60,6 @@ message DetectedItemHeader
     // \note This information can be determined via the detected entities'
     // detections ( \c ...Detection::object_id = 'this detected item' ) and
     // the sensors (their IDs) to which these detections belong.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Identifier sensor_id = 6;
 
@@ -115,8 +111,6 @@ message DetectedStationaryObject
 
     // A list of candidates for this stationary object as estimated by the
     // sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateStationaryObject candidate = 4;
 
@@ -220,8 +214,6 @@ message DetectedMovingObject
 
     // A list of candidates for this moving object as estimated by the
     // sensor (e.g. pedestrian, car).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateMovingObject candidate = 8;
 

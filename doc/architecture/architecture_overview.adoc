@@ -29,13 +29,16 @@ The `HostVehicleData` interface describes the measured internal states of a traf
 OSI currently provides only limited support for data structures that describe measured internal states of traffic participants.
 Actuator intentions are currently not covered by OSI and must be handled using a different data description format.
 
-All fields in an interface are set to `optional`.
+NOTE: OSI uses singular instead of plural for `repeated` field names.
+
+NOTE: All fields in an interface are set to `optional`.
 `required` is not used.
+
 This has been done to allow backward-compatible changes in the field.
 Additionally, this is the default behavior in Protocol Buffer version 3 that no longer has the `required` type.
 Setting all fields to `optional` thus ensures update compatibility.
 However, this does not mean that it is optional to fill the field.
 For the purpose of providing a complete interface, all existing fields should be set, unless not setting a field carries a specific meaning, as indicated in the accompanying comment.
 
-All field numbers equal to or greater than 10000 are available for user-specific extensions via custom fields.
+NOTE: All field numbers equal to or greater than 10000 are available for user-specific extensions via custom fields.
 No future evolution of OSI will therefore use field numbers equal to or greater than 10000.

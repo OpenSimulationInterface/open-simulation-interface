@@ -152,8 +152,6 @@ message TrafficSign
     // Additional supplementary signs, e.g. time limits, modifying the traffic
     // sign.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated SupplementarySign supplementary_sign = 3;
 
 
@@ -376,6 +374,13 @@ message TrafficSign
             // e.g. http://www.vzkat.de/2017/VzKat.htm
             //
             optional string sub_code = 11;
+
+            // Assignment of this object to logical lanes.
+            //
+            // \note OSI uses singular instead of plural for repeated field
+            // names.
+            //
+            repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
             // Definition of traffic sign types.
             // Numbers are given according to German StVO.
@@ -5697,6 +5702,13 @@ message TrafficSign
             // e.g. http://www.vzkat.de/2017/VzKat.htm
             //
             optional string sub_code = 11;
+
+            // Assignment of this object to logical lanes.
+            //
+            // \note OSI uses singular instead of plural for repeated field
+            // names.
+            //
+            repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
             // Definition of supplementary sign types.
             //

@@ -165,6 +165,12 @@ message TrafficLight
         //
         optional bool is_out_of_service = 10;
 
+        // Assignment of this object to logical lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 7;
+
         // Definition of semantic colors for traffic lights.
         //
         // \attention DEPRECATED: This color enum will be removed in version

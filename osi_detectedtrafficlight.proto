@@ -39,8 +39,6 @@ message DetectedTrafficLight
     // A list of candidates for this traffic light as estimated by the
     // sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CandidateTrafficLight candidate = 4;
 
     // The visual color of the traffic light.

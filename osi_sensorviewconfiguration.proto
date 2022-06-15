@@ -201,35 +201,25 @@ message SensorViewConfiguration
 
     // Generic Sensor View Configuration(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated GenericSensorViewConfiguration generic_sensor_view_configuration =
         1000;
 
     // Radar-specific Sensor View Configuration(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RadarSensorViewConfiguration radar_sensor_view_configuration =
         1001;
 
     // Lidar-specific Sensor View Configuration(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated LidarSensorViewConfiguration lidar_sensor_view_configuration =
         1002;
 
     // Camera-specific Sensor View Configuration(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CameraSensorViewConfiguration camera_sensor_view_configuration =
         1003;
 
     // Ultrasonic-specific Sensor View Configuration(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated UltrasonicSensorViewConfiguration
         ultrasonic_sensor_view_configuration = 1004;
@@ -426,13 +416,9 @@ message RadarSensorViewConfiguration
 
     // This represents the TX antenna diagram
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated AntennaDiagramEntry tx_antenna_diagram = 10;
 
     // This represents the RX antenna diagram
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated AntennaDiagramEntry rx_antenna_diagram = 11;
 
