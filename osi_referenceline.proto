@@ -7,9 +7,9 @@ import "osi_common.proto";
 package osi3;
 
 //
-// \brief A reference line for defining a non-euclidean ST coordinate system
+// \brief A reference line for defining a non-Euclidean ST coordinate system
 //
-// A reference line is a 3D polyline, used for generating a non-euclidean
+// A reference line is a 3D polyline, used for generating a non-Euclidean
 // ST coordinate system.
 //
 // Notes on design decisions:
@@ -43,10 +43,10 @@ message ReferenceLine
     // - Later points in the list must have strictly larger S coordinates than
     //   earlier points.
     // - For consecutive points, the S difference between them  must be at
-    //   least as large as the 2D euclidean distance between the points (2D
-    //   distance == euclidean distance between the points taking only X and Y
+    //   least as large as the 2D Euclidean distance between the points (2D
+    //   distance == Euclidean distance between the points taking only X and Y
     //   into account).
-    // - The S distance between two points may be larger than the 2D euclidean
+    // - The S distance between two points may be larger than the 2D Euclidean
     //   distance, but should be not much larger. It is allowed to be larger if
     //   the underlying reference line (e.g. in an OpenDRIVE map) is a curve,
     //   and thus the sampled reference line has a smaller length than the original
@@ -76,9 +76,9 @@ message ReferenceLine
     // first line of the polyline is infinitely extended in negative S
     // direction.  Similarly, the last line of the polyline is infinitely
     // extended beyond the last point. The S value of points outside [\c
-    // sStart,\c sEnd] is defined by the euclidean 2D distance from the start
+    // sStart,\c sEnd] is defined by the Euclidean 2D distance from the start
     // or end point, respectively.  So if <code>sStart = 15</code>, and a point
-    // is on the line extended from the start position, with a 2D euclidean
+    // is on the line extended from the start position, with a 2D Euclidean
     // distance of 10 from the first point, then it has an S position of 5.
     //
     // A point is "before" the reference line, if its s coordinate is < \c sStart.
@@ -87,31 +87,33 @@ message ReferenceLine
     // ## Adding T coordinates
     //
     // To describe points that are not directly on the polyline, a T coordinate
-    // is added. T is the signed 2D distance (i.e. <code>hypot(A.X-B.X,
-    // A.Y-B.Y)</code>, if A and B are the two points) between the point to
-    // describe and the nearest point on the polyline (this point might either
-    // be on a line segment or at an edge between two line segments). The
-    // distance is positive if the point is left of the polyline (in definition
-    // direction), negative if it is right of it.
-    // The S position of such a point outside the reference line is the same as
-    // the S value of the nearest point on the polyline.
+    // is added. T is the signed 2D distance between the point to describe (P)
+    // and a projected point (P_proj) on the polyline. The T axis (projecting
+    // axis) is the line going through P and the intersection point (I). I is
+    // defined as the intersection of both T axes of two consecutive
+    // ReferenceLinePoints (see example and image below for illustration). The T
+    // coordinate of the point in question is then defined as
+    // <code>hypot(P.X-P_proj.X,P.Y-P_proj.Y)</code>. The projected point P_proj
+    // might either be on a line segment or at an edge between two line segments.
+    // The distance is positive if the point is left of the polyline (in
+    // definition direction), negative if it is right of it. The S position of
+    // such a point outside the reference line is the same as the S value of the
+    // projected point on the polyline, resulting in all points on a single T
+    // axis having the same S coordinate.
     //
-    // Notes:
-    // - The "nearest point on the polyline" is determined in 3D (even if the
-    //   resulting T value is only the 2D distance), in order to choose the
-    //   correct point for 3D curves (think reference lines for roads in parking
-    //   decks).
-    // - If there are several "nearest points", the one with the smallest S
-    //   coordinate on the polyline is chosen.
+    // \note The ST coordinate system shall be defined in 2D only. When
+    // referencing any points (including the reference line), their projection
+    // onto the XY plane shall be considered (but notes on OpenDRIVE compatibility
+    // below should be considered).
     //
     // ## Defining angles
     //
     // Sometimes an angle to a reference line is needed. This shall be defined
     // as follows:
-    // First the nearest point on the polyline is determined, as described
-    // above. If this point is on a line segment, then the angle is calculated
+    // First the projected point on the polyline is determined, as described
+    // below. If this point is on a line segment, then the angle is calculated
     // relative to the line segment on which the reference point lays.
-    // If the nearest point is at the edge between line segments, then the
+    // If the projected point is at the edge between line segments, then the
     // angle of the following line shall be chosen.
     //
     // ## Converting between world coordinates and ST coordinates
@@ -121,23 +123,23 @@ message ReferenceLine
     // coordinate.
     //
     // Example:
-    // \image html OSI_ReferenceLine1.svg
+    // \image html OSI_ReferenceLine1.svg "S, T calculation"
     //
-    // This shows a reference line (consisting of three points), and five points
-    // not on the reference line.
+    // This shows a reference line (consisting of three points R0, R1 and R2)
+    // and two points (P1 and P2) not part of the reference line.
     //
-    // - For \c P1, the situation is clear, since there is exactly one nearest
-    //   point on the polyline. The resulting ST coordinate uniquely maps back
-    //   to \c P1.
-    // - \c P2 has multiple points "nearest points" on the polyline.
-    //   As can be seen here, two  ST coordinates map to \c P2 (red and grey
-    //   dotted line).  Following the rules above, the one with the smallest S
-    //   value is chosen (the red dotted line).
-    // - \c P3 has a unique "nearest point" on the polyline. However, multiple
-    //   points map to the same ST coordinate as that of \c P3, e.g. \c P4
-    //   (drawn in grey).
-    // - Finally, \c P5 shows how the reference line is extended infinitely for
-    //   points that are "outside" the reference line.
+    // Calculation of ST for P1:
+    // - Calculate the instersection point I of the T axes of R0 and R1.
+    // - As P1 lies in the sector defined by these T axes it is considered part
+    //   of the reference line section between R0 and R1.
+    // - The point P1 is projected onto the line segment [R0, R1] via the
+    //   straight line through I (by calculating the intersection of the line
+    //   segment and the projection axis), resulting in point P1_proj.
+    //   If the T axes are parallel, a simple orthogonal projection is used.
+    // - The S coordinate of P1 is the S coordinate of P1_proj
+    // - The T coordinate of P1 is the signed Euclidean distance to P1_proj.
+    //
+    // Calculation of P2 follows the same pattern.
     //
     // The sampling of the polyline must be chosen such that the error
     // when converting coordinates is "small enough". The exact needed
@@ -158,7 +160,7 @@ message ReferenceLine
     // - It is preferable to have the reference line in the center of the road
     //   (e.g. on a highway, it should be in the middle between the two driving
     //   directions). Rationale: this makes S differences better approximate
-    //   euclidean distances, compared to having the reference line at one side
+    //   Euclidean distances, compared to having the reference line at one side
     //   of a curvy road.
     //
     // ## Various notes
@@ -202,6 +204,14 @@ message ReferenceLine
         // S position on the reference line
         //
         optional double s_position = 2;
+
+        // Yaw angle of the T axis in the world coordinate system
+        //
+        // When converting from formats like OpenDRIVE, the yaw angle is equal to
+        // the angle of the normal to the reference line in the sampled point.
+        //
+        // Also see image "S, T coordinates" at #poly_line for reference.
+        //
+        optional double t_axis_yaw = 3;
     }
 }
-
