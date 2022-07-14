@@ -75,6 +75,10 @@ message HostVehicleData
     //
     optional VehicleLocalization vehicle_localization = 8;
 
+    // Interface regarding the vehicle kinematics.
+    //
+    optional VehicleKinematics vehicle_kinematics = 13; 
+
     // State of any automated driving functions.
     //
     // This can include:
@@ -335,6 +339,32 @@ message HostVehicleData
         // Most accurate geodetic information of the vehicle available in the on-board network.
         //
         optional GeodeticPosition geodetic_position = 3;
+    }
+
+
+    //
+    //\brief Current calculated and estimated accelerations and velocities that can be based on Inertial Measurement Unit measurements and related sensors.
+    //
+    //This message contains the most accurate information the vehicle knows about its velocity and acceleration
+    // available in the on-board network.
+    // Because of this the values can differ from the "true" values calculated out of
+    // GroundTruth::MovingObject::BaseMoving::acceleration, GroundTruth::MovingObject::BaseMoving::velocity. 
+    //
+    message VehicleKinematics
+    {
+        // Most accurate velocity information of the vehicle, available in the on-board network.
+        // The velocity is represented in context to the coordinate system of the vehicle.
+        //
+        // Unit: m/s
+        //
+        optional Vector3d velocity = 1;
+
+        // Most accurate acceleration information of the vehicle, available in the on-board network.
+        // The acceleration is represented in context to the coordinate system of the vehicle.
+        //
+        // Unit: m/s^2
+        //
+        optional vector3d acceleration = 2;
     }
 
     //
