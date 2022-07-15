@@ -364,7 +364,7 @@ message HostVehicleData
         //
         // Unit: m/s^2
         //
-        optional vector3d acceleration = 2;
+        optional Vector3d acceleration = 2;
     }
 
     //
