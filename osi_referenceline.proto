@@ -91,8 +91,11 @@ message ReferenceLine
     // and a projected point (P_proj) on the polyline. The T axis (projecting
     // axis) is the line going through P and the intersection point (I). I is
     // defined as the intersection of both T axes of two consecutive
-    // ReferenceLinePoints (see example and image below for illustration). The T
-    // coordinate of the point in question is then defined as
+    // ReferenceLinePoints (see example and image below for illustration). If
+    // both T axes of the neighboring ReferenceLinePoint are parallel (so no
+    // intersection point exists), the resulting T axis direction is equal to
+    // the T axis of these ReferenceLinePoints.
+    // The T coordinate of the point in question is then defined as
     // <code>hypot(P.X-P_proj.X,P.Y-P_proj.Y)</code>. The projected point P_proj
     // might either be on a line segment or at an edge between two line segments.
     // The distance is positive if the point is left of the polyline (in
@@ -129,13 +132,14 @@ message ReferenceLine
     // and two points (P1 and P2) not part of the reference line.
     //
     // Calculation of ST for P1:
-    // - Calculate the instersection point I of the T axes of R0 and R1.
+    // - Calculate the intersection point I of the T axes of R0 and R1.
     // - As P1 lies in the sector defined by these T axes it is considered part
     //   of the reference line section between R0 and R1.
     // - The point P1 is projected onto the line segment [R0, R1] via the
     //   straight line through I (by calculating the intersection of the line
     //   segment and the projection axis), resulting in point P1_proj.
-    //   If the T axes are parallel, a simple orthogonal projection is used.
+    //   If the T axes are parallel, projection is applied in the direction of
+    //   these axes.
     // - The S coordinate of P1 is the S coordinate of P1_proj
     // - The T coordinate of P1 is the signed Euclidean distance to P1_proj.
     //
