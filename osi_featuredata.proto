@@ -1078,16 +1078,4 @@ enum DetectionClassification
     // Under-drivable (sign gantry etc.).
     //
     DETECTION_CLASSIFICATION_UNDERDRIVABLE = 5;
-
-    // Detection entity is the nearest detection of a measurement.
-    //
-    DETECTION_CLASSIFICATION_NEAREST = 6;
-
-    // Detection entity is an obstacle for vehicle.
-    //
-    DETECTION_CLASSIFICATION_OBSTACLE = 7;
-
-    // Detection entity has the strongest signal of a measurement.
-    //
-    DETECTION_CLASSIFICATION_STRONGEST = 8;
 }
