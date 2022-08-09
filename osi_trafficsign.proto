@@ -103,7 +103,7 @@ message TrafficSignValue
         UNIT_SHORT_TON = 11;
 
         // Time of day.
-        // Hour since midnight.
+        // Minutes since last hour.
         //
         // Unit: min
         //
