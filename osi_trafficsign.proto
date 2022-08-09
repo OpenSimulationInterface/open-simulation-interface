@@ -112,7 +112,7 @@ message TrafficSignValue
         // Day of the week.
         // Days since Monday. Monday = 0; Tuesday = 1; ...
         //
-        UNIT_DAY = 13;
+        UNIT_WEEKDAY = 13;
 
         // Percentage.
         // Value.
@@ -120,6 +120,10 @@ message TrafficSignValue
         // Unit: %
         //
         UNIT_PERCENTAGE = 14;
+
+        // Day of the month.
+        //
+        UNIT_DAY = 15;
     }
 
     // Text associated with a sign, e.g. the name of a location whose distance
