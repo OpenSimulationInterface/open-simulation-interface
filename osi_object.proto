@@ -220,17 +220,17 @@ message StationaryObject
             // Landmarks corresponding to barrel in the
             // in the environment.
             //
-            TYPE_ BARREL = 19;
+            TYPE_BARREL = 19;
 
             // Landmarks corresponding to guide post in the
             // in the environment.
             //
-            TYPE_ GUIDE_POST = 20;
+            TYPE_GUIDE_POST = 20;
 
             // Landmarks corresponding to tunnel in the
             // in the environment.
             //
-            TYPE_ TUNNEL = 21;
+            TYPE_TUNNEL = 21;
         }
 
         // Definition of material types.
