@@ -124,6 +124,13 @@ message TrafficSignValue
         // Day of the month.
         //
         UNIT_DAY = 15;
+
+        // Time of day.
+        // Hour since midnight.
+        //
+        // Unit: h
+        //
+        UNIT_HOUR = 15;
     }
 
     // Text associated with a sign, e.g. the name of a location whose distance
