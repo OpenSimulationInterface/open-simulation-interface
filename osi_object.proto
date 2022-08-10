@@ -865,6 +865,10 @@ message MovingObject
             // Vehicle is a wheelchair.
             //
             TYPE_WHEELCHAIR = 15;
+
+            // Object is a Tricycle.
+            //
+            TYPE_TRICYCLE = 16;
         }
 
         //
