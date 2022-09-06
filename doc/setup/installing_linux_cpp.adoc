@@ -1,5 +1,10 @@
 = Installing OSI for C++ on Linux
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 **Prerequisites**
 
 * You have installed _cmake_.

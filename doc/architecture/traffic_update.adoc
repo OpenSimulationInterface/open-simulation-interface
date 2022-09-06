@@ -1,4 +1,9 @@
 = Traffic update
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 `TrafficUpdate` messages are provided by traffic participants.
 They provide updates on the position, state, and future trajectory of a traffic participant back to the simulation environment.

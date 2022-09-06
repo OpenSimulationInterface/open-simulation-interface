@@ -1,5 +1,10 @@
 = Coordinate transformations
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 == Vehicle and sensor coordinate systems
 
 When running simulations, it is frequently necessary to transform coordinates from the global coordinate system for a specific vehicle and its sensors.

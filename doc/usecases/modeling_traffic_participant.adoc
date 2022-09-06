@@ -1,5 +1,10 @@
 = Modeling a traffic participant
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 Different models may be involved in modeling a traffic participant.
 In all the use cases, a simulator loads and interprets a scenario and a map prior to execution.
 The scenario is, for example, provided by OpenSCENARIO.

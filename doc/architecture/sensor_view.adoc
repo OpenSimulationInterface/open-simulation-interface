@@ -1,5 +1,10 @@
 = Sensor view
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 The sensor view provides the input to OSI sensor models.
 `SensorView` messages are derived from `GroundTruth` messages.
 All information regarding the environment is given with respect to the virtual sensor coordinate system, with two exceptions:
