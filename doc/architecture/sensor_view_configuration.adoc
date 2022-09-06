@@ -1,5 +1,10 @@
 = Sensor-view configuration
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 The sensor view is flexibly defined to provide different kinds of sensor models with an appropriate input.
 The sensor-view configuration defines the configuration of a particular sensor view.
 

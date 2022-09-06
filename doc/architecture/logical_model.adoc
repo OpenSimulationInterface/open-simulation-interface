@@ -1,5 +1,10 @@
 = Logical model
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 Logical models consume `SensorData` messages and produce `SensorData` messages.
 
 An example of a logical model is a sensor-fusion model, which combines the output of multiple sensor models to produce data with less uncertainty.

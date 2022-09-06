@@ -1,5 +1,10 @@
 = OSI trace file naming conventions
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 **Name format**
 
 The names of OSI trace files should have the following format:

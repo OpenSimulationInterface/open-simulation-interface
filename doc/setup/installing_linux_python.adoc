@@ -1,5 +1,10 @@
 = Installing OSI for Python on Linux
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 **Prerequisites**
 
 * You have installed _pip3_.

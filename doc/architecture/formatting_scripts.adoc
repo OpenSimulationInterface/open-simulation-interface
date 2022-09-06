@@ -1,5 +1,10 @@
 = Trace-file formatting scripts
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 The OSI repository contains Python scripts for converting trace files from one format to another.
 The formatting scripts are stored in `open-simulation-interface/format/`
 

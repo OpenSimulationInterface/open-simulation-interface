@@ -1,5 +1,10 @@
 = Installing OSI for Python on Windows
 
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+
 **Prerequisites**
 
 * You have installed _Python_ with administrator rights.
