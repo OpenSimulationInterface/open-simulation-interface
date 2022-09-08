@@ -4,7 +4,7 @@ ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
-sw
+
 `SensorData` messages imitate the output of real sensors.
 They can be generated from `GroundTruth` messages, `SensorView` messages, `FeatureData` messages, or `SensorData` messages.
 With the exception of feature data, all information regarding the environment is given with respect to the virtual sensor coordinate system.
