@@ -1,9 +1,8 @@
-= Sensor data
-
 ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
+= Sensor data
 
 `SensorData` messages imitate the output of real sensors.
 They can be generated from `GroundTruth` messages, `SensorView` messages, `FeatureData` messages, or `SensorData` messages.

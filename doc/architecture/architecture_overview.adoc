@@ -1,9 +1,8 @@
-= Overview of OSI architecture
-
 ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
+= Overview of OSI architecture
 
 OSI contains an object-based environment description that uses the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer] library.
 Google developed and maintains the Protocol Buffer library.
