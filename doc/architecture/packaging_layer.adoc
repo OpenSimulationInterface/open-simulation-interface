@@ -1,9 +1,8 @@
-= Packaging layer
-
 ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
+= Packaging layer
 
 The OSI packaging layer specifies how components that use the OSI data layer, for example, sensor models, are packaged for exchange.
 

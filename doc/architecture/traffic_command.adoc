@@ -1,9 +1,7 @@
-= Traffic command
-
 ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
-
+= Traffic command
 
 `TrafficCommand` messages contain control commands from the scenario engine to traffic participant models.

@@ -1,9 +1,8 @@
-= Feature data
-
 ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
+= Feature data
 
 `FeatureData` messages contain detected features in the reference frame of a sensor.
 `FeatureData` messages are generated from `GroundTruth` messages.
