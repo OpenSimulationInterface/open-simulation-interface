@@ -7,4 +7,4 @@ version:
   v(*): V$1
   V(*): V$1
   # Update version number accordingly. This is the version for any other activated branch (branch must be added in the generator site.yml!). Schema = 0.0.x-<branch-name> (only works for branches starting with "feature/")
-  (*): '3.6.0-$1'
+  (*): 'V3.6.0-$1'
