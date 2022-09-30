@@ -109,6 +109,18 @@ message ReferenceLine
     // onto the XY plane shall be considered (but notes on OpenDRIVE compatibility
     // below should be considered).
     //
+    // ## Rules on the T axis
+    //
+    // For the T axis at a specific ReferenceLinePoint the following rules apply:
+    // - The T axis shall be close to the angle bisector (to the left in S
+    //   direction) of the neighboring ReferenceLine segments.
+    // - Small deviations from the angle bisector are allowed (e.g. to represent
+    //   the T axis of OpenDRIVE, which is perpendicular to the OpenDRIVE
+    //   reference line).
+    // - The T axis must be located inside the sectors spanned by rotating the
+    //   normal of one neighboring ReferenceLine segment into the normal of the
+    //   other ReferenceLine segment on the shortest way.
+    //
     // ## Defining angles
     //
     // Sometimes an angle to a reference line is needed. This shall be defined
