@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Modeling a traffic participant
 
 Different models may be involved in modeling a traffic participant.
@@ -10,6 +14,7 @@ The traffic participants are co-simulated.
 
 The following figure shows a very simple use case.
 
+[#fig-simple-traffic-participant]
 .Simple traffic participant
 image::{images_open_simulation_interface}/osi-traffic-participant-use-case-1.png[1100]
 
@@ -18,6 +23,7 @@ The traffic participant's dynamics are included in the model if they exist.
 
 The following figure shows a traffic participant with separately modeled behavior and dynamics.
 
+[#fig-traffic-participants-separate-dynamics]
 .Traffic participants with separate dynamics
 image::{images_open_simulation_interface}/osi-traffic-participant-use-case-2.png[1100]
 
@@ -27,6 +33,7 @@ These must be handled with a different data description format.
 
 The following figure shows a more complex traffic participant.
 
+[#fig-traffic-participant-sensor-models-2]
 .Traffic participant with sensor models, AD function, and dynamics model
 image::{images_open_simulation_interface}/osi-traffic-participant-use-case-3.png[1100]
 
@@ -39,6 +46,7 @@ The loop to the environment simulation is closed via traffic update.
 
 The following figure shows a cooperative use case with both an AD function and a human driver.
 
+[#fig-traffic-participant-ad-function-human-driver]
 .Traffic participant with an AD function and human driver
 image::{images_open_simulation_interface}/osi-traffic-participant-use-case-4.png[1100]
 
