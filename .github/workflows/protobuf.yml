@@ -9,7 +9,7 @@ jobs:
   build-proto2-linux64:
     name: Build Proto2 Linux 64
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout OSI
@@ -100,7 +100,7 @@ jobs:
   build-proto3-linux64:
     name: Build Proto3 Linux 64
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout OSI
