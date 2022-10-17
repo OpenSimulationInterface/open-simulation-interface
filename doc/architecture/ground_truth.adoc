@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Ground truth
 
 `GroundTruth` messages describe the simulated environment containing all simulated objects in the global coordinate system at consecutive time instances.
