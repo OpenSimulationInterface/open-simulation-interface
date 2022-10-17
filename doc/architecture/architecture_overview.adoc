@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Overview of OSI architecture
 
 OSI contains an object-based environment description that uses the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer] library.
@@ -7,6 +11,7 @@ Top-level messages define the `GroundTruth` interface, the `SensorData` interfac
 
 The following figure shows the interfaces and models involved in modeling a sensor.
 
+[#fig-open-simulation-interface-overview]
 .Open Simulation Interface overview
 image::{images_open_simulation_interface}/osi-context.png[1100]
 
@@ -16,12 +21,14 @@ The `TrafficCommand` interface makes it possible to send commands to traffic par
 The `TrafficUpdate` interface makes it possible to receive the updated state from traffic participant models.
 The following figure shows the interfaces of a generic traffic participant.
 
+[#fig-interface-traffic-participant]
 .Interface of a traffic participant
 image::{images_open_simulation_interface}/osi-traffic-participant-principle.png[1100]
 
 Traffic participant models may use other OSI interfaces internally, for example, to model autonomous vehicles.
 The following figure shows a more advanced use case for traffic participants.
 
+[#fig-traffic-participant-sensor-models]
 .Traffic participant with sensor models, AD function, and dynamic model
 image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1100]
 
