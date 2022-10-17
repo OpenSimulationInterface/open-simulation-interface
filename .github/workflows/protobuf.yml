@@ -121,7 +121,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: protobuf-3.20.1
-        key: ${{ runner.os }}-v1-depends
+        key: ${{ runner.os }}-v2-depends
 
     - name: Download ProtoBuf
       if: steps.cache-depends.outputs.cache-hit != 'true'
