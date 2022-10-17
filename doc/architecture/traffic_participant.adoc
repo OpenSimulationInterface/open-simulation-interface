@@ -1,9 +1,13 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Traffic participant
 
 A traffic participant is an element of the simulated world and can change its state during simulation time, for example, its position and orientation.
 A traffic participant represents one of the following:
 
-- Living being.
+- Living being
 - Means of transportation for living beings
 - Means of transportation for goods
 - Any other movable object that may travel on the road network
@@ -14,12 +18,14 @@ The ego vehicle is therefore also a traffic participant.
 
 The following figure shows the interface of a traffic participant.
 
+[#fig-interface-traffic-participant-2]
 .Interface of a traffic participant
 image::{images_open_simulation_interface}/osi-traffic-participant-principle.png[1100]
 
 Traffic participant models may use other OSI interfaces internally, for example, to model autonomous vehicles.
 The following figure shows a more advanced use case for traffic participants.
 
+[#fig-traffic-participant-other-osi-interfaces]
 .Traffic participant using other OSI interfaces internally
 image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1100]
 

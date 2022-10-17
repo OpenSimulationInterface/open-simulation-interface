@@ -1,0 +1,56 @@
+
+// This file contains AsciiDoc attributes that shall be used in every AsciiDoc file.
+// NOTE: Its content is only applied for Asciidoctor!
+// If the same attribute is defined in the antora.yml (without @), the antora.yml definition takes precedence for Antora.
+
+ifndef::root-path[:root-path: ./]
+
+:partials-path: {root-path}../_additional_content
+:asciidoc-resources: ../../../asciidoc-resources
+:appendix-caption: Annex
+:page-feedbackurl: https://github.com/OpenSimulationInterface/open-simulation-interface/issues/new
+
+// ifndef::use-antora-rules,include-only-once[]
+ifndef::include-only-once[]
+:GLO_VAR_STA_ASAM_OpenCRG: ASAM OpenCRG
+:glo_var_sta_asam_opencrg: {GLO_VAR_STA_ASAM_OpenCRG}
+:GLO_VAR_STA_ASAM_OpenDRIVE: ASAM OpenDRIVE
+:GLO_VAR_STA_ASAM_OpenLABEL: ASAM OpenLABEL
+:GLO_VAR_STA_ASAM_OpenODD: ASAM OpenODD
+:GLO_VAR_STA_ASAM_OSI: ASAM OSI®
+:GLO_VAR_STA_ASAM_OpenSCENARIO: ASAM OpenSCENARIO
+:GLO_VAR_STA_ASAM_OpenXOntology: ASAM OpenXOntology
+:GLO_VAR_STA_BSI_PAS_1883: BSI PAS 1883
+:revnumber: --localbuild--
+:revdate: {docdate}
+:bibtex-file: ./content/general_docs/bibliography.bib
+// Replace PLACEHOLDER with the name of your standard, e.g. OpenDRIVE
+:THIS_STANDARD: {GLO_VAR_STA_ASAM_OSI}
+:asam-terminology: https://code.asam.net/common/asam-terminology/-/raw/main/terms_and_definitions_opendrive.adoc
+:imagesdir: {root-path}/images
+:include-only-once: true
+:topicdir: topics
+:reusedir: reuse
+:toclevels: 3
+:xrefstyle: full
+:images_open_simulation_interface: {imagesdir}
+// :images_osi-sensor-model-packaging: ./osi-sensor-model-packaging/doc/images
+:doc_open_simulation_interface: ../../open-simulation-interface/doc/
+:doc_osi-sensor-model-packaging: ../../osi-sensor-model-packaging/doc/
+// Since a document spanning multiple repos is rendered here, the pathing regarding images is a bit involved.
+// We create a variable for every repo that is included. It point to the repo in question.
+// If the subrepo is rendered seperatly, then the variable is set to just "./images" with ifdef.
+// Please note that this variable has to used in all image includes. Includes here have to use "image::./images..."
+// :images_osi_sensor_model_packaging: ./osi-sensor-model-packaging/doc/images  // example
+:imagesoutdir: ./images/generated_images
+
+endif::[]
+
+ifndef::use-antora-rules[]
+include::{asciidoc-resources}/preamble.adoc[]
+endif::[]
+
+ifdef::env-gitlab[]
+:relfilesuffix: .adoc
+endif::[]
+
