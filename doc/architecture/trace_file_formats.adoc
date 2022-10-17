@@ -1,3 +1,8 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+[#top-osi_trace_file_formats]
 = OSI trace file formats
 
 There are multiple formats for storing multiple serialized OSI messages in one trace file.

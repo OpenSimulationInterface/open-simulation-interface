@@ -1,22 +1,9 @@
-ifndef::THIS_STANDARD[]
-
-:asciidoc-resources: ../asciidoc-resources
-include::{asciidoc-resources}/preamble.adoc[]
-
-:revnumber: --localbuild--
-:revdate: {docdate}
-
-:topicdir: topics
-:reusedir: reuse
-
-:imagesdir: .
-:images_open_simulation_interface: ./images
-
-
-endif::[]
-
+:root-path: ./
+include::{root-path}_config.adoc[]
 = Open Simulation Interface
 
+:antora_mapping: title;numbered
+ifndef::use-antora-rules[]
 
 include::./misc/osi_vision.adoc[leveloffset=+1]
 
@@ -115,3 +102,6 @@ include::./setup/installing_windows_python.adoc[leveloffset=+2]
 //== Improving performance
 
 //TODO: Define topics and issues regarding performance.
+
+endif::[]
+:!antora-mapping:
