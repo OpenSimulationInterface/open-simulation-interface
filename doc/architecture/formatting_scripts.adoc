@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Trace-file formatting scripts
 
 The OSI repository contains Python scripts for converting trace files from one format to another.
@@ -49,4 +53,4 @@ The default value is `None`.
 
 **Related topics**
 
-* <<_osi_trace_file_formats>>
+* <<top-osi_trace_file_formats>>
