@@ -20,5 +20,5 @@ jobs:
         token: ${{ secrets.MACHINE_USER_PAT }}
         event-type: antora-build-trigger
         repository: OpenSimulationInterface/osi-antora-generator
-        client-payload: '{"src": "${{ github.repository }}", "ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+        client-payload: '{"src": "${{ github.repository }}", "ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "head_ref": "${{ github.head_ref }}"}'
         
