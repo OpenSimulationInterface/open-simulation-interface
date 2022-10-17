@@ -3,7 +3,7 @@ name: Antora build trigger
 
 on:
   push:
-    branches: [ master, build/master-branch-naming ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
