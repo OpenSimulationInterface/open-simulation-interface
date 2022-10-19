@@ -38,12 +38,12 @@ message ReferenceLine
         // ReferenceLine is a polyline, where the coordinates of points are
         // calculated by projection onto the nearest point on the line.
         //
-        POLYLINE = 0;
+        TYPE_POLYLINE = 0;
 
         // ReferenceLine is a polyline, where the coordinates of points are
         // calculated using the t axis definition.
         //
-        POLYLINE_WITH_T_AXIS = 1;
+        TYPE_POLYLINE_WITH_T_AXIS = 1;
     }
 
     // Points comprising the polyline.
@@ -106,12 +106,12 @@ message ReferenceLine
     // and a projected point (P_proj) on the polyline. There are two ways of
     // defining this point, depending on the ReferenceLine type.
     //
-    // ## Nearest point (Type POLYLINE)
+    // ## Nearest point (TYPE_POLYLINE)
     //
     // The projection point is the nearest point on the polyline (this point might
     // either be on a line segment or at an edge between two line segments).
     //
-    // ## T axis definition (Type POLYLINE_WITH_T_AXIS)
+    // ## T axis definition (TYPE_POLYLINE_WITH_T_AXIS)
     //
     // The T axis (projecting axis) is the line going through P and the
     // intersection point (I). I is defined as the intersection of both
@@ -252,7 +252,7 @@ message ReferenceLine
         //
         // Also see image "S, T coordinates" at #poly_line for reference.
         //
-        // \note This field is only set if the type of the reference line is POLYLINE_WITH_T_AXIS.
+        // \note This field is only set if the type of the reference line is TYPE_POLYLINE_WITH_T_AXIS.
         //
         optional double t_axis_yaw = 3;
     }
