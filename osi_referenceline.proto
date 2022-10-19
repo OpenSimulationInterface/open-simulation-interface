@@ -31,8 +31,17 @@ message ReferenceLine
     //
     optional Identifier id = 1;
 
+    // The type of the reference line.
+    //
     optional Type type = 3;
 
+    // ReferenceLine types
+    //
+    // ReferenceLinePoints might be interpreted diffrently depending on the type
+    // of the ReferenceLine.
+    //
+    // See also: "Adding T coordinates"
+    //
     enum Type
     {
         // ReferenceLine is a polyline, where the coordinates of points are
