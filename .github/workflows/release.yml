@@ -47,7 +47,9 @@ jobs:
           args: antora.sh
           
       - name: Test
-        run: ls
+        run: |
+          cd antora
+          ls
       
       - name: Create artifact
         uses: actions/upload-artifact@v3
