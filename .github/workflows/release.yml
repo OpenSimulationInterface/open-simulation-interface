@@ -75,21 +75,31 @@ jobs:
           - open_simulation_interface_${{ needs.setup.outputs.VERSION }}
           - osi-sensor-model-packaging_${{ needs.setup.outputs.VERSION }}" > "README.txt"
 
+      - name: Zip Release
+        uses: TheDoctor0/zip-release@0.6.2
+        with: 
+          filename: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
+          path: dist
+          
       - name: Create deliverables package
         uses: actions/upload-artifact@v3
         with:
           name: deliverables
-          path: dist
-
-
+          path: dist/ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
 
   publish:
     name: Add deliverables to release
     runs-on: ubuntu-latest
     needs: [deliverables]
     steps:
+      - name: Retrieve previous artifacts
+        uses: actions/download-artifacts@v3
+        with:
+          name: deliverables
+        
       - name: Add deliverables to release
         uses: irongut/EditRelease@v1.2.0
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           id: ${{ github.event.release.id }}
-          files: "deliverables.zip"
+          files: "ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip"
