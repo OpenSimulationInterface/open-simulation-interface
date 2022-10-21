@@ -31,7 +31,7 @@ jobs:
         uses: docker://ghcr.io/asam-ev/project-guide-docker:4
         with:
           entrypoint: sh
-          args: antora/antora --stacktrace --fetch --clean site.yml
+          args: cd antora && antora --stacktrace --fetch --clean site.yml
   
   deliverables:
     name: Create deliverables package
