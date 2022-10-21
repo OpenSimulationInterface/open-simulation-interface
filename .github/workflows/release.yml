@@ -46,6 +46,9 @@ jobs:
           entrypoint: sh
           args: antora.sh
           
+      - name: Test
+        run: ls
+      
       - name: Create artifact
         uses: actions/upload-artifact@v3
         with: 
