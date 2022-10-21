@@ -23,7 +23,7 @@ jobs:
           path: antora
 
       - name: Manipulate site.yml
-        working_directory: antora
+        working-directory: antora
         run: |
           sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
 
@@ -49,8 +49,9 @@ jobs:
           path: dist/osi-sensor-model-packaging
 
       - name: Create README
-        working_directory: dist
-        run: echo "/**********************************************************************************
+        working-directory: dist
+        run: |
+          echo "/**********************************************************************************
           ***  ASAM OSI       		                                                ***
           ***  Version : $VERSION       	                                        ***
           ***  Date:  $(cat DOCDATE)                                                       ***
