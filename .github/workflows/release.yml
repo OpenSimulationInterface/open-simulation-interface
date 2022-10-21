@@ -9,18 +9,20 @@ jobs:
     name: Setup variables
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.var_step.outputs.version }}
+      output1: ${{ steps.var_step.outputs.version }}
+      output2: ${{ steps.var_step.outputs.docdate }}
     steps:
       - name: Checkout interface
         uses: actions/checkout@v3
         with:
           path: dist/open-simulation-interface
-      - name: Set vars
+      - name: Set version
         id: var_step
         working-directory: dist/open-simulation-interface
-        run: |
-          version=$(git describe --tags --always |  sed 's/^v//') >> $GITHUB_OUTPUT 
-          echo $version
+        run: version=$(git describe --tags --always |  sed 's/^v//') >> $GITHUB_OUTPUT 
+      - name: Set date
+        id: date_step
+        run: echo "docdate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
   antora:
     name: Generate Antora content
@@ -80,9 +82,10 @@ jobs:
         with:
           name: antora
 
-      - run: |
-          echo ${{needs.setup.outputs.version}}
-          version=${{needs.setup.outputs.version}}
+      - run: echo ${{needs.setup.outputs.output1}}
+      - run: version=${{needs.setup.outputs.output1}}
+      - run: echo ${{needs.setup.outputs.output2}}
+      - run: docdate=${{needs.setup.outputs.output2}}
       
       - name: Create README
         working-directory: dist
@@ -90,10 +93,10 @@ jobs:
           echo "/**********************************************************************************
           ***  ASAM OSI       		                                                ***
           ***  Version : $version       	                                        ***
-          ***  Date:  $(cat DOCDATE)                                                       ***
+          ***  Date:  $docdate                                                       ***
           **********************************************************************************/
 
-          the deliverables of ASAM OSI $VERSION include:
+          The deliverables of ASAM OSI $VERSION include:
 
           - ASAM_OSI_Standard_$version
           - open_simulation_interface_$version
@@ -127,5 +130,5 @@ jobs:
       - name: Add deliverables to release
         uses: svenstaro/upload-release-action@v2
         with:
-          file: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
+          file: ASAM_OSI_$version.zip
           tag: ${{ github.ref }}
