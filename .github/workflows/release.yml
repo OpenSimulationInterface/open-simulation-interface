@@ -35,7 +35,8 @@ jobs:
       - name: Manipulate site.yml
         working-directory: antora
         run: |
-          sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
+          sed -i -E 's/doxygen: true//g' site.yml
+#         sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
 
       - name: Create run instructions
         run: echo "#!/bin/bash\n\ncd antora\nexec antora --stacktrace --fetch --clean site.yml" > antora.sh
