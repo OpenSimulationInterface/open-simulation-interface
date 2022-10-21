@@ -1,0 +1,80 @@
+name: GitHub Release Pipeline
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  setup:
+    name: Setup variables
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set vars
+        run: VERSION=$(git describe --tags --always |  sed 's/^v//')
+
+  antora:
+    name: Generate Antora content
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Antora generator
+        uses: actions/checkout@v3
+        with:
+          repository: OpenSimulationInterface/osi-antora-generator
+          path: antora
+
+      - name: Manipulate site.yml
+        working_directory: antora
+        run: sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
+
+      - name: Run Antora
+        uses: docker://ghcr.io/asam-ev/project-guide-docker:4
+        with:
+          entrypoint: sh
+          args: antora/run-build.sh
+  
+  deliverables:
+    name: Create deliverables package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout interface
+        uses: actions/checkout@v3
+        with:
+          path: dist/open-simulation-interface
+
+      - name: Checkout sensor model packaging
+        uses: actions/checkout@v3
+        with:
+          repository: OpenSimulationInterface/osi-sensor-model-packaging
+          path: dist/osi-sensor-model-packaging
+
+      - name: Create README
+        working_directory: dist
+        run: echo "/**********************************************************************************
+          ***  ASAM OSI       		                                                ***
+          ***  Version : $VERSION       	                                        ***
+          ***  Date:  $(cat DOCDATE)                                                       ***
+          **********************************************************************************/
+
+          the deliverables of ASAM OSI $VERSION include:
+
+          - ASAM_OSI_Standard_$VERSION
+          - open_simulation_interface_$VERSION
+          - osi-sensor-model-packaging_$VERSION" > "ASAM_OSI_$VERSION/README.txt"
+
+      - name: Create deliverables package
+        uses: actions/upload-artifact@v3
+        with:
+          name: deliverables
+          path: dist
+
+
+
+  publish:
+    name: Add deliverables to release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add deliverables to release
+        uses: irongut/EditRelease@v1.2.0
+        with:
+          id: ${{ github.event.release.id }}
+          files: "deliverables.zip"
