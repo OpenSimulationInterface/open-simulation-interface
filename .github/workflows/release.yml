@@ -8,19 +8,19 @@ jobs:
   setup:
     name: Setup variables
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.var_step.outputs.version }}
     steps:
       - name: Checkout interface
         uses: actions/checkout@v3
         with:
           path: dist/open-simulation-interface
       - name: Set vars
-        id: vars
+        id: var_step
         working-directory: dist/open-simulation-interface
         run: |
-          VERSION=$(git describe --tags --always |  sed 's/^v//') >> $GITHUB_OUTPUT 
-          echo $VERSION
-    outputs:
-      VERSION: ${{ steps.vars.outputs.VERSION }}
+          version=$(git describe --tags --always |  sed 's/^v//') >> $GITHUB_OUTPUT 
+          echo $version
 
   antora:
     name: Generate Antora content
@@ -80,34 +80,37 @@ jobs:
         with:
           name: antora
 
+      - run: |
+          echo ${{needs.setup.outputs.version}}
+          version=${{needs.setup.outputs.version}}
+      
       - name: Create README
         working-directory: dist
         run: |
-          echo ${{ needs.setup.outputs.VERSION }}
           echo "/**********************************************************************************
           ***  ASAM OSI       		                                                ***
-          ***  Version : ${{ needs.setup.outputs.VERSION }}       	                                        ***
+          ***  Version : $version       	                                        ***
           ***  Date:  $(cat DOCDATE)                                                       ***
           **********************************************************************************/
 
           the deliverables of ASAM OSI $VERSION include:
 
-          - ASAM_OSI_Standard_${{ needs.setup.outputs.VERSION }}
-          - open_simulation_interface_${{ needs.setup.outputs.VERSION }}
-          - osi-sensor-model-packaging_${{ needs.setup.outputs.VERSION }}" > "README.txt"
+          - ASAM_OSI_Standard_$version
+          - open_simulation_interface_$version
+          - osi-sensor-model-packaging_$version" > "README.txt"
           cat README.txt
 
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.2
         with: 
-          filename: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
+          filename: ASAM_OSI_$version.zip
           path: dist
           
       - name: Create deliverables package
         uses: actions/upload-artifact@v3
         with:
           name: deliverables
-          path: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
+          path: ASAM_OSI_$version.zip
 
   publish:
     name: Add deliverables to release
@@ -118,7 +121,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: deliverables
-        
+      
+      - run: version=${{needs.setup.outputs.version}}
+      
       - name: Add deliverables to release
         uses: svenstaro/upload-release-action@v2
         with:
