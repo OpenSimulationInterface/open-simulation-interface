@@ -36,10 +36,7 @@ jobs:
       - name: Manipulate site.yml
         working-directory: antora
         run: |
-          cat site.yml
-          sed -i -E 's/doxygen: true//g' site.yml
-          cat site.yml
-#         sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
+          sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
 
 
       - name: Create run instructions
@@ -56,11 +53,6 @@ jobs:
           entrypoint: sh
           args: antora.sh
           
-      - name: Test
-        run: |
-          cd antora
-          ls
-      
       - name: Create artifact
         uses: actions/upload-artifact@v3
         with: 
@@ -111,12 +103,6 @@ jobs:
           filename: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
           path: dist
           
-      - name: test
-        run: |
-          ls
-          cd dist
-          ls
-          
       - name: Create deliverables package
         uses: actions/upload-artifact@v3
         with:
@@ -134,8 +120,7 @@ jobs:
           name: deliverables
         
       - name: Add deliverables to release
-        uses: irongut/EditRelease@v1.2.0
+        uses: svenstaro/upload-release-action@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          id: ${{ github.event.release.id }}
-          files: "ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip"
+          file: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
+          tag: ${{ github.ref }}
