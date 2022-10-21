@@ -86,11 +86,17 @@ jobs:
           filename: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
           path: dist
           
+      - name: test
+        run: |
+          ls -la
+          cd dist
+          ls -la
+          
       - name: Create deliverables package
         uses: actions/upload-artifact@v3
         with:
           name: deliverables
-          path: dist/ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
+          path: ASAM_OSI_${{ needs.setup.outputs.VERSION }}.zip
 
   publish:
     name: Add deliverables to release
@@ -98,7 +104,7 @@ jobs:
     needs: [deliverables, setup]
     steps:
       - name: Retrieve previous artifacts
-        uses: actions/download-artifacts@v3
+        uses: actions/download-artifact@v3
         with:
           name: deliverables
         
