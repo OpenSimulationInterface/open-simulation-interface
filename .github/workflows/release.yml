@@ -42,7 +42,12 @@ jobs:
 
 
       - name: Create run instructions
-        run: echo "#!/bin/bash\n\ncd antora\nexec antora --stacktrace --fetch --clean site.yml" > antora.sh
+        run: |
+          echo "#!/bin/bash
+          
+          cd antora
+          exec antora --stacktrace --fetch --clean site.yml" > antora.sh
+          cat antora.sh
 
       - name: Run Antora
         uses: docker://ghcr.io/asam-ev/project-guide-docker:4
