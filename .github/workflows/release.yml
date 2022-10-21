@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Set vars
         run: VERSION=$(git describe --tags --always |  sed 's/^v//')
+    outputs:
+      VERSION: $VERSION
 
   antora:
     name: Generate Antora content
@@ -58,15 +60,15 @@ jobs:
         run: |
           echo "/**********************************************************************************
           ***  ASAM OSI       		                                                ***
-          ***  Version : $VERSION       	                                        ***
+          ***  Version : ${{ needs.setup.outputs.VERSION }}       	                                        ***
           ***  Date:  $(cat DOCDATE)                                                       ***
           **********************************************************************************/
 
           the deliverables of ASAM OSI $VERSION include:
 
-          - ASAM_OSI_Standard_$VERSION
-          - open_simulation_interface_$VERSION
-          - osi-sensor-model-packaging_$VERSION" > "ASAM_OSI_$VERSION/README.txt"
+          - ASAM_OSI_Standard_${{ needs.setup.outputs.VERSION }}
+          - open_simulation_interface_${{ needs.setup.outputs.VERSION }}
+          - osi-sensor-model-packaging_${{ needs.setup.outputs.VERSION }}" > "ASAM_OSI_${{ needs.setup.outputs.VERSION }}/README.txt"
 
       - name: Create deliverables package
         uses: actions/upload-artifact@v3
