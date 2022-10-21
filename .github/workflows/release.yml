@@ -24,7 +24,8 @@ jobs:
 
       - name: Manipulate site.yml
         working_directory: antora
-        run: sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
+        run: |
+          sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
 
       - name: Run Antora
         uses: docker://ghcr.io/asam-ev/project-guide-docker:4
