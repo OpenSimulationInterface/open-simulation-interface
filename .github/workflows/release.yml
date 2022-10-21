@@ -27,11 +27,15 @@ jobs:
         run: |
           sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
 
+      - name: Create run instructions
+        run: echo "#!/bin/bash\n\ncd antora\nexec antora --stacktrace --fetch --clean site.yml" > antora.sh
+
       - name: Run Antora
         uses: docker://ghcr.io/asam-ev/project-guide-docker:4
         with:
           entrypoint: sh
-          args: cd antora && antora --stacktrace --fetch --clean site.yml
+          args: antora.sh
+
   
   deliverables:
     name: Create deliverables package
