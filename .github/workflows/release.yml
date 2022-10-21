@@ -31,6 +31,7 @@ jobs:
         with:
           repository: OpenSimulationInterface/osi-antora-generator
           path: antora
+          submodules: true
 
       - name: Manipulate site.yml
         working-directory: antora
