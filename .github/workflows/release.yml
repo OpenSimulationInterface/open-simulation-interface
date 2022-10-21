@@ -9,15 +9,20 @@ jobs:
     name: Setup variables
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout interface
+        uses: actions/checkout@v3
+        with:
+          path: dist/open-simulation-interface
       - name: Set vars
-        run: VERSION=$(git describe --tags --always |  sed 's/^v//')
+        working-directory: dist/open-simulation-interface
+        run: VERSION=$(git describe --tags --always |  sed 's/^v//') && echo $VERSION
     outputs:
       VERSION: $VERSION
 
   antora:
     name: Generate Antora content
     runs-on: ubuntu-22.04
-    steps:
+    steps:          
       - name: Checkout Antora generator
         uses: actions/checkout@v3
         with:
@@ -44,10 +49,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [setup,antora]
     steps:
-      - name: Checkout interface
-        uses: actions/checkout@v3
-        with:
-          path: dist/open-simulation-interface
+#       - name: Checkout interface
+#         uses: actions/checkout@v3
+#         with:
+#           path: dist/open-simulation-interface
 
       - name: Checkout sensor model packaging
         uses: actions/checkout@v3
@@ -68,7 +73,7 @@ jobs:
 
           - ASAM_OSI_Standard_${{ needs.setup.outputs.VERSION }}
           - open_simulation_interface_${{ needs.setup.outputs.VERSION }}
-          - osi-sensor-model-packaging_${{ needs.setup.outputs.VERSION }}" > "ASAM_OSI_${{ needs.setup.outputs.VERSION }}/README.txt"
+          - osi-sensor-model-packaging_${{ needs.setup.outputs.VERSION }}" > "README.txt"
 
       - name: Create deliverables package
         uses: actions/upload-artifact@v3
