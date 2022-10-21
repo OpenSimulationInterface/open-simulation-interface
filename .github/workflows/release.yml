@@ -14,10 +14,13 @@ jobs:
         with:
           path: dist/open-simulation-interface
       - name: Set vars
+        id: vars
         working-directory: dist/open-simulation-interface
-        run: VERSION=$(git describe --tags --always |  sed 's/^v//') && echo $VERSION
+        run: |
+          VERSION=$(git describe --tags --always |  sed 's/^v//') >> $GITHUB_OUTPUT 
+          echo $VERSION
     outputs:
-      VERSION: $VERSION
+      VERSION: ${{ steps.vars.outputs.VERSION }}
 
   antora:
     name: Generate Antora content
@@ -63,6 +66,7 @@ jobs:
       - name: Create README
         working-directory: dist
         run: |
+          echo ${{needs.setup.outputs.VERSION}}
           echo "/**********************************************************************************
           ***  ASAM OSI       		                                                ***
           ***  Version : ${{ needs.setup.outputs.VERSION }}       	                                        ***
@@ -74,6 +78,7 @@ jobs:
           - ASAM_OSI_Standard_${{ needs.setup.outputs.VERSION }}
           - open_simulation_interface_${{ needs.setup.outputs.VERSION }}
           - osi-sensor-model-packaging_${{ needs.setup.outputs.VERSION }}" > "README.txt"
+          cat README.txt
 
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.2
@@ -90,7 +95,7 @@ jobs:
   publish:
     name: Add deliverables to release
     runs-on: ubuntu-latest
-    needs: [deliverables]
+    needs: [deliverables, setup]
     steps:
       - name: Retrieve previous artifacts
         uses: actions/download-artifacts@v3
