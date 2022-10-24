@@ -106,7 +106,7 @@ jobs:
           fill $char_count "$version" >> README.txt
           fill $char_count "$date" >> README.txt
           echo "$(repeat $char_count_header "*")/" >> README.txt
-          echo The deliverables of ASAM OSI v${{needs.setup.outputs.output1}} include: 
+          echo "The deliverables of ASAM OSI v${{needs.setup.outputs.output1}} include: 
 
           - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
           - open_simulation_interface_${{needs.setup.outputs.output1}}
