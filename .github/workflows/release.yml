@@ -95,11 +95,11 @@ jobs:
         run: |
           echo "/**********************************************************************************
           ***  ASAM OSI       		                                                ***
-          ***  Version : ${{needs.setup.outputs.output1}}       	                                        ***
-          ***  Date:  ${{needs.setup.outputs.output2}}                                                       ***
+          ***  Version : ${{needs.setup.outputs.output1}}        	                                                 ***
+          ***  Date:  ${{needs.setup.outputs.output2}}                                                         ***
           **********************************************************************************/
 
-          The deliverables of ASAM OSI $VERSION include:
+          The deliverables of ASAM OSI $VERSION include: 
 
           - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
           - open_simulation_interface_${{needs.setup.outputs.output1}}
@@ -116,7 +116,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: deliverables
-          path: ASAM_OSI_$version.zip
+          path: dist/ASAM_OSI_$version.zip
 
   ## Publishing step, where the created zip file is uploaded to the triggering release publication
   publish:
