@@ -9,8 +9,8 @@ jobs:
     name: Setup variables
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.var_step.outputs.version }}
-      output2: ${{ steps.var_step.outputs.docdate }}
+      output1: ${{steps.var_step.outputs.version}}
+      output2: ${{steps.date_step.outputs.docdate}}
     steps:
       - name: Checkout interface
         uses: actions/checkout@v3
@@ -23,6 +23,7 @@ jobs:
       - name: Set date
         id: date_step
         run: echo "docdate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      - run: echo ${{steps.var_step.outputs.version}} ${{steps.date_step.outputs.docdate}}
 
   antora:
     name: Generate Antora content
