@@ -2,7 +2,7 @@ name: GitHub Release Pipeline
 
 on:
   release:
-    types: [released]
+    types: [published]
 
 jobs:
   ## Pepararation job for setting up relevant variables
