@@ -109,14 +109,14 @@ jobs:
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.2
         with: 
-          filename: ASAM_OSI_$version.zip
+          filename: ASAM_OSI_${{needs.setup.outputs.output1}}.zip
           directory: dist
       # Upload the created artifact for the publish job
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: deliverables
-          path: dist/ASAM_OSI_$version.zip
+          path: dist/ASAM_OSI_${{needs.setup.outputs.output1}}.zip
 
   ## Publishing step, where the created zip file is uploaded to the triggering release publication
   publish:
