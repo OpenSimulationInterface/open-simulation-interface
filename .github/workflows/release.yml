@@ -19,7 +19,8 @@ jobs:
       - name: Set version
         id: var_step
         working-directory: dist/open-simulation-interface
-        run: version=$(git describe --tags --always |  sed 's/^v//') >> $GITHUB_OUTPUT 
+        run: echo "version=$(git describe --tags --always |  sed 's/^v//')" >> $GITHUB_OUTPUT 
+          
       - name: Set date
         id: date_step
         run: echo "docdate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
