@@ -49,6 +49,8 @@ jobs:
       # Create custom build instructions for GitHub compatibility
       - name: Create run instructions
         run: |
+          echo "#!/bin/bash
+          
           cd antora
           exec antora --stacktrace --fetch --clean site.yml" > antora.sh
           cat antora.sh
