@@ -99,7 +99,7 @@ jobs:
           ***  Date:  ${{needs.setup.outputs.output2}}                                                          ***
           **********************************************************************************/
 
-          The deliverables of ASAM OSI $VERSION include: 
+          The deliverables of ASAM OSI v${{needs.setup.outputs.output1}} include: 
 
           - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
           - open_simulation_interface_${{needs.setup.outputs.output1}}
