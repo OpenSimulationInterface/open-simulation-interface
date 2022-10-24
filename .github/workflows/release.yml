@@ -94,9 +94,9 @@ jobs:
         working-directory: dist
         run: |
           echo "/**********************************************************************************
-          ***  ASAM OSI       		                                                ***
-          ***  Version : ${{needs.setup.outputs.output1}}        	                                                 ***
-          ***  Date:  ${{needs.setup.outputs.output2}}                                                         ***
+          ***  ASAM OSI       		                                                    ***
+          ***  Version : ${{needs.setup.outputs.output1}}        	                                                ***
+          ***  Date:  ${{needs.setup.outputs.output2}}                                                          ***
           **********************************************************************************/
 
           The deliverables of ASAM OSI $VERSION include: 
