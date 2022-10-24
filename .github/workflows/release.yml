@@ -5,132 +5,131 @@ on:
     types: [released]
 
 jobs:
+  ## Pepararation job for setting up relevant variables
   setup:
     name: Setup variables
     runs-on: ubuntu-latest
+    # Declare output variables to be usable in other jobs
     outputs:
       output1: ${{steps.var_step.outputs.version}}
       output2: ${{steps.date_step.outputs.docdate}}
     steps:
+      # Check out the GitHub repository
       - name: Checkout interface
         uses: actions/checkout@v3
         with:
           path: dist/open-simulation-interface
+      # Set the version variable based on the latest tag (could be replaced with github-internal predefined variable?)
       - name: Set version
         id: var_step
         working-directory: dist/open-simulation-interface
         run: echo "version=$(git describe --tags --always |  sed 's/^v//')" >> $GITHUB_OUTPUT 
-          
+      # Set the release date (current date)
       - name: Set date
         id: date_step
         run: echo "docdate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-      - run: echo ${{steps.var_step.outputs.version}} ${{steps.date_step.outputs.docdate}}
-
+      
+  ## Antora job, responsible for creating the Antora output of the release
   antora:
     name: Generate Antora content
     runs-on: ubuntu-22.04
     steps:          
+      # Check out the Antora generator
       - name: Checkout Antora generator
         uses: actions/checkout@v3
         with:
           repository: OpenSimulationInterface/osi-antora-generator
           path: antora
           submodules: true
-
+      # Remove building branches for the main repositories. This will lead to Antora only using the tagged versions to build its content.
       - name: Manipulate site.yml
         working-directory: antora
         run: |
           sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
-
-
+      # Create custom build instructions for GitHub compatibility
       - name: Create run instructions
         run: |
-          echo "#!/bin/bash
-          
           cd antora
           exec antora --stacktrace --fetch --clean site.yml" > antora.sh
           cat antora.sh
-
+      # Run Antora to generate the document
       - name: Run Antora
         uses: docker://ghcr.io/asam-ev/project-guide-docker:4
         with:
           entrypoint: sh
           args: antora.sh
-          
-      - name: Create artifact
+      # Upload the created artifact for later jobs to use
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with: 
           name: antora
           path: antora/site
   
+  ## Step for creating the zip file with all deliverables
   deliverables:
     name: Create deliverables package
     runs-on: ubuntu-latest
     needs: [setup,antora]
     steps:
+      # Check out the repository (again)
       - name: Checkout interface
         uses: actions/checkout@v3
         with:
           path: dist/open-simulation-interface
-
+      # Check out the sensor model packaging repo
       - name: Checkout sensor model packaging
         uses: actions/checkout@v3
         with:
           repository: OpenSimulationInterface/osi-sensor-model-packaging
           path: dist/osi-sensor-model-packaging
-          
+      # Retrieve the Antora artifact from the previous job
       - name: Retrieve Antora artifact
         uses: actions/download-artifact@v3
         with:
           name: antora
-
-      - run: echo ${{needs.setup.outputs.output1}}
-      - run: version=${{needs.setup.outputs.output1}}
-      - run: echo ${{needs.setup.outputs.output2}}
-      - run: docdate=${{needs.setup.outputs.output2}}
-      
+      # Create the mandatory README.txt file for the deliverables package
       - name: Create README
         working-directory: dist
         run: |
           echo "/**********************************************************************************
           ***  ASAM OSI       		                                                ***
-          ***  Version : $version       	                                        ***
-          ***  Date:  $docdate                                                       ***
+          ***  Version : ${{needs.setup.outputs.output1}}       	                                        ***
+          ***  Date:  ${{needs.setup.outputs.output2}}                                                       ***
           **********************************************************************************/
 
           The deliverables of ASAM OSI $VERSION include:
 
-          - ASAM_OSI_Standard_$version
-          - open_simulation_interface_$version
-          - osi-sensor-model-packaging_$version" > "README.txt"
+          - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
+          - open_simulation_interface_${{needs.setup.outputs.output1}}
+          - osi-sensor-model-packaging_${{needs.setup.outputs.output1}}" > "README.txt"
           cat README.txt
-
+      # Package all collected deliverables
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.2
         with: 
           filename: ASAM_OSI_$version.zip
-          path: dist
-          
-      - name: Create deliverables package
+          directory: dist
+      # Upload the created artifact for the publish job
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: deliverables
           path: ASAM_OSI_$version.zip
 
+  ## Publishing step, where the created zip file is uploaded to the triggering release publication
   publish:
     name: Add deliverables to release
     runs-on: ubuntu-latest
     needs: [deliverables, setup]
     steps:
+      # Retrieve the previously uploaded deliverables artifact
       - name: Retrieve previous artifacts
         uses: actions/download-artifact@v3
         with:
           name: deliverables
-      
-      - run: version=${{needs.setup.outputs.version}}
-      
+      # Add the new zip file with the deliverables to the respective release
       - name: Add deliverables to release
         uses: svenstaro/upload-release-action@v2
         with:
-          file: ASAM_OSI_$version.zip
+          file: ASAM_OSI_${{needs.setup.outputs.output1}}.zip
           tag: ${{ github.ref }}
