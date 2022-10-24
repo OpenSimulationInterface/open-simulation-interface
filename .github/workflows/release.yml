@@ -93,17 +93,24 @@ jobs:
       - name: Create README
         working-directory: dist
         run: |
-          echo "/**********************************************************************************
-          ***  ASAM OSI       		                                                    ***
-          ***  Version : ${{needs.setup.outputs.output1}}        	                                                ***
-          ***  Date:  ${{needs.setup.outputs.output2}}                                                          ***
-          **********************************************************************************/
-
-          The deliverables of ASAM OSI v${{needs.setup.outputs.output1}} include: 
+          declare -i char_count=84
+          declare -i char_count_header=$char_count-1
+          repeat(){ for i in $(eval echo {1..$1}); do echo -n "$2"; done; echo ""; }
+          fill(){ declare -i length=$1-${#2}-9; spaces=$(repeat $length ".");echo "***" "$2" "${spaces//./ }" "***"; }
+          name="ASAM OSI"
+          version="Version: ${{needs.setup.outputs.output1}}"
+          date="Date: ${{needs.setup.outputs.output2}}"
+          
+          echo "/$(repeat $char_count_header "*")" > README.txt
+          fill $char_count "$name" >> README.txt
+          fill $char_count "$version" >> README.txt
+          fill $char_count "$date" >> README.txt
+          echo "$(repeat $char_count_header "*")/" >> README.txt
+          echo The deliverables of ASAM OSI v${{needs.setup.outputs.output1}} include: 
 
           - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
           - open_simulation_interface_${{needs.setup.outputs.output1}}
-          - osi-sensor-model-packaging_${{needs.setup.outputs.output1}}" > "README.txt"
+          - osi-sensor-model-packaging_${{needs.setup.outputs.output1}}" >> "README.txt"
           cat README.txt
       # Package all collected deliverables
       - name: Zip Release
