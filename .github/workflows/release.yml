@@ -89,7 +89,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: antora
-      # Create the mandatory README.txt file for the deliverables package
+      # Move downloaded Antora artifact to the correct location
+      - name: Move and rename Antora artifact (ASAM_OSI_Standard)
+        run: |
+          ls
+          mv antora/site/ dist/ASAM_OSI_Standard_${{needs.setup.outputs.output1}}/
+      # Create the mandatory README.txt file for the deliverables package. The functions and variables declared below will create a readme file with a defined header, surrounded by a box made of "*".
       - name: Create README
         working-directory: dist
         run: |
