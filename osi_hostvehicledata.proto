@@ -86,6 +86,11 @@ message HostVehicleData
     // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
+    
+    // Interface regarding the vehicle kinematics.
+    //
+    optional VehicleKinematics vehicle_kinematics = 13; 
+
 
     //
     // \brief Base parameters and overall states of the vehicle.
@@ -336,6 +341,31 @@ message HostVehicleData
         //
         optional GeodeticPosition geodetic_position = 3;
     }
+
+    //
+    // \brief Current calculated and estimated acceleration, velocity and orientation rate on Inertial Measurement Unit measurements and related sensors.
+    //
+    // This message contains the most accurate information the vehicle knows about its velocity, 
+    // acceleration and orientation rate available in the on-board network.
+    //   
+    message VehicleKinematics
+    {
+        // Most accurate velocity information of the vehicle, available in the on-board network.
+        // The velocity is represented in context to the coordinate system of the vehicle.
+        //
+        optional Vector3d velocity = 1;
+
+        // Most accurate acceleration information of the vehicle, available in the on-board network.
+        // The acceleration is represented in context to the coordinate system of the vehicle.
+        //
+        optional Vector3d acceleration = 2;
+
+        // Most accurate orientation rate of the vehicle, available in the on-board network.
+        // The orientation rate is represented in context to the coordinate system of the vehicle.
+        //
+        optional Orientation3d orientation_rate = 3;
+    }
+
 
     //
     // \brief State of one automated driving function on the host vehicle.
