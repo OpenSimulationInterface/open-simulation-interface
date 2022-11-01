@@ -100,7 +100,7 @@ message DetectedItemHeader
 
         // Tracked object is temporarily occluded by another entity.
         //
-        MEASUREMENT_STATE_PREDICED_OCCLUDED = 6;
+        MEASUREMENT_STATE_PREDICTED_OCCLUDED = 6;
 
         // The object is invalid in this cycle.
         //
