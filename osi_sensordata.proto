@@ -76,7 +76,7 @@ message DetectedEntityHeader
 
         // Reported data are from the sensor in a restricted view and performance.
         //
-        DATA_QUALIFIER_REDUCE_INVIEW_AND_PERFORMANCE = 7;
+        DATA_QUALIFIER_REDUCE_IN_COVERAGE_AND_PERFORMANCE = 7;
 
         // Reported data are from the sensor in a test mode.
         //
