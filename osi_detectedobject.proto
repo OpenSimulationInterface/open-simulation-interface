@@ -96,7 +96,7 @@ message DetectedItemHeader
         // object. The remaining signals of this object are unchanged
         // or predicted for this measurement cycle.
         //
-        MEASUREMENT_STATE_PARTIALLY_MEASURED = 5;
+        MEASUREMENT_STATE_PARTLY_MEASURED = 5;
 
         // Tracked object is temporarily occluded by another entity.
         //
