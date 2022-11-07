@@ -387,6 +387,68 @@ message LogicalLaneAssignment
     optional double angle_to_lane = 4;
 }
 
+// 
+// Note: The parent bounding box of the base object should not be setup as a BoundingBox, use the dimension field of the message for this (make this clear in a support image)
+message BoundingBox
+{
+    // The 3D dimensions of the bounding box.
+    //
+    optional Dimension3d dimension = 1;
+
+    // The 3D position of the bounding box.
+    //
+    // TODO: Make sure this is clear that the position is "absolute" to the GT frame
+    optional Vector3d position = 2;
+
+    // TODO: make sure this is clear, the parent frame is intended to mean the GT frame for this use-case
+    // The relative orientation of the bounding box w.r.t. its parent
+    // frame, noted in the parent frame. The orientation becomes global/absolute
+    // if the parent frame is inertial (all parent frames up to ground truth).
+    //
+    // \f$ Origin_{\text{base stationary entity}} :=
+    // Rotation_{yaw,pitch,roll}( \f$ \c #orientation \f$ )*
+    // (Origin_{\text{parent coord system}} -
+    // \f$ \c #position \f$ )\f$
+    //
+    //
+    optional Orientation3d orientation = 3;
+
+    // The type of object contained in the bounding box.
+    //
+    optional TYPE contained_object_type = 4; 
+
+    // Opaque reference of an associated 3D model of the bounding box.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models.
+    //
+    // TODO: Do we want to offer general guidelines regarding the origin of the 3d model vs the BoundingBox pos, Object pos, etc.
+    //
+    optional string model_reference = 5;
+
+    // TODO: See if this can be aligned to the way other OSI enums are named
+    enum Type
+    {
+        // General stuff
+        TYPE_UNKNOWN = 0;
+        TYPE_OTHER = 1;
+
+        // Car stuff
+        TYPE_CHASIS = 2;
+        TYPE_DOOR = 3;
+        TYPE_SIDEMIRROR = 4;
+        TYPE_CARGO = 5;
+
+        // People/animal stuff
+        // TODO: Those interested in pedestrian modeling need to add their input here
+        TYPE_TORSO = 6;
+        TYPE_LIMB = 7;
+        TYPE_HEAD = 8;
+
+        // TODO: Do we want to handle data for BaseStationary here as well? What problems would having this solve?
+    }
+}
+
 //
 // \brief The base attributes of a stationary object or entity.
 //
@@ -569,6 +631,12 @@ message BaseMoving
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 7;
+    
+    // Sub-divisions of the overall bounding box of the BaseMoving object.
+    //
+    // \note The bounding box sections can include side mirrors for vehicles.
+    //
+    repeated BoundingBox bounding_box_section = 9;
 }
 
 //
