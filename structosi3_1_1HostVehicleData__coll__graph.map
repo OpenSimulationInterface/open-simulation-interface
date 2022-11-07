@@ -1,23 +1,33 @@
 <map id="osi3::HostVehicleData" name="osi3::HostVehicleData">
-<area shape="rect" id="node2" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving. " alt="" coords="896,420,1032,447"/>
-<area shape="rect" id="node3" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="427,331,573,357"/>
-<area shape="rect" id="node24" href="$structosi3_1_1HostVehicleData_1_1VehicleLocalization.html" title="Current calculated and estimated location that can be based on GNSS and related navigation sensors..." alt="" coords="881,227,1047,269"/>
-<area shape="rect" id="node5" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="429,443,571,469"/>
-<area shape="rect" id="node6" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="443,181,557,208"/>
-<area shape="rect" id="node7" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="443,392,557,419"/>
-<area shape="rect" id="node12" href="$structosi3_1_1HostVehicleData_1_1VehicleBasics.html" title="Base parameters and overall states of the vehicle. " alt="" coords="417,687,583,729"/>
-<area shape="rect" id="node21" href="$structosi3_1_1VehicleSteeringWheel.html" title="A description of the steering wheel. " alt="" coords="401,268,599,295"/>
-<area shape="rect" id="node25" href="$structosi3_1_1GeodeticPosition.html" title="The geodetic position of an object, that is, the center of the 3D bounding box. " alt="" coords="417,99,583,125"/>
-<area shape="rect" id="node26" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html" title="State description of the powertrain. " alt="" coords="881,582,1047,623"/>
-<area shape="rect" id="node28" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain_1_1Motor.html" title="A description of the motor states. " alt="" coords="404,622,596,663"/>
-<area shape="rect" id="node30" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html" title="The focus here is on the description of internal wheel states. " alt="" coords="397,754,603,795"/>
-<area shape="rect" id="node31" href="$structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html" title="The focus here is on the description of the brake system. " alt="" coords="649,33,815,74"/>
-<area shape="rect" id="node8" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="435,895,565,921"/>
-<area shape="rect" id="node11" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="651,833,813,860"/>
-<area shape="rect" id="node14" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html" title="State of one automated driving function on the host vehicle. " alt="" coords="839,1059,1089,1101"/>
-<area shape="rect" id="node15" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html" title="Driver override information. " alt="" coords="375,1141,625,1197"/>
-<area shape="rect" id="node17" href="$structosi3_1_1KeyValuePair.html" title="Generic key&#45;value pair structure. " alt="" coords="429,1040,571,1067"/>
-<area shape="rect" id="node20" href="$structosi3_1_1HostVehicleData_1_1VehicleSteering.html" title="The focus here is on the description of the steering train. " alt="" coords="881,313,1047,354"/>
-<area shape="rect" id="node22" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="907,1212,1021,1239"/>
-<area shape="rect" id="node29" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels.html" title="The focus here is on the description of internal wheel states. " alt="" coords="881,754,1047,795"/>
+<area shape="rect" id="node1" title="Host vehicle data is about the perception of the vehicle about its own internal states." alt="" coords="1317,692,1483,719"/>
+<area shape="rect" id="node2" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving." alt="" coords="894,420,1031,447"/>
+<area shape="rect" id="node3" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="425,331,572,357"/>
+<area shape="rect" id="node24" href="$structosi3_1_1HostVehicleData_1_1VehicleLocalization.html" title="Current calculated and estimated location that can be based on GNSS and related navigation sensors." alt="" coords="880,227,1045,269"/>
+<area shape="rect" id="node4" title=" " alt="" coords="33,391,155,417"/>
+<area shape="rect" id="node5" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="427,443,570,469"/>
+<area shape="rect" id="node6" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="441,181,556,208"/>
+<area shape="rect" id="node7" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="441,392,556,419"/>
+<area shape="rect" id="node12" href="$structosi3_1_1HostVehicleData_1_1VehicleBasics.html" title="Base parameters and overall states of the vehicle." alt="" coords="416,687,581,729"/>
+<area shape="rect" id="node21" href="$structosi3_1_1VehicleSteeringWheel.html" title="A description of the steering wheel." alt="" coords="399,268,598,295"/>
+<area shape="rect" id="node25" href="$structosi3_1_1GeodeticPosition.html" title="The geodetic position of an object, that is, the center of the 3D bounding box." alt="" coords="415,99,582,125"/>
+<area shape="rect" id="node26" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html" title="State description of the powertrain." alt="" coords="880,582,1045,623"/>
+<area shape="rect" id="node28" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain_1_1Motor.html" title="A description of the motor states." alt="" coords="402,622,595,663"/>
+<area shape="rect" id="node30" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels_1_1WheelData.html" title="The focus here is on the description of internal wheel states." alt="" coords="396,754,601,795"/>
+<area shape="rect" id="node31" href="$structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html" title="The focus here is on the description of the brake system." alt="" coords="648,33,813,74"/>
+<area shape="rect" id="node8" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="433,895,564,921"/>
+<area shape="rect" id="node9" title=" " alt="" coords="38,935,150,961"/>
+<area shape="rect" id="node10" title=" " alt="" coords="34,844,154,871"/>
+<area shape="rect" id="node11" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number." alt="" coords="649,833,812,860"/>
+<area shape="rect" id="node13" title=" " alt="" coords="5,709,183,736"/>
+<area shape="rect" id="node14" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html" title="State of one automated driving function on the host vehicle." alt="" coords="837,1059,1088,1101"/>
+<area shape="rect" id="node15" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction_1_1DriverOverride.html" title="Driver override information." alt="" coords="373,1141,624,1197"/>
+<area shape="rect" id="node16" title=" " alt="" coords="439,1221,558,1248"/>
+<area shape="rect" id="node17" href="$structosi3_1_1KeyValuePair.html" title="Generic key&#45;value pair structure." alt="" coords="428,1040,569,1067"/>
+<area shape="rect" id="node18" title=" " alt="" coords="36,1007,152,1033"/>
+<area shape="rect" id="node19" title=" " alt="" coords="442,1091,555,1117"/>
+<area shape="rect" id="node20" href="$structosi3_1_1HostVehicleData_1_1VehicleSteering.html" title="The focus here is on the description of the steering train." alt="" coords="880,313,1045,354"/>
+<area shape="rect" id="node22" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="905,1212,1020,1239"/>
+<area shape="rect" id="node23" title=" " alt="" coords="439,1272,559,1299"/>
+<area shape="rect" id="node27" title=" " alt="" coords="443,571,555,597"/>
+<area shape="rect" id="node29" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels.html" title="The focus here is on the description of internal wheel states." alt="" coords="880,754,1045,795"/>
 </map>

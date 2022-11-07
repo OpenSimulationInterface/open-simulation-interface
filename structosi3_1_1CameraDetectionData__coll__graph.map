@@ -1,11 +1,20 @@
 <map id="osi3::CameraDetectionData" name="osi3::CameraDetectionData">
-<area shape="rect" id="node2" href="$structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list. " alt="" coords="801,208,1012,235"/>
-<area shape="rect" id="node3" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="369,396,500,423"/>
-<area shape="rect" id="node13" href="$structosi3_1_1CameraDetection.html" title="Camera detection from the sensor. " alt="" coords="821,564,992,591"/>
-<area shape="rect" id="node18" href="$structosi3_1_1CameraDetectionSpecificHeader.html" title="Specific header extension for camera sensors. " alt="" coords="556,425,777,466"/>
-<area shape="rect" id="node7" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="350,89,519,116"/>
-<area shape="rect" id="node8" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="377,241,492,268"/>
-<area shape="rect" id="node10" href="$structosi3_1_1CameraPoint.html" title="Camera point from the sensor. " alt="" coords="836,1133,977,1160"/>
-<area shape="rect" id="node11" href="$structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space. " alt="" coords="368,1125,501,1152"/>
-<area shape="rect" id="node15" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces. " alt="" coords="352,497,517,524"/>
+<area shape="rect" id="node1" title="Data from one camera sensor including a list of detections." alt="" coords="1125,503,1328,529"/>
+<area shape="rect" id="node2" href="$structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list." alt="" coords="801,208,1012,235"/>
+<area shape="rect" id="node3" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="369,396,500,423"/>
+<area shape="rect" id="node13" href="$structosi3_1_1CameraDetection.html" title="Camera detection from the sensor." alt="" coords="821,564,992,591"/>
+<area shape="rect" id="node4" title=" " alt="" coords="7,423,127,449"/>
+<area shape="rect" id="node18" href="$structosi3_1_1CameraDetectionSpecificHeader.html" title="Specific header extension for camera sensors." alt="" coords="556,425,777,466"/>
+<area shape="rect" id="node5" title=" " alt="" coords="337,140,532,167"/>
+<area shape="rect" id="node6" title=" " alt="" coords="352,191,517,217"/>
+<area shape="rect" id="node7" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor." alt="" coords="349,89,520,116"/>
+<area shape="rect" id="node8" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="377,241,492,268"/>
+<area shape="rect" id="node9" title=" " alt="" coords="7,91,127,117"/>
+<area shape="rect" id="node10" href="$structosi3_1_1CameraPoint.html" title="Camera point from the sensor." alt="" coords="836,1133,977,1160"/>
+<area shape="rect" id="node11" href="$structosi3_1_1Spherical3d.html" title="A spherical representation for a point or vector in 3D space." alt="" coords="368,1125,501,1152"/>
+<area shape="rect" id="node12" title=" " alt="" coords="5,1125,128,1152"/>
+<area shape="rect" id="node14" title=" " alt="" coords="381,1073,488,1100"/>
+<area shape="rect" id="node15" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="352,497,517,524"/>
+<area shape="rect" id="node16" title=" " alt="" coords="339,625,530,652"/>
+<area shape="rect" id="node17" title=" " alt="" coords="378,676,491,703"/>
 </map>

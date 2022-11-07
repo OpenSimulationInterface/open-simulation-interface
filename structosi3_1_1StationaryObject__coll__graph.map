@@ -1,19 +1,27 @@
 <map id="osi3::StationaryObject" name="osi3::StationaryObject">
-<area shape="rect" id="node2" href="$structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object. " alt="" coords="754,291,921,333"/>
-<area shape="rect" id="node4" href="$structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane. " alt="" coords="299,67,510,93"/>
-<area shape="rect" id="node5" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="5,67,120,93"/>
-<area shape="rect" id="node8" href="$structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure. " alt="" coords="285,219,524,275"/>
-<area shape="rect" id="node11" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces. " alt="" coords="755,665,920,692"/>
-<area shape="rect" id="node12" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model. " alt="" coords="339,716,471,743"/>
-<area shape="rect" id="node13" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model. " alt="" coords="343,767,466,793"/>
-<area shape="rect" id="node14" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model. " alt="" coords="341,513,469,540"/>
-<area shape="rect" id="node15" href="$structosi3_1_1ColorRGB.html" title="RGB color model. " alt="" coords="345,564,464,591"/>
-<area shape="rect" id="node16" href="$structosi3_1_1ColorHSV.html" title="HSV color model. " alt="" coords="345,615,464,641"/>
-<area shape="rect" id="node17" href="$structosi3_1_1ColorLUV.html" title="LUV color model. " alt="" coords="347,665,463,692"/>
-<area shape="rect" id="node18" href="$structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="749,809,925,836"/>
-<area shape="rect" id="node21" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="759,996,915,1023"/>
-<area shape="rect" id="node22" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="331,1047,478,1073"/>
-<area shape="rect" id="node23" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="333,1097,476,1124"/>
-<area shape="rect" id="node24" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="347,945,462,972"/>
-<area shape="rect" id="node25" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="347,996,462,1023"/>
+<area shape="rect" id="node1" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g." alt="" coords="1092,720,1259,747"/>
+<area shape="rect" id="node2" href="$structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object." alt="" coords="755,291,921,333"/>
+<area shape="rect" id="node3" title=" " alt="" coords="350,349,459,376"/>
+<area shape="rect" id="node4" href="$structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane." alt="" coords="299,67,510,93"/>
+<area shape="rect" id="node5" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="5,67,120,93"/>
+<area shape="rect" id="node6" title=" " alt="" coords="338,117,471,144"/>
+<area shape="rect" id="node7" title=" " alt="" coords="340,168,469,195"/>
+<area shape="rect" id="node8" href="$structosi3_1_1StationaryObject_1_1Classification_1_1EmittingStructureAttribute.html" title="Attributes of type emitting structure." alt="" coords="285,219,524,275"/>
+<area shape="rect" id="node9" title=" " alt="" coords="348,299,461,325"/>
+<area shape="rect" id="node10" title=" " alt="" coords="341,400,469,427"/>
+<area shape="rect" id="node11" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="755,665,921,692"/>
+<area shape="rect" id="node12" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="339,716,471,743"/>
+<area shape="rect" id="node13" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model." alt="" coords="343,767,466,793"/>
+<area shape="rect" id="node14" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="340,513,469,540"/>
+<area shape="rect" id="node15" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="345,564,464,591"/>
+<area shape="rect" id="node16" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="345,615,464,641"/>
+<area shape="rect" id="node17" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="346,665,463,692"/>
+<area shape="rect" id="node18" href="$structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="749,809,927,836"/>
+<area shape="rect" id="node19" title=" " alt="" coords="344,817,465,844"/>
+<area shape="rect" id="node20" title=" " alt="" coords="347,879,463,905"/>
+<area shape="rect" id="node21" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity." alt="" coords="760,996,916,1023"/>
+<area shape="rect" id="node22" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="331,1047,478,1073"/>
+<area shape="rect" id="node23" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="333,1097,476,1124"/>
+<area shape="rect" id="node24" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="347,945,462,972"/>
+<area shape="rect" id="node25" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="347,996,462,1023"/>
 </map>

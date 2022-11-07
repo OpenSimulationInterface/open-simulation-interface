@@ -1,5 +1,7 @@
 <map id="osi3::HostVehicleData::VehicleLocalization" name="osi3::HostVehicleData::VehicleLocalization">
-<area shape="rect" id="node2" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="5,124,152,151"/>
-<area shape="rect" id="node4" href="$structosi3_1_1GeodeticPosition.html" title="The geodetic position of an object, that is, the center of the 3D bounding box. " alt="" coords="177,124,343,151"/>
-<area shape="rect" id="node5" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="368,124,483,151"/>
+<area shape="rect" id="node1" title="Current calculated and estimated location that can be based on GNSS and related navigation sensors." alt="" coords="177,213,343,255"/>
+<area shape="rect" id="node2" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="5,124,152,151"/>
+<area shape="rect" id="node3" title=" " alt="" coords="199,5,321,32"/>
+<area shape="rect" id="node4" href="$structosi3_1_1GeodeticPosition.html" title="The geodetic position of an object, that is, the center of the 3D bounding box." alt="" coords="177,124,343,151"/>
+<area shape="rect" id="node5" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="368,124,483,151"/>
 </map>

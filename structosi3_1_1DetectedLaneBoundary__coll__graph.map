@@ -1,15 +1,20 @@
 <map id="osi3::DetectedLaneBoundary" name="osi3::DetectedLaneBoundary">
-<area shape="rect" id="node2" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces. " alt="" coords="754,420,919,447"/>
-<area shape="rect" id="node3" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model. " alt="" coords="432,561,564,588"/>
-<area shape="rect" id="node5" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model. " alt="" coords="437,360,559,387"/>
-<area shape="rect" id="node6" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model. " alt="" coords="434,420,562,447"/>
-<area shape="rect" id="node7" href="$structosi3_1_1ColorRGB.html" title="RGB color model. " alt="" coords="439,227,557,253"/>
-<area shape="rect" id="node8" href="$structosi3_1_1ColorHSV.html" title="HSV color model. " alt="" coords="439,488,557,515"/>
-<area shape="rect" id="node9" href="$structosi3_1_1ColorLUV.html" title="LUV color model. " alt="" coords="440,301,556,328"/>
-<area shape="rect" id="node10" href="$structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html" title="A candidate for a detected lane boundary as estimated by the sensor. " alt="" coords="732,630,941,671"/>
-<area shape="rect" id="node13" href="$structosi3_1_1DetectedItemHeader.html" title="The common information for a detected item as estimated by the sensor. " alt="" coords="401,777,595,804"/>
-<area shape="rect" id="node15" href="$structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. " alt="" coords="761,81,912,122"/>
-<area shape="rect" id="node17" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="441,135,555,161"/>
-<area shape="rect" id="node11" href="$structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification of a lane boundary. " alt="" coords="423,703,573,745"/>
-<area shape="rect" id="node12" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="49,757,164,784"/>
+<area shape="rect" id="node1" title="A lane boundary segment as detected by the sensor." alt="" coords="1167,637,1376,664"/>
+<area shape="rect" id="node2" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="750,420,915,447"/>
+<area shape="rect" id="node3" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="428,561,560,588"/>
+<area shape="rect" id="node4" title=" " alt="" coords="45,376,168,403"/>
+<area shape="rect" id="node5" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model." alt="" coords="433,360,555,387"/>
+<area shape="rect" id="node6" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="429,420,559,447"/>
+<area shape="rect" id="node7" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="435,227,553,253"/>
+<area shape="rect" id="node8" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="435,488,553,515"/>
+<area shape="rect" id="node9" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="435,301,553,328"/>
+<area shape="rect" id="node10" href="$structosi3_1_1DetectedLaneBoundary_1_1CandidateLaneBoundary.html" title="A candidate for a detected lane boundary as estimated by the sensor." alt="" coords="728,630,937,671"/>
+<area shape="rect" id="node13" href="$structosi3_1_1DetectedItemHeader.html" title="The common information for a detected item as estimated by the sensor." alt="" coords="397,777,591,804"/>
+<area shape="rect" id="node15" href="$structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary." alt="" coords="757,81,908,122"/>
+<area shape="rect" id="node17" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="437,135,551,161"/>
+<area shape="rect" id="node11" href="$structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification of a lane boundary." alt="" coords="419,703,569,745"/>
+<area shape="rect" id="node12" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="49,757,164,784"/>
+<area shape="rect" id="node14" title=" " alt="" coords="5,843,208,869"/>
+<area shape="rect" id="node16" title=" " alt="" coords="438,5,550,32"/>
+<area shape="rect" id="node18" title=" " alt="" coords="769,768,897,795"/>
 </map>

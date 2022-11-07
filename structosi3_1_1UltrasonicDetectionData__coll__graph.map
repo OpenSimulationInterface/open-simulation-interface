@@ -1,10 +1,16 @@
 <map id="osi3::UltrasonicDetectionData" name="osi3::UltrasonicDetectionData">
-<area shape="rect" id="node2" href="$structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list. " alt="" coords="931,200,1141,227"/>
-<area shape="rect" id="node3" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="559,63,689,89"/>
-<area shape="rect" id="node14" href="$structosi3_1_1UltrasonicDetectionSpecificHeader.html" title="Specific header extension for ultrasonic sensors. " alt="" coords="531,341,717,382"/>
-<area shape="rect" id="node7" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor. " alt="" coords="539,289,709,316"/>
-<area shape="rect" id="node8" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="192,423,307,449"/>
-<area shape="rect" id="node12" href="$structosi3_1_1UltrasonicIndirectDetection.html" title="Ultrasonic detection received by another ultrasonic sensor (different sensors as sender and receiver)..." alt="" coords="950,513,1122,554"/>
-<area shape="rect" id="node13" href="$structosi3_1_1UltrasonicDetection.html" title="Ultrasonic detection from the sensor (same sensor as sender and receiver). " alt="" coords="943,405,1129,432"/>
-<area shape="rect" id="node10" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="567,407,681,433"/>
+<area shape="rect" id="node1" title="Data from one ultrasonic sensor including a list of detections." alt="" coords="1311,347,1528,373"/>
+<area shape="rect" id="node2" href="$structosi3_1_1SensorDetectionHeader.html" title="The header attributes of each sensor&#39;s detection list." alt="" coords="931,201,1141,228"/>
+<area shape="rect" id="node3" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="559,64,689,91"/>
+<area shape="rect" id="node4" title=" " alt="" coords="189,116,309,143"/>
+<area shape="rect" id="node14" href="$structosi3_1_1UltrasonicDetectionSpecificHeader.html" title="Specific header extension for ultrasonic sensors." alt="" coords="531,342,717,383"/>
+<area shape="rect" id="node5" title=" " alt="" coords="527,240,721,267"/>
+<area shape="rect" id="node6" title=" " alt="" coords="541,13,707,40"/>
+<area shape="rect" id="node7" href="$structosi3_1_1MountingPosition.html" title="Specifies the mounting position of a sensor." alt="" coords="539,291,709,317"/>
+<area shape="rect" id="node8" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="192,424,307,451"/>
+<area shape="rect" id="node12" href="$structosi3_1_1UltrasonicIndirectDetection.html" title="Ultrasonic detection received by another ultrasonic sensor (different sensors as sender and receiver)..." alt="" coords="950,514,1122,555"/>
+<area shape="rect" id="node9" title=" " alt="" coords="5,451,128,477"/>
+<area shape="rect" id="node13" href="$structosi3_1_1UltrasonicDetection.html" title="Ultrasonic detection from the sensor (same sensor as sender and receiver)." alt="" coords="943,407,1129,433"/>
+<area shape="rect" id="node10" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="567,408,681,435"/>
+<area shape="rect" id="node11" title=" " alt="" coords="189,225,309,252"/>
 </map>

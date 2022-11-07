@@ -1,18 +1,27 @@
 <map id="osi3::TrafficLight" name="osi3::TrafficLight">
-<area shape="rect" id="node2" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="219,956,333,983"/>
-<area shape="rect" id="node20" href="$structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light. " alt="" coords="951,870,1079,911"/>
-<area shape="rect" id="node22" href="$structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane. " alt="" coords="503,904,713,931"/>
-<area shape="rect" id="node4" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces. " alt="" coords="932,272,1097,299"/>
-<area shape="rect" id="node5" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model. " alt="" coords="542,272,674,299"/>
-<area shape="rect" id="node7" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model. " alt="" coords="547,323,669,349"/>
-<area shape="rect" id="node8" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model. " alt="" coords="544,392,672,419"/>
-<area shape="rect" id="node9" href="$structosi3_1_1ColorRGB.html" title="RGB color model. " alt="" coords="549,51,667,77"/>
-<area shape="rect" id="node10" href="$structosi3_1_1ColorHSV.html" title="HSV color model. " alt="" coords="549,125,667,152"/>
-<area shape="rect" id="node11" href="$structosi3_1_1ColorLUV.html" title="LUV color model. " alt="" coords="550,197,666,224"/>
-<area shape="rect" id="node16" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e. " alt="" coords="535,487,681,513"/>
-<area shape="rect" id="node17" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g. " alt="" coords="537,537,679,564"/>
-<area shape="rect" id="node18" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="551,588,665,615"/>
-<area shape="rect" id="node19" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="551,639,665,665"/>
-<area shape="rect" id="node12" href="$structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="927,1119,1103,1145"/>
-<area shape="rect" id="node15" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity. " alt="" coords="937,588,1093,615"/>
+<area shape="rect" id="node1" title="A traffic light." alt="" coords="1269,1016,1397,1043"/>
+<area shape="rect" id="node2" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="219,956,333,983"/>
+<area shape="rect" id="node20" href="$structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light." alt="" coords="951,870,1079,911"/>
+<area shape="rect" id="node22" href="$structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane." alt="" coords="503,904,713,931"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,956,125,983"/>
+<area shape="rect" id="node4" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="933,272,1098,299"/>
+<area shape="rect" id="node5" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="542,272,674,299"/>
+<area shape="rect" id="node6" title=" " alt="" coords="215,449,337,476"/>
+<area shape="rect" id="node7" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model." alt="" coords="547,323,669,349"/>
+<area shape="rect" id="node8" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="543,392,673,419"/>
+<area shape="rect" id="node9" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="549,51,667,77"/>
+<area shape="rect" id="node10" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="549,125,667,152"/>
+<area shape="rect" id="node11" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="549,197,667,224"/>
+<area shape="rect" id="node16" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="535,487,681,513"/>
+<area shape="rect" id="node17" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="537,537,679,564"/>
+<area shape="rect" id="node18" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="551,588,665,615"/>
+<area shape="rect" id="node19" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="551,639,665,665"/>
+<area shape="rect" id="node12" href="$structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="927,1119,1104,1145"/>
+<area shape="rect" id="node13" title=" " alt="" coords="547,1119,669,1145"/>
+<area shape="rect" id="node14" title=" " alt="" coords="550,1200,666,1227"/>
+<area shape="rect" id="node15" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity." alt="" coords="937,588,1093,615"/>
+<area shape="rect" id="node21" title=" " alt="" coords="551,853,665,880"/>
+<area shape="rect" id="node23" title=" " alt="" coords="555,1017,661,1044"/>
+<area shape="rect" id="node24" title=" " alt="" coords="551,689,665,716"/>
+<area shape="rect" id="node25" title=" " alt="" coords="555,740,661,767"/>
 </map>

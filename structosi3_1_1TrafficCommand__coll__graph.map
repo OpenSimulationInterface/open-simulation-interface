@@ -1,18 +1,22 @@
 <map id="osi3::TrafficCommand" name="osi3::TrafficCommand">
-<area shape="rect" id="node2" href="$structosi3_1_1Timestamp.html" title="A timestamp. " alt="" coords="1003,56,1133,83"/>
-<area shape="rect" id="node5" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number. " alt="" coords="987,197,1149,224"/>
-<area shape="rect" id="node6" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="215,245,329,272"/>
-<area shape="rect" id="node10" href="$structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html" title="Longitudinal Distance Action. " alt="" coords="566,107,774,149"/>
-<area shape="rect" id="node14" href="$structosi3_1_1TrafficAction_1_1LateralDistanceAction.html" title="Lateral Distance Action. " alt="" coords="583,173,757,214"/>
-<area shape="rect" id="node17" href="$structosi3_1_1TrafficAction_1_1EndActionsAction.html" title="End actions action. " alt="" coords="599,238,741,279"/>
-<area shape="rect" id="node19" href="$structosi3_1_1TrafficAction_1_1AbortActionsAction.html" title="AbortActionsAction. " alt="" coords="593,303,747,345"/>
-<area shape="rect" id="node8" href="$structosi3_1_1TrafficAction.html" title="Atomic traffic actions to be performed. " alt="" coords="999,441,1137,468"/>
-<area shape="rect" id="node9" href="$structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html" title="Follow trajectory action. " alt="" coords="581,369,759,410"/>
-<area shape="rect" id="node11" href="$structosi3_1_1TrafficAction_1_1FollowPathAction.html" title="Follow path action. " alt="" coords="599,434,741,475"/>
-<area shape="rect" id="node12" href="$structosi3_1_1TrafficAction_1_1LaneChangeAction.html" title="Lane change action. " alt="" coords="595,499,745,541"/>
-<area shape="rect" id="node13" href="$structosi3_1_1TrafficAction_1_1AcquireGlobalPositionAction.html" title="Acquire global position action. " alt="" coords="563,565,777,606"/>
-<area shape="rect" id="node15" href="$structosi3_1_1TrafficAction_1_1CustomAction.html" title="Custom Action. " alt="" coords="601,630,739,671"/>
-<area shape="rect" id="node16" href="$structosi3_1_1TrafficAction_1_1SpeedAction.html" title="Speed action. " alt="" coords="601,695,739,737"/>
-<area shape="rect" id="node18" href="$structosi3_1_1TrafficAction_1_1LaneOffsetAction.html" title="Lane Offset Action. " alt="" coords="599,761,741,802"/>
-<area shape="rect" id="node20" href="$structosi3_1_1TrafficAction_1_1TeleportAction.html" title="Teleport Action. " alt="" coords="601,826,739,867"/>
+<area shape="rect" id="node1" title="The scenario engine provides control commands in the traffic command message to traffic participant m..." alt="" coords="1273,385,1436,412"/>
+<area shape="rect" id="node2" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="1003,56,1133,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="614,5,726,32"/>
+<area shape="rect" id="node4" title=" " alt="" coords="610,56,730,83"/>
+<area shape="rect" id="node5" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number." alt="" coords="987,197,1149,224"/>
+<area shape="rect" id="node6" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="215,245,329,272"/>
+<area shape="rect" id="node10" href="$structosi3_1_1TrafficAction_1_1LongitudinalDistanceAction.html" title="Longitudinal Distance Action." alt="" coords="566,107,774,149"/>
+<area shape="rect" id="node14" href="$structosi3_1_1TrafficAction_1_1LateralDistanceAction.html" title="Lateral Distance Action." alt="" coords="583,173,757,214"/>
+<area shape="rect" id="node17" href="$structosi3_1_1TrafficAction_1_1EndActionsAction.html" title="End actions action." alt="" coords="599,238,741,279"/>
+<area shape="rect" id="node19" href="$structosi3_1_1TrafficAction_1_1AbortActionsAction.html" title="AbortActionsAction." alt="" coords="593,303,747,345"/>
+<area shape="rect" id="node7" title=" " alt="" coords="5,245,125,272"/>
+<area shape="rect" id="node8" href="$structosi3_1_1TrafficAction.html" title="Atomic traffic actions to be performed." alt="" coords="999,441,1137,468"/>
+<area shape="rect" id="node9" href="$structosi3_1_1TrafficAction_1_1FollowTrajectoryAction.html" title="Follow trajectory action." alt="" coords="581,369,759,410"/>
+<area shape="rect" id="node11" href="$structosi3_1_1TrafficAction_1_1FollowPathAction.html" title="Follow path action." alt="" coords="599,434,741,475"/>
+<area shape="rect" id="node12" href="$structosi3_1_1TrafficAction_1_1LaneChangeAction.html" title="Lane change action." alt="" coords="595,499,745,541"/>
+<area shape="rect" id="node13" href="$structosi3_1_1TrafficAction_1_1AcquireGlobalPositionAction.html" title="Acquire global position action." alt="" coords="563,565,777,606"/>
+<area shape="rect" id="node15" href="$structosi3_1_1TrafficAction_1_1CustomAction.html" title="Custom Action." alt="" coords="601,630,739,671"/>
+<area shape="rect" id="node16" href="$structosi3_1_1TrafficAction_1_1SpeedAction.html" title="Speed action." alt="" coords="601,695,739,737"/>
+<area shape="rect" id="node18" href="$structosi3_1_1TrafficAction_1_1LaneOffsetAction.html" title="Lane Offset Action." alt="" coords="599,761,741,802"/>
+<area shape="rect" id="node20" href="$structosi3_1_1TrafficAction_1_1TeleportAction.html" title="Teleport Action." alt="" coords="601,826,739,867"/>
 </map>

@@ -1,14 +1,21 @@
 <map id="osi3::LaneBoundary" name="osi3::LaneBoundary">
-<area shape="rect" id="node2" href="$structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification of a lane boundary. " alt="" coords="581,89,731,130"/>
-<area shape="rect" id="node4" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer. " alt="" coords="258,5,373,32"/>
-<area shape="rect" id="node6" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces. " alt="" coords="573,296,739,323"/>
-<area shape="rect" id="node7" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model. " alt="" coords="249,321,381,348"/>
-<area shape="rect" id="node9" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model. " alt="" coords="254,372,377,399"/>
-<area shape="rect" id="node10" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model. " alt="" coords="251,431,379,457"/>
-<area shape="rect" id="node11" href="$structosi3_1_1ColorRGB.html" title="RGB color model. " alt="" coords="256,169,375,196"/>
-<area shape="rect" id="node12" href="$structosi3_1_1ColorHSV.html" title="HSV color model. " alt="" coords="256,220,375,247"/>
-<area shape="rect" id="node13" href="$structosi3_1_1ColorLUV.html" title="LUV color model. " alt="" coords="257,271,373,297"/>
-<area shape="rect" id="node17" href="$structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary. " alt="" coords="581,519,731,561"/>
-<area shape="rect" id="node19" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties. " alt="" coords="258,564,373,591"/>
-<area shape="rect" id="node14" href="$structosi3_1_1ExternalReference.html" title="References to external objects. " alt="" coords="568,667,744,693"/>
+<area shape="rect" id="node1" title="A lane boundary defining the border of a lane." alt="" coords="911,296,1061,323"/>
+<area shape="rect" id="node2" href="$structosi3_1_1LaneBoundary_1_1Classification.html" title="Classification of a lane boundary." alt="" coords="581,89,732,130"/>
+<area shape="rect" id="node3" title=" " alt="" coords="261,119,370,145"/>
+<area shape="rect" id="node4" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="258,5,373,32"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,68,372,95"/>
+<area shape="rect" id="node6" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="574,296,739,323"/>
+<area shape="rect" id="node7" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="249,321,381,348"/>
+<area shape="rect" id="node8" title=" " alt="" coords="5,347,128,373"/>
+<area shape="rect" id="node9" href="$structosi3_1_1ColorGrey.html" title="Greyscale color model." alt="" coords="254,372,377,399"/>
+<area shape="rect" id="node10" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="251,431,380,457"/>
+<area shape="rect" id="node11" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="256,169,375,196"/>
+<area shape="rect" id="node12" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="256,220,375,247"/>
+<area shape="rect" id="node13" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="257,271,374,297"/>
+<area shape="rect" id="node17" href="$structosi3_1_1LaneBoundary_1_1BoundaryPoint.html" title="A single point of a lane boundary." alt="" coords="581,519,732,561"/>
+<area shape="rect" id="node19" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="258,564,373,591"/>
+<area shape="rect" id="node14" href="$structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="568,667,745,693"/>
+<area shape="rect" id="node15" title=" " alt="" coords="255,717,376,744"/>
+<area shape="rect" id="node16" title=" " alt="" coords="257,667,373,693"/>
+<area shape="rect" id="node18" title=" " alt="" coords="259,615,371,641"/>
 </map>
