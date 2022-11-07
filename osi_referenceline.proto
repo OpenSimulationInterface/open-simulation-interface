@@ -37,7 +37,7 @@ message ReferenceLine
 
     // ReferenceLine types
     //
-    // ReferenceLinePoints might be interpreted diffrently depending on the type
+    // ReferenceLinePoints might be interpreted differently depending on the type
     // of the ReferenceLine.
     //
     // See also: "Adding T coordinates"
@@ -47,19 +47,25 @@ message ReferenceLine
         // ReferenceLine is a polyline, where the coordinates of points are
         // calculated by projection onto the nearest point on the line.
         //
+        // \attention DEPRECATED: Due to the shortcomings documenten below, this
+        //            type will be removed in 4.0.0.
+        //
         TYPE_POLYLINE = 0;
 
         // ReferenceLine is a polyline, where the coordinates of points are
-        // calculated using the t axis definition.
+        // calculated using the T axis definition.
+        //
+        // \note If this type is used, ReferenceLinePoint::t_axis_yaw must be set.
         //
         TYPE_POLYLINE_WITH_T_AXIS = 1;
     }
 
     // Points comprising the polyline.
     //
-    // At least 2 points must be given.
+    // At least two points must be given.
     // The polyline is defined as the lines between consecutive points.
-    // Each point has an S coordinate.
+    // Each point has an S coordinate. Other attributes might be set, depending
+    // on the type of the polyline (see Type).
     //
     // ## Rules on the S position
     //
@@ -113,34 +119,68 @@ message ReferenceLine
     // To describe points that are not directly on the polyline, a T coordinate
     // is added. T is the signed 2D distance between the point to describe (P)
     // and a projected point (P_proj) on the polyline. There are two ways of
-    // defining this point, depending on the ReferenceLine type.
+    // defining this point, depending on the ReferenceLine::Type (see below).
     //
-    // ## Nearest point (TYPE_POLYLINE)
-    //
-    // The projection point is the nearest point on the polyline (this point might
-    // either be on a line segment or at an edge between two line segments).
-    //
-    // ## T axis definition (TYPE_POLYLINE_WITH_T_AXIS)
-    //
-    // The T axis (projecting axis) is the line going through P and the
-    // intersection point (I). I is defined as the intersection of both
-    // T axes of two consecutive ReferenceLinePoints (see example and
-    // image below for illustration). If both T axes of the neighboring
-    // ReferenceLinePoint are parallel (so no intersection point exists), the
-    // resulting T axis direction is equal to the T axis of these ReferenceLinePoints.
     // The T coordinate of the point in question is then defined as
     // <code>hypot(P.X-P_proj.X,P.Y-P_proj.Y)</code>. The projected point P_proj
     // might either be on a line segment or at an edge between two line segments.
     // The distance is positive if the point is left of the polyline (in
     // definition direction), negative if it is right of it. The S position of
     // such a point outside the reference line is the same as the S value of the
-    // projected point on the polyline, resulting in all points on a single T
-    // axis having the same S coordinate.
+    // projected point on the polyline.
     //
-    // \note The ST coordinate system shall be defined in 2D only. When
-    // referencing any points (including the reference line), their projection
-    // onto the XY plane shall be considered (but notes on OpenDRIVE compatibility
-    // below should be considered).
+    // ## Nearest point (TYPE_POLYLINE)
+    //
+    // The projection point is the nearest point on the polyline (this point might
+    // either be on a line segment or at an edge between two line segments).
+    //
+    // Notes:
+    // - The "nearest point on the polyline" is determined in 3D (even if the
+    //   resulting T value is only the 2D distance), in order to choose the
+    //   correct point for 3D curves (think reference lines for roads in parking
+    //   decks).
+    // - If there are several "nearest points", the one with the smallest S
+    //   coordinate on the polyline is chosen.
+    //
+    // Example:
+    // \image html OSI_ReferenceLine1.svg "S, T calculation using nearest point"
+    //
+    // This shows a reference line (consisting of three points), and five points
+    // not on the reference line.
+    //
+    // - For \c P1, the situation is clear, since there is exactly one nearest
+    //   point on the polyline. The resulting ST coordinate uniquely maps back
+    //   to \c P1.
+    // - \c P2 has multiple points "nearest points" on the polyline.
+    //   As can be seen here, two  ST coordinates map to \c P2 (red and grey
+    //   dotted line).  Following the rules above, the one with the smallest S
+    //   value is chosen (the red dotted line).
+    // - \c P3 has a unique "nearest point" on the polyline. However, multiple
+    //   points map to the same ST coordinate as that of \c P3, e.g. \c P4
+    //   (drawn in grey).
+    // - Finally, \c P5 shows how the reference line is extended infinitely for
+    //   points that are "outside" the reference line.
+    //
+    // ## T axis definition (TYPE_POLYLINE_WITH_T_AXIS)
+    //
+    // The T axes of the two ReferenceLinePoints of each ReferenceLine segment
+    // define a sector (or strip if parallel) of the plane. A point is associated
+    // with the segment if it lies within this sector. For points being
+    // associated with multiple segments, the actual segment to consider is
+    // determined by the shortest 3D Euclidean distance between the point and the
+    // segments in question.
+    //
+    // The T axis (projecting axis) is the line going through P and the
+    // intersection point (I). I is defined as the intersection of both
+    // T axes of two consecutive ReferenceLinePoints (see example and
+    // image below for illustration).
+    //
+    // Special cases:
+    // 1. If both T axes of the consecutive ReferenceLinePoint are parallel (so
+    //    no intersection point exists), the resulting T axis orientation is equal
+    //    to the T axis of these ReferenceLinePoints.
+    // 2. For the extended lines outside the defined range the projection axis is
+    //    parallel to the T axis of the respective end point.
     //
     // ## Rules on the T axis
     //
@@ -153,25 +193,12 @@ message ReferenceLine
     // - The T axis must be located inside the sectors spanned by rotating the
     //   normal of one neighboring ReferenceLine segment into the normal of the
     //   other ReferenceLine segment on the shortest way.
-    //
-    // ## Defining angles
-    //
-    // Sometimes an angle to a reference line is needed. This shall be defined
-    // as follows:
-    // First the projected point on the polyline is determined, as described
-    // below. If this point is on a line segment, then the angle is calculated
-    // relative to the line segment on which the reference point lays.
-    // If the projected point is at the edge between line segments, then the
-    // angle of the following line shall be chosen.
-    //
-    // ## Converting between world coordinates and ST coordinates
-    //
-    // The above rules define an ST coordinate system across the whole XY plane.
-    // Every XY position has a ST coordinate, but not necessarily a unique ST
-    // coordinate.
+    // - The T axis in the first and the last point of a ReferenceLine has to be
+    //   perpendicular to the first and last segment of the ReferenceLine,
+    //   respectively.
     //
     // Example:
-    // \image html OSI_ReferenceLine1.svg "S, T calculation"
+    // \image html OSI_ReferenceLine2.svg "S, T calculation using T axis"
     //
     // This shows a reference line (consisting of three points \c R0, \c R1 and
     // \c R2) and two points (\c P1 and \c P2) not part of the reference line.
@@ -189,6 +216,22 @@ message ReferenceLine
     // - The T coordinate of \c P1 is the signed Euclidean distance to \c P1_proj.
     //
     // Calculation of \c P2 follows the same pattern.
+    //
+    // ## Defining angles
+    //
+    // Sometimes an angle to a reference line is needed. This shall be defined
+    // as follows:
+    // First the projected point on the polyline is determined, as described
+    // below. If this point is on a line segment, then the angle is calculated
+    // relative to the line segment on which the reference point lays.
+    // If the projected point is at the edge between line segments, then the
+    // angle of the following line shall be chosen.
+    //
+    // ## Converting between world coordinates and ST coordinates
+    //
+    // The above rules define an ST coordinate system across the whole XY plane.
+    // Every XY position has an ST coordinate, but not necessarily a unique ST
+    // coordinate.
     //
     // The sampling of the polyline must be chosen such that the error
     // when converting coordinates is "small enough". The exact needed
@@ -261,7 +304,8 @@ message ReferenceLine
         //
         // Also see image "S, T coordinates" at #poly_line for reference.
         //
-        // \note This field is only set if the type of the reference line is TYPE_POLYLINE_WITH_T_AXIS.
+        // \note This field is only set if the type of the reference line is
+        //       TYPE_POLYLINE_WITH_T_AXIS.
         //
         optional double t_axis_yaw = 3;
     }
