@@ -12,6 +12,11 @@ package osi3;
 // A reference line is a 3D polyline, used for generating a non-Euclidean
 // ST coordinate system.
 //
+// \note This ST coordinate system is specific to OSI and not to be confused with
+//       similar definitions in other standards like OpenDRIVE or OpenSCENARIO 1.x.
+//       Nevertheless the goal of this definition is to approximate the source
+//       coordinates (e.g. OpenDRIVE).
+//
 // Notes on design decisions:
 // - This is a polyline, and not some more complex curve. The advantage of a
 //   polyline is that it is very simple to generate from various map formats,
