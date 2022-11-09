@@ -177,7 +177,7 @@ message DetectedLaneBoundary
     
         // P3 parameter of the poly function model that describes the lane boundary.
         //
-        // Unit: 1/m²
+        // Unit: 1/m2
         //
         optional double polyline_parameter_p3 = 4;
 
