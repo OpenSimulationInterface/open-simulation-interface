@@ -236,6 +236,11 @@ message SensorViewConfiguration
     //
     repeated UltrasonicSensorViewConfiguration
         ultrasonic_sensor_view_configuration = 1004;
+        
+    // Raytracer-specific View Configuration(s).
+    //
+    repeated RaytracerViewConfiguration
+        raytracer_view_configuration = 1005;
 }
 
 //
@@ -972,4 +977,144 @@ message UltrasonicSensorViewConfiguration
 
     // TBD: Ultrasonic Sensor specific configuration.
     //
+}
+
+
+//
+// \brief The configuration settings for the Raytracer View to be
+// provided by the environment simulation.
+//
+message RaytracerViewConfiguration
+{
+    // The ID of the sensor origin at host vehicle's mounting_position.
+    //
+    // This is the ID of the simulated sensor, to be used in its detected
+    // features output.
+    //
+    // The ID is to be provided by the environment simulation, the sensor
+    // model is not in a position to provide a useful default value.
+    //
+    optional Identifier sensor_id = 1;
+
+    // The physical mounting position of the sensor (origin and orientation
+    // of the sensor coordinate system) given in vehicle coordinates [1].
+    // The physical position pertains to this detector individually, and
+    // governs the sensor-relative coordinates in features detected by this
+    // detector.
+    //
+    // \arg \b x-direction of sensor coordinate system: sensor viewing direction
+    // \arg \b z-direction of sensor coordinate system: sensor (up)
+    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
+    // right hand system
+    //
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    //
+    // \note The origin of vehicle's coordinate system in world frame is
+    // ( \c MovingObject::base . \c BaseMoving::position +
+    // Inverse_Rotation_yaw_pitch_roll( \c MovingObject::base . \c
+    // BaseMoving::orientation) * \c
+    // MovingObject::VehicleAttributes::bbcenter_to_rear) . The orientation of
+    // the vehicle's coordinate system is equal to the orientation of the
+    // vehicle's bounding box \c MovingObject::base . \c
+    // BaseMoving::orientation. \note A default position can be provided by the
+    // sensor model (e.g. to indicate the position the model was validated for),
+    // but this is optional; the environment simulation must provide a valid
+    // mounting position (based on the vehicle configuration) when setting the
+    // view configuration.
+    //
+    // All raytracing results e.g. Hitpoint positions are given in this
+    // sensor coordinate system.
+    //
+    optional MountingPosition mounting_position = 2;
+    
+    // Position of the raytracer`s receiver in the sensor coordinate system.
+    // 
+    repeated MountingPosition receiver_position = 3;
+    
+    // Position of the raytracer`s transmitter in the sensor coordinate system.
+    //
+    repeated MountingPosition transmitter_position = 4;
+    
+    // The wavelength of the transmitted ray in the simulation.
+    //
+    // Unit: nm
+    optional double emitter_wavelength = 5;
+    
+    // When reaching the maximmum signal loss during raytracing further raytracing is aborted.
+    // The maximum signal loss is the relation between current calculated signal strength and the emitted signal
+    // strength at the ray generation.
+    // 
+    // Unit: dB
+    optional double maximum_signal_loss = 6;
+    
+    // The maximum path length desribes the ray's maximum overall distance.
+    // If the maximum path length is reached during simulation no further interaction is calculated.
+    //
+    // Unit: m
+    optional double max_path_length = 7;
+    
+    // The maximum number of interaction desribes the ray's maximum hits with surfaces.
+    // If the maximum number of interaction is reached during simulation no further interaction is calculated.
+    //
+    // Unit: -
+    optional uint32 max_number_of_interactions = 8;
+    
+    // Format of raytracer data (includes number, kind and format of channels).
+    //
+    // In the message provided by the sensor model, this field can
+    // be repeated and all values are acceptable to the model, with
+    // the most acceptable value being listed first, and the remaining
+    // values indicating alternatives in descending order of preference.
+    //
+    // In the message provided to the sensor model, this field must
+    // contain exactly one value, indicating the format of the image
+    // data being provided by the simulation environment - which must
+    // be one of the values the sensor model requested - or there
+    // must be no value, indicating that the simulation environment
+    // cannot provide raytracer data in one of the requested formats.
+    //
+    repeated RaytracerFormat raytracer_format = 9;
+
+    // Different predefined raytracer formats
+    // 
+    enum RaytracerFormat
+    {
+        // Type of channel format is unknown (must not be used).
+        //
+        RAYTRACER_FORMAT_UNKNOWN = 0;
+
+        // Unspecified but known channel format.
+        // Consider proposing an additional format if using
+        // \c #RAYTRACER_FORMAT_OTHER.
+        //
+        RAYTRACER_FORMAT_OTHER = 1;
+
+        // Radar raytracer format used in the Japanese DIVP project.
+        //
+        // The message consists of the following fields in the described order.
+        // In brackets the data type, the unit and a short description is given. 
+        // distance (float; in m; path length of the ray)
+        // relative_speed (float; in m/s; summed relative speed due to interaction points with moved surfaces)
+        // propagation_attenuation_h_pol (float; in W; attenuation of signal strength of horizontal polarisation)
+        // propagation_attenuation_v_pol (float; in W; attenuation of signal strength of vertical polarisation)
+        // direction_of_arrival_azimuth (float; in rad; direction of arrival of the ray in the configured raytracer coordinate system in azimuth direction)
+        // direction_of_arrival_elevation (float; in rad; direction of arrival of the ray in the configured raytracer coordinate system in elevation direction)
+        // direction_of_departure_azimuth (float; in rad; direction of departure of the ray in the configured raytracer coordinate system in azimuth direction)
+        // direction_of_departure_elevation (float; in rad; direction of departure of the ray in the configured raytracer coordinate system in elevation direction)
+        //
+        RAYTRACER_FORMAT_DIVP_RADAR = 2;
+        
+        // Radar raytracer format used in the German VIVALDI project.
+        //
+        // The message consists of the following fields in the described order.
+        // In brackets the data type, the unit and a short description is given. 
+        // intersection_path_length (float; in m; path length of the ray between the First_Hitpoint and the Last_Hitpoint)
+        // relative_speed (float; in m/s; summed relative speed due to interaction points with moved surfaces)
+        // jones_vector (float4; in V/m; jones vector of the ray with information of the electromagnetic wave`s phase, signal strength and polarisation)
+        // last_hitpoint (float3; in m; coordinates of the last hitpoint in the raytracer's coordinate system defined by the mounting position)
+        // first_hitpoint (float3; in m; coordinates of the first hitpoint in the raytracer's coordinate system defined by the mounting position)
+        //
+        RAYTRACER_FORMAT_VIVALDI_RADAR = 3;
+        }
 }
