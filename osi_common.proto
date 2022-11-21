@@ -415,7 +415,7 @@ message BoundingBox
 
     // The type of object contained in the bounding box.
     //
-    optional TYPE contained_object_type = 4; 
+    optional Type contained_object_type = 4;
 
     // Opaque reference of an associated 3D model of the bounding box.
     //
@@ -434,7 +434,7 @@ message BoundingBox
         TYPE_OTHER = 1;
 
         // Car stuff
-        TYPE_CHASIS = 2;
+        TYPE_CHASSIS = 2;
         TYPE_DOOR = 3;
         TYPE_SIDEMIRROR = 4;
         TYPE_CARGO = 5;
@@ -634,7 +634,8 @@ message BaseMoving
     
     // Sub-divisions of the overall bounding box of the BaseMoving object.
     //
-    // \note The bounding box sections can include side mirrors for vehicles.
+    // \note The bounding box sections can include side mirrors, cargo, etc. 
+    // for vehicles, as well as body-part sections for pedestrians.
     //
     repeated BoundingBox bounding_box_section = 9;
 }
