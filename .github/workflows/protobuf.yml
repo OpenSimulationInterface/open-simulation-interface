@@ -9,7 +9,7 @@ jobs:
   build-proto2-linux64:
     name: Build Proto2 Linux 64
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout OSI
@@ -30,10 +30,10 @@ jobs:
 
     - name: Cache Dependencies
       id: cache-depends
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: protobuf-3.20.1
-        key: ${{ runner.os }}-v1-depends
+        key: ${{ runner.os }}-v2-depends
 
     - name: Download ProtoBuf
       if: steps.cache-depends.outputs.cache-hit != 'true'
@@ -100,7 +100,7 @@ jobs:
   build-proto3-linux64:
     name: Build Proto3 Linux 64
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout OSI
@@ -121,7 +121,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: protobuf-3.20.1
-        key: ${{ runner.os }}-v1-depends
+        key: ${{ runner.os }}-v2-depends
 
     - name: Download ProtoBuf
       if: steps.cache-depends.outputs.cache-hit != 'true'
