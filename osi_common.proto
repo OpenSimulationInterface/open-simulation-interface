@@ -666,7 +666,6 @@ message BaseMoving
     //  \f$ \c #orientation_rate \f$ .roll(t-dt) \f$
     //
     optional Orientation3d orientation_acceleration = 8;
-    
 
     // Usage as ground truth:
     // The two dimensional (flat) contour of the object. This is an extension of
