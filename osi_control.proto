@@ -1,0 +1,306 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_version.proto";
+
+package osi3;
+
+//
+// \brief This format is thought to inform stand-alone applications about the actual state of the sender.
+// Furthermore the other application can be controlled by commands to change its state.
+// The fromate is flexible so it is even possible to inform about the state of application-parts
+// of the sender or change the state of application-parts of the receiver.
+// This can be helpful to organize the communication e.g. between a simulation-environment and
+// a graphic-engine (and its slaves).
+//
+message Control
+{
+    //
+    // The interface version used by the sender.
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    // ID-Number of the sending application, to identify who sent the message.
+    //
+    optional uint32 osi_sender_id = 3;
+
+    // The state of the application.
+    //
+    repeated ApplicationState application_state = 4;
+
+    // Possibility to send commands regarding the target state of a specific application.
+    // \note Not neccessary if the external application(s) just follow(s) the application_state of the master.
+    //
+    repeated ApplicationCommand application_command = 5;
+
+    // The frames per second.
+    //
+    optional double fps = 6;
+
+    // The duration of the ping.
+    //
+    // Unit: [ms]
+    //
+    optional double ping = 7;
+
+    // Possibility to inform about an error, warning or just to give an information.
+    //
+    // \note It is implementation-specific which information should be sent.
+    //
+    repeated Notification notification = 8;
+
+    // All active or inactive events.
+    //
+    // \note It is implementation-specific which event is triggered.
+    //
+    repeated Event event = 9;
+
+    //
+    // \brief This message contains the state of a sender-id adressed to a receiver-id.
+    // In this way it is also possible that the osi-sender tells the receiver-side about the
+    // state of another own application part.
+    //
+    message ApplicationState
+    {
+        // ID-Number of the sender-application(part).
+        //
+        optional uint32 application_sender_id = 1;
+
+        // The sender-application(part) is the master (true). Otherwise a slave (false).
+        //
+        optional bool is_master = 2;
+
+        // ID-Number of the receiver-application(part).
+        //
+        optional uint32 application_receiver_id = 3;
+
+        // This is the state of the sender-id addressed to the receiver-id.
+        //
+        optional State application_state = 4;
+
+        // Definition of possible application-states.
+        //
+        // \note It is implementation-specific which states are available.
+        //
+        enum State
+        {
+            // The application-state is unknown.
+            //
+            STATE_UNKNOWN = 0;
+
+            // The application-state is another one.
+            //
+            STATE_OTHER = 1;
+
+            // The application is created and alive.
+            //
+            STATE_ALIVE = 2;
+
+            // The application is initializing.
+            //
+            STATE_INITIALIZING = 3;
+
+            // The application is initialized.
+            //
+            STATE_INITIALIZED = 4;
+
+            // The application is starting.
+            //
+            STATE_STARTING = 5;
+
+            // The application is running.
+            //
+            STATE_RUNNING = 6;
+
+            // The application is pausing.
+            //
+            STATE_PAUSING = 7;
+
+            // The application is paused.
+            //
+            STATE_PAUSED = 8;
+
+            // The application is continueing.
+            //
+            STATE_CONTINUEING = 9;
+
+            // The application is stopping.
+            //
+            STATE_STOPPING = 10;
+
+            // The application is stopped.
+            //
+            STATE_STOPPED = 11;
+
+            // The application is resetting.
+            //
+            STATE_RESETTING = 12;
+
+            // An Error occured in the application.
+            // Recommendation: Send a notification about the failure.
+            //
+            STATE_FAILED = 13;
+        }
+    }
+
+    //
+    // \brief This message contains the command of a sender-id adressed to a receiver-id.
+    // In this way it is also possible that the osi-sender tells the receiver-side about a
+    // command of another own application part.
+    //
+    message ApplicationCommand
+    {
+        // ID-Number of the sender-application(part).
+        //
+        optional uint32 application_sender_id = 1;
+
+        // The sender-application(part) is the master (true). Otherwise a slave (false).
+        //
+        optional bool is_master = 2;
+
+        // ID-Number of the receiver-application(part).
+        //
+        optional uint32 application_receiver_id = 3;
+
+        // This is the command regarding the state of receiver-id.
+        //
+        optional Command application_command = 4;
+
+        // Definition of possible commands from the sender to the receiver.
+        //
+        enum Command
+        {
+            // The command is unknown.
+            //
+            COMMAND_UNKNOWN = 0;
+
+            // The command is another one.
+            //
+            COMMAND_OTHER = 1;
+
+            // The receiver should initialize.
+            // Transition: STATE_ALIVE ==> STATE_INITIALIZING ==> STATE_INITIALIZED
+            //
+            COMMAND_INITIALIZE = 2;
+
+            // The receiver should start.
+            // Transition: STATE_INITIALIZED ==> STATE_STARTING ==> STATE_RUNNING
+            //
+            COMMAND_START = 3;
+
+            // The receiver should pause.
+            // Transition: STATE_RUNNING ==> STATE_PAUSING ==> STATE_PAUSED
+            //
+            COMMAND_PAUSE = 4;
+
+            // The receiver should continue.
+            // Transition: STATE_PAUSED ==> STATE_CONTINUEING ==> STATE_RUNNING
+            //
+            COMMAND_CONTINUE = 5;
+
+            // The receiver should stop.
+            // Transition: STATE_RUNNING ==> STATE_STOPPING ==> STATE_STOPPED
+            // Transition: STATE_PAUSED ==> STATE_STOPPING ==> STATE_STOPPED
+            //
+            COMMAND_STOP = 6;
+
+            // The receiver should reset.
+            // Transition: STATE_ALIVE ==> STATE_RESETTING ==> STATE_ALIVE
+            // Transition: STATE_INITIALIZED ==> STATE_RESETTING ==> STATE_ALIVE
+            // Transition: STATE_RUNNING ==> STATE_RESETTING ==> STATE_ALIVE
+            // Transition: STATE_PAUSED ==> STATE_RESETTING ==> STATE_ALIVE
+            // Transition: STATE_STOPPED ==> STATE_RESETTING ==> STATE_ALIVE
+            // Transition: STATE_FAILED ==> STATE_RESETTING ==> STATE_ALIVE
+            //
+            COMMAND_RESET = 7;
+
+            // The receiver should take a screenshot.
+            //
+            COMMAND_SCREENSHOT = 100;
+
+            // The receiver should start the screen saver.
+            //
+            COMMAND_SCREENSAVER_START = 101;
+
+            // The receiver should stop the screen saver.
+            //
+            COMMAND_SCREENSAVER_STOP = 102;
+
+            // The receiver should start video recording.
+            //
+            COMMAND_VIDEO_RECORDING_START = 103;
+
+            // The receiver should stop video recording.
+            //
+            COMMAND_VIDEO_RECORDING_STOP = 104;
+        }
+    }
+
+    //
+    // \brief Possibility to send a notification.
+    // Can be used to send e.g. error-messages.
+    //
+    message Notification
+    {
+        // The content of the notification.
+        //
+        optional string notification = 1;
+
+        // Defines the type of the notification.
+        //
+        optional NotificationType notification_type = 2;
+
+        // Definition of possible notification-types.
+        //
+        enum NotificationType
+        {
+            // The type is unknown.
+            //
+            NOTIFICATION_TYPE_UNKNOWN = 0;
+
+            // It is another type.
+            //
+            NOTIFICATION_TYPE_OTHER = 1;
+
+            // An error occurred.
+            //
+            NOTIFICATION_TYPE_ERROR = 2;
+
+            // The notificiation is a warning.
+            //
+            NOTIFICATION_TYPE_WARNING = 3;
+
+            // The notificiation is just an information.
+            //
+            NOTIFICATION_TYPE_INFORMATION = 4;
+
+            // The notificiation is used for debugging.
+            //
+            NOTIFICATION_TYPE_DEBUG = 5;
+        }
+    }
+
+    //
+    // \brief Possibility to trigger an event.
+    //
+    // \note It is implementation-specific which event is triggered.
+    //
+    message Event
+    {
+        // The number/id of an event.
+        //
+        optional uint32 eventnumber = 1;
+
+        // The value (true=active, false=inactive) of an event.
+        //
+        optional bool is_active = 2;
+    }
+}
