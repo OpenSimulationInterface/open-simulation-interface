@@ -1,0 +1,128 @@
+
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_environment.proto";
+import "osi_version.proto";
+
+package osi3;
+
+//
+// \brief This message defines extended environmental conditions which are not part of the basic EnvironmentalConditions.
+//
+// Adds definitions for wind (speed in m/s and direction)
+// Adds definition for season (spring, summer, autumn and winter)
+// Adds definition for cloudiness (okta)
+// Adds definition for north offset (rad)
+// Adds definition for road wetness (mm)
+// Adds definition for precipitation (mm)
+// Adds definition for visibility (m)
+//
+// \note These conditions apply locally around the host vehicle and can change during simulation.
+//
+message EnvironmentalConditionsExt
+{
+    //
+    // The interface version used by the sender.
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    // Conditions of the environment.
+    //
+    optional EnvironmentalConditions environmental_conditions = 3;
+
+    // Description of the wind.
+    //
+    optional Wind wind = 4;
+
+    // Defines the season. The azimuth / elevation of the sun will be calculated in dependency of season / time-of-day)
+    //
+    optional Season season = 5;
+
+    // Defines how cloudy the sky is as an numerical value [okta].
+    // One "Okta" means one-eight of the sky is covered by clouds.
+    //
+    optional double cloudiness = 6;
+
+    // Defines the amount of precipitation in [mm] per defined time unit
+    //
+    optional double precipitation = 7;
+
+    // Defines how wet the road is by specifying the amount of precipitation in [mm] per given unit of time.
+    //
+    optional double road_wetness = 8;
+
+    // The rotation around z-axis (upwards) used to offset "North" [rad].
+    // (added to azimuth of the sun which is calculated in dependency of season / time-of-day)
+    //
+    optional double north_offset = 9;
+
+    // Defines visibility in [m]. This value is the same as the fog enumeration but as a numerical value range.
+    //
+    optional double visibility = 10;
+
+    // Defines the seasons as enumeration.
+    //
+    enum Season
+    {
+        // The season is unknown.
+        //
+        SEASON_UNKNOWN = 0;
+
+        // Season - spring.
+        //
+        SEASON_SPRING = 1;
+
+        // Season - summer.
+        //
+        SEASON_SUMMER = 2;
+
+        // Season - autumn.
+        //
+        SEASON_AUTUMN = 3;
+
+        // Season - winter.
+        //
+        SEASON_WINTER = 4;
+    }
+
+    //
+    // \brief Defines wind properties.
+    //
+    message Wind
+    {
+        // The origin direction of the wind (not the target direction) in the ground/xy-plane of the
+        // world coordinate system. Corresponds to the heading/yaw angle, counted counterclockwise.
+        // 0 pointing north. If north is not explicitly defined via \c #osi3::GroundTruth::proj_string,
+        // then north is pointing in y-axis direction. The default orientation (x, y, z) is easting, northing, up [1].
+        //
+        // \note 0: north; +pi/2: west; pi: south, 3/2 pi: east.
+        //
+        // Unit: rad
+        //
+        // The preferred angular range is [0, 2pi].
+        //
+        // \par References:
+        // [1] PROJ contributors. (2019). <em>PROJ coordinate transformation software library</em>. Open Source Geospatial Foundation. Retrieved January 25, 2019, from https://proj.org/usage/projections.html
+        //
+        optional double origin_direction = 1;
+
+        // The wind speed.
+        //
+        // Unit: m/s
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 0
+        // \endrules
+        //
+        optional double speed = 2;
+    }
+}
