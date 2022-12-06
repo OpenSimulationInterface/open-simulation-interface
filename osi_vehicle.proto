@@ -1,0 +1,252 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_object.proto";
+import "osi_occupant.proto";
+
+package osi3;
+
+// \brief The vehicle message describes a single vehicle.
+// It is based on the message VehicleClass, which is also defined later in this proto.
+// The vehicle can be the host but also any other participant.
+//
+message Vehicle
+{
+    // The interface version used by the sender (i.e. the simulation environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Stamp at the end of the mapping.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    // True, if the following vehicle-object is the host.
+    //
+    optional bool is_host_vehicle = 3;
+
+    // Deeper going description of one vehicle.
+    //
+    optional VehicleClass vehicle = 4;
+}
+
+// \brief The vehicle class is a deeper description of a vehicle.
+// As it is an description of the whole vehicle (focus on cars) it can be used as interface for various reasons,
+// e.g. to the vehicle-model for kinematics calculation or even for the visualisation in a graphic-engine.
+//
+message VehicleClass
+{
+    // The data timestamp of the concrete vehicle.
+    // Recommendation: Stamp at the end of the mapping.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 1;
+
+    // Contains basic vehicle information such as position, orientation, wheels, light state, etc.
+    //
+    optional MovingObject moving_object = 2;
+
+    // Interface regarding the powertrain.
+    //
+    optional VehiclePowertrain vehicle_powertrain = 3;
+
+    // Interface regarding the wheels.
+    // The focus here is on the physical description of a wheel.
+    //
+    repeated WheelExtended vehicle_wheels = 4;
+
+    // The list of passengers in the (host) vehicle(s).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated Occupant occupant = 5;
+
+    // The license plate of the car.
+    // There is no international standardization.
+    // Recommendation: Use the discription in DIN 74069:1996-07.
+    // If single-line: maximum of 8 Characters.
+    // two-line: 9-13 Characters.
+    //
+    optional string license_plate = 6;
+
+    // The paint of the vehicle. If not set defined by the reference_string parameter.
+    //
+    optional Paint paint = 7;
+
+    // Whether the vehicle is static and will not move.
+    //
+    optional bool is_static = 8;
+
+    // Describes the parameters of the vehicle paint.
+    //
+    message Paint
+    {
+        // The color of the vehicle as hex-color ... for e.g. 0xFF0000 for red.
+        //
+        optional Color color = 1;
+
+        // The type of the paint.
+        //
+        optional Type type = 2;
+
+        // Enumeration of available types of paint.
+        //
+        enum Type
+        {
+            // Solid paint.
+            //
+            PaintType_Solid = 0;
+
+            // Metallic paint with base color = paint_color.
+            //
+            PaintType_Metallic = 1;
+
+            // Pearlescent paint with base color = paint_color.
+            //
+            PaintType_Pearlescent = 2;
+
+            // Matte paint.
+            //
+            PaintType_Matte = 3;
+        }
+
+        //
+        // \brief Defines a color with RGB components.
+        //
+        message Color
+        {
+            // The value of the red color channel [0..255].
+            //
+            optional uint32 red = 1;
+
+            // The value of the green color channel [0..255].
+            //
+            optional uint32 green = 2;
+
+            // The value of the blue color channel [0..255].
+            //
+            optional uint32 blue = 3;
+        }
+    }
+
+    //
+    // \brief Interface to the vehicle-model.
+    // The focus here is on the powertrain.
+    //
+    message VehiclePowertrain
+    {
+        // The positions of the pedals.
+        //
+        optional Pedalry pedalry = 1;
+
+        // Rounds per minute of the crankshaft.
+        //
+        // Unit: [1/min]
+        //
+        optional double engine_rpm = 2;
+
+        // Torque in Nm.
+        //
+        // Unit: [N*m]
+        //
+        optional double engine_torque = 3;
+
+        // Consumption in liters per 100 km.
+        //
+        // Unit: [l/100km]
+        //
+        optional double fuel_consumption = 4;
+
+        // Consumption of electrical or hybrid vehicle per 100 km
+        //
+        // Unit: [kW/100kmh]
+        //
+        optional double electrical_energy_consumption = 5;
+
+        // Current set gear of the gear lever. It is optional if none of these
+        // conditions is fulfilled:
+        // - the gear lever controls a manual transmission
+        // - the gear lever controls an automatic transmission with the manual
+        //   override mode set.
+        //
+        // The sign of this field set the gear's mode as following:
+        // - zero: neutral position
+        // - positive: driving forward mode
+        // - negative: reverse mode (generally -1, but some vehicles have several
+        //   reverse mode gears)
+        //
+        optional int32 gear_lever_state = 6;
+
+        // The actual gear of the transmission.
+        // E.g. gear_lever can be in "D" and transmission in "4", but not the
+        // other way around.
+        //
+        // The sign of this field is linked to the gear's mode as following:
+        // - zero: neutral position
+        // - positive: driving forward mode
+        // - negative: reverse mode (generally -1, but few vehicles have several
+        //   reverse mode gears)
+        //
+        optional int32 gear_transmission = 7;
+
+        // Position of the handbrake.
+        // A value of 0% means fully released and 100% means fully pressed
+        //
+        // Unit: [%]
+        //
+        optional double handbrake_position = 8;
+
+        //
+        // \brief A description for the positions of the pedals.
+        //
+        //
+        message Pedalry
+        {
+            // Position of the acceleration-pedal.
+            // Unit: [0-1] (Unpressed - fully pressed)
+            //
+            optional double pedal_position_acceleration = 1;
+
+            // Position of the brake-pedal.
+            // Unit: [0-1] (Unpressed - fully pressed)
+            //
+            optional double pedal_position_brake = 2;
+
+            // Position of the clutch-pedal.
+            // Unit: [0-1] (Unpressed - fully pressed)
+            //
+            optional double pedal_position_clutch = 3;
+        }
+    }
+
+    //
+    // \brief The focus here is on the physical description of a wheel.
+    //
+    message WheelExtended
+    {
+        optional MovingObject.VehicleAttributes.WheelData wheel_base_data = 1;
+
+        // Contains the steering angle of each wheel.
+        //
+        // Unit: [rad]
+        //
+        optional double steeringangle = 2;
+
+        // Contains the springdeflection in z-direction for each wheel.
+        //
+        // Unit: [m]
+        //
+        optional double springdeflection = 3;
+
+        // Contains the slip-angle of the tire
+        //
+        // Unit: [rad]
+        //
+        optional double slipangle = 4;
+    }
+}
