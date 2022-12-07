@@ -1,0 +1,55 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_vehicle.proto";
+import "osi_trafficlight.proto";
+import "osi_object.proto";
+
+package osi3;
+
+//
+// \brief This message describes the traffic on the map (or an implementation-specific area).
+// This can also include the host-vehicle.
+// The main-usage so far is the visualization of traffic in a graphic-engine.
+// It is based on the message VehicleClass, which is defined in the included osi_vehicle.proto.
+//
+message Traffic
+{
+    //
+    // The interface version used by the sender (i.e. the simulation environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    //
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Stamp at the end of the mapping.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    //
+    // The ID of the host vehicle object.
+    //
+    optional Identifier host_vehicle_id = 3;
+
+    //
+    // Deeper going description of one or more vehicle regarding these aspects:
+    // Vehicle-Basics, Vehicle-Kinematics, Vehicle-Powertrain, Vehicle-SteeringWheel, Vehicle-Wheels,
+    // Vehicle-Light-State, Vehicle-Localization, Vehicle-Automated-Driving-Functions.
+    //
+    repeated VehicleClass vehicle = 4;
+
+    //
+    // Holds the data regarding all traffic-lights in the simulation.
+    //
+    repeated TrafficLight traffic_light = 5;
+
+    //
+    // Holds the data regarding all pedestrians in the simulation.
+    //
+    repeated MovingObject pedestrian = 6;
+}
