@@ -1,0 +1,298 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_version.proto";
+
+package osi3;
+
+
+//
+// \brief ToDo: Description
+//
+message ScreenConfiguration
+{
+
+    //
+    // The interface version used by the sender.
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    //
+    // \brief ToDo: Description
+    //
+    repeated WindowConfiguration window_configuration = 3;
+
+    //
+    // \brief ToDo: Description
+    //
+    repeated ViewportConfiguration viewport_configuration = 4;
+
+    //
+    // \brief ToDo: Description
+    //
+    repeated ViewConfiguration view_configuration = 5;
+
+    //
+    // ID of the screen.
+    //
+    optional uint64 screen_id = 6;
+
+    //
+    // \brief ToDo: Description
+    //
+    message WindowConfiguration
+    {
+        //
+        // Defines on which display the window is placed.
+        //
+        optional uint64 placement_on_display_id = 1;
+
+        //
+        // ID of the window.
+        //
+        optional uint64 window_id = 2;
+
+        //
+        // Unique window name.
+        //
+        optional string window_name = 3;
+
+        //
+        // Position x of the window inside a display.
+        //
+        optional uint32 position_x = 4;
+
+        //
+        // Position y of the window inside a display.
+        //
+        optional uint32 position_y = 5;
+
+        //
+        // Pixel-width in x of the window inside a display.
+        //
+        optional uint32 size_x = 6;
+
+        //
+        // Pixel-height in y of the window inside a display.
+        //
+        optional uint32 size_y = 7;
+
+        //
+        // This value can be used instead of size_x or size_y.
+        //
+        optional bool is_fullsize = 8;
+
+        //
+        // Generates an NDI output stream.
+        //
+        optional bool stream = 9;
+    }
+
+    //
+    // \brief ToDo: Description
+    //
+    message ViewportConfiguration
+    {
+        //
+        // Defines on which window the viewport is placed.
+        //
+        optional uint64 placement_on_window_id = 1;
+
+        //
+        // Defines which view is used by the viewport.
+        //
+        optional uint64 view_id = 2;
+
+        //
+        // ID of the viewport.
+        //
+        optional uint64 viewport_id = 3;
+
+        //
+        // Name of the viewport
+        //
+        optional string viewport_name = 4;
+
+        //
+        // Position x of the viewport inside a window.
+        //
+        optional double position_x = 5;
+
+        //
+        // Position y of the viewport inside a window.
+        //
+        optional double position_y = 6;
+
+        //
+        // Pixel-width in x of the viewport inside a window.
+        //
+        optional double size_x = 7;
+
+        //
+        // Pixel-height in y of the viewport inside a window.
+        //
+        optional double size_y = 8;
+
+        //
+        // This value can be used instead of size_x or size_y.
+        //
+        optional bool is_fullsize = 9;
+    }
+
+    //
+    // \brief Here is the main information how the view of the camera/watcher is configured.
+    //
+    message ViewConfiguration
+    {
+        //
+        // ID of the view.
+        //
+        optional uint64 view_id = 1;
+
+        //
+        // Name of the view
+        //
+        optional string view_name = 2;
+
+        //
+        // If this value is false the position is absolute, so the view is fixed to the
+        // point defined by the following parameters (position, orientation, ...).
+        // If true the view is relative to a specific object, assigned to the id specified
+        // by the second parameter. The position-parameter determines therefore the distance/offset
+        // relative to the object.
+        //
+        optional bool is_position_relative = 3;
+
+        //
+        // If the position is relative, this parameter defines the distance/offset to which object
+        // by id. The position of the object can be found in osi_vehicle or osi_groundtruth.
+        //
+        optional uint64 relative_to_id = 4;
+
+        //
+        // A cartesian 3D vector for the position, defined in osi_common.
+        // This is the position where the view is placed absolute/relative.
+        //
+        // Unit: [m]
+        //
+        optional Vector3d position = 5;
+
+        //
+        // A 3D vector for the orientaion, defined in osi_common.
+        // This is the orientation of the view.
+        //
+        // Unit: [rad]
+        //
+        optional Orientation3d orientation = 6;
+
+        //
+        // A 3D vector for the orientaion, defined in osi_common.
+        // This is the orientation-rate of the view.
+        //
+        // Unit: [rad/s]
+        //
+        optional Orientation3d orientation_rate = 7;
+
+        //
+        // ToDo: Description.
+        //
+        optional double clipping_far = 8;
+
+        //
+        // ToDo: Description.
+        //
+        optional double clipping_near = 9;
+
+        //
+        // ToDo: Description.
+        //
+        optional Frustum frustum = 10;
+
+        //
+        // Should the ego-vehicle been shown?
+        // Useful if the camera is inside the ego-vehicle.
+        //
+        optional bool show_host_vehicle = 11;
+
+        //
+        // ToDo: Description.
+        //
+        optional Avatar avatar = 12;
+
+        //
+        // Mirrors the output image.
+        //
+        optional bool mirror = 13;
+
+        //
+        // ToDo: Description.
+        //
+        message Frustum
+        {
+            //
+            // ToDo: Description.
+            //
+            optional double left = 1;
+
+            //
+            // ToDo: Description.
+            //
+            optional double right = 2;
+
+             //
+            // ToDo: Description.
+            //
+            optional double top = 3;
+
+            //
+            // ToDo: Description.
+            //
+            optional double bottom = 4;
+        }
+
+        //
+        // \brief Defines a single avatar sitting inside the vehicle.
+        //
+        message Avatar
+        {
+            //
+            // Flag to indicate whether the avatar is visible.
+            //
+            optional bool show_avatar = 1;
+
+            //
+            // Gender of the avatar.
+            //
+            optional Gender gender = 3;
+
+            // The gender of the avatar.
+            //
+            enum Gender
+            {
+                // The gender is unknown.
+                //
+                GENDER_UNKNOWN = 0;
+
+                // It is another gender.
+                //
+                GENDER_OTHER = 1;
+
+                // The gender is female.
+                //
+                GENDER_FEMALE = 2;
+
+                // The gender is male.
+                //
+                GENDER_MALE = 3;
+            }
+        }
+    }
+}
