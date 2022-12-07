@@ -242,8 +242,9 @@ message TrafficSign
         //
         message Classification
         {
-            // The traffic sign is not stationary, for example a temporary
-            // traffic sign in a street construction.
+            // This value indicates if a sign is static or dynamic regarding its
+            // content (e.g., electronic sign bridge) and/or regarding its  
+            // position on the road.
             //
             optional Variability variability = 1;
 
