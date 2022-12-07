@@ -30,11 +30,11 @@ message MotionRequest
     //
     optional Timestamp timestamp = 2;
 
-    // Define the option that is used to specify the motion request.
+    // Define the type that is used to specify the motion request.
     // This must be set. Additionally, the field corresponding to the specified 
     // option must be set.
     //
-    optional OutputOptions output_option = 3;
+    optional MotionRequestType motion_request_type = 3;
 
     // Defines a desired state.
     // If the output option is set to DESIRED_STATE, this field must be set.
@@ -44,12 +44,12 @@ message MotionRequest
     // Defines a desired trajectory.
     // If the output option is set to DESIRED_TRAJECTORY, this field must be set.
     //
-    optional Trajectory desired_trajectory = 5;
+    optional DesiredTrajectory desired_trajectory = 5;
 
     // Define different options for HAD function output.
     // Each option corresponds to a field in the message.
     //
-    enum OutputOptions
+    enum MotionRequestType
     {
         // Desired state calculated by the HAD function.
         //
@@ -101,7 +101,7 @@ message MotionRequest
     //
     // \note The trajectory is kept as a separate message for future extensions.
     //
-    message Trajectory
+    message DesiredTrajectory
     {
         // The trajectory consists of intended position (x, y, and z) and
         // orientation (yaw, pitch and roll) of intended state to be reached.
