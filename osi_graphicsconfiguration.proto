@@ -1,0 +1,778 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_version.proto";
+import "osi_object.proto";
+import "osi_screenconfiguration.proto";
+import "osi_trafficsign.proto";
+
+package osi3;
+
+//
+// \brief This format describes the graphic-configuration made in the
+// simulation-master. So stand-alone graphicengines can work because of
+// these information.
+//
+message GraphicsConfiguration
+{
+    //
+    // The interface version used by the sender.
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. The zero time point is
+    // arbitrary but must be identical for all messages.
+    // Recommendation: Zero time point for start point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    // Opaque reference of a map.
+    //
+    // \note Origin and orientation of the map have to coincide with the
+    // inertial coordinate frame of the ground truth.
+    //
+    // \note It is implementation-specific how map_reference is resolved.
+    //
+    optional string map_reference = 3;
+
+    //
+    // ToDo: Description
+    //
+    optional VisualizationMode visualization_mode = 4;
+
+    //
+    // Here is the main information about how a screen is configured.
+    // E.g.: Place of the camera, screen-configuration, avatar information, ...
+    //
+    optional ScreenConfiguration screen_configuration = 5;
+
+    //
+    // ToDo: Description
+    //
+    optional VirtualRealityConfiguration virtual_reality_configuration = 6;
+
+        //
+    // Defines options for tracking calibration.
+    //
+    optional TrackingCalibrationConfiguration tracking_calibration_configuration = 7;
+
+    //
+    // Defines the parameters for an AR HUD whose content can be displayed via an NDI video stream.
+    //
+    repeated ARHUD arhud = 8;
+
+    //
+    // Defines the target type of the simulation.
+    //
+    optional VisualizationTarget visualization_target = 9;
+
+    //
+    // Defines options for approximation.
+    //
+    optional Approximation approximation = 10;
+
+    //
+    // Holds the static-data regarding all traffic-signs/lights.
+    //
+    repeated TrafficSignConfiguration traffic_sign_configuration = 11;
+
+    //
+    // The list of stationary objects (excluding traffic signs and traffic
+    // lights).
+    //
+    repeated StationaryObject stationary_object = 12;
+
+    //
+    // ToDo: Description
+    //
+    optional MixedRealityConfiguration mixed_reality_configuration = 13;
+
+    //
+    // Holds the data of all configured NDI media streams.
+    //
+    repeated NDIMediaStream ndi_media_stream = 14;
+
+    //
+    // Defines options which can be used to profile the connected graphics engine during runtime.
+    //
+    optional Profiling profiling = 15;
+
+    //
+    // Stores the database configuration.
+    //
+    optional DatabaseConfiguration database_configuration = 16;
+
+    //
+    // Origin shift information.
+    //
+    optional OriginShift origin_shift = 17;
+
+    //
+    // Stores the render settings.
+    //
+    optional RenderSettings render_settings = 18;
+
+    //
+    // Stores the motion platform configuration.
+    //
+    optional MotionPlatformConfiguration motion_platform_configuration = 19;
+
+    // Stores the UI configuration.
+    //
+    optional UIConfiguration ui_configuration = 20;
+
+    //
+    // Holds the static-data regarding a single traffic-signs/light.
+    //
+    message TrafficSignConfiguration
+    {
+        // The id of the traffic-sign/light in the simulation.
+        //
+        optional Identifier id = 1;
+
+        // Main sign, e.g. speed limit 30 [km/h]
+        //
+        optional TrafficSign.MainSign.Classification main_sign_classification = 2;
+
+        // Additional supplementary signs, e.g. time limits, modifying the traffic sign.
+        //
+        optional TrafficSign.SupplementarySign.Classification supplementary_sign_classification = 3;
+
+        //
+        // The name of the model of the traffic-sign/light.
+        //
+        optional string model_name = 4;
+
+        //
+        // The name of the traffic-sign/light.
+        //
+        optional string name = 5;
+
+        //
+        // Whether this is a traffic-light or a sign.
+        //
+        optional bool is_traffic_light = 6;
+
+        //
+        // The base parameters of the traffic sign, like position / orientation.
+        //
+        optional BaseStationary base = 7;
+    }
+
+    // The mode of the visualization.
+    //
+    enum VisualizationMode
+    {
+        // The visualization mode is unknown.
+        //
+        VISUALIZATION_MODE_UNKNOWN = 0;
+
+        // The visualization mode is another one.
+        //
+        VISUALIZATION_MODE_OTHER = 1;
+
+        // The visualization mode is virtual-reality.
+        //
+        VISUALIZATION_MODE_VIRTUAL_REALITY = 2;
+
+        // The visualization mode is single-screen.
+        //
+        VISUALIZATION_MODE_SINGLE_SCREEN = 3;
+
+        // The visualization mode is multi-screen.
+        //
+        VISUALIZATION_MODE_MULTI_SCREEN = 4;
+    }
+
+    // Simulation target types.
+    //
+    enum VisualizationTarget
+    {
+        // The visualization target is unknown.
+        //
+        VISUALIZATION_TARGET_UNKNOWN = 0;
+
+        // The visualization target is another one.
+        //
+        VISUALIZATION_TARGET_OTHER = 1;
+
+        // The visualization target is a vehicle.
+        //
+        VISUALIZATION_TARGET_VEHICLE = 2;
+
+        // The visualization target is a pedestrian.
+        //
+        VISUALIZATION_TARGET_PEDESTRIAN = 3;
+    }
+
+    // Defines options for approximation.
+    //
+    message Approximation
+    {
+        // Defines the target time used to approximate data (delta to current time) in [ms]
+        //
+        optional float approximation_target_time = 1;
+    }
+
+    // Defines options which can be used to profile the connected graphics engine during runtime.
+    //
+    message Profiling
+    {
+        // Defines whether the FPS should be displayed.
+        //
+        optional bool display_fps = 1;
+
+        // Defines whether the frame-times should be displayed (for e.g. game thread, rendering thread, and GPU times).
+        //
+        optional bool display_frame_times = 2;
+
+        // Defines whether the GPU statistics should be displayed.
+        // The GPU statistics shows detailed information about the cost of performed operations on the GPU.
+        //
+        optional bool display_gpu_statistics = 3;
+
+        // Defines whether the CPU statistics should be displayed.
+        // The CPU statistics shows detailed information about the cost of performed operations on the CPU.
+        //
+        optional bool display_cpu_statistics = 4;
+
+        // Defines whether the OSI statistics should be displayed.
+        // The OSI statistics shows detailed information about the OSI communication.
+        //
+        optional bool display_osi_statistics = 5;
+
+        // Defines whether the GPU statistics should be logged.
+        // The GPU statistics will be logged into a file instead of displaying it.
+        //
+        optional bool log_gpu_statistics = 6;
+
+        // Defines a string in which a custom command can be sent to the graphics engine.
+        //
+        optional string custom_command = 7;
+
+        // Defines which notifications are returned by the connected graphics engine.
+        //
+        optional NotificationLevel notification_level_engine = 8;
+
+        // Defines which calibration pattern is displayed.
+        //
+        optional CalibrationPattern calibration_pattern = 9;
+
+        // Definition of possible notification levels.
+        //
+        enum NotificationLevel
+        {
+            // Log level is unknown.
+            //
+            NOTIFICATION_LEVEL_UNKNOWN = 0;
+
+            // Sends only error's.
+            //
+            NOTIFICATION_LEVEL_ERROR = 1;
+
+            // Sends all warnings and errors.
+            //
+            NOTIFICATION_LEVEL_WARNING = 2;
+
+            // Sends all notifications with level "information" or above.
+            //
+            NOTIFICATION_LEVEL_INFORMATION = 4;
+
+            // Sends all notifications.
+            //
+            NOTIFICATION_LEVEL_DEBUG = 5;
+        }
+
+        // Definition of possible calibration patterns.
+        //
+        enum CalibrationPattern
+        {
+            // No calibration pattern is displayed.
+            //
+            CALIBRATION_PATTERN_NONE = 0;
+
+            // A calibration pattern is displayed. The respective patterns depend on the implementation in the
+            // connected graphic engine.
+            //
+            CALIBRATION_PATTERN_CIRCLES = 1;
+            CALIBRATION_PATTERN_COLORED_BARS_VERTICAL = 2;
+            CALIBRATION_PATTERN_COLORED_BARS_HORIZONTAL = 3;
+            CALIBRATION_PATTERN_GRAY_BARS_VERTICAL = 4;
+            CALIBRATION_PATTERN_GRAY_BARS_HORIZONTAL = 5;
+            CALIBRATION_PATTERN_GRID_CIRCLES = 6;
+            CALIBRATION_PATTERN_CHEVRON = 7;
+            CALIBRATION_PATTERN_CHEVRON_MIRRORED = 8;
+            CALIBRATION_PATTERN_GRID = 9;
+            CALIBRATION_PATTERN_RADAR = 10;
+            CALIBRATION_PATTERN_STRIPS_VERTICAL = 11;
+            CALIBRATION_PATTERN_STRIPS_HORIZONTAL = 12;
+        }
+    }
+
+    //
+    // Stores the database configuration.
+    //
+    message DatabaseConfiguration
+    {
+        //
+        // Stores the configuration of each database tile separately
+        //
+        repeated TileConfiguration tile_configurations = 1;
+
+        //
+        // Stores the information of a single database tile.
+        //
+        message TileConfiguration
+        {
+            //
+            // Name of the tile.
+            //
+            optional string tile_name = 1;
+
+            //
+            // 3D Position of the tile in world coordinates.
+            //
+            optional Vector3d position = 2;
+
+            //
+            // Orientation of the tile in the world coordinate system.
+            //
+            optional Orientation3d orientation = 3;
+        }
+    }
+
+    //
+    // Handles the origin shift.
+    //
+    message OriginShift
+    {
+        //
+        // Defines the maximum distance of the focused target before an origin shift is triggered.
+        //
+        optional uint64 maximum_origin_distance = 1;
+
+        //
+        // Defines the maximum distance the origin can be shifted per tick.
+        //
+        optional uint64 maximum_origin_shift_per_tick = 2;
+    }
+
+    //
+    // Stores the motion-platform dependent configuration.
+    //
+    message MotionPlatformConfiguration
+    {
+        //
+        // The position offset of the motion platform in [m].
+        //
+        optional Vector3d positionOffset = 1;
+
+        //
+        // The orientation offset of the motion platform in [°]
+        //
+        optional Orientation3d orientationOffset = 2;
+    }
+
+    //
+    // \brief Defines UI parameters.
+    //
+    message UIConfiguration
+    {
+        //
+        // Defines whether a UI is enabled or not.
+        //
+        optional bool is_enabled = 1;
+
+        //
+        // Defines the name of the UI.
+        //
+        optional string name = 2;
+    }
+
+    //Open:
+    //Kopfposition
+    // OSI-Env (Tageszeitentypen, Cloudspeed, Wettertypen, Cloudshadowintensity, Percipitation, TimeofDay) country_code
+    // HUD Information
+    // SPOUT plane
+}
+
+//
+// Contains options which affects the rendering, which may have major impact on performance.
+//
+message RenderSettings
+{
+    //
+    // Super sampling renders the scene at a lower/higher resolution and then scales it.
+    // The value represents a percentage of the overall resolution of the scene.
+    //
+    // Range: [0, 400]
+    //
+    // Unit: [%]
+    //
+    optional double super_sampling_configuration = 1;
+
+    //
+    // Defines the method used for anti-aliasing.
+    //
+    optional AntiAliasingMethod anti_aliasing_method = 2;
+
+    //
+    // Defines the mode used for DLSS.
+    //
+    optional DLSSMode dlss_mode = 3;
+
+    //
+    // Defines whether bloom post-effect is enabled or not.
+    //
+    optional bool bloom = 4;
+
+    //
+    // Defines the quality of the currently used anti-aliasing method.
+    //
+    optional QualitySetting anti_aliasing_quality = 5;
+
+    //
+    // Defines the quality of effects like particles.
+    //
+    optional QualitySetting effects_quality = 6;
+
+    //
+    // Defines the quality of foliage which adjusts how many foliage are rendered at one time.
+    //
+    optional QualitySetting foliage_quality = 7;
+
+    //
+    // Defines the quality of post-effects like bloom, motion-blur or depth-of-field.
+    //
+    optional QualitySetting post_process_quality = 8;
+
+    //
+    // Defines the quality of shadows.
+    //
+    optional QualitySetting shadow_quality = 9;
+
+    //
+    // Defines the texture quality which mainly have a effect on gpu memory consumption.
+    //
+    optional QualitySetting texture_quality = 10;
+
+    //
+    // Defines the quality of view-distance which adjusts distance culling of objects and LOD.
+    //
+    optional QualitySetting view_distance_quality = 11;
+
+    //
+    // Defines the draw distance of the vehicle lights in [m]
+    //
+    optional float vehicle_lights_draw_distance = 12;
+
+    //
+    // Defines the range in which the vehicle lights are faded in.
+    //
+    optional float vehicle_lights_fade_distance = 13;
+
+    //
+    // Defines whether animated flying objects are enabled or not.
+    //
+    optional bool animated_flying_objects = 14;
+
+    //
+    // Defines TAA settings. Only set if TAA is selected as the anti-aliasing method.
+    //
+    optional TemporalAntiAliasingSettings temporal_anti_aliasing_settings = 15;
+
+    //
+    // Defines whether the rendered image should be sharpened, clamped at 10.
+    // [0: disabled(default),0.5: half strength, 1: full strength]
+    //
+    optional float image_sharpen = 16;
+
+    //
+    // Defines whether to use lighting/environment from loaded map or standard lighting/environment.
+    //
+    optional bool in_map_lighting = 17;
+
+    //
+    // Defines whether screen-space-reflections are enabled or not.
+    //
+    optional bool screen_space_reflections = 18;
+
+    //
+    // Defines whether to calculate the sun position based on geographical location, data and time of day.
+    //
+    optional bool realistic_sun_position = 19;
+
+    //
+    //  Defines wheather HDR is enabled or not.
+    //
+    optional bool hdr = 20;
+
+    // Method used for anti-aliasing.
+    //
+    enum AntiAliasingMethod
+    {
+        // Disables anti-aliasing
+        //
+        ANTI_ALIASING_METHOD_DISABLED = 0;
+
+        // Temporal anti-aliasing
+        //
+        ANTI_ALIASING_METHOD_TAA = 1;
+
+        // Multisample anti-aliasing 2x
+        //
+        ANTI_ALIASING_METHOD_MSAA_2X = 2;
+
+        // Multisample anti-aliasing 4x
+        //
+        ANTI_ALIASING_METHOD_MSAA_4X = 3;
+
+        // Multisample anti-aliasing 8x
+        //
+        ANTI_ALIASING_METHOD_MSAA_8X = 4;
+
+        // Fast approximate anti-aliasing
+        //
+        ANTI_ALIASING_METHOD_FXAA = 5;
+
+        // Temporal super resolution ... UE5 only!
+        //
+        ANTI_ALIASING_METHOD_TSR = 6;
+    }
+
+    // Enumeration of DLSS modes. (DLSS = Deep Learning Super Sampling)
+    //
+    enum DLSSMode
+    {
+        // Disables DLSS
+        //
+        DLSS_MODE_OFF = 0;
+
+        // Enables DLSS and set quality to ultra-performance.
+        //
+        DLSS_MODE_ULTRA_PERFORMANCE = 1;
+
+        // Enables DLSS and set quality to performance.
+        //
+        DLSS_MODE_PERFORMANCE = 2;
+
+        // Enables DLSS and set quality to balanced.
+        //
+        DLSS_MODE_BALANCED = 3;
+
+        // Enables DLSS and set quality to quality.
+        //
+        DLSS_MODE_QUALITY = 4;
+
+        // Enables DLSS and set quality to ultra-quality.
+        //
+        DLSS_MODE_ULTRA_QUALITY = 5;
+    }
+
+    // Enumeration of possible quality settings.
+    //
+    enum QualitySetting
+    {
+        // Enables low quality.
+        //
+        QUALITY_SETTING_LOW = 0;
+
+        // Enables medium quality.
+        //
+        QUALITY_SETTING_MEDIUM = 1;
+
+        // Enables high quality setting.
+        //
+        QUALITY_SETTING_HIGH = 2;
+
+        // Enables epic quality setting.
+        //
+        QUALITY_SETTING_EPIC = 3;
+
+        // Enabled cinematic quality setting.
+        //
+        QUALITY_SETTING_CINEMATIC = 4;
+    }
+
+    // Contains extended options for TAA which can be used to fine tune it.
+    //
+    message TemporalAntiAliasingSettings
+    {
+        // Number of jittered positions for temporal AA (4, 8=default, 16, 32, 64)
+        //
+        optional int32 samples = 1;
+
+        // Weight of current frame's contribution to the history. Low values cause blurriness and ghosting,
+        // high values fail to hide jittering. (0.04=default).
+        //
+        optional float current_frame_weight = 2;
+
+        // Size of filter kernel. (1.0 = smoother, 0.0 = sharper but aliased)
+        //
+        optional float filter_size = 3;
+    }
+}
+
+//
+// \brief ToDo: Description
+//
+message VirtualRealityConfiguration
+{
+    //
+    // Is teleporting available?
+    //
+    optional bool is_teleporting_available = 1;
+
+    //
+    // Is the handtracking enabled?
+    //
+    optional bool handtracking_enabled = 2;
+}
+
+//
+// \brief Contains options used for HMD tracking positioning/orientation calibration.
+//
+message TrackingCalibrationConfiguration
+{
+    //
+    // Defines calibration mode.
+    //
+    CalibrationMode calibration_mode = 1;
+
+    //
+    // Manual tracking position offset.
+    //
+    Preset preset = 2;
+
+    //
+    // Enum defining calibration method.
+    //
+    enum CalibrationMode
+    {
+        // Calibration using viewer and controller.
+        //
+        MANUAL = 0;
+
+        // Calibration using predefined values.
+        //
+        PRESET = 1;
+    }
+
+    //
+    // Enum defining presets.
+    //
+    enum Preset
+    {
+        // Lowest seating position
+        //
+        DRIVER_SEAT_LOW_ONE = 0;
+        // Secdond lowest seating position
+        //
+        DRIVER_SEAT_LOW_TWO = 1;
+        // Third lowest seating position
+        //
+        DRIVER_SEAT_LOW_THREE = 2;
+        // Medium height seating position
+        //
+        DRIVER_SEAT_MEDIUM = 3;
+        // Third highest seating position
+        //
+        DRIVER_SEAT_HIGH_ONE = 4;
+        // Second highest seating position
+        //
+        DRIVER_SEAT_HIGH_TWO = 5;
+        // Highest seating position
+        //
+        DRIVER_SEAT_HIGH_THREE = 6;
+    }
+}
+
+//
+// \brief Mixed reality is a blend of physical
+// and virtual worlds that includes both real and computer-generated objects. The
+// two worlds are "mixed" together to create a realistic environment. A user can
+// navigate this environment and interact with both real and virtual objects.
+// A Mixed Reality HMD is needed for this feature.
+//
+message MixedRealityConfiguration
+{
+    //
+    // Is depth testing enabled?
+    //
+    optional bool depth_testing_enabled = 1;
+
+    //
+    // Is environment depth estimation enabled?
+    //
+    optional bool environment_depth_estimation_enabled = 2;
+
+    //
+    // Defines depth testing range minimum distance.
+    //
+    optional float depth_testing_range_min = 3;
+
+    //
+    // Defines depth testing range maximum distance.
+    //
+    optional float depth_testing_range_max = 4;
+}
+
+//
+// \brief Defines the parameters for an AR HUD whose content can be displayed via an NDI video stream.
+//
+message ARHUD
+{
+    //
+    // ID of the target the AR HUD is attached to.
+    //
+    optional uint64 target_id = 1;
+
+    //
+    // Defines the position of the AR HUD relative to the target it is attached to in [m].
+    //
+    optional Vector3d position = 2;
+
+    //
+    // Defines the orientation of the AR HUD relative to the target it is attached to in [rad].
+    //
+    optional Orientation3d orientation = 3;
+
+    //
+    // Defines the size of the AR HUD in [m].
+    //
+    optional Vector3d size = 4;
+}
+
+//
+// \brief Defines a media stream send/received via NDI (Network Device Interface) and
+// projects it onto a target.
+//
+message NDIMediaStream
+{
+    //
+    // Defines the name of the NDI source (usually "<host-name>(<stream-name>)").
+    //
+    optional string source_name = 1;
+
+    //
+    // Defines the name of the target the stream will be projected to.
+    //
+    optional string target_name = 2;
+
+    //
+    // Defines the offset of the video-stream relative to the position of the target.
+    // Origin is top left.
+    //
+    // Unit: [%]
+    //
+    optional Vector2d offset = 3;
+
+    //
+    // Defines the scale of the video-stream relative to the size of the target.
+    //
+    // Unit: [%]
+    //
+    optional Vector2d scale = 4;
+}
