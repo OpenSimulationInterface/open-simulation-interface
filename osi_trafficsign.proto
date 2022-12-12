@@ -9571,12 +9571,35 @@ message TrafficSign
         //
         VARIABILITY_OTHER = 1;
 
-        // Fixed sign, i.e. always present.
+        // Sign that can change neither semantically nor positionally, e.g. a
+        // fixed, immutable, non-temporary traffic sign.
         //
         VARIABILITY_FIXED = 2;
 
-        // Temporary or variable sign, e.g. on a sign bridge.
+        // Sign that can change semantically and/or positionally, i.e. it is
+        // left unspecified in which way the sign may change.
+        //
+        // \note This value represents a legacy definition. If possible, please
+        // use the more specific values below to indicate the exact nature of
+        // variability.
         //
         VARIABILITY_VARIABLE = 3;
+
+        // Sign that can change positionally but not semantically, e.g. a
+        // temporary, immutable traffic sign at construction site.
+        //
+        VARIABILITY_MOVABLE = 4;
+
+        // Sign that can change semantically but not positionally, e.g. a
+        // digital traffic sign on traffic sign gantry, or an analog prism
+        // sign.
+        //
+        VARIABILITY_MUTABLE = 5;
+
+        // Sign that can change both semantically and positionally, e.g. a
+        // temporary, digital traffic sign at a construction site, or a digital
+        // traffic sign attached to a road works vehicle.
+        //
+        VARIABILITY_MOVABLE_AND_MUTABLE = 6;
     }
 }
