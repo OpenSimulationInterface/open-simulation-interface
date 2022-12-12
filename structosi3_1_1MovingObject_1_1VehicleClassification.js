@@ -18,7 +18,8 @@ var structosi3_1_1MovingObject_1_1VehicleClassification =
       [ "TYPE_BUS", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a9c6e20f0148178e2f06f1894b6af62dc", null ],
       [ "TYPE_TRAM", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a336aedac92512e3d90315397f09a283e", null ],
       [ "TYPE_TRAIN", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a763f1bcda4dc3bf98b9bc01cf6b2b35d", null ],
-      [ "TYPE_WHEELCHAIR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02", null ]
+      [ "TYPE_WHEELCHAIR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02", null ],
+      [ "TYPE_STANDUP_SCOOTER", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a95884f1284b2897deaf6b687ee48bc5a", null ]
     ] ],
     [ "Role", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3", [
       [ "ROLE_UNKNOWN", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a01950a07bd698222e3b2d2992b784b16", null ],

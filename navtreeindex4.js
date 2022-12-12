@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba":[2,0,0,6,0],
 "structosi3_1_1Orientation3d.html#a8926d20dd01c344c45f5670fa791fb21":[2,0,0,6,2],
 "structosi3_1_1Pedalry.html":[2,0,0,24],
 "structosi3_1_1Pedalry.html#a46eb3fb5edad3861abfef28c5beffbdf":[2,0,0,24,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da224542cd5d9d94ba440ada2f249159dd":[2,0,0,63,0,1,0],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da2ad7dab15df9369f54e873a079d26f02":[2,0,0,63,0,1,18],
 "structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da3061d9cf215369f5d91dad750d08e05d":[2,0,0,63,0,1,2],
-"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da50031e171de36e8236e7b500069e5994":[2,0,0,63,0,1,3],
-"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da6158b24f924dbecf2a1bfd46b2b7df04":[2,0,0,63,0,1,1]
+"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da50031e171de36e8236e7b500069e5994":[2,0,0,63,0,1,3]
 };

@@ -171,6 +171,7 @@ var NAVTREEINDEX3 =
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a336aedac92512e3d90315397f09a283e":[2,0,0,64,2,1,14],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a72cc520d97695dc8aa981f9954d7df20":[2,0,0,64,2,1,12],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a763f1bcda4dc3bf98b9bc01cf6b2b35d":[2,0,0,64,2,1,15],
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a95884f1284b2897deaf6b687ee48bc5a":[2,0,0,64,2,1,17],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a9c6e20f0148178e2f06f1894b6af62dc":[2,0,0,64,2,1,13],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189aa4cc83f7e97bef135062b2d10ed96ecc":[2,0,0,64,2,1,4],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab0c863afde22fc252f1cfdc5017e9bee":[2,0,0,64,2,1,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6aeb650be86852bd56249051ff05232f45":[2,0,0,65,0,0,9],
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6af23b7bc617a26bbdaf548a10731d4db2":[2,0,0,65,0,0,4],
 "structosi3_1_1Orientation3d.html":[2,0,0,6],
-"structosi3_1_1Orientation3d.html#a1f855b7cd2ecc13fee682b13d174759a":[2,0,0,6,1],
-"structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba":[2,0,0,6,0]
+"structosi3_1_1Orientation3d.html#a1f855b7cd2ecc13fee682b13d174759a":[2,0,0,6,1]
 };
