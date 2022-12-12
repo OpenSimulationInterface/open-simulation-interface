@@ -87,6 +87,10 @@ message HostVehicleData
     //
     repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
 
+    // Interface regarding the vehicle motion.
+    //
+    optional VehicleMotion vehicle_motion = 13;
+
     //
     // \brief Base parameters and overall states of the vehicle.
     //
@@ -311,10 +315,10 @@ message HostVehicleData
     }
 
     //
-    // \brief Current calculated and estimated location, velocity and acceleration that can be based on GNSS, IMU and related navigation sensors.
+    // \brief Current calculated and estimated location that can be based on GNSS and related navigation sensors.
     // This message does not contain the individual sensor values of the sensor technology.
     //
-    // This message contains the most accurate information the vehicle knows about its position, velocity and acceleration 
+    // This message contains the most accurate information the vehicle knows about its position
     // available in the on-board network.
     // Because of this the values can differ from the "true" values calculated out of
     // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
@@ -335,31 +339,53 @@ message HostVehicleData
         // Most accurate geodetic information of the vehicle available in the on-board network.
         //
         optional GeodeticPosition geodetic_position = 3;
-        
-        // Most accurate curvature currently followed by vehicle and available in the on-board network,
-        // measured from a localization system.
-        //
-        // Reference point: car body point coincident with the midpoint of rear axle in design configuration, defined by the following coordinates: 
-        // x: Position of rear axle 
-        // y: Vehicle longitudinal centerline
-        // z: Wheel center of rear axle
-        //
-        optional double current_curvature = 4;
-                
-        // Most accurate orientation rate of the vehicle, available in the on-board network.
-        // Measured along the vehicle orientation in context of the global inertial system.
-        //
-        optional Orientation3d orientation_rate = 5;
-        
-        // Most accurate velocity information of the vehicle, available in the on-board network.
-        // Measured along the vehicle orientation in context of the global inertial system.
-        //
-        optional Vector3d velocity = 6;
 
-        // Most accurate acceleration information of the vehicle, available in the on-board network.
-        // Measured along the vehicle orientation in context of the global inertial system.
+    }
+
+    //
+    // \brief Current calculated and estimated motion related information.
+    //
+    // This message contains the most accurate information the vehicle knows about its motion
+    // including vehicle dynamics and control related information available in the on-board network,
+    // which can differ from the "true" values calculated out of the ground truth.
+    //
+    // This data uses the reference point coincident with the midpoint of rear axle, defined by the following coordinates: 
+    // x: Position of rear axle 
+    // y: Vehicle longitudinal centerline
+    // z: Wheel center of rear axle
+    //
+    message VehicleMotion
+    {
+        // Most accurate position of the vehicle available in the on-board network
+        // measured in the cartesian global coordinate system.
         //
-        optional Vector3d acceleration = 7;
+        optional Vector3d position = 1;
+
+        // Most accurate orientation information of the vehicle available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Orientation3d orientation = 2;
+        
+        // Most accurate curvature currently followed by vehicle and available in the on-board network
+        //
+        // Unit: m^-1
+        //
+        optional double current_curvature = 3;
+                
+        // Most accurate orientation rate of the vehicle, available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Orientation3d orientation_rate = 4;
+        
+        // Most accurate velocity information of the vehicle, available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Vector3d velocity = 5;
+
+        // Most accurate acceleration information of the vehicle, available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Vector3d acceleration = 6;
 
     }
 
