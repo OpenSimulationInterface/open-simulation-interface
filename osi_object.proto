@@ -865,8 +865,9 @@ message MovingObject
             // Vehicle is a wheelchair.
             //
             TYPE_WHEELCHAIR = 15;
-			
-            // Vehicle is a stand-up or kickboard scooter, including motorized versions.
+
+            // Vehicle is a stand-up or kickboard scooter, including
+            // motorized versions.
             //
             TYPE_STANDUP_SCOOTER = 17;
         }
