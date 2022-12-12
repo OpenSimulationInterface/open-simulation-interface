@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (49144e2)</span>
+   &#160;<span id="projectnumber">master (88373c7)</span>
    </div>
   </td>
  </tr>
@@ -99,9 +99,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p>As the complexity of automated driving functions rapidly increases, the requirements for test and development methods are growing. Testing in virtual environments offers the advantage of completely controlled and reproducible environment conditions.</p>
 <p>For more information on OSI see the <a href="https://opensimulationinterface.github.io/osi-documentation/">official documentation</a> or the <a href="https://opensimulationinterface.github.io/open-simulation-interface/">official reference documentation</a> for defined protobuf messages.</p>
 <p>[1] Hanke, T., Hirsenkorn, N., van-Driesten, C., Garcia-Ramos, P., Schiementz, M., Schneider, S. &amp; Biebl, E. (2017, February 03). <em>A generic interface for the environment perception of automated driving functions in virtual scenarios.</em> Retrieved January 25, 2020, from <a href="https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/">https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/</a></p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Usage</h1>
-<h4><a class="anchor" id="autotoc_md9"></a>
+<h4><a class="anchor" id="autotoc_md12"></a>
 Example of generating OSI messages in &lt;tt&gt;Python&lt;/tt&gt;</h4>
 <div class="fragment"><div class="line"># generate_osi_messages.py</div>
 <div class="line">from osi3.osi_sensorview_pb2 import SensorView</div>
@@ -163,14 +163,14 @@ Example of generating OSI messages in &lt;tt&gt;Python&lt;/tt&gt;</h4>
 </div><!-- fragment --><p>To run the script execute the following command in the terminal: </p><div class="fragment"><div class="line">python3 generate_osi_messages.py</div>
 </div><!-- fragment --><p>This will output an osi file (<code>sv_330_361_1000_movingobject.osi</code>) which can be visualized and played back by the <a href="https://github.com/OpenSimulationInterface/osi-visualizer">osi-visualizer</a>.</p>
 <p>See Google's documentation for more tutorials on how to use protocol buffers with <a href="https://developers.google.com/protocol-buffers/docs/pythontutorial">Python</a> or <a href="https://developers.google.com/protocol-buffers/docs/cpptutorial">C++</a>. </p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Installation</h1>
-<h4><a class="anchor" id="autotoc_md11"></a>
+<h4><a class="anchor" id="autotoc_md14"></a>
 Dependencies</h4>
 <p>Install <code>cmake</code> 3.10.2: </p><div class="fragment"><div class="line">$ sudo apt-get install cmake</div>
 </div><!-- fragment --><p> Install <code>pip3</code> and missing python packages: </p><div class="fragment"><div class="line">$ sudo apt-get install python3-pip python3-setuptools</div>
 </div><!-- fragment --><p> Install <code>protobuf</code>: </p><div class="fragment"><div class="line">$ sudo apt-get install libprotobuf-dev protobuf-compiler</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md15"></a>
 Build and install for &lt;tt&gt;C++&lt;/tt&gt; usage:</h4>
 <div class="fragment"><div class="line">$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git</div>
 <div class="line">$ cd open-simulation-interface</div>
@@ -179,7 +179,7 @@ Build and install for &lt;tt&gt;C++&lt;/tt&gt; usage:</h4>
 <div class="line">$ cmake ..</div>
 <div class="line">$ make</div>
 <div class="line">$ sudo make install</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md16"></a>
 Install for &lt;tt&gt;Python&lt;/tt&gt; usage:</h4>
 <p>Local: </p><div class="fragment"><div class="line">$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git</div>
 <div class="line">$ cd open-simulation-interface</div>

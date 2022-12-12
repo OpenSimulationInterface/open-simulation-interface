@@ -26,8 +26,8 @@ var NAVTREE =
 [
   [ "open_simulation_interface", "index.html", [
     [ "Open Simulation Interface (OSI)", "index.html", [
-      [ "Usage", "index.html#autotoc_md8", null ],
-      [ "Installation", "index.html#autotoc_md10", null ]
+      [ "Usage", "index.html#autotoc_md11", null ],
+      [ "Installation", "index.html#autotoc_md13", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
@@ -51,9 +51,9 @@ var NAVTREEINDEX =
 "structosi3_1_1HostVehicleData.html#a02fd3acdf85d92c3cfe933d250a3c69b",
 "structosi3_1_1LogicalDetection.html#a50fa3651cd1da3ff3e32aaa46c011181",
 "structosi3_1_1Orientation3d.html#a68b9d059dc5f98668f88cf0879e814ba",
-"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da6158b24f924dbecf2a1bfd46b2b7df04",
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da142b8e3bc454583d186345b4866e4a72",
-"structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686a5510c6b601dd4ed4dfaaf1b1599bb73d"
+"structosi3_1_1StationaryObject_1_1Classification.html#ad497488a7119617633b54181ea08457da0e33b264a89e8b4c8bb688e03b17393b",
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88da0f74edd0a7705d0e84c4e4997999d9a6",
+"structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686a366a81d78e4b5f0c88c40acb1d7a44c9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
