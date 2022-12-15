@@ -1048,6 +1048,14 @@ message CameraPoint
     // Root mean squared error of the measured point.
     //
     optional Spherical3d point_rmse = 3;
+    
+    // pixel-coordinate [x] in corresponding image
+    //
+    optional uint32 pixel_x = 4;
+    
+    // pixel-coordinate [y] in corresponding image
+    //
+    optional uint32 pixel_y = 5;    
 }
 
 // Definition of a basic detection classifications.
