@@ -729,29 +729,50 @@ message CameraSensorViewConfiguration
     //
     repeated WavelengthData wavelength_data = 11;
 
-    // Orientation hint for to interpred the image pixel data (EXIF orientation tag)
+    // Indicates if and how the the pixel data is ordered
     //
-    // Indicates how this image pixels are to be interpreted
+    // By default, the pixel data is is left-to-right, top-to-bottom. 
+    // 
+    // \note for rotations of the pixel data, use the camera coordinate system
     //
-    // value    operation to perform on image
-    // 1        correct orientation, no adjustment is required
-    // 2        horizontal flip: image is mirrored left-right
-    // 3        rotate 180 degrees: image is upside down
-    // 4        vertical flip: image is mirrored top/down
-    // 5        transpose
-    // 6        rotate 90 degrees (counterclockwise)
-    // 7        rotate 270 degrees (counterclockwise), then flip upside-down
-    // 8        rotate 270 degrees (counterclockwise)
+    optional PixelOrder pixel_order = 12;
+
+    // Pixel layout 
     //
-    // \par References
-    // [1] Camera and Imaging Products Association. <em>CIPA DC-010-2017 Exif 2.31 metadata for XMP</em>. Retrieved 04 28, 2022, from https://web.archive.org/web/20180921145139if_/http://www.cipa.jp:80/std/documents/e/DC-010-2017_E.pdf .
+    // Pixel layout documents the order of pixels in the \c image_data
+    // in CameraSensorView. 
     //
-    // \rules
-    // is_greater_than_or_equal_to: 1
-    // is_less_than_or_equal_to: 8
-    // \endrules
+    // \note this enum does not contain an entry to do mirroring upside down
+    // and left-to-right at the same time, because this is equivalent to a 180°
+    // rotation, which should be indicated in the sensor coordinate system 
     //
-    optional uint32 orientation = 12;
+    enum PixelOrder
+    {
+        // Pixel order is unknown (must not be used).
+        //
+        PIXEL_ORDER_UNKNOWN = 0;
+
+        // Unspecified but unknown pixel order.
+        // Consider proposing an additional format if using
+        // \c #PIXEL_ORDER_OTHER.
+        //
+        PIXEL_ORDER_OTHER = 1;
+        
+        // Pixel data is not mirrored (Default).
+        // Pixels are ordered left-to-right, top-to-bottom
+        //
+        PIXEL_ORDER_DEFAULT = 2;
+
+        // Pixel data is mirrored along the vertical axis.
+        // The image is mirrored left-to-right.
+        //
+        PIXEL_ORDER_MIRRORED_LEFT_RIGHT = 3;
+
+        // Pixel data is mirrored along the horizontal axis.
+        // The image is mirrored top-to-bottom.
+        //      
+        PIXEL_ORDER_MIRRORED_UP_DOWN = 4;
+    }
 
 
     // Channel format.
