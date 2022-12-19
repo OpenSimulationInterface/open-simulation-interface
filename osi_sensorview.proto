@@ -315,7 +315,7 @@ message CameraSensorView
     //
     // The raw image data in the memory layout specified by the camera sensor
     // input configuration. Default pixel order is left-to-right, top-to-bottom
-    ///(think of scan lines in a TV), but modifications can be 
+    // (think of scan lines in a TV), but modifications can be 
     // requested/indicated in CameraSensorViewConfiguration.pixel_order.
     //
     optional bytes image_data = 2;
