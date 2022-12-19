@@ -733,7 +733,7 @@ message CameraSensorViewConfiguration
     //
     // By default, the pixel data is is left-to-right, top-to-bottom. 
     // 
-    // \note for rotations of the pixel data, use the camera coordinate system
+    // \note for rotations of the pixel data, use the camera coordinate system.
     //
     optional PixelOrder pixel_order = 12;
 
@@ -743,8 +743,9 @@ message CameraSensorViewConfiguration
     // in CameraSensorView. 
     //
     // \note this enum does not contain an entry to do mirroring upside down
-    // and left-to-right at the same time, because this is equivalent to a 180°
-    // rotation, which should be indicated in the sensor coordinate system 
+    // and left-to-right at the same time, because this is equivalent to a
+    // 180-degree rotation, which should be indicated in the sensor coordinate
+    // system.
     //
     enum PixelOrder
     {
@@ -752,7 +753,7 @@ message CameraSensorViewConfiguration
         //
         PIXEL_ORDER_UNKNOWN = 0;
 
-        // Unspecified but unknown pixel order.
+        // Known pixel order that is not supported by OSI.
         // Consider proposing an additional format if using
         // \c #PIXEL_ORDER_OTHER.
         //
