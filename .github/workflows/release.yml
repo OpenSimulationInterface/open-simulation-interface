@@ -49,7 +49,7 @@ jobs:
           event-type: update-tag
 #           repository: OpenSimulationInterface/osi-documentation
           repository: philipwindecker/osi-documentation
-          client-payload: '{"tag": "${{needs.setup.outputs.output1}}-antora"}'
+          client-payload: '{"tag": "${{needs.setup.outputs.output1}}"}'
   
   ## Antora job, responsible for creating the Antora output of the release
   antora:
