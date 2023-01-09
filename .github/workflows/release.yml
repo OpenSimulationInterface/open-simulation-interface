@@ -29,6 +29,7 @@ jobs:
         id: date_step
         run: echo "docdate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
   
+  ## Tag and update related repositories before checking them out for Antora and the deliverables
   tagging_update:
     name: Update OSMP & Documentation
     runs-on: ubuntu-22.04
@@ -50,6 +51,11 @@ jobs:
 #           repository: OpenSimulationInterface/osi-documentation
           repository: philipwindecker/osi-documentation
           client-payload: '{"tag": "${{needs.setup.outputs.output1}}"}'
+      - name: Provide downstream repos some time
+        uses: whatnick/wait-action@v0.1.2
+        with:
+          time: '1m'
+
   
   ## Antora job, responsible for creating the Antora output of the release
   antora:
