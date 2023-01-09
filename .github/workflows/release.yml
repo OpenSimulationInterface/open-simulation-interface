@@ -55,6 +55,7 @@ jobs:
   antora:
     name: Generate Antora content
     runs-on: ubuntu-22.04
+    needs: [tagging_update]
     steps:          
       # Check out the Antora generator
       - name: Checkout Antora generator
