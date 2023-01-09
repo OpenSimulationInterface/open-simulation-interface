@@ -28,7 +28,29 @@ jobs:
       - name: Set date
         id: date_step
         run: echo "docdate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-      
+  
+  tagging_update:
+    name: Update OSMP & Documentation
+    runs-on: ubuntu-22.04
+    needs: [setup]
+    steps:
+      - name: Update OSMP
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: update-tag
+#           repository: OpenSimulationInterface/osi-sensor-model-packaging
+          repository: philipwindecker/osi-sensor-model-packaging
+          client-payload: '{"tag": "${{needs.setup.outputs.output1}}-antora"}'
+      - name: Update Documentation
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: update-tag
+#           repository: OpenSimulationInterface/osi-documentation
+          repository: philipwindecker/osi-documentation
+          client-payload: '{"tag": "${{needs.setup.outputs.output1}}-antora"}'
+  
   ## Antora job, responsible for creating the Antora output of the release
   antora:
     name: Generate Antora content
@@ -38,7 +60,8 @@ jobs:
       - name: Checkout Antora generator
         uses: actions/checkout@v3
         with:
-          repository: OpenSimulationInterface/osi-antora-generator
+#           repository: OpenSimulationInterface/osi-antora-generator
+          repository: philipwindecker/osi-antora-generator
           path: antora
           submodules: true
       # Remove building branches for the main repositories. This will lead to Antora only using the tagged versions to build its content.
@@ -50,7 +73,6 @@ jobs:
       - name: Create run instructions
         run: |
           echo "#!/bin/bash
-          
           cd antora
           exec antora --stacktrace --fetch --clean site.yml" > antora.sh
           cat antora.sh
@@ -82,7 +104,8 @@ jobs:
       - name: Checkout sensor model packaging
         uses: actions/checkout@v3
         with:
-          repository: OpenSimulationInterface/osi-sensor-model-packaging
+#           repository: OpenSimulationInterface/osi-sensor-model-packaging
+          repository: philipwindecker/osi-sensor-model-packaging
           path: dist/osi-sensor-model-packaging
       # Retrieve the Antora artifact from the previous job
       - name: Retrieve Antora artifact
