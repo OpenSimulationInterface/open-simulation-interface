@@ -42,7 +42,7 @@ jobs:
           event-type: update-tag
 #           repository: OpenSimulationInterface/osi-sensor-model-packaging
           repository: philipwindecker/osi-sensor-model-packaging
-          client-payload: '{"tag": "${{needs.setup.outputs.output1}}-antora"}'
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}-antora"}'
       - name: Update Documentation
         uses: peter-evans/repository-dispatch@v2
         with:
@@ -50,7 +50,7 @@ jobs:
           event-type: update-tag
 #           repository: OpenSimulationInterface/osi-documentation
           repository: philipwindecker/osi-documentation
-          client-payload: '{"tag": "${{needs.setup.outputs.output1}}"}'
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
       - name: Provide downstream repos some time
         uses: whatnick/wait-action@v0.1.2
         with:
@@ -76,6 +76,7 @@ jobs:
         working-directory: antora
         run: |
           sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
+          cat site.yml
       # Create custom build instructions for GitHub compatibility
       - name: Create run instructions
         run: |
