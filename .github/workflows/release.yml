@@ -82,6 +82,7 @@ jobs:
         run: |
           echo "#!/bin/bash
           cd antora
+          cat site.yml
           exec antora --stacktrace --fetch --clean site.yml" > antora.sh
           cat antora.sh
       # Run Antora to generate the document
