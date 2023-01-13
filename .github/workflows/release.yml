@@ -45,7 +45,7 @@ jobs:
           event-type: update-tag
 #           repository: OpenSimulationInterface/osi-sensor-model-packaging
           repository: philipwindecker/osi-sensor-model-packaging
-          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}", "suffix": "${{needs.setup.outputs.output3}}"}'
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}", "suffix": "${{needs.setup.outputs.output3}}", "source_repo": "${{ github.repository }}"}'
       - name: Update Documentation
         uses: peter-evans/repository-dispatch@v2
         with:
