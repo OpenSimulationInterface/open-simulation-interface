@@ -13,6 +13,7 @@ jobs:
     outputs:
       output1: ${{steps.var_step.outputs.version}}
       output2: ${{steps.date_step.outputs.docdate}}
+      output3: ${{steps.var_step.outputs.suffix}}
     steps:
       # Check out the GitHub repository
       - name: Checkout interface
@@ -23,7 +24,9 @@ jobs:
       - name: Set version
         id: var_step
         working-directory: dist/open-simulation-interface
-        run: echo "version=$(git describe --tags --always |  sed 's/^v//')" >> $GITHUB_OUTPUT 
+        run:  |
+          echo "version=$(git describe --tags --always |  sed 's/^v//')" >> $GITHUB_OUTPUT 
+          echo "suffix=$(echo ${version} | sed -r 's/[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+//')" >> $GITHUB_OUTPUT
       # Set the release date (current date)
       - name: Set date
         id: date_step
@@ -42,7 +45,7 @@ jobs:
           event-type: update-tag
 #           repository: OpenSimulationInterface/osi-sensor-model-packaging
           repository: philipwindecker/osi-sensor-model-packaging
-          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}-antora"}'
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}-antora", "suffix": "${{needs.setup.outputs.output3}}"}'
       - name: Update Documentation
         uses: peter-evans/repository-dispatch@v2
         with:
