@@ -26,7 +26,7 @@ jobs:
         working-directory: dist/open-simulation-interface
         run:  |
           echo "version=$(git describe --tags --always |  sed 's/^v//')" >> $GITHUB_OUTPUT 
-          echo "suffix=$(echo ${version} | sed -r 's/[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+//')" >> $GITHUB_OUTPUT
+          echo "suffix=$(git describe --tags --always | sed -r 's/^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+//')" >> $GITHUB_OUTPUT
       # Set the release date (current date)
       - name: Set date
         id: date_step
