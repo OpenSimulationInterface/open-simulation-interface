@@ -128,6 +128,10 @@ jobs:
 #           ls
 #           mv antora/site/ dist/ASAM_OSI_Standard_${{needs.setup.outputs.output1}}/
       # Create the mandatory README.txt file for the deliverables package. The functions and variables declared below will create a readme file with a defined header, surrounded by a box made of "*".
+      - name: Get OSMP version
+        working-directoy: dist/osi-sensor-model-packaging
+        run: |
+          OSMP_VERSION="$(git describe --tags --exclude 'v*.*.*-antora' |  sed 's/^v//')"
       - name: Create README
         working-directory: dist
         run: |
@@ -148,7 +152,7 @@ jobs:
 
           - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
           - open_simulation_interface_${{needs.setup.outputs.output1}}
-          - osi-sensor-model-packaging_${{needs.setup.outputs.output1}}" >> "README.txt"
+          - osi-sensor-model-packaging_${OSMP_VERSION}" >> "README.txt"
           cat README.txt
       # Package all collected deliverables
       - name: Zip Release
