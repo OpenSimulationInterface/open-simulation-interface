@@ -88,6 +88,9 @@ jobs:
           cat site.yml
           exec antora --stacktrace --fetch --clean site.yml" > antora.sh
           cat antora.sh
+      # Allocate more memory for large data sets!
+      - name: Allocate more memory for JavaScript
+        run: export NODE_OPTIONS="--max-old-space-size=8192"
       # Run Antora to generate the document
       - name: Run Antora
         uses: docker://ghcr.io/asam-ev/project-guide-docker:4
