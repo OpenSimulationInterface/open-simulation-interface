@@ -120,6 +120,7 @@ jobs:
 #           repository: OpenSimulationInterface/osi-sensor-model-packaging
           repository: philipwindecker/osi-sensor-model-packaging
           path: dist/osi-sensor-model-packaging
+          fetch-depth: 0
       # Retrieve the Antora artifact from the previous job
       - name: Retrieve Antora artifact
         uses: actions/download-artifact@v3
