@@ -138,7 +138,7 @@ jobs:
         run: |
           ls
           OSMP_VERSION="$(git describe --tags --exclude 'v*.*.*-antora' |  sed 's/^v//')"
-          echo "::set-env name=OSMP_VERSION::$OSMP_VERSION"
+          echo "OSMP_VERSION=$OSMP_VERSION" >> $GITHUB_ENV
       - name: Create README
         working-directory: dist
         run: |
@@ -159,7 +159,7 @@ jobs:
 
           - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
           - open_simulation_interface_${{needs.setup.outputs.output1}}
-          - osi-sensor-model-packaging_${OSMP_VERSION}" >> "README.txt"
+          - osi-sensor-model-packaging_${{ env.OSMP_VERSION }}" >> "README.txt"
           cat README.txt
       # Package all collected deliverables
       - name: Zip Release
