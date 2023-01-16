@@ -138,6 +138,7 @@ jobs:
         run: |
           ls
           OSMP_VERSION="$(git describe --tags --exclude 'v*.*.*-antora' |  sed 's/^v//')"
+          echo "::set-env name=OSMP_VERSION::$OSMP_VERSION"
       - name: Create README
         working-directory: dist
         run: |
