@@ -136,8 +136,7 @@ jobs:
       - name: Get OSMP version
         working-directory: dist/osi-sensor-model-packaging
         run: |
-          ls
-          OSMP_VERSION="$(git describe --tags --exclude 'v*.*.*-antora' |  sed 's/^v//')"
+          OSMP_VERSION="$(git describe --tags --exclude 'v*.*.*-antora' --exclude 'x-antora-v*.*.*'|  sed 's/^v//')"
           echo "OSMP_VERSION=$OSMP_VERSION" >> $GITHUB_ENV
       - name: Create README
         working-directory: dist
