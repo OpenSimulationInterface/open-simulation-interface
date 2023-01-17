@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (88373c7)</span>
+   &#160;<span id="projectnumber">master (b13e49c)</span>
    </div>
   </td>
  </tr>
@@ -130,9 +130,15 @@ Public Types</h2></td></tr>
 , <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1ac7d086ae4c5feb92cdeed8049fbf1367">UNIT_LONG_TON</a> = 10
 , <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1af8d034841eb8ceab5133315c2b15c158">UNIT_SHORT_TON</a> = 11
 , <br />
-&#160;&#160;<a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a741678e7a56ef0e29e0c7e40d1e7e966">UNIT_MINUTES</a> = 12
+&#160;&#160;<a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1ac9689cdec4cb7784fafa8cdc7e708c8e">UNIT_HOUR</a> = 15
+, <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a741678e7a56ef0e29e0c7e40d1e7e966">UNIT_MINUTES</a> = 12
+, <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a0a2a76e228d24fa0393d43cc9a97a934">UNIT_DAY_OF_MONTH</a> = 16
 , <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a38720316e6afa3d74a0b24dfbdec13a4">UNIT_DAY</a> = 13
-, <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a7df3d3de74257eb7f44e515404c5a16f">UNIT_PERCENTAGE</a> = 14
+, <br />
+&#160;&#160;<a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a7df3d3de74257eb7f44e515404c5a16f">UNIT_PERCENTAGE</a> = 14
+, <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a3ec35059aa8d1401ea1f47cae969f8db">UNIT_DURATION_DAY</a> = 17
+, <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1afc6cf457dc6abab1e66f358ff82a5dc0">UNIT_DURATION_HOUR</a> = 18
+, <a class="el" href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1a9ba3ea535ebbbd352cf6c98e1d0c854d">UNIT_DURATION_MINUTE</a> = 19
 <br />
  }</td></tr>
 <tr class="memdesc:a8f1c180e36af26e5a9192f81f0020ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit for values on traffic sign.  <a href="structosi3_1_1TrafficSignValue.html#a8f1c180e36af26e5a9192f81f0020ae1">More...</a><br /></td></tr>
@@ -210,16 +216,33 @@ Public Attributes</h2></td></tr>
 <p>Short ton USA 907.1847 kg.</p>
 <p>Unit: tn. sh. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1ac9689cdec4cb7784fafa8cdc7e708c8e"></a>UNIT_HOUR&#160;</td><td class="fielddoc"><p>Time of day. </p>
+<p>Hours since midnight. Starting with 0.</p>
+<p>Unit: h </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1a741678e7a56ef0e29e0c7e40d1e7e966"></a>UNIT_MINUTES&#160;</td><td class="fielddoc"><p>Time of day. </p>
-<p>Hour since midnight.</p>
+<p>Minutes since last hour. Starting with 0.</p>
 <p>Unit: min </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1a0a2a76e228d24fa0393d43cc9a97a934"></a>UNIT_DAY_OF_MONTH&#160;</td><td class="fielddoc"><p>Day of the month. </p>
+<p>Starting with 1. </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1a38720316e6afa3d74a0b24dfbdec13a4"></a>UNIT_DAY&#160;</td><td class="fielddoc"><p>Day of the week. </p>
-<p>Days since Monday. Monday = 0; Tuesday = 1; ... </p>
+<p>Days since Monday. Monday = 0; Tuesday = 1; ...</p>
+<dl class="section note"><dt>Note</dt><dd>For consistency this field will be renamed to UNIT_DAY_OF_WEEK in v4.0.0 . </dd></dl>
 </td></tr>
 <tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1a7df3d3de74257eb7f44e515404c5a16f"></a>UNIT_PERCENTAGE&#160;</td><td class="fielddoc"><p>Percentage. </p>
 <p>Value.</p>
 <p>Unit: % </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1a3ec35059aa8d1401ea1f47cae969f8db"></a>UNIT_DURATION_DAY&#160;</td><td class="fielddoc"><p>Duration in days. </p>
+<p>Unit: day </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1afc6cf457dc6abab1e66f358ff82a5dc0"></a>UNIT_DURATION_HOUR&#160;</td><td class="fielddoc"><p>Duration in hours. </p>
+<p>Unit: h </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8f1c180e36af26e5a9192f81f0020ae1a9ba3ea535ebbbd352cf6c98e1d0c854d"></a>UNIT_DURATION_MINUTE&#160;</td><td class="fielddoc"><p>Duration in minutes. </p>
+<p>Unit: min </p>
 </td></tr>
 </table>
 
