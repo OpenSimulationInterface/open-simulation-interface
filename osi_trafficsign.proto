@@ -101,16 +101,30 @@ message TrafficSignValue
         // Unit: tn. sh.
         //
         UNIT_SHORT_TON = 11;
+        
+        // Time of day.
+        // Hours since midnight. Starting with 0.
+        //
+        // Unit: h
+        //
+        UNIT_HOUR = 15;
 
         // Time of day.
-        // Hour since midnight.
+        // Minutes since last hour. Starting with 0.
         //
         // Unit: min
         //
         UNIT_MINUTES = 12;
+        
+        // Day of the month.
+        // Starting with 1.
+        //
+        UNIT_DAY_OF_MONTH = 16;
 
         // Day of the week.
         // Days since Monday. Monday = 0; Tuesday = 1; ...
+        //
+        // \note For consistency this field will be renamed to UNIT_DAY_OF_WEEK in v4.0.0 .
         //
         UNIT_DAY = 13;
 
@@ -120,6 +134,24 @@ message TrafficSignValue
         // Unit: %
         //
         UNIT_PERCENTAGE = 14;
+        
+        // Duration in days.
+        //
+        // Unit: day
+        //
+        UNIT_DURATION_DAY = 17;
+        
+        // Duration in hours.
+        //
+        // Unit: h
+        //
+        UNIT_DURATION_HOUR = 18;
+        
+        // Duration in minutes.
+        //
+        // Unit: min
+        //
+        UNIT_DURATION_MINUTE = 19;
     }
 
     // Text associated with a sign, e.g. the name of a location whose distance
