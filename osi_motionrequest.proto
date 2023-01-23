@@ -9,9 +9,11 @@ package osi3;
 
 //
 // \brief This message is intended as an interface between a
-// highly-automated-driving function (HAD function) and the actuator management.
+// motion-planning function and the actuator management.
+// The motion-planning function can thereby be a representation of a 
+// highly-automated driving function, a human driving behavior model, etc.
 //
-// The HAD function can either send a desired future trajectory or a desired
+// The motion-planning function can either send a desired future trajectory or a desired
 // future state. The message can be defined by an additional variable.
 //
 // \note The coordinate system is defined as right-handed.
@@ -46,21 +48,21 @@ message MotionRequest
     //
     optional DesiredTrajectory desired_trajectory = 5;
 
-    // Define different options for HAD function output.
+    // Define different options for function output.
     // Each option corresponds to a field in the message.
     //
     enum MotionRequestType
     {
-        // Desired state calculated by the HAD function.
+        // Desired state calculated by the function.
         //
         OUTPUT_OPTIONS_DESIRED_STATE = 0;
 
-        // Desired trajectory calculated by the HAD function.
+        // Desired trajectory calculated by the function.
         //
         OUTPUT_OPTIONS_TRAJECTORY = 1;
     }
 
-    // \brief The desired state is calculated by the HAD function as a result of
+    // \brief The desired state is calculated by the function as a result of
     // the motion planning stack.
     //
     // The actuator management is supposed to reach the desired state at the
@@ -93,9 +95,9 @@ message MotionRequest
         optional Vector3d acceleration = 5;
     }
 
-    // \brief Defined trajectory desired by the HAD function.
+    // \brief Defined trajectory desired by the function.
     //
-    // This trajectory is the result of the trajectory planning step in the HAD function.
+    // This trajectory is the result of the trajectory planning step in the function.
     // The task of the actuator management is to follow this trajectory as closely as possible.
     // The timestamps inside the trajectory must be defined in global simulation time.
     //
