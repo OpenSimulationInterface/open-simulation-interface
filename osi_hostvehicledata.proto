@@ -323,10 +323,11 @@ message HostVehicleData
     // Because of this the values can differ from the "true" values calculated out of
     // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
     //
+    // This data uses the reference point coincident with the center (x,y,z) of the bounding box.
+    //
     message VehicleLocalization
     {
-        // Most accurate position information of the vehicle available in the on-board network.
-        // The reference point for position, that is, the center (x,y,z) of the bounding box
+        // Most accurate position information of the vehicle available in the on-board network
         // in context to the global coordinate system.
         //
         optional Vector3d position = 1;
@@ -349,10 +350,8 @@ message HostVehicleData
     // including vehicle dynamics and control related information available in the on-board network,
     // which can differ from the "true" values calculated out of the ground truth.
     //
-    // This data uses the reference point coincident with the midpoint of rear axle, defined by the following coordinates: 
-    // x: Position of rear axle 
-    // y: Vehicle longitudinal centerline
-    // z: Wheel center of rear axle
+    // This data uses the reference point coincident with the middle (in x, y and z) of rear axle 
+    // under neutral load conditions as defined in \c MovingObject::VehicleAttributes::bbcenter_to_rear.
     //
     message VehicleMotion
     {
@@ -365,28 +364,28 @@ message HostVehicleData
         // measured on the vehicle coordinate system in context of the global inertial system.
         //
         optional Orientation3d orientation = 2;
-        
-        // Most accurate curvature currently followed by vehicle and available in the on-board network
+
+        // Most accurate velocity information of the vehicle, available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
         //
-        // Unit: m^-1
-        //
-        optional double current_curvature = 3;
-                
+        optional Vector3d velocity = 3;
+
         // Most accurate orientation rate of the vehicle, available in the on-board network
         // measured on the vehicle coordinate system in context of the global inertial system.
         //
         optional Orientation3d orientation_rate = 4;
-        
-        // Most accurate velocity information of the vehicle, available in the on-board network
-        // measured on the vehicle coordinate system in context of the global inertial system.
-        //
-        optional Vector3d velocity = 5;
 
         // Most accurate acceleration information of the vehicle, available in the on-board network
         // measured on the vehicle coordinate system in context of the global inertial system.
         //
-        optional Vector3d acceleration = 6;
-
+        optional Vector3d acceleration = 5;
+                
+        // Most accurate curvature currently followed by vehicle and available in the on-board network
+        //
+        // Unit: m^-1
+        //
+        optional double current_curvature = 6;
+                
     }
 
     //
