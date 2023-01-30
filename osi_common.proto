@@ -482,6 +482,8 @@ message BoundingBox
         
         // An external limb of a person or animal.
         // 
+        // \note Limbs can be sub-divided to increase accuracy, i.e. for upper 
+        // and lower arm/leg sections.
         TYPE_LIMB = 8;
         
         // The head of a person or animal.
