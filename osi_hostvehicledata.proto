@@ -328,12 +328,12 @@ message HostVehicleData
     message VehicleLocalization
     {
         // Most accurate position information of the vehicle available in the on-board network
-        // in context to the global coordinate system.
+        // measured in context to the global coordinate system.
         //
         optional Vector3d position = 1;
 
         // Most accurate orientation information of the vehicle available in the on-board network
-        // in context to the global coordinate system.
+        // measured in context to the global coordinate system.
         //
         optional Orientation3d orientation = 2;
 
