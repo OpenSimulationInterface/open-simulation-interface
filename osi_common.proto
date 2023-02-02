@@ -592,7 +592,8 @@ message StatePoint
     // Position in the global coordinate system.
     //
     // \note Remark: The definition of the reference point follows the
-    // specification of the \c BaseMoving message.
+    // specification of the \c BaseMoving message, if not specified otherwise
+    // in the message the StatePoint is used in.
     //
     optional Vector3d position = 2;
 

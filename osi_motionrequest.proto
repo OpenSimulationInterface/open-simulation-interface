@@ -18,7 +18,7 @@ package osi3;
 //
 // \note The coordinate system is defined as right-handed.
 // All coordinates and orientations are relative to the global coordinate system.
-// The reference point of the vehicle is the center of the 3D bounding box of the vehicle.
+// The reference point of the vehicle is the middle of the rear axis.
 // Units are m for positions, m/s for velocities, and m/s^2 for accelerations.
 //
 message MotionRequest
