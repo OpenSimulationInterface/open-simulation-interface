@@ -55,11 +55,11 @@ message MotionRequest
     {
         // Desired state calculated by the function.
         //
-        OUTPUT_OPTIONS_DESIRED_STATE = 0;
+        MOTION_REQUEST_TYPE_DESIRED_STATE = 0;
 
         // Desired trajectory calculated by the function.
         //
-        OUTPUT_OPTIONS_TRAJECTORY = 1;
+        MOTION_REQUEST_TYPE_TRAJECTORY = 1;
     }
 
     // \brief The desired state is calculated by the function as a result of
