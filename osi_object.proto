@@ -514,6 +514,65 @@ message MovingObject
     optional ColorDescription color_description = 11;
 
     //
+    // \brief Additional pedestrian data in case the moving object is a human.
+    //
+    // This is an extension to the \c MovingObject with additional information 
+    // describing a pedestrian in more detail.
+    // 
+    message PedestrianData {
+
+        // Body height of the pedestrian  
+        // 
+        // Unit: m
+        //
+        optional double height = 1;
+
+        // List of all skeleton points of the pedestrian
+        // 
+        // The number of skeleton points may very, based on the detail level of 
+        // the pedestrian model used. For example, some simulators will not include 
+        // detailed data of the fingers or eyes of the pedestrian.
+        // 
+        repeated SkeletonPoint skeleton_data = 2;
+    }
+
+
+    // 
+    // \brief Points in the skeleton of the pedestrian
+    //
+    // Each point represents a joint, or otherwise important point in the skeleton 
+    // of a pedestrian. For example Pelvis, Knee or Shoulder. The naming convention 
+    // should be followed for identifying skeleton points.
+    //
+    message SkeletonPoint {
+
+
+        // Skeleton points are identified by a naming scheme
+        //  
+        // To properly identify the skeleton points the pre-defined naming convention 
+        // must be used.
+        // 
+        //\image html OSI_SkeletonNamingConvention.jpg
+        // 
+        required string identifier = 1;
+
+        // Position of the skeleton point
+        // 
+        // Reference System is the middle of the bounding box (\c MovingObject::base 
+        // \c BaseMoving::position).
+        // 
+        required Vector3d position = 2;
+
+        // Orientation of the skeleton point
+        //
+        // Reference System is the middle of the bounding box (\c MovingObject::base 
+        // \c BaseMoving::position).
+        //
+        required Orientation3d orientation = 3;
+
+    }
+
+    //
     // \brief The vehicle attributes for \c MovingObject (host or other).
     //
     // This is an extension to the \c MovingObject with additional attributes,
