@@ -156,6 +156,7 @@ var hierarchy =
     [ "osi3::HostVehicleData::VehicleBrakeSystem", "structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html", null ],
     [ "osi3::MovingObject::VehicleClassification", "structosi3_1_1MovingObject_1_1VehicleClassification.html", null ],
     [ "osi3::HostVehicleData::VehicleLocalization", "structosi3_1_1HostVehicleData_1_1VehicleLocalization.html", null ],
+    [ "osi3::HostVehicleData::VehicleMotion", "structosi3_1_1HostVehicleData_1_1VehicleMotion.html", null ],
     [ "osi3::HostVehicleData::VehiclePowertrain", "structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html", null ],
     [ "osi3::HostVehicleData::VehicleSteering", "structosi3_1_1HostVehicleData_1_1VehicleSteering.html", null ],
     [ "osi3::VehicleSteeringWheel", "structosi3_1_1VehicleSteeringWheel.html", null ],

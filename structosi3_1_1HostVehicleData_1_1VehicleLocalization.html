@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (b13e49c)</span>
+   &#160;<span id="projectnumber">master (f52aeb3)</span>
    </div>
   </td>
  </tr>
@@ -115,10 +115,10 @@ Collaboration diagram for osi3::HostVehicleData::VehicleLocalization:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a776a97448f14bff46c5553bd3095a9b5"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a776a97448f14bff46c5553bd3095a9b5">position</a> = 1</td></tr>
-<tr class="memdesc:a776a97448f14bff46c5553bd3095a9b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most accurate position information of the vehicle available in the on-board network.  <a href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a776a97448f14bff46c5553bd3095a9b5">More...</a><br /></td></tr>
+<tr class="memdesc:a776a97448f14bff46c5553bd3095a9b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most accurate position information of the vehicle available in the on-board network measured in context to the global coordinate system.  <a href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a776a97448f14bff46c5553bd3095a9b5">More...</a><br /></td></tr>
 <tr class="separator:a776a97448f14bff46c5553bd3095a9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a020233d3ef6d8fdf27597e08cc771858"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a020233d3ef6d8fdf27597e08cc771858">orientation</a> = 2</td></tr>
-<tr class="memdesc:a020233d3ef6d8fdf27597e08cc771858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most accurate orientation information of the vehicle available in the on-board network in context to the global coordinate system.  <a href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a020233d3ef6d8fdf27597e08cc771858">More...</a><br /></td></tr>
+<tr class="memdesc:a020233d3ef6d8fdf27597e08cc771858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most accurate orientation information of the vehicle available in the on-board network measured in context to the global coordinate system.  <a href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a020233d3ef6d8fdf27597e08cc771858">More...</a><br /></td></tr>
 <tr class="separator:a020233d3ef6d8fdf27597e08cc771858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bedbbfd8e3fff6b7b5610f300691e94"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1GeodeticPosition.html">GeodeticPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a6bedbbfd8e3fff6b7b5610f300691e94">geodetic_position</a> = 3</td></tr>
 <tr class="memdesc:a6bedbbfd8e3fff6b7b5610f300691e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most accurate geodetic information of the vehicle available in the on-board network.  <a href="structosi3_1_1HostVehicleData_1_1VehicleLocalization.html#a6bedbbfd8e3fff6b7b5610f300691e94">More...</a><br /></td></tr>
@@ -127,7 +127,8 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Current calculated and estimated location that can be based on GNSS and related navigation sensors. </p>
 <p>This message does not contain the individual sensor values of the sensor technology.</p>
-<p>This message contains the most accurate information the vehicle knows about its position available in the on-board network. Because of this the values can differ from the "true" values calculated out of <a class="el" href="structosi3_1_1GroundTruth.html#af5f78f308a00d74ece79410eb7913006" title="Projection string that allows to transform all coordinates in GroundTruth into a different cartograph...">GroundTruth::proj_string</a>, GroundTruth::MovingObject::BaseMoving::position, <a class="el" href="structosi3_1_1GroundTruth.html#a1e95e5082d740add167f4e4948d3faec" title="The ID of the host vehicle object referencing to MovingObject .">GroundTruth::host_vehicle_id</a>. </p>
+<p>This message contains the most accurate information the vehicle knows about its position available in the on-board network. Because of this the values can differ from the "true" values calculated out of <a class="el" href="structosi3_1_1GroundTruth.html#af5f78f308a00d74ece79410eb7913006" title="Projection string that allows to transform all coordinates in GroundTruth into a different cartograph...">GroundTruth::proj_string</a>, GroundTruth::MovingObject::BaseMoving::position, <a class="el" href="structosi3_1_1GroundTruth.html#a1e95e5082d740add167f4e4948d3faec" title="The ID of the host vehicle object referencing to MovingObject .">GroundTruth::host_vehicle_id</a>.</p>
+<p>This data uses the reference point coincident with the center (x,y,z) of the bounding box. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a776a97448f14bff46c5553bd3095a9b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a776a97448f14bff46c5553bd3095a9b5">&#9670;&nbsp;</a></span>position</h2>
@@ -141,8 +142,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Most accurate position information of the vehicle available in the on-board network. </p>
-<p>The reference point for position, that is, the center (x,y,z) of the bounding box in context to the global coordinate system. </p>
+<p>Most accurate position information of the vehicle available in the on-board network measured in context to the global coordinate system. </p>
 
 </div>
 </div>
@@ -158,7 +158,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Most accurate orientation information of the vehicle available in the on-board network in context to the global coordinate system. </p>
+<p>Most accurate orientation information of the vehicle available in the on-board network measured in context to the global coordinate system. </p>
 
 </div>
 </div>
