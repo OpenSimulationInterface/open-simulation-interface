@@ -87,6 +87,10 @@ message HostVehicleData
     //
     repeated VehicleAutomatedDrivingFunction vehicle_automated_driving_function = 12;
 
+    // Interface regarding the vehicle motion.
+    //
+    optional VehicleMotion vehicle_motion = 13;
+
     //
     // \brief Base parameters and overall states of the vehicle.
     //
@@ -319,22 +323,69 @@ message HostVehicleData
     // Because of this the values can differ from the "true" values calculated out of
     // GroundTruth::proj_string, GroundTruth::MovingObject::BaseMoving::position, GroundTruth::host_vehicle_id.
     //
+    // This data uses the reference point coincident with the center (x,y,z) of the bounding box.
+    //
     message VehicleLocalization
     {
-        // Most accurate position information of the vehicle available in the on-board network.
-        // The reference point for position, that is, the center (x,y,z) of the bounding box
-        // in context to the global coordinate system.
+        // Most accurate position information of the vehicle available in the on-board network
+        // measured in context to the global coordinate system.
         //
         optional Vector3d position = 1;
 
         // Most accurate orientation information of the vehicle available in the on-board network
-        // in context to the global coordinate system.
+        // measured in context to the global coordinate system.
         //
         optional Orientation3d orientation = 2;
 
         // Most accurate geodetic information of the vehicle available in the on-board network.
         //
         optional GeodeticPosition geodetic_position = 3;
+
+    }
+
+    //
+    // \brief Current calculated and estimated motion related information.
+    //
+    // This message contains the most accurate information the vehicle knows about its motion
+    // including vehicle dynamics and control related information available in the on-board network,
+    // which can differ from the "true" values calculated out of the ground truth.
+    //
+    // This data uses the reference point coincident with the middle (in x, y and z) of rear axle 
+    // under neutral load conditions as defined in \c MovingObject::VehicleAttributes::bbcenter_to_rear.
+    //
+    message VehicleMotion
+    {
+        // Most accurate position of the vehicle available in the on-board network
+        // measured in the cartesian global coordinate system.
+        //
+        optional Vector3d position = 1;
+
+        // Most accurate orientation information of the vehicle available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Orientation3d orientation = 2;
+
+        // Most accurate velocity information of the vehicle, available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Vector3d velocity = 3;
+
+        // Most accurate orientation rate of the vehicle, available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Orientation3d orientation_rate = 4;
+
+        // Most accurate acceleration information of the vehicle, available in the on-board network
+        // measured on the vehicle coordinate system in context of the global inertial system.
+        //
+        optional Vector3d acceleration = 5;
+                
+        // Most accurate curvature currently followed by vehicle and available in the on-board network
+        //
+        // Unit: m^-1
+        //
+        optional double current_curvature = 6;
+                
     }
 
     //
