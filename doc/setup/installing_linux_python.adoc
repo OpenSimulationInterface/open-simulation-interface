@@ -6,9 +6,9 @@ endif::[]
 
 **Prerequisites**
 
+* You have installed everything described in <<Installing _protobuf_ for static / dynamic linking depending on the use case>>.
 * You have installed _pip3_.
 * You have installed _python-setuptools_.
-* You have installed _protobuf_.
 * For a local installation, you have installed _virtualenv_.
 
 **Steps**
@@ -42,7 +42,7 @@ source venv/bin/activate
 .. Local installation
 +
 ----
-pip3 install .
+python3 -m pip install .
 ----
 +
 .. Global installation

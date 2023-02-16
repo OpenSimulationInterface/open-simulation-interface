@@ -20,47 +20,11 @@ For usage examples, please refer to the official documentation:
   - [OSMPCNetworkProxy](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples/OSMPCNetworkProxy)
 
 ## Installation
-##### Dependencies
-Install `cmake` 3.10.2:
-```bash
-$ sudo apt-get install cmake
-```
-Install `pip3` and missing python packages:
-```bash
-$ sudo apt-get install python3-pip python3-setuptools
-```
-Install `protobuf`:
-```bash
-$ sudo apt-get install libprotobuf-dev protobuf-compiler
-```
 
-
-##### Build and install for `C++` usage:
-```bash
-$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
-$ cd open-simulation-interface
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-$ sudo make install
-```
-
-##### Install for `Python` usage:
-Local:
-```bash
-$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
-$ cd open-simulation-interface
-$ sudo pip3 install virtualenv
-$ virtualenv -p python3 venv
-$ source venv/bin/activate
-$ python3 -m pip install .
-```
-
-Global:
-```bash
-$ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
-$ cd open-simulation-interface
-$ sudo pip3 install .
-```
-For Windows installation see [here](https://opensimulationinterface.github.io/osi-documentation/open-simulation-interface/doc/windows.html) for more information.
+For detailed installation instructions, please refer to the official documentation:
+- [Setting up OSI](https://opensimulationinterface.github.io/osi-documentation/#_setting_up_osi)
+  - [Installing _protobuf_ for static / dynamic linking](https://opensimulationinterface.github.io/osi-documentation/#_installing_prerequisites)
+  - [Installing OSI for C++ on Linux](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_c_on_linux)
+  - [Installing OSI for Python on Linux](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_python_on_linux)
+  - [Installing OSI for C++ on Windows](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_c_on_windows)
+  - [Installing OSI for Python on Windows](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_python_on_windows)
