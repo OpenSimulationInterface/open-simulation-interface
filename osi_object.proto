@@ -79,6 +79,11 @@ message StationaryObject
     //
     optional ColorDescription color_description = 6;
 
+    // Flag defining wether the object is obsolete and not simulated yet or any more.
+    // If true, object needs to be sent at least three times.
+    //
+    optional bool is_obsolete = 7;
+
     //
     // \brief Classification data for a stationary object.
     //
@@ -486,6 +491,11 @@ message MovingObject
     // The dominating color of the material of the moving object.
     //
     optional ColorDescription color_description = 11;
+
+    // Flag defining wether the object is obsolete and not simulated yet or any more.
+    // If true, object needs to be sent at least three times.
+    //
+    optional bool is_obsolete = 12;
 
     // Definition of object types.
     //
