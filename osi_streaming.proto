@@ -9,7 +9,7 @@ import "osi_trafficlight.proto";
 package osi3;
 
 //
-// ToDo:
+// ToDo: Rework Description
 // \brief The traffic update message is provided by traffic participant
 // models to provide updates to their position, state and future
 // trajectory back to the simulation environment. The message is
@@ -43,6 +43,12 @@ message Streaming
     //
     optional Timestamp timestamp = 2;
 
+    // To discuss: Are they needed?
+    // The list of stationary objects (excluding traffic signs and traffic
+    // lights).
+    //
+    repeated StationaryObject stationary_object_update = 3;
+
     // Updated traffic participant data
     //
     // \note It is not expected that static fields are populated. If they
@@ -54,36 +60,33 @@ message Streaming
     // a vehicle, see MovingObject::VehicleClassification::has_trailer and
     // MovingObject::VehicleClassification::trailer_id. 
     //
-    repeated MovingObject moving_object_update = 3;
+    repeated MovingObject moving_object_update = 4;
 
-    // Internal state for each vehicle.
+    // To discuss: Are they needed?
+    // The list of traffic signs.
     //
-    // This is an optional field as internal state may not be known or relevant,
-    // for example, a trailer might not have any internal state.
-    // It is also allowed to only specify internal_state for a subset of the
-    // objects referenced in the update.
-    //
-    // \note This covers any information which cannot be externally perceived
-    // and therefore cannot be included in messages available in ground truth.
-    //
-    // \note The id field from this should match the id in the update field
-    // above where the same vehicle is being referenced.
-    //
-    //repeated HostVehicleData internal_state = 4;
+    repeated TrafficSign traffic_sign = 5;
 
     // The list of traffic lights.
     //
-    repeated TrafficLight traffic_light_update = 5;
+    repeated TrafficLight traffic_light_update = 6;
 
+    // To discuss: Here or from osi_ground_truth if sended in a lower cycle time?
+    // Conditions of the environment.
+    //
+    optional EnvironmentalConditions environmental_conditions = 7;
+
+    // To discuss: What about HostVehicleData?
+
+    // To discuss: What about obsolet objects?
+    // Approach 1: is_obsolete flags inside the messages (example see osi_object.proto)
+    //
+    // Approach 2: Is shown below, id_lists (also for traffic lights etc.)
     // Vehicles that may have been disappeared because of being out of simulation range.
     //
     // \note Todo: How often does it need to be sent?
     //
-    repeated Identifier disappeared_moving_object_id = x;
-
-    // Traffic lights that may have been disappeared because of being out of simulation range.
+    //repeated Identifier disappeared_moving_object_id = x;
     //
-    // \note Todo: How often does it need to be sent?
-    //
-    repeated Identifier disappeared_traffic_lights_id = x;
+    // Approach 3: This message with an enum describing if content is to update or to delete.
 }
