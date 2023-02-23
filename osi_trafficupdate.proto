@@ -9,6 +9,7 @@ import "osi_hostvehicledata.proto";
 
 package osi3;
 
+//
 // \brief The traffic update message is provided by traffic participant
 // models to provide updates to their position, state and future
 // trajectory back to the simulation environment. The message is
