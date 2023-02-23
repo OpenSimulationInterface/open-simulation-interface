@@ -9,7 +9,6 @@ import "osi_hostvehicledata.proto";
 
 package osi3;
 
-// ToDo:
 // \brief The traffic update message is provided by traffic participant
 // models to provide updates to their position, state and future
 // trajectory back to the simulation environment. The message is
@@ -68,10 +67,4 @@ message TrafficUpdate
     // above where the same vehicle is being referenced.
     //
     repeated HostVehicleData internal_state = 4;
-    
-    // Vehicles that may have been disappeared because of being out of simulation range.
-    //
-    // \note Todo: How often does it need to be sent?
-    //
-    repeated Identifier disappeared_id = 1;
 }
