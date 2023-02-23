@@ -1,0 +1,81 @@
+syntax = "proto2";
+option optimize_for = SPEED;
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_object.proto";
+import "osi_trafficlight.proto";
+import "osi_hostvehicledata.proto";
+
+package osi3;
+
+//
+// \brief This message is about partial updates from simulation entities.
+//
+// First time message is being sent:
+//
+// ToDo
+//
+// Afterwards:
+// As streaming update this message contains objects of which at least one
+// property has changed. Unchanged properties are nevertheless sent.
+//
+// 
+//
+message Streaming
+{
+    // The interface version used by the sender (traffic participant model).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp where the information of contained objects is calculated. 
+    // 
+    // Zero time is arbitrary but must be identical for all messages. 
+    // Zero time does not need to coincide with the UNIX epoch. 
+    // Recommended is the starting time point of the simulation.
+    //
+    optional Timestamp timestamp = 2;
+
+    // The list of stationary objects (excluding traffic signs and traffic
+    // lights).
+    //
+    repeated StationaryObject stationary_object_update = 4;
+
+    // \note It is not expected that static fields are populated. If they
+    // are, they may be ignored by the receiver of this message, for example, dimensions,
+    // or vehicle category.  All dynamic fields should be populated where known,
+    // for example, velocity, light states, or future trajectory.
+    //
+    // ToDo: how to handle trailers?
+    // \note The field is repeated because it is possible to have a trailer attached to
+    // a vehicle, see MovingObject::VehicleClassification::has_trailer and
+    // MovingObject::VehicleClassification::trailer_id. 
+    //
+    repeated MovingObject moving_object_update = 5;
+
+    // The list of traffic signs.
+    //
+    repeated TrafficSign traffic_sign = 6;
+
+    // The list of traffic lights.
+    //
+    repeated TrafficLight traffic_light_update = 7;
+
+    // Conditions of the environment.
+    //
+    optional EnvironmentalConditions environmental_conditions_update = 12;
+
+    // Host vehicle data.
+    //
+    // Host vehicle data is data that the host vehicle knows about itself,
+    // e.g. from location sensors, internal sensors and ECU bus data, etc.,
+    // that is made available to sensors as input.
+    //
+    repeated HostVehicleData host_vehicle_data_update = 29;
+
+    // Entities that will no longer be updated, because they are considered
+    // obsolete by the sender.
+    //
+    // Note: IDs are globally unique.
+    //
+    repeated Identifier obsolete_id = 30;
+}
