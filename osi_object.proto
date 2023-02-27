@@ -566,7 +566,7 @@ message MovingObject
         // Orientation of the skeleton point
         //
         // Reference System is the middle of the bounding box (\c MovingObject::base 
-        // \c BaseMoving::position).
+        // \c BaseMoving::orientation).
         //
         required Orientation3d orientation = 3;
 
