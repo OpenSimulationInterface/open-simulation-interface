@@ -109,6 +109,9 @@ message MotionRequest
         // orientation (yaw, pitch and roll) of intended state to be reached.
         // A reference to \c StatePoint message.
         //
+        // \note The position within the trajectory point references to the 
+        // middle point of the rear axis.
+        //
         repeated StatePoint trajectory_point = 1;
     }
 }
