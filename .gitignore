@@ -40,3 +40,6 @@ githooks/pre-commit
 # PyCharm specific files
 .idea
 .vscode/settings.json
+
+# Local build tool output
+local_build_tools/*.html
