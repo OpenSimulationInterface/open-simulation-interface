@@ -78,7 +78,7 @@ jobs:
       - name: Manipulate site.yml
         working-directory: antora
         run: |
-          sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)//g' site.yml
+          sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)/branches: ~/g' site.yml
           cat site.yml
       # Create custom build instructions for GitHub compatibility
       - name: Create run instructions
