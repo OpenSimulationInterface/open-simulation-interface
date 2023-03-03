@@ -28,8 +28,7 @@ The following figure shows a traffic participant with separately modeled behavio
 image::{images_open_simulation_interface}/osi-traffic-participant-use-case-2.png[1100]
 
 OSI currently provides only limited support for data structures that describe measured internal states of the traffic participant.
-OSI does not currently cover actuator intentions.
-These must be handled with a different data description format.
+An example for a traffic participant interface is the `MotionRequest` message that can be used to communicate planned behaviors from a behavior planning model to a dynamics model including, for example motion controllers and vehicle dynamics.
 
 The following figure shows a more complex traffic participant.
 
@@ -41,7 +40,6 @@ This use case will probably be relevant for modeling the ego vehicle, which incl
 The traffic participant includes an arbitrary number of sensor models.
 The sensor models consume sensor view and produce sensor data.
 The AD function consumes sensor data and produces input for the dynamics model.
-OSI currently does not support data flow to dynamics models.
 The loop to the environment simulation is closed via traffic update.
 
 The following figure shows a cooperative use case with both an AD function and a human driver.
@@ -54,4 +52,4 @@ It is possible to model a traffic participant with an AD function in the loop, b
 This type of cooperative use case is, for example, relevant to studies on human-machine interaction.
 In this example, a virtual on-screen representation of the scenario, or mock-up, is added after the AD function.
 The driver-in-the-loop interacts with the dynamics model via this mock-up.
-OSI's limitations regarding dynamics-model input apply in this example as well.
+OSI currently provides only limited interfaces for data flow between the driver and the dynamics model. 
