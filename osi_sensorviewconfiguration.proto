@@ -731,9 +731,9 @@ message CameraSensorViewConfiguration
 
     // Indicates if and how the the pixel data is ordered
     //
-    // By default, the pixel data is is left-to-right, top-to-bottom. 
+    // The default value is PIXEL_ORDER_LEFT_RIGHT_TOP_BOTTOM. 
     // 
-    // \note for rotations of the pixel data, use the camera coordinate system.
+    // \note For rotations of the pixel data, use the camera coordinate system.
     //
     optional PixelOrder pixel_order = 12;
 
@@ -742,9 +742,8 @@ message CameraSensorViewConfiguration
     // Pixel layout documents the order of pixels in the \c image_data
     // in CameraSensorView. 
     //
-    // \note this enum does not contain an entry to do mirroring upside down
-    // and left-to-right at the same time, because this is equivalent to a
-    // 180-degree rotation, which should be indicated in the sensor coordinate
+    // \note this enum does not contain an entry for right-to-left and bottom-to-top, because this is equivalent to a
+    // 180-degree rotation of the default, which should be indicated in the sensor coordinate
     // system.
     //
     enum PixelOrder
@@ -759,20 +758,17 @@ message CameraSensorViewConfiguration
         //
         PIXEL_ORDER_OTHER = 1;
         
-        // Pixel data is not mirrored (Default).
-        // Pixels are ordered left-to-right, top-to-bottom
+        // Pixels are ordered left-to-right, top-to-bottom (default)
         //
-        PIXEL_ORDER_DEFAULT = 2;
-
-        // Pixel data is mirrored along the vertical axis.
-        // The image is mirrored left-to-right.
+        PIXEL_ORDER_LEFT_RIGHT_TOP_BOTTOM = 2;
+        
+        // Pixels are ordered right-to-left, top-to-bottom
         //
-        PIXEL_ORDER_MIRRORED_LEFT_RIGHT = 3;
-
-        // Pixel data is mirrored along the horizontal axis.
-        // The image is mirrored top-to-bottom.
-        //      
-        PIXEL_ORDER_MIRRORED_UP_DOWN = 4;
+        PIXEL_ORDER_RIGHT_LEFT_TOP_BOTTOM = 3;
+        
+        // Pixels are ordered left-to-right, bottom-to-top
+        //
+        PIXEL_ORDER_LEFT_RIGHT_BOTTOM_TOP = 4;
     }
 
 
