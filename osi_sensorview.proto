@@ -313,8 +313,10 @@ message CameraSensorView
 
     // Raw image data.
     //
-    // The raw image data in the memory layout specified by the camera sensor
-    // input configuration. The pixel order is specified in CameraSensorViewConfiguration.pixel_order with the default value PIXEL_ORDER_LEFT_RIGHT_TOP_BOTTOM.
+    // The raw image data in the memory layout specified by the camera    
+    // sensor input configuration. The pixel order is specified in 
+    // CameraSensorViewConfiguration.pixel_order with the 
+    // default value PIXEL_ORDER_LEFT_RIGHT_TOP_BOTTOM.
     //
     optional bytes image_data = 2;
 }

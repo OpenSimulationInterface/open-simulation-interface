@@ -742,32 +742,34 @@ message CameraSensorViewConfiguration
     // Pixel layout documents the order of pixels in the \c image_data
     // in CameraSensorView. 
     //
-    // \note this enum does not contain an entry for right-to-left and bottom-to-top, because this is equivalent to a
-    // 180-degree rotation of the default, which should be indicated in the sensor coordinate
+    // \note this enum does not contain an entry to do mirroring upside down
+    // and left-to-right at the same time, because this is equivalent to a
+    // 180-degree rotation, which should be indicated in the sensor coordinate
     // system.
     //
     enum PixelOrder
     {
-        // Pixel order is unknown (must not be used).
+        // Pixel data is not mirrored (Default).
+        // Pixels are ordered left-to-right, top-to-bottom.
         //
-        PIXEL_ORDER_UNKNOWN = 0;
+        PIXEL_ORDER_DEFAULT = 0;
 
         // Known pixel order that is not supported by OSI.
         // Consider proposing an additional format if using
         // \c #PIXEL_ORDER_OTHER.
         //
         PIXEL_ORDER_OTHER = 1;
-        
-        // Pixels are ordered left-to-right, top-to-bottom (default)
-        //
-        PIXEL_ORDER_LEFT_RIGHT_TOP_BOTTOM = 2;
-        
-        // Pixels are ordered right-to-left, top-to-bottom
+                
+        // Pixels are ordered right-to-left, top-to-bottom.
+        // Pixel data is mirrored along the vertical axis.
+        // The image is mirrored left-to-right.
         //
         PIXEL_ORDER_RIGHT_LEFT_TOP_BOTTOM = 3;
         
-        // Pixels are ordered left-to-right, bottom-to-top
-        //
+        // Pixels are ordered left-to-right, bottom-to-top.
+        // Pixel data is mirrored along the horizontal axis.
+        // The image is mirrored top-to-bottom.
+        // 
         PIXEL_ORDER_LEFT_RIGHT_BOTTOM_TOP = 4;
     }
 
