@@ -7,6 +7,40 @@ import "osi_common.proto";
 package osi3;
 
 //
+// \brief Obstruction values for a given object and sensor.
+//
+// For a given detected moving object, and for a particular sensor, how
+// obstructed is that object from the point of view of that sensor.
+//
+// \note The ID of the sensor in question is available from the parent
+// SensorData.sensor_id field.  The ID of the object is available from
+// the parent DetectedMovingObject.DetectedItemHeader.ground_truth_id.
+//
+message Obstruction
+{
+    // Total visible proportion for the object.
+    //
+    // This value considers various factors that would stop an object from being
+    // visible from the point of view of this sensor.  It should include
+    // truncation (outside of the field of view of the sensor), distance (beyond
+    // the range of the sensor), and occlusion (how hidden is the object by
+    // other objects in the scene).
+    //
+    // Occlusion can be caused by both static objects (trees, buildings, etc.)
+    // and dynamic objects (cars, pedestrians, etc.).  By convention
+    // semi-transparent surfaces (e.g. car windows) are considered opaque.
+    //
+    // \note The object is considered to be the 2D cross-section of the object
+    // as visible from the sensor.
+    //
+    // The value is in the range 0.0 (fully hidden) and 1.0 (fully visible).
+    //
+    // \image html OSI_Obstruction_visibility.svg "Obstruction visibility"
+    //
+    optional double visibility = 2;
+}
+
+//
 // \brief Message encapsulates all data for detected objects that is specific to
 // radar sensors.
 //
@@ -17,6 +51,10 @@ message RadarSpecificObjectData
     // Unit: dB m^2
     //
     optional double rcs = 1;
+
+    // Obstruction level for this object from this sensor
+    //
+    optional Obstruction obstruction = 2;
 }
 
 //
@@ -25,8 +63,9 @@ message RadarSpecificObjectData
 //
 message LidarSpecificObjectData
 {
-    // currently no fields.
+    // Obstruction level for this object from this sensor
     //
+    optional Obstruction obstruction = 1;
 }
 
 //
@@ -35,8 +74,9 @@ message LidarSpecificObjectData
 //
 message CameraSpecificObjectData
 {
-    // currently no fields.
+    // Obstruction level for this object from this sensor
     //
+    optional Obstruction obstruction = 1;
 }
 
 //
@@ -84,6 +124,10 @@ message UltrasonicSpecificObjectData
     // UltrasonicDetection::object_id.
     //
     repeated Signalway signalway = 5;
+
+    // Obstruction level for this object from this sensor
+    //
+    optional Obstruction obstruction = 6;
 
     //
     // This indicates if the object was calculated based on one or multiple
