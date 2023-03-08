@@ -766,13 +766,13 @@ message CameraSensorViewConfiguration
         // Pixel data is mirrored along the vertical axis.
         // The image is mirrored left-to-right.
         //
-        PIXEL_ORDER_RIGHT_LEFT_TOP_BOTTOM = 3;
+        PIXEL_ORDER_RIGHT_LEFT_TOP_BOTTOM = 2;
         
         // Pixels are ordered left-to-right, bottom-to-top.
         // Pixel data is mirrored along the horizontal axis.
         // The image is mirrored top-to-bottom.
         // 
-        PIXEL_ORDER_LEFT_RIGHT_BOTTOM_TOP = 4;
+        PIXEL_ORDER_LEFT_RIGHT_BOTTOM_TOP = 3;
     }
 
 
