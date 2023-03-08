@@ -731,7 +731,9 @@ message CameraSensorViewConfiguration
 
     // Indicates if and how the the pixel data is ordered
     //
-    // The default value is PIXEL_ORDER_LEFT_RIGHT_TOP_BOTTOM. 
+    // The default value (PIXEL_ORDER_DEFAULT) indicates standard image
+    // pixel order (left-to-right, top-to-bottom). The other values can
+    // be used to indicate/request mirroring (right to left or bottom to top).
     // 
     // \note For rotations of the pixel data, use the camera coordinate system.
     //
