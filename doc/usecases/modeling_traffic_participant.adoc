@@ -28,7 +28,7 @@ The following figure shows a traffic participant with separately modeled behavio
 image::{images_open_simulation_interface}/osi-traffic-participant-use-case-2.png[1100]
 
 OSI currently provides only limited support for data structures that describe measured internal states of the traffic participant.
-An example for a traffic participant interface is the `MotionRequest` message that can be used to communicate planned behaviors from a behavior planning model to a dynamics model including, for example motion controllers and vehicle dynamics.
+An example for a traffic participant internal interface is the `MotionRequest` message that can be used to communicate planned behaviors from a behavior planning model to a dynamics model including, for example motion controllers and vehicle dynamics.
 
 The following figure shows a more complex traffic participant.
 
