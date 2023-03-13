@@ -22,9 +22,9 @@ For usage examples, please refer to the official documentation:
 ## Installation
 
 For detailed installation instructions, please refer to the official documentation:
-- [Setting up OSI](https://opensimulationinterface.github.io/osi-documentation/#_setting_up_osi)
-  - [Installing _protobuf_ for static / dynamic linking](https://opensimulationinterface.github.io/osi-documentation/#_installing_prerequisites)
-  - [Installing OSI for C++ on Linux](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_c_on_linux)
-  - [Installing OSI for Python on Linux](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_python_on_linux)
-  - [Installing OSI for C++ on Windows](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_c_on_windows)
-  - [Installing OSI for Python on Windows](https://opensimulationinterface.github.io/osi-documentation/#_installing_osi_for_python_on_windows)
+- [Setting up OSI](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/setting_up_osi.html)
+  - [Installing _protobuf_ for static / dynamic linking](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_prerequisites.html)
+  - [Installing OSI for C++ on Linux](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_linux_cpp.html)
+  - [Installing OSI for Python on Linux](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_linux_python.html)
+  - [Installing OSI for C++ on Windows](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_windows_cpp.html)
+  - [Installing OSI for Python on Windows](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_windows_python.html)
