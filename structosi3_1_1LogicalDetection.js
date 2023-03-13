@@ -10,5 +10,6 @@ var structosi3_1_1LogicalDetection =
     [ "snr", "structosi3_1_1LogicalDetection.html#add0360419823cb2a98a2720c3b02e482", null ],
     [ "point_target_probability", "structosi3_1_1LogicalDetection.html#af926e8e4010f7294962154cd0eb318ad", null ],
     [ "sensor_id", "structosi3_1_1LogicalDetection.html#a50fa3651cd1da3ff3e32aaa46c011181", null ],
-    [ "classification", "structosi3_1_1LogicalDetection.html#af828843ecd0a837079def7031d78888c", null ]
+    [ "classification", "structosi3_1_1LogicalDetection.html#af828843ecd0a837079def7031d78888c", null ],
+    [ "echo_pulse_width", "structosi3_1_1LogicalDetection.html#a24cfb93f53647df499b4cf717e617818", null ]
 ];

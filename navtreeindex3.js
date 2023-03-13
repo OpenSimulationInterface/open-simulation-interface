@@ -7,6 +7,7 @@ var NAVTREEINDEX3 =
 "structosi3_1_1LidarSensorView_1_1Reflection.html#af6f6bf35653db0a24f9c23fba77d4e37":[2,0,0,77,0,4],
 "structosi3_1_1LidarSpecificObjectData.html":[2,0,0,71],
 "structosi3_1_1LogicalDetection.html":[2,0,0,60],
+"structosi3_1_1LogicalDetection.html#a24cfb93f53647df499b4cf717e617818":[2,0,0,60,11],
 "structosi3_1_1LogicalDetection.html#a50c73f91dee8b09639564f59cd164578":[2,0,0,60,3],
 "structosi3_1_1LogicalDetection.html#a50fa3651cd1da3ff3e32aaa46c011181":[2,0,0,60,9],
 "structosi3_1_1LogicalDetection.html#a6787127196b87da540b47f84d85b9d71":[2,0,0,60,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a00f308af4fe18c8054d81c872c17031a":[2,0,0,65,0,0,2],
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a1448fb1f791c8bb2d8da78919de415e4":[2,0,0,65,0,0,10],
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a180b96846f3f08de04f0005d5e35899f":[2,0,0,65,0,0,5],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a59820d9ac7d3487ff4ed61fb64be3c57":[2,0,0,65,0,0,8],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a7bfaa10ee0ab6678d489674cec1559c8":[2,0,0,65,0,0,1]
+"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a59820d9ac7d3487ff4ed61fb64be3c57":[2,0,0,65,0,0,8]
 };

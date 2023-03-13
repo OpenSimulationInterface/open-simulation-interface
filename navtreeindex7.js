@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a24b0102d61ea7c2f6c7123e2f366e766":[2,0,0,91,1,0,6],
 "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686":[2,0,0,91,1,0,2],
 "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686a0804acec9eb4b61fd8539218ed3e424c":[2,0,0,91,1,0,2,25],
 "structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686a0dd785c10694eb5b6df5b0b192992e7d":[2,0,0,91,1,0,2,22],
