@@ -41,6 +41,7 @@ ifndef::include-only-once[]
 // Please note that this variable has to used in all image includes. Includes here have to use "image::./images..."
 // :images_osi_sensor_model_packaging: ./osi-sensor-model-packaging/doc/images  // example
 :imagesoutdir: ./images/generated_images
+
 endif::[]
 ifndef::use-antora-rules[]
 include::{asciidoc-resources}/preamble.adoc[]
