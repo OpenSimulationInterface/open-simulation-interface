@@ -4,7 +4,8 @@ include::{root-path}_config.adoc[]
 endif::[]
 [#top-osi_trace_file_example]
 = OSI trace file example
-[source,ruby]
+
+[source, python]
 ----
 # generate_osi_messages.py
 from osi3.osi_sensorview_pb2 import SensorView
@@ -66,10 +67,12 @@ if __name__ == "__main__":
 ----
 
 To run the script execute the following command in the terminal:
+
+[source, bash]
 ----
 python3 generate_osi_messages.py
 ----
 
-This will output an osi file (`sv_330_361_1000_movingobject.osi`) which can be visualized and played back by the [osi-visualizer](https://github.com/OpenSimulationInterface/osi-visualizer).
+This will output an osi file (`sv_330_361_1000_movingobject.osi`) which can be visualized and played back by the https://github.com/OpenSimulationInterface/osi-visualizer[osi-visualizer^].
 
-See Google's documentation for more tutorials on how to use protocol buffers with [Python](https://developers.google.com/protocol-buffers/docs/pythontutorial) or [C++](https://developers.google.com/protocol-buffers/docs/cpptutorial).
+See Google's documentation for more tutorials on how to use protocol buffers with https://developers.google.com/protocol-buffers/docs/pythontutorial[Python^] or https://developers.google.com/protocol-buffers/docs/cpptutorial[C++^].
