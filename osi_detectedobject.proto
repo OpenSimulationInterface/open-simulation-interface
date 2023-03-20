@@ -93,6 +93,15 @@ message DetectedItemHeader
 //
 // \image html OSI_DetectedStationaryObject.svg
 //
+// The parent frame of a detected stationary object is the virtual sensor
+// coordinate system.
+//
+// The virtual sensor coordinate system is relative to the vehicle coordinate
+// system which has its origin in the center of the rear axle of the ego
+// vehicle. This means if virtual sensor mounting position and orientation are
+// set to (0,0,0) the virtual sensor coordinate system coincides with the
+// vehicle coordinate system.
+//
 message DetectedStationaryObject
 {
     // Common information of one detected item.
@@ -172,8 +181,17 @@ message DetectedStationaryObject
 }
 
 //
-// \brief Moving object in the environment as detected and perceived by
-// the sensor.
+// \brief Moving object in the environment as detected and perceived by the
+// sensor.
+//
+// The parent frame of a detected moving object is the virtual sensor coordinate
+// system.
+//
+// The virtual sensor coordinate system is relative to the vehicle coordinate
+// system which has its origin in the center of the rear axle of the ego
+// vehicle. This means if virtual sensor mounting position and orientation are
+// set to (0,0,0) the virtual sensor coordinate system coincides with the
+// vehicle coordinate system.
 //
 message DetectedMovingObject
 {
@@ -183,8 +201,7 @@ message DetectedMovingObject
 
     // The base parameters of the moving object.
     //
-    // \note The bounding box does NOT includes mirrors for vehicles.
-    // \note The parent frame of \c base is the sensor's vehicle frame.
+    // \note The bounding box does NOT include mirrors for vehicles.
     // \note The height includes the ground_clearance. It always goes from the
     // top to the ground.
     //
@@ -193,8 +210,6 @@ message DetectedMovingObject
     // The root mean squared error of the base parameters of the detected
     // moving object (e.g. car). \c MovingObject::base has to be
     // identical for all \c #candidate moving objects.
-    //
-    // \note The parent frame of \c base is the sensor's vehicle frame.
     //
     optional BaseMoving base_rmse = 3;
 
