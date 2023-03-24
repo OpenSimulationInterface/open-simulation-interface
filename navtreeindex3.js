@@ -77,6 +77,7 @@ var NAVTREEINDEX3 =
 "structosi3_1_1LogicalLane.html#ac1e373a2f378354eedcc50668d2b450babe4bb60bb8c73a268360c96aed325a2c":[2,0,0,62,4,0],
 "structosi3_1_1LogicalLane.html#ac1e373a2f378354eedcc50668d2b450bacbf1f81aa2026a0f3b45f3524e004fda":[2,0,0,62,4,3],
 "structosi3_1_1LogicalLane.html#ac1e373a2f378354eedcc50668d2b450bafe5cc6003a7964f209af244de3f62451":[2,0,0,62,4,4],
+"structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3":[2,0,0,62,20],
 "structosi3_1_1LogicalLane.html#adcfa464e035acec1eb060091bcbee3b5":[2,0,0,62,11],
 "structosi3_1_1LogicalLane.html#af661342eb57d730b9cfed7f5a0d78e64":[2,0,0,62,14],
 "structosi3_1_1LogicalLaneAssignment.html":[2,0,0,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6":[2,0,0,65,0,0],
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a00f308af4fe18c8054d81c872c17031a":[2,0,0,65,0,0,2],
 "structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a1448fb1f791c8bb2d8da78919de415e4":[2,0,0,65,0,0,10],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a180b96846f3f08de04f0005d5e35899f":[2,0,0,65,0,0,5],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a59820d9ac7d3487ff4ed61fb64be3c57":[2,0,0,65,0,0,8]
+"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a180b96846f3f08de04f0005d5e35899f":[2,0,0,65,0,0,5]
 };

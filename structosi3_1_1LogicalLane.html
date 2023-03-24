@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (9b037cd)</span>
+   &#160;<span id="projectnumber">master (7feecaf)</span>
    </div>
   </td>
  </tr>
@@ -106,18 +106,18 @@ Collaboration diagram for osi3::LogicalLane:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1LogicalLane__coll__graph.png" border="0" usemap="#aosi3_1_1LogicalLane_coll__map" alt="Collaboration graph"/></div>
 <map name="aosi3_1_1LogicalLane_coll__map" id="aosi3_1_1LogicalLane_coll__map">
-<area shape="rect" title="A logical lane in the road network." alt="" coords="721,323,856,349"/>
-<area shape="rect" title=" " alt="" coords="367,8,477,35"/>
-<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneConnection.html" title="Connection to another lane (predecessor or successor)" alt="" coords="351,59,493,101"/>
-<area shape="rect" title=" " alt="" coords="13,67,120,93"/>
-<area shape="rect" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="9,205,124,232"/>
-<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneRelation.html" title="Relation of this lane to another logical lane." alt="" coords="351,287,493,329"/>
-<area shape="rect" href="structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html" title="Reference to a physical lane." alt="" coords="335,353,509,394"/>
-<area shape="rect" title=" " alt="" coords="5,417,128,444"/>
-<area shape="rect" href="structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="333,573,511,600"/>
-<area shape="rect" title=" " alt="" coords="6,543,127,569"/>
-<area shape="rect" title=" " alt="" coords="9,603,125,629"/>
-<area shape="rect" title=" " alt="" coords="335,523,509,549"/>
+<area shape="rect" title="A logical lane in the road network." alt="" coords="721,389,856,416"/>
+<area shape="rect" title=" " alt="" coords="367,11,477,37"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneConnection.html" title="Connection to another lane (predecessor or successor)" alt="" coords="351,62,493,103"/>
+<area shape="rect" title=" " alt="" coords="13,69,120,96"/>
+<area shape="rect" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="9,208,124,235"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneRelation.html" title="Relation of this lane to another logical lane." alt="" coords="351,317,493,358"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html" title="Reference to a physical lane." alt="" coords="335,382,509,423"/>
+<area shape="rect" title=" " alt="" coords="5,420,128,447"/>
+<area shape="rect" href="structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="333,525,511,552"/>
+<area shape="rect" title=" " alt="" coords="6,499,127,525"/>
+<area shape="rect" title=" " alt="" coords="9,580,125,607"/>
+<area shape="rect" title=" " alt="" coords="335,664,509,691"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -222,6 +222,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a8531528c4632353d384fe041e61015b5"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LogicalLane_1_1LaneConnection.html">LaneConnection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalLane.html#a8531528c4632353d384fe041e61015b5">successor_lane</a> = 15</td></tr>
 <tr class="memdesc:a8531528c4632353d384fe041e61015b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lanes that directly are connected to this lane at the end.  <a href="structosi3_1_1LogicalLane.html#a8531528c4632353d384fe041e61015b5">More...</a><br /></td></tr>
 <tr class="separator:a8531528c4632353d384fe041e61015b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcdace13ad4b88da9f739a3759a771e3"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3">street_name</a> = 16</td></tr>
+<tr class="memdesc:adcdace13ad4b88da9f739a3759a771e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the street this lane belongs to.  <a href="structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3">More...</a><br /></td></tr>
+<tr class="separator:adcdace13ad4b88da9f739a3759a771e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A logical lane in the road network. </p>
@@ -660,6 +663,22 @@ The value has to be repeated, because one lane segment may be derived from more 
 <p>"End" is relative to the reference line, so connections at <a class="el" href="structosi3_1_1LogicalLane.html#adcfa464e035acec1eb060091bcbee3b5" title="End S position of the lane.">end_s</a>.</p>
 <p><a class="el" href="structosi3_1_1Lane.html" title="A lane in the road network.">Lane</a> predecessors and successors shall only be used to connect lanes if a physical connection at the beginning or end of both lanes exist. Both lanes have a non-zero width at the connection point and they are semantically connected.</p>
 <p>A lane may have several successors e.g. on intersections, or if a wide lane splits into two, or two merge into one. </p>
+
+</div>
+</div>
+<a id="adcdace13ad4b88da9f739a3759a771e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcdace13ad4b88da9f739a3759a771e3">&#9670;&nbsp;</a></span>street_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional string osi3::LogicalLane::street_name = 16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Name of the street this lane belongs to. </p>
 
 </div>
 </div>

@@ -45,5 +45,6 @@ var structosi3_1_1LogicalLane =
     [ "right_boundary_id", "structosi3_1_1LogicalLane.html#a3b1770e99c07ae412eceb1979b29c582", null ],
     [ "left_boundary_id", "structosi3_1_1LogicalLane.html#ab6a34eac4a337e9bdfb74dbaaf437f9c", null ],
     [ "predecessor_lane", "structosi3_1_1LogicalLane.html#a231074c570bb9087613ffc3e0dee264f", null ],
-    [ "successor_lane", "structosi3_1_1LogicalLane.html#a8531528c4632353d384fe041e61015b5", null ]
+    [ "successor_lane", "structosi3_1_1LogicalLane.html#a8531528c4632353d384fe041e61015b5", null ],
+    [ "street_name", "structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3", null ]
 ];
