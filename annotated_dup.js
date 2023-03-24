@@ -64,6 +64,7 @@ var annotated_dup =
       [ "LogicalDetection", "structosi3_1_1LogicalDetection.html", "structosi3_1_1LogicalDetection" ],
       [ "LogicalLaneBoundary", "structosi3_1_1LogicalLaneBoundary.html", "structosi3_1_1LogicalLaneBoundary" ],
       [ "LogicalLane", "structosi3_1_1LogicalLane.html", "structosi3_1_1LogicalLane" ],
+      [ "MotionRequest", "structosi3_1_1MotionRequest.html", "structosi3_1_1MotionRequest" ],
       [ "StationaryObject", "structosi3_1_1StationaryObject.html", "structosi3_1_1StationaryObject" ],
       [ "MovingObject", "structosi3_1_1MovingObject.html", "structosi3_1_1MovingObject" ],
       [ "Occupant", "structosi3_1_1Occupant.html", "structosi3_1_1Occupant" ],
