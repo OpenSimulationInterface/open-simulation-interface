@@ -62,15 +62,17 @@ message SensorView
     //
     optional Identifier sensor_id = 3;
 
-    // The virtual mounting position of the sensor (origin and orientation
-    // of the sensor coordinate system) given in vehicle coordinates [1].
-    // The virtual position pertains to the sensor as a whole, regardless
-    // of the actual position of individual physical detectors, and governs
-    // the sensor-relative coordinates in detected objects of the sensor
-    // as a whole. Individual features detected by individual physical
-    // detectors are governed by the actual physical mounting positions
-    // of the detectors, as indicated in the technology-specific sub-views
-    // and sub-view configurations.
+    // The virtual mounting position of the sensor (origin and orientation of
+    // the sensor frame). Both origin and orientation are given in and with
+    // respect to the host vehicle coordinate system [1].
+    //
+    // The virtual position pertains to the sensor as a whole, regardless of the
+    // actual position of individual physical detectors, and governs the
+    // sensor-relative coordinates in detected objects of the sensor as a whole.
+    // Individual features detected by individual physical detectors are
+    // governed by the actual physical mounting positions of the detectors, as
+    // indicated in the technology-specific sub-views and sub-view
+    // configurations.
     //
     // \arg \b x-direction of sensor coordinate system: sensor viewing direction
     // \arg \b z-direction of sensor coordinate system: sensor (up)
