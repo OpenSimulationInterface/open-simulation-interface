@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1LidarSensorViewConfiguration.html#aac96421ddf19cf73a7fa611abef48766":[2,0,0,83,8],
+"structosi3_1_1LidarSensorViewConfiguration.html#acfa737bbeed7c706f04ca4bfbbe24950":[2,0,0,83,6],
+"structosi3_1_1LidarSensorViewConfiguration.html#aebe71ed20bb2649c86a6552aa741258a":[2,0,0,83,5],
+"structosi3_1_1LidarSensorView_1_1Reflection.html":[2,0,0,77,0],
 "structosi3_1_1LidarSensorView_1_1Reflection.html#a0747cfd174a577b0061ebe7ff9ccfd4c":[2,0,0,77,0,1],
 "structosi3_1_1LidarSensorView_1_1Reflection.html#a104b08393487c62adf354730f3d16fd6":[2,0,0,77,0,2],
 "structosi3_1_1LidarSensorView_1_1Reflection.html#a8c68f21a375a0aa52ad9cc5634dd1aa2":[2,0,0,77,0,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa52d5fb7e4f04983819a43f759da791c0":[2,0,0,65,0,1,1],
 "structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaa7acf13ccbc57597e9708df895cbeb958":[2,0,0,65,0,1,6],
 "structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaacbae42e9034a8f4181193cc9decf825d":[2,0,0,65,0,1,5],
-"structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaafd105c3e974e9f2dc12026289049fc99":[2,0,0,65,0,1,3],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6":[2,0,0,65,0,0],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a00f308af4fe18c8054d81c872c17031a":[2,0,0,65,0,0,2],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a1448fb1f791c8bb2d8da78919de415e4":[2,0,0,65,0,0,10],
-"structosi3_1_1Occupant_1_1Classification.html#abac264f20a3e5379b4b2969881af56a6a180b96846f3f08de04f0005d5e35899f":[2,0,0,65,0,0,5]
+"structosi3_1_1Occupant_1_1Classification.html#a98092d4ddd2b683e109bd7692b5e4ecaafd105c3e974e9f2dc12026289049fc99":[2,0,0,65,0,1,3]
 };

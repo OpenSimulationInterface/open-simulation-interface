@@ -84,8 +84,12 @@ var NAVTREEINDEX1 =
 "structosi3_1_1DetectedStationaryObject.html#a0deb22fcf4bb95a870e93601ed28f055":[2,0,0,33,1],
 "structosi3_1_1DetectedStationaryObject.html#a4f2e987daa04a3ad0b163407c69d78b1":[2,0,0,33,2],
 "structosi3_1_1DetectedStationaryObject.html#a7161d3bf96e124d79a8d7f4e8fb22a09":[2,0,0,33,4],
+"structosi3_1_1DetectedStationaryObject.html#a7263077cbf43c44e1fa1410543c42b2d":[2,0,0,33,6],
+"structosi3_1_1DetectedStationaryObject.html#ac38e11250b92c4e65d430f66d494cc03":[2,0,0,33,8],
 "structosi3_1_1DetectedStationaryObject.html#ad9344118d88b18d48dad62446d02fdee":[2,0,0,33,3],
 "structosi3_1_1DetectedStationaryObject.html#aeb26a7757cb028e1b588bb5b9c00f41e":[2,0,0,33,5],
+"structosi3_1_1DetectedStationaryObject.html#afa82c9bdc73c5d8d2180d43ef57eb417":[2,0,0,33,7],
+"structosi3_1_1DetectedStationaryObject.html#afcbdefedb88ee1de4350ca7a2633fd1a":[2,0,0,33,9],
 "structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html":[2,0,0,33,0],
 "structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html#a38ad22078331991744f7718fb4cbcb64":[2,0,0,33,0,1],
 "structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html#ab51e5d548856d1c3f541e22257c8edc3":[2,0,0,33,0,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX1 =
 "structosi3_1_1GroundTruth.html#ac46f04d9d79b4e3862f2a1640f2d315e":[2,0,0,54,6],
 "structosi3_1_1GroundTruth.html#ad1ad43ca92a112daf6678da302c05880":[2,0,0,54,0],
 "structosi3_1_1GroundTruth.html#ad7f6468e1983b67adfbb4e0d3cf19b7b":[2,0,0,54,18],
-"structosi3_1_1GroundTruth.html#adef71408537b15e4047667dd5b56b964":[2,0,0,54,10],
-"structosi3_1_1GroundTruth.html#aee1873cbe2ed79701c6790ddcb14b420":[2,0,0,54,11],
-"structosi3_1_1GroundTruth.html#af275fe4a5e5c4b7f38cefa61cb87ce8e":[2,0,0,54,17],
-"structosi3_1_1GroundTruth.html#af5f78f308a00d74ece79410eb7913006":[2,0,0,54,13],
-"structosi3_1_1HostVehicleData.html":[2,0,0,55]
+"structosi3_1_1GroundTruth.html#adef71408537b15e4047667dd5b56b964":[2,0,0,54,10]
 };

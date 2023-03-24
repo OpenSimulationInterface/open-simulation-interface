@@ -3,7 +3,7 @@ var searchData=
   ['radar_5fsensor_727',['radar_sensor',['../structosi3_1_1FeatureData.html#aa3a918f4021c8f994ba8f2408814d7b5',1,'osi3::FeatureData']]],
   ['radar_5fsensor_5fview_728',['radar_sensor_view',['../structosi3_1_1SensorView.html#a1fa04807874e695156b9f29fbc3dfcd8',1,'osi3::SensorView']]],
   ['radar_5fsensor_5fview_5fconfiguration_729',['radar_sensor_view_configuration',['../structosi3_1_1SensorViewConfiguration.html#a704763486c7c724727d96e108c6e560a',1,'osi3::SensorViewConfiguration']]],
-  ['radar_5fspecifics_730',['radar_specifics',['../structosi3_1_1DetectedMovingObject.html#a5b07a3ad866056764be3081a269d4a73',1,'osi3::DetectedMovingObject']]],
+  ['radar_5fspecifics_730',['radar_specifics',['../structosi3_1_1DetectedMovingObject.html#a5b07a3ad866056764be3081a269d4a73',1,'osi3::DetectedMovingObject::radar_specifics()'],['../structosi3_1_1DetectedStationaryObject.html#a7263077cbf43c44e1fa1410543c42b2d',1,'osi3::DetectedStationaryObject::radar_specifics()']]],
   ['radardetection_731',['RadarDetection',['../structosi3_1_1RadarDetection.html',1,'osi3']]],
   ['radardetectiondata_732',['RadarDetectionData',['../structosi3_1_1RadarDetectionData.html',1,'osi3']]],
   ['radarsensorview_733',['RadarSensorView',['../structosi3_1_1RadarSensorView.html',1,'osi3']]],

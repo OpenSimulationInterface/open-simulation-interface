@@ -28,7 +28,7 @@ var searchData=
   ['lidar_5fsensor_528',['lidar_sensor',['../structosi3_1_1FeatureData.html#a4a7161d4a1d68b248f6c33bd28541998',1,'osi3::FeatureData']]],
   ['lidar_5fsensor_5fview_529',['lidar_sensor_view',['../structosi3_1_1SensorView.html#afeac5b19e294a68c33facc72eef02453',1,'osi3::SensorView']]],
   ['lidar_5fsensor_5fview_5fconfiguration_530',['lidar_sensor_view_configuration',['../structosi3_1_1SensorViewConfiguration.html#a13d4b0251bb2a62e2b18435fe5d51ffc',1,'osi3::SensorViewConfiguration']]],
-  ['lidar_5fspecifics_531',['lidar_specifics',['../structosi3_1_1DetectedMovingObject.html#ab995cfa98f7a350779da19635ec220f2',1,'osi3::DetectedMovingObject']]],
+  ['lidar_5fspecifics_531',['lidar_specifics',['../structosi3_1_1DetectedMovingObject.html#ab995cfa98f7a350779da19635ec220f2',1,'osi3::DetectedMovingObject::lidar_specifics()'],['../structosi3_1_1DetectedStationaryObject.html#afa82c9bdc73c5d8d2180d43ef57eb417',1,'osi3::DetectedStationaryObject::lidar_specifics()']]],
   ['lidardetection_532',['LidarDetection',['../structosi3_1_1LidarDetection.html',1,'osi3']]],
   ['lidardetectiondata_533',['LidarDetectionData',['../structosi3_1_1LidarDetectionData.html',1,'osi3']]],
   ['lidarsensorview_534',['LidarSensorView',['../structosi3_1_1LidarSensorView.html',1,'osi3']]],
