@@ -13,7 +13,7 @@ It demonstrates how a global coordinate system, vehicle coordinate system, and s
 
 **Mathematical Definitions of Coordinate Transformations**
 
-All vectors and matrices are noted with reference frame as a superscript index and the direction of translation as a supscript index. cite:[reuper2020]
+All vectors and matrices are noted with reference frame as a superscript index and the direction of translation as a subscript index. cite:[reuper2020]
 The translation direction is from the first index to the second index (src: source coordinate system, trg: target coordinate system).
 The vector latexmath:[\boldsymbol{v}^x] denotes the 3D position of an object in the coordinate frame latexmath:[x].
 Vector latexmath:[\boldsymbol{t}] is the translation vector between two coordinate systems with the described indices for reference frame and direction.
@@ -36,7 +36,7 @@ Transformation back from target latexmath:[trg] to source latexmath:[src] coordi
 With the rotation matrix (from rotating the coordinate system) cite:[wiki_rotation_matrix]:
 [latexmath]
 ++++
-\boldsymbol{R}_{srv}^{trg}=\boldsymbol{R}_{yaw,pitch,roll} = \boldsymbol{R}_{z,y,x} = \boldsymbol{R}_{x}(\phi) \boldsymbol{R}_{y}(\theta) \boldsymbol{R}_{z}(\psi) \\
+\boldsymbol{R}_{src}^{trg}=\boldsymbol{R}_{yaw,pitch,roll} = \boldsymbol{R}_{z,y,x} = \boldsymbol{R}_{x}(\phi) \boldsymbol{R}_{y}(\theta) \boldsymbol{R}_{z}(\psi) \\
 
 \boldsymbol{R}_{z,y,x} = 
 \begin{pmatrix}
@@ -77,8 +77,8 @@ Object rotation Matrix: latexmath:[\boldsymbol{R}_{object}^{src}] +
 Host vehicle rotation Matrix: latexmath:[\boldsymbol{R}_{ego}^{src}] +
 Resulting rotation matrix between object and host: latexmath:[\boldsymbol{R}_{object}^{src}(\boldsymbol{R}_{ego}^{src})^{T}] +
 
-To transform from world coordinates into vehicle coordinates and back use the formulas from above with the world coordinates frame latexmath:[w] as source system latexmath:[src] and vehicle coordinates frame latexmath:[v] as target system latexmath:[trg].
-To transform from world coordinates into vehicle coordinates and back use the formulas from above with the vehicle coordinates frame latexmath:[v] as source system latexmath:[src] and sensor coordinates frame latexmath:[s] as target system latexmath:[trg].
+To transform from world coordinates into host vehicle coordinates and back use the formulas from above with the world coordinates frame latexmath:[w] as source system latexmath:[src] and host vehicle coordinates frame latexmath:[v] as target system latexmath:[trg].
+To transform from host vehicle coordinates into sensor coordinates and back use the formulas from above with the host vehicle coordinates frame latexmath:[v] as source system latexmath:[src] and sensor coordinates frame latexmath:[s] as target system latexmath:[trg].
 
 
 **Corresponding messages**
@@ -91,19 +91,19 @@ In Open Simulation Interface, an object's position is defined by the coordinates
 This field defines the orientation of the vehicle's reference point in global coordinates.
 
 ``GroundTruth::moving_object::vehicle_attributes::bbcenter_to_rear``::
-This field specifies the vector pointing from the vehicle's reference point to the middle of the rear axle under neutral load conditions in the vehicle coordinates.
+This field specifies the vector pointing from the vehicle's reference point to the middle of the rear axle under neutral load conditions.
 
 ``SensorData::mounting_position``::
-This field defines the sensor's position and orientation and thereby the origin of the sensor coordinate system.
-The mounting position is given in the vehicle coordinate system.
+This field defines the sensor's virtual mounting position and orientation and thereby the origin of the virtual sensor coordinate system.
+The mounting position is given in the host vehicle coordinate system.
 
 **Example**
 
 The following image shows the relationship between the coordinate systems.
 The reference point of the vehicle is given by a vector in the global coordinate system.
-A vector pointing from the reference position of the vehicle to the center of the rear axle then yields the origin of the vehicle coordinate system.
-The mounting positions of the sensors and therefore the origins of the corresponding sensor coordinate systems are given with respect to the vehicle coordinate system.
+A vector pointing from the reference position of the vehicle to the center of the rear axle then yields the origin of the host vehicle coordinate system.
+The mounting positions of the sensors and therefore the origins of the corresponding sensor coordinate systems are given with respect to the host vehicle coordinate system.
 
 [#fig-coordinate-systems-example]
 .Schematic example of OSI coordinate systems and their relationship
-image::{images_open_simulation_interface}/osi_example_coordinate_systems.png[]
+image::{images_open_simulation_interface}/OSI_MovingObject.svg[Static,600]
