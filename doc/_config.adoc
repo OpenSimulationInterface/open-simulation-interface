@@ -2,14 +2,11 @@
 // This file contains AsciiDoc attributes that shall be used in every AsciiDoc file.
 // NOTE: Its content is only applied for Asciidoctor!
 // If the same attribute is defined in the antora.yml (without @), the antora.yml definition takes precedence for Antora.
-
 ifndef::root-path[:root-path: ./]
-
 :partials-path: {root-path}../_additional_content
 :asciidoc-resources: ../../../asciidoc-resources
 :appendix-caption: Annex
 :page-feedbackurl: https://github.com/OpenSimulationInterface/open-simulation-interface/issues/new
-
 // ifndef::use-antora-rules,include-only-once[]
 ifndef::include-only-once[]
 :GLO_VAR_STA_ASAM_OpenCRG: ASAM OpenCRG
@@ -27,13 +24,14 @@ ifndef::include-only-once[]
 // Replace PLACEHOLDER with the name of your standard, e.g. OpenDRIVE
 :THIS_STANDARD: {GLO_VAR_STA_ASAM_OSI}
 :asam-terminology: https://code.asam.net/common/asam-terminology/-/raw/main/terms_and_definitions_opendrive.adoc
-:imagesdir: {root-path}/images
+:imagesdir: {root-path}images
 :include-only-once: true
 :topicdir: topics
 :reusedir: reuse
 :toclevels: 3
 :xrefstyle: full
-:images_open_simulation_interface: {imagesdir}
+:images_open_simulation_interface: ../images
+:data-uri:
 // :images_osi-sensor-model-packaging: ./osi-sensor-model-packaging/doc/images
 :doc_open_simulation_interface: ../../open-simulation-interface/doc/
 :doc_osi-sensor-model-packaging: ../../osi-sensor-model-packaging/doc/
@@ -43,13 +41,10 @@ ifndef::include-only-once[]
 // Please note that this variable has to used in all image includes. Includes here have to use "image::./images..."
 // :images_osi_sensor_model_packaging: ./osi-sensor-model-packaging/doc/images  // example
 :imagesoutdir: ./images/generated_images
-
 endif::[]
-
 ifndef::use-antora-rules[]
 include::{asciidoc-resources}/preamble.adoc[]
 endif::[]
-
 ifdef::env-gitlab[]
 :relfilesuffix: .adoc
 endif::[]

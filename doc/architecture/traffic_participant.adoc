@@ -22,8 +22,8 @@ The following figure shows the interface of a traffic participant.
 .Interface of a traffic participant
 image::{images_open_simulation_interface}/osi-traffic-participant-principle.png[1100]
 
-Traffic participant models may use other OSI interfaces internally, for example, to model autonomous vehicles.
-The following figure shows a more advanced use case for traffic participants.
+Traffic participant models may use other OSI interfaces, for example, the `SensorData` and `MotionRequest` message, internally.
+The following figure shows a more advanced use case for traffic participants, that can, for example, be used to model an autonomous vehicle.
 
 [#fig-traffic-participant-other-osi-interfaces]
 .Traffic participant using other OSI interfaces internally

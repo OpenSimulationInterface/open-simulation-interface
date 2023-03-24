@@ -449,8 +449,8 @@ message MovingObject
     // realistic simulation of traffic participants that are not under test.
     // This information should not be made available to the stack under test.
     //
-    // \note Moving objects are not required to stick to this trajectory, it is
-    // indicative, and equivalent to the output of a perception + prediction
+    // \note Moving objects are not required to stick to this trajectory. It is
+    // indicative and equivalent to the output of a perception and prediction
     // system.
     //
     repeated StatePoint future_trajectory = 8;
