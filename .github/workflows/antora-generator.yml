@@ -1,0 +1,27 @@
+
+name: Antora build trigger
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  trigger_antora:
+    name: Trigger antora generator
+
+    runs-on: Ubuntu-latest
+
+    env:
+      MUP_KEY: ${{ secrets.MACHINE_USER_PAT }}
+
+    steps:
+    - name: Trigger generator
+      if: ${{ env.MUP_KEY != '' }}
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.MACHINE_USER_PAT }}
+        event-type: antora-build-trigger
+        repository: OpenSimulationInterface/osi-antora-generator
+        client-payload: '{"src": "${{ github.repository }}", "ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "head_ref": "${{ github.head_ref }}"}'

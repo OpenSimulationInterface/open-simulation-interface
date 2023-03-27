@@ -118,6 +118,34 @@ message DetectedStationaryObject
     //
     optional ColorDescription color_description = 5;
 
+    // Additional data that is specific to radar sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a radar
+    // sensor.
+    //
+    optional RadarSpecificObjectData radar_specifics = 100;
+
+    // Additional data that is specific to lidar sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a lidar
+    // sensor.
+    //
+    optional LidarSpecificObjectData lidar_specifics = 101;
+
+    // Additional data that is specific to camera sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a camera
+    // sensor.
+    //
+    optional CameraSpecificObjectData camera_specifics = 102;
+
+    // Additional data that is specific to ultrasonic sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not an ultrasonic
+    // sensor.
+    //
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
+
     //
     // \brief A candidate for a detected stationary object as estimated
     // by the sensor.

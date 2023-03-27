@@ -101,16 +101,30 @@ message TrafficSignValue
         // Unit: tn. sh.
         //
         UNIT_SHORT_TON = 11;
+        
+        // Time of day.
+        // Hours since midnight. Starting with 0.
+        //
+        // Unit: h
+        //
+        UNIT_HOUR = 15;
 
         // Time of day.
-        // Hour since midnight.
+        // Minutes since last hour. Starting with 0.
         //
         // Unit: min
         //
         UNIT_MINUTES = 12;
+        
+        // Day of the month.
+        // Starting with 1.
+        //
+        UNIT_DAY_OF_MONTH = 16;
 
         // Day of the week.
         // Days since Monday. Monday = 0; Tuesday = 1; ...
+        //
+        // \note For consistency this field will be renamed to UNIT_DAY_OF_WEEK in v4.0.0 .
         //
         UNIT_DAY = 13;
 
@@ -120,6 +134,24 @@ message TrafficSignValue
         // Unit: %
         //
         UNIT_PERCENTAGE = 14;
+        
+        // Duration in days.
+        //
+        // Unit: day
+        //
+        UNIT_DURATION_DAY = 17;
+        
+        // Duration in hours.
+        //
+        // Unit: h
+        //
+        UNIT_DURATION_HOUR = 18;
+        
+        // Duration in minutes.
+        //
+        // Unit: min
+        //
+        UNIT_DURATION_MINUTE = 19;
     }
 
     // Text associated with a sign, e.g. the name of a location whose distance
@@ -242,8 +274,9 @@ message TrafficSign
         //
         message Classification
         {
-            // The traffic sign is not stationary, for example a temporary
-            // traffic sign in a street construction.
+            // This value indicates if a sign is static or dynamic regarding its
+            // content (e.g., electronic sign bridge) and/or regarding its  
+            // position on the road.
             //
             optional Variability variability = 1;
 
@@ -9570,12 +9603,35 @@ message TrafficSign
         //
         VARIABILITY_OTHER = 1;
 
-        // Fixed sign, i.e. always present.
+        // Sign that can change neither semantically nor positionally, e.g. a
+        // fixed, immutable, non-temporary traffic sign.
         //
         VARIABILITY_FIXED = 2;
 
-        // Temporary or variable sign, e.g. on a sign bridge.
+        // Sign that can change semantically and/or positionally, i.e. it is
+        // left unspecified in which way the sign may change.
+        //
+        // \note This value represents a legacy definition. If possible, please
+        // use the more specific values below to indicate the exact nature of
+        // variability.
         //
         VARIABILITY_VARIABLE = 3;
+
+        // Sign that can change positionally but not semantically, e.g. a
+        // temporary, immutable traffic sign at construction site.
+        //
+        VARIABILITY_MOVABLE = 4;
+
+        // Sign that can change semantically but not positionally, e.g. a
+        // digital traffic sign on traffic sign gantry, or an analog prism
+        // sign.
+        //
+        VARIABILITY_MUTABLE = 5;
+
+        // Sign that can change both semantically and positionally, e.g. a
+        // temporary, digital traffic sign at a construction site, or a digital
+        // traffic sign attached to a road works vehicle.
+        //
+        VARIABILITY_MOVABLE_AND_MUTABLE = 6;
     }
 }

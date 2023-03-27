@@ -34,7 +34,7 @@ image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1
 
 The `HostVehicleData` interface describes the measured internal states of a traffic participant.
 OSI currently provides only limited support for data structures that describe measured internal states of traffic participants.
-Actuator intentions are currently not covered by OSI and must be handled using a different data description format.
+One example would be the `MotionRequest` interface that can be used to communicate the results of the behavior planning to the dynamic model.
 
 NOTE: OSI uses singular instead of plural for `repeated` field names.
 

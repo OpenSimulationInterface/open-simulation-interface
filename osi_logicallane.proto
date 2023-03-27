@@ -582,6 +582,10 @@ message LogicalLane
     //
     repeated LaneConnection successor_lane = 15;
 
+    // Name of the street this lane belongs to.
+    //
+    optional string street_name = 16;
+
     //
     // Definition of available lane types.
     //

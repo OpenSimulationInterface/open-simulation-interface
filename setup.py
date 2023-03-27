@@ -60,6 +60,7 @@ class GenerateProtobufCommand(build_py):
         'osi_lane.proto',
         'osi_logicaldetectiondata.proto',
         'osi_logicallane.proto',
+        'osi_motionrequest.proto',
         'osi_object.proto',
         'osi_occupant.proto',
         'osi_referenceline.proto',
