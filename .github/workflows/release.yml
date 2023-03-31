@@ -1,0 +1,188 @@
+name: GitHub Release Pipeline
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  ## Pepararation job for setting up relevant variables
+  setup:
+    name: Setup variables
+    runs-on: ubuntu-latest
+    # Declare output variables to be usable in other jobs
+    outputs:
+      output1: ${{steps.var_step.outputs.version}}
+      output2: ${{steps.date_step.outputs.docdate}}
+      output3: ${{steps.var_step.outputs.suffix}}
+    steps:
+      # Check out the GitHub repository
+      - name: Checkout interface
+        uses: actions/checkout@v3
+        with:
+          path: dist/open-simulation-interface
+      # Set the version variable based on the latest tag (could be replaced with github-internal predefined variable?)
+      - name: Set version
+        id: var_step
+        working-directory: dist/open-simulation-interface
+        run:  |
+          echo "version=$(git describe --tags --always |  sed 's/^v//')" >> $GITHUB_OUTPUT 
+          echo "suffix=$(git describe --tags --always | sed -r 's/^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+//')" >> $GITHUB_OUTPUT
+      # Set the release date (current date)
+      - name: Set date
+        id: date_step
+        run: echo "docdate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+  
+  ## Tag and update related repositories before checking them out for Antora and the deliverables
+  tagging_update:
+    name: Update OSMP & Documentation
+    runs-on: ubuntu-22.04
+    needs: [setup]
+    steps:
+      - name: Update OSMP
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: update-tag
+          repository: OpenSimulationInterface/osi-sensor-model-packaging
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}", "suffix": "${{needs.setup.outputs.output3}}", "source_repo": "${{ github.repository }}"}'
+      - name: Update Documentation
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: update-tag
+          repository: OpenSimulationInterface/osi-documentation
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
+      - name: Provide downstream repos some time
+        uses: whatnick/wait-action@v0.1.2
+        with:
+          time: '1m'
+
+  
+  ## Antora job, responsible for creating the Antora output of the release
+  antora:
+    name: Generate Antora content
+    runs-on: ubuntu-22.04
+    needs: [tagging_update]
+    steps:          
+      # Check out the Antora generator
+      - name: Checkout Antora generator
+        uses: actions/checkout@v3
+        with:
+          repository: OpenSimulationInterface/osi-antora-generator
+          path: antora
+          submodules: true
+      # Remove building branches for the main repositories. This will lead to Antora only using the tagged versions to build its content.
+      - name: Manipulate site.yml
+        working-directory: antora
+        run: |
+          sed -i -E 's/branches: (.*) \# (open-.*|osi-.*)/branches: ~/g' site.yml
+          cat site.yml
+      # Create custom build instructions for GitHub compatibility
+      - name: Create run instructions
+        run: |
+          echo "#!/bin/bash
+          cd antora
+          cat site.yml
+          export NODE_OPTIONS="--max-old-space-size=8192"
+          exec antora --stacktrace --fetch --clean site.yml" > antora.sh
+          cat antora.sh
+      # Run Antora to generate the document
+      - name: Run Antora
+        uses: docker://ghcr.io/asam-ev/project-guide-docker:4
+        with:
+          entrypoint: sh
+          args: antora.sh
+      # Upload the created artifact for later jobs to use
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with: 
+          name: antora
+          path: antora/site
+  
+  ## Step for creating the zip file with all deliverables
+  deliverables:
+    name: Create deliverables package
+    runs-on: ubuntu-latest
+    needs: [setup,antora]
+    steps:
+      # Check out the repository (again)
+      - name: Checkout interface
+        uses: actions/checkout@v3
+        with:
+          path: dist/open-simulation-interface
+      # Check out the sensor model packaging repo
+      - name: Checkout sensor model packaging
+        uses: actions/checkout@v3
+        with:
+          repository: OpenSimulationInterface/osi-sensor-model-packaging
+          path: dist/osi-sensor-model-packaging
+          fetch-depth: 0
+      # Retrieve the Antora artifact from the previous job
+      - name: Retrieve Antora artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: antora
+          path: dist/ASAM_OSI_Standard_${{needs.setup.outputs.output1}}/
+#       # Move downloaded Antora artifact to the correct location
+#       - name: Move and rename Antora artifact (ASAM_OSI_Standard)
+#         run: |
+#           ls
+#           mv antora/site/ dist/ASAM_OSI_Standard_${{needs.setup.outputs.output1}}/
+      # Create the mandatory README.txt file for the deliverables package. The functions and variables declared below will create a readme file with a defined header, surrounded by a box made of "*".
+      - name: Get OSMP version
+        working-directory: dist/osi-sensor-model-packaging
+        run: |
+          OSMP_VERSION="$(git describe --tags --exclude 'v*.*.*-antora' --exclude 'x-antora-v*.*.*'|  sed 's/^v//')"
+          echo "OSMP_VERSION=$OSMP_VERSION" >> $GITHUB_ENV
+      - name: Create README
+        working-directory: dist
+        run: |
+          declare -i char_count=84
+          declare -i char_count_header=$char_count-1
+          repeat(){ for i in $(eval echo {1..$1}); do echo -n "$2"; done; echo ""; }
+          fill(){ declare -i length=$1-${#2}-9; spaces=$(repeat $length ".");echo "***" "$2" "${spaces//./ }" "***"; }
+          name="ASAM OSI"
+          version="Version: ${{needs.setup.outputs.output1}}"
+          date="Date: ${{needs.setup.outputs.output2}}"
+          
+          echo "/$(repeat $char_count_header "*")" > README.txt
+          fill $char_count "$name" >> README.txt
+          fill $char_count "$version" >> README.txt
+          fill $char_count "$date" >> README.txt
+          echo "$(repeat $char_count_header "*")/" >> README.txt
+          echo "The deliverables of ASAM OSI v${{needs.setup.outputs.output1}} include: 
+
+          - ASAM_OSI_Standard_${{needs.setup.outputs.output1}}
+          - open_simulation_interface_${{needs.setup.outputs.output1}}
+          - osi-sensor-model-packaging_${{ env.OSMP_VERSION }}" >> "README.txt"
+          cat README.txt
+      # Package all collected deliverables
+      - name: Zip Release
+        uses: TheDoctor0/zip-release@0.6.2
+        with: 
+          filename: ASAM_OSI_${{needs.setup.outputs.output1}}.zip
+          directory: dist
+      # Upload the created artifact for the publish job
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: deliverables
+          path: dist/ASAM_OSI_${{needs.setup.outputs.output1}}.zip
+
+  ## Publishing step, where the created zip file is uploaded to the triggering release publication
+  publish:
+    name: Add deliverables to release
+    runs-on: ubuntu-latest
+    needs: [deliverables, setup]
+    steps:
+      # Retrieve the previously uploaded deliverables artifact
+      - name: Retrieve previous artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: deliverables
+      # Add the new zip file with the deliverables to the respective release
+      - name: Add deliverables to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          file: ASAM_OSI_${{needs.setup.outputs.output1}}.zip
+          tag: ${{ github.ref }}
