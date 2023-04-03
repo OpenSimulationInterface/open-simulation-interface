@@ -151,7 +151,7 @@ jobs:
           - open_simulation_interface_${{needs.setup.outputs.output1}}
           - osi-sensor-model-packaging_${{ env.OSMP_VERSION }}" >> "README.txt"
           cat README.txt
-          - mv osi-sensor-model-packaging osi-sensor-model-packaging_${{ env.OSMP_VERSION }}
+          mv osi-sensor-model-packaging osi-sensor-model-packaging_${{ env.OSMP_VERSION }}
       # Package all collected deliverables
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.2
