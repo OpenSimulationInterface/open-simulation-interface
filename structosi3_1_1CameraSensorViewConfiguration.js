@@ -1,5 +1,11 @@
 var structosi3_1_1CameraSensorViewConfiguration =
 [
+    [ "PixelOrder", "structosi3_1_1CameraSensorViewConfiguration.html#a45bb2c6950b94d9928d67cfa0384bdd3", [
+      [ "PIXEL_ORDER_DEFAULT", "structosi3_1_1CameraSensorViewConfiguration.html#a45bb2c6950b94d9928d67cfa0384bdd3a2c284c0b0bd1626e875e7e071b89753d", null ],
+      [ "PIXEL_ORDER_OTHER", "structosi3_1_1CameraSensorViewConfiguration.html#a45bb2c6950b94d9928d67cfa0384bdd3a5bd8571a539131f4bed56a2db532c728", null ],
+      [ "PIXEL_ORDER_RIGHT_LEFT_TOP_BOTTOM", "structosi3_1_1CameraSensorViewConfiguration.html#a45bb2c6950b94d9928d67cfa0384bdd3adaa3329fd5d521527daceb143ef4b979", null ],
+      [ "PIXEL_ORDER_LEFT_RIGHT_BOTTOM_TOP", "structosi3_1_1CameraSensorViewConfiguration.html#a45bb2c6950b94d9928d67cfa0384bdd3ae86335d36688260ff5f73e4d50a316d2", null ]
+    ] ],
     [ "ChannelFormat", "structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92", [
       [ "CHANNEL_FORMAT_UNKNOWN", "structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a4a287d357d5692ae584a4634a9374c04", null ],
       [ "CHANNEL_FORMAT_OTHER", "structosi3_1_1CameraSensorViewConfiguration.html#a83f77f6327e55c21ccc89e07ec654a92a7ee7b09fe13c73818f36b05ac26d227a", null ],
@@ -38,5 +44,6 @@ var structosi3_1_1CameraSensorViewConfiguration =
     [ "channel_format", "structosi3_1_1CameraSensorViewConfiguration.html#ae202276d96b78a2fdb13cd915aeb47b7", null ],
     [ "samples_per_pixel", "structosi3_1_1CameraSensorViewConfiguration.html#a5fd2b58e82f420f0c8d1fc98d2388ddc", null ],
     [ "max_number_of_interactions", "structosi3_1_1CameraSensorViewConfiguration.html#afca07adefc8e9ae84d4400a31c1c42cd", null ],
-    [ "wavelength_data", "structosi3_1_1CameraSensorViewConfiguration.html#abc3a44291ec7e392dc466425a454d435", null ]
+    [ "wavelength_data", "structosi3_1_1CameraSensorViewConfiguration.html#abc3a44291ec7e392dc466425a454d435", null ],
+    [ "pixel_order", "structosi3_1_1CameraSensorViewConfiguration.html#a46c4ecd58373a82e4d219e65c828fac9", null ]
 ];

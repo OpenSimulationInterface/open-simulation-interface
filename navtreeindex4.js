@@ -1,5 +1,11 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da26de2f33082a8ab84946f2a6b277cf30":[2,0,0,65,2,0,1,4],
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da2d22a92bf57be5d2c56d07e3976783b7":[2,0,0,65,2,0,1,3],
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da4ce61d0e9902880c562e3d0e6d4f191f":[2,0,0,65,2,0,1,0],
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da724c7456169c9afbe30d21b5ba3b3560":[2,0,0,65,2,0,1,5],
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da7b919374c9e6334b73697b5c8cb8054e":[2,0,0,65,2,0,1,6],
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587daf5d89e74830906c84eb2eb444ce4a050":[2,0,0,65,2,0,1,2],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#af1ef11603f3655d6105d58af33ac38ef":[2,0,0,65,2,0,6],
 "structosi3_1_1Occupant.html":[2,0,0,66],
 "structosi3_1_1Occupant.html#a41352dc0f3cf58591a6ba2afeff4d4e6":[2,0,0,66,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1StationaryObject.html#ad7acdaf235cb4b4c77806fbb365677f7":[2,0,0,64,3],
 "structosi3_1_1StationaryObject.html#afb3fbdaaa9fe344f1200dc7554d121b4":[2,0,0,64,1],
 "structosi3_1_1StationaryObject_1_1Classification.html":[2,0,0,64,0],
-"structosi3_1_1StationaryObject_1_1Classification.html#a1d9400e4e1404fba9b80ac08c744d396":[2,0,0,64,0,5],
-"structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18":[2,0,0,64,0,4],
-"structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a0fa24d36aba831d2e97cedbdabf4a1a0":[2,0,0,64,0,4,5],
-"structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a223ae57ff63a7987bb2626617a7ef7d8":[2,0,0,64,0,4,10],
-"structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a46ac7e5b4a81ff978c260f79872e1b62":[2,0,0,64,0,4,4],
-"structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a4aa95ace4f6eec9407f38c62c0dd912b":[2,0,0,64,0,4,6],
-"structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a59380eb7ef599dc8f0e97b8d10a4f9d5":[2,0,0,64,0,4,3]
+"structosi3_1_1StationaryObject_1_1Classification.html#a1d9400e4e1404fba9b80ac08c744d396":[2,0,0,64,0,5]
 };
