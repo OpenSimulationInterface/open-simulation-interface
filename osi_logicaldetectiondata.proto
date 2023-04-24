@@ -25,9 +25,17 @@ message LogicalDetectionData
     //
     optional LogicalDetectionDataHeader header = 2;
 
-    // logical detections consisting of transformed (and potentially fused) detections from one or multiple sensors and sensor types.
-    // Logical detections are given with respect to the reference frame of the logical/virtual sensor
-    // \c SensorView::mounting_position (e.g. center of rear axle of the ego car)
+    // Logical detections consisting of transformed (and potentially fused)
+    // detections from one or multiple sensors and sensor types.
+    //
+    // The parent frame of a logical detection is the virtual sensor coordinate
+    // system specified by \c SensorView::mounting_position .
+    //
+    // The virtual sensor coordinate system is relative to the vehicle
+    // coordinate system which has its origin in the center of the rear axle of
+    // the ego vehicle. This means if virtual sensor mounting position and
+    // orientation are set to (0,0,0) the virtual sensor coordinate system
+    // coincides with the vehicle coordinate system.
     //
     repeated LogicalDetection logical_detection = 3;
 }
@@ -131,8 +139,8 @@ message LogicalDetection
     //
     optional Identifier object_id = 2;
 
-    // Measured position of the logical detection given in cartesian coordinates in the
-    // host vehicle coordinate system.
+    // Measured position of the logical detection given in cartesian coordinates
+    // in the virtual sensor coordinate system.
     //
     // Unit: m
     //
@@ -143,7 +151,7 @@ message LogicalDetection
     optional Vector3d position_rmse = 4;
 
     // Velocity of the logical detection given in cartesian coordinates in the
-    // host vehicle coordinate system.
+    // virtual sensor coordinate system.
     //
     // Unit: m/s
     //
