@@ -7,82 +7,18 @@ The Open Simulation Interface <sup>[[1]](https://www.hot.ei.tum.de/forschung/aut
 
 As the complexity of automated driving functions rapidly increases, the requirements for test and development methods are growing. Testing in virtual environments offers the advantage of completely controlled and reproducible environment conditions.
 
-For more information on OSI see the [official documentation](https://opensimulationinterface.github.io/osi-documentation/) or the [official reference documentation](https://opensimulationinterface.github.io/open-simulation-interface/) for defined protobuf messages.
-
-<!-- TODO: Update with new Antora hosting -->
+For more information on OSI see the [official documentation](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/specification/index.html) or the [class list](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/gen/annotated.html) for defined protobuf messages.
 
 [1] Hanke, T., Hirsenkorn, N., van-Driesten, C., Garcia-Ramos, P., Schiementz, M., Schneider, S. & Biebl, E. (2017, February 03). *A generic interface for the environment perception of automated driving functions in virtual scenarios.* Retrieved January 25, 2020, from https://www.hot.ei.tum.de/forschung/automotive-veroeffentlichungen/
 
 ## Usage
-##### Example of generating OSI messages in `Python`
-```python
-# generate_osi_messages.py
-from osi3.osi_sensorview_pb2 import SensorView
-import struct
+For usage examples, please refer to the official documentation:
+- [Trace file generation with python](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/architecture/trace_file_example.html)
+- [OSMP examples](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/sensor-model/setup/build_install_example.html), including the code found at [osi-sensor-model-packaging](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging):
+  - [OSMPDummySource](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples/OSMPDummySource)
+  - [OSMPDummySensor](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples/OSMPDummySensor)
+  - [OSMPCNetworkProxy](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples/OSMPCNetworkProxy)
 
-NANO_INCREMENT = 10000000
-MOVING_OBJECT_LENGTH = 5
-MOVING_OBJECT_WIDTH = 2
-MOVING_OBJECT_HEIGHT = 1
-
-def main():
-    """Initialize SensorView"""
-    f = open("sv_330_361_1000_movingobject.osi", "ab")
-    sensorview = SensorView()
-
-    sv_ground_truth = sensorview.global_ground_truth
-    sv_ground_truth.version.version_major = 3
-    sv_ground_truth.version.version_minor = 5
-    sv_ground_truth.version.version_patch = 0
-
-    sv_ground_truth.timestamp.seconds = 0
-    sv_ground_truth.timestamp.nanos = 0
-
-    moving_object = sv_ground_truth.moving_object.add()
-    moving_object.id.value = 42
-
-    # Generate 1000 OSI messages for a duration of 10 seconds
-    for i in range(1000):
-
-        # Increment the time
-        if sv_ground_truth.timestamp.nanos > 1000000000:
-            sv_ground_truth.timestamp.seconds += 1
-            sv_ground_truth.timestamp.nanos = 0
-        sv_ground_truth.timestamp.nanos += NANO_INCREMENT
-
-        moving_object.vehicle_classification.type = 2
-
-        moving_object.base.dimension.length = MOVING_OBJECT_LENGTH
-        moving_object.base.dimension.width = MOVING_OBJECT_WIDTH
-        moving_object.base.dimension.height = MOVING_OBJECT_HEIGHT
-
-        moving_object.base.position.x += 0.5
-        moving_object.base.position.y = 0.0
-        moving_object.base.position.z = 0.0
-
-        moving_object.base.orientation.roll = 0.0
-        moving_object.base.orientation.pitch = 0.0
-        moving_object.base.orientation.yaw = 0.0
-
-        """Serialize"""
-        bytes_buffer = sensorview.SerializeToString()
-        f.write(struct.pack("<L", len(bytes_buffer)))
-        f.write(bytes_buffer)
-
-    f.close()
-
-if __name__ == "__main__":
-    main()
-```
-
-To run the script execute the following command in the terminal:
-```bash
-python3 generate_osi_messages.py
-```
-
-This will output an osi file (`sv_330_361_1000_movingobject.osi`) which can be visualized and played back by the [osi-visualizer](https://github.com/OpenSimulationInterface/osi-visualizer).
-
-See Google's documentation for more tutorials on how to use protocol buffers with [Python](https://developers.google.com/protocol-buffers/docs/pythontutorial) or [C++](https://developers.google.com/protocol-buffers/docs/cpptutorial).
 ## Installation
 ##### Dependencies
 Install `cmake` 3.10.2:
