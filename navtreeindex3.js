@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structosi3_1_1LidarSensorViewConfiguration.html#a55ae2af0ac4a312ee6eca8d4e28f5b3e":[2,0,0,84,9],
 "structosi3_1_1LidarSensorViewConfiguration.html#a655eb060bed69dcfd3b268fee2733033":[2,0,0,84,4],
 "structosi3_1_1LidarSensorViewConfiguration.html#a712772005038f231b056111be45fc13c":[2,0,0,84,10],
 "structosi3_1_1LidarSensorViewConfiguration.html#a74073f8a971aab5ac7e04ba8e817485e":[2,0,0,84,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#ac8aa5535231bb311da31a0cfa45a5e23ad5f9cff2b0a51bc81e3f59a6eccd6a5f":[2,0,0,65,2,0,2,3],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#ae3defe31384a483f30bf502c7234d894":[2,0,0,65,2,0,4],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587d":[2,0,0,65,2,0,1],
-"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da05b41944a0fbc5748137828b08002737":[2,0,0,65,2,0,1,1]
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da05b41944a0fbc5748137828b08002737":[2,0,0,65,2,0,1,1],
+"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da26de2f33082a8ab84946f2a6b277cf30":[2,0,0,65,2,0,1,4]
 };

@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da26de2f33082a8ab84946f2a6b277cf30":[2,0,0,65,2,0,1,4],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da2d22a92bf57be5d2c56d07e3976783b7":[2,0,0,65,2,0,1,3],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da4ce61d0e9902880c562e3d0e6d4f191f":[2,0,0,65,2,0,1,0],
 "structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html#aef50eb476a6f201f48d42d00a0c1587da724c7456169c9afbe30d21b5ba3b3560":[2,0,0,65,2,0,1,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "structosi3_1_1StationaryObject.html#ad7acdaf235cb4b4c77806fbb365677f7":[2,0,0,64,3],
 "structosi3_1_1StationaryObject.html#afb3fbdaaa9fe344f1200dc7554d121b4":[2,0,0,64,1],
 "structosi3_1_1StationaryObject_1_1Classification.html":[2,0,0,64,0],
-"structosi3_1_1StationaryObject_1_1Classification.html#a1d9400e4e1404fba9b80ac08c744d396":[2,0,0,64,0,5]
+"structosi3_1_1StationaryObject_1_1Classification.html#a1d9400e4e1404fba9b80ac08c744d396":[2,0,0,64,0,5],
+"structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18":[2,0,0,64,0,4]
 };
