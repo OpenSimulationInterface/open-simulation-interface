@@ -4,14 +4,14 @@ include::{root-path}_config.adoc[]
 endif::[]
 = Installing OSI for Python on Linux
 
-**Prerequisites**
+*Prerequisites::
 
 * You have installed everything described in <<top-installing-osi-prerequisits>>.
 * You have installed _pip3_.
 * You have installed _python-setuptools_.
 * For a local installation, you have installed _virtualenv_.
 
-**Steps**
+Steps::
 
 . Open a terminal.
 . Clone the Open Simulation repository.

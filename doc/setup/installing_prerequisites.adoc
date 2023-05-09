@@ -15,12 +15,12 @@ For other use cases like first trials to get started with OSI, dynamic linking c
 
 == Windows
 
-**Dynamic Linking (NOT RECOMMENDED)**
+Dynamic Linking (NOT RECOMMENDED)::
 
 Since on Windows symbols are not exported per default, it can be kind of annoying to deal with this during _protobuf_ header generation (see for example https://groups.google.com/g/protobuf/c/PDR1bqRazts).
 That is an important reason to use static linking.
 
-**Static Linking**
+Static Linking::
 
 Static linking might require to manually build _protobuf_. 
 It is important to notice that on Windows you can also specify how to link against the C runtime.
@@ -29,15 +29,13 @@ Basically, this can be set in CMake, e.g. https://cmake.org/cmake/help/latest/pr
 Therefore, it could make sense to still dynamically link against the C Runtime when statically linking _protobuf_ / OSI.
 (This is important e.g. when building shared libraries, since a static C runtime will create an isolated heap for your dll, which can lead to segfaults depending on what you expose on your public interfaces.)
 
-The easiest way to achieve static linking on Windows without setting all the stuff manually in Cmake and building _protobuf_ is to actually use vcpkg:
-
-**Install static _protobuf_ with dynamic c-runtime with vcpkg:**
+The easiest way to achieve static linking on Windows without setting all the stuff manually in Cmake and building _protobuf_ is to actually **install static _protobuf_ with dynamic c-runtime with vcpkg**:
 
 ----
 vcpkg install --triplet=x64-windows-static-md protobuf
 ----
 
-**Build:**
+Build::
 
 For the cmake configuration, we can directly specify our vcpkg installation:
 ----
@@ -47,7 +45,7 @@ cmake --build . --config Release
 
 == Linux
 
-**Dynamic linking (NOT RECOMMENDED)**
+Dynamic linking (NOT RECOMMENDED)::
 
 As already mentioned, shared linking is possible on Linux, but NOT RECOMMENDED.
 However, for dynamic linking install _protobuf_ (version 3.0.0 or higher) with apt: 
@@ -56,7 +54,7 @@ sudo apt-get install libprotobuf-dev protobuf-compiler
 ----
 In the CMakeLists of the OSI project, `LINK_WITH_SHARED_OSI` has to be enabled.
 
-**Static linking**
+Static linking::
 
 A common error here is to just install _protobuf_ with apt and link against it. 
 This means that your OSI is build statically but still linking dynamically against _protobuf_.

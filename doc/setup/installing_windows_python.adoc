@@ -4,13 +4,13 @@ include::{root-path}_config.adoc[]
 endif::[]
 = Installing OSI for Python on Windows
 
-**Prerequisites**
+Prerequisites::
 
 * You have installed everything described in <<top-installing-osi-prerequisits>>.
 * You have installed _Python_ with administrator rights.
 * Make sure _Python_ is added to `PATH`.
 
-**Steps**
+Steps::
 
 . Open a terminal.
 . Clone the Open Simulation repository.
