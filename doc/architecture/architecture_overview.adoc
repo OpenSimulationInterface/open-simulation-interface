@@ -32,6 +32,10 @@ The following figure shows a more advanced use case for traffic participants.
 .Traffic participant with sensor models, AD function, and dynamic model
 image::{images_open_simulation_interface}/osi-traffic-participant-advanced.png[1100]
 
+[#fig-interface-streaming]
+.Interface for Streaming
+image::{images_open_simulation_interface}/osi-streaming-principle.png[1100]
+
 The `HostVehicleData` interface describes the measured internal states of a traffic participant.
 OSI currently provides only limited support for data structures that describe measured internal states of traffic participants.
 One example would be the `MotionRequest` interface that can be used to communicate the results of the behavior planning to the dynamic model.
