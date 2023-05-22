@@ -519,58 +519,198 @@ message MovingObject
     // This is an extension to the \c MovingObject with additional information 
     // describing a pedestrian in more detail.
     // 
-    message PedestrianData {
+    message PedestrianAttributes {
 
-        // Body height of the pedestrian  
-        // 
-        // Unit: m
-        //
-        optional double height = 1;
 
         // List of all skeleton points of the pedestrian
         // 
-        // The number of skeleton points may very, based on the detail level of 
+        // The number of skeleton points may vary, based on the detail level of 
         // the pedestrian model used. For example, some simulators will not include 
         // detailed data of the fingers or eyes of the pedestrian.
         // 
         repeated SkeletonPoint skeleton_data = 2;
+
+         
+        // \brief Points in the skeleton of the pedestrian
+        //
+        // Each point represents a joint, or otherwise important point in the skeleton 
+        // of a pedestrian. For example pelvis, knee or shoulder. The naming convention 
+        // should be followed for identifying skeleton points.
+        //
+        message SkeletonPoint {
+
+
+            // Skeleton points are identified by their type, combined with which body side
+            // they are on.
+            //  
+            // To properly identify the skeleton points the pre-defined naming convention 
+            // must be used.
+            //
+            //\image html OSI_SkeletonNamingConvention.jpg
+            //
+            // If a skeleton point is used, which is more than one layer detached from the
+            // root point, all sekleton points between that point and the root point also
+            // need to be defined in order to create a complete chain!
+            // 
+            optional Type type = 1;
+            
+            // The side of the body on which the Skeleton Point is located at.
+            //
+            // Skeleton Points can either be on the left or right side of the body. The spine,
+            // neck, and head are located in the middle.
+            //
+            optional Side side = 2;
+
+            // If there are multiple Skeleton Points of the same type, they are additionally
+            // identified by their number. 
+            //
+            // In case of the spine, head, jaw, fingers, and toes there can be multiple 
+            // Skeleton Points in these bodyparts, depending on the desired level of detail. 
+            // Smaller numbers are located closer to the root/previous Skeleton Point.
+            //
+            optional uint32 number = 3;
+
+            // Position of the skeleton point
+            // 
+            // Reference System is the middle of the bounding box (\c MovingObject::base 
+            // \c BaseMoving::position).
+            // 
+            optional Vector3d position = 4;
+
+            // Orientation of the skeleton point
+            //
+            // Reference System is the middle of the bounding box (\c MovingObject::base 
+            // \c BaseMoving::orientation).
+            //
+            optional Orientation3d orientation = 5;
+
+            // The type of the skeleton point
+            //
+            // \note Skeleton Points of each type can be assigned, or left empty depending
+            // on the desired level of detail, or present data. However, if a Skeleton Point
+            // is defined, all Skeleton Points in the chain from that point back to the root
+            // point must be defined to create a complete chain. 
+            //
+            enum Type {
+                
+                // Root point is usually located in the COM
+                //
+                TYPE_ROOT = 0;
+
+                // Skeleton Point is located in the hip.
+                //
+                TYPE_HIP = 1;
+
+                // Skeleton Points defines part of the spine.
+                //
+                //  \note skeleton usually contains more than one spine point.
+                //
+                TYPE_SPINE = 2;
+
+                // Skeleton Point defines the neck.
+                //
+                TYPE_NECK = 3;
+
+                // Skeleton Point defines the head.
+                //
+                TYPE_HEAD = 4;
+
+                // Skeleton Point defines one of the eyes.
+                //
+                TYPE_EYE = 5;
+
+                // Skeleton Point defines the jaw.
+                //
+                TYPE_JAW = 6;
+
+                // Skeleton Point defines one of the shoulders.
+                //
+                TYPE_SHOULDER = 7;
+
+                // Skeleton Point defines one of the upper arms.
+                //
+                TYPE_UPPER_ARM = 8;
+
+                // Skeleton Point defines one of the forearms.
+                //
+                TYPE_FORE_ARM = 9;
+
+                // Skeleton Point defines one of the hands.
+                //
+                TYPE_HAND = 10;
+
+                // Skeleton Point defines one of the thumbs.
+                //
+                //  \note Fingers usually contain three skeleton points (start, middle, end)
+                //
+                TYPE_FINGER_THUMB = 11;
+
+                // Skeleton Point defines one of the index fingers.
+                //
+                //  \note Fingers usually contain three skeleton points (start, middle, end)
+                //
+                TYPE_FINGER_INDEX = 12;
+
+                // Skeleton Point defines one of the middle fingers.
+                //
+                //  \note Fingers usually contain three skeleton points (start, middle, end)
+                //
+                TYPE_FINGER_MIDDLE = 13;
+
+                // Skeleton Point defines one of the ring fingers.
+                //
+                //  \note Fingers usually contain three skeleton points (start, middle, end)
+                //
+                TYPE_FINGER_RING = 14;
+
+                // Skeleton Point defines one of the pinky fingers.
+                //
+                //  \note Fingers usually contain three skeleton points (start, middle, end)
+                //
+                TYPE_FINGER_PINKY = 15;
+
+                // Skeleton Point defines one of the thighs.
+                //
+                TYPE_THIGH = 16;
+
+                // Skeleton Point defines one of the shins.
+                //
+                TYPE_SHIN = 17;
+
+                // Skeleton Point defines one of the feet.
+                //
+                TYPE_FOOT = 18;
+
+                // Skeleton Point defines one of the toes.
+                //
+                // \note Toes usually contain two skeleton points for start and end.
+                //
+                TYPE_TOES = 19;
+
+            }
+
+            // Defines on which side of the body the Skeleton Point is located at.
+            // 
+            enum Side {
+
+                // Left body side.
+                //
+                SIDE_LEFT = 0;
+
+                // Right body side.
+                //
+                SIDE_RIGHT = 1;
+
+                // For root, spine, neck, head and jaw, middle is used for side.
+                //
+                SIDE_MIDDLE = 2;
+            }
+
+        }
     }
 
 
-    // 
-    // \brief Points in the skeleton of the pedestrian
-    //
-    // Each point represents a joint, or otherwise important point in the skeleton 
-    // of a pedestrian. For example Pelvis, Knee or Shoulder. The naming convention 
-    // should be followed for identifying skeleton points.
-    //
-    message SkeletonPoint {
 
-
-        // Skeleton points are identified by a naming scheme
-        //  
-        // To properly identify the skeleton points the pre-defined naming convention 
-        // must be used.
-        // 
-        //\image html OSI_SkeletonNamingConvention.jpg
-        // 
-        required string identifier = 1;
-
-        // Position of the skeleton point
-        // 
-        // Reference System is the middle of the bounding box (\c MovingObject::base 
-        // \c BaseMoving::position).
-        // 
-        required Vector3d position = 2;
-
-        // Orientation of the skeleton point
-        //
-        // Reference System is the middle of the bounding box (\c MovingObject::base 
-        // \c BaseMoving::orientation).
-        //
-        required Orientation3d orientation = 3;
-
-    }
 
     //
     // \brief The vehicle attributes for \c MovingObject (host or other).
