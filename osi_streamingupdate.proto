@@ -4,7 +4,9 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
+import "osi_environment.proto";
 import "osi_object.proto";
+import "osi_trafficsign.proto";
 import "osi_trafficlight.proto";
 import "osi_hostvehicledata.proto";
 
@@ -39,23 +41,23 @@ message StreamingUpdate
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
     //
-    repeated StationaryObject stationary_object_update = 4;
+    repeated StationaryObject stationary_object_update = 3;
 
     // The list of moving objects. 
     //
-    repeated MovingObject moving_object_update = 5;
+    repeated MovingObject moving_object_update = 4;
 
     // The list of traffic signs.
     //
-    repeated TrafficSign traffic_sign_update = 6;
+    repeated TrafficSign traffic_sign_update = 5;
 
     // The list of traffic lights.
     //
-    repeated TrafficLight traffic_light_update = 7;
+    repeated TrafficLight traffic_light_update = 6;
 
     // Conditions of the environment.
     //
-    optional EnvironmentalConditions environmental_conditions_update = 12;
+    optional EnvironmentalConditions environmental_conditions_update = 7;
 
     // Host vehicle data.
     //
@@ -63,12 +65,12 @@ message StreamingUpdate
     // e.g. from location sensors, internal sensors and ECU bus data, etc.,
     // that is made available to sensors as input.
     //
-    repeated HostVehicleData host_vehicle_data_update = 29;
+    repeated HostVehicleData host_vehicle_data_update = 8;
 
     // Entities that will no longer be updated, because they are considered
     // obsolete by the sender.
     //
     // \note IDs are globally unique.
     //
-    repeated Identifier obsolete_id = 30;
+    repeated Identifier obsolete_id = 9;
 }
