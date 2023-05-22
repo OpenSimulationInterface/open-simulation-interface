@@ -1,5 +1,7 @@
 syntax = "proto2";
+
 option optimize_for = SPEED;
+
 import "osi_version.proto";
 import "osi_common.proto";
 import "osi_object.proto";
@@ -9,21 +11,20 @@ import "osi_hostvehicledata.proto";
 package osi3;
 
 //
-// \brief This message is about partial updates from simulation entities.
+// \brief The streaming update interface enables simulation entities to send
+// partial updates to other modules that favor performance (especially latency)
+// over data completeness/consistency (e.g. visualization applications).
 //
-// First time message is being sent:
+// Static and/or non-relevant objects can be omitted as required for the
+// specific use case. Adding an object's unique id to the repeated field \c
+// obsolete_id indicates that it will no longer be updated from then on.
 //
-// ToDo
+// \note The receiver of partial streaming update messages can only rely on the
+// most up-to-date information at the corresponding timestamp.
 //
-// Afterwards:
-// As streaming update this message contains objects of which at least one
-// property has changed. Unchanged properties are nevertheless sent.
-//
-// 
-//
-message Streaming
+message StreamingUpdate
 {
-    // The interface version used by the sender (traffic participant model).
+    // The interface version used by the sender.
     //
     optional InterfaceVersion version = 1;
 
@@ -40,21 +41,13 @@ message Streaming
     //
     repeated StationaryObject stationary_object_update = 4;
 
-    // \note It is not expected that static fields are populated. If they
-    // are, they may be ignored by the receiver of this message, for example, dimensions,
-    // or vehicle category.  All dynamic fields should be populated where known,
-    // for example, velocity, light states, or future trajectory.
-    //
-    // ToDo: how to handle trailers?
-    // \note The field is repeated because it is possible to have a trailer attached to
-    // a vehicle, see MovingObject::VehicleClassification::has_trailer and
-    // MovingObject::VehicleClassification::trailer_id. 
+    // The list of moving objects. 
     //
     repeated MovingObject moving_object_update = 5;
 
     // The list of traffic signs.
     //
-    repeated TrafficSign traffic_sign = 6;
+    repeated TrafficSign traffic_sign_update = 6;
 
     // The list of traffic lights.
     //
@@ -75,7 +68,7 @@ message Streaming
     // Entities that will no longer be updated, because they are considered
     // obsolete by the sender.
     //
-    // Note: IDs are globally unique.
+    // \note IDs are globally unique.
     //
     repeated Identifier obsolete_id = 30;
 }
