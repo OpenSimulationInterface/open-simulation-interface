@@ -1,0 +1,66 @@
+syntax = "proto2";
+
+package osi3;
+
+//
+
+//
+// \Structure which holds data about collisions of the Ego, based on data collected by Generic
+// sensor.
+//
+
+message EgoCollision
+{
+
+	//Determines if a collision happened 
+	//TRUE: Collision detected
+	//FALSE: No collision detected.
+	optional bool contact = 1;
+	
+	//The point in time where the last collision happened. 
+	//
+	message Timestamp 
+	{
+		//The nano seconds part of the time stamp.
+		//
+		optional double nano = 2;
+		
+		//The seconds part of the timestamp.
+		//
+		optional double seconds = 3;
+	}
+	
+	//Collision with other simulation participants still exist.
+	//
+	optional bool active = 4;
+	
+	//Counter for detected collision with the vehicle body.
+	//
+	optional uint32 counter = 5;
+	
+	//Detected collision of vehicle body Fr1 with the global object ObjId.
+	//
+	optional Identifier objectID = 6;
+	
+	//Counter for detected collision with the vehicle wheel.
+	//
+	optional tUInt32 WheelCounter = 7;
+	
+	//Detected collision of vehicle wheel  with the global object ObjId.
+	//
+	optional Identifier WheelObjectId = 8;
+	
+	//Specifies the reference point positions in x- and y-coordinates in the object's system 
+	//related to the object's main point.
+	//
+	message CollisionReferencePoint
+	{
+		//x-coordinate of the collision point
+		//
+		optional tFloat64 x = 9;
+		
+		//y-coordinate of the collision point
+		//
+		optional tFloat64 y = 10;
+	}
+}

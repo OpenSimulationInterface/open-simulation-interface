@@ -53,6 +53,7 @@ class GenerateProtobufCommand(build_py):
         'osi_detectedroadmarking.proto',
         'osi_detectedtrafficlight.proto',
         'osi_detectedtrafficsign.proto',
+        'osi_egocollision.proto',
         'osi_environment.proto',
         'osi_featuredata.proto',
         'osi_groundtruth.proto',
