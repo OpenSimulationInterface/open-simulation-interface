@@ -54,6 +54,15 @@ message DetectedLane
 //
 // \image html OSI_DetectedLaneBoundary.svg
 //
+// The parent frame of a detected lane boundary is the virtual sensor coordinate
+// system.
+//
+// /note The virtual sensor coordinate system is relative to the vehicle coordinate
+// system which has its origin in the center of the rear axle of the ego
+// vehicle. This means if virtual sensor mounting position and orientation are
+// set to (0,0,0) the virtual sensor coordinate system coincides with the
+// vehicle coordinate system.
+//
 message DetectedLaneBoundary
 {
     // Common information of one detected item.

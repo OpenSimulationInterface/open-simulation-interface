@@ -70,10 +70,9 @@ message SensorDetectionHeader
     //
     optional uint64 cycle_counter = 2;
 
-    // Mounting position of the sensor (origin and orientation of the sensor
-    // frame). Both origin and orientation are given in and with respect to the
-    // host vehicle coordinate system (see: \c MovingObject::Vehicle vehicle
-    // reference point) [1].
+    // The physical mounting position of the sensor (origin and orientation of
+    // the sensor frame). Both origin and orientation are given in and with
+    // respect to the host vehicle coordinate system [1].
     //
     // The sensor frame's x-axis is pointing in the central viewing direction of
     // the sensor. It is the angle bisector of the sensor's horizontal and
