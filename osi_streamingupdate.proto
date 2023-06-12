@@ -65,6 +65,8 @@ message StreamingUpdate
     // e.g. from location sensors, internal sensors and ECU bus data, etc.,
     // that is made available to sensors as input.
     //
+    // The ID inside this message allows an association to moving object data.
+    //
     repeated HostVehicleData host_vehicle_data_update = 8;
 
     // Entities that will no longer be updated, because they are considered
