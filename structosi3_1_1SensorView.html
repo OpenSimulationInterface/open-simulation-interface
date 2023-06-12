@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (52710bc)</span>
+   &#160;<span id="projectnumber">master (52ea356)</span>
    </div>
   </td>
  </tr>
@@ -160,10 +160,10 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ad30bef352de1b64dd211718c18c540f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data timestamp of the simulation environment.  <a href="structosi3_1_1SensorView.html#ad30bef352de1b64dd211718c18c540f1">More...</a><br /></td></tr>
 <tr class="separator:ad30bef352de1b64dd211718c18c540f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3530ef3de5c11fb526da7ed337fd004e"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Identifier.html">Identifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorView.html#a3530ef3de5c11fb526da7ed337fd004e">sensor_id</a> = 3</td></tr>
-<tr class="memdesc:a3530ef3de5c11fb526da7ed337fd004e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the sensor at host vehicle's <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) ...">mounting_position</a></code>.  <a href="structosi3_1_1SensorView.html#a3530ef3de5c11fb526da7ed337fd004e">More...</a><br /></td></tr>
+<tr class="memdesc:a3530ef3de5c11fb526da7ed337fd004e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the sensor at host vehicle's <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor frame).">mounting_position</a></code>.  <a href="structosi3_1_1SensorView.html#a3530ef3de5c11fb526da7ed337fd004e">More...</a><br /></td></tr>
 <tr class="separator:a3530ef3de5c11fb526da7ed337fd004e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a420b13889bbdd58f346df1a2e86c43e7"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MountingPosition.html">MountingPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7">mounting_position</a> = 4</td></tr>
-<tr class="memdesc:a420b13889bbdd58f346df1a2e86c43e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) given in vehicle coordinates [1].  <a href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7">More...</a><br /></td></tr>
+<tr class="memdesc:a420b13889bbdd58f346df1a2e86c43e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The virtual mounting position of the sensor (origin and orientation of the sensor frame).  <a href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7">More...</a><br /></td></tr>
 <tr class="separator:a420b13889bbdd58f346df1a2e86c43e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80c5789c7f7670c8118c8c9e88698b9b"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1MountingPosition.html">MountingPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1SensorView.html#a80c5789c7f7670c8118c8c9e88698b9b">mounting_position_rmse</a> = 5</td></tr>
 <tr class="memdesc:a80c5789c7f7670c8118c8c9e88698b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root mean squared error of the mounting position.  <a href="structosi3_1_1SensorView.html#a80c5789c7f7670c8118c8c9e88698b9b">More...</a><br /></td></tr>
@@ -195,7 +195,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The sensor view is derived from <code><a class="el" href="structosi3_1_1GroundTruth.html" title="The ground truth information from the simulation environment.">GroundTruth</a></code> and used as input to sensor models. </p>
-<p>The sensor view information is supposed to provide input to sensor models for simulation of actual real sensors. All information regarding the environment is given with respect to the virtual sensor coordinate system specified in <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) ...">SensorView::mounting_position</a></code>, except for the individual physical technology-specific data, which is given with respect to the physical sensor coordinate system specified in the corresponding physical sensor's <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) ...">mounting_position</a></code>, and the <code><a class="el" href="structosi3_1_1SensorView.html#afbb7fb861761c9d12b6a49ef1f0b15be" title="Ground truth w.r.t.">global_ground_truth</a></code>, which is given in global coordinates.</p>
+<p>The sensor view information is supposed to provide input to sensor models for simulation of actual real sensors. All information regarding the environment is given with respect to the virtual sensor coordinate system specified in <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor frame).">SensorView::mounting_position</a></code>, except for the individual physical technology-specific data, which is given with respect to the physical sensor coordinate system specified in the corresponding physical sensor's <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor frame).">mounting_position</a></code>, and the <code><a class="el" href="structosi3_1_1SensorView.html#afbb7fb861761c9d12b6a49ef1f0b15be" title="Ground truth w.r.t.">global_ground_truth</a></code>, which is given in global coordinates.</p>
 <p>When simulating multiple distinct sensors, each sensor can consume an individual copy of the <code><a class="el" href="structosi3_1_1SensorView.html" title="The sensor view is derived from GroundTruth and used as input to sensor models.">SensorView</a></code> interface. This allows an independent treatment of the sensors.</p>
 <p>Alternatively combined sensor models can also consume one combined <code><a class="el" href="structosi3_1_1SensorView.html" title="The sensor view is derived from GroundTruth and used as input to sensor models.">SensorView</a></code>, with either combined or separate <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models.">SensorData</a></code> outputs, depending on model architecture. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
@@ -245,7 +245,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The ID of the sensor at host vehicle's <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) ...">mounting_position</a></code>. </p>
+<p>The ID of the sensor at host vehicle's <code><a class="el" href="structosi3_1_1SensorView.html#a420b13889bbdd58f346df1a2e86c43e7" title="The virtual mounting position of the sensor (origin and orientation of the sensor frame).">mounting_position</a></code>. </p>
 <p>This is the ID of the virtual sensor, to be used in its detected object output; it is distinct from the IDs of its physical detectors, which are used in the detected features.</p>
 <dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_globally_unique  </dd></dl>
 
@@ -263,7 +263,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The virtual mounting position of the sensor (origin and orientation of the sensor coordinate system) given in vehicle coordinates [1]. </p>
+<p>The virtual mounting position of the sensor (origin and orientation of the sensor frame). </p>
+<p>Both origin and orientation are given in and with respect to the host vehicle coordinate system [1].</p>
 <p>The virtual position pertains to the sensor as a whole, regardless of the actual position of individual physical detectors, and governs the sensor-relative coordinates in detected objects of the sensor as a whole. Individual features detected by individual physical detectors are governed by the actual physical mounting positions of the detectors, as indicated in the technology-specific sub-views and sub-view configurations.</p>
 <ul>
 <li><b>x-direction</b> of sensor coordinate system: sensor viewing direction </li>

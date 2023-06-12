@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (52710bc)</span>
+   &#160;<span id="projectnumber">master (52ea356)</span>
    </div>
   </td>
  </tr>
@@ -221,6 +221,8 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Moving object in the environment as detected and perceived by the sensor. </p>
+<p>The parent frame of a detected moving object is the virtual sensor coordinate system.</p>
+<p>/note The virtual sensor coordinate system is relative to the vehicle coordinate system which has its origin in the center of the rear axle of the ego vehicle. This means if virtual sensor mounting position and orientation are set to (0,0,0) the virtual sensor coordinate system coincides with the vehicle coordinate system. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a586690081dd400b0794f1e013995602a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a586690081dd400b0794f1e013995602a">&#9670;&nbsp;</a></span>ReferencePoint</h2>
@@ -322,9 +324,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The base parameters of the moving object. </p>
-<dl class="section note"><dt>Note</dt><dd>The bounding box does NOT includes mirrors for vehicles. </dd>
-<dd>
-The parent frame of <code>base</code> is the sensor's vehicle frame. </dd>
+<dl class="section note"><dt>Note</dt><dd>The bounding box does NOT include mirrors for vehicles. </dd>
 <dd>
 The height includes the ground_clearance. It always goes from the top to the ground. </dd></dl>
 
@@ -343,8 +343,7 @@ The height includes the ground_clearance. It always goes from the top to the gro
 </div><div class="memdoc">
 
 <p>The root mean squared error of the base parameters of the detected moving object (e.g. </p>
-<p>car). <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle.">MovingObject::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedMovingObject.html#a34576520312191febc4a5c5878a492a4" title="A list of candidates for this moving object as estimated by the sensor (e.g.">candidate</a></code> moving objects.</p>
-<dl class="section note"><dt>Note</dt><dd>The parent frame of <code>base</code> is the sensor's vehicle frame. </dd></dl>
+<p>car). <code><a class="el" href="structosi3_1_1MovingObject.html#a9eca3b518686778cb9cdd7f4e097a9f8" title="The base parameters of the vehicle.">MovingObject::base</a></code> has to be identical for all <code><a class="el" href="structosi3_1_1DetectedMovingObject.html#a34576520312191febc4a5c5878a492a4" title="A list of candidates for this moving object as estimated by the sensor (e.g.">candidate</a></code> moving objects. </p>
 
 </div>
 </div>
