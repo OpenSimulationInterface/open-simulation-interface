@@ -22,7 +22,9 @@ package osi3;
 // obsolete_id indicates that it will no longer be updated from then on.
 //
 // \note The receiver of partial streaming update messages can only rely on the
-// most up-to-date information at the corresponding timestamp.
+// most up-to-date information at the corresponding timestamp. E.g. omitting
+// objects does not indicate static behaviour but it may be sufficient for the
+// use case to update certain objects at a later point in time.
 //
 message StreamingUpdate
 {
