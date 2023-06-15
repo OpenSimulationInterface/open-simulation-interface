@@ -400,6 +400,31 @@ message MovingObject
     //
     optional BaseMoving base = 2;
 
+    // Definition of object types.
+    //
+    enum Type
+    {
+        // Type of the object is unknown (must not be used in ground truth).
+        //
+        TYPE_UNKNOWN = 0;
+
+        // Other (unspecified but known) type of moving object.
+        //
+        TYPE_OTHER = 1;
+
+        // Object is a vehicle.
+        //
+        TYPE_VEHICLE = 2;
+
+        // Object is a pedestrian.
+        //
+        TYPE_PEDESTRIAN = 3;
+
+        // Object is an animal.
+        //
+        TYPE_ANIMAL = 4;
+    }
+
     // The type of the object.
     //
     optional Type type = 3;
@@ -487,31 +512,6 @@ message MovingObject
     // The dominating color of the material of the moving object.
     //
     optional ColorDescription color_description = 11;
-
-    // Definition of object types.
-    //
-    enum Type
-    {
-        // Type of the object is unknown (must not be used in ground truth).
-        //
-        TYPE_UNKNOWN = 0;
-
-        // Other (unspecified but known) type of moving object.
-        //
-        TYPE_OTHER = 1;
-
-        // Object is a vehicle.
-        //
-        TYPE_VEHICLE = 2;
-
-        // Object is a pedestrian.
-        //
-        TYPE_PEDESTRIAN = 3;
-
-        // Object is an animal.
-        //
-        TYPE_ANIMAL = 4;
-    }
 
     //
     // \brief The vehicle attributes for \c MovingObject (host or other).
@@ -727,33 +727,6 @@ message MovingObject
     //
     message VehicleClassification
     {
-        // The type of the vehicle.
-        //
-        optional Type type = 1;
-
-        // The light state of the vehicle.
-        //
-        optional LightState light_state = 2;
-
-        // Flag defining whether the vehicle has an attached trailer.
-        //
-        optional bool has_trailer = 3;
-
-        // Id of the attached trailer.
-        //
-        // \note Field need not be set if has_Trailer is set to false or use
-        // value for non valid id.
-        //
-        // \rules
-        // check_if this.has_trailer is_equal_to true else do_check is_set
-        // \endrules
-        //
-        optional Identifier trailer_id = 4;
-
-        // The role of the vehicle.
-        //
-        optional Role role = 5;
-
         // Definition of vehicle types.
         //
         // \note OSI provides a richer set of vehicle types than is supported by some
@@ -872,6 +845,33 @@ message MovingObject
             //
             TYPE_STANDUP_SCOOTER = 17;
         }
+
+        // The type of the vehicle.
+        //
+        optional Type type = 1;
+
+        // The light state of the vehicle.
+        //
+        optional LightState light_state = 2;
+
+        // Flag defining whether the vehicle has an attached trailer.
+        //
+        optional bool has_trailer = 3;
+
+        // Id of the attached trailer.
+        //
+        // \note Field need not be set if has_Trailer is set to false or use
+        // value for non valid id.
+        //
+        // \rules
+        // check_if this.has_trailer is_equal_to true else do_check is_set
+        // \endrules
+        //
+        optional Identifier trailer_id = 4;
+
+        // The role of the vehicle.
+        //
+        optional Role role = 5;
 
         //
         // \brief The state of the lights of a vehicle.
