@@ -136,6 +136,7 @@ if(OSI_BUILD_FLATBUFFER)
 
   add_custom_target(${PROJECT_NAME}_fbs_build ALL DEPENDS "${FLAT_HEADERS}")
   add_library(${PROJECT_NAME}_fbs INTERFACE)
+  add_library(${PROJECT_NAME}::${PROJECT_NAME}_fbs ALIAS ${PROJECT_NAME}_fbs)
   target_include_directories(${PROJECT_NAME}_fbs INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/>)
   target_include_directories(${PROJECT_NAME}_fbs SYSTEM INTERFACE $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>)
   target_link_libraries(${PROJECT_NAME}_fbs INTERFACE flatbuffers::flatbuffers)
