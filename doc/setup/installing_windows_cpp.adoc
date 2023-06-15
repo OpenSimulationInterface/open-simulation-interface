@@ -43,6 +43,12 @@ cd build
 cmake .. [-G <generator>] [-DCMAKE_INSTALL_PREFIX=<osi-install-directory>]
 ----
 +
+  If you used vcpkg to install protobuf, then provide the target and toolchain file information, as follows
++
+----
+cmake .. -DVCPKG_TARGET_TRIPLET=x64-windows-static-md -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake -A x64 [-G <generator>] [-DCMAKE_INSTALL_PREFIX=<osi-install-directory>]
+----
+
 . Build and install OSI.
 +
 ----
