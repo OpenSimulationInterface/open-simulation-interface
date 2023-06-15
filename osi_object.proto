@@ -378,8 +378,9 @@ message StationaryObject
 //
 // \image html OSI_HostVehicle.svg
 //
-// \note The field \c MovingObject::vehicle_extension has to be
-// filled if the \c MovingObject::Type is a vehicle.
+// \note The fields \c MovingObject::vehicle_attributes and \c
+// MovingObject::vehicle_classification have to be filled if the \c
+// MovingObject::Type is set to #TYPE_VEHICLE.
 //
 message MovingObject
 {
