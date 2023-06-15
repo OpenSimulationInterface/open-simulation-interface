@@ -1,0 +1,73 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+[#top-installing-osi-prerequisits]
+= Installing protobuf for static / dynamic linking
+
+== Prerequisites
+
+* You have installed _cmake_ (version 3.10.2 or higher)
+* You must have superuser privileges
+
+Static linking is the recommended way to package OSI FMUs for sharing with others to be integrated in a co-simulation: They should have minimal external dependencies in order to ensure maximum portability.
+For other use cases like first trials to get started with OSI, dynamic linking could be an option as well.
+
+== Windows
+
+Dynamic Linking (NOT RECOMMENDED)::
+
+Since on Windows symbols are not exported per default, it can be kind of annoying to deal with this during _protobuf_ header generation (see for example https://groups.google.com/g/protobuf/c/PDR1bqRazts).
+That is an important reason to use static linking.
+
+Static Linking::
+
+Static linking might require to manually build _protobuf_. 
+It is important to notice that on Windows you can also specify how to link against the C runtime.
+Basically, this can be set in CMake, e.g. https://cmake.org/cmake/help/latest/prop_tgt/MSVC_RUNTIME_LIBRARY.html
+
+Therefore, it could make sense to still dynamically link against the C Runtime when statically linking _protobuf_ / OSI.
+(This is important e.g. when building shared libraries, since a static C runtime will create an isolated heap for your dll, which can lead to segfaults depending on what you expose on your public interfaces.)
+
+The easiest way to achieve static linking on Windows without setting all the stuff manually in Cmake and building _protobuf_ is to actually **install static _protobuf_ with dynamic c-runtime with vcpkg**:
+
+----
+vcpkg install --triplet=x64-windows-static-md protobuf
+----
+
+Build::
+
+For the cmake configuration, we can directly specify our vcpkg installation:
+----
+cmake .. -DVCPKG_TARGET_TRIPLET=x64-windows-static-md -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake -A x64
+cmake --build . --config Release
+----
+
+== Linux
+
+Dynamic linking (NOT RECOMMENDED)::
+
+As already mentioned, shared linking is possible on Linux, but NOT RECOMMENDED.
+However, for dynamic linking install _protobuf_ (version 3.0.0 or higher) with apt: 
+----
+sudo apt-get install libprotobuf-dev protobuf-compiler
+----
+In the CMakeLists of the OSI project, `LINK_WITH_SHARED_OSI` has to be enabled.
+
+Static linking::
+
+A common error here is to just install _protobuf_ with apt and link against it. 
+This means that your OSI is build statically but still linking dynamically against _protobuf_.
+Here, again either _protobuf_ has to build statically from source or some solution e.g. vcpkg needs to be utilized.
+We recommend the following (as in the README of the OSI project):
+
+Install _protobuf_ (version 3.0.0 or higher) from source with `CXXFLAGS="-fPIC"` to allow static linking of your OSI FMUs (replace <version> with preferred release):
+----
+wget https://github.com/protocolbuffers/protobuf/releases/download/<version>/protobuf-all-<version>.tar.gz
+tar -xzf protobuf-all-<version>.tar.gz
+cd protobuf-<version>/
+./configure --disable-shared CXXFLAGS="-fPIC"
+make
+sudo make install
+sudo ldconfig
+----

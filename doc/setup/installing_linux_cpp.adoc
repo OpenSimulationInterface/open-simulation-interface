@@ -4,13 +4,11 @@ include::{root-path}_config.adoc[]
 endif::[]
 = Installing OSI for C++ on Linux
 
-**Prerequisites**
+Prerequisites::
 
-* You have installed _cmake_.
-* You have installed _protobuf_.
-* You must have super user privileges.
+* You have installed everything described in <<top-installing-osi-prerequisits>>.
 
-**Steps**
+Steps::
 
 . Open a terminal.
 . Clone the Open Simulation repository.
