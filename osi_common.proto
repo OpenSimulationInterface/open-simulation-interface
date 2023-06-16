@@ -387,16 +387,20 @@ message LogicalLaneAssignment
     optional double angle_to_lane = 4;
 }
 
-// \brief A bounding box description. 
+// \brief A bounding box description.
 //
-// A bounding box representing a sub-section of it's parents overall dimension, 
-// either that of a \c BaseMoving or \c BaseStationary .
+// A bounding box representing a sub-section of its parent's overall
+// dimension, either that of a \c BaseMoving or \c BaseStationary .
 //
-// The parent frame of the \c BoundingBox is not relative to the parent object
-// it is associated to, but in the same parent frame as the parent object.
+// The parent frame of the \c BoundingBox is identical to the parent frame
+// of the \c MovingObject or \c StationaryObject it is associated to. For
+// example, if the parent object coordinates are given relative to the
+// global coordinate system, then the \c BoundingBox coordinates are also
+// given relative to the global coordinate system.
 //
-// \note The actual bounding box of the object is defined in dimension, position
-// and orientation of the \c BaseMoving and \c BaseStationary .
+// \note The overall bounding box of the object is still defined using the
+// dimension, position and orientation of the \c BaseMoving or
+// \c BaseStationary .
 //
 message BoundingBox
 {
@@ -406,25 +410,25 @@ message BoundingBox
 
     // The 3D position of the bounding box.
     //
-    // \note The position should be within the same coordinate frame as it's
-    // parent, not relative to coordinate frame of the parent object. The 
-    // position becomes global/absolute if the parent frame is inertial 
+    // \note The position should be within the same coordinate frame as
+    // its parent, not relative to coordinate frame of the parent object.
+    // The position becomes global/absolute if the parent frame is inertial
     // (all parent frames up to ground truth).
     //
     optional Vector3d position = 2;
 
     // The 3D orientation of the bounding box.
     //
-    // \note The orientation should be within the same coordinate frame as it's
-    // parent, not relative to coordinate frame of the parent object. The 
-    // orientation becomes global/absolute if the parent frame is inertial 
+    // \note The orientation should be within the same coordinate frame as
+    // its parent, not relative to the coordinate frame of the parent object.
+    // The orientation becomes global/absolute if the parent frame is inertial
     // (all parent frames up to ground truth).
     //
     optional Orientation3d orientation = 3;
 
     // The type of object contained in the bounding box.
     //
-    optional Type contained_object_type = 4; 
+    optional Type contained_object_type = 4;
 
     // Opaque reference of an associated 3D model of the bounding box.
     //
@@ -449,59 +453,59 @@ message BoundingBox
         // The main chassis of a vehicle.
         //
         TYPE_CHASSIS = 2;
-        
+
         // The door of a vehicle.
-        // 
+        //
         TYPE_DOOR = 3;
-        
+
         // The side mirror of a vehicle.
         //
-        // \note The side mirror is not included in the actual bounding box of 
-        // the parent object.
-        // 
+        // \note The side mirror is not included in the overall bounding box
+        // of the parent object.
+        //
         TYPE_SIDE_MIRROR = 4;
-        
+
         // Additional cargo attached to the a vehicle which is temporarily
         // attached.
-        // 
+        //
         TYPE_CARGO = 5;
-        
+
         // The wheel of a vehicle.
         //
         // \note For more detailed information about the wheels of an object,
         // please refer to \c MovingObject/VehicleAttributes/WheelData.
-        // 
+        //
         TYPE_WHEEL = 6;
-        
+
         // The torso section of a person or animal.
-        // 
+        //
         TYPE_TORSO = 7;
-        
+
         // An external limb of a person or animal.
-        // 
-        // \note Limbs can be sub-divided to increase accuracy, i.e. for upper 
+        //
+        // \note Limbs can be sub-divided to increase accuracy, i.e. for upper
         // and lower arm/leg sections.
         //
         TYPE_LIMB = 8;
-        
+
         // The head of a person or animal.
-        // 
+        //
         TYPE_HEAD = 9;
-        
+
         // The trunk section of a tree.
-        // 
+        //
         TYPE_TREE_TRUNK = 10;
-        
+
         // The crown of a tree, usually encompassing the branches and leaves.
-        // 
+        //
         TYPE_TREE_CROWN = 11;
-        
+
         // The vertical pole of a street light.
-        // 
+        //
         TYPE_STREET_LIGHT_POLE = 12;
-        
+
         // The horizontal arm of a street light.
-        // 
+        //
         TYPE_STREET_LIGHT_ARM = 13;
     }
 }
@@ -524,7 +528,7 @@ message BaseStationary
     // The 3D dimensions of the stationary object (bounding box), e.g. a
     // landmark.
     //
-    // \note The \c #dimension must completely enclose the geometry of the 
+    // \note The \c #dimension must completely enclose the geometry of the
     // \c BaseStationary .
     //
     optional Dimension3d dimension = 1;
@@ -575,11 +579,15 @@ message BaseStationary
     // The bounding box sections can include separate parts on partially-opaque
     // objects such as trees with a distinction between trunk and crown.
     // 
-    // \note It is expected that when using \c #bounding_box_section ,
-    // anyone consuming this data has the guarantee that all others parts of 
-    // the \c BaseStationary are covered by a sub-section, such that the 
-    // guarentee is that the remaining area of the objects dimension is
-    // represented by space where no physical collisions could be detected.
+    // \note The bounding box sub-divisions can extend beyond the overall
+    // bounding box, however no actual geometry must reside outside of the
+    // overall bounding box.
+    //
+    // \note If any sub-divisions are provided, then they must cover all
+    // occupied space of the overall bounding box. In other words, a consumer
+    // of this data is guaranteed that any part of the overall bounding box
+    // that is not covered by any sub-division is free of physical objects,
+    // and thus no collisions can occur there.
     //
     repeated BoundingBox bounding_box_section = 5;
 }
@@ -604,8 +612,8 @@ message BaseMoving
 {
     // The 3D dimension of the moving object (its bounding box).
     //
-    // \note The \c #dimension must completely enclose the geometry of the 
-    // \c BaseMoving .
+    // \note The \c #dimension must completely enclose the geometry of the
+    // \c BaseMoving with the exception of the side mirrors for vehicles.
     //
     // \note The bounding box does NOT include side mirrors for vehicles.
     //
@@ -613,7 +621,6 @@ message BaseMoving
 
     // The reference point for position and orientation: the center (x,y,z) of
     // the bounding box.
-    //
     //
     optional Vector3d position = 2;
 
@@ -711,15 +718,19 @@ message BaseMoving
 
     // Sub-divisions of the overall bounding box of the \c BaseMoving object.
     //
-    // The bounding box sections can include side mirrors, cargo, etc. for 
-    // vehicles, as well as body-part sections for pedestrians.
-    // 
-    // \note It is also expected that when using \c #bounding_box_section ,
-    // anyone consuming this data has the guarantee that all others parts of 
-    // the \c BaseMoving are covered by a sub-section, such that the 
-    // guarentee is that the remaining area of the objects dimension is
-    // represented by space where no physical collisions could be detected.
-    // This does not include the side mirrors.
+    // The bounding box sections can include side mirrors, cargo, etc. for
+    // vehicles, as well as body-part sections for pedestrians. Note that for
+    // more precise pedestrian information \c PedestrianAttributes can be used.
+    //
+    // \note The bounding box sub-divisions can extend beyond the overall
+    // bounding box, however no actual geometry must reside outside of the
+    // overall bounding box, with the specific exception of the side mirrors.
+    //
+    // \note If any sub-divisions are provided, then they must cover all
+    // occupied space of the overall bounding box. In other words, a consumer
+    // of this data is guaranteed that any part of the overall bounding box
+    // that is not covered by any sub-division is free of physical objects,
+    // and thus no collisions can occur there.
     //
     repeated BoundingBox bounding_box_section = 9;
 }
