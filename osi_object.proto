@@ -1109,7 +1109,8 @@ message MovingObject
         // 
         repeated Bone skeleton_data = 2;
          
-        // Bones in the skeleton of the pedestrian
+        // 
+        // \brief Bones in the skeleton of the pedestrian
         //
         // Each point represents a joint, or otherwise important point in the skeleton 
         // of a pedestrian. For example pelvis, knee or shoulder. The naming convention 
@@ -1123,7 +1124,7 @@ message MovingObject
             // To properly identify the bones the pre-defined naming convention 
             // must be used.
             //
-            //\image html OSI_SkeletonNamingConvention.svg
+            // \image html OSI_SkeletonNamingConvention.svg
             //
             // A bone's name, position, and orientation is defined by the end-point closer
             // to the root. For example: the "LOWER_ARM_L" will define the point in the left
@@ -1146,14 +1147,14 @@ message MovingObject
             // 
             optional Vector3d position = 2;
 
-            // Orientation of the skeleton point
+            // Orientation of the bone
             //
             // Reference System is the root, defined by bbcenter_to_root 
             // (\c PedestrianAttributes::bbcenter_to_root). 
             //
             optional Orientation3d orientation = 3;
 
-            // Orientation of the skeleton point
+            // Orientation of the bone
             //
             // Reference System is the root, defined by bbcenter_to_root 
             // (\c PedestrianAttributes::bbcenter_to_root). 
@@ -1167,12 +1168,14 @@ message MovingObject
             //
             optional bool missing = 5;
 
-            // The type of the skeleton point
+            // The type of the bone
             //
-            // \note Skeleton Points of each type can be assigned, or left empty depending
-            // on the desired level of detail, or present data. However, if a Skeleton Point
-            // is defined, all Skeleton Points in the chain from that point back to the root
+            // \note Bone of each type can be assigned, or left empty depending
+            // on the desired level of detail, or present data. However, if a bone is 
+            // defined, all bones in the chain from that bone back to the root
             // point must be defined to create a complete chain. 
+            //
+            // \image html OSI_PedestrianModelHierarchy.jpg
             //
             enum Type {
                 
@@ -1250,19 +1253,11 @@ message MovingObject
 
                 // Bone defines one of the feet.
                 //
-                TYPE_FOOT_L = 18;
+                TYPE_FULL_FOOT_L = 18;
 
                 // Bone defines one of the feet.
                 //
-                TYPE_FOOT_R = 19;
-
-                // Bone defines one of the toes.
-                //
-                TYPE_TOES_L = 20;
-
-                // Bone defines one of the toes.
-                //
-                TYPE_TOES_R = 21;
+                TYPE_FULL_FOOT_R = 19;
             }
         }
     }
