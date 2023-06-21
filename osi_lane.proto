@@ -973,27 +973,6 @@ message LaneBoundary
     //
     message Classification
     {
-        // The type of the lane boundary.
-        //
-        optional Type type = 1;
-
-        // The semantic color of the lane boundary in case of lane markings.
-        //
-        // \note The color types represent the semantic classification of
-        // lane markings only. They do not represent an actual visual appearance.
-        //
-        optional Color color = 2;
-
-        // The ids of \c StationaryObject which limit the corresponding lane.
-        // This field must be set if the \c #type is set to
-        // \c #TYPE_STRUCTURE
-        //
-        // \rules
-        // refers_to: StationaryObject
-        // \endrules
-        //
-        repeated Identifier limiting_structure_id = 3;
-
         // The lane boundary type.
         // There is no special representation for double lines, e.g. solid /
         // solid or dashed / solid. In such cases, each lane will define its own
@@ -1069,6 +1048,28 @@ message LaneBoundary
             //
             TYPE_SOUND_BARRIER = 15;
         }
+
+        // The type of the lane boundary.
+        //
+        optional Type type = 1;
+
+        // The semantic color of the lane boundary in case of lane markings.
+        //
+        // \note The color types represent the semantic classification of
+        // lane markings only. They do not represent an actual visual appearance.
+        //
+        optional Color color = 2;
+
+        // The ids of \c StationaryObject which limit the corresponding lane.
+        // This field must be set if the \c #type is set to
+        // \c #TYPE_STRUCTURE
+        //
+        // \rules
+        // refers_to: StationaryObject
+        // \endrules
+        //
+        repeated Identifier limiting_structure_id = 3;
+
 
         // The semantic color of the lane boundary in case of a lane markings.
         // Lane markings that alternate in color must be represented by
