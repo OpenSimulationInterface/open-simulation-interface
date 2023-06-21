@@ -454,6 +454,12 @@ message LidarDetection
     // [1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automot. Engine Technol. 5, Fig 7, Fig 8. Retrieved May 10, 2021, from https://doi.org/10.1007/s41104-020-00066-x
     //
     optional double echo_pulse_width = 11;
+
+    // Radial velocity of the detection positive in direction to the sensor.
+    //
+    // Unit: m/s
+    //
+    optional double radial_velocity = 12;
 }
 
 //
