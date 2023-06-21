@@ -69,6 +69,7 @@ class GenerateProtobufCommand(build_py):
         'osi_sensorspecific.proto',
         'osi_sensorview.proto',
         'osi_sensorviewconfiguration.proto',
+        'osi_streamingupdate.proto',
         'osi_trafficcommand.proto',
         'osi_trafficcommandupdate.proto',
         'osi_trafficlight.proto',
