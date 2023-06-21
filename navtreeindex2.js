@@ -228,6 +228,7 @@ var NAVTREEINDEX2 =
 "structosi3_1_1LidarDetection.html#a1c2ea1eb70a1d1c31d5bc1481572f4e7":[2,0,0,45,6],
 "structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42":[2,0,0,45,9],
 "structosi3_1_1LidarDetection.html#a211052d77b3fd978c00659d3d1b98a06":[2,0,0,45,7],
+"structosi3_1_1LidarDetection.html#a2da76e398f267b78133ce83fc66bd883":[2,0,0,45,11],
 "structosi3_1_1LidarDetection.html#a3307991b913cb5b5451257e49f5234d9":[2,0,0,45,4],
 "structosi3_1_1LidarDetection.html#a44833637161c94126c8ba84bf47b377a":[2,0,0,45,8],
 "structosi3_1_1LidarDetection.html#a5d179981ada5ea4281adda2aa1e6f612":[2,0,0,45,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structosi3_1_1LidarSensorViewConfiguration.html#a36c98016342c2e57f60c3273242c1844":[2,0,0,84,3],
 "structosi3_1_1LidarSensorViewConfiguration.html#a55ae2af0ac4a312ee6eca8d4e28f5b3e":[2,0,0,84,9],
 "structosi3_1_1LidarSensorViewConfiguration.html#a655eb060bed69dcfd3b268fee2733033":[2,0,0,84,4],
-"structosi3_1_1LidarSensorViewConfiguration.html#a712772005038f231b056111be45fc13c":[2,0,0,84,10],
-"structosi3_1_1LidarSensorViewConfiguration.html#a74073f8a971aab5ac7e04ba8e817485e":[2,0,0,84,0]
+"structosi3_1_1LidarSensorViewConfiguration.html#a712772005038f231b056111be45fc13c":[2,0,0,84,10]
 };
