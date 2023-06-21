@@ -132,6 +132,7 @@ var hierarchy =
     [ "osi3::Spherical3d", "structosi3_1_1Spherical3d.html", null ],
     [ "osi3::StatePoint", "structosi3_1_1StatePoint.html", null ],
     [ "osi3::StationaryObject", "structosi3_1_1StationaryObject.html", null ],
+    [ "osi3::StreamingUpdate", "structosi3_1_1StreamingUpdate.html", null ],
     [ "osi3::EnvironmentalConditions::Sun", "structosi3_1_1EnvironmentalConditions_1_1Sun.html", null ],
     [ "osi3::TrafficSign::SupplementarySign", "structosi3_1_1TrafficSign_1_1SupplementarySign.html", null ],
     [ "osi3::TrafficAction::TeleportAction", "structosi3_1_1TrafficAction_1_1TeleportAction.html", null ],

@@ -88,6 +88,7 @@ var annotated_dup =
       [ "LidarSensorViewConfiguration", "structosi3_1_1LidarSensorViewConfiguration.html", "structosi3_1_1LidarSensorViewConfiguration" ],
       [ "CameraSensorViewConfiguration", "structosi3_1_1CameraSensorViewConfiguration.html", "structosi3_1_1CameraSensorViewConfiguration" ],
       [ "UltrasonicSensorViewConfiguration", "structosi3_1_1UltrasonicSensorViewConfiguration.html", "structosi3_1_1UltrasonicSensorViewConfiguration" ],
+      [ "StreamingUpdate", "structosi3_1_1StreamingUpdate.html", "structosi3_1_1StreamingUpdate" ],
       [ "TrafficCommand", "structosi3_1_1TrafficCommand.html", "structosi3_1_1TrafficCommand" ],
       [ "TrafficAction", "structosi3_1_1TrafficAction.html", "structosi3_1_1TrafficAction" ],
       [ "TrafficCommandUpdate", "structosi3_1_1TrafficCommandUpdate.html", "structosi3_1_1TrafficCommandUpdate" ],
