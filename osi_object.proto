@@ -1094,30 +1094,30 @@ message MovingObject
     // This is an extension to the \c MovingObject with additional information 
     // describing a pedestrian in more detail.
     // 
-    message PedestrianAttributes {
-
+    message PedestrianAttributes
+    {
         // Position offset from the center of the bounding box to the current position
         // of the root point of the pedestrian skeleton model.
         // 
         optional Vector3d bbcenter_to_root = 1;
 
-        // List of all bones of the pedestrian
+        // List of all bones of the pedestrian.
         // 
         // The number of bones may vary, based on the detail level of 
         // the pedestrian model used. For example, some simulators will not include 
         // detailed data about the hands of a pedestrian.
         // 
         repeated Bone skeleton_data = 2;
-         
-        // 
-        // \brief Bones in the skeleton of the pedestrian
+        
+        //
+        // \brief Bones in the skeleton of the pedestrian.
         //
         // Each point represents a joint, or otherwise important point in the skeleton 
         // of a pedestrian. For example pelvis, knee or shoulder. The naming convention 
         // should be followed for identifying bones.
         //
-        message Bone {
-
+        message Bone
+        {
             // Bones are identified by their type, combined with which body side
             // they are on.
             //  
@@ -1134,41 +1134,39 @@ message MovingObject
             // root point is used, all bones between that bone and the root also
             // need to be defined in order to create a complete chain!
             //
-            // If information about bones are missing, they may be left empty. A complete
-            // set of bones for the entire skeleton can't be expected!
+            // If information about bones are missing, they may be left empty.
             // 
             optional Type type = 1;
 
-            // Position of the bone
+            // Position of the bone.
             // 
             // Reference System is the root, defined by bbcenter_to_root 
             // (\c PedestrianAttributes::bbcenter_to_root). 
             // 
-            // 
             optional Vector3d position = 2;
 
-            // Orientation of the bone
+            // Orientation of the bone.
             //
             // Reference System is the root, defined by bbcenter_to_root 
             // (\c PedestrianAttributes::bbcenter_to_root). 
             //
             optional Orientation3d orientation = 3;
 
-            // Orientation of the bone
+            // Orientation of the bone.
             //
             // Reference System is the root, defined by bbcenter_to_root 
             // (\c PedestrianAttributes::bbcenter_to_root). 
             //
             optional float length = 4;
 
-            // Determines if bones of a pedestrian are explicitly missing from the model.
+            // Determines a bone is explicitly missing from the pedestrian model.
             //
             // In case a pedestrian has missing limbs this can be explicitly communicated
             // by setting this boolean to TRUE.
             //
             optional bool missing = 5;
 
-            // The type of the bone
+            // The type of the bone.
             //
             // \note Bone of each type can be assigned, or left empty depending
             // on the desired level of detail, or present data. However, if a bone is 
@@ -1177,8 +1175,7 @@ message MovingObject
             //
             // \image html OSI_PedestrianModelHierarchy.jpg
             //
-            enum Type {
-                
+            enum Type {             
                 // Root point of the pedestrian. Defined by bbcenter_to_root 
                 // (\c PedestrianAttributes::bbcenter_to_root).
                 //
@@ -1204,58 +1201,59 @@ message MovingObject
                 //
                 TYPE_HEAD = 5;
 
-                // Bone defines one of the shoulders.
+                // Bone defines the left shoulder.
                 //
                 TYPE_SHOULDER_L = 6;
 
-                // Bone defines one of the shoulders.
+                // Bone defines the right shoulder.
                 //
                 TYPE_SHOULDER_R = 7;
 
-                // Bone defines one of the upper arms.
+                // Bone defines the left upper arm.
                 //
                 TYPE_UPPER_ARM_L = 8;
 
-                // Bone defines one of the upper arms.
+                // Bone defines the right upper arm.
                 //
                 TYPE_UPPER_ARM_R = 9;
 
-                // Bone defines one of the forearms.
+                // Bone defines the left forearm.
                 //
                 TYPE_LOWER_ARM_L = 10;
 
-                // Bone defines one of the forearms.
+                // Bone defines the right forearm.
                 //
                 TYPE_LOWER_ARM_R = 11;
 
-                // Bone defines one of the hands.
+                // Bone defines the left hand.
                 //
                 TYPE_FULL_HAND_L = 12;
 
-                // Bone defines one of the hands.
+                // Bone defines the right hand.
                 //
                 TYPE_FULL_HAND_R = 13;
 
-                // Bone defines one of the thighs.
+                // Bone defines the left thigh.
                 //
                 TYPE_UPPER_LEG_L = 14;
-                // Bone defines one of the thighs.
+
+                // Bone defines the right thigh.
                 //
                 TYPE_UPPER_LEG_R = 15;
 
-                // Bone defines one of the shins.
+                // Bone defines the left shin.
                 //
                 TYPE_LOWER_LEG_L = 16;
                 
-                // Bone defines one of the shins.
+                // Bone defines the right shin.
                 //
                 TYPE_LOWER_LEG_R = 17;
 
-                // Bone defines one of the feet.
+                // Bone defines the left foot.
                 //
                 TYPE_FULL_FOOT_L = 18;
 
-                // Bone defines one of the feet.
+                // Bone defines the right foot.
                 //
                 TYPE_FULL_FOOT_R = 19;
             }
