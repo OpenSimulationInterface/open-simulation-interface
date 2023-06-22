@@ -513,6 +513,17 @@ message MovingObject
     //
     optional ColorDescription color_description = 11;
 
+    // Specific information about the pedestrian.
+    //
+    // \note This field is mandatory if the \c #type is
+    // #TYPE_PEDESTRIAN.
+    //
+    // \rules
+    // check_if this.type is_equal_to 3 else do_check is_set
+    // \endrules
+    //
+    optional PedestrianAttributes pedestrian_attributes = 12;
+
     //
     // \brief The vehicle attributes for \c MovingObject (host or other).
     //
@@ -1016,18 +1027,18 @@ message MovingObject
             }
         }
 
-        // Definition of vehicle roles. 
+        // Definition of vehicle roles.
         //
-        // The role specifies the perceived role of a vehicle. Therefore, a 
-        // civil police car is set to ROLE_CIVIL as long as it cannot be 
-        // perceived as a ROLE_POLICE. 
-        // The normal use case will consist of 99% ROLE_CIVIL, as this role is 
+        // The role specifies the perceived role of a vehicle. Therefore, a
+        // civil police car is set to ROLE_CIVIL as long as it cannot be
+        // perceived as a ROLE_POLICE.
+        // The normal use case will consist of 99% ROLE_CIVIL, as this role is
         // used for normal vehicles.
         // These roles may influence the behavior in traffic of the surrounding vehicles.
-        // To check whether a role is "active" (e.g. blue flashing light of an 
-        // ambulance or an amber flashing light of a sweeper) can be looked up 
+        // To check whether a role is "active" (e.g. blue flashing light of an
+        // ambulance or an amber flashing light of a sweeper) can be looked up
         // in message LightState.
-        // 
+        //
         //
         enum Role
         {
@@ -1042,7 +1053,7 @@ message MovingObject
             // The vehicle role is civil, e.g. a "normal" car.
             //
             ROLE_CIVIL = 2;
-            
+
             // The vehicle role is ambulance.
             //
             ROLE_AMBULANCE = 3;
@@ -1062,7 +1073,7 @@ message MovingObject
             // The vehicle role is roadside assistance, e.g. tow truck.
             //
             ROLE_ROAD_ASSISTANCE = 7;
-            
+
             // The vehicle role is garbage collection, e.g. a garbage truck or sweeper.
             //
             ROLE_GARBAGE_COLLECTION = 8;
@@ -1070,10 +1081,184 @@ message MovingObject
             // The vehicle role is road construction, e.g. a excavator or tipper truck.
             //
             ROLE_ROAD_CONSTRUCTION = 9;
-            
+
             // The vehicle role is military, e.g. camouflaged truck.
             //
             ROLE_MILITARY = 10;
+        }
+    }
+
+    //
+    // \brief Additional pedestrian data in case the moving object is a human.
+    //
+    // This is an extension to the \c MovingObject with additional information
+    // describing a pedestrian in more detail.
+    //
+    message PedestrianAttributes
+    {
+        // Position offset from the center of the bounding box to the current position
+        // of the root point of the pedestrian skeleton model.
+        //
+        optional Vector3d bbcenter_to_root = 1;
+
+        // List of all bones of the pedestrian.
+        //
+        // The number of bones may vary, based on the detail level of
+        // the pedestrian model used. For example, some simulators will not include
+        // detailed data about the hands of a pedestrian.
+        //
+        // \note A bone of each type can be provided, or left out, depending
+        // on the desired level of detail, or available data. However, if a
+        // bone is defined, all bones in the chain from that bone back to
+        // the root point must be provided to create a complete chain.
+        //
+        repeated Bone skeleton_bone = 2;
+
+        //
+        // \brief Bones in the skeleton of the pedestrian.
+        //
+        // Each point represents a joint, or otherwise important point in the skeleton
+        // of a pedestrian. For example pelvis, knee or shoulder. The naming convention
+        // should be followed for identifying bones.
+        //
+        message Bone
+        {
+            // Bones are identified by their type, combined with which body side
+            // they are on.
+            //
+            // To properly identify the bones the pre-defined naming convention
+            // must be used.
+            //
+            // \image html OSI_SkeletonNamingConvention.svg
+            //
+            // A bone's name, position, and orientation is defined by the end-point closer
+            // to the root. For example: the "LOWER_ARM_L" will define the point in the left
+            // elbow of the model.
+            //
+            // If a bone which is more than one layer detached from the
+            // root point is used, all bones between that bone and the root also
+            // need to be defined in order to create a complete chain!
+            //
+            // If information about bones are missing, they may be left empty.
+            //
+            optional Type type = 1;
+
+            // Position of the bone.
+            //
+            // Reference System is the root, defined by bbcenter_to_root
+            // (\c PedestrianAttributes::bbcenter_to_root).
+            //
+            optional Vector3d position = 2;
+
+            // Orientation of the bone.
+            //
+            // Reference System is the root, defined by bbcenter_to_root
+            // (\c PedestrianAttributes::bbcenter_to_root).
+            //
+            optional Orientation3d orientation = 3;
+
+            // Length of the bone.
+            //
+            // Measured along its major axis.
+            //
+            // Unit: m
+            //
+            optional float length = 4;
+
+            // Determines whether a bone is explicitly missing from the pedestrian model.
+            //
+            // In case a pedestrian has missing limbs this can be explicitly communicated
+            // by setting this boolean to TRUE.
+            //
+            optional bool missing = 5;
+
+            // The type of the bone.
+            //
+            // \image html OSI_PedestrianModelHierarchy.jpg
+            //
+            enum Type
+            {
+                // Root point of the pedestrian. Defined by bbcenter_to_root
+                // (\c PedestrianAttributes::bbcenter_to_root).
+                //
+                TYPE_ROOT = 0;
+
+                // Bone defining the hip.
+                //
+                TYPE_HIP = 1;
+
+                // Bone defining the lower part of the spine.
+                //
+                TYPE_LOWER_SPINE = 2;
+
+                // Bone defining the upper part of the spine.
+                //
+                TYPE_UPPER_SPINE = 3;
+
+                // Bone defining the neck.
+                //
+                TYPE_NECK = 4;
+
+                // Bone defining the head.
+                //
+                TYPE_HEAD = 5;
+
+                // Bone defining the left shoulder.
+                //
+                TYPE_SHOULDER_L = 6;
+
+                // Bone defining the right shoulder.
+                //
+                TYPE_SHOULDER_R = 7;
+
+                // Bone defining the left upper arm.
+                //
+                TYPE_UPPER_ARM_L = 8;
+
+                // Bone defining the right upper arm.
+                //
+                TYPE_UPPER_ARM_R = 9;
+
+                // Bone defining the left forearm.
+                //
+                TYPE_LOWER_ARM_L = 10;
+
+                // Bone defining the right forearm.
+                //
+                TYPE_LOWER_ARM_R = 11;
+
+                // Bone defining the left hand.
+                //
+                TYPE_FULL_HAND_L = 12;
+
+                // Bone defining the right hand.
+                //
+                TYPE_FULL_HAND_R = 13;
+
+                // Bone defining the left thigh.
+                //
+                TYPE_UPPER_LEG_L = 14;
+
+                // Bone defining the right thigh.
+                //
+                TYPE_UPPER_LEG_R = 15;
+
+                // Bone defining the left shin.
+                //
+                TYPE_LOWER_LEG_L = 16;
+
+                // Bone defining the right shin.
+                //
+                TYPE_LOWER_LEG_R = 17;
+
+                // Bone defining the left foot.
+                //
+                TYPE_FULL_FOOT_L = 18;
+
+                // Bone defining the right foot.
+                //
+                TYPE_FULL_FOOT_R = 19;
+            }
         }
     }
 }
