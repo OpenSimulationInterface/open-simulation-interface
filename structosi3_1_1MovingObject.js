@@ -1,6 +1,7 @@
 var structosi3_1_1MovingObject =
 [
     [ "MovingObjectClassification", "structosi3_1_1MovingObject_1_1MovingObjectClassification.html", "structosi3_1_1MovingObject_1_1MovingObjectClassification" ],
+    [ "PedestrianAttributes", "structosi3_1_1MovingObject_1_1PedestrianAttributes.html", "structosi3_1_1MovingObject_1_1PedestrianAttributes" ],
     [ "VehicleAttributes", "structosi3_1_1MovingObject_1_1VehicleAttributes.html", "structosi3_1_1MovingObject_1_1VehicleAttributes" ],
     [ "VehicleClassification", "structosi3_1_1MovingObject_1_1VehicleClassification.html", "structosi3_1_1MovingObject_1_1VehicleClassification" ],
     [ "Type", "structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721e", [
@@ -20,5 +21,6 @@ var structosi3_1_1MovingObject =
     [ "future_trajectory", "structosi3_1_1MovingObject.html#a62f68ba53ed7d9dfc25e41d07769893f", null ],
     [ "moving_object_classification", "structosi3_1_1MovingObject.html#a977066d08847f96bd98dffcc0aff80ca", null ],
     [ "source_reference", "structosi3_1_1MovingObject.html#a28102f7b1679219e151881c74c716073", null ],
-    [ "color_description", "structosi3_1_1MovingObject.html#ab9f1f3095ace29da7d14954bc8d113f0", null ]
+    [ "color_description", "structosi3_1_1MovingObject.html#ab9f1f3095ace29da7d14954bc8d113f0", null ],
+    [ "pedestrian_attributes", "structosi3_1_1MovingObject.html#af8c3e4f6e8ab3647902834be641352f9", null ]
 ];
