@@ -1107,7 +1107,12 @@ message MovingObject
         // the pedestrian model used. For example, some simulators will not include
         // detailed data about the hands of a pedestrian.
         //
-        repeated Bone skeleton_data = 2;
+        // \note A bone of each type can be provided, or left out, depending
+        // on the desired level of detail, or available data. However, if a
+        // bone is defined, all bones in the chain from that bone back to
+        // the root point must be provided to create a complete chain.
+        //
+        repeated Bone skeleton_bone = 2;
 
         //
         // \brief Bones in the skeleton of the pedestrian.
@@ -1152,14 +1157,15 @@ message MovingObject
             //
             optional Orientation3d orientation = 3;
 
-            // Orientation of the bone.
+            // Length of the bone.
             //
-            // Reference System is the root, defined by bbcenter_to_root
-            // (\c PedestrianAttributes::bbcenter_to_root).
+            // Measured along its major axis.
+            //
+            // Unit: m
             //
             optional float length = 4;
 
-            // Determines a bone is explicitly missing from the pedestrian model.
+            // Determines whether a bone is explicitly missing from the pedestrian model.
             //
             // In case a pedestrian has missing limbs this can be explicitly communicated
             // by setting this boolean to TRUE.
@@ -1167,11 +1173,6 @@ message MovingObject
             optional bool missing = 5;
 
             // The type of the bone.
-            //
-            // \note Bone of each type can be assigned, or left empty depending
-            // on the desired level of detail, or present data. However, if a
-            // bone is defined, all bones in the chain from that bone back to
-            // the root point must be defined to create a complete chain.
             //
             // \image html OSI_PedestrianModelHierarchy.jpg
             //
@@ -1186,75 +1187,75 @@ message MovingObject
                 //
                 TYPE_HIP = 1;
 
-                // Bone defines the lower part of the spine.
+                // Bone defining the lower part of the spine.
                 //
                 TYPE_LOWER_SPINE = 2;
 
-                // Bone defines the upper part of the spine.
+                // Bone defining the upper part of the spine.
                 //
                 TYPE_UPPER_SPINE = 3;
 
-                // Bone defines the neck.
+                // Bone defining the neck.
                 //
                 TYPE_NECK = 4;
 
-                // Bone defines the head.
+                // Bone defining the head.
                 //
                 TYPE_HEAD = 5;
 
-                // Bone defines the left shoulder.
+                // Bone defining the left shoulder.
                 //
                 TYPE_SHOULDER_L = 6;
 
-                // Bone defines the right shoulder.
+                // Bone defining the right shoulder.
                 //
                 TYPE_SHOULDER_R = 7;
 
-                // Bone defines the left upper arm.
+                // Bone defining the left upper arm.
                 //
                 TYPE_UPPER_ARM_L = 8;
 
-                // Bone defines the right upper arm.
+                // Bone defining the right upper arm.
                 //
                 TYPE_UPPER_ARM_R = 9;
 
-                // Bone defines the left forearm.
+                // Bone defining the left forearm.
                 //
                 TYPE_LOWER_ARM_L = 10;
 
-                // Bone defines the right forearm.
+                // Bone defining the right forearm.
                 //
                 TYPE_LOWER_ARM_R = 11;
 
-                // Bone defines the left hand.
+                // Bone defining the left hand.
                 //
                 TYPE_FULL_HAND_L = 12;
 
-                // Bone defines the right hand.
+                // Bone defining the right hand.
                 //
                 TYPE_FULL_HAND_R = 13;
 
-                // Bone defines the left thigh.
+                // Bone defining the left thigh.
                 //
                 TYPE_UPPER_LEG_L = 14;
 
-                // Bone defines the right thigh.
+                // Bone defining the right thigh.
                 //
                 TYPE_UPPER_LEG_R = 15;
 
-                // Bone defines the left shin.
+                // Bone defining the left shin.
                 //
                 TYPE_LOWER_LEG_L = 16;
 
-                // Bone defines the right shin.
+                // Bone defining the right shin.
                 //
                 TYPE_LOWER_LEG_R = 17;
 
-                // Bone defines the left foot.
+                // Bone defining the left foot.
                 //
                 TYPE_FULL_FOOT_L = 18;
 
-                // Bone defines the right foot.
+                // Bone defining the right foot.
                 //
                 TYPE_FULL_FOOT_R = 19;
             }
