@@ -460,6 +460,10 @@ message LidarDetection
     // Unit: m/s
     //
     optional double radial_velocity = 12;
+    
+    // ID of the corresponding lidar beam.
+    //
+    optional Identifier beam_id = 13;
 }
 
 //
