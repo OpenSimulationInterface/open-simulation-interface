@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6":[2,0,0,65,3,5],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a9faa7ef6b4a2dfd674d1304fc440c2d1":[2,0,0,65,3,7],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#abbb92dd5780b3abe7a87162043e919a0":[2,0,0,65,3,4],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#ac035d2f6580e418a8ebffb746a461f21":[2,0,0,65,3,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1SensorViewConfiguration.html#a45141898583710d16d41b92d31a7aaf9":[2,0,0,81,0],
 "structosi3_1_1SensorViewConfiguration.html#a66ddabd0bd40550da7144204555d9913":[2,0,0,81,7],
 "structosi3_1_1SensorViewConfiguration.html#a704763486c7c724727d96e108c6e560a":[2,0,0,81,12],
-"structosi3_1_1SensorViewConfiguration.html#a76729f34bffe67cad880626a9bd933cb":[2,0,0,81,15],
-"structosi3_1_1SensorViewConfiguration.html#a77b0315e478c632f88e50c63b06030f4":[2,0,0,81,2]
+"structosi3_1_1SensorViewConfiguration.html#a76729f34bffe67cad880626a9bd933cb":[2,0,0,81,15]
 };

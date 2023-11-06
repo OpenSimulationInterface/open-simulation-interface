@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dac0ecab2b762fcd142736fc0bd7fe02de":[2,0,0,93,0,0,0,65],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dac14c0626f5bea9b191edc60615acf447":[2,0,0,93,0,0,0,79],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dac1b51fb17dde2939d746ee9daecd755b":[2,0,0,93,0,0,0,146],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dac1d59610254fc4c6466284b8999913dd":[2,0,0,93,0,0,0,182],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "structosi3_1_1UltrasonicSpecificObjectData.html":[2,0,0,74],
 "structosi3_1_1UltrasonicSpecificObjectData.html#a2f94e3f7535aa788b16b7ee723599937":[2,0,0,74,7],
 "structosi3_1_1UltrasonicSpecificObjectData.html#a3624cf06ea54e19d95aed5b12764b2a6":[2,0,0,74,3],
-"structosi3_1_1UltrasonicSpecificObjectData.html#a702aa36075ca0a020bbe4883c26bfe6e":[2,0,0,74,5],
-"structosi3_1_1UltrasonicSpecificObjectData.html#a74c14595948c2dd7dba6f2efcaea15ad":[2,0,0,74,6]
+"structosi3_1_1UltrasonicSpecificObjectData.html#a702aa36075ca0a020bbe4883c26bfe6e":[2,0,0,74,5]
 };

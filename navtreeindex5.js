@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structosi3_1_1SensorViewConfiguration.html#a77b0315e478c632f88e50c63b06030f4":[2,0,0,81,2],
 "structosi3_1_1SensorViewConfiguration.html#a810da6109811a773dbfc505053c47731":[2,0,0,81,4],
 "structosi3_1_1SensorViewConfiguration.html#a9bced36ba45eadc92c0b56e7f88ccf15":[2,0,0,81,6],
 "structosi3_1_1SensorViewConfiguration.html#aa7b009e0195d8c19788c2d366af295ad":[2,0,0,81,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "structosi3_1_1TrafficLight_1_1Classification.html#ade8af99e440cdd216d8294647d473114ae99bf6b3454cd32524436786c83a47f6":[2,0,0,91,0,0,6],
 "structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09":[2,0,0,91,0,2],
 "structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a2cbba7f1b25925f4de9cb444bedfe223":[2,0,0,91,0,2,3],
-"structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a32a0a5e3db2827d4e0b6d693eae8eb88":[2,0,0,91,0,2,5],
-"structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a692f8d8290015c4e515ca4eec9fb622d":[2,0,0,91,0,2,1]
+"structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a32a0a5e3db2827d4e0b6d693eae8eb88":[2,0,0,91,0,2,5]
 };

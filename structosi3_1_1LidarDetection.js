@@ -11,5 +11,6 @@ var structosi3_1_1LidarDetection =
     [ "classification", "structosi3_1_1LidarDetection.html#a44833637161c94126c8ba84bf47b377a", null ],
     [ "reflectivity", "structosi3_1_1LidarDetection.html#a20bdc24a0eaadbd9c2fa48f416f30f42", null ],
     [ "echo_pulse_width", "structosi3_1_1LidarDetection.html#a5d179981ada5ea4281adda2aa1e6f612", null ],
-    [ "radial_velocity", "structosi3_1_1LidarDetection.html#a2da76e398f267b78133ce83fc66bd883", null ]
+    [ "radial_velocity", "structosi3_1_1LidarDetection.html#a2da76e398f267b78133ce83fc66bd883", null ],
+    [ "beam_id", "structosi3_1_1LidarDetection.html#a3af5da707882e9e9821626f9d8eaf2e4", null ]
 ];
