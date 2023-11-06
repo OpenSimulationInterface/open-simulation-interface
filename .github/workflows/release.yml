@@ -182,3 +182,11 @@ jobs:
         with:
           file: ASAM_OSI_${{needs.setup.outputs.output1}}.zip
           tag: ${{ github.ref }}
+      - name: Trigger generator
+        if: ${{ env.MUP_KEY != '' }}
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: antora-build-trigger
+          repository: OpenSimulationInterface/osi-antora-generator
+          client-payload: '{"src": "${{ github.repository }}", "ref": "master"}'
