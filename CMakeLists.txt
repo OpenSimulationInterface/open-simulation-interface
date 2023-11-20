@@ -9,7 +9,7 @@ if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
 endif()
 
 # Set the C++ standard
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11 CACHE STRING "C++ standard to be used")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Optional Flatbuffer support
