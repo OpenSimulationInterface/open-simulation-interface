@@ -82,6 +82,7 @@ set(OSI_PROTO_FILES
     osi_trafficlight.proto
     osi_trafficupdate.proto
     osi_trafficcommand.proto
+    osi_trafficcommandupdate.proto
     osi_referenceline.proto
     osi_roadmarking.proto
     osi_lane.proto
