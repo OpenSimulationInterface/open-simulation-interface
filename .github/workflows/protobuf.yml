@@ -32,6 +32,11 @@ jobs:
       with:
         submodules: true
 
+    - name: Check Build Setup
+      run: |
+        ( result=0 ; for f in *.proto ; do grep -wq "$f" CMakeLists.txt || { echo "Missing $f in CMakeLists.txt" && let "result++"; } ; done ; exit $result )
+        ( result=0 ; for f in *.proto ; do grep -q '"'$f'"' setup.py || { echo "Missing $f in setup.py" && let "result++"; } ; done ; exit $result )
+
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
