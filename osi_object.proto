@@ -1172,6 +1172,10 @@ message MovingObject
             //
             optional bool missing = 5;
 
+            // The orientation rate of the bone.
+            //
+            optional Orientation3d orientation_rate = 6;
+
             // The type of the bone.
             //
             // \image html OSI_PedestrianModelHierarchy.jpg
