@@ -600,6 +600,51 @@ message StatePoint
     // Orientation in the global coordinate system.
     //
     optional Orientation3d orientation = 3;
+
+    // Absolute velocity.
+    //
+    // \c #position \f$ (t) := \f$ \c #position \f$ (t-dt)+ \f$ \c #velocity \f$
+    // *dt \f$
+    //
+    optional Vector3d velocity = 4;
+
+    // Absolute acceleration.
+    //
+    // \c #position \f$ (t) := \f$ \c #position \f$ (t-dt)+ \f$ \c #velocity \f$
+    // *dt+ \f$ \c #acceleration \f$ /2*dt^2\f$
+    //
+    // \c #velocity \f$ (t) := \f$ \c #velocity \f$ (t-dt)+ \f$ \c #acceleration
+    // \f$ *dt \f$
+    //
+    optional Vector3d acceleration = 5;
+
+    // Absolute orientation rate.
+    //
+    // \c #orientation \f$ .yaw(t) := \f$ \c #orientation_rate \f$ .yaw(t) * dt
+    // + \f$ \c #orientation \f$ .yaw(t-dt) \f$
+    //
+    // \c #orientation \f$ .pitch(t) := \f$ \c #orientation_rate \f$ .pitch(t) *
+    // dt + \f$ \c #orientation \f$ .pitch(t-dt) \f$
+    //
+    // \c #orientation \f$ .roll(t) := \f$ \c #orientation_rate \f$ .roll(t) *
+    // dt + \f$ \c #orientation \f$ .roll(t-dt)\f$
+    //
+    optional Orientation3d orientation_rate = 6;
+
+    // Absolute orientation acceleration.
+    //
+    // \c #orientation_rate \f$ .yaw(t) := \f$ \c #orientation_acceleration \f$
+    // .yaw(t) * dt + \f$ \c #orientation_rate \f$ .yaw(t-dt) \f$
+    //
+    // \c #orientation_rate \f$ .pitch(t) := \f$ \c #orientation_acceleration
+    // \f$ .pitch(t) * dt
+    // + \f$ \c #orientation_rate \f$ .pitch(t-dt) \f$
+    //
+    // \c #orientation_rate \f$ .roll(t) := \f$ \c #orientation_acceleration \f$
+    // .roll(t) * dt +
+    //  \f$ \c #orientation_rate \f$ .roll(t-dt) \f$
+    //
+    optional Orientation3d orientation_acceleration = 7;
 }
 
 //
