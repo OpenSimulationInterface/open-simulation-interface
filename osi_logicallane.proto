@@ -3,6 +3,7 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
+import "osi_object.proto";
 
 package osi3;
 
@@ -587,6 +588,10 @@ message LogicalLane
     //
     optional string street_name = 16;
 
+    // A list of traffic rules on the lane.
+    //
+    repeated TrafficRule traffic_rule = 17;
+
     //
     // Definition of available lane types.
     //
@@ -822,5 +827,117 @@ message LogicalLane
         //
         optional double end_s_other = 5;
     }
+
+    //
+    // Describes traffic rules on a lane. 
+    // The traffic rule can thereby induced by regulations, traffic signs 
+    // or by other means. If the modeled traffic rule is induced by a traffic sign
+    // the information should be identical with the respective traffic sign.
+    //
+    // Note: Every instance should be corresponding to only one specific rule.
+    // The type of the traffic rule should be set using the respective filed.
+    // Additionally, every message should contain the traffic rule validity information
+    // and the respective field for the respective traffic rule type.
+    //
+    // Note: Each traffic rule corresponds to only one lane. If the traffic rule
+    // is also valid on adjacent/successing/predecessing lanes it needs to be
+    // specified for each lane individually.
+    //
+    // \brief Logical Model of a traffic rule on a lane.
+    //
+    message TrafficRule {
+
+        // The type of the traffic rule.
+        //
+        // This specifies the type of the traffic rule to be modeled.
+        // Based on the type the respective message containing the information
+        // corresponding to the traffic rule should be filled.
+        //
+        optional TrafficRuleType traffic_rule_type = 1;
+
+        // The validity information of the traffic rule.
+        //
+        optional TrafficRuleValidity traffic_rule_validity = 2;
+
+        // Traffic rule information for traffic rule of type speed limit.
+        //
+        optional SpeedLimit speed_limit = 3;
+
+        //
+        // The type of the the traffic rule.
+        //
+        enum TrafficRuleType {
+
+            // Traffic rule is of type speed limit
+            //
+            TRAFFIC_RULE_TYPE_SPEED_LIMIT = 0;
+        }
+
+        // 
+        // \brief Validity information for a traffic rule.
+        //
+        message TrafficRuleValidity {
+            
+            //
+            // The starting point of the traffic rule validity on the lane.
+            // Must be in range [\c sStart,\c sEnd] of the reference line.
+            //
+            optional double start_s = 1;
+
+            //
+            // The ending point of the traffic rule validity on the lane.
+            // Must be in range [\c sStart,\c sEnd] of the reference line.
+            // Note: Should always be greater than the starting point.
+            //
+            optional double end_s = 2;
+
+            //
+            // List of vehicle types for which the speed limit is valid.
+            // If the traffic rule validity is independent of the vehicle type 
+            // the list should be empty.
+            //
+            repeated MovingObject.VehicleClassification.Type valid_for_type = 3;
+        }
+
+        //
+        // \brief Speed limit on a lane.
+        //
+        message SpeedLimit {
+
+            //
+            // The speed limit in the unit specified by the respective files
+            //
+            optional double speed_limit = 1;
+
+            //
+            // The unit in which the speed limit is specified.
+            //
+            optional Unit speed_limit_unit = 2;
+
+            // Unit of the specified speed limit.
+            //
+            enum Unit
+            {
+                // Meters per second.
+                //
+                // Unit: km/h
+                //
+                UNIT_METER_PER_SECOND = 1;
+
+                // Kilometers per hour.
+                //
+                // Unit: km/h
+                //
+                UNIT_KILOMETER_PER_HOUR = 2;
+
+                // Miles per hour.
+                //
+                // Unit: mph
+                //
+                UNIT_MILE_PER_HOUR = 3;
+            }
+        }
+    }
+
 }
 
