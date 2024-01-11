@@ -1,5 +1,10 @@
 name: ProtoBuf CI Builds
 
+env:
+  PROTOBUF_VERSION: 3.20.1
+  PROTOBUF_VARIANT: '-all' # Use '-all' prior to 22.0, '' after
+  ABSEIL_VERSION: 20230802.1
+
 on:
   push:
   pull_request:
@@ -13,14 +18,14 @@ jobs:
 
     steps:
     - name: Checkout OSI
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         submodules: true
 
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.7'
+        python-version: '3.8'
 
     - name: Install Python Dependencies
       run: python -m pip install --upgrade pip setuptools wheel pyyaml
@@ -32,20 +37,29 @@ jobs:
       id: cache-depends
       uses: actions/cache@v3
       with:
-        path: protobuf-3.20.1
+        path: protobuf-${{ env.PROTOBUF_VERSION }}
         key: ${{ runner.os }}-v2-depends
 
-    - name: Download ProtoBuf
+    - name: Download ProtoBuf ${{ env.PROTOBUF_VERSION }}
       if: steps.cache-depends.outputs.cache-hit != 'true'
-      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.20.1/protobuf-all-3.20.1.tar.gz && tar xzvf protobuf-all-3.20.1.tar.gz
+      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${{env.PROTOBUF_VERSION}}/protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz && tar xzvf protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz
 
-    - name: Build ProtoBuf
-      if: steps.cache-depends.outputs.cache-hit != 'true'
-      working-directory: protobuf-3.20.1
+    - name: Download Abseil ${{ env.ABSEIL_VERSION }}
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      run: curl -OL https://github.com/abseil/abseil-cpp/archive/refs/tags/${{env.ABSEIL_VERSION}}.tar.gz && tar xzvf ${{env.ABSEIL_VERSION}}.tar.gz && rm -rf protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp && mv abseil-cpp-${{env.ABSEIL_VERSION}} protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp
+
+    - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via autotools
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == '-all'
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: ./configure DIST_LANG=cpp --prefix=/usr && make
 
-    - name: Install ProtoBuf
-      working-directory: protobuf-3.20.1
+    - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via cmake
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
+      run: cmake -DCMAKE_CXX_STANDARD=17 -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF . && cmake --build . --config Release -j 4
+
+    - name: Install ProtoBuf ${{ env.PROTOBUF_VERSION }}
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: sudo make install && sudo ldconfig
 
     - name: Install proto2cpp
@@ -57,17 +71,17 @@ jobs:
     # Versioning
     - name: Get versioning
       id: get_version
-      run: echo ::set-output name=VERSION::$(git describe --always)
+      run: echo "VERSION=$(git describe --always)" >> $GITHUB_OUTPUT 
 
     - name: Prepare Documentation Build
       run: |
         sed -i 's/PROJECT_NUMBER\s*= @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@/PROJECT_NUMBER = master (${{ steps.get_version.outputs.VERSION }})/g' doxygen_config.cmake.in
-        echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-3.20.1/* */proto2cpp/* */flatbuffers/*" >> doxygen_config.cmake.in
+        echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-*/* */proto2cpp/* */flatbuffers/*" >> doxygen_config.cmake.in
         echo "GENERATE_TREEVIEW = YES" >> doxygen_config.cmake.in
 
     - name: Configure C++ Build
       working-directory: build
-      run: cmake -D FILTER_PROTO2CPP_PY_PATH=$GITHUB_WORKSPACE/proto2cpp ..
+      run: cmake -D FILTER_PROTO2CPP_PY_PATH=$GITHUB_WORKSPACE/proto2cpp ${{ env.PROTOBUF_VARIANT =='' && '-DCMAKE_CXX_STANDARD=17' }} ..
 
     - name: Build C++
       working-directory: build
@@ -84,7 +98,7 @@ jobs:
 
     - name: Archive Documentation
       if: ${{ github.event_name == 'pull_request' }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: linux64-doc
         path: doc/html
@@ -104,36 +118,45 @@ jobs:
 
     steps:
     - name: Checkout OSI
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         submodules: true
 
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.7'
+        python-version: '3.8'
 
     - name: Install Python Dependencies
       run: python -m pip install --upgrade pip setuptools wheel pyyaml
 
     - name: Cache Dependencies
       id: cache-depends
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
-        path: protobuf-3.20.1
+        path: protobuf-${{ env.PROTOBUF_VERSION }}
         key: ${{ runner.os }}-v2-depends
 
-    - name: Download ProtoBuf
+    - name: Download ProtoBuf ${{ env.PROTOBUF_VERSION }}
       if: steps.cache-depends.outputs.cache-hit != 'true'
-      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.20.1/protobuf-all-3.20.1.tar.gz && tar xzvf protobuf-all-3.20.1.tar.gz
+      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${{env.PROTOBUF_VERSION}}/protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz && tar xzvf protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz
 
-    - name: Build ProtoBuf
-      if: steps.cache-depends.outputs.cache-hit != 'true'
-      working-directory: protobuf-3.20.1
+    - name: Download Abseil ${{ env.ABSEIL_VERSION }}
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      run: curl -OL https://github.com/abseil/abseil-cpp/archive/refs/tags/${{env.ABSEIL_VERSION}}.tar.gz && tar xzvf ${{env.ABSEIL_VERSION}}.tar.gz && rm -rf protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp && mv abseil-cpp-${{env.ABSEIL_VERSION}} protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp
+
+    - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via autotools
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == '-all'
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: ./configure DIST_LANG=cpp --prefix=/usr && make
 
-    - name: Install ProtoBuf
-      working-directory: protobuf-3.20.1
+    - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via cmake
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
+      run: cmake -DCMAKE_CXX_STANDARD=17 -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF . && cmake --build . --config Release -j 4
+
+    - name: Install ProtoBuf ${{ env.PROTOBUF_VERSION }}
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: sudo make install && sudo ldconfig
 
     - name: Prepare C++ Build
@@ -146,7 +169,7 @@ jobs:
 
     - name: Configure C++ Build
       working-directory: build
-      run: cmake ..
+      run: cmake ${{ env.PROTOBUF_VARIANT =='' && '-DCMAKE_CXX_STANDARD=17' }} ..
 
     - name: Build C++
       working-directory: build
