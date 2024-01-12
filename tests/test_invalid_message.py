@@ -4,11 +4,12 @@ import unittest
 
 PROTO_FILES = glob.glob("*.proto")
 
+
 class TestInvalidMessage(unittest.TestCase):
-    """ Test class for invalid html comment. """
+    """Test class for invalid html comment."""
 
     def test_message_name(self):
-        ''' Test to check if message name have any special character. It should not have any special character. '''
+        """Test to check if message name have any special character. It should not have any special character."""
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -26,8 +27,8 @@ class TestInvalidMessage(unittest.TestCase):
                     matchComment = re.search("//", line)
 
                     if matchComment is not None:
-                        statement = line[:matchComment.start()]
-                        comment = line[matchComment.end():]
+                        statement = line[: matchComment.start()]
+                        comment = line[matchComment.end() :]
                     else:
                         statement = line
                         comment = ""
@@ -46,8 +47,8 @@ class TestInvalidMessage(unittest.TestCase):
                         saveStatement = statement
                         statement = ""
                     else:
-                        saveStatement = statement[matchSep.end():]
-                        statement = statement[:matchSep.end()]
+                        saveStatement = statement[matchSep.end() :]
+                        statement = statement[: matchSep.end()]
 
                     if isEnum is False:
                         # Check if not inside an enum.
@@ -57,25 +58,44 @@ class TestInvalidMessage(unittest.TestCase):
                         if matchMessage is not None:
                             # a new message or a new nested message
                             noMessage += 1
-                            endOfLine = statement[matchMessage.end():]
+                            endOfLine = statement[matchMessage.end() :]
                             matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                             if matchName is not None:
                                 # Test to check if message name have any special character. It should not have any special character.
                                 # Message should always start with special character.
-                                matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b",endOfLine[matchName.start():matchName.end()])
-                                self.assertIsNotNone(matchNameConv, file + " in line " + str(i - 1) + ": message name wrong. '" + endOfLine[matchName.start():matchName.end()] + "'")
+                                matchNameConv = re.search(
+                                    r"\b[A-Z][a-zA-Z0-9]*\b",
+                                    endOfLine[matchName.start() : matchName.end()],
+                                )
+                                self.assertIsNotNone(
+                                    matchNameConv,
+                                    file
+                                    + " in line "
+                                    + str(i - 1)
+                                    + ": message name wrong. '"
+                                    + endOfLine[matchName.start() : matchName.end()]
+                                    + "'",
+                                )
 
                     # Search for "enum".
                     matchEnum = re.search(r"\benum\b", statement)
 
                     if matchEnum is not None:
                         isEnum = True
-                        endOfLine = statement[matchEnum.end():]
+                        endOfLine = statement[matchEnum.end() :]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         if matchName is not None:
                             # Test to check presence of invalid special characters
-                            matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b", endOfLine[matchName.start():matchName.end()])
-                            enumName = self.convert(endOfLine[matchName.start():matchName.end()]) + "_"
+                            matchNameConv = re.search(
+                                r"\b[A-Z][a-zA-Z0-9]*\b",
+                                endOfLine[matchName.start() : matchName.end()],
+                            )
+                            enumName = (
+                                self.convert(
+                                    endOfLine[matchName.start() : matchName.end()]
+                                )
+                                + "_"
+                            )
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
@@ -83,9 +103,8 @@ class TestInvalidMessage(unittest.TestCase):
                         isEnum = False
                         enumName = ""
 
-
     def test_field_name(self):
-        ''' Test to check if field names are in lower case. '''
+        """Test to check if field names are in lower case."""
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -104,8 +123,8 @@ class TestInvalidMessage(unittest.TestCase):
                     matchComment = re.search("//", line)
 
                     if matchComment is not None:
-                        statement = line[:matchComment.start()]
-                        comment = line[matchComment.end():]
+                        statement = line[: matchComment.start()]
+                        comment = line[matchComment.end() :]
                     else:
                         statement = line
                         comment = ""
@@ -124,8 +143,8 @@ class TestInvalidMessage(unittest.TestCase):
                         saveStatement = statement
                         statement = ""
                     else:
-                        saveStatement = statement[matchSep.end():]
-                        statement = statement[:matchSep.end()]
+                        saveStatement = statement[matchSep.end() :]
+                        statement = statement[: matchSep.end()]
 
                     if isEnum is False:
                         # Check if not inside an enum.
@@ -135,10 +154,13 @@ class TestInvalidMessage(unittest.TestCase):
                         if matchMessage is not None:
                             # a new message or a new nested message
                             noMessage += 1
-                            endOfLine = statement[matchMessage.end():]
+                            endOfLine = statement[matchMessage.end() :]
                             matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                             if matchName is not None:
-                                matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b",endOfLine[matchName.start():matchName.end()])
+                                matchNameConv = re.search(
+                                    r"\b[A-Z][a-zA-Z0-9]*\b",
+                                    endOfLine[matchName.start() : matchName.end()],
+                                )
 
                         elif re.search(r"\bextend\b", statement) is not None:
                             # treat extend as message
@@ -149,15 +171,35 @@ class TestInvalidMessage(unittest.TestCase):
                                 matchName = re.search(r"\b\w[\S]*\b\s*=", statement)
 
                                 if matchName is not None:
-                                    checkName = statement[matchName.start():matchName.end() - 1]
-                                    self.assertEqual(checkName, checkName.lower(), file + " in line " + str(i) + ": field name wrong. '" + checkName + "' should use lower case")
+                                    checkName = statement[
+                                        matchName.start() : matchName.end() - 1
+                                    ]
+                                    self.assertEqual(
+                                        checkName,
+                                        checkName.lower(),
+                                        file
+                                        + " in line "
+                                        + str(i)
+                                        + ": field name wrong. '"
+                                        + checkName
+                                        + "' should use lower case",
+                                    )
                                     type = statement.replace(checkName, "")
                                     matchName = re.search(r"\b\w[\S\.]*\s*=", type)
 
                                     if matchName is not None:
-                                        checkType = " " + type[matchName.start():matchName.end() - 1] + " "
+                                        checkType = (
+                                            " "
+                                            + type[
+                                                matchName.start() : matchName.end() - 1
+                                            ]
+                                            + " "
+                                        )
                                         # Test to check nested message type
-                                        matchNameConv = re.search(r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",checkType)
+                                        matchNameConv = re.search(
+                                            r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",
+                                            checkType,
+                                        )
 
                         # Search for a closing brace.
                         matchClosingBrace = re.search("}", statement)
@@ -169,12 +211,20 @@ class TestInvalidMessage(unittest.TestCase):
 
                     if matchEnum is not None:
                         isEnum = True
-                        endOfLine = statement[matchEnum.end():]
+                        endOfLine = statement[matchEnum.end() :]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         if matchName is not None:
                             # Test to check presence of invalid special characters
-                            matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b", endOfLine[matchName.start():matchName.end()])
-                            enumName = self.convert(endOfLine[matchName.start():matchName.end()]) + "_"
+                            matchNameConv = re.search(
+                                r"\b[A-Z][a-zA-Z0-9]*\b",
+                                endOfLine[matchName.start() : matchName.end()],
+                            )
+                            enumName = (
+                                self.convert(
+                                    endOfLine[matchName.start() : matchName.end()]
+                                )
+                                + "_"
+                            )
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
@@ -183,7 +233,7 @@ class TestInvalidMessage(unittest.TestCase):
                         enumName = ""
 
     def test_field_type(self):
-        ''' Test to check nested message type. '''
+        """Test to check nested message type."""
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -202,8 +252,8 @@ class TestInvalidMessage(unittest.TestCase):
                     matchComment = re.search("//", line)
 
                     if matchComment is not None:
-                        statement = line[:matchComment.start()]
-                        comment = line[matchComment.end():]
+                        statement = line[: matchComment.start()]
+                        comment = line[matchComment.end() :]
                     else:
                         statement = line
                         comment = ""
@@ -222,8 +272,8 @@ class TestInvalidMessage(unittest.TestCase):
                         saveStatement = statement
                         statement = ""
                     else:
-                        saveStatement = statement[matchSep.end():]
-                        statement = statement[:matchSep.end()]
+                        saveStatement = statement[matchSep.end() :]
+                        statement = statement[: matchSep.end()]
 
                     if isEnum is False:
                         # Check if not inside an enum.
@@ -233,10 +283,13 @@ class TestInvalidMessage(unittest.TestCase):
                         if matchMessage is not None:
                             # a new message or a new nested message
                             noMessage += 1
-                            endOfLine = statement[matchMessage.end():]
+                            endOfLine = statement[matchMessage.end() :]
                             matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                             if matchName is not None:
-                                matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b",endOfLine[matchName.start():matchName.end()])
+                                matchNameConv = re.search(
+                                    r"\b[A-Z][a-zA-Z0-9]*\b",
+                                    endOfLine[matchName.start() : matchName.end()],
+                                )
 
                         elif re.search(r"\bextend\b", statement) is not None:
                             # treat extend as message
@@ -246,18 +299,37 @@ class TestInvalidMessage(unittest.TestCase):
                             if noMessage > 0:
                                 matchName = re.search(r"\b\w[\S]*\b\s*=", statement)
                                 if matchName is not None:
-                                    checkName = statement[matchName.start():matchName.end() - 1]
+                                    checkName = statement[
+                                        matchName.start() : matchName.end() - 1
+                                    ]
 
                                     # Check field message type (remove field name)
                                     type = statement.replace(checkName, "")
                                     matchName = re.search(r"\b\w[\S\.]*\s*=", type)
                                     if matchName is not None:
-                                        checkType = " " + type[matchName.start():matchName.end() - 1] + " "
+                                        checkType = (
+                                            " "
+                                            + type[
+                                                matchName.start() : matchName.end() - 1
+                                            ]
+                                            + " "
+                                        )
                                         # Test to check nested message type
-                                        matchNameConv = re.search(r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]", checkType)
+                                        matchNameConv = re.search(
+                                            r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",
+                                            checkType,
+                                        )
 
                                         checkType = checkType.strip()
-                                        self.assertIsNotNone(matchNameConv, file + " in line " + str(i) + ": field message type wrong. Check: '" + checkType + "'")
+                                        self.assertIsNotNone(
+                                            matchNameConv,
+                                            file
+                                            + " in line "
+                                            + str(i)
+                                            + ": field message type wrong. Check: '"
+                                            + checkType
+                                            + "'",
+                                        )
 
                         # Search for a closing brace.
                         matchClosingBrace = re.search("}", statement)
@@ -269,12 +341,20 @@ class TestInvalidMessage(unittest.TestCase):
 
                     if matchEnum is not None:
                         isEnum = True
-                        endOfLine = statement[matchEnum.end():]
+                        endOfLine = statement[matchEnum.end() :]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         if matchName is not None:
                             # Test to check presence of invalid special characters
-                            matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b", endOfLine[matchName.start():matchName.end()])
-                            enumName = self.convert(endOfLine[matchName.start():matchName.end()]) + "_"
+                            matchNameConv = re.search(
+                                r"\b[A-Z][a-zA-Z0-9]*\b",
+                                endOfLine[matchName.start() : matchName.end()],
+                            )
+                            enumName = (
+                                self.convert(
+                                    endOfLine[matchName.start() : matchName.end()]
+                                )
+                                + "_"
+                            )
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
@@ -283,7 +363,7 @@ class TestInvalidMessage(unittest.TestCase):
                         enumName = ""
 
     def test_field_multiplicity(self):
-        ''' Test to check if every field has the multiplicity "repeated" or "optional". '''
+        """Test to check if every field has the multiplicity "repeated" or "optional"."""
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -294,7 +374,6 @@ class TestInvalidMessage(unittest.TestCase):
                 saveStatement = ""
 
                 for line in fin:
-
                     # Skipping test on multiplicity for protobuf 3.0.0
                     if '"proto3"' in line:
                         break
@@ -307,8 +386,8 @@ class TestInvalidMessage(unittest.TestCase):
                     matchComment = re.search("//", line)
 
                     if matchComment is not None:
-                        statement = line[:matchComment.start()]
-                        comment = line[matchComment.end():]
+                        statement = line[: matchComment.start()]
+                        comment = line[matchComment.end() :]
                     else:
                         statement = line
                         comment = ""
@@ -327,8 +406,8 @@ class TestInvalidMessage(unittest.TestCase):
                         saveStatement = statement
                         statement = ""
                     else:
-                        saveStatement = statement[matchSep.end():]
-                        statement = statement[:matchSep.end()]
+                        saveStatement = statement[matchSep.end() :]
+                        statement = statement[: matchSep.end()]
 
                     if isEnum is False:
                         # Check if not inside an enum.
@@ -338,10 +417,13 @@ class TestInvalidMessage(unittest.TestCase):
                         if matchMessage is not None:
                             # a new message or a new nested message
                             noMessage += 1
-                            endOfLine = statement[matchMessage.end():]
+                            endOfLine = statement[matchMessage.end() :]
                             matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                             if matchName is not None:
-                                matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b",endOfLine[matchName.start():matchName.end()])
+                                matchNameConv = re.search(
+                                    r"\b[A-Z][a-zA-Z0-9]*\b",
+                                    endOfLine[matchName.start() : matchName.end()],
+                                )
 
                         elif re.search(r"\bextend\b", statement) is not None:
                             # treat extend as message
@@ -352,18 +434,38 @@ class TestInvalidMessage(unittest.TestCase):
                             if noMessage > 0:
                                 matchName = re.search(r"\b\w[\S]*\b\s*=", statement)
                                 if matchName is not None:
-                                    checkName = statement[matchName.start():matchName.end() - 1]
+                                    checkName = statement[
+                                        matchName.start() : matchName.end() - 1
+                                    ]
 
                                     # Check field message type (remove field name)
                                     type = statement.replace(checkName, "")
                                     matchName = re.search(r"\b\w[\S\.]*\s*=", type)
                                     if matchName is not None:
-                                        checkType = " " + type[matchName.start():matchName.end() - 1] + " "
+                                        checkType = (
+                                            " "
+                                            + type[
+                                                matchName.start() : matchName.end() - 1
+                                            ]
+                                            + " "
+                                        )
                                         # Test to check nested message type
-                                        matchNameConv = re.search(r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",checkType)
+                                        matchNameConv = re.search(
+                                            r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",
+                                            checkType,
+                                        )
 
                                     statement = statement.strip()
-                                    self.assertIsNotNone(re.search(r"\boptional\b", type) is None and re.search(r"\brepeated\b",type), file + " in line " + str(i) + ": field multiplicity (\"optional\" or \"repeated\") is missing. Check: '" + statement + "'")
+                                    self.assertIsNotNone(
+                                        re.search(r"\boptional\b", type) is None
+                                        and re.search(r"\brepeated\b", type),
+                                        file
+                                        + " in line "
+                                        + str(i)
+                                        + ': field multiplicity ("optional" or "repeated") is missing. Check: \''
+                                        + statement
+                                        + "'",
+                                    )
 
                         # Search for a closing brace.
                         matchClosingBrace = re.search("}", statement)
@@ -375,12 +477,20 @@ class TestInvalidMessage(unittest.TestCase):
 
                     if matchEnum is not None:
                         isEnum = True
-                        endOfLine = statement[matchEnum.end():]
+                        endOfLine = statement[matchEnum.end() :]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         if matchName is not None:
                             # Test to check presence of invalid special characters
-                            matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b", endOfLine[matchName.start():matchName.end()])
-                            enumName = self.convert(endOfLine[matchName.start():matchName.end()]) + "_"
+                            matchNameConv = re.search(
+                                r"\b[A-Z][a-zA-Z0-9]*\b",
+                                endOfLine[matchName.start() : matchName.end()],
+                            )
+                            enumName = (
+                                self.convert(
+                                    endOfLine[matchName.start() : matchName.end()]
+                                )
+                                + "_"
+                            )
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
@@ -389,6 +499,5 @@ class TestInvalidMessage(unittest.TestCase):
                         enumName = ""
 
     def convert(self, name):
-        s1 = re.sub(r'(.)([A-Z][a-z]+)', r'\1_\2', name)
-        return re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', s1).upper()
-
+        s1 = re.sub(r"(.)([A-Z][a-z]+)", r"\1_\2", name)
+        return re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", s1).upper()

@@ -32,6 +32,9 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install -r requirements_develop.txt
 
+    - name: Check black format
+      run: black --check --diff .
+
     - name: Install Doxygen
       run: sudo apt-get install doxygen graphviz
 
