@@ -7,6 +7,7 @@ import sys
 import re
 from distutils.spawn import find_executable
 
+# setuptool is dependend on wheel package
 from setuptools import setup
 from setuptools.command.build_py import build_py
 

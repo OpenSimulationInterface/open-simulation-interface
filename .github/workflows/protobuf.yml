@@ -28,7 +28,9 @@ jobs:
         python-version: '3.8'
 
     - name: Install Python Dependencies
-      run: python -m pip install --upgrade pip setuptools wheel pyyaml
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements_develop.txt
 
     - name: Install Doxygen
       run: sudo apt-get install doxygen graphviz
