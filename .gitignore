@@ -32,6 +32,8 @@ compile_commands.json
 
 # Python-generated files
 __pycache__/
+.venv/
+venv/
 *.py[cod]
 proto2cpp.log
 .clang-format
