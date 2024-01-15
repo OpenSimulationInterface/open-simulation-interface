@@ -1,4 +1,4 @@
-syntax = "proto3";
+syntax = "proto2";
 
 option optimize_for = SPEED;
 
@@ -33,7 +33,6 @@ package osi3;
 //
 message Route
 {
-
     // The unique id of the route.
     //
     // \note This field is mandatory.
@@ -53,12 +52,12 @@ message Route
     //
     // \brief A segment of a logical lane.
     //
-    // \note The #LogicalLaneSegment allows that #start_s > #end_s.
-    //       If #start_s < #end_s, then the traffic agent should traverse the
-    //       segment in the logical lane's reference line definition direction.
-    //       If #end_s > #start_s, then the traffic agent should traverse the
-    //       segment in the opposite of the logical lane's reference line
-    //       definition direction.
+    // \note The LogicalLaneSegment allows that start_s > end_s.
+    // If start_s < end_s, then the traffic agent should traverse the
+    // segment in the logical lane's reference line definition direction.
+    // If end_s > start_s, then the traffic agent should traverse the
+    // segment in the opposite of the logical lane's reference line
+    // definition direction.
     //
     message LogicalLaneSegment
     {
@@ -87,16 +86,16 @@ message Route
     //
     // Each time there is a successor-predecessor relation between the logical
     // lanes along the route (i.e. a logical lane ends, and is continued by another
-    // logical lane, e.g. at a junction border), a new #RouteSegment starts. The
-    // #RouteSegment then lists the logical lane segments that can be used to
+    // logical lane, e.g. at a junction border), a new RouteSegment starts. The
+    // RouteSegment then lists the logical lane segments that can be used to
     // travel through this space of the road.
     //
     // Together, the listed logical lane segments should form a continuous area,
     // where the traffic agent can move freely. These will mostly be parallel
     // lanes, though lanes may overlap (e.g. if one lane splits into two on a
-    // junction). In general, the logical lane segments in a #RouteSegment will
-    // have the same length, though there are exceptions (e.g. if a lane widening
-    // occurs, the newly appearing lane will have a shorter length).
+    // junction). In general, the logical lane segments in a RouteSegment will
+    // have the same length, though there are exceptions (e.g. if a lane
+    // widening occurs, the newly appearing lane will have a shorter length).
     //
     // Typically a route segment will be either
     // - a set of parallel lanes between two junctions, or
@@ -127,12 +126,9 @@ message Route
         // Logical lane segments that form a route segment.
         //
         // The logical lane segments of a route segment should be connected without
-        // gaps, meaning that, together, the lane segments should form a
-        // continuous area.
+        // gaps, meaning that, together, the lane segments should form a continuous
+        // area.
         //
         repeated LogicalLaneSegment lane_segment = 1;
-
     }
-
-
 }
