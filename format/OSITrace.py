@@ -1,3 +1,5 @@
+# Copyright 2019 -- 2024 BMW AG
+# SPDX-License-Identifier: MPL-2.0
 """
 Module to handle and manage OSI scenarios.
 """
