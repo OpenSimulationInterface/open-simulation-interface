@@ -125,7 +125,7 @@ setup(
     author_email="Carlo.van-Driesten@bmw.de, Timo.Hanke@bmw.de,"
     "Nils.Hirsenkorn@tum.de, Pilar.Garcia-Ramos@bmw.de,"
     "Mark.Schiementz@bmw.de, Sebastian.SB.Schneider@bmw.de",
-    packages=[package_name],
+    packages=[package_name, "format"],
     install_requires=["protobuf"],
     cmdclass={
         "build_py": GenerateProtobufCommand,
