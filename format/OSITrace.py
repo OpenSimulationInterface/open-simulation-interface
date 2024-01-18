@@ -1,7 +1,7 @@
 # Copyright 2019 -- 2024 BMW AG
 # SPDX-License-Identifier: MPL-2.0
 """
-Module to handle and manage OSI scenarios.
+Module to handle and manage OSI trace files.
 """
 from collections import deque
 import time
@@ -39,23 +39,23 @@ MESSAGES_TYPE = {
 
 
 class OSITrace:
-    """This class wrap OSI data. It can import and decode OSI scenarios."""
+    """This class wrap OSI data. It can import and decode OSI trace files."""
 
     def __init__(self, path=None, type_name="SensorView"):
-        self.scenario_file = None
+        self.trace_file = None
         self.message_offsets = None
         self.type_name = type_name
         self.timestep_count = 0
-        self.retrieved_scenario_size = 0
+        self.retrieved_trace_file_size = 0
         self._int_length = len(struct.pack("<L", 0))
 
     def from_file(self, path, type_name="SensorView", max_index=-1, format_type=None):
-        """Import a scenario from a file"""
+        """Import a trace from a file"""
 
         if path.lower().endswith((".lzma", ".xz")):
-            self.scenario_file = lzma.open(path, "rb")
+            self.trace_file = lzma.open(path, "rb")
         else:
-            self.scenario_file = open(path, "rb")
+            self.trace_file = open(path, "rb")
 
         self.type_name = type_name
         self.format_type = format_type
@@ -68,12 +68,12 @@ class OSITrace:
 
     def retrieve_message_offsets(self, max_index):
         """
-        Retrieve the offsets of all the messages of the scenario and store them
+        Retrieve the offsets of all the messages of the trace and store them
         in the `message_offsets` attribute of the object
 
         It returns the number of discovered timesteps
         """
-        scenario_size = get_size_from_file_stream(self.scenario_file)
+        trace_size = get_size_from_file_stream(self.trace_file)
 
         if max_index == -1:
             max_index = float("inf")
@@ -83,55 +83,55 @@ class OSITrace:
         self.message_offsets = [0]
         eof = False
 
-        self.scenario_file.seek(0)
+        self.trace_file.seek(0)
 
         while not eof and len(self.message_offsets) <= max_index:
             found = -1  # SEP offset in buffer
             buffer_deque.clear()
 
             while found == -1 and not eof:
-                new_read = self.scenario_file.read(BUFFER_SIZE)
+                new_read = self.trace_file.read(BUFFER_SIZE)
                 buffer_deque.append(new_read)
                 buffer = b"".join(buffer_deque)
                 found = buffer.find(SEPARATOR)
                 eof = len(new_read) != BUFFER_SIZE
 
-            buffer_offset = self.scenario_file.tell() - len(buffer)
+            buffer_offset = self.trace_file.tell() - len(buffer)
             message_offset = found + buffer_offset + SEPARATOR_LENGTH
             self.message_offsets.append(message_offset)
 
-            self.scenario_file.seek(message_offset)
+            self.trace_file.seek(message_offset)
 
             while eof and found != -1:
                 buffer = buffer[found + SEPARATOR_LENGTH :]
                 found = buffer.find(SEPARATOR)
 
-                buffer_offset = scenario_size - len(buffer)
+                buffer_offset = trace_size - len(buffer)
 
                 message_offset = found + buffer_offset + SEPARATOR_LENGTH
 
-                if message_offset >= scenario_size:
+                if message_offset >= trace_size:
                     break
                 self.message_offsets.append(message_offset)
 
         if eof:
-            self.retrieved_scenario_size = scenario_size
+            self.retrieved_trace_file_size = trace_size
         else:
-            self.retrieved_scenario_size = self.message_offsets[-1]
+            self.retrieved_trace_file_size = self.message_offsets[-1]
             self.message_offsets.pop()
 
         return len(self.message_offsets)
 
     def retrieve_message(self):
-        scenario_size = get_size_from_file_stream(self.scenario_file)
+        trace_size = get_size_from_file_stream(self.trace_file)
         buffer_deque = deque(maxlen=2)
 
         self.message_offsets = [0]
         eof = False
 
-        # TODO Implement buffering for the scenarios
-        self.scenario_file.seek(0)
-        serialized_message = self.scenario_file.read()
+        # TODO Implement buffering for the traces
+        self.trace_file.seek(0)
+        serialized_message = self.trace_file.read()
         INT_LENGTH = len(struct.pack("<L", 0))
         message_length = 0
 
@@ -148,9 +148,9 @@ class OSITrace:
             self.message_offsets.append(i)
 
         if eof:
-            self.retrieved_scenario_size = scenario_size
+            self.retrieved_trace_file_size = trace_size
         else:
-            self.retrieved_scenario_size = self.message_offsets[-1]
+            self.retrieved_trace_file_size = self.message_offsets[-1]
             self.message_offsets.pop()
 
         return len(self.message_offsets)
@@ -169,12 +169,12 @@ class OSITrace:
         """
         Yield an iterator over messages of indexes between begin and end included.
         """
-        self.scenario_file.seek(self.message_offsets[begin])
+        self.trace_file.seek(self.message_offsets[begin])
         abs_first_offset = self.message_offsets[begin]
         abs_last_offset = (
             self.message_offsets[end]
             if end < len(self.message_offsets)
-            else self.retrieved_scenario_size
+            else self.retrieved_trace_file_size
         )
 
         rel_message_offsets = [
@@ -184,7 +184,7 @@ class OSITrace:
 
         if self.format_type == "separated":
             message_sequence_len = abs_last_offset - abs_first_offset - SEPARATOR_LENGTH
-            serialized_messages_extract = self.scenario_file.read(message_sequence_len)
+            serialized_messages_extract = self.trace_file.read(message_sequence_len)
 
             for rel_index, rel_message_offset in enumerate(rel_message_offsets):
                 rel_begin = rel_message_offset
@@ -200,7 +200,7 @@ class OSITrace:
 
         elif self.format_type is None:
             message_sequence_len = abs_last_offset - abs_first_offset
-            serialized_messages_extract = self.scenario_file.read(message_sequence_len)
+            serialized_messages_extract = self.trace_file.read(message_sequence_len)
 
             for rel_index, rel_message_offset in enumerate(rel_message_offsets):
                 rel_begin = rel_message_offset + self._int_length
@@ -216,12 +216,12 @@ class OSITrace:
                 yield message
 
         else:
-            self.scenario_file.close()
+            self.trace_file.close()
             raise Exception(f"The defined format {self.format_type} does not exist.")
 
     def make_readable(self, name, interval=None, index=None):
-        self.scenario_file.seek(0)
-        serialized_message = self.scenario_file.read()
+        self.trace_file.seek(0)
+        serialized_message = self.trace_file.read()
         message_length = len(serialized_message)
 
         if message_length > 1000000000:
