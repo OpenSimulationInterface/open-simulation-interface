@@ -8,13 +8,13 @@ from tqdm import tqdm
 import time
 import lzma
 import struct
+import warnings
+
+warnings.simplefilter("default")
 
 from osi3.osi_sensorview_pb2 import SensorView
 from osi3.osi_groundtruth_pb2 import GroundTruth
 from osi3.osi_sensordata_pb2 import SensorData
-import warnings
-
-warnings.simplefilter("default")
 
 SEPARATOR = b"$$__$$"
 SEPARATOR_LENGTH = len(SEPARATOR)
@@ -49,7 +49,7 @@ class OSITrace:
     #     self.retrieved_trace_file_size = 0
     #     self._int_length = len(struct.pack("<L", 0))
 
-    def __init__(self, buffer_size, show_progress=True, type_name="SensorView"):
+    def __init__(self, buffer_size=0, show_progress=True, type_name="SensorView"):
         self.path = None
         self.trace_file = None
         self.message_offsets = None
@@ -131,7 +131,7 @@ class OSITrace:
             self.trace_file.seek(message_offset)
 
             while eof and found != -1:
-                buffer = buffer[found + SEPARATOR_LENGTH :]
+                buffer = buffer[found + SEPARATOR_LENGTH:]
                 found = buffer.find(SEPARATOR)
 
                 buffer_offset = trace_size - len(buffer)
@@ -205,10 +205,10 @@ class OSITrace:
                     message_length = struct.unpack(
                         "<L",
                         serialized_message[
-                            message_offset
-                            - counter * self.buffer_size : self._int_length
-                            + message_offset
-                            - counter * self.buffer_size
+                        message_offset
+                        - counter * self.buffer_size: self._int_length
+                                                      + message_offset
+                                                      - counter * self.buffer_size
                         ],
                     )[0]
 
@@ -241,7 +241,7 @@ class OSITrace:
                 message_length = struct.unpack(
                     "<L",
                     serialized_message[
-                        message_offset : self._int_length + message_offset
+                    message_offset: self._int_length + message_offset
                     ],
                 )[0]
                 message_offset += message_length + self._int_length
@@ -325,11 +325,11 @@ class OSITrace:
             while i < len(serialized_messages_extract):
                 message = MESSAGES_TYPE[self.type_name]()
                 message_length = struct.unpack(
-                    "<L", serialized_messages_extract[i : self._int_length + i]
+                    "<L", serialized_messages_extract[i: self._int_length + i]
                 )[0]
                 message.ParseFromString(
                     serialized_messages_extract[
-                        i + self._int_length : i + self._int_length + message_length
+                    i + self._int_length: i + self._int_length + message_length
                     ]
                 )
                 i += message_length + self._int_length
@@ -380,11 +380,7 @@ class OSITrace:
                     f.write(str(i))
 
             if interval is not None and index is None:
-                if (
-                    type(interval) == tuple
-                    and len(interval) == 2
-                    and interval[0] < interval[1]
-                ):
+                if type(interval) == tuple and len(interval) == 2 and interval[0] < interval[1]:
                     for i in self.get_messages_in_index_range(interval[0], interval[1]):
                         f.write(str(i))
                 else:
