@@ -288,7 +288,7 @@ class OSITrace:
             for abs_message_offset in self.message_offsets[begin:end]
         ]
 
-        if self.path.lower().endswith((".txt")):
+        if self.path.lower().endswith(".txt"):
             message_sequence_len = abs_last_offset - abs_first_offset - SEPARATOR_LENGTH
             serialized_messages_extract = self.trace_file.read(message_sequence_len)
 
@@ -309,7 +309,7 @@ class OSITrace:
                 message.ParseFromString(serialized_message)
                 yield message
 
-        elif self.path.lower().endswith((".osi")):
+        elif self.path.lower().endswith(".osi") or self.path.lower().endswith(".lzma"):
             message_sequence_len = abs_last_offset - abs_first_offset
             serialized_messages_extract = self.trace_file.read(message_sequence_len)
             message_length = 0
