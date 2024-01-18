@@ -9,13 +9,8 @@ Example usage:
 """
 
 from OSITrace import OSITrace
-import struct
-import lzma
 import argparse
 import os
-import warnings
-
-warnings.simplefilter("default")
 
 
 def command_line_arguments():
