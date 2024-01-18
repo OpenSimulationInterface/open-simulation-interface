@@ -4,6 +4,7 @@
 Module to handle and manage OSI trace files.
 """
 from collections import deque
+from tqdm import tqdm
 import time
 import lzma
 import struct
@@ -17,7 +18,6 @@ warnings.simplefilter("default")
 
 SEPARATOR = b"$$__$$"
 SEPARATOR_LENGTH = len(SEPARATOR)
-BUFFER_SIZE = 1000000
 
 
 def get_size_from_file_stream(file_object):
@@ -41,34 +41,44 @@ MESSAGES_TYPE = {
 class OSITrace:
     """This class wrap OSI data. It can import and decode OSI trace files."""
 
-    def __init__(self, path=None, type_name="SensorView"):
+    # def __init__(self, path=None, type_name="SensorView"):
+    #     self.trace_file = None
+    #     self.message_offsets = None
+    #     self.type_name = type_name
+    #     self.timestep_count = 0
+    #     self.retrieved_trace_file_size = 0
+    #     self._int_length = len(struct.pack("<L", 0))
+
+    def __init__(self, buffer_size, show_progress=True, type_name="SensorView"):
+        self.path = None
         self.trace_file = None
         self.message_offsets = None
-        self.type_name = type_name
-        self.timestep_count = 0
-        self.retrieved_trace_file_size = 0
+        self.buffer_size = buffer_size
         self._int_length = len(struct.pack("<L", 0))
+        self.type_name = type_name
+        self.message_cache = {}
+        self.timestep_count = 0
+        self.show_progress = show_progress
+        self.retrieved_trace_size = 0
 
     def from_file(self, path, type_name="SensorView", max_index=-1, format_type=None):
         """Import a trace from a file"""
-
-        if path.lower().endswith((".lzma", ".xz")):
+        self.path = path
+        if self.path.lower().endswith((".lzma", ".xz")):
             self.trace_file = lzma.open(path, "rb")
         else:
             self.trace_file = open(path, "rb")
 
         self.type_name = type_name
-        self.format_type = format_type
 
-        if self.format_type == "separated":
-            # warnings.warn("The separated trace files will be completely removed in the near future. Please convert them to *.osi files with the converter in the main OSI repository.", PendingDeprecationWarning)
+        if self.path.lower().endswith(".txt"):
             self.timestep_count = self.retrieve_message_offsets(max_index)
         else:
             self.timestep_count = self.retrieve_message()
 
     def retrieve_message_offsets(self, max_index):
         """
-        Retrieve the offsets of all the messages of the trace and store them
+        Retrieve the offsets of all the messages of the txt trace and store them
         in the `message_offsets` attribute of the object
 
         It returns the number of discovered timesteps
@@ -78,10 +88,27 @@ class OSITrace:
         if max_index == -1:
             max_index = float("inf")
 
+        # For $$__$$ separated trace files the buffersize needs to be greater than zero
+        if self.buffer_size == 0:
+            self.buffer_size = 1000000  # Make it backwards compatible
+
+        if self.show_progress:
+            progress_bar = tqdm(total=trace_size)
+            print(
+                "Retrieving message offsets in txt trace file until "
+                + str(trace_size)
+                + " ..."
+            )
+        else:
+            progress_bar = None
+
         buffer_deque = deque(maxlen=2)
 
         self.message_offsets = [0]
         eof = False
+
+        if self.show_progress:
+            start_time = time.time()
 
         self.trace_file.seek(0)
 
@@ -90,16 +117,17 @@ class OSITrace:
             buffer_deque.clear()
 
             while found == -1 and not eof:
-                new_read = self.trace_file.read(BUFFER_SIZE)
+                new_read = self.trace_file.read(self.buffer_size)
                 buffer_deque.append(new_read)
                 buffer = b"".join(buffer_deque)
                 found = buffer.find(SEPARATOR)
-                eof = len(new_read) != BUFFER_SIZE
+                eof = len(new_read) != self.buffer_size
 
             buffer_offset = self.trace_file.tell() - len(buffer)
             message_offset = found + buffer_offset + SEPARATOR_LENGTH
             self.message_offsets.append(message_offset)
-
+            progress_bar.update(message_offset)
+            last_offset = message_offset
             self.trace_file.seek(message_offset)
 
             while eof and found != -1:
@@ -113,45 +141,125 @@ class OSITrace:
                 if message_offset >= trace_size:
                     break
                 self.message_offsets.append(message_offset)
+                progress_bar.update(message_offset - last_offset)
+                last_offset = message_offset
 
         if eof:
-            self.retrieved_trace_file_size = trace_size
+            self.retrieved_trace_size = trace_size
         else:
-            self.retrieved_trace_file_size = self.message_offsets[-1]
+            self.retrieved_trace_size = self.message_offsets[-1]
             self.message_offsets.pop()
+
+        if self.show_progress:
+            progress_bar.close()
+            print(
+                len(self.message_offsets),
+                "messages has been discovered in",
+                time.time() - start_time,
+                "s",
+            )
 
         return len(self.message_offsets)
 
     def retrieve_message(self):
-        trace_size = get_size_from_file_stream(self.trace_file)
-        buffer_deque = deque(maxlen=2)
+        """
+        Retrieve the offsets of all the messages of the osi trace and store them
+        in the `message_offsets` attribute of the object
 
-        self.message_offsets = [0]
+        It returns the number of discovered timesteps
+        """
+        trace_size = get_size_from_file_stream(self.trace_file)
+
+        if self.show_progress:
+            progress_bar = tqdm(total=trace_size)
+            print(
+                "Retrieving messages in osi trace file until "
+                + str(trace_size)
+                + " ..."
+            )
+        else:
+            progress_bar = None
+
         eof = False
 
-        # TODO Implement buffering for the traces
+        if self.show_progress:
+            start_time = time.time()
+
         self.trace_file.seek(0)
-        serialized_message = self.trace_file.read()
-        INT_LENGTH = len(struct.pack("<L", 0))
+
+        self.message_offsets = [0]
+        message_offset = 0
+        last_offset = 0
         message_length = 0
+        counter = 0  # Counter is needed to enable correct buffer parsing of serialized messages
 
-        i = 0
-        while i < len(serialized_message):
-            message = MESSAGES_TYPE[self.type_name]()
-            message_length = struct.unpack(
-                "<L", serialized_message[i : INT_LENGTH + i]
-            )[0]
-            message.ParseFromString(
-                serialized_message[i + INT_LENGTH : i + INT_LENGTH + message_length]
-            )
-            i += message_length + INT_LENGTH
-            self.message_offsets.append(i)
+        # Check if user decided to use buffer
+        if self.buffer_size != 0 and type(self.buffer_size) == int:
+            # Run while the end of file is not reached
+            while not eof and message_offset < trace_size:
+                serialized_message = self.trace_file.read(self.buffer_size)
+                self.trace_file.seek(self.message_offsets[-1])
 
-        if eof:
-            self.retrieved_trace_file_size = trace_size
+                while not eof:
+                    # Unpack the message size relative to the current buffer
+                    message_length = struct.unpack(
+                        "<L",
+                        serialized_message[
+                            message_offset
+                            - counter * self.buffer_size : self._int_length
+                            + message_offset
+                            - counter * self.buffer_size
+                        ],
+                    )[0]
+
+                    # Get the message offset of the next message
+                    message_offset += message_length + self._int_length
+                    self.message_offsets.append(message_offset)
+                    progress_bar.update(message_offset - last_offset)
+                    last_offset = message_offset
+                    self.trace_file.seek(message_offset)
+                    eof = self.trace_file.tell() > self.buffer_size * (counter + 1)
+
+                    # Check if reached end of file
+                    if self.trace_file.tell() == trace_size:
+                        self.retrieved_trace_size = self.message_offsets[-1]
+                        self.message_offsets.pop()  # Remove the last element since after that there is no message coming
+                        break
+
+                while eof:
+                    # Counter increment and cursor placement update. The cursor is set absolute in the file.
+                    if message_offset >= len(serialized_message):
+                        progress_bar.update(message_offset - last_offset)
+                        last_offset = message_offset
+                        counter += 1
+                        self.trace_file.seek(counter * self.buffer_size)
+                        eof = False
+
         else:
-            self.retrieved_trace_file_size = self.message_offsets[-1]
+            serialized_message = self.trace_file.read()
+            while message_offset < trace_size:
+                message_length = struct.unpack(
+                    "<L",
+                    serialized_message[
+                        message_offset : self._int_length + message_offset
+                    ],
+                )[0]
+                message_offset += message_length + self._int_length
+                self.message_offsets.append(message_offset)
+                progress_bar.update(message_offset - last_offset)
+                last_offset = message_offset
+
+            self.retrieved_trace_size = self.message_offsets[-1]
             self.message_offsets.pop()
+
+        if self.show_progress:
+            progress_bar.close()
+            print(
+                len(self.message_offsets),
+                "messages has been discovered in",
+                time.time() - start_time,
+                "s",
+            )
 
         return len(self.message_offsets)
 
@@ -160,6 +268,11 @@ class OSITrace:
         Get a message by its index. Try first to get it from the cache made
         by the method ``cache_messages_in_index_range``.
         """
+        message = self.message_cache.get(index, None)
+
+        if message is not None:
+            return message
+
         return next(self.get_messages_in_index_range(index, index + 1))
 
     def get_messages(self):
@@ -169,12 +282,13 @@ class OSITrace:
         """
         Yield an iterator over messages of indexes between begin and end included.
         """
+
         self.trace_file.seek(self.message_offsets[begin])
         abs_first_offset = self.message_offsets[begin]
         abs_last_offset = (
             self.message_offsets[end]
             if end < len(self.message_offsets)
-            else self.retrieved_trace_file_size
+            else self.retrieved_trace_size
         )
 
         rel_message_offsets = [
@@ -182,42 +296,69 @@ class OSITrace:
             for abs_message_offset in self.message_offsets[begin:end]
         ]
 
-        if self.format_type == "separated":
+        if self.path.lower().endswith((".txt")):
             message_sequence_len = abs_last_offset - abs_first_offset - SEPARATOR_LENGTH
             serialized_messages_extract = self.trace_file.read(message_sequence_len)
 
-            for rel_index, rel_message_offset in enumerate(rel_message_offsets):
+            pbar = tqdm(rel_message_offsets)
+            for rel_index, rel_message_offset in enumerate(pbar):
+                pbar.set_description(
+                    f"Processing index {rel_index} with offset {rel_message_offset}"
+                )
                 rel_begin = rel_message_offset
                 rel_end = (
                     rel_message_offsets[rel_index + 1] - SEPARATOR_LENGTH
                     if rel_index + 1 < len(rel_message_offsets)
                     else message_sequence_len
                 )
+
                 message = MESSAGES_TYPE[self.type_name]()
                 serialized_message = serialized_messages_extract[rel_begin:rel_end]
                 message.ParseFromString(serialized_message)
                 yield message
 
-        elif self.format_type is None:
+        elif self.path.lower().endswith((".osi")):
             message_sequence_len = abs_last_offset - abs_first_offset
             serialized_messages_extract = self.trace_file.read(message_sequence_len)
-
-            for rel_index, rel_message_offset in enumerate(rel_message_offsets):
-                rel_begin = rel_message_offset + self._int_length
-                rel_end = (
-                    rel_message_offsets[rel_index + 1]
-                    if rel_index + 1 < len(rel_message_offsets)
-                    else message_sequence_len
-                )
-
+            message_length = 0
+            i = 0
+            while i < len(serialized_messages_extract):
                 message = MESSAGES_TYPE[self.type_name]()
-                serialized_message = serialized_messages_extract[rel_begin:rel_end]
-                message.ParseFromString(serialized_message)
+                message_length = struct.unpack(
+                    "<L", serialized_messages_extract[i : self._int_length + i]
+                )[0]
+                message.ParseFromString(
+                    serialized_messages_extract[
+                        i + self._int_length : i + self._int_length + message_length
+                    ]
+                )
+                i += message_length + self._int_length
                 yield message
 
         else:
-            self.trace_file.close()
-            raise Exception(f"The defined format {self.format_type} does not exist.")
+            raise Exception(
+                f"The defined file format {self.path.split('/')[-1]} does not exist."
+            )
+
+    def cache_messages_in_index_range(self, begin, end):
+        """
+        Put all messages from index begin to index end in the cache. Then the
+        method ``get_message_by_index`` can access to it in a faster way.
+
+        Using this method again clear the last cache and replace it with a new
+        one.
+        """
+        if self.show_progress:
+            print("\nCaching ...")
+        self.message_cache = {
+            index + begin: message
+            for index, message in enumerate(
+                self.get_messages_in_index_range(begin, end)
+            )
+        }
+
+        if self.show_progress:
+            print("Caching done!")
 
     def make_readable(self, name, interval=None, index=None):
         self.trace_file.seek(0)
