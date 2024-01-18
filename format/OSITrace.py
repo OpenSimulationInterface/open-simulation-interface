@@ -41,14 +41,6 @@ MESSAGES_TYPE = {
 class OSITrace:
     """This class wrap OSI data. It can import and decode OSI trace files."""
 
-    # def __init__(self, path=None, type_name="SensorView"):
-    #     self.trace_file = None
-    #     self.message_offsets = None
-    #     self.type_name = type_name
-    #     self.timestep_count = 0
-    #     self.retrieved_trace_file_size = 0
-    #     self._int_length = len(struct.pack("<L", 0))
-
     def __init__(self, buffer_size=0, show_progress=True, type_name="SensorView"):
         self.path = None
         self.trace_file = None
