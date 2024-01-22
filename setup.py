@@ -121,9 +121,14 @@ version_print = subprocess.run(
 ).stdout
 protobuf_version = version_print.split()[1]
 protobuf_split_version = protobuf_version.split(".")
-protobuf_major = int(protobuf_split_version[0])
-protobuf_minor = int(protobuf_split_version[1])
-protobuf_patch = int(protobuf_split_version[2])
+if len(protobuf_split_version) >= 3:
+    protobuf_major = int(protobuf_split_version[0])
+    protobuf_minor = int(protobuf_split_version[1])
+    protobuf_patch = int(protobuf_split_version[2])
+else:
+    protobuf_major = 4
+    protobuf_minor = int(protobuf_split_version[0])
+    protobuf_patch = int(protobuf_split_version[1])
 # Change protobuf major version from 3 to 4 for protobuf version > 21
 if protobuf_major >= 3 and protobuf_minor >= 21:
     protobuf_major = 4
