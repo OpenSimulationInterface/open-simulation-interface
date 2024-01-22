@@ -1,9 +1,9 @@
 name: ProtoBuf CI Builds
 
 env:
-  PROTOBUF_VERSION: 3.0.0-linux-x86_64
-  PROTOBUF_VARIANT: '' # Use '-all' between 3.5.0 and 22.0, otherwise use ''
-  USE_AUTOTOOLS: false # set true for PROTOBUF_VERSION <= 22.0
+  PROTOBUF_VERSION: 3.0.0
+  PROTOBUF_VARIANT: '-cpp' # Use '-all' between 3.5.0 and 22.0, otherwise use ''
+  USE_AUTOTOOLS: true # set true for PROTOBUF_VERSION <= 22.0
   ABSEIL_VERSION: 20230802.1
 
 on:
