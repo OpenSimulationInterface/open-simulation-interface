@@ -116,9 +116,11 @@ except Exception:
     pass
 
 # Get protobuf version from protoc to ensure protobuf python package and protoc have the same version
-version_print = subprocess.run([GenerateProtobufCommand.find_protoc(), "--version"], capture_output=True, text=True).stdout
+version_print = subprocess.run(
+    [GenerateProtobufCommand.find_protoc(), "--version"], capture_output=True, text=True
+).stdout
 protobuf_version = version_print.split()[1]
-protobuf_split_version = protobuf_version.split('.')
+protobuf_split_version = protobuf_version.split(".")
 protobuf_major = int(protobuf_split_version[0])
 protobuf_minor = int(protobuf_split_version[1])
 protobuf_patch = int(protobuf_split_version[2])
@@ -126,7 +128,14 @@ protobuf_patch = int(protobuf_split_version[2])
 if protobuf_major >= 3 and protobuf_minor >= 21:
     protobuf_major = 4
 
-protobuf_install_req = 'protobuf==' + str(protobuf_major) + '.' + str(protobuf_minor) + '.' + str(protobuf_patch)
+protobuf_install_req = (
+    "protobuf=="
+    + str(protobuf_major)
+    + "."
+    + str(protobuf_minor)
+    + "."
+    + str(protobuf_patch)
+)
 setup(
     name="open-simulation-interface",
     version=str(VERSION_MAJOR) + "." + str(VERSION_MINOR) + "." + str(VERSION_PATCH),
