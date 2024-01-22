@@ -3,7 +3,7 @@ name: ProtoBuf CI Builds
 env:
   PROTOBUF_VERSION: 24.3
   PROTOBUF_VARIANT: '' # Use '-cpp' between 3.0.0 and 22.0, otherwise use ''
-  USE_AUTOTOOLS: false # set true for PROTOBUF_VERSION <= 22.0
+  USE_AUTOTOOLS: 'false' # set true for PROTOBUF_VERSION <= 22.0
   ABSEIL_VERSION: 20230802.1
 
 on:
@@ -51,7 +51,7 @@ jobs:
       run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${{env.PROTOBUF_VERSION}}/protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz && tar xzvf protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz
 
     - name: Download Abseil ${{ env.ABSEIL_VERSION }}
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS == 'false'
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true'
       run: curl -OL https://github.com/abseil/abseil-cpp/archive/refs/tags/${{env.ABSEIL_VERSION}}.tar.gz && tar xzvf ${{env.ABSEIL_VERSION}}.tar.gz && rm -rf protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp && mv abseil-cpp-${{env.ABSEIL_VERSION}} protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via autotools
@@ -60,7 +60,7 @@ jobs:
       run: ./configure DIST_LANG=cpp --prefix=/usr && make
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via cmake
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS == 'false'
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: cmake -DCMAKE_CXX_STANDARD=17 -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF . && cmake --build . --config Release -j 4
 
