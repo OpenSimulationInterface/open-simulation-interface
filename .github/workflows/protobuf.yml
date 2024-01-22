@@ -2,7 +2,7 @@ name: ProtoBuf CI Builds
 
 env:
   PROTOBUF_VERSION: 2.6.1
-  PROTOBUF_VARIANT: '-all' # Use '-all' prior to 22.0, '' after
+  PROTOBUF_VARIANT: '' # Use '-all' prior to 22.0, '' after
   ABSEIL_VERSION: 20230802.1
 
 on:
