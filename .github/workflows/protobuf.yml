@@ -148,16 +148,16 @@ jobs:
       run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${{env.PROTOBUF_VERSION}}/protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz && tar xzvf protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz
 
     - name: Download Abseil ${{ env.ABSEIL_VERSION }}
-      if: steps.cache-depends.outputs.cache-hit != 'true' && !env.USE_AUTOTOOLS
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true'
       run: curl -OL https://github.com/abseil/abseil-cpp/archive/refs/tags/${{env.ABSEIL_VERSION}}.tar.gz && tar xzvf ${{env.ABSEIL_VERSION}}.tar.gz && rm -rf protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp && mv abseil-cpp-${{env.ABSEIL_VERSION}} protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via autotools
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS == 'true'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: ./configure DIST_LANG=cpp --prefix=/usr && make
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via cmake
-      if: steps.cache-depends.outputs.cache-hit != 'true' && !env.USE_AUTOTOOLS
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: cmake -DCMAKE_CXX_STANDARD=17 -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF . && cmake --build . --config Release -j 4
 
