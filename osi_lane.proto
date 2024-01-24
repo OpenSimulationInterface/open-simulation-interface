@@ -400,11 +400,11 @@ message Lane
             //
             TYPE_OTHER = 1;
 
-            // A normal lane.
+            // A normal lane in city.
             // Example: Lanes with IDs l1, l2, l3, l4 and l6 in image \ref
             // HighwayExit.
             //
-            TYPE_DRIVING = 2;
+            TYPE_CITY = 2;
 
             // A road where driving is normally not permitted.
             // Example: Lane with ID l5 in image \ref HighwayExit.
@@ -417,6 +417,10 @@ message Lane
             // \image html OSI_X-Junction.svg "" width=600px
             //
             TYPE_INTERSECTION = 4;
+
+            // A normal lane in contry road.
+            //
+            TYPE_RURAL = 5;
         }
 
         // Definition of available lane subtypes, aligned with OpenDRIVE.
