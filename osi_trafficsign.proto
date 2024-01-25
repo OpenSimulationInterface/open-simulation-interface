@@ -16,14 +16,9 @@ message TrafficSignValue
     // Additional value associated with a traffic sign or road marking,
     // e.g. value of a speed limit.
     //
-    // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability or
-    // TrafficSign::SupplementarySign::Classification::cariability
-    //
     optional double value = 1;
 
     // Unit for additional value.
-    //
-    // \note Changeability: Static value
     //
     optional Unit value_unit = 2;
 
@@ -163,8 +158,6 @@ message TrafficSignValue
     // to the sign is indicated therein. The interpretation of this text is
     // left to a user-defined procedure.
     //
-    // \note: Changeability: Dynamic value
-    //
     optional string text = 3;
 }
 
@@ -182,20 +175,14 @@ message TrafficSign
     // is_globally_unique
     // \endrules
     //
-    // \note Changeability: Static value
-    //
     optional Identifier id = 1;
 
     // Main sign, e.g. speed limit 30 km/h
-    //
-    // \note Changeability: Dynamic value
     //
     optional MainSign main_sign = 2;
 
     // Additional supplementary signs, e.g. time limits, modifying the traffic
     // sign.
-    //
-    // \note Changeability: Dynamic value
     //
     repeated SupplementarySign supplementary_sign = 3;
 
@@ -223,8 +210,6 @@ message TrafficSign
     //       derived from more than one origin segment. Multiple sources
     //       may be added as reference as well, for example, a map and sensors.
     //
-    // \note Changeability: Static value
-    //
     repeated ExternalReference source_reference = 4;
 
     //
@@ -246,13 +231,9 @@ message TrafficSign
         // This x-axis points from the traffic sign's image in the direction
         // from where a 'viewer' could see the traffic sign image.
         //
-        // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
-        //
         optional BaseStationary base = 1;
 
         // The classification of the traffic sign.
-        //
-        // \note Changeability: Dynamic value
         //
         optional Classification classification = 2;
 
@@ -260,8 +241,6 @@ message TrafficSign
         //
         // \note It is implementation-specific how model_references are resolved to
         // 3d models.
-        //
-        // \note Changeability: Static value
         //
         optional string model_reference = 3;
 
@@ -299,8 +278,6 @@ message TrafficSign
             // content (e.g., electronic sign bridge) and/or regarding its  
             // position on the road.
             //
-            // \note Changeability: Static value
-            //
             optional Variability variability = 1;
 
             // The type of the traffic sign.
@@ -311,8 +288,6 @@ message TrafficSign
             // introduced 4-tupel traffic sign catalog specification as used in
             // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
-            // \note Changeability: Static value
-            //
             optional Type type = 2;
 
             // Additional value associated with the traffic sign, e.g. value of
@@ -320,8 +295,6 @@ message TrafficSign
             //
             // \note Field need not be set if traffic sign type does not require
             // it.
-            //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
             //
             optional TrafficSignValue value = 3;
 
@@ -352,8 +325,6 @@ message TrafficSign
             // introduced 4-tupel traffic sign catalog specification as used in
             // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
-            //
             optional DirectionScope direction_scope = 4;
 
             // The IDs of the lanes that the sign is assigned to.
@@ -365,8 +336,6 @@ message TrafficSign
             // \rules
             // refers_to: Lane
             // \endrules
-            //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
             //
             repeated Identifier assigned_lane_id = 5;
 
@@ -386,14 +355,10 @@ message TrafficSign
             // introduced 4-tupel traffic sign catalog specification as used in
             // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
-            // \note Changeability: Static value
-            //
             optional bool vertically_mirrored = 6;
 
             // Boolean flag to indicate that a traffic sign is taken out of service.
             // This can be achieved by visibly crossing the sign or covering it completely.
-            //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
             //
             optional bool is_out_of_service = 7;
 
@@ -406,8 +371,6 @@ message TrafficSign
             // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2, or the
             // special OpenDRIVE country for generic signs.<br>
             //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
-            //
             optional string country = 8;
 
             // Revision specification of the traffic sign catalog specification
@@ -417,8 +380,6 @@ message TrafficSign
             //
             // The year the traffic rules came into force. <br>
             // e.g. "2017"
-            //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
             //
             optional string country_revision = 9;
 
@@ -431,8 +392,6 @@ message TrafficSign
             // corresponds to the type field of OpenDRIVE. <br>
             // code is only unique in combination with #country and #country_revision.  <br>
             // e.g. http://www.vzkat.de/2017/VzKat.htm
-            //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
             //
             optional string code = 10;
 
@@ -447,16 +406,12 @@ message TrafficSign
             // and #code.  <br>
             // e.g. http://www.vzkat.de/2017/VzKat.htm
             //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
-            //
             optional string sub_code = 11;
 
             // Assignment of this object to logical lanes.
             //
             // \note OSI uses singular instead of plural for repeated field
             // names.
-            //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
             //
             repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
@@ -5639,13 +5594,9 @@ message TrafficSign
         // supplementary traffic sign's image in the direction from where a
         // 'viewer' could see the supplementary traffic sign image.
         //
-        // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
-        //
         optional BaseStationary base = 1;
 
         // The classification of the supplementary traffic sign.
-        //
-        // \note Changeability: Dynamic value
         //
         optional Classification classification = 2;
 
@@ -5653,8 +5604,6 @@ message TrafficSign
         //
         // \note It is implementation-specific how model_references are resolved to
         // 3d models.
-        //
-        // \note Changeability: Static value
         //
         optional string model_reference = 3;
 
@@ -5678,8 +5627,6 @@ message TrafficSign
         message Classification
         {
             // Variability.
-            //
-            // \note Changeability: Static value
             //
             optional Variability variability = 1;
 
@@ -9134,8 +9081,6 @@ message TrafficSign
             // \note OSI uses singular instead of plural for repeated field
             // names.
             //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
-            //
             repeated TrafficSignValue value = 3;
 
             // The IDs of the lanes that the sign is assigned to.
@@ -9147,8 +9092,6 @@ message TrafficSign
             // \rules
             // refers_to: Lane
             // \endrules
-            //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
             //
             repeated Identifier assigned_lane_id = 4;
 
@@ -9162,8 +9105,6 @@ message TrafficSign
             // introduced 4-tupel traffic sign catalog specification as used in
             // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
-            //
             repeated Actor actor = 5;
 
             // A direction arrow shown on the supplementary sign.
@@ -9174,14 +9115,10 @@ message TrafficSign
             // introduced 4-tupel traffic sign catalog specification as used in
             // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
-            //
             repeated Arrow arrow = 6;
 
             // Boolean flag to indicate that the supplementary traffic sign is taken out of service.
             // This can be achieved by visibly crossing the sign or covering it completely.
-            //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
             //
             optional bool is_out_of_service = 7;
 
@@ -9194,8 +9131,6 @@ message TrafficSign
             // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2, or the
             // special OpenDRIVE country for generic signs.<br>
             //
-            // \note Changeability: Static value
-            //
             optional string country = 8;
 
             // Revision specification of the traffic sign catalog specification
@@ -9205,8 +9140,6 @@ message TrafficSign
             //
             // The year the traffic rules came into force. <br>
             // e.g. "2017"
-            //
-            // \note Changeability: Static value
             //
             optional string country_revision = 9;
 
@@ -9219,8 +9152,6 @@ message TrafficSign
             // corresponds to the type field of OpenDRIVE. <br>
             // code is only unique in combination with #country and #country_revision.  <br>
             // e.g. http://www.vzkat.de/2017/VzKat.htm
-            //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
             //
             optional string code = 10;
 
@@ -9235,16 +9166,12 @@ message TrafficSign
             // and #code.  <br>
             // e.g. http://www.vzkat.de/2017/VzKat.htm
             //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
-            //
             optional string sub_code = 11;
 
             // Assignment of this object to logical lanes.
             //
             // \note OSI uses singular instead of plural for repeated field
             // names.
-            //
-            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
             //
             repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
