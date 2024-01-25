@@ -311,7 +311,7 @@ message TrafficSign
             // introduced 4-tupel traffic sign catalog specification as used in
             // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
-            // \note Changeability: Static value
+            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
             //
             optional Type type = 2;
 
@@ -406,7 +406,7 @@ message TrafficSign
             // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2, or the
             // special OpenDRIVE country for generic signs.<br>
             //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
+            // \note Changeability: Static value
             //
             optional string country = 8;
 
@@ -418,7 +418,7 @@ message TrafficSign
             // The year the traffic rules came into force. <br>
             // e.g. "2017"
             //
-            // \note Changeability: Depending: See \c TrafficSign::MainSign::Classification::variability
+            // \note Changeability: Static value
             //
             optional string country_revision = 9;
 
@@ -9123,6 +9123,8 @@ message TrafficSign
             // introduced 4-tupel traffic sign catalog specification as used in
             // <a href="https://releases.asam.net/OpenDRIVE/1.6.0/ASAM_OpenDRIVE_BS_V1-6-0.html#_signals">OpenDRIVE</a>.
             //
+            // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
+            //
             optional Type type = 2;
 
             // Additional value(s) associated with the traffic sign, e.g.
@@ -9468,9 +9470,13 @@ message TrafficSign
                 // refers_to: Lane
                 // \endrules
                 //
+                // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
+                //
                 repeated Identifier lane_id = 1;
 
                 // The direction to which the arrow points to
+                //
+                // \note Changeability: Depending: See \c TrafficSign::SupplementarySign::Classification::variability
                 //
                 repeated Direction direction = 2;
 
