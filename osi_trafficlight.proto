@@ -79,7 +79,7 @@ message TrafficLight
     // appearance.  For semantic classification of the traffic light use the color
     // field in \c Classification.
     //
-    // \note Changeability: Dynamic value
+    // \note Changeability: Static value
     //
     optional ColorDescription color_description = 6;
 
@@ -100,13 +100,19 @@ message TrafficLight
         // light is off ( \c #mode =  \c #MODE_OFF), then \c #color = \c
         // #COLOR_OTHER .
         //
+        // \note Changeability: Static value
+        //
         optional Color color = 1;
 
         // The icon of the traffic light.
         //
+        // \note Changeability: Static value
+        //
         optional Icon icon = 2;
 
         // The operating mode of the traffic light.
+        //
+        // \note Changeability: Dynamic value
         //
         optional Mode mode = 3;
 
@@ -118,6 +124,8 @@ message TrafficLight
         // \rules
         // is_greater_than_or_equal_to: 0
         // \endrules
+        //
+        // \note Changeability: Dynamic value
         //
         optional double counter = 4;
 
@@ -131,17 +139,23 @@ message TrafficLight
         // refers_to: Lane
         // \endrules
         //
+        // \note Changeability: Static value
+        //
         repeated Identifier assigned_lane_id = 5;
 
         // Boolean flag to indicate that the traffic light is taken out of service.
         // This can be achieved by visibly crossing the light, covering it completely
         // or swiching the traffic light off.
         //
+        // \note Changeability: Dynamic value
+        //
         optional bool is_out_of_service = 6;
 
         // Assignment of this object to logical lanes.
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \note Changeability: Static value
         //
         repeated LogicalLaneAssignment logical_lane_assignment = 7;
 
