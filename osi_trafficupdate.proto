@@ -27,6 +27,8 @@ message TrafficUpdate
 {
     // The interface version used by the sender (traffic participant model).
     //
+    // \note Changeability: Static value
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
@@ -38,6 +40,8 @@ message TrafficUpdate
     // the notional simulation time the data applies to and the time it was sent.
     // There is no inherent latency for moving object update data, as opposed
     // to sensor data.
+    //
+    // \note Changeability: Dynamic value
     //
     optional Timestamp timestamp = 2;
 
@@ -51,6 +55,8 @@ message TrafficUpdate
     // \note The field is repeated because it is possible to have a trailer attached to
     // a vehicle, see MovingObject::VehicleClassification::has_trailer and
     // MovingObject::VehicleClassification::trailer_id. 
+    //
+    // \note Changeability: Dynamic value
     //
     repeated MovingObject update = 3;
 
@@ -66,6 +72,8 @@ message TrafficUpdate
     //
     // \note The id field from this should match the id in the update field
     // above where the same vehicle is being referenced.
+    //
+    // \note Changeability: Dynamic value
     //
     repeated HostVehicleData internal_state = 4;
 }
