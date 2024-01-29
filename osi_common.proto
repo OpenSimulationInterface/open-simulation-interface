@@ -408,7 +408,8 @@ message BoundingBox
     //
     optional Dimension3d dimension = 1;
 
-    // The 3D position of the bounding box.
+    // The 3D position of the bounding box. The position is the center
+    // of the bounding box and the pivot for the \c dimension and \c orientation.
     //
     // \note The position should be within the same coordinate frame as
     // its parent, not relative to coordinate frame of the parent object.
@@ -430,15 +431,25 @@ message BoundingBox
     //
     optional Type contained_object_type = 4;
 
+    // Another type of object contained in the bounding box
+    // 
+    // This field shall only be used if \c contained_object_type is TYPE_OTHER
+    // and the object type is not defined withing \c contained_object_type.
+    //
+    optional string other_object_type = 5;
+
     // Opaque reference of an associated 3D model of the bounding box.
     //
     // \note It is implementation-specific how model_references are resolved to
     // 3d models. This means the coordinate system, model origin, and model
     // orientation are also implementation-specific.
     //
-    optional string model_reference = 5;
+    optional string model_reference = 6;
 
     // Definition of different types of object contained within the bounding box
+    //
+    // \note This enum field is mainly a placeholder to be extended in the future.
+    // feel free to suggest type definitions for future releases.
     //
     enum Type
     {
@@ -449,64 +460,6 @@ message BoundingBox
         // Any other type of object.
         //
         TYPE_OTHER = 1;
-
-        // The main chassis of a vehicle.
-        //
-        TYPE_CHASSIS = 2;
-
-        // The door of a vehicle.
-        //
-        TYPE_DOOR = 3;
-
-        // The side mirror of a vehicle.
-        //
-        // \note The side mirror is not included in the overall bounding box
-        // of the parent object.
-        //
-        TYPE_SIDE_MIRROR = 4;
-
-        // Additional cargo attached to the a vehicle which is temporarily
-        // attached.
-        //
-        TYPE_CARGO = 5;
-
-        // The wheel of a vehicle.
-        //
-        // \note For more detailed information about the wheels of an object,
-        // please refer to \c MovingObject/VehicleAttributes/WheelData.
-        //
-        TYPE_WHEEL = 6;
-
-        // The torso section of a person or animal.
-        //
-        TYPE_TORSO = 7;
-
-        // An external limb of a person or animal.
-        //
-        // \note Limbs can be sub-divided to increase accuracy, i.e. for upper
-        // and lower arm/leg sections.
-        //
-        TYPE_LIMB = 8;
-
-        // The head of a person or animal.
-        //
-        TYPE_HEAD = 9;
-
-        // The trunk section of a tree.
-        //
-        TYPE_TREE_TRUNK = 10;
-
-        // The crown of a tree, usually encompassing the branches and leaves.
-        //
-        TYPE_TREE_CROWN = 11;
-
-        // The vertical pole of a street light.
-        //
-        TYPE_STREET_LIGHT_POLE = 12;
-
-        // The horizontal arm of a street light.
-        //
-        TYPE_STREET_LIGHT_ARM = 13;
     }
 }
 
