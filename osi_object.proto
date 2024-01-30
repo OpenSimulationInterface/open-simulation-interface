@@ -1181,6 +1181,9 @@ message MovingObject
 
             // The orientation rate of the bone.
             //
+            // Reference System is the root, defined by bbcenter_to_root
+            // (\c PedestrianAttributes::bbcenter_to_root).
+            //
             optional Orientation3d orientation_rate = 7;
 
             // The type of the bone.
