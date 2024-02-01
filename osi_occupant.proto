@@ -54,6 +54,10 @@ message Occupant
         // wheel (mostly driver).
         //
         optional SteeringControl steering_control = 4;
+        
+        // Occupant's (physiological) state.
+        //
+        optional State state = 5;
 
         // Definition of seat positions.
         //
@@ -142,6 +146,68 @@ message Occupant
             // Only right hand is on the steering wheel.
             //
             STEERING_CONTROL_RIGHT_HAND = 6;
+        }
+        
+        //
+        // \brief An occupant's state consists of physiological data like head pose,
+        // eye states and gaze.
+        //
+        message State
+        {
+            // The position from the occupant's head, always relative to the host vehicle frame
+            // (for ground truth occupants an detected occupants).
+            //
+            optional Vector3d head_position = 1; 
+ 
+            // The orientation from the occupant's head, always relative to the host vehicle frame
+            // (for ground truth occupants an detected occupants).
+
+            // The head pose describes the occupant's head orientation.
+            // The x-axis of the right-handed head frame is pointing along the
+            // occupant's straight ahead viewing direction (anterior), the y-axis lateral to the left,
+            // and the z-axis is pointing upwards (superior) [1].
+            //
+            // ``View_normal_base_coord_system =
+            // Inverse_Rotation(#head_pose)*Unit_vector_x``
+            //
+            // \par Reference:
+            //
+            // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.
+            //
+            optional Orientation3d head_pose = 2;
+            
+            // Left eye state.
+            //
+            optional EyeState eye_state_left = 3;
+            
+            // Right eye state.
+            //
+            optional EyeState eye_state_right = 4;
+            
+            //
+            // \brief The eye state comprises information regarding an eye's presence, gaze,
+            // position and opening.
+            //
+            message EyeState
+            {
+                // Flag indicating whether the eye is present.
+                //
+                optional bool present = 1;
+                
+                // Gaze vector, relative to the occupant's head pose.
+                //
+                optional Orientation3d gaze = 2;
+                
+                // Position of the eye relative to the occupant's head position.
+                //
+                optional Vector3d position = 3;
+                
+                // Opening of the eye.
+                //
+                // Unit: [m]
+                //
+                optional double opening = 4;
+            }
         }
     }
 }
