@@ -838,6 +838,9 @@ message LogicalLane
     // The type of the traffic rule should be set using the respective filed.
     // Additionally, every message should contain the traffic rule validity information
     // and the respective field for the respective traffic rule type.
+    // In case of traffic rule (priority) conflicts for rules of the same type that 
+    // can not be depicted using the traffic rule validity only the currently 
+    // valid rule should be provided.
     //
     // Note: Each traffic rule corresponds to only one lane. If the traffic rule
     // is also valid on adjacent/successing/predecessing lanes it needs to be
