@@ -873,7 +873,7 @@ message LogicalLane
 
             // Traffic rule is of type speed limit
             //
-            TRAFFIC_RULE_TYPE_SPEED_LIMIT = 1;
+            TRAFFIC_RULE_TYPE_SPEED_LIMIT = 0;
         }
 
         // 
@@ -925,19 +925,19 @@ message LogicalLane
                 //
                 // Unit: m/s
                 //
-                UNIT_METER_PER_SECOND = 1;
+                UNIT_METER_PER_SECOND = 0;
 
                 // Kilometers per hour.
                 //
                 // Unit: km/h
                 //
-                UNIT_KILOMETER_PER_HOUR = 2;
+                UNIT_KILOMETER_PER_HOUR = 1;
 
                 // Miles per hour.
                 //
                 // Unit: mph
                 //
-                UNIT_MILE_PER_HOUR = 3;
+                UNIT_MILE_PER_HOUR = 2;
             }
         }
     }
