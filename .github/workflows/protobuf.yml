@@ -68,13 +68,6 @@ jobs:
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: sudo make install && sudo ldconfig
 
-    - name: Test python conversion
-      run: |
-        mkdir python-test
-        protoc --python_out=./python-test osi_version.proto
-        cd python-test
-        ls -l
-
     - name: Install proto2cpp
       run: git clone --depth 1 https://github.com/OpenSimulationInterface/proto2cpp.git
 
@@ -99,6 +92,13 @@ jobs:
     - name: Build C++
       working-directory: build
       run: cmake --build . --config Release -j 4
+
+    - name: Test python conversion
+      run: |
+        mkdir python-test
+        protoc --python_out=./python-test osi_version.proto
+        cd python-test
+        ls -l
 
     - name: Build Python
       run: |
