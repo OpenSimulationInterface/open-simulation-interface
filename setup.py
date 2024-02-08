@@ -89,7 +89,6 @@ class GenerateProtobufCommand(build_py):
     """ Generate Protobuf Messages """
 
     def run(self):
-
         command = "python -m site"
         test_print = subprocess.run(
             command, capture_output=True, text=True, shell=True
