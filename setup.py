@@ -89,6 +89,13 @@ class GenerateProtobufCommand(build_py):
     """ Generate Protobuf Messages """
 
     def run(self):
+
+        command = "python -m site"
+        test_print = subprocess.run(
+            command, capture_output=True, text=True, shell=True
+        ).stdout
+        print(test_print)
+
         pattern = re.compile('^import "osi_')
         for source in self.osi_files:
             with open(source) as src_file:
