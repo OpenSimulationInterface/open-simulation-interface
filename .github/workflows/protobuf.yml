@@ -96,7 +96,7 @@ jobs:
     - name: Test python conversion
       run: |
         mkdir python-test
-        protoc --python_out=./python-test osi_version.proto
+        protoc --python_out=./python-test build/osi_version.proto
         cd python-test
         ls -l
 
