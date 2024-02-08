@@ -93,9 +93,11 @@ jobs:
       working-directory: build
       run: cmake --build . --config Release -j 4
 
+    - name: Fix Protobuf init # only for 2.6.1, todo: if condition
+      run: echo "python -m site"
+
     - name: Build Python
       run: |
-        export PROTOC_PATH=`which protoc`
         python setup.py build && python setup.py sdist
 
     - name: Install Python
