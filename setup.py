@@ -120,7 +120,7 @@ protoc_path = subprocess.run(
     ["which", GenerateProtobufCommand.find_protoc()], capture_output=True, text=True
 ).stdout
 print(protoc_path)
-os.environ['PROTOC_PATH'] = protoc_path
+os.environ["PROTOC_PATH"] = protoc_path
 version_print = subprocess.run(
     [GenerateProtobufCommand.find_protoc(), "--version"], capture_output=True, text=True
 ).stdout
