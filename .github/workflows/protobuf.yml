@@ -96,6 +96,7 @@ jobs:
     - name: Test python conversion
       run: |
         mkdir python-test
+        export PROTOC_PATH=`which protoc`
         protoc --python_out=./python-test build/osi_version.proto
         cd python-test
         ls -l
