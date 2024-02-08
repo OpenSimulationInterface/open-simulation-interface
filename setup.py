@@ -89,11 +89,6 @@ class GenerateProtobufCommand(build_py):
     """ Generate Protobuf Messages """
 
     def run(self):
-        protoc_path = subprocess.run(
-            ["which", self.find_protoc()], capture_output=True, text=True
-        ).stdout
-        print(protoc_path)
-        os.environ["PROTOC_PATH"] = protoc_path
         pattern = re.compile('^import "osi_')
         for source in self.osi_files:
             with open(source) as src_file:
