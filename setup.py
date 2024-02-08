@@ -106,7 +106,13 @@ class GenerateProtobufCommand(build_py):
         for source in self.osi_files:
             sys.stdout.write("Protobuf-compiling " + source + "\n")
             source_path = os.path.join(package_name, source)
-            subprocess.check_call([self.find_protoc(), "--python_out=.", source_path])
+            subprocess.check_call(
+                [
+                    self.find_protoc(),
+                    "--proto_path=/usr/include --proto_path=/usr/local/include --proto_path=. --python_out=.",
+                    source_path,
+                ]
+            )
 
         build_py.run(self)
 
