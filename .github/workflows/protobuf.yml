@@ -170,6 +170,13 @@ jobs:
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: sudo make install && sudo ldconfig
 
+    - name: Test python conversion
+      run: |
+        mkdir python-test
+        protoc --python_out=./python-test osi_version.proto
+        cd python-test
+        ls -l
+
     - name: Prepare C++ Build
       if: env.PROTOBUF_VERSION != '2.6.1'
       run: mkdir build
