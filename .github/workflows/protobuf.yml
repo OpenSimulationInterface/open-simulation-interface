@@ -93,17 +93,8 @@ jobs:
       working-directory: build
       run: cmake --build . --config Release -j 4
 
-    - name: Test python conversion
-      run: |
-        mkdir python-test
-        export PROTOC_PATH=`which protoc`
-        protoc --proto_path=/usr/include --proto_path=. --python_out=./python-test ./build/osi_version.proto
-        cd python-test/build
-        ls -l
-
     - name: Build Python
-      run: |
-        python setup.py build && python setup.py sdist
+      run: python setup.py build && python setup.py sdist
 
     - name: Install Python
       run: python -m pip install .
