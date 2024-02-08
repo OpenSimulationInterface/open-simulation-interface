@@ -119,6 +119,7 @@ except Exception:
 version_print = subprocess.run(
     [GenerateProtobufCommand.find_protoc(), "--version"], capture_output=True, text=True
 ).stdout
+subprocess.run(["export PROTOC_PATH=`", GenerateProtobufCommand.find_protoc(), "`--version`"], capture_output=False, text=True)
 protobuf_version = version_print.split()[1]
 protobuf_split_version = protobuf_version.split(".")
 if len(protobuf_split_version) >= 3:
