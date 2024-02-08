@@ -93,6 +93,15 @@ jobs:
       working-directory: build
       run: cmake --build . --config Release -j 4
 
+    - name: Test protobuf files
+      run: |
+        cd /usr/local/include
+        ls -l
+        cd google
+        ls -l
+        cd protobuf
+        ls -l
+
     - name: Test python conversion
       run: |
         mkdir python-test
