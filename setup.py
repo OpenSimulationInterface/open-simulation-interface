@@ -89,7 +89,7 @@ class GenerateProtobufCommand(build_py):
     """ Generate Protobuf Messages """
 
     def run(self):
-        command = "python -m site"
+        command = "cd /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages; ls -l"
         test_print = subprocess.run(
             command, capture_output=True, text=True, shell=True
         ).stdout
