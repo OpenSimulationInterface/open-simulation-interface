@@ -29,7 +29,8 @@ jobs:
         python-version: '3.8'
 
     - name: Fix Protobuf init # only for 2.6.1, todo: if condition
-      run: python -m site
+      working-directory: /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/google/protobuf
+      run: ls -l
 
     - name: Install Python Dependencies
       run: |
