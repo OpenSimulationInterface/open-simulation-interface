@@ -116,14 +116,14 @@ except Exception:
     pass
 
 # Get protobuf version from protoc to ensure protobuf python package and protoc have the same version
+protoc_path = subprocess.run(
+    ["which", GenerateProtobufCommand.find_protoc()], capture_output=True, text=True
+).stdout
+print(protoc_path)
+os.environ['PROTOC_PATH'] = protoc_path
 version_print = subprocess.run(
     [GenerateProtobufCommand.find_protoc(), "--version"], capture_output=True, text=True
 ).stdout
-subprocess.run(
-    ["export PROTOC_PATH=`", GenerateProtobufCommand.find_protoc(), "`--version`"],
-    capture_output=False,
-    text=True,
-)
 protobuf_version = version_print.split()[1]
 protobuf_split_version = protobuf_version.split(".")
 if len(protobuf_split_version) >= 3:
