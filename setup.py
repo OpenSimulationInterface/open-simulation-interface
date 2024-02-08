@@ -89,6 +89,11 @@ class GenerateProtobufCommand(build_py):
     """ Generate Protobuf Messages """
 
     def run(self):
+        protoc_path = subprocess.run(
+            ["which", self.find_protoc()], capture_output=True, text=True
+        ).stdout
+        print(protoc_path)
+        os.environ["PROTOC_PATH"] = protoc_path
         pattern = re.compile('^import "osi_')
         for source in self.osi_files:
             with open(source) as src_file:
@@ -116,11 +121,6 @@ except Exception:
     pass
 
 # Get protobuf version from protoc to ensure protobuf python package and protoc have the same version
-protoc_path = subprocess.run(
-    ["which", GenerateProtobufCommand.find_protoc()], capture_output=True, text=True
-).stdout
-print(protoc_path)
-os.environ["PROTOC_PATH"] = protoc_path
 version_print = subprocess.run(
     [GenerateProtobufCommand.find_protoc(), "--version"], capture_output=True, text=True
 ).stdout
