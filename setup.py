@@ -89,12 +89,6 @@ class GenerateProtobufCommand(build_py):
     """ Generate Protobuf Messages """
 
     def run(self):
-        command = "cd /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages; ls -l"
-        test_print = subprocess.run(
-            command, capture_output=True, text=True, shell=True
-        ).stdout
-        print(test_print)
-
         pattern = re.compile('^import "osi_')
         for source in self.osi_files:
             with open(source) as src_file:
@@ -109,7 +103,10 @@ class GenerateProtobufCommand(build_py):
             subprocess.check_call(
                 [
                     self.find_protoc(),
-                    "--proto_path=/usr/include --proto_path=/usr/local/include --proto_path=. --python_out=.",
+                    "--proto_path=/usr/include",
+                    "--proto_path=/usr/local/include",
+                    "--proto_path=.",
+                    "--python_out=.",
                     source_path,
                 ]
             )
