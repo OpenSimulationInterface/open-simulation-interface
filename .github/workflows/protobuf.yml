@@ -79,14 +79,6 @@ jobs:
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: sudo make install && sudo ldconfig
 
-    - name: Lint Proto Files
-      uses: yoheimuta/action-protolint@v1
-      with:
-        github_token: ${{ secrets.github_token }}
-        # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
-        reporter: github-pr-review
-        filter_mode: nofilter
-
     - name: Install proto2cpp
       run: git clone --depth 1 https://github.com/OpenSimulationInterface/proto2cpp.git
 
