@@ -67,13 +67,15 @@ jobs:
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: sudo make install && sudo ldconfig
 
-    - name: install-buf-cli
-      uses: bufbuild/buf-setup-action@v1
-
     - name: lint-protos
-      uses: bufbuild/buf-lint-action@v1
+      uses: yoheimuta/action-protolint@v1
       with:
-        input: .
+        github_token: ${{ secrets.github_token }}
+        # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+        reporter: github-pr-review
+        # Change reporter level if you need.
+        # GitHub Status Check won't become failure with warning.
+        level: warning
 
     - name: Install proto2cpp
       run: git clone --depth 1 https://github.com/OpenSimulationInterface/proto2cpp.git
