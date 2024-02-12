@@ -216,6 +216,20 @@ message StationaryObject
             // in the environment, like street lights.
             //
             TYPE_EMITTING_STRUCTURE = 18;
+
+            // Test enum case
+            //
+            TYPE_test = 19;
+
+            // Test missing prefix
+            //
+            TEST = 20;
+
+            // Test same number
+            //
+            TYPE_SAME_NUMBER = 20;
+
+            TYPE_MISSING_COMMENT= 22;
         }
 
         // Definition of material types.
