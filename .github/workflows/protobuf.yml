@@ -11,6 +11,18 @@ on:
     branches: [ master ]
 
 jobs:
+  lint-protobuf:
+    name: Protobuf Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: yoheimuta/action-protolint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-pr-check
+          filter_mode: nofilter
+
   build-proto2-linux64:
     name: Build Proto2 Linux 64
 

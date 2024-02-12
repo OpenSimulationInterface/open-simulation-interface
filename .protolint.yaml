@@ -1,0 +1,46 @@
+---
+# Lint directives.
+lint:
+  # Linter rules.
+  # Run `protolint list` to see all available rules.
+  rules:
+    # Determines whether or not to include the default set of linters.
+    all_default: true
+
+    remove:
+      - REPEATED_FIELD_NAMES_PLURALIZED
+      - FIELD_NAMES_EXCLUDE_PREPOSITIONS
+      - FILE_HAS_COMMENT
+      - ORDER
+      - IMPORTS_SORTED
+
+  # Linter rules option.
+  rules_option:
+    # MAX_LINE_LENGTH rule option.
+    max_line_length:
+      # Enforces a maximum line length
+      max_chars: 400
+      # Specifies the character count for tab characters
+      tab_chars: 4
+
+    # INDENT rule option.
+    indent:
+      # Available styles are 4(4-spaces), 2(2-spaces) or tab.
+      style: 4
+      # Specifies if it should stop considering and inserting new lines at the appropriate positions
+      # when the inner elements are on the same line. Default is false.
+      not_insert_newline: false
+
+    # QUOTE_CONSISTENT rule option.
+    quote_consistent:
+      # Available quote are "double" or "single".
+      quote: double
+
+    # ENUM_FIELD_NAMES_ZERO_VALUE_END_WITH rule option.
+    enum_field_names_zero_value_end_with:
+      suffix: UNKNOWN
+
+    # SYNTAX_CONSISTENT rule option.
+    syntax_consistent:
+      # Default is proto3.
+      version: proto2
