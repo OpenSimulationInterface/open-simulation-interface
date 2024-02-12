@@ -36,7 +36,7 @@ message FeatureData
     //
     // \note Required for ultrasonic sensors: Detections will be send by the
     // emitting ultrasonic sensor, including all indirect detections received
-    // by neighbouring sensors.
+    // by neighboring sensors.
     //
     repeated UltrasonicDetectionData ultrasonic_sensor = 4;
 
@@ -332,7 +332,7 @@ message RadarDetection
     //
     // \note Unambiguous measurements have the ambiguity ID 0.
     //
-    // \note Multiple seperate detections, from e.g. a large object, do not
+    // \note Multiple separate detections, from e.g. a large object, do not
     // necessarily on their own create any ambiguity. Therefore they do not
     // usually share an ambiguity ID. They can however be ambiguous
     // with other detections.
@@ -509,7 +509,7 @@ message UltrasonicDetectionSpecificHeader
 //
 // \image html OSI_USSensor.svg
 //
-// \note Direct detecions lies on circles with the sending sensor as centre.
+// \note Direct detections lie on circles with the sending sensor as centre.
 //
 message UltrasonicDetectionData
 {
@@ -544,7 +544,7 @@ message UltrasonicDetectionData
 //
 // \image html OSI_USSensor_direct.svg
 //
-// \note Direct detecions lies on circles with the sensor as centre.
+// \note Direct detections lie on circles with the sensor as centre.
 //
 message UltrasonicDetection
 {
@@ -594,7 +594,7 @@ message UltrasonicDetection
 //
 // \image html OSI_USSensor_indirect.svg
 //
-// \note Indirect detecions lies on ellipses with the sending resp. receiving
+// \note Indirect detections lie on ellipses with the sending resp. receiving
 // sensor in the focal points.
 //
 message UltrasonicIndirectDetection
@@ -730,7 +730,7 @@ message CameraDetection
     //
     optional bool shape_classification_background = 5;
 
-    // The defined shape is foregroud.
+    // The defined shape is foreground.
     // The probability for this classification is at least
     // \c #shape_classification_probability.
     //
@@ -856,7 +856,7 @@ message CameraDetection
     //
     optional bool shape_classification_pedestrian_rear = 26;
 
-    // This probability defines the mininimum probability for each selected
+    // This probability defines the minimum probability for each selected
     // shape classification.
     //
     // \rules
@@ -989,7 +989,7 @@ message CameraDetection
         // Allowed number of referenced points: 2 or 3
         //
         // Allowed number of referenced points = 2: first and third corner of
-        // the box. Box is alligned horizontal resp. vertical.
+        // the box. Box is aligned horizontal resp. vertical.
         //
         // Allowed number of referenced points = 3: first, second and third
         // corner of the box. fourth corner is calculated by first+third-second
@@ -1057,7 +1057,7 @@ message CameraPoint
     //
     optional double existence_probability = 1;
 
-    // Measured point refered by one camera detection given in spherical
+    // Measured point referred by one camera detection given in spherical
     // coordinates in the sensor coordinate system.
     //
     optional Spherical3d point = 2;

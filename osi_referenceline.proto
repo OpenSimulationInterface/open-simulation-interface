@@ -53,7 +53,7 @@ message ReferenceLine
         // ReferenceLine is a polyline, where the coordinates of points are
         // calculated by projection onto the nearest point on the line.
         //
-        // \attention DEPRECATED: Due to the shortcomings documenten below, this
+        // \attention DEPRECATED: Due to the shortcomings documented below, this
         //            type will be removed in 4.0.0.
         //
         TYPE_POLYLINE = 0;

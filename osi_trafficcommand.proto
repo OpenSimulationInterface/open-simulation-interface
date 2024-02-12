@@ -67,7 +67,7 @@ message TrafficCommand
 //
 // \note This message is notionally a multiple choice selection, that is, only 
 // certain combinations of atomic traffic actions shall be transmitted within 
-// certain time intervals, for example, for plausibity reasons. The restrictions 
+// certain time intervals, for example, for plausibility reasons. The restrictions 
 // regarding that are not part of this message, yet are seen as a task of the 
 // scenario description, for example, OpenSCENARIO. 
 //
@@ -197,19 +197,19 @@ message TrafficAction
     //
     message DynamicConstraints
     {
-        // Maximum acceleration the distance contoller is allowed to use for keeping distance. 
+        // Maximum acceleration the distance controller is allowed to use for keeping distance. 
         //
         // Unit: m/s^2
         //
         optional double max_acceleration = 1;
 
-        // Maximum deceleration the distance contoller is allowed to use for keeping distance. 
+        // Maximum deceleration the distance controller is allowed to use for keeping distance. 
         //
         // Unit: m/s^2
         //
         optional double max_deceleration = 2;
 
-        // Maximum speed the distance contoller is allowed to use for keeping distance. 
+        // Maximum speed the distance controller is allowed to use for keeping distance. 
         //
         // Unit: m/s
         //
@@ -465,7 +465,7 @@ message TrafficAction
 
     // \brief End actions action.
     //
-    // This action tells a traffic participant that the exection of the 
+    // This action tells a traffic participant that the execution of the 
     // referenced actions is regarded as successfully performed. The 
     // termination of the referenced actions is allowed to be performed 
     // gracefully. 
@@ -552,11 +552,11 @@ message TrafficAction
         // participant receiving this action and the reference traffic
         // participant. 
         // True: Longitudinal distance is measured using the distance between closest bounding box points.
-        // False: Longitudinal distance is mesasured using the distance between the center of each object's bounding box.
+        // False: Longitudinal distance is measured using the distance between the center of each object's bounding box.
         //
         optional bool freespace = 4;
 
-        // Define wheather the traffic participant should only reach the distance once 
+        // Define whether the traffic participant should only reach the distance once 
         // or if it should also keep the distance after having reached it.
         // True: the traffic participant shall approach the reference participant
         // and follow with the distance specified until the action is aborted (communicate with AbortActionsAction).
@@ -565,7 +565,7 @@ message TrafficAction
         //
         optional bool follow = 5;
 
-        // Parameter that assings either unlimited dynamics (if omitted) 
+        // Parameter that assigns either unlimited dynamics (if omitted) 
         // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
         //
         optional DynamicConstraints dynamic_constraints = 6;
@@ -605,11 +605,11 @@ message TrafficAction
         // participant receiving this action and the reference traffic
         // participant. 
         // True: Lateral distance is measured using the distance between closest bounding box points.
-        // False: Lateral distance is mesasured using the distance between the center of each object's bounding box.
+        // False: Lateral distance is measured using the distance between the center of each object's bounding box.
         //
         optional bool freespace = 4;
 
-        // Define wheather the traffic participant should only reach the distance once 
+        // Define whether the traffic participant should only reach the distance once 
         // or if it should also keep the distance after having reached it.
         // True: the traffic participant shall approach the reference participant
         // and follow with the distance specified until the action is aborted (communicate with AbortActionsAction).
@@ -618,7 +618,7 @@ message TrafficAction
         //
         optional bool follow = 5;
 
-        // Parameter that assings either unlimited dynamics (if omitted) 
+        // Parameter that assigns either unlimited dynamics (if omitted) 
         // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
         //
         optional DynamicConstraints dynamic_constraints = 6;

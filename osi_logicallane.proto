@@ -318,7 +318,7 @@ message LogicalLaneBoundary
 // - The red area is the area where \c l1 overlaps \c l2. This is recorded in
 //   #overlapping_lane of \c l1.
 //
-// As can be seen in the images, the two highlighted lanes are neighbours for
+// As can be seen in the images, the two highlighted lanes are neighbors for
 // part of their length, but it makes no sense for them to have the same
 // reference line, since they diverge significantly.
 //
@@ -347,7 +347,7 @@ message LogicalLane
     //
     // For example, to reference a lane defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road
@@ -420,10 +420,10 @@ message LogicalLane
     // not required that the reference line has the same direction as the
     // driving direction of the lane.
     //
-    // Neighbouring lanes (i.e. lanes that are neighbours and whose directions
+    // Neighboring lanes (i.e. lanes that are neighbors and whose directions
     // do not diverge significantly) are strongly encouraged to reference the
     // same ReferenceLine, so that vehicles that are next to each other on
-    // neighbouring lanes have comparable S positions.
+    // neighboring lanes have comparable S positions.
     //
     // The S coordinate of the reference line makes it easy to find e.g. which
     // object is next on a lane, using the LogicalLaneAssignment of the
@@ -616,7 +616,7 @@ message LogicalLane
         //
         TYPE_NORMAL = 2;
 
-        // A lane that is designated for bicylists.
+        // A lane that is designated for bicycles
         // Note that biking lanes that cross the road (e.g. on an intersection)
         // are also labeled with this type.
         //

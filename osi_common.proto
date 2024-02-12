@@ -159,7 +159,7 @@ message Dimension3d
 // \f$ Rotation_{yaw,pitch,roll} =
 // Rotation_{yaw}*Rotation_{pitch}*Rotation_{roll} \f$
 //
-// \f$ vector_{gobal coord system} := Rotation_{yaw, pitch, roll} * vector_{local coord system} +local_{origin::position} \f$
+// \f$ vector_{global coord system} := Rotation_{yaw, pitch, roll} * vector_{local coord system} +local_{origin::position} \f$
 //
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
@@ -195,7 +195,7 @@ message Orientation3d
 // truth, the identifier of an item (object, lane, sign, etc.) must remain
 // stable over its lifetime. \c Identifier values may be only be reused if the
 // available address space is exhausted and the specific values have not been in
-// use for several timesteps. Sensor specific tracking IDs have no restrictions
+// use for several time steps. Sensor specific tracking IDs have no restrictions
 // and should behave according to the sensor specifications.
 //
 // The value MAX(uint64) = 2^(64) -1 =
@@ -250,7 +250,7 @@ message ExternalReference
     // The external identifier reference value.
     //
     // The repeated string is chosen as a common description of the external
-    // identifier, because a variety of identificatier types could be
+    // identifier, because a variety of identifier types could be
     // involved .
     //
     // For example, referencing a unique lane in OpenDRIVE requires the

@@ -80,11 +80,11 @@ message DetectedItemHeader
         //
         MEASUREMENT_STATE_OTHER = 1;
 
-        // Entity has been measured by the sensor in the current timestep.
+        // Entity has been measured by the sensor in the current time step.
         //
         MEASUREMENT_STATE_MEASURED = 2;
 
-        // Entity has not been measured by the sensor in the current timestep.
+        // Entity has not been measured by the sensor in the current time step.
         // Values provided by tracking only.
         //
         MEASUREMENT_STATE_PREDICTED = 3;
