@@ -225,11 +225,7 @@ message StationaryObject
             //
             TEST = 20;
 
-            // Test same number
-            //
-            TYPE_SAME_NUMBER = 20;
-
-            TYPE_MISSING_COMMENT= 22;
+            TYPE_MISSING_COMMENT= 21;
         }
 
         // Definition of material types.
