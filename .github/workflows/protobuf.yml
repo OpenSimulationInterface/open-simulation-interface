@@ -71,7 +71,7 @@ jobs:
       uses: yoheimuta/action-protolint@v1
       with:
         # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
-        reporter: github-pr-review
+        reporter: github-check
         # Change reporter level if you need.
         # GitHub Status Check won't become failure with warning.
         level: warning
