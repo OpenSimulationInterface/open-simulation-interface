@@ -96,12 +96,12 @@ jobs:
       run: python setup.py build && python setup.py sdist
 
     - name: lint-protos:
-    # Install the `buf` CLI
-    - uses: bufbuild/buf-setup-action@v1
+      # Install the `buf` CLI
+      uses: bufbuild/buf-setup-action@v1
     # Lint your Protobuf sources
-    - uses: bufbuild/buf-lint-action@v1
+      uses: bufbuild/buf-lint-action@v1
       with:
-      input: .
+        input: .
 
     - name: Install Python
       run: python -m pip install .
