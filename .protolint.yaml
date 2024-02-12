@@ -13,6 +13,7 @@ lint:
       - FILE_HAS_COMMENT
       - ORDER
       - IMPORTS_SORTED
+      - ENUM_FIELD_NAMES_ZERO_VALUE_END_WITH
 
   # Linter rules option.
   rules_option:
@@ -37,8 +38,8 @@ lint:
       quote: double
 
     # ENUM_FIELD_NAMES_ZERO_VALUE_END_WITH rule option.
-    enum_field_names_zero_value_end_with:
-      suffix: UNKNOWN
+    #enum_field_names_zero_value_end_with:
+    #  suffix: UNKNOWN
 
     # SYNTAX_CONSISTENT rule option.
     syntax_consistent:
