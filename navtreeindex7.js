@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab5771a1f7301524ff1533dc17aaefd38":[2,0,0,94,0,0,0,83],
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab67b61cffcd1cd3c961d0f6f270dcf51":[2,0,0,94,0,0,0,86],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab6810388be130797e9e5ed0350a7b664":[2,0,0,94,0,0,0,66],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab6d53910a7f95206ea00aa3f5d5951b4":[2,0,0,94,0,0,0,40],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dabb9a776dd1d564cd9444f151deba253c":[2,0,0,94,0,0,0,18],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "structosi3_1_1UltrasonicIndirectDetection.html#a486263493b3eea64c92cd607c86bc7f4":[2,0,0,49,3],
 "structosi3_1_1UltrasonicIndirectDetection.html#a66f2cbb56ff0694190aaab5cc9377fdf":[2,0,0,49,1],
 "structosi3_1_1UltrasonicIndirectDetection.html#a6d161260fca7169e5964cf620fcd044f":[2,0,0,49,0],
-"structosi3_1_1UltrasonicIndirectDetection.html#ae27488fe133f3e50b4894c7616466989":[2,0,0,49,2],
-"structosi3_1_1UltrasonicSensorView.html":[2,0,0,81],
-"structosi3_1_1UltrasonicSensorView.html#aba90faa1edc2d47553d91d67dda94f4f":[2,0,0,81,0]
+"structosi3_1_1UltrasonicIndirectDetection.html#ae27488fe133f3e50b4894c7616466989":[2,0,0,49,2]
 };

@@ -173,6 +173,8 @@ var NAVTREEINDEX3 =
 "structosi3_1_1MovingObject_1_1PedestrianAttributes.html#a75db7466abca2d283c8d64d424385c0a":[2,0,0,65,1,1],
 "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html":[2,0,0,65,1,0],
 "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a24a250c441255d1911158f6a8d403f52":[2,0,0,65,1,0,2],
+"structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a4d239568ec6655e77b455b1939cc2912":[2,0,0,65,1,0,7],
+"structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a50838d1952527aa55fed0121a9383349":[2,0,0,65,1,0,6],
 "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a59b9b585e3ccf5bb718e99bdd7fc6e3c":[2,0,0,65,1,0,4],
 "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#aa91880d1ea45c201cc326bfcfe1dec09":[2,0,0,65,1,0,3],
 "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#ac25b7db490a6e225ba636df8e01fda88":[2,0,0,65,1,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab53bad6d89068f83e36d674c913b6b8d":[2,0,0,65,3,1,11],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab9b04f1b060bb4489db8ad60a6879e4e":[2,0,0,65,3,1,10],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ac718a0ff22197a44b39472bea7e61f85":[2,0,0,65,3,1,2],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189acb1dee27892b248476d04004a935af0e":[2,0,0,65,3,1,1],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ad699ae83bd8e73abfb186a0f3de31032":[2,0,0,65,3,1,9],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189aec66603fc9aa8b1d34018624bbec3108":[2,0,0,65,3,1,0]
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189acb1dee27892b248476d04004a935af0e":[2,0,0,65,3,1,1]
 };

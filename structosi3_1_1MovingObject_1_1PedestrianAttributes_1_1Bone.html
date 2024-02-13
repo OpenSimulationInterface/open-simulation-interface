@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (7953232)</span>
+   &#160;<span id="projectnumber">master (2466fcb)</span>
    </div>
   </td>
  </tr>
@@ -105,7 +105,7 @@ Collaboration diagram for osi3::MovingObject::PedestrianAttributes::Bone:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone__coll__graph.png" border="0" usemap="#aosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone_coll__map" alt="Collaboration graph"/></div>
 <map name="aosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone_coll__map" id="aosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone_coll__map">
-<area shape="rect" title="Bones in the skeleton of the pedestrian." alt="" coords="265,213,469,255"/>
+<area shape="rect" title="Bones in the skeleton of the pedestrian." alt="" coords="265,228,469,269"/>
 <area shape="rect" title=" " alt="" coords="5,124,115,151"/>
 <area shape="rect" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="139,124,285,151"/>
 <area shape="rect" title=" " alt="" coords="227,5,349,32"/>
@@ -164,6 +164,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ae3c57900802884f3729abb19182987ba"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#ae3c57900802884f3729abb19182987ba">missing</a> = 5</td></tr>
 <tr class="memdesc:ae3c57900802884f3729abb19182987ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether a bone is explicitly missing from the pedestrian model.  <a href="structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#ae3c57900802884f3729abb19182987ba">More...</a><br /></td></tr>
 <tr class="separator:ae3c57900802884f3729abb19182987ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50838d1952527aa55fed0121a9383349"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a50838d1952527aa55fed0121a9383349">velocity</a> = 6</td></tr>
+<tr class="memdesc:a50838d1952527aa55fed0121a9383349"><td class="mdescLeft">&#160;</td><td class="mdescRight">The velocity of the bone.  <a href="structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a50838d1952527aa55fed0121a9383349">More...</a><br /></td></tr>
+<tr class="separator:a50838d1952527aa55fed0121a9383349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d239568ec6655e77b455b1939cc2912"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a4d239568ec6655e77b455b1939cc2912">orientation_rate</a> = 7</td></tr>
+<tr class="memdesc:a4d239568ec6655e77b455b1939cc2912"><td class="mdescLeft">&#160;</td><td class="mdescRight">The orientation rate of the bone.  <a href="structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a4d239568ec6655e77b455b1939cc2912">More...</a><br /></td></tr>
+<tr class="separator:a4d239568ec6655e77b455b1939cc2912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Bones in the skeleton of the pedestrian. </p>
@@ -321,6 +327,40 @@ Public Attributes</h2></td></tr>
 
 <p>Determines whether a bone is explicitly missing from the pedestrian model. </p>
 <p>In case a pedestrian has missing limbs this can be explicitly communicated by setting this boolean to TRUE. </p>
+
+</div>
+</div>
+<a id="a50838d1952527aa55fed0121a9383349"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50838d1952527aa55fed0121a9383349">&#9670;&nbsp;</a></span>velocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Vector3d.html">Vector3d</a> osi3::MovingObject::PedestrianAttributes::Bone::velocity = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The velocity of the bone. </p>
+<p>Reference System is the root, defined by bbcenter_to_root (<code><a class="el" href="structosi3_1_1MovingObject_1_1PedestrianAttributes.html#a75db7466abca2d283c8d64d424385c0a" title="Position offset from the center of the bounding box to the current position of the root point of the ...">PedestrianAttributes::bbcenter_to_root</a></code>). </p>
+
+</div>
+</div>
+<a id="a4d239568ec6655e77b455b1939cc2912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d239568ec6655e77b455b1939cc2912">&#9670;&nbsp;</a></span>orientation_rate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">optional <a class="el" href="structosi3_1_1Orientation3d.html">Orientation3d</a> osi3::MovingObject::PedestrianAttributes::Bone::orientation_rate = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The orientation rate of the bone. </p>
+<p>Reference System is the root, defined by bbcenter_to_root (<code><a class="el" href="structosi3_1_1MovingObject_1_1PedestrianAttributes.html#a75db7466abca2d283c8d64d424385c0a" title="Position offset from the center of the bounding box to the current position of the root point of the ...">PedestrianAttributes::bbcenter_to_root</a></code>). </p>
 
 </div>
 </div>

@@ -26,5 +26,7 @@ var structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone =
     [ "position", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a24a250c441255d1911158f6a8d403f52", null ],
     [ "orientation", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#aa91880d1ea45c201cc326bfcfe1dec09", null ],
     [ "length", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a59b9b585e3ccf5bb718e99bdd7fc6e3c", null ],
-    [ "missing", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#ae3c57900802884f3729abb19182987ba", null ]
+    [ "missing", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#ae3c57900802884f3729abb19182987ba", null ],
+    [ "velocity", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a50838d1952527aa55fed0121a9383349", null ],
+    [ "orientation_rate", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html#a4d239568ec6655e77b455b1939cc2912", null ]
 ];
