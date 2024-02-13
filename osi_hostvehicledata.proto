@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
+import "osi_route.proto";
 
 package osi3;
 
@@ -90,6 +91,10 @@ message HostVehicleData
     // Interface regarding the vehicle motion.
     //
     optional VehicleMotion vehicle_motion = 13;
+
+    // Currently planned route of the vehicle
+    //
+    optional Route route = 14;
 
     //
     // \brief Base parameters and overall states of the vehicle.
