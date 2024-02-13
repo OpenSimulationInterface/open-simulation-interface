@@ -70,6 +70,7 @@ var annotated_dup =
       [ "Occupant", "structosi3_1_1Occupant.html", "structosi3_1_1Occupant" ],
       [ "ReferenceLine", "structosi3_1_1ReferenceLine.html", "structosi3_1_1ReferenceLine" ],
       [ "RoadMarking", "structosi3_1_1RoadMarking.html", "structosi3_1_1RoadMarking" ],
+      [ "Route", "structosi3_1_1Route.html", "structosi3_1_1Route" ],
       [ "DetectedEntityHeader", "structosi3_1_1DetectedEntityHeader.html", "structosi3_1_1DetectedEntityHeader" ],
       [ "SensorData", "structosi3_1_1SensorData.html", "structosi3_1_1SensorData" ],
       [ "RadarSpecificObjectData", "structosi3_1_1RadarSpecificObjectData.html", "structosi3_1_1RadarSpecificObjectData" ],

@@ -20,5 +20,6 @@ var structosi3_1_1HostVehicleData =
     [ "vehicle_wheels", "structosi3_1_1HostVehicleData.html#ab51d5a2dfe159f4c86385207acb74521", null ],
     [ "vehicle_localization", "structosi3_1_1HostVehicleData.html#ac5bd08e8c364e0c962e78288b568c455", null ],
     [ "vehicle_automated_driving_function", "structosi3_1_1HostVehicleData.html#a02fd3acdf85d92c3cfe933d250a3c69b", null ],
-    [ "vehicle_motion", "structosi3_1_1HostVehicleData.html#a570b49d3bfa6aa4ad94a420bf55bd44e", null ]
+    [ "vehicle_motion", "structosi3_1_1HostVehicleData.html#a570b49d3bfa6aa4ad94a420bf55bd44e", null ],
+    [ "route", "structosi3_1_1HostVehicleData.html#addb8008c3aba614af63e7beb1440032a", null ]
 ];

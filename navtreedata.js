@@ -26,8 +26,8 @@ var NAVTREE =
 [
   [ "open_simulation_interface", "index.html", [
     [ "Open Simulation Interface (OSI)", "index.html", [
-      [ "Usage", "index.html#autotoc_md11", null ],
-      [ "Installation", "index.html#autotoc_md12", null ]
+      [ "Usage", "index.html#autotoc_md13", null ],
+      [ "Installation", "index.html#autotoc_md14", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
@@ -49,12 +49,12 @@ var NAVTREEINDEX =
 "annotated.html",
 "structosi3_1_1DetectedItemHeader.html",
 "structosi3_1_1GroundTruth.html#ad7f6468e1983b67adfbb4e0d3cf19b7b",
-"structosi3_1_1LidarSensorViewConfiguration.html#a712772005038f231b056111be45fc13c",
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a895d31955ea81f96e05983d41d4cc9d6",
-"structosi3_1_1SensorViewConfiguration.html#a77b0315e478c632f88e50c63b06030f4",
-"structosi3_1_1TrafficLight_1_1Classification.html#ae107846d88eaa3dab95d3d931d73fa09a692f8d8290015c4e515ca4eec9fb622d",
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dac0ecab2b762fcd142736fc0bd7fe02de",
-"structosi3_1_1UltrasonicSpecificObjectData.html#a74c14595948c2dd7dba6f2efcaea15ad"
+"structosi3_1_1LidarSensorViewConfiguration.html#a655eb060bed69dcfd3b268fee2733033",
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189af6451148d7da17a6ab3a57b82a458da2",
+"structosi3_1_1SensorView.html#afeac5b19e294a68c33facc72eef02453",
+"structosi3_1_1TrafficLight_1_1Classification.html#ade8af99e440cdd216d8294647d473114a156ba94538832869604397d257312f9e",
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab6810388be130797e9e5ed0350a7b664",
+"structosi3_1_1UltrasonicSensorViewConfiguration.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

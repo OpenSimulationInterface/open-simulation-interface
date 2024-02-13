@@ -1,45 +1,46 @@
 <map id="osi3::StreamingUpdate" name="osi3::StreamingUpdate">
-<area shape="rect" id="node1" title="The streaming update interface enables simulation entities to send partial updates to other modules t..." alt="" coords="1701,1355,1872,1381"/>
-<area shape="rect" id="node2" href="$structosi3_1_1EnvironmentalConditions.html" title="The conditions of the environment." alt="" coords="1257,295,1479,321"/>
-<area shape="rect" id="node3" title=" " alt="" coords="783,21,995,48"/>
-<area shape="rect" id="node4" href="$structosi3_1_1EnvironmentalConditions_1_1Wind.html" title="Defines wind properties." alt="" coords="779,353,1000,394"/>
-<area shape="rect" id="node5" title=" " alt="" coords="354,619,477,645"/>
-<area shape="rect" id="node10" href="$structosi3_1_1EnvironmentalConditions_1_1Sun.html" title="Properties of the sun." alt="" coords="763,511,1016,537"/>
-<area shape="rect" id="node24" href="$structosi3_1_1HostVehicleData_1_1VehicleBasics.html" title="Base parameters and overall states of the vehicle." alt="" coords="807,1069,972,1110"/>
-<area shape="rect" id="node27" href="$structosi3_1_1HostVehicleData_1_1VehicleMotion.html" title="Current calculated and estimated motion related information." alt="" coords="807,613,972,654"/>
-<area shape="rect" id="node29" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html" title="State description of the powertrain." alt="" coords="807,678,972,719"/>
-<area shape="rect" id="node31" href="$structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html" title="The focus here is on the description of the brake system." alt="" coords="807,1003,972,1045"/>
-<area shape="rect" id="node34" href="$structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light." alt="" coords="825,1673,953,1714"/>
-<area shape="rect" id="node39" href="$structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other)." alt="" coords="816,2426,963,2467"/>
-<area shape="rect" id="node6" href="$structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="801,1445,978,1472"/>
-<area shape="rect" id="node15" href="$structosi3_1_1TrafficSign.html" title="A traffic sign." alt="" coords="1306,1355,1430,1381"/>
-<area shape="rect" id="node32" href="$structosi3_1_1TrafficLight.html" title="A traffic light." alt="" coords="1304,1659,1432,1685"/>
-<area shape="rect" id="node35" href="$structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian,..." alt="" coords="1295,2276,1441,2303"/>
-<area shape="rect" id="node42" href="$structosi3_1_1StationaryObject.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g." alt="" coords="1285,1893,1451,1920"/>
-<area shape="rect" id="node7" title=" " alt="" coords="357,1408,473,1435"/>
-<area shape="rect" id="node16" href="$structosi3_1_1TrafficSign_1_1MainSign.html" title="Main sign of the traffic sign." alt="" coords="823,1379,955,1421"/>
-<area shape="rect" id="node19" href="$structosi3_1_1TrafficSign_1_1SupplementarySign.html" title="Additional supplementary sign modifying the main sign." alt="" coords="815,1314,964,1355"/>
-<area shape="rect" id="node25" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html" title="State of one automated driving function on the host vehicle." alt="" coords="764,1134,1015,1175"/>
-<area shape="rect" id="node8" title=" " alt="" coords="809,185,970,212"/>
-<area shape="rect" id="node9" title=" " alt="" coords="9,685,121,712"/>
-<area shape="rect" id="node20" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="350,787,481,813"/>
-<area shape="rect" id="node11" title=" " alt="" coords="838,236,941,263"/>
-<area shape="rect" id="node12" href="$structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html" title="The time of day at a specified location." alt="" coords="517,217,739,258"/>
-<area shape="rect" id="node13" title=" " alt="" coords="5,889,125,916"/>
-<area shape="rect" id="node21" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number." alt="" coords="808,1200,971,1227"/>
-<area shape="rect" id="node14" href="$structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html" title="Description of a cloud layer." alt="" coords="779,287,1000,329"/>
-<area shape="rect" id="node17" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity." alt="" coords="337,1636,493,1663"/>
-<area shape="rect" id="node18" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="358,2224,473,2251"/>
-<area shape="rect" id="node22" href="$structosi3_1_1HostVehicleData.html" title="Host vehicle data is about the perception of the vehicle about its own internal states." alt="" coords="1285,1011,1451,1037"/>
-<area shape="rect" id="node36" href="$structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other)." alt="" coords="807,2557,971,2598"/>
-<area shape="rect" id="node41" href="$structosi3_1_1MovingObject_1_1MovingObjectClassification.html" title="Information for the classification of moving objects regarding MovingObject (host or other)." alt="" coords="786,2491,993,2533"/>
-<area shape="rect" id="node43" href="$structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object." alt="" coords="806,2217,973,2258"/>
-<area shape="rect" id="node40" href="$structosi3_1_1StatePoint.html" title="The StatePoint definition." alt="" coords="827,2103,951,2129"/>
-<area shape="rect" id="node23" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving." alt="" coords="821,1621,958,1648"/>
-<area shape="rect" id="node26" href="$structosi3_1_1HostVehicleData_1_1VehicleSteering.html" title="The focus here is on the description of the steering train." alt="" coords="807,807,972,849"/>
-<area shape="rect" id="node28" href="$structosi3_1_1HostVehicleData_1_1VehicleLocalization.html" title="Current calculated and estimated location that can be based on GNSS and related navigation sensors." alt="" coords="807,873,972,914"/>
-<area shape="rect" id="node30" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels.html" title="The focus here is on the description of internal wheel states." alt="" coords="807,938,972,979"/>
-<area shape="rect" id="node33" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="807,1989,972,2016"/>
-<area shape="rect" id="node37" title=" " alt="" coords="361,2644,470,2671"/>
-<area shape="rect" id="node38" href="$structosi3_1_1MovingObject_1_1PedestrianAttributes.html" title="Additional pedestrian data in case the moving object is a human." alt="" coords="808,2361,971,2402"/>
+<area shape="rect" id="node1" title="The streaming update interface enables simulation entities to send partial updates to other modules t..." alt="" coords="1701,1101,1872,1128"/>
+<area shape="rect" id="node2" href="$structosi3_1_1EnvironmentalConditions.html" title="The conditions of the environment." alt="" coords="1257,2417,1479,2444"/>
+<area shape="rect" id="node3" title=" " alt="" coords="783,2468,995,2495"/>
+<area shape="rect" id="node4" href="$structosi3_1_1EnvironmentalConditions_1_1Wind.html" title="Defines wind properties." alt="" coords="779,2301,1000,2342"/>
+<area shape="rect" id="node5" title=" " alt="" coords="354,1976,477,2003"/>
+<area shape="rect" id="node10" href="$structosi3_1_1EnvironmentalConditions_1_1Sun.html" title="Properties of the sun." alt="" coords="763,2367,1016,2393"/>
+<area shape="rect" id="node24" href="$structosi3_1_1HostVehicleData_1_1VehicleBasics.html" title="Base parameters and overall states of the vehicle." alt="" coords="807,1898,972,1939"/>
+<area shape="rect" id="node27" href="$structosi3_1_1HostVehicleData_1_1VehicleMotion.html" title="Current calculated and estimated motion related information." alt="" coords="807,1963,972,2005"/>
+<area shape="rect" id="node29" href="$structosi3_1_1HostVehicleData_1_1VehiclePowertrain.html" title="State description of the powertrain." alt="" coords="807,2029,972,2070"/>
+<area shape="rect" id="node32" href="$structosi3_1_1HostVehicleData_1_1VehicleBrakeSystem.html" title="The focus here is on the description of the brake system." alt="" coords="807,1833,972,1874"/>
+<area shape="rect" id="node35" href="$structosi3_1_1TrafficLight_1_1Classification.html" title="Classification data for a traffic light." alt="" coords="825,591,953,633"/>
+<area shape="rect" id="node40" href="$structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other)." alt="" coords="816,1418,963,1459"/>
+<area shape="rect" id="node6" href="$structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="801,477,978,504"/>
+<area shape="rect" id="node15" href="$structosi3_1_1TrafficSign.html" title="A traffic sign." alt="" coords="1306,179,1430,205"/>
+<area shape="rect" id="node33" href="$structosi3_1_1TrafficLight.html" title="A traffic light." alt="" coords="1304,383,1432,409"/>
+<area shape="rect" id="node36" href="$structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian,..." alt="" coords="1295,1101,1441,1128"/>
+<area shape="rect" id="node43" href="$structosi3_1_1StationaryObject.html" title="A simulated object that is neither a moving object (vehicle or MovingObject e.g." alt="" coords="1285,605,1451,632"/>
+<area shape="rect" id="node7" title=" " alt="" coords="357,477,473,504"/>
+<area shape="rect" id="node16" href="$structosi3_1_1TrafficSign_1_1MainSign.html" title="Main sign of the traffic sign." alt="" coords="823,98,955,139"/>
+<area shape="rect" id="node19" href="$structosi3_1_1TrafficSign_1_1SupplementarySign.html" title="Additional supplementary sign modifying the main sign." alt="" coords="815,33,964,74"/>
+<area shape="rect" id="node25" href="$structosi3_1_1HostVehicleData_1_1VehicleAutomatedDrivingFunction.html" title="State of one automated driving function on the host vehicle." alt="" coords="764,1289,1015,1330"/>
+<area shape="rect" id="node8" title=" " alt="" coords="809,2585,970,2612"/>
+<area shape="rect" id="node9" title=" " alt="" coords="9,2409,121,2436"/>
+<area shape="rect" id="node20" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="350,2296,481,2323"/>
+<area shape="rect" id="node11" title=" " alt="" coords="838,2417,941,2444"/>
+<area shape="rect" id="node12" href="$structosi3_1_1EnvironmentalConditions_1_1TimeOfDay.html" title="The time of day at a specified location." alt="" coords="517,2559,739,2601"/>
+<area shape="rect" id="node13" title=" " alt="" coords="5,2183,125,2209"/>
+<area shape="rect" id="node21" href="$structosi3_1_1InterfaceVersion.html" title="The interface version number." alt="" coords="808,2095,971,2121"/>
+<area shape="rect" id="node14" href="$structosi3_1_1EnvironmentalConditions_1_1CloudLayer.html" title="Description of a cloud layer." alt="" coords="779,2519,1000,2561"/>
+<area shape="rect" id="node17" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity." alt="" coords="337,99,493,125"/>
+<area shape="rect" id="node18" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="358,917,473,944"/>
+<area shape="rect" id="node22" href="$structosi3_1_1HostVehicleData.html" title="Host vehicle data is about the perception of the vehicle about its own internal states." alt="" coords="1285,1741,1451,1768"/>
+<area shape="rect" id="node30" href="$structosi3_1_1Route.html" title="A route in the road network." alt="" coords="842,1535,937,1561"/>
+<area shape="rect" id="node37" href="$structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other)." alt="" coords="807,1094,971,1135"/>
+<area shape="rect" id="node42" href="$structosi3_1_1MovingObject_1_1MovingObjectClassification.html" title="Information for the classification of moving objects regarding MovingObject (host or other)." alt="" coords="786,1029,993,1070"/>
+<area shape="rect" id="node44" href="$structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object." alt="" coords="806,834,973,875"/>
+<area shape="rect" id="node41" href="$structosi3_1_1StatePoint.html" title="The StatePoint definition." alt="" coords="827,1585,951,1612"/>
+<area shape="rect" id="node23" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving." alt="" coords="821,1484,958,1511"/>
+<area shape="rect" id="node26" href="$structosi3_1_1HostVehicleData_1_1VehicleSteering.html" title="The focus here is on the description of the steering train." alt="" coords="807,1637,972,1678"/>
+<area shape="rect" id="node28" href="$structosi3_1_1HostVehicleData_1_1VehicleLocalization.html" title="Current calculated and estimated location that can be based on GNSS and related navigation sensors." alt="" coords="807,1702,972,1743"/>
+<area shape="rect" id="node31" href="$structosi3_1_1HostVehicleData_1_1VehicleWheels.html" title="The focus here is on the description of internal wheel states." alt="" coords="807,1767,972,1809"/>
+<area shape="rect" id="node34" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="807,720,972,747"/>
+<area shape="rect" id="node38" title=" " alt="" coords="361,1181,470,1208"/>
+<area shape="rect" id="node39" href="$structosi3_1_1MovingObject_1_1PedestrianAttributes.html" title="Additional pedestrian data in case the moving object is a human." alt="" coords="808,1223,971,1265"/>
 </map>
