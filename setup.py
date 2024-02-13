@@ -73,6 +73,7 @@ class GenerateProtobufCommand(build_py):
         "osi_occupant.proto",
         "osi_referenceline.proto",
         "osi_roadmarking.proto",
+        "osi_route.proto",
         "osi_sensordata.proto",
         "osi_sensorspecific.proto",
         "osi_sensorview.proto",
