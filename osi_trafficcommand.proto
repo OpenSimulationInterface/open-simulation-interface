@@ -43,7 +43,7 @@ message TrafficCommand
     //
     // \note If more than one action is supplied in one command message
     // all actions are executed in parallel.
-    //
+    //   
     repeated TrafficAction action = 4;
 }
 

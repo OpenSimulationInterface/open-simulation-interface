@@ -30,6 +30,8 @@ message StreamingUpdate
 {
     // The interface version used by the sender.
     //
+    // \note Changeability: Static value
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp where the information of contained objects is calculated. 
@@ -38,26 +40,38 @@ message StreamingUpdate
     // Zero time does not need to coincide with the UNIX epoch. 
     // Recommended is the starting time point of the simulation.
     //
+    // \note Changeability: Dynamic value
+    //
     optional Timestamp timestamp = 2;
 
     // The list of stationary objects (excluding traffic signs and traffic
     // lights).
     //
+    // \note Changeability: Dynamic value
+    //
     repeated StationaryObject stationary_object_update = 3;
 
     // The list of moving objects. 
+    //
+    // \note Changeability: Dynamic value
     //
     repeated MovingObject moving_object_update = 4;
 
     // The list of traffic signs.
     //
+    // \note Changeability: Dynamic value
+    //
     repeated TrafficSign traffic_sign_update = 5;
 
     // The list of traffic lights.
     //
+    // \note Changeability: Dynamic value
+    //
     repeated TrafficLight traffic_light_update = 6;
 
     // Conditions of the environment.
+    //
+    // \note Changeability: Dynamic value
     //
     optional EnvironmentalConditions environmental_conditions_update = 7;
 
@@ -69,12 +83,16 @@ message StreamingUpdate
     //
     // The ID inside this message allows an association to moving object data.
     //
+    // \note Changeability: Dynamic value
+    //
     repeated HostVehicleData host_vehicle_data_update = 8;
 
     // Entities that will no longer be updated, because they are considered
     // obsolete by the sender.
     //
     // \note IDs are globally unique.
+    //
+    // \note Changeability: Dynamic value
     //
     repeated Identifier obsolete_id = 9;
 }
