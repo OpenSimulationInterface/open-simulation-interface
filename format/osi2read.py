@@ -1,9 +1,8 @@
 """
-This program converts serialized txt/osi trace files into a human readable txth file. 
+This program converts serialized osi trace files into a human readable txth file. 
 
 Example usage:
     python3 osi2read.py -d trace.osi -o myreadableosifile
-    python3 osi2read.py -d trace.txt -f separated -o myreadableosifile
 """
 
 from OSITrace import OSITrace
@@ -19,7 +18,7 @@ def command_line_arguments():
     dir_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
     parser = argparse.ArgumentParser(
-        description="Convert a serialized osi/txt trace file to a readable txth output.",
+        description="Convert a serialized osi trace file to a readable txth output.",
         prog="osi2read converter",
     )
     parser.add_argument(
