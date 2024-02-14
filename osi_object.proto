@@ -48,7 +48,7 @@ message StationaryObject
     //
     // For example, to reference an object defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = "object" for t_road_objects_object and
@@ -690,7 +690,7 @@ message MovingObject
             //
             optional string model_reference = 9;
 
-            // The value describes the kinetic friction of the tyre's contact point.
+            // The value describes the kinetic friction of the tire's contact point.
             // If different friction coefficients due to more than one contact points are available,
             // this value contains the average.
             //
@@ -746,14 +746,14 @@ message MovingObject
         // other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel).
         // This is primarily for historical reasons.  Where a single type from a
         // different standard can map to multiple OSI types it is left up to the
-        // discretion of the OSI implementor how that mapping is achieved.  For example,
+        // discretion of the OSI implementer how that mapping is achieved.  For example,
         // a simulator may use the dimensions of a provided 3d model of a vehicle with type
         // "car" in OpenScenario, to determine whether it should be a TYPE_SMALL_CAR or
         // TYPE_MEDIUM_CAR in OSI.
         //
         // \note Vehicle type classification is a complex area and there are no
         // universally recognized standards.  As such, the boundaries between some of the
-        // OSI vehicle types are not well-defined.  It is left to the implementor to
+        // OSI vehicle types are not well-defined.  It is left to the implementer to
         // decide how to distinguish between them and agree that with any applications which
         // make use of that specific interface instance.  For example, how to distinguish
         // between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER.
@@ -853,7 +853,7 @@ message MovingObject
             //
             TYPE_WHEELCHAIR = 15;
 
-            // Vehicle is a stand-up or kickboard scooter, including
+            // Vehicle is a stand-up scooter, including
             // motorized versions.
             //
             TYPE_STANDUP_SCOOTER = 17;

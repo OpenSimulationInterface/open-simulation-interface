@@ -189,7 +189,7 @@ message Lane
 
         // Indicates that the host vehicle travels on this particular lane.
         // The host vehicle may travel on more than one lane at once. This does
-        // also apply for the \c CanditateLane in the \c DetectedLane .
+        // also apply for the \c CandidateLane in the \c DetectedLane .
         //
         optional bool is_host_vehicle_lane = 2;
 

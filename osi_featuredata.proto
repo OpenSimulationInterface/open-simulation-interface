@@ -222,7 +222,7 @@ message SensorDetectionHeader
         //
         EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE = 9;
 
-        // Internal reason (e.g. an internal HW or SW error has occurred).
+        // Internal reason (e.g. an internal hardware or software error has occurred).
         //
         EXTENDED_QUALIFIER_INTERNAL_REASON = 10;
 
@@ -459,7 +459,7 @@ message LidarDetection
     // \endrules
     //
     // \par Reference:
-    // [1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automot. Engine Technol. 5, Fig 7, Fig 8. Retrieved May 10, 2021, from https://doi.org/10.1007/s41104-020-00066-x
+    // [1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automotive Engine Technology 5, Fig 7, Fig 8. Retrieved May 10, 2021, from https://doi.org/10.1007/s41104-020-00066-x
     //
     optional double echo_pulse_width = 11;
 
@@ -509,7 +509,7 @@ message UltrasonicDetectionSpecificHeader
 //
 // \image html OSI_USSensor.svg
 //
-// \note Direct detections lie on circles with the sending sensor as centre.
+// \note Direct detections lie on circles with the sending sensor as center.
 //
 message UltrasonicDetectionData
 {
@@ -544,7 +544,7 @@ message UltrasonicDetectionData
 //
 // \image html OSI_USSensor_direct.svg
 //
-// \note Direct detections lie on circles with the sensor as centre.
+// \note Direct detections lie on circles with the sensor as center.
 //
 message UltrasonicDetection
 {

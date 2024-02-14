@@ -590,7 +590,7 @@ message LogicalLane
     //
     // Definition of available lane types.
     //
-    // This is mostly aligned with OpenDRIVE, except that lane types modelling
+    // This is mostly aligned with OpenDRIVE, except that lane types modeling
     // access restrictions (e.g. "taxi") are not made available here. These are
     // already deprecated in OpenDRIVE.  To support this, access restrictions
     // should be added later, in alignment with OpenDRIVE.

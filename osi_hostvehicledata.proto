@@ -568,7 +568,7 @@ message HostVehicleData
             //
             STATE_OTHER = 1;
 
-            // The function has errored in some way that renders it ineffective.
+            // The function has thrown an error in some way that renders it ineffective.
             //
             STATE_ERRORED = 2;
 

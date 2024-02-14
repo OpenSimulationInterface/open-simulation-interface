@@ -204,7 +204,7 @@ message Orientation3d
 //
 message Identifier
 {
-    // The identifier's value.
+    // The value of the identifier.
     //
     // \rules
     // is_greater_than_or_equal_to: 0

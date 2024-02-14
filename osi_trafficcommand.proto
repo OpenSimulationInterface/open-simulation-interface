@@ -77,7 +77,7 @@ message TrafficCommand
 // model that certain actions must or shall be terminated, there are 
 // explicit actions nested inside this message (AbortActionsAction, 
 // EndActionsAction), which hold a reference to the respective actions.
-// Futhermore, there exists a \c TrafficCommandUpdate message for the 
+// Furthermore, there exists a \c TrafficCommandUpdate message for the 
 // traffic participant to report back on potentially dismissed actions. 
 //
 message TrafficAction
@@ -524,7 +524,7 @@ message TrafficAction
     // relative to a target traffic participant. The longitudinal distance is defined as the distance
     // along the centerline of the lane, on which the (host) traffic participant is currently located. 
     // The interpolation strategy between centerline points for calculating 
-    // that distance along the centerline is open to the traffic participant modeller.  
+    // that distance along the centerline is open to the traffic participant modeler.  
     //
     // \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
     // defining the reference traffic participant and the distance.
@@ -577,7 +577,7 @@ message TrafficAction
     // a target traffic participant. The lateral distance is defined along an imaginative perpendicular line
     // with respect to the centerline of the current (host) traffic participant's lane. 
     // The interpolation strategy between centerline points for calculating that distance along the imaginative 
-    // perpendicular line is open to the traffic participant modeller.  
+    // perpendicular line is open to the traffic participant modeler.  
     //
     // \note This action is aligned with LateralDistanceAction of OpenSCENARIO 1.0
     // defining the reference traffic participant and the distance.
