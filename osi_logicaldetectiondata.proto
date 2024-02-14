@@ -19,6 +19,10 @@ message LogicalDetectionData
     // The interface version used by the sender (i.e. the simulation
     // environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // Header attributes of fused detections from multiple sensors and sensor types.

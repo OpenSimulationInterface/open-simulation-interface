@@ -47,6 +47,10 @@ message GroundTruth
     // The interface version used by the sender (i.e. the simulation
     // environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. The zero time point is
@@ -59,6 +63,10 @@ message GroundTruth
     // notional simulation time the data applies to and the time it was sent
     // (there is no inherent latency for ground truth data, as opposed to
     // sensor data).
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Timestamp timestamp = 2;
 

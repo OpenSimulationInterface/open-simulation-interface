@@ -102,6 +102,10 @@ message SensorData
 {
     // The interface version used by the sender.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The timestamp of the sensor data. Zero time is arbitrary but must be
@@ -129,6 +133,10 @@ message SensorData
     // a dumb sensor with no internal time concept), the two timestamps might
     // also be identical, but delayed from the \c GroundTruth timestamp.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The sensors estimated location of the host vehicle
@@ -137,6 +145,10 @@ message SensorData
     // provide an own estimation of the host vehicle location.
     // \note Note that dimension and base_polygon need not be set.
     // \note The parent frame of \c host_vehicle_location is the sensor frame.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional BaseMoving host_vehicle_location = 3;
 
@@ -155,6 +167,10 @@ message SensorData
     // This is the ID of the virtual sensor, to be used in its detected
     // object output; it is distinct from the IDs of its physical detectors,
     // which are used in the detected features.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 5;
 
@@ -185,6 +201,10 @@ message SensorData
     // the vehicle's coordinate system is equal to the orientation of the
     // vehicle's bounding box \c MovingObject::base . \c
     // BaseMoving::orientation.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional MountingPosition mounting_position = 6;
 

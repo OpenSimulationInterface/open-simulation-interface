@@ -27,6 +27,10 @@ message TrafficUpdate
 {
     // The interface version used by the sender (traffic participant model).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
@@ -38,6 +42,10 @@ message TrafficUpdate
     // the notional simulation time the data applies to and the time it was sent.
     // There is no inherent latency for moving object update data, as opposed
     // to sensor data.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Timestamp timestamp = 2;
 

@@ -25,10 +25,18 @@ message MotionRequest
 {
     // The interface version used by the sender (simulation environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment.
     // A reference to \c Timestamp message.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Timestamp timestamp = 2;
 

@@ -17,6 +17,10 @@ message DetectedItemHeader
     // Specific ID of the detected item as assigned by the sensor internally.
     // Needs not to match with \c #ground_truth_id.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Identifier tracking_id = 1;
 
     // The ID of the original detected item in the ground truth.

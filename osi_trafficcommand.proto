@@ -21,6 +21,10 @@ message TrafficCommand
 {
     // The interface version used by the sender (scenario engine).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
@@ -33,9 +37,17 @@ message TrafficCommand
     // There is no inherent latency for traffic command data, as opposed
     // to sensor data.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The ID of this traffic participant.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier traffic_participant_id = 3;
 

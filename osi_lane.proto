@@ -42,6 +42,7 @@ message Lane
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
