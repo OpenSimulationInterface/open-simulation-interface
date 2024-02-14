@@ -76,6 +76,7 @@ message GroundTruth
     //
     // \rules
     // refers_to: MovingObject
+    // is_set
     // \endrules
     //
     optional Identifier host_vehicle_id = 3;

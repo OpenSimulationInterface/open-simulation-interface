@@ -146,10 +146,6 @@ message SensorData
     // \note Note that dimension and base_polygon need not be set.
     // \note The parent frame of \c host_vehicle_location is the sensor frame.
     //
-    // \rules
-    // is_set
-    // \endrules
-    //
     optional BaseMoving host_vehicle_location = 3;
 
     // The sensors estimated location error of the host vehicle
