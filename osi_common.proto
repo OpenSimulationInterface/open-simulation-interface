@@ -437,7 +437,7 @@ message BoundingBox
     // 3d models. This means the coordinate system, model origin, and model
     // orientation are also implementation-specific.
     //
-    optional string model_reference = 6;
+    optional string model_reference = 5;
 
     // Definition of different types of object contained within the bounding box
     //
