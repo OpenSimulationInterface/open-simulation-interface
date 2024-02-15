@@ -471,7 +471,7 @@ message BoundingBox
         //
         TYPE_CARGO = 5;
 
-        // An overhanging, integral part of on object, which is not 
+        // An overhanging, integral part of an object, which is not 
         // temporarily attached, e.g. a tree crown, or a light pole arm.
         //
         TYPE_PROTRUDING = 6;
