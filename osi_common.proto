@@ -431,13 +431,6 @@ message BoundingBox
     //
     optional Type contained_object_type = 4;
 
-    // Another type of object contained in the bounding box
-    // 
-    // This field shall only be used if \c contained_object_type is TYPE_OTHER
-    // and the object type is not defined withing \c contained_object_type.
-    //
-    optional string other_object_type = 5;
-
     // Opaque reference of an associated 3D model of the bounding box.
     //
     // \note It is implementation-specific how model_references are resolved to
@@ -448,9 +441,6 @@ message BoundingBox
 
     // Definition of different types of object contained within the bounding box
     //
-    // \note This enum field is mainly a placeholder to be extended in the future.
-    // feel free to suggest type definitions for future releases.
-    //
     enum Type
     {
         // Object of unknown type (must not be used in ground truth).
@@ -460,6 +450,31 @@ message BoundingBox
         // Any other type of object.
         //
         TYPE_OTHER = 1;
+
+        // The main structure of an object, e.g. a chassis of a vehicle, 
+        // or the central structure of a building, a tree trunk, etc.
+        //
+        TYPE_BASE_STRUCTURE = 2;
+
+        // The door of an object.
+        //
+        TYPE_DOOR = 3;
+
+        // The side mirror of a vehicle.
+        //
+        // \note The side mirror is not included in the overall bounding box
+        // of the parent object.
+        //
+        TYPE_SIDE_MIRROR = 4;
+
+        // Additional, temporarily attached cargo to an object.
+        //
+        TYPE_CARGO = 5;
+
+        // An overhanging, integral part of on object, which is not temporarily attached. 
+        // e.g. a tree crown, or a light pole arm.
+        //
+        TYPE_PROTRUDING = 6;
     }
 }
 
