@@ -633,7 +633,7 @@ message WavelengthData
 // \brief Definition of a spatial signal strength distribution
 // for an emitting / transmitting / receiving entity
 // with a horizontal and a vertical angle
-// and the corresponding signal strength in dBm (decibels per milliwatt).
+// and the corresponding signal strength in dBm.
 //
 message SpatialSignalStrength
 {
@@ -651,17 +651,18 @@ message SpatialSignalStrength
     //
     optional double vertical_angle = 2;
 
-    // Emitted / transmitted /received signal strength
-    // of the emitting / transmitting / receiving entity
+    // Emitted / transmitted / received signal strength
+    // of the respective entity
     // at the previously defined horizontal and
     // vertical angle for one specific wavelength.
     // The value for the signal strength
-    // is given in dBm (decibels per milliwatt).
+    // is given in dBm.
     //
     // Unit: dBm
     //
     optional double signal_strength = 3;
 }
+
 
 //
 // \brief The description of a color within available color spaces.
@@ -951,4 +952,38 @@ message KeyValuePair
     // A generic string value.
     //
     optional string value = 2;
+}
+
+//
+// \brief Definition of a spatial signal gain distribution
+// for an emitting / transmitting / receiving entity
+// with a horizontal and a vertical angle
+// and the corresponding signal gain in dB.
+//
+message SpatialSignalGain
+{
+    // Horizontal angle (azimuth) of emission / transmission / reception
+    // in the entity's coordinate system.
+    //
+    // Unit: rad
+    //
+    optional double horizontal_angle = 1;
+
+    // Vertical angle (elevation) of emission / transmission / reception
+    // in the entity's coordinate system.
+    //
+    // Unit: rad
+    //
+    optional double vertical_angle = 2;
+
+    // Emitted / transmitted / received signal gain
+    // of the respective entity
+    // at the previously defined horizontal and
+    // vertical angle for one specific wavelength.
+    // The value for the signal gain
+    // is given in dB.
+    //
+    // Unit: dB
+    //
+    optional double signal_gain = 3;
 }
