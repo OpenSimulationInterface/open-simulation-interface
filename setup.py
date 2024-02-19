@@ -126,8 +126,8 @@ setup(
     author_email="Carlo.van-Driesten@bmw.de, Timo.Hanke@bmw.de,"
     "Nils.Hirsenkorn@tum.de, Pilar.Garcia-Ramos@bmw.de,"
     "Mark.Schiementz@bmw.de, Sebastian.SB.Schneider@bmw.de",
-    packages=[package_name],
-    install_requires=["protobuf"],
+    packages=[package_name, "format"],
+    install_requires=["protobuf", "tqdm"],
     cmdclass={
         "build_py": GenerateProtobufCommand,
     },

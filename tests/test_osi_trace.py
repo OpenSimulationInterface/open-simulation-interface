@@ -17,7 +17,7 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace()
             trace.from_file(path=path_input)
             trace.make_readable(path_output, index=1)
-            trace.scenario_file.close()
+            trace.trace_file.close()
 
             self.assertTrue(os.path.exists(path_output))
 

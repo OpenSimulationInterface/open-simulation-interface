@@ -1,5 +1,7 @@
+# Copyright 2019 -- 2024 BMW AG
+# SPDX-License-Identifier: MPL-2.0
 """
-This program converts serialized txt/osi trace files into a human readable txth file. 
+This program converts serialized txt/osi trace files into a human-readable txth file.
 
 Example usage:
     python3 osi2read.py -d trace.osi -o myreadableosifile
@@ -7,8 +9,6 @@ Example usage:
 """
 
 from OSITrace import OSITrace
-import struct
-import lzma
 import argparse
 import os
 
@@ -69,7 +69,7 @@ def main():
         args.output = args.data.split(".", 1)[0] + ".txth"
 
     trace.make_readable(args.output)
-    trace.scenario_file.close()
+    trace.trace_file.close()
 
 
 if __name__ == "__main__":

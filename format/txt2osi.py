@@ -1,3 +1,5 @@
+# Copyright 2019 -- 2024 BMW AG
+# SPDX-License-Identifier: MPL-2.0
 """
 This program converts txt trace files separated with $$__$$ to OSI trace files which are defined by the length of each OSI message. 
 
@@ -81,7 +83,7 @@ def main():
         f.write(struct.pack("<L", len(byte_buffer)) + byte_buffer)
 
     f.close()
-    trace.scenario_file.close()
+    trace.trace_file.close()
 
 
 if __name__ == "__main__":
