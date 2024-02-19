@@ -54,7 +54,6 @@ class OSITrace:
             self.scenario_file = open(path, "rb")
 
         self.type_name = type_name
-        self.format_type = format_type
         self.timestep_count = self.retrieve_message()
 
     def retrieve_message(self):
