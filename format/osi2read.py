@@ -41,15 +41,6 @@ def command_line_arguments():
         type=str,
         required=False,
     )
-    parser.add_argument(
-        "--format",
-        "-f",
-        help="Set the format type of the trace.",
-        choices=["separated", None],
-        default=None,
-        type=str,
-        required=False,
-    )
 
     return parser.parse_args()
 
