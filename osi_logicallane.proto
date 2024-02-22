@@ -830,12 +830,12 @@ message LogicalLane
 
     //
     // Describes traffic rules on a lane. 
-    // The traffic rule can thereby induced by regulations, traffic signs 
+    // The traffic rule can thereby be induced by regulations, traffic signs 
     // or by other means. If the modeled traffic rule is induced by a traffic sign
     // the information should be identical with the respective traffic sign.
     //
     // Note: Every instance should be corresponding to only one specific rule.
-    // The type of the traffic rule should be set using the respective filed.
+    // The type of the traffic rule should be set using the respective field.
     // Additionally, every message should contain the traffic rule validity information
     // and the respective field for the respective traffic rule type.
     // In case of traffic rule (priority) conflicts for rules of the same type that 
