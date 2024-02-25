@@ -1089,3 +1089,15 @@ message KeyValuePair
     //
     optional string value = 2;
 }
+
+//
+// \brief Polygon in 3 dimensions
+//
+// A polygon in 3 dimensions which contains a list of vertices.
+//
+message Polygon3d
+{
+    // A list of vertices
+    //
+    repeated Vector3d vertex = 1;
+}
