@@ -51,7 +51,7 @@ def main():
 
     # Initialize the OSI trace class
     trace = OSITrace()
-    trace.from_file(path=args.data, type_name=args.type, format_type=args.format)
+    trace.from_file(path=args.data, type_name=args.type)
 
     args.output = args.output.split(".", 1)[0] + ".txth"
 
