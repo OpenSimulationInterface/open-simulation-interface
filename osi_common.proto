@@ -673,7 +673,7 @@ message SpatialSignalStrength
 //
 message ColorDescription
 {
-    // Greyscale color model
+    // Grayscale color model
     //
     optional ColorGrey grey = 1;
 
@@ -699,13 +699,13 @@ message ColorDescription
 }
 
 //
-// \brief Greyscale color model
+// \brief Grayscale color model
 //
-// ColorGrey defines a greyscale.
+// ColorGrey defines a grayscale.
 //
 message ColorGrey
 {
-    // Definition of a greyscale
+    // Definition of a grayscale
     //
     // Range: [0,1]
     //
