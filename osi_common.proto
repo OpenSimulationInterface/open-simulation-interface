@@ -458,8 +458,8 @@ message BoundingBox
 
         // A protruding, integral part of an object, which is not 
         // temporarily attached, e.g. a tree crown, a light pole arm, or a 
-		// parking house gate. The protruding structure is meant to be an 
-		// additional part to a base structure.
+        // parking house gate. The protruding structure is meant to be an 
+        // additional part to a base structure.
         //
         TYPE_PROTRUDING_STRUCTURE = 3;
 
