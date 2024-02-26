@@ -16,4 +16,9 @@ The length does not include the integer itself.
 *.txth::
 Human-readable plain-text trace file.
 Messages are separated by newlines.
+
+NOTE: Previous releases of OSI also supported a so-called plain-text trace file format, with file extension `.txt`.
+This legacy format did not contain plain-text, but rather binary protobuf messages separated by a special separator.
+For obvious reasons the format was deprecated and fully replaced with the `.osi` binary file format.
+This release no longer contains any support for the legacy `.txt` file format.
 These files may be used for manual checks.
