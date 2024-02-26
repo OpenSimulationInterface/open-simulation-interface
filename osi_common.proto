@@ -456,25 +456,25 @@ message BoundingBox
         //
         TYPE_BASE_STRUCTURE = 2;
 
+        // An overhanging, integral part of an object, which is not 
+        // temporarily attached, e.g. a tree crown, or a light pole arm.
+        //
+        TYPE_PROTRUDING_STRUCTURE = 3;
+
+        // Additional, temporarily attached cargo to an object.
+        //
+        TYPE_CARGO = 4;
+
         // The door of an object.
         //
-        TYPE_DOOR = 3;
+        TYPE_DOOR = 5;
 
         // The side mirror of a vehicle.
         //
         // \note The side mirror is not included in the overall bounding box
         // of the parent object.
         //
-        TYPE_SIDE_MIRROR = 4;
-
-        // Additional, temporarily attached cargo to an object.
-        //
-        TYPE_CARGO = 5;
-
-        // An overhanging, integral part of an object, which is not 
-        // temporarily attached, e.g. a tree crown, or a light pole arm.
-        //
-        TYPE_PROTRUDING = 6;
+        TYPE_SIDE_MIRROR = 6;
     }
 }
 
