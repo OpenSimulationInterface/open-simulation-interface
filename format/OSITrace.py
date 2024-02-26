@@ -13,8 +13,6 @@ import warnings
 
 warnings.simplefilter("default")
 
-SEPARATOR = b"$$__$$"
-SEPARATOR_LENGTH = len(SEPARATOR)
 BUFFER_SIZE = 1000000
 
 
@@ -47,7 +45,7 @@ class OSITrace:
         self.retrieved_scenario_size = 0
         self._int_length = len(struct.pack("<L", 0))
 
-    def from_file(self, path, type_name="SensorView", max_index=-1, format_type=None):
+    def from_file(self, path, type_name="SensorView", max_index=-1):
         """Import a scenario from a file"""
 
         if path.lower().endswith((".lzma", ".xz")):
@@ -56,69 +54,7 @@ class OSITrace:
             self.scenario_file = open(path, "rb")
 
         self.type_name = type_name
-        self.format_type = format_type
-
-        if self.format_type == "separated":
-            # warnings.warn("The separated trace files will be completely removed in the near future. Please convert them to *.osi files with the converter in the main OSI repository.", PendingDeprecationWarning)
-            self.timestep_count = self.retrieve_message_offsets(max_index)
-        else:
-            self.timestep_count = self.retrieve_message()
-
-    def retrieve_message_offsets(self, max_index):
-        """
-        Retrieve the offsets of all the messages of the scenario and store them
-        in the `message_offsets` attribute of the object
-
-        It returns the number of discovered timesteps
-        """
-        scenario_size = get_size_from_file_stream(self.scenario_file)
-
-        if max_index == -1:
-            max_index = float("inf")
-
-        buffer_deque = deque(maxlen=2)
-
-        self.message_offsets = [0]
-        eof = False
-
-        self.scenario_file.seek(0)
-
-        while not eof and len(self.message_offsets) <= max_index:
-            found = -1  # SEP offset in buffer
-            buffer_deque.clear()
-
-            while found == -1 and not eof:
-                new_read = self.scenario_file.read(BUFFER_SIZE)
-                buffer_deque.append(new_read)
-                buffer = b"".join(buffer_deque)
-                found = buffer.find(SEPARATOR)
-                eof = len(new_read) != BUFFER_SIZE
-
-            buffer_offset = self.scenario_file.tell() - len(buffer)
-            message_offset = found + buffer_offset + SEPARATOR_LENGTH
-            self.message_offsets.append(message_offset)
-
-            self.scenario_file.seek(message_offset)
-
-            while eof and found != -1:
-                buffer = buffer[found + SEPARATOR_LENGTH :]
-                found = buffer.find(SEPARATOR)
-
-                buffer_offset = scenario_size - len(buffer)
-
-                message_offset = found + buffer_offset + SEPARATOR_LENGTH
-
-                if message_offset >= scenario_size:
-                    break
-                self.message_offsets.append(message_offset)
-
-        if eof:
-            self.retrieved_scenario_size = scenario_size
-        else:
-            self.retrieved_scenario_size = self.message_offsets[-1]
-            self.message_offsets.pop()
-
-        return len(self.message_offsets)
+        self.timestep_count = self.retrieve_message()
 
     def retrieve_message(self):
         scenario_size = get_size_from_file_stream(self.scenario_file)
@@ -180,42 +116,21 @@ class OSITrace:
             for abs_message_offset in self.message_offsets[begin:end]
         ]
 
-        if self.format_type == "separated":
-            message_sequence_len = abs_last_offset - abs_first_offset - SEPARATOR_LENGTH
-            serialized_messages_extract = self.scenario_file.read(message_sequence_len)
+        message_sequence_len = abs_last_offset - abs_first_offset
+        serialized_messages_extract = self.scenario_file.read(message_sequence_len)
 
-            for rel_index, rel_message_offset in enumerate(rel_message_offsets):
-                rel_begin = rel_message_offset
-                rel_end = (
-                    rel_message_offsets[rel_index + 1] - SEPARATOR_LENGTH
-                    if rel_index + 1 < len(rel_message_offsets)
-                    else message_sequence_len
-                )
-                message = MESSAGES_TYPE[self.type_name]()
-                serialized_message = serialized_messages_extract[rel_begin:rel_end]
-                message.ParseFromString(serialized_message)
-                yield message
+        for rel_index, rel_message_offset in enumerate(rel_message_offsets):
+            rel_begin = rel_message_offset + self._int_length
+            rel_end = (
+                rel_message_offsets[rel_index + 1]
+                if rel_index + 1 < len(rel_message_offsets)
+                else message_sequence_len
+            )
 
-        elif self.format_type is None:
-            message_sequence_len = abs_last_offset - abs_first_offset
-            serialized_messages_extract = self.scenario_file.read(message_sequence_len)
-
-            for rel_index, rel_message_offset in enumerate(rel_message_offsets):
-                rel_begin = rel_message_offset + self._int_length
-                rel_end = (
-                    rel_message_offsets[rel_index + 1]
-                    if rel_index + 1 < len(rel_message_offsets)
-                    else message_sequence_len
-                )
-
-                message = MESSAGES_TYPE[self.type_name]()
-                serialized_message = serialized_messages_extract[rel_begin:rel_end]
-                message.ParseFromString(serialized_message)
-                yield message
-
-        else:
-            self.scenario_file.close()
-            raise Exception(f"The defined format {self.format_type} does not exist.")
+            message = MESSAGES_TYPE[self.type_name]()
+            serialized_message = serialized_messages_extract[rel_begin:rel_end]
+            message.ParseFromString(serialized_message)
+            yield message
 
     def make_readable(self, name, interval=None, index=None):
         self.scenario_file.seek(0)
