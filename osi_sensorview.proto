@@ -301,7 +301,7 @@ message LidarSensorView
 
         // normal to surface angle.
         //
-        // The normal of the transmitted beam to the object, road marking etc
+        // The normal of the transmitted beam to the object, road marking, etc.
         // encounter. \note data is in Lidar coordinate system
         //
         // Unit: unit vector
