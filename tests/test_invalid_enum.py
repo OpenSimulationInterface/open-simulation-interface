@@ -25,6 +25,9 @@ class TestInvalidEnum(unittest.TestCase):
                     if matchComment is not None:
                         statement = line[: matchComment.start()]
                         comment = line[matchComment.end() :]
+                    elif re.search("option allow_alias", line):
+                        statement = ""
+                        comment = ""
                     else:
                         statement = line
                         comment = ""
@@ -123,6 +126,9 @@ class TestInvalidEnum(unittest.TestCase):
                     if matchComment is not None:
                         statement = line[: matchComment.start()]
                         comment = line[matchComment.end() :]
+                    elif re.search("option allow_alias", line):
+                        statement = ""
+                        comment = ""
                     else:
                         statement = line
                         comment = ""

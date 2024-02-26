@@ -223,6 +223,10 @@ message StationaryObject
         //
         enum Material
         {
+            // Allow aliases in enum
+            //
+            option allow_alias = true;
+
             // Type of the material is unknown (must not be used in ground
             // truth).
             //
@@ -253,6 +257,12 @@ message StationaryObject
             MATERIAL_STONE = 6;
 
             // Glass structure.
+            //
+            MATERIAL_GLASS = 7;
+
+            // Glass structure.
+            //
+            // \note Deprecated variant spelling of MATERIAL_GLASS
             //
             MATERIAL_GLAS = 7;
 
@@ -303,6 +313,10 @@ message StationaryObject
         //
         enum Color
         {
+            // Allow aliases in enum
+            //
+            option allow_alias = true;
+
             // Color is unknown (must not be used in ground truth).
             //
             COLOR_UNKNOWN = 0;
@@ -339,7 +353,13 @@ message StationaryObject
             //
             COLOR_BLACK = 8;
 
-            // GREY.
+            // GRAY.
+            //
+            COLOR_GRAY = 9;
+
+            // GRAY.
+            //
+            // \note Deprecated variant spelling of COLOR_GRAY
             //
             COLOR_GREY = 9;
 

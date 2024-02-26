@@ -916,6 +916,10 @@ message CameraDetection
     //
     enum Color
     {
+        // Allow aliases in enum
+        //
+        option allow_alias = true;
+
         // Color of the shape is unknown (must not be used in ground
         // truth).
         //
@@ -930,6 +934,12 @@ message CameraDetection
         COLOR_BLACK = 2;
 
         // Shape with gray color.
+        //
+        COLOR_GRAY = 3;
+
+        // Shape with gray color.
+        //
+        // \note Deprecated variant spelling of COLOR_GRAY
         //
         COLOR_GREY = 3;
 
