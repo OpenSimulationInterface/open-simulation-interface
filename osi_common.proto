@@ -469,6 +469,9 @@ message BoundingBox
 
         // The door of an object.
         //
+        // For vehicles, this includes driver and passenger doors, trunk
+        // and front hoods, and fuel or charging port covers.
+        //
         TYPE_DOOR = 5;
 
         // The side mirror of a vehicle.
