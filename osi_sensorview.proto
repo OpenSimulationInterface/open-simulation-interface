@@ -36,6 +36,10 @@ message SensorView
 {
     // The interface version used by the sender (simulation environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
@@ -48,6 +52,10 @@ message SensorView
     // (there is no inherent latency for sensor view data, as opposed to
     // sensor data).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The ID of the sensor at host vehicle's \c #mounting_position.
@@ -58,6 +66,7 @@ message SensorView
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier sensor_id = 3;
@@ -91,6 +100,10 @@ message SensorView
     // the vehicle's coordinate system is equal to the orientation of the
     // vehicle's bounding box \c MovingObject::base . \c
     // BaseMoving::orientation.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional MountingPosition mounting_position = 4;
 
@@ -127,6 +140,7 @@ message SensorView
     //
     // \rules
     // refers_to: 'MovingObject'
+    // is_set
     // \endrules
     //
     optional Identifier host_vehicle_id = 8;

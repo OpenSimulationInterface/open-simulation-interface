@@ -40,6 +40,10 @@ message Route
     // \note This id must be unique within all route messages exchanged with
     // one traffic participant.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Identifier route_id = 1;
 
     // Route segments that form the route of an agent.

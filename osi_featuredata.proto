@@ -92,6 +92,10 @@ message SensorDetectionHeader
     // \par Reference:
     // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional MountingPosition mounting_position = 3;
 
     // The origin/orientation of the sensor frame represents the current
@@ -123,6 +127,10 @@ message SensorDetectionHeader
     //
     // This ID can equal \c SensorData::sensor_id, if \c SensorData holds only
     // data from one sensor/sensor model.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 7;
 

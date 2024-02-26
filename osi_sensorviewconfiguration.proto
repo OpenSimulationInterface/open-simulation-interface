@@ -66,6 +66,10 @@ message SensorViewConfiguration
 {
     // The interface version used by the sender (simulation environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The ID of the sensor at host vehicle's mounting_position.
@@ -76,6 +80,10 @@ message SensorViewConfiguration
     //
     // The ID is to be provided by the environment simulation, the sensor
     // model is not in a position to provide a useful default value.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 2;
 

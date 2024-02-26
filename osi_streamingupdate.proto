@@ -30,6 +30,10 @@ message StreamingUpdate
 {
     // The interface version used by the sender.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp where the information of contained objects is calculated. 
@@ -37,6 +41,10 @@ message StreamingUpdate
     // Zero time is arbitrary but must be identical for all messages. 
     // Zero time does not need to coincide with the UNIX epoch. 
     // Recommended is the starting time point of the simulation.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Timestamp timestamp = 2;
 

@@ -47,6 +47,10 @@ message GroundTruth
     // The interface version used by the sender (i.e. the simulation
     // environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. The zero time point is
@@ -60,6 +64,10 @@ message GroundTruth
     // (there is no inherent latency for ground truth data, as opposed to
     // sensor data).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The ID of the host vehicle object referencing to \c MovingObject .
@@ -68,6 +76,7 @@ message GroundTruth
     //
     // \rules
     // refers_to: MovingObject
+    // is_set
     // \endrules
     //
     optional Identifier host_vehicle_id = 3;
@@ -118,7 +127,7 @@ message GroundTruth
     // [1] ISO International Organization for Standardization. (2013). <em>ISO 3166-1 Codes for the representation of names of countries and their subdivisions - Part 1: Country codes</em>. (ISO 3166-1:2013). Geneva, Switzerland.
     //
     // \rules
-    // is_iso_country_code:
+    // is_iso_country_code
     // \endrules
     //
     optional uint32 country_code = 13;
