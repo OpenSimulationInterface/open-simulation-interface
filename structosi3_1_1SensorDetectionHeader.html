@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (2466fcb)</span>
+   &#160;<span id="projectnumber">master (41f14a3)</span>
    </div>
   </td>
  </tr>
@@ -320,7 +320,8 @@ Public Attributes</h2></td></tr>
 <p>Both origin and orientation are given in and with respect to the host vehicle coordinate system [1].</p>
 <p>The sensor frame's x-axis is pointing in the central viewing direction of the sensor. It is the angle bisector of the sensor's horizontal and vertical field of view. The terms horizontal and vertical must be understood as names for the two principal planes of the sensor's field of view (relative to the sensor frame's orientation), which do not have to be horizontal or vertical in the strict sense of being parallel or perpendicular to the local gravitational vector. The horizontal field of view defines the sensor frame's xy-plane and the vertical field of view defines the xz-plane. The sensor frame is right-handed and the z-axis is pointing in an upward direction.</p>
 <p>The sensor frame uses cartesian coordinates. The sensor frame's origin is identical to sensor detection frame's origin. Detections are defined in the sensor detection frame which uses e.g. spherical coordinates.</p>
-<dl class="section user"><dt>Reference:</dt><dd>[1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany. </dd></dl>
+<dl class="section user"><dt>Reference:</dt><dd>[1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.</dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_set  </dd></dl>
 
 </div>
 </div>
@@ -388,7 +389,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The ID of the sensor at host vehicle's <code><a class="el" href="structosi3_1_1SensorDetectionHeader.html#a3b73ec96c144a7e32094ddebe37cc4a8" title="The physical mounting position of the sensor (origin and orientation of the sensor frame).">mounting_position</a></code>. </p>
-<p>This ID can equal <code><a class="el" href="structosi3_1_1SensorData.html#aba1532205c5abef2f8b439fc4c54d983" title="The ID of the sensor at host vehicle&#39;s mounting_position.">SensorData::sensor_id</a></code>, if <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models.">SensorData</a></code> holds only data from one sensor/sensor model. </p>
+<p>This ID can equal <code><a class="el" href="structosi3_1_1SensorData.html#aba1532205c5abef2f8b439fc4c54d983" title="The ID of the sensor at host vehicle&#39;s mounting_position.">SensorData::sensor_id</a></code>, if <code><a class="el" href="structosi3_1_1SensorData.html" title="The sensor information derived from GroundTruth and processed by sensor-models.">SensorData</a></code> holds only data from one sensor/sensor model.</p>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_set  </dd></dl>
 
 </div>
 </div>

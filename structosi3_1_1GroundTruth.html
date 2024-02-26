@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (2466fcb)</span>
+   &#160;<span id="projectnumber">master (41f14a3)</span>
    </div>
   </td>
  </tr>
@@ -242,7 +242,8 @@ Ground Truth</div></div>
 </div><div class="memdoc">
 
 <p>The interface version used by the sender (i.e. </p>
-<p>the simulation environment). </p>
+<p>the simulation environment).</p>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_set  </dd></dl>
 
 </div>
 </div>
@@ -262,7 +263,8 @@ Ground Truth</div></div>
 <p>The zero time point is arbitrary but must be identical for all messages. Recommendation: Zero time point for start point of the simulation.</p>
 <dl class="section note"><dt>Note</dt><dd>Zero time point does not need to coincide with the UNIX epoch.</dd>
 <dd>
-For ground truth data this timestamp coincides both with the notional simulation time the data applies to and the time it was sent (there is no inherent latency for ground truth data, as opposed to sensor data). </dd></dl>
+For ground truth data this timestamp coincides both with the notional simulation time the data applies to and the time it was sent (there is no inherent latency for ground truth data, as opposed to sensor data).</dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_set  </dd></dl>
 
 </div>
 </div>
@@ -280,7 +282,7 @@ For ground truth data this timestamp coincides both with the notional simulation
 
 <p>The ID of the host vehicle object referencing to <code><a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian,...">MovingObject</a></code> . </p>
 <dl class="section note"><dt>Note</dt><dd>This ID has to be filled and is not optional!</dd></dl>
-<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>refers_to: <a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian,...">MovingObject</a>  </dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>refers_to: <a class="el" href="structosi3_1_1MovingObject.html" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian,...">MovingObject</a> is_set  </dd></dl>
 
 </div>
 </div>
@@ -443,7 +445,7 @@ For ground truth data this timestamp coincides both with the notional simulation
 <p>The ISO country code in 3 digit numeric format according to: ISO Code 3166/1 [1]. </p>
 <p>E.g. Germany = 276, USA = 840.</p>
 <dl class="section user"><dt>Reference:</dt><dd>[1] ISO International Organization for Standardization. (2013). <em>ISO 3166-1 Codes for the representation of names of countries and their subdivisions - Part 1: Country codes</em>. (ISO 3166-1:2013). Geneva, Switzerland.</dd></dl>
-<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_iso_country_code:  </dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_iso_country_code  </dd></dl>
 
 </div>
 </div>

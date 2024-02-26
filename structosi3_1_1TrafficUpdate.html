@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (2466fcb)</span>
+   &#160;<span id="projectnumber">master (41f14a3)</span>
    </div>
   </td>
  </tr>
@@ -167,6 +167,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The interface version used by the sender (traffic participant model). </p>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_set  </dd></dl>
 
 </div>
 </div>
@@ -184,7 +185,8 @@ Public Attributes</h2></td></tr>
 
 <p>The data timestamp of the simulation environment. </p>
 <p>Zero time is arbitrary but must be identical for all messages. Zero time does not need to coincide with the UNIX epoch. Recommended is the starting time point of the simulation.</p>
-<dl class="section note"><dt>Note</dt><dd>For moving object update data the timestamp coincides both with the notional simulation time the data applies to and the time it was sent. There is no inherent latency for moving object update data, as opposed to sensor data. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>For moving object update data the timestamp coincides both with the notional simulation time the data applies to and the time it was sent. There is no inherent latency for moving object update data, as opposed to sensor data.</dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_set  </dd></dl>
 
 </div>
 </div>
