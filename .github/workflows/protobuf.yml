@@ -130,7 +130,14 @@ jobs:
         path: doc/html
         if-no-files-found: error
 
-    - name: deploy to gh-pages if push to master branch
+    - name: Upload Python Distribution
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-dist
+        path: dist/
+
+    - name: Deploy to gh-pages if push to master branch
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
       uses:  peaceiris/actions-gh-pages@v3
       with:
