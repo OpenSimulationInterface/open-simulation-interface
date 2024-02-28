@@ -1,0 +1,32 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "protoc-wheel-0==24.4",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-simulation-interface"
+description = "ASAM Open Simulation Interface Python Bindings."
+authors = [
+    {name = "ASAM Open Simulation Interface Project", email = "osi@asam.net"},
+]
+maintainers = [
+    {name = "ASAM Open Simulation Interface Project", email = "osi@asam.net"},
+]
+dependencies = [
+    "protobuf>=4.24.4",
+]
+
+license = {file = "LICENSE"}
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/OpenSimulationInterface/open-simulation-interface"
+Repository = "https://github.com/OpenSimulationInterface/open-simulation-interface.git"
+"Bug Tracker" = "https://github.com/OpenSimulationInterface/open-simulation-interface/issues"

@@ -45,10 +45,12 @@ jobs:
     - name: Install Python Dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install -r requirements_develop.txt
+        python -m pip install build
+        python -m pip install -r requirements_tests.txt
 
     - name: Check black format
-      run: black --check --diff .
+      run: |
+        black --check --diff .
 
     - name: Install Doxygen
       run: sudo apt-get install doxygen graphviz
@@ -88,10 +90,14 @@ jobs:
     - name: Prepare C++ Build
       run: mkdir build
 
-    # Versioning
-    - name: Get versioning
+    - name: Add Development Version Suffix
+      if: ${{ !startsWith(github.ref, 'refs/tags') }}
+      run: |
+        echo "VERSION_SUFFIX = .dev`date -u '+%Y%m%d%H%M%S'`" >> VERSION
+
+    - name: Get git Version
       id: get_version
-      run: echo "VERSION=$(git describe --always)" >> $GITHUB_OUTPUT 
+      run: echo "VERSION=$(git describe --tags --always)" >> $GITHUB_OUTPUT 
 
     - name: Prepare Documentation Build
       run: |
@@ -108,7 +114,7 @@ jobs:
       run: cmake --build . --config Release -j 4
 
     - name: Build Python
-      run: python setup.py build && python setup.py sdist
+      run: python -m build
 
     - name: Install Python
       run: python -m pip install .
@@ -148,7 +154,10 @@ jobs:
         python-version: '3.8'
 
     - name: Install Python Dependencies
-      run: python -m pip install --upgrade pip setuptools wheel pyyaml
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install build
+        python -m pip install -r requirements_tests.txt
 
     - name: Cache Dependencies
       id: cache-depends
@@ -187,6 +196,11 @@ jobs:
         bash convert-to-proto3.sh
         rm *.pb2
 
+    - name: Add Development Version Suffix
+      if: ${{ !startsWith(github.ref, 'refs/tags') }}
+      run: |
+        echo "VERSION_SUFFIX = .dev`date -u '+%Y%m%d%H%M%S'`" >> VERSION
+
     - name: Configure C++ Build
       working-directory: build
       run: cmake ${{ env.PROTOBUF_VARIANT =='' && '-DCMAKE_CXX_STANDARD=17' }} ..
@@ -196,7 +210,7 @@ jobs:
       run: cmake --build . --config Release -j 4
 
     - name: Build Python
-      run: python setup.py build && python setup.py sdist
+      run: python -m build
 
     - name: Install Python
       run: python -m pip install .
