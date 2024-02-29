@@ -5,7 +5,7 @@ Example usage:
     python3 osi2read.py -d trace.osi -o myreadableosifile
 """
 
-from osi3trace.OSITrace import OSITrace
+from osi3trace.osi_trace import OSITrace
 import argparse
 import pathlib
 
