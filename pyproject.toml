@@ -30,3 +30,6 @@ dynamic = ["version"]
 Homepage = "https://github.com/OpenSimulationInterface/open-simulation-interface"
 Repository = "https://github.com/OpenSimulationInterface/open-simulation-interface.git"
 "Bug Tracker" = "https://github.com/OpenSimulationInterface/open-simulation-interface/issues"
+
+[project.scripts]
+osi2read = "osi3trace.osi2read:main"

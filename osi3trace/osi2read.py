@@ -5,24 +5,24 @@ Example usage:
     python3 osi2read.py -d trace.osi -o myreadableosifile
 """
 
-from OSITrace import OSITrace
-import struct
-import lzma
+from osi3trace.OSITrace import OSITrace
 import argparse
-import os
+import pathlib
 
 
 def command_line_arguments():
     """Define and handle command line interface"""
 
-    dir_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-
     parser = argparse.ArgumentParser(
         description="Convert a serialized osi trace file to a readable txth output.",
-        prog="osi2read converter",
+        prog="osi2read",
     )
     parser.add_argument(
-        "--data", "-d", help="Path to the file with serialized data.", type=str
+        "--data",
+        "-d",
+        help="Path to the file with serialized data.",
+        type=str,
+        required=True,
     )
     parser.add_argument(
         "--type",
@@ -37,7 +37,6 @@ def command_line_arguments():
         "--output",
         "-o",
         help="Output name of the file.",
-        default="converted.txth",
         type=str,
         required=False,
     )
@@ -50,16 +49,17 @@ def main():
     args = command_line_arguments()
 
     # Initialize the OSI trace class
-    trace = OSITrace()
-    trace.from_file(path=args.data, type_name=args.type)
+    trace = OSITrace(args.data, args.type)
 
-    args.output = args.output.split(".", 1)[0] + ".txth"
+    if not args.output:
+        path = pathlib.Path(args.data).with_suffix(".txth")
+        args.output = str(path)
 
-    if args.output == "converted.txth":
-        args.output = args.data.split(".", 1)[0] + ".txth"
+    with open(args.output, "wt") as f:
+        for message in trace:
+            f.write(str(message))
 
-    trace.make_readable(args.output)
-    trace.scenario_file.close()
+    trace.close()
 
 
 if __name__ == "__main__":

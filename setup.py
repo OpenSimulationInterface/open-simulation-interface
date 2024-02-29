@@ -155,7 +155,7 @@ setup(
     + "."
     + str(VERSION_PATCH)
     + (VERSION_SUFFIX or ""),
-    packages=[package_name],
+    packages=[package_name, "osi3trace"],
     cmdclass={
         "sdist": CustomSDistCommand,
         "build_py": CustomBuildPyCommand,
