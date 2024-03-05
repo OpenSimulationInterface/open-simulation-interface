@@ -2,48 +2,63 @@ ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
-= Test scripts
 
-TODO: Add general description.
+# Test Scripts
 
-__init__.py::
-TODO: Add description.
+The following collection of test scripts is designed to automate the validation and enforcement of coding standards, documentation quality, and specific syntactical conventions within a software development project. These scripts cover a broad spectrum of checks, from Python package initialization, adherence to comment standards, validation of Doxygen documentation output, to ensuring the integrity of Protocol Buffer (.proto) files. Each script focuses on a specific aspect of the code or documentation, automating the process of identifying common errors, enforcing naming conventions, and ensuring that documentation is both accurate and adheres to defined standards. Through these automated tests, the project aims to maintain high quality in coding and documentation standards, facilitating a more reliable and efficient development process.
 
-test_comment_type.py::
-TODO: Add description.
+## `__init__.py`
 
-test_doxygen_output.py::
-TODO: Add description.
+This script indicates the use of the directory as a Python Package, allowing Python to consider the directory as part of a module.
 
-test_invalid_comment.py::
-TODO: Add description.
+## `test_comment_type.py`
 
-test_invalid_enum.py::
-TODO: Add description.
+Automates the administration of comment standards. It locates all `.proto` files using the glob module and includes different test cases inherited from `unittest.TestCase`. These test cases perform checks on the comment description's brevity, length, and existence. Additionally, it includes a utility method `convert` for transforming camel case names into uppercase snake case, ensuring high documentation and coding standards in Protocol Buffer Files.
 
-test_invalid_html.py::
-TODO: Add description.
+## `test_doxygen_output.py`
 
-test_invalid_message.py::
-TODO: Add description.
+Validates the output of Doxygen documentation files to ensure the absence of errors or issues in documentation syntax or Doxygen's interpretation of comments. It checks for hash characters `(#)`, slash triplets `(///)`, and backslash triplets `(\\\)` that might indicate documentation errors, maintaining the quality of Doxygen-generated HTML documentation.
 
-test_invalid_punctuation.py::
-TODO: Add description.
+## `test_invalid_comment.py`
 
-test_invalid_tabs.py::
-TODO: Add description.
+Ensures the integrity of comments within Protocol buffer files, checking for the use of more than two consecutive forward slashes `(///)` and block comment delimiters ``(/* and */)``, which are not supported in Protocol Buffers syntax.
 
-test_newline.py::
-TODO: Add description.
+## `test_invalid_enum.py`
 
-test_non_ascii.py::
-TODO: Add description.
+Checks `.proto` files for issues related to enum naming and usage, verifying that enum names follow a PascalCase naming convention and that enum types are in uppercase, ensuring adherence to naming conventions.
 
-test_osi_trace.py::
-TODO: Add description.
+## `test_invalid_html.py`
 
-test_rules.py::
-TODO: Add description.
+Validates the use of HTML and Doxygen-specific comment syntax within `.proto` files, checking for incorrect usage of slashes `(/,\)`, hash `(#)` characters, `@` symbols outside of `htmlonly` sections, and ensuring that every `htmlonly` section is properly closed.
 
-test_units.py::
-TODO: Add description.
+## `test_invalid_message.py`
+
+Defines tests for common issues in `.proto` files, such as naming conventions and field definitions, ensuring that message names, field names, and nested message types adhere to specified naming conventions and that fields specify their multiplicity correctly.
+
+## `test_invalid_punctuation.py`
+
+Aims to ensure the absence of double underscores `(__)` in `.proto` files, indicating a formatting error when such punctuation is found.
+
+## `test_invalid_tabs.py`
+
+Prohibits the use of tab characters for indentation or alignment in `.proto` files, considering their use a formatting error.
+
+## `test_newline.py`
+
+Ensures that all Protocol Buffer `(.proto)` files end with a newline character `(\n)`, maintaining code quality and interoperability across different environments.
+
+## `test_non_ascii.py`
+
+Ensures that Protocol Buffer `(.proto)` files do not contain non-ASCII characters, checking for the presence of special characters outside the ASCII set `(eg. ä,ü,ö etc.)` and failing the test if any are found.
+
+## `test_osi_trace.py`
+
+Serves as a unit test for the `OSITrace` class, ensuring correct processing of OSI SensorView messages and their conversion into a human-readable format.
+
+## `test_rules.py`
+
+Ensures compliance with specific rules for Protocol Buffer `(.proto)` files as defined in a YAML configuration file `(rules.yml)`, checking for rule violations and providing feedback for corrections.
+
+## `test_units.py`
+
+Validates the syntax of unit documentation within Protocol Buffer (.proto) files, ensuring that units are documented correctly according to the specified syntax without any enclosing brackets or braces.
