@@ -17,7 +17,7 @@ jobs:
     steps:
       # Check out the GitHub repository
       - name: Checkout interface
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: dist/open-simulation-interface
       # Set the version variable based on the latest tag (could be replaced with github-internal predefined variable?)
@@ -66,7 +66,7 @@ jobs:
     steps:          
       # Check out the Antora generator
       - name: Checkout Antora generator
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: OpenSimulationInterface/osi-antora-generator
           path: antora
@@ -94,7 +94,7 @@ jobs:
           args: antora.sh
       # Upload the created artifact for later jobs to use
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with: 
           name: antora
           path: antora/site
@@ -107,19 +107,19 @@ jobs:
     steps:
       # Check out the repository (again)
       - name: Checkout interface
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: dist/open-simulation-interface_${{needs.setup.outputs.output1}}
       # Check out the sensor model packaging repo
       - name: Checkout sensor model packaging
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: OpenSimulationInterface/osi-sensor-model-packaging
           path: dist/osi-sensor-model-packaging
           fetch-depth: 0
       # Retrieve the Antora artifact from the previous job
       - name: Retrieve Antora artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: antora
           path: dist/ASAM_OSI_Standard_${{needs.setup.outputs.output1}}/
@@ -154,13 +154,13 @@ jobs:
           mv osi-sensor-model-packaging osi-sensor-model-packaging_${{ env.OSMP_VERSION }}
       # Package all collected deliverables
       - name: Zip Release
-        uses: TheDoctor0/zip-release@0.6.2
+        uses: TheDoctor0/zip-release@0.7.6
         with: 
           filename: ASAM_OSI_${{needs.setup.outputs.output1}}.zip
           directory: dist
       # Upload the created artifact for the publish job
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: deliverables
           path: dist/ASAM_OSI_${{needs.setup.outputs.output1}}.zip
@@ -173,7 +173,7 @@ jobs:
     steps:
       # Retrieve the previously uploaded deliverables artifact
       - name: Retrieve previous artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: deliverables
       # Add the new zip file with the deliverables to the respective release

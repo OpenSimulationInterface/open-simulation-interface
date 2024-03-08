@@ -13,9 +13,9 @@ on:
 jobs:
   spellcheck:
     name: Spellcheck
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: rojopolis/spellcheck-github-actions@0.36.0
       name: Spellcheck
       with:
@@ -50,7 +50,7 @@ jobs:
 
     - name: Cache Dependencies
       id: cache-depends
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: protobuf-${{ env.PROTOBUF_VERSION }}
         key: ${{ runner.os }}-v2-depends
@@ -147,7 +147,7 @@ jobs:
 
     - name: Cache Dependencies
       id: cache-depends
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: protobuf-${{ env.PROTOBUF_VERSION }}
         key: ${{ runner.os }}-v2-depends
