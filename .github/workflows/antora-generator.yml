@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: Trigger generator
       if: ${{ env.MUP_KEY != '' }}
-      uses: peter-evans/repository-dispatch@v2
+      uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.MACHINE_USER_PAT }}
         event-type: antora-build-trigger
