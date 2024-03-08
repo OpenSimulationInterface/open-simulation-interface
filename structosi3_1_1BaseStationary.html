@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (659a95c)</span>
+   &#160;<span id="projectnumber">master (6807643)</span>
    </div>
   </td>
  </tr>
@@ -104,12 +104,15 @@ Collaboration diagram for osi3::BaseStationary:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1BaseStationary__coll__graph.png" border="0" usemap="#aosi3_1_1BaseStationary_coll__map" alt="Collaboration graph"/></div>
 <map name="aosi3_1_1BaseStationary_coll__map" id="aosi3_1_1BaseStationary_coll__map">
-<area shape="rect" title="The base attributes of a stationary object or entity." alt="" coords="246,213,402,240"/>
-<area shape="rect" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="5,124,152,151"/>
-<area shape="rect" title=" " alt="" coords="243,5,365,32"/>
-<area shape="rect" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="177,124,319,151"/>
-<area shape="rect" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="344,124,459,151"/>
-<area shape="rect" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="483,124,597,151"/>
+<area shape="rect" title="The base attributes of a stationary object or entity." alt="" coords="908,129,1064,156"/>
+<area shape="rect" href="structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="221,76,368,103"/>
+<area shape="rect" href="structosi3_1_1BoundingBox.html" title="A bounding box description." alt="" coords="568,129,711,156"/>
+<area shape="rect" title=" " alt="" coords="5,187,128,213"/>
+<area shape="rect" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="223,5,366,32"/>
+<area shape="rect" href="structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="237,228,352,255"/>
+<area shape="rect" href="structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="411,312,525,339"/>
+<area shape="rect" title=" " alt="" coords="240,127,349,153"/>
+<area shape="rect" title=" " alt="" coords="237,177,353,204"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -127,6 +130,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa1db348acaac2d5a2ba0883903d962cd"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1Vector2d.html">Vector2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseStationary.html#aa1db348acaac2d5a2ba0883903d962cd">base_polygon</a> = 4</td></tr>
 <tr class="memdesc:aa1db348acaac2d5a2ba0883903d962cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usage as ground truth: The two dimensional (flat) contour of the object.  <a href="structosi3_1_1BaseStationary.html#aa1db348acaac2d5a2ba0883903d962cd">More...</a><br /></td></tr>
 <tr class="separator:aa1db348acaac2d5a2ba0883903d962cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97fbf3116a0636dae3d4f6cc3fcd51b2"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1BoundingBox.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1BaseStationary.html#a97fbf3116a0636dae3d4f6cc3fcd51b2">bounding_box_section</a> = 5</td></tr>
+<tr class="memdesc:a97fbf3116a0636dae3d4f6cc3fcd51b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sub-divisions of the overall bounding box of the <code><a class="el" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity.">BaseStationary</a></code> object.  <a href="structosi3_1_1BaseStationary.html#a97fbf3116a0636dae3d4f6cc3fcd51b2">More...</a><br /></td></tr>
+<tr class="separator:a97fbf3116a0636dae3d4f6cc3fcd51b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base attributes of a stationary object or entity. </p>
@@ -149,7 +155,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The 3D dimensions of the stationary object (bounding box), e.g. </p>
-<p>a landmark. </p>
+<p>a landmark.</p>
+<dl class="section note"><dt>Note</dt><dd>The <code><a class="el" href="structosi3_1_1BaseStationary.html#aa4f3a1c316bfa13aa805195630bb08e8" title="The 3D dimensions of the stationary object (bounding box), e.g.">dimension</a></code> must completely enclose the geometry of the <code><a class="el" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity.">BaseStationary</a></code> . </dd></dl>
 
 </div>
 </div>
@@ -205,6 +212,26 @@ Public Attributes</h2></td></tr>
 <p>This is an extension of the concept of a bounding box as defined by <code><a class="el" href="structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g.">Dimension3d</a></code>. The contour is the projection of the object's outline onto the z-plane in the object frame (independent of its current position and orientation). The height is the same as the height of the bounding box.</p>
 <p>Usage as sensor data: The polygon describes the visible part of the object's contour.</p>
 <p>General definitions: The polygon is defined in the local object frame: x pointing forward and y to the left. The origin is the center of the bounding box. As ground truth, the polygon is closed by connecting the last with the first point. Therefore these two points must be different. The polygon must consist of at least three points. As sensor data, however, the polygon is open. The polygon is defined counter-clockwise. </p>
+
+</div>
+</div>
+<a id="a97fbf3116a0636dae3d4f6cc3fcd51b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97fbf3116a0636dae3d4f6cc3fcd51b2">&#9670;&nbsp;</a></span>bounding_box_section</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1BoundingBox.html">BoundingBox</a> osi3::BaseStationary::bounding_box_section = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sub-divisions of the overall bounding box of the <code><a class="el" href="structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity.">BaseStationary</a></code> object. </p>
+<p>The bounding box sections can include separate parts on partially-opaque objects such as trees with a distinction between trunk and crown.</p>
+<dl class="section note"><dt>Note</dt><dd>The bounding box sub-divisions can extend beyond the overall bounding box, however no actual geometry must reside outside of the overall bounding box.</dd>
+<dd>
+If any sub-divisions are provided, then they must cover all occupied space of the overall bounding box. In other words, a consumer of this data is guaranteed that any part of the overall bounding box that is not covered by any sub-division is free of physical objects, and thus no collisions can occur there. </dd></dl>
 
 </div>
 </div>

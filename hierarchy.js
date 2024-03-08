@@ -9,6 +9,7 @@ var hierarchy =
     [ "osi3::BaseStationary", "structosi3_1_1BaseStationary.html", null ],
     [ "osi3::MovingObject::PedestrianAttributes::Bone", "structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html", null ],
     [ "osi3::LaneBoundary::BoundaryPoint", "structosi3_1_1LaneBoundary_1_1BoundaryPoint.html", null ],
+    [ "osi3::BoundingBox", "structosi3_1_1BoundingBox.html", null ],
     [ "osi3::CameraDetection", "structosi3_1_1CameraDetection.html", null ],
     [ "osi3::CameraDetectionData", "structosi3_1_1CameraDetectionData.html", null ],
     [ "osi3::CameraDetectionSpecificHeader", "structosi3_1_1CameraDetectionSpecificHeader.html", null ],

@@ -1,35 +1,36 @@
 <map id="osi3::MovingObject" name="osi3::MovingObject">
-<area shape="rect" id="node1" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian,..." alt="" coords="1504,944,1651,971"/>
-<area shape="rect" id="node2" href="$structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other)." alt="" coords="643,131,807,173"/>
-<area shape="rect" id="node3" title=" " alt="" coords="277,5,386,32"/>
-<area shape="rect" id="node15" href="$structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html" title="Bones in the skeleton of the pedestrian." alt="" coords="623,511,827,553"/>
-<area shape="rect" id="node4" title=" " alt="" coords="277,136,385,163"/>
-<area shape="rect" id="node5" title=" " alt="" coords="278,403,385,429"/>
-<area shape="rect" id="node6" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="274,964,389,991"/>
-<area shape="rect" id="node16" href="$structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other)." alt="" coords="1086,1138,1233,1179"/>
-<area shape="rect" id="node31" href="$structosi3_1_1MovingObject_1_1MovingObjectClassification.html" title="Information for the classification of moving objects regarding MovingObject (host or other)." alt="" coords="1056,937,1263,978"/>
-<area shape="rect" id="node32" href="$structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane." alt="" coords="620,843,831,869"/>
-<area shape="rect" id="node7" href="$structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html" title="The state of the lights of a vehicle." alt="" coords="249,56,413,112"/>
-<area shape="rect" id="node8" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving." alt="" coords="657,372,794,399"/>
-<area shape="rect" id="node9" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="258,641,405,668"/>
-<area shape="rect" id="node17" href="$structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data." alt="" coords="652,1233,799,1289"/>
-<area shape="rect" id="node29" href="$structosi3_1_1StatePoint.html" title="The StatePoint definition." alt="" coords="1097,743,1221,769"/>
-<area shape="rect" id="node10" title=" " alt="" coords="5,1312,128,1339"/>
-<area shape="rect" id="node11" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="260,297,403,324"/>
-<area shape="rect" id="node12" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="274,768,389,795"/>
-<area shape="rect" id="node13" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="274,220,389,247"/>
-<area shape="rect" id="node21" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="265,1721,397,1748"/>
-<area shape="rect" id="node22" href="$structosi3_1_1ColorGrey.html" title="Grayscale color model." alt="" coords="270,1772,393,1799"/>
-<area shape="rect" id="node23" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="267,1519,396,1545"/>
-<area shape="rect" id="node24" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="272,1569,391,1596"/>
-<area shape="rect" id="node25" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="272,1620,391,1647"/>
-<area shape="rect" id="node26" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="273,1671,390,1697"/>
-<area shape="rect" id="node14" href="$structosi3_1_1MovingObject_1_1PedestrianAttributes.html" title="Additional pedestrian data in case the moving object is a human." alt="" coords="1078,571,1241,613"/>
-<area shape="rect" id="node18" title=" " alt="" coords="273,1401,389,1428"/>
-<area shape="rect" id="node27" href="$structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="637,1453,814,1480"/>
-<area shape="rect" id="node19" title=" " alt="" coords="271,1137,391,1164"/>
-<area shape="rect" id="node30" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="660,893,791,920"/>
-<area shape="rect" id="node20" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="643,1632,808,1659"/>
-<area shape="rect" id="node28" title=" " alt="" coords="271,1468,392,1495"/>
-<area shape="rect" id="node33" title=" " alt="" coords="661,944,789,971"/>
+<area shape="rect" id="node1" title="A simulated object that is either a vehicle or another moving object (animal, pedestrian,..." alt="" coords="1497,1232,1644,1259"/>
+<area shape="rect" id="node2" href="$structosi3_1_1MovingObject_1_1VehicleClassification.html" title="Information for the classification of vehicles regarding MovingObject (host or other)." alt="" coords="637,214,801,255"/>
+<area shape="rect" id="node3" title=" " alt="" coords="277,187,386,213"/>
+<area shape="rect" id="node12" href="$structosi3_1_1BoundingBox.html" title="A bounding box description." alt="" coords="647,663,790,689"/>
+<area shape="rect" id="node17" href="$structosi3_1_1MovingObject_1_1PedestrianAttributes_1_1Bone.html" title="Bones in the skeleton of the pedestrian." alt="" coords="617,409,821,450"/>
+<area shape="rect" id="node4" title=" " alt="" coords="277,85,385,112"/>
+<area shape="rect" id="node5" title=" " alt="" coords="278,277,385,304"/>
+<area shape="rect" id="node6" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="274,1380,389,1407"/>
+<area shape="rect" id="node18" href="$structosi3_1_1MovingObject_1_1VehicleAttributes.html" title="The vehicle attributes for MovingObject (host or other)." alt="" coords="1079,1225,1226,1266"/>
+<area shape="rect" id="node32" href="$structosi3_1_1MovingObject_1_1MovingObjectClassification.html" title="Information for the classification of moving objects regarding MovingObject (host or other)." alt="" coords="1049,1486,1256,1527"/>
+<area shape="rect" id="node33" href="$structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane." alt="" coords="613,1571,824,1597"/>
+<area shape="rect" id="node7" href="$structosi3_1_1MovingObject_1_1VehicleClassification_1_1LightState.html" title="The state of the lights of a vehicle." alt="" coords="249,5,413,61"/>
+<area shape="rect" id="node8" href="$structosi3_1_1BaseMoving.html" title="The base attributes of an object that is moving." alt="" coords="1084,713,1221,740"/>
+<area shape="rect" id="node9" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="258,981,405,1008"/>
+<area shape="rect" id="node19" href="$structosi3_1_1MovingObject_1_1VehicleAttributes_1_1WheelData.html" title="Detailed wheel data." alt="" coords="645,1100,792,1156"/>
+<area shape="rect" id="node30" href="$structosi3_1_1StatePoint.html" title="The StatePoint definition." alt="" coords="1091,1027,1215,1053"/>
+<area shape="rect" id="node10" title=" " alt="" coords="5,1525,128,1552"/>
+<area shape="rect" id="node11" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="260,503,403,529"/>
+<area shape="rect" id="node13" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="274,763,389,789"/>
+<area shape="rect" id="node15" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="456,344,571,371"/>
+<area shape="rect" id="node22" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="265,1752,397,1779"/>
+<area shape="rect" id="node23" href="$structosi3_1_1ColorGrey.html" title="Grayscale color model." alt="" coords="270,1803,393,1829"/>
+<area shape="rect" id="node24" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="267,1853,396,1880"/>
+<area shape="rect" id="node25" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="272,1904,391,1931"/>
+<area shape="rect" id="node26" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="272,1956,391,1983"/>
+<area shape="rect" id="node27" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="273,1701,390,1728"/>
+<area shape="rect" id="node16" href="$structosi3_1_1MovingObject_1_1PedestrianAttributes.html" title="Additional pedestrian data in case the moving object is a human." alt="" coords="1071,465,1234,506"/>
+<area shape="rect" id="node14" title=" " alt="" coords="273,1587,389,1613"/>
+<area shape="rect" id="node28" href="$structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="630,1673,807,1700"/>
+<area shape="rect" id="node20" title=" " alt="" coords="271,1188,391,1215"/>
+<area shape="rect" id="node31" href="$structosi3_1_1Timestamp.html" title="A timestamp." alt="" coords="653,1180,784,1207"/>
+<area shape="rect" id="node21" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="636,1809,801,1836"/>
+<area shape="rect" id="node29" title=" " alt="" coords="271,1651,392,1677"/>
+<area shape="rect" id="node34" title=" " alt="" coords="655,1520,783,1547"/>
 </map>

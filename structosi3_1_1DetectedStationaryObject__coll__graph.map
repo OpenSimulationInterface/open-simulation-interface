@@ -1,28 +1,29 @@
 <map id="osi3::DetectedStationaryObject" name="osi3::DetectedStationaryObject">
-<area shape="rect" id="node1" title="A stationary object (e.g." alt="" coords="1289,518,1472,559"/>
-<area shape="rect" id="node2" href="$structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html" title="A candidate for a detected stationary object as estimated by the sensor." alt="" coords="863,290,1109,331"/>
-<area shape="rect" id="node3" href="$structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object." alt="" coords="413,165,580,206"/>
-<area shape="rect" id="node4" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="49,185,164,212"/>
-<area shape="rect" id="node8" href="$structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html" title="Message encapsulates all data for detected objects that is specific to ultrasonic sensors." alt="" coords="410,230,583,271"/>
-<area shape="rect" id="node19" href="$structosi3_1_1DetectedItemHeader.html" title="The common information for a detected item as estimated by the sensor." alt="" coords="400,97,593,124"/>
-<area shape="rect" id="node5" title=" " alt="" coords="45,685,168,712"/>
-<area shape="rect" id="node6" href="$structosi3_1_1UltrasonicSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to ultrasonic sensors." alt="" coords="899,437,1073,478"/>
-<area shape="rect" id="node11" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="431,1076,563,1103"/>
-<area shape="rect" id="node12" href="$structosi3_1_1ColorGrey.html" title="Grayscale color model." alt="" coords="435,755,558,781"/>
-<area shape="rect" id="node13" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="432,989,561,1016"/>
-<area shape="rect" id="node14" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="437,807,556,833"/>
-<area shape="rect" id="node15" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="437,921,556,948"/>
-<area shape="rect" id="node16" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="438,857,555,884"/>
-<area shape="rect" id="node22" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="423,603,570,629"/>
-<area shape="rect" id="node23" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="425,653,568,680"/>
-<area shape="rect" id="node24" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="439,552,554,579"/>
-<area shape="rect" id="node25" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="439,704,554,731"/>
-<area shape="rect" id="node26" href="$structosi3_1_1RadarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to radar sensors." alt="" coords="620,1148,839,1175"/>
-<area shape="rect" id="node7" title=" " alt="" coords="439,451,554,477"/>
-<area shape="rect" id="node9" title=" " alt="" coords="397,501,596,528"/>
-<area shape="rect" id="node10" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="903,857,1069,884"/>
-<area shape="rect" id="node17" href="$structosi3_1_1CameraSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to camera sensors." alt="" coords="871,503,1101,529"/>
-<area shape="rect" id="node18" href="$structosi3_1_1LidarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to lidar sensors." alt="" coords="880,553,1092,580"/>
+<area shape="rect" id="node1" title="A stationary object (e.g." alt="" coords="1683,551,1865,593"/>
+<area shape="rect" id="node2" href="$structosi3_1_1DetectedStationaryObject_1_1CandidateStationaryObject.html" title="A candidate for a detected stationary object as estimated by the sensor." alt="" coords="773,443,1020,485"/>
+<area shape="rect" id="node3" href="$structosi3_1_1StationaryObject_1_1Classification.html" title="Classification data for a stationary object." alt="" coords="413,291,580,333"/>
+<area shape="rect" id="node4" href="$structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="49,140,164,167"/>
+<area shape="rect" id="node8" href="$structosi3_1_1UltrasonicSpecificObjectData_1_1Signalway.html" title="Message encapsulates all data for detected objects that is specific to ultrasonic sensors." alt="" coords="410,123,583,165"/>
+<area shape="rect" id="node19" href="$structosi3_1_1DetectedItemHeader.html" title="The common information for a detected item as estimated by the sensor." alt="" coords="400,72,593,99"/>
+<area shape="rect" id="node5" title=" " alt="" coords="45,776,168,803"/>
+<area shape="rect" id="node6" href="$structosi3_1_1UltrasonicSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to ultrasonic sensors." alt="" coords="810,233,983,274"/>
+<area shape="rect" id="node11" href="$structosi3_1_1ColorRGBIR.html" title="RGBIR color model." alt="" coords="431,707,563,733"/>
+<area shape="rect" id="node12" href="$structosi3_1_1ColorGrey.html" title="Grayscale color model." alt="" coords="435,844,558,871"/>
+<area shape="rect" id="node13" href="$structosi3_1_1ColorCMYK.html" title="CMYK colors model." alt="" coords="432,649,561,676"/>
+<area shape="rect" id="node14" href="$structosi3_1_1ColorRGB.html" title="RGB color model." alt="" coords="437,589,556,616"/>
+<area shape="rect" id="node15" href="$structosi3_1_1ColorHSV.html" title="HSV color model." alt="" coords="437,521,556,548"/>
+<area shape="rect" id="node16" href="$structosi3_1_1ColorLUV.html" title="LUV color model." alt="" coords="438,769,555,796"/>
+<area shape="rect" id="node22" href="$structosi3_1_1Orientation3d.html" title="A 3D orientation, orientation rate or orientation acceleration (i.e." alt="" coords="423,1041,570,1068"/>
+<area shape="rect" id="node23" href="$structosi3_1_1Dimension3d.html" title="The dimension of a 3D box, e.g." alt="" coords="425,1116,568,1143"/>
+<area shape="rect" id="node25" href="$structosi3_1_1Vector3d.html" title="A cartesian 3D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="439,967,554,993"/>
+<area shape="rect" id="node26" href="$structosi3_1_1Vector2d.html" title="A cartesian 2D vector for positions, velocities or accelerations or its uncertainties." alt="" coords="627,1205,742,1232"/>
+<area shape="rect" id="node27" href="$structosi3_1_1RadarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to radar sensors." alt="" coords="1044,856,1263,883"/>
+<area shape="rect" id="node7" title=" " alt="" coords="439,189,554,216"/>
+<area shape="rect" id="node9" title=" " alt="" coords="397,240,596,267"/>
+<area shape="rect" id="node10" href="$structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces." alt="" coords="814,649,979,676"/>
+<area shape="rect" id="node17" href="$structosi3_1_1CameraSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to camera sensors." alt="" coords="1287,533,1517,560"/>
+<area shape="rect" id="node18" href="$structosi3_1_1LidarSpecificObjectData.html" title="Message encapsulates all data for detected objects that is specific to lidar sensors." alt="" coords="1296,584,1508,611"/>
 <area shape="rect" id="node20" title=" " alt="" coords="5,5,208,32"/>
-<area shape="rect" id="node21" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity." alt="" coords="908,611,1064,637"/>
+<area shape="rect" id="node21" href="$structosi3_1_1BaseStationary.html" title="The base attributes of a stationary object or entity." alt="" coords="1324,1051,1480,1077"/>
+<area shape="rect" id="node24" href="$structosi3_1_1BoundingBox.html" title="A bounding box description." alt="" coords="825,1095,968,1121"/>
 </map>

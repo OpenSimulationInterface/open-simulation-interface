@@ -13,6 +13,7 @@ var annotated_dup =
       [ "MountingPosition", "structosi3_1_1MountingPosition.html", "structosi3_1_1MountingPosition" ],
       [ "Spherical3d", "structosi3_1_1Spherical3d.html", "structosi3_1_1Spherical3d" ],
       [ "LogicalLaneAssignment", "structosi3_1_1LogicalLaneAssignment.html", "structosi3_1_1LogicalLaneAssignment" ],
+      [ "BoundingBox", "structosi3_1_1BoundingBox.html", "structosi3_1_1BoundingBox" ],
       [ "BaseStationary", "structosi3_1_1BaseStationary.html", "structosi3_1_1BaseStationary" ],
       [ "BaseMoving", "structosi3_1_1BaseMoving.html", "structosi3_1_1BaseMoving" ],
       [ "StatePoint", "structosi3_1_1StatePoint.html", "structosi3_1_1StatePoint" ],
