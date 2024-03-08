@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -167,7 +167,7 @@ Public Attributes</h2></td></tr>
 <p>See also: "Adding T coordinates" </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9b3caec0720ebdcb96ade4c8d8ce5c82a59b1f1ad9c175d6294b9b9d51aaec4ff"></a>TYPE_POLYLINE&#160;</td><td class="fielddoc"><p><a class="el" href="structosi3_1_1ReferenceLine.html" title="A reference line for defining a non-Euclidean ST coordinate system.">ReferenceLine</a> is a polyline, where the coordinates of points are calculated by projection onto the nearest point on the line. </p>
-<dl class="section attention"><dt>Attention</dt><dd>DEPRECATED: Due to the shortcomings documenten below, this type will be removed in 4.0.0. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>DEPRECATED: Due to the shortcomings documented below, this type will be removed in 4.0.0. </dd></dl>
 </td></tr>
 <tr><td class="fieldname"><a id="a9b3caec0720ebdcb96ade4c8d8ce5c82abd535f900cd4c2d32dee8122b357f08f"></a>TYPE_POLYLINE_WITH_T_AXIS&#160;</td><td class="fielddoc"><p><a class="el" href="structosi3_1_1ReferenceLine.html" title="A reference line for defining a non-Euclidean ST coordinate system.">ReferenceLine</a> is a polyline, where the coordinates of points are calculated using the T axis definition. </p>
 <dl class="section note"><dt>Note</dt><dd>If this type is used, <a class="el" href="structosi3_1_1ReferenceLine_1_1ReferenceLinePoint.html#a0eae877d30854f3c3a35ab8ffe564bad" title="Yaw angle of the T axis in the world coordinate system.">ReferenceLinePoint::t_axis_yaw</a> must be set. </dd></dl>
@@ -263,8 +263,8 @@ S, T calculation using nearest point</div></div>
 <p>This shows a reference line (consisting of three points), and five points not on the reference line.</p>
 <ul>
 <li>For <code>P1</code>, the situation is clear, since there is exactly one nearest point on the polyline. The resulting ST coordinate uniquely maps back to <code>P1</code>.</li>
-<li><code>P2</code> has multiple points "nearest points" on the polyline. As can be seen here, two ST coordinates map to <code>P2</code> (red and grey dotted line). Following the rules above, the one with the smallest S value is chosen (the red dotted line).</li>
-<li><code>P3</code> has a unique "nearest point" on the polyline. However, multiple points map to the same ST coordinate as that of <code>P3</code>, e.g. <code>P4</code> (drawn in grey).</li>
+<li><code>P2</code> has multiple points "nearest points" on the polyline. As can be seen here, two ST coordinates map to <code>P2</code> (red and gray dotted line). Following the rules above, the one with the smallest S value is chosen (the red dotted line).</li>
+<li><code>P3</code> has a unique "nearest point" on the polyline. However, multiple points map to the same ST coordinate as that of <code>P3</code>, e.g. <code>P4</code> (drawn in gray).</li>
 <li>Finally, <code>P5</code> shows how the reference line is extended infinitely for points that are "outside" the reference line.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md5"></a>
@@ -314,7 +314,7 @@ Creating reference lines</h2>
 <h2><a class="anchor" id="autotoc_md10"></a>
 Various notes</h2>
 <p>Notes on OpenDRIVE compatibility: Ideally, one would want the polyline to be fully compatible with OpenDRIVE, so that calculations done for OpenDRIVE directly match those in OSI. There are a few difficulties with this:</p><ul>
-<li>The T coordinate is nearly the same as for OpenDRIVE, but unfortunately not perfectly. In OpenDRIVE, if the road is tilted using superElevation, then the t coordinate system is tilted along, so the T coordinate is no longer calculated in the XY plane (as proposed for OSI). It doesn't seem feasable to implement the same tilting for OSI, so simulation tools will have to consider superElevation and convert the T coordinate accordingly: <code>t_OSI = t_OpenDRIVE * cos(alpha)</code>, where alpha is the superelevation angle.</li>
+<li>The T coordinate is nearly the same as for OpenDRIVE, but unfortunately not perfectly. In OpenDRIVE, if the road is tilted using superelevation, then the t coordinate system is tilted along, so the T coordinate is no longer calculated in the XY plane (as proposed for OSI). It doesn't seem feasible to implement the same tilting for OSI, so simulation tools will have to consider superelevation and convert the T coordinate accordingly: <code>t_OSI = t_OpenDRIVE * cos(alpha)</code>, where alpha is the superelevation angle.</li>
 <li>The angle will not be perfectly the same, due to the use of line segments in OSI, and curves in OpenDRIVE. In the authors opinion, the difference will be negligible if the <a class="el" href="structosi3_1_1ReferenceLine.html#a22bc783194f82536cb99965345a7af72" title="Points comprising the polyline.">poly_line</a> is suitably sampled.</li>
 </ul>
 <p>Notes on design decisions:</p><ul>

@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -112,12 +112,12 @@ Collaboration diagram for osi3::Identifier:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a96d2bdfa66d7a220cf65b389ee82a473"><td class="memItemLeft" align="right" valign="top">optional uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1Identifier.html#a96d2bdfa66d7a220cf65b389ee82a473">value</a> = 1</td></tr>
-<tr class="memdesc:a96d2bdfa66d7a220cf65b389ee82a473"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identifier's value.  <a href="structosi3_1_1Identifier.html#a96d2bdfa66d7a220cf65b389ee82a473">More...</a><br /></td></tr>
+<tr class="memdesc:a96d2bdfa66d7a220cf65b389ee82a473"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value of the identifier.  <a href="structosi3_1_1Identifier.html#a96d2bdfa66d7a220cf65b389ee82a473">More...</a><br /></td></tr>
 <tr class="separator:a96d2bdfa66d7a220cf65b389ee82a473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A common identifier (ID), represented as an integer. </p>
-<p>Has to be unique among all simulated items at any given time. For ground truth, the identifier of an item (object, lane, sign, etc.) must remain stable over its lifetime. <code><a class="el" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer.">Identifier</a></code> values may be only be reused if the available address space is exhausted and the specific values have not been in use for several timesteps. Sensor specific tracking IDs have no restrictions and should behave according to the sensor specifications.</p>
+<p>Has to be unique among all simulated items at any given time. For ground truth, the identifier of an item (object, lane, sign, etc.) must remain stable over its lifetime. <code><a class="el" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer.">Identifier</a></code> values may be only be reused if the available address space is exhausted and the specific values have not been in use for several time steps. Sensor specific tracking IDs have no restrictions and should behave according to the sensor specifications.</p>
 <p>The value MAX(uint64) = 2^(64) -1 = 0b1111111111111111111111111111111111111111111111111111111111111111 is reserved and indicates an invalid ID or error. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a96d2bdfa66d7a220cf65b389ee82a473"></a>
@@ -132,7 +132,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The identifier's value. </p>
+<p>The value of the identifier. </p>
 <dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>is_greater_than_or_equal_to: 0  </dd></dl>
 
 </div>

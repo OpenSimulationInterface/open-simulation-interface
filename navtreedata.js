@@ -47,14 +47,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structosi3_1_1DetectedItemHeader.html",
-"structosi3_1_1GroundTruth.html#ad7f6468e1983b67adfbb4e0d3cf19b7b",
-"structosi3_1_1LidarSensorViewConfiguration.html#a655eb060bed69dcfd3b268fee2733033",
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ad699ae83bd8e73abfb186a0f3de31032",
-"structosi3_1_1SensorView.html#ad30bef352de1b64dd211718c18c540f1",
-"structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034",
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab5771a1f7301524ff1533dc17aaefd38",
-"structosi3_1_1UltrasonicSensorView.html"
+"structosi3_1_1DetectedEntityHeader.html#af0b3e722056efe4b51e28ef82ad9db82",
+"structosi3_1_1GroundTruth.html#ad1ad43ca92a112daf6678da302c05880",
+"structosi3_1_1LidarSensorViewConfiguration.html#a55ae2af0ac4a312ee6eca8d4e28f5b3e",
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189acb1dee27892b248476d04004a935af0e",
+"structosi3_1_1SensorView.html#aca120e668e795bfc4827ddce64833d86",
+"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515ac76c8f752f02f132dcd3c5c68785e4ed",
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab0db0fd0cfa51e50bae36f8f83c322e9",
+"structosi3_1_1UltrasonicIndirectDetection.html#a66f2cbb56ff0694190aaab5cc9377fdf"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

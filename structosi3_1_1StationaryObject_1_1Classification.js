@@ -30,6 +30,7 @@ var structosi3_1_1StationaryObject_1_1Classification =
       [ "MATERIAL_CONCRETE", "structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4ac02c570046810c81a71d358fd57111ac", null ],
       [ "MATERIAL_METAL", "structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a8182937780718e0db0de8be97e581336", null ],
       [ "MATERIAL_STONE", "structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a163d000b0c17d02d4eb2cb8f9e597cc4", null ],
+      [ "MATERIAL_GLASS", "structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4ae0210b3002b5a1ec4908739fe6190e62", null ],
       [ "MATERIAL_GLAS", "structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a9b7b0c2a85c54037c848a221e32c303d", null ],
       [ "MATERIAL_MUD", "structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a5b92f9e41f1e0a4505d4f1092bf16eae", null ]
     ] ],
@@ -52,6 +53,7 @@ var structosi3_1_1StationaryObject_1_1Classification =
       [ "COLOR_RED", "structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a4aa95ace4f6eec9407f38c62c0dd912b", null ],
       [ "COLOR_ORANGE", "structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a9d88e8a2ed628a1475a514e8f1b5b44d", null ],
       [ "COLOR_BLACK", "structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18adb5f2127665fdea9d5ffb9367d153b3a", null ],
+      [ "COLOR_GRAY", "structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18abe6a63dea12d3de9e2019ac6f0974583", null ],
       [ "COLOR_GREY", "structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18aa0910a904100bcd0c68747a405dcf5b2", null ],
       [ "COLOR_WHITE", "structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a223ae57ff63a7987bb2626617a7ef7d8", null ]
     ] ],

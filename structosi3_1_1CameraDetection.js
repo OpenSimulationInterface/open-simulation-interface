@@ -4,6 +4,7 @@ var structosi3_1_1CameraDetection =
       [ "COLOR_UNKNOWN", "structosi3_1_1CameraDetection.html#a2b8d54b4aafe536e38dfe1d31e40d0c6a64d099000b5c9f87df244668517f5321", null ],
       [ "COLOR_OTHER", "structosi3_1_1CameraDetection.html#a2b8d54b4aafe536e38dfe1d31e40d0c6a47cd6961443480ef837c1d5300164878", null ],
       [ "COLOR_BLACK", "structosi3_1_1CameraDetection.html#a2b8d54b4aafe536e38dfe1d31e40d0c6a055b67dbc8b1630ea6e8ea9a9fcaa496", null ],
+      [ "COLOR_GRAY", "structosi3_1_1CameraDetection.html#a2b8d54b4aafe536e38dfe1d31e40d0c6a5a9e77bc7d772c2d0002bf4a7d71b498", null ],
       [ "COLOR_GREY", "structosi3_1_1CameraDetection.html#a2b8d54b4aafe536e38dfe1d31e40d0c6a092b3c6e9a997e7a26a62867d9b882bf", null ],
       [ "COLOR_WHITE", "structosi3_1_1CameraDetection.html#a2b8d54b4aafe536e38dfe1d31e40d0c6abae0559bc067122f243adc8eec12aca5", null ],
       [ "COLOR_YELLOW", "structosi3_1_1CameraDetection.html#a2b8d54b4aafe536e38dfe1d31e40d0c6a6d50389e3e14e8b3ef12008c2d7b3e78", null ],

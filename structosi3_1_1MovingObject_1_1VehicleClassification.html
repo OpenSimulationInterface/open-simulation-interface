@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -207,9 +207,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition of vehicle types. </p>
-<dl class="section note"><dt>Note</dt><dd>OSI provides a richer set of vehicle types than is supported by some other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel). This is primarily for historical reasons. Where a single type from a different standard can map to multiple OSI types it is left up to the discretion of the OSI implementor how that mapping is achieved. For example, a simulator may use the dimensions of a provided 3d model of a vehicle with type "car" in OpenScenario, to determine whether it should be a TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI.</dd>
+<dl class="section note"><dt>Note</dt><dd>OSI provides a richer set of vehicle types than is supported by some other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel). This is primarily for historical reasons. Where a single type from a different standard can map to multiple OSI types it is left up to the discretion of the OSI implementer how that mapping is achieved. For example, a simulator may use the dimensions of a provided 3d model of a vehicle with type "car" in OpenScenario, to determine whether it should be a TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI.</dd>
 <dd>
-Vehicle type classification is a complex area and there are no universally recognised standards. As such, the boundaries between some of the OSI vehicle types are not well-defined. It is left to the implementor to decide how to distinguish between them and agree that with any applications which make use of that specific interface instance. For example, how to distinguish between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER. </dd></dl>
+Vehicle type classification is a complex area and there are no universally recognized standards. As such, the boundaries between some of the OSI vehicle types are not well-defined. It is left to the implementer to decide how to distinguish between them and agree that with any applications which make use of that specific interface instance. For example, how to distinguish between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER. </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189aec66603fc9aa8b1d34018624bbec3108"></a>TYPE_UNKNOWN&#160;</td><td class="fielddoc"><p>Type of vehicle is unknown (must not be used in ground truth). </p>
 </td></tr>
@@ -222,7 +222,7 @@ Vehicle type classification is a complex area and there are no universally recog
 <p>Definition: Hatchback car with length between 4 and 4.5 m. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189aa4cc83f7e97bef135062b2d10ed96ecc"></a>TYPE_MEDIUM_CAR&#160;</td><td class="fielddoc"><p>Vehicle is a medium car. </p>
-<p>Definition: Hatchback or sedan with lenght between 4.5 and 5 m. </p>
+<p>Definition: Hatchback or sedan with length between 4.5 and 5 m. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189ab33b4a7846b43eebad650ba75fa77f21"></a>TYPE_LUXURY_CAR&#160;</td><td class="fielddoc"><p>Vehicle is a luxury car. </p>
 <p>Definition: Sedan or coupe that is longer then 5 m. </p>
@@ -266,7 +266,7 @@ Vehicle type classification is a complex area and there are no universally recog
 </td></tr>
 <tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02"></a>TYPE_WHEELCHAIR&#160;</td><td class="fielddoc"><p>Vehicle is a wheelchair. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189a95884f1284b2897deaf6b687ee48bc5a"></a>TYPE_STANDUP_SCOOTER&#160;</td><td class="fielddoc"><p>Vehicle is a stand-up or kickboard scooter, including motorized versions. </p>
+<tr><td class="fieldname"><a id="a65c82aaafe22ed6996ab78713354d189a95884f1284b2897deaf6b687ee48bc5a"></a>TYPE_STANDUP_SCOOTER&#160;</td><td class="fielddoc"><p>Vehicle is a stand-up scooter, including motorized versions. </p>
 </td></tr>
 </table>
 

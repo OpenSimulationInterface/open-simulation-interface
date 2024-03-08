@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -718,7 +718,7 @@ Use it as a canvas for text signs that make: reference to a point in time or a t
 </div>
   </td><td>StVO 1042-36  </td><td>&rdquo;Schulbus werktags au&szlig;er samstags&rdquo; + two time ranges  </td><td>School bus, restricted to daytimes <br  />
  For each time range, include a pair of <code><a class="el" href="structosi3_1_1TrafficSignValue.html" title="Additional value associated with a traffic sign or road marking, its unit and its text.">TrafficSignValue</a></code> messages according to the <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a5dbeb6ad7e5a0f46cc4fca34e8260b85a90413a69fe4b782ffb478ea23738404d"><code>rules</code> above</a>. <br  />
- See also: <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#StVO_1040-31"><code>Two</code> time ranges</a>, <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#StVO_1042-38"><code>Working</code> days except saturdays</a>.   </td></tr>
+ See also: <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#StVO_1040-31"><code>Two</code> time ranges</a>, <a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#StVO_1042-38"><code>Working</code> days except Saturdays</a>.   </td></tr>
 <tr>
 <td><div class="image">
 <img src="1042-37.png" alt=""/>
@@ -728,7 +728,7 @@ Use it as a canvas for text signs that make: reference to a point in time or a t
 <td><div class="image">
 <img src="1042-38.png" alt=""/>
 </div>
-  </td><td>StVO 1042-38 <a class="anchor" id="StVO_1042-38"></a> </td><td>&rdquo;werktags au&szlig;er samstags&rdquo;  </td><td>Working days except saturdays.   </td></tr>
+  </td><td>StVO 1042-38 <a class="anchor" id="StVO_1042-38"></a> </td><td>&rdquo;werktags au&szlig;er samstags&rdquo;  </td><td>Working days except Saturdays.   </td></tr>
 <tr>
 <td><div class="image">
 <img src="1042-51.png" alt=""/>
@@ -770,7 +770,7 @@ Use together with the message <code><a class="el" href="structosi3_1_1TrafficSig
 <img src="1000-31.png" alt=""/>
 </div>
   </td><td>StVO 1000-31  </td><td>Bidirectional traffic back and forth. <br  />
- Use two <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a3e1ffc78063cd690ec681b6ad343c62f" title="A direction arrow shown on the supplementary sign.">Classification::arrow</a></code> messages. Set one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba7d0e0aacc39823d8ac529384b1de38b0" title="An arrow pointing straight ahead in the direction of driving.">Arrow::DIRECTION_DIRECT_0_DEG</a></code> and the other one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba268d576605a97950729cee9796aa3ae3" title="A straight arrow pointing oposite to the direction of driving.">Arrow::DIRECTION_DIRECT_180_DEG</a></code>.   </td></tr>
+ Use two <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a3e1ffc78063cd690ec681b6ad343c62f" title="A direction arrow shown on the supplementary sign.">Classification::arrow</a></code> messages. Set one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba7d0e0aacc39823d8ac529384b1de38b0" title="An arrow pointing straight ahead in the direction of driving.">Arrow::DIRECTION_DIRECT_0_DEG</a></code> and the other one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba268d576605a97950729cee9796aa3ae3" title="A straight arrow pointing opposite to the direction of driving.">Arrow::DIRECTION_DIRECT_180_DEG</a></code>.   </td></tr>
 <tr>
 <td><div class="image">
 <img src="1000-34.png" alt=""/>
@@ -807,7 +807,7 @@ Use as many members of the <code>Actor</code> enumerator as needed to denote the
 <img src="1000-33.png" alt=""/>
 </div>
   </td><td>StVO 1000-33  </td><td><code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686ae08391971b5339b37f2beab147ee57e4" title="Bicycles.">ACTOR_BICYCLES</a></code>  </td><td>Bidirectional traffic bicyclesback and forth. <br  />
- Use two <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a3e1ffc78063cd690ec681b6ad343c62f" title="A direction arrow shown on the supplementary sign.">Classification::arrow</a></code> messages. Set one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba7d0e0aacc39823d8ac529384b1de38b0" title="An arrow pointing straight ahead in the direction of driving.">Arrow::DIRECTION_DIRECT_0_DEG</a></code> and the other one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba268d576605a97950729cee9796aa3ae3" title="A straight arrow pointing oposite to the direction of driving.">Arrow::DIRECTION_DIRECT_180_DEG</a></code>.   </td></tr>
+ Use two <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a3e1ffc78063cd690ec681b6ad343c62f" title="A direction arrow shown on the supplementary sign.">Classification::arrow</a></code> messages. Set one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba7d0e0aacc39823d8ac529384b1de38b0" title="An arrow pointing straight ahead in the direction of driving.">Arrow::DIRECTION_DIRECT_0_DEG</a></code> and the other one to <code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba268d576605a97950729cee9796aa3ae3" title="A straight arrow pointing opposite to the direction of driving.">Arrow::DIRECTION_DIRECT_180_DEG</a></code>.   </td></tr>
 <tr>
 <td><div class="image">
 <img src="1010-50.png" alt=""/>
@@ -1237,7 +1237,7 @@ Use as many members of the <code>Actor</code> enumerator as needed to denote the
 <td><div class="image">
 <img src="1026-31.png" alt=""/>
 </div>
-  </td><td>StVO 1026-31  </td><td><code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686a4a5a8b7ab20aaad7947ddd4b24d76569" title="Buses.">ACTOR_BUSES</a></code>  </td><td>Except buses in ocasional service. <br  />
+  </td><td>StVO 1026-31  </td><td><code><a class="el" href="structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification.html#a302f53418063f833bdf486599b2d1686a4a5a8b7ab20aaad7947ddd4b24d76569" title="Buses.">ACTOR_BUSES</a></code>  </td><td>Except buses in occasional service. <br  />
  Set <code><a class="el" href="structosi3_1_1TrafficSignValue.html#a0f8d043b645a8766fea28f0f7d68be90" title="Text associated with a sign, e.g.">TrafficSignValue::text</a></code> as "im Gelegenheitsverkehr".   </td></tr>
 <tr>
 <td><div class="image">

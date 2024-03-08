@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515ac76c8f752f02f132dcd3c5c68785e4ed":[2,0,0,92,0,1,16],
+"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515af7c59ea08ed7e7a14b47a7a6a2747391":[2,0,0,92,0,1,22],
+"structosi3_1_1TrafficLight_1_1Classification.html#ac69696ede6d67777aa87b9b290778515afbe909aaa2de422bfdb8571e5f09c769":[2,0,0,92,0,1,0],
 "structosi3_1_1TrafficLight_1_1Classification.html#ad63f114c257cd48de974e9e68635f034":[2,0,0,92,0,3],
 "structosi3_1_1TrafficLight_1_1Classification.html#ade8af99e440cdd216d8294647d473114":[2,0,0,92,0,0],
 "structosi3_1_1TrafficLight_1_1Classification.html#ade8af99e440cdd216d8294647d473114a156ba94538832869604397d257312f9e":[2,0,0,92,0,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88daad41222b33d71ad120fe2b8250e0bd20":[2,0,0,94,0,0,0,222],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88daadb4341b22b718e75c3ab303d250f0e6":[2,0,0,94,0,0,0,217],
 "structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88daae903562737ada992bb09368781d3403":[2,0,0,94,0,0,0,199],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88daafc2625b8bfbdb47bf8e1c1cbbe3e242":[2,0,0,94,0,0,0,238],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab0db0fd0cfa51e50bae36f8f83c322e9":[2,0,0,94,0,0,0,73],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab4206bef278420e33c5b8dc2418df237":[2,0,0,94,0,0,0,91],
-"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88dab4ce2bd872a3da7ce83f709e66bdf5e5":[2,0,0,94,0,0,0,106]
+"structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html#af4bea9cfaada82922c78d06dff73b88daafc2625b8bfbdb47bf8e1c1cbbe3e242":[2,0,0,94,0,0,0,238]
 };

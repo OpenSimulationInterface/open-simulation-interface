@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -128,15 +128,15 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a84913ba85707fce80df547fcb252e665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the measurement of lateral distance between the traffic participant receiving this action and the reference traffic participant.  <a href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#a84913ba85707fce80df547fcb252e665">More...</a><br /></td></tr>
 <tr class="separator:a84913ba85707fce80df547fcb252e665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef925bd47d5c53bdb7d91154cb72d759"><td class="memItemLeft" align="right" valign="top">optional bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#aef925bd47d5c53bdb7d91154cb72d759">follow</a> = 5</td></tr>
-<tr class="memdesc:aef925bd47d5c53bdb7d91154cb72d759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define wheather the traffic participant should only reach the distance once or if it should also keep the distance after having reached it.  <a href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#aef925bd47d5c53bdb7d91154cb72d759">More...</a><br /></td></tr>
+<tr class="memdesc:aef925bd47d5c53bdb7d91154cb72d759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define whether the traffic participant should only reach the distance once or if it should also keep the distance after having reached it.  <a href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#aef925bd47d5c53bdb7d91154cb72d759">More...</a><br /></td></tr>
 <tr class="separator:aef925bd47d5c53bdb7d91154cb72d759"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96b526507585bf9a7ec76de562ddc142"><td class="memItemLeft" align="right" valign="top">optional <a class="el" href="structosi3_1_1TrafficAction_1_1DynamicConstraints.html">DynamicConstraints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#a96b526507585bf9a7ec76de562ddc142">dynamic_constraints</a> = 6</td></tr>
-<tr class="memdesc:a96b526507585bf9a7ec76de562ddc142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameter that assings either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action.  <a href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#a96b526507585bf9a7ec76de562ddc142">More...</a><br /></td></tr>
+<tr class="memdesc:a96b526507585bf9a7ec76de562ddc142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameter that assigns either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action.  <a href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html#a96b526507585bf9a7ec76de562ddc142">More...</a><br /></td></tr>
 <tr class="separator:a96b526507585bf9a7ec76de562ddc142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lateral Distance Action. </p>
-<p>The action tells the (host) traffic participant to reach a certain lateral distance relative to a target traffic participant. The lateral distance is defined along an imaginative perpendicular line with respect to the centerline of the current (host) traffic participant's lane. The interpolation strategy between centerline points for calculating that distance along the imaginative perpendicular line is open to the traffic participant modeller.</p>
+<p>The action tells the (host) traffic participant to reach a certain lateral distance relative to a target traffic participant. The lateral distance is defined along an imaginative perpendicular line with respect to the centerline of the current (host) traffic participant's lane. The interpolation strategy between centerline points for calculating that distance along the imaginative perpendicular line is open to the traffic participant modeler.</p>
 <dl class="section note"><dt>Note</dt><dd>This action is aligned with <a class="el" href="structosi3_1_1TrafficAction_1_1LateralDistanceAction.html" title="Lateral Distance Action.">LateralDistanceAction</a> of OpenSCENARIO 1.0 defining the reference traffic participant and the distance.</dd>
 <dd>
 Limitation: This concept currently only works for lanes with a centerline, i.e. for lanes of TYPE_DRIVING, not for lanes of TYPE_NONDRIVING or TYPE_INTERSECTION. </dd></dl>
@@ -203,7 +203,7 @@ Limitation: This concept currently only works for lanes with a centerline, i.e. 
 </div><div class="memdoc">
 
 <p>Determine the measurement of lateral distance between the traffic participant receiving this action and the reference traffic participant. </p>
-<p>True: Lateral distance is measured using the distance between closest bounding box points. False: Lateral distance is mesasured using the distance between the center of each object's bounding box. </p>
+<p>True: Lateral distance is measured using the distance between closest bounding box points. False: Lateral distance is measured using the distance between the center of each object's bounding box. </p>
 
 </div>
 </div>
@@ -219,7 +219,7 @@ Limitation: This concept currently only works for lanes with a centerline, i.e. 
       </table>
 </div><div class="memdoc">
 
-<p>Define wheather the traffic participant should only reach the distance once or if it should also keep the distance after having reached it. </p>
+<p>Define whether the traffic participant should only reach the distance once or if it should also keep the distance after having reached it. </p>
 <p>True: the traffic participant shall approach the reference participant and follow with the distance specified until the action is aborted (communicate with <a class="el" href="structosi3_1_1TrafficAction_1_1AbortActionsAction.html" title="AbortActionsAction.">AbortActionsAction</a>). False: the action ends as soon as the traffic participant has reached the specified distance (communicate with <a class="el" href="structosi3_1_1TrafficAction_1_1EndActionsAction.html" title="End actions action.">EndActionsAction</a>). </p>
 
 </div>
@@ -236,7 +236,7 @@ Limitation: This concept currently only works for lanes with a centerline, i.e. 
       </table>
 </div><div class="memdoc">
 
-<p>Parameter that assings either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action. </p>
+<p>Parameter that assigns either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action. </p>
 
 </div>
 </div>

@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"structosi3_1_1UltrasonicIndirectDetection.html#a66f2cbb56ff0694190aaab5cc9377fdf":[2,0,0,49,1],
+"structosi3_1_1UltrasonicIndirectDetection.html#a6d161260fca7169e5964cf620fcd044f":[2,0,0,49,0],
+"structosi3_1_1UltrasonicIndirectDetection.html#ae27488fe133f3e50b4894c7616466989":[2,0,0,49,2],
 "structosi3_1_1UltrasonicSensorView.html":[2,0,0,81],
 "structosi3_1_1UltrasonicSensorView.html#aba90faa1edc2d47553d91d67dda94f4f":[2,0,0,81,0],
 "structosi3_1_1UltrasonicSensorViewConfiguration.html":[2,0,0,87],

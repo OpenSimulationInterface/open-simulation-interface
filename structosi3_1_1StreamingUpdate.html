@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -185,7 +185,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>The streaming update interface enables simulation entities to send partial updates to other modules that favor performance (especially latency) over data completeness/consistency (e.g. </p>
 <p>visualization applications).</p>
 <p>Static and/or non-relevant objects can be omitted as required for the specific use case. Adding an object's unique id to the repeated field <code>obsolete_id</code> indicates that it will no longer be updated from then on.</p>
-<dl class="section note"><dt>Note</dt><dd>The receiver of partial streaming update messages can only rely on the most up-to-date information at the corresponding timestamp. E.g. omitting objects does not indicate static behaviour but it may be sufficient for the use case to update certain objects at a later point in time. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The receiver of partial streaming update messages can only rely on the most up-to-date information at the corresponding timestamp. E.g. omitting objects does not indicate static behavior but it may be sufficient for the use case to update certain objects at a later point in time. </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a02af943dc324e7dbb3ffb6671b95a1de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a02af943dc324e7dbb3ffb6671b95a1de">&#9670;&nbsp;</a></span>version</h2>

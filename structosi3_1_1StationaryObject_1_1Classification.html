@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -166,9 +166,10 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4ac02c570046810c81a71d358fd57111ac">MATERIAL_CONCRETE</a> = 4
 , <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a8182937780718e0db0de8be97e581336">MATERIAL_METAL</a> = 5
 , <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a163d000b0c17d02d4eb2cb8f9e597cc4">MATERIAL_STONE</a> = 6
-, <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a9b7b0c2a85c54037c848a221e32c303d">MATERIAL_GLAS</a> = 7
+, <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4ae0210b3002b5a1ec4908739fe6190e62">MATERIAL_GLASS</a> = 7
 , <br />
-&#160;&#160;<a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a5b92f9e41f1e0a4505d4f1092bf16eae">MATERIAL_MUD</a> = 8
+&#160;&#160;<a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a9b7b0c2a85c54037c848a221e32c303d">MATERIAL_GLAS</a> = 7
+, <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4a5b92f9e41f1e0a4505d4f1092bf16eae">MATERIAL_MUD</a> = 8
 <br />
  }</td></tr>
 <tr class="memdesc:a355ae3da574e37c59e934583cd7ec4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of material types.  <a href="structosi3_1_1StationaryObject_1_1Classification.html#a355ae3da574e37c59e934583cd7ec4a4">More...</a><br /></td></tr>
@@ -198,6 +199,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a9d88e8a2ed628a1475a514e8f1b5b44d">COLOR_ORANGE</a> = 7
 , <br />
 &#160;&#160;<a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18adb5f2127665fdea9d5ffb9367d153b3a">COLOR_BLACK</a> = 8
+, <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18abe6a63dea12d3de9e2019ac6f0974583">COLOR_GRAY</a> = 9
 , <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18aa0910a904100bcd0c68747a405dcf5b2">COLOR_GREY</a> = 9
 , <a class="el" href="structosi3_1_1StationaryObject_1_1Classification.html#a24bf321f2a1a030fe681c2bd6a7b1f18a223ae57ff63a7987bb2626617a7ef7d8">COLOR_WHITE</a> = 10
 <br />
@@ -307,7 +309,8 @@ Public Attributes</h2></td></tr>
 
 <p>Definition of material types. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4a9d881ed34e57899fd95299993f7ec1fe"></a>MATERIAL_UNKNOWN&#160;</td><td class="fielddoc"><p>Type of the material is unknown (must not be used in ground truth). </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4a9d881ed34e57899fd95299993f7ec1fe"></a>MATERIAL_UNKNOWN&#160;</td><td class="fielddoc"><p>Allow aliases in enum. </p>
+<p>Type of the material is unknown (must not be used in ground truth). </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4adff39bf36c571aa115f1914dde7a4242"></a>MATERIAL_OTHER&#160;</td><td class="fielddoc"><p>Other (unspecified but known) type of material. </p>
 </td></tr>
@@ -321,7 +324,10 @@ Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4a163d000b0c17d02d4eb2cb8f9e597cc4"></a>MATERIAL_STONE&#160;</td><td class="fielddoc"><p>Natural stone structure. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4a9b7b0c2a85c54037c848a221e32c303d"></a>MATERIAL_GLAS&#160;</td><td class="fielddoc"><p>Glas structure. </p>
+<tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4ae0210b3002b5a1ec4908739fe6190e62"></a>MATERIAL_GLASS&#160;</td><td class="fielddoc"><p>Glass structure. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4a9b7b0c2a85c54037c848a221e32c303d"></a>MATERIAL_GLAS&#160;</td><td class="fielddoc"><p>Glass structure. </p>
+<dl class="section note"><dt>Note</dt><dd>Deprecated variant spelling of MATERIAL_GLASS </dd></dl>
 </td></tr>
 <tr><td class="fieldname"><a id="a355ae3da574e37c59e934583cd7ec4a4a5b92f9e41f1e0a4505d4f1092bf16eae"></a>MATERIAL_MUD&#160;</td><td class="fielddoc"><p>Mud structure. </p>
 </td></tr>
@@ -380,7 +386,8 @@ Public Attributes</h2></td></tr>
 <p>Definition of colors for structures. </p>
 <dl class="section attention"><dt>Attention</dt><dd>DEPRECATED: This color enum will be removed in version 4.0.0. Use <code><a class="el" href="structosi3_1_1ColorDescription.html" title="The description of a color within available color spaces.">ColorDescription</a></code> instead. </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18af0cfd3dd8f274d4be1782193f9ff1ad3"></a>COLOR_UNKNOWN&#160;</td><td class="fielddoc"><p>Color is unknown (must not be used in ground truth). </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18af0cfd3dd8f274d4be1782193f9ff1ad3"></a>COLOR_UNKNOWN&#160;</td><td class="fielddoc"><p>Allow aliases in enum. </p>
+<p>Color is unknown (must not be used in ground truth). </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18ae0a6283d10945bacc414792f56c88900"></a>COLOR_OTHER&#160;</td><td class="fielddoc"><p>Other (unspecified but known) color. </p>
 </td></tr>
@@ -398,7 +405,10 @@ Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18adb5f2127665fdea9d5ffb9367d153b3a"></a>COLOR_BLACK&#160;</td><td class="fielddoc"><p>Black. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18aa0910a904100bcd0c68747a405dcf5b2"></a>COLOR_GREY&#160;</td><td class="fielddoc"><p>GREY. </p>
+<tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18abe6a63dea12d3de9e2019ac6f0974583"></a>COLOR_GRAY&#160;</td><td class="fielddoc"><p>GRAY. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18aa0910a904100bcd0c68747a405dcf5b2"></a>COLOR_GREY&#160;</td><td class="fielddoc"><p>GRAY. </p>
+<dl class="section note"><dt>Note</dt><dd>Deprecated variant spelling of COLOR_GRAY </dd></dl>
 </td></tr>
 <tr><td class="fieldname"><a id="a24bf321f2a1a030fe681c2bd6a7b1f18a223ae57ff63a7987bb2626617a7ef7d8"></a>COLOR_WHITE&#160;</td><td class="fielddoc"><p>White. </p>
 </td></tr>

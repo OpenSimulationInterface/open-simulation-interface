@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (77587cf)</span>
+   &#160;<span id="projectnumber">master (659a95c)</span>
    </div>
   </td>
  </tr>
@@ -259,7 +259,7 @@ Two logical lanes on an intersection</div></div>
 <li>The green line marks the area where <code>l1</code> is right of <code>l2</code> - this info is recorded in <a class="el" href="structosi3_1_1LogicalLane.html#a011f595b9c834b96cec0fea3d542a327" title="Lanes that are directly right of this lane, without gap or overlap.">right_adjacent_lane</a> of <code>l2</code>.</li>
 <li>The red area is the area where <code>l1</code> overlaps <code>l2</code>. This is recorded in <a class="el" href="structosi3_1_1LogicalLane.html#a8eca6c676fb4ae84881a668f4896510a" title="Lanes that partially or completely overlap this lane.">overlapping_lane</a> of <code>l1</code>.</li>
 </ul>
-<p>As can be seen in the images, the two highlighted lanes are neighbours for part of their length, but it makes no sense for them to have the same reference line, since they diverge significantly.</p>
+<p>As can be seen in the images, the two highlighted lanes are neighbors for part of their length, but it makes no sense for them to have the same reference line, since they diverge significantly.</p>
 <p>Note: all the relations shown above are also defined outside of intersections. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a907beab41b3da2fea61ed4c4e32a84b3"></a>
@@ -275,7 +275,7 @@ Two logical lanes on an intersection</div></div>
 </div><div class="memdoc">
 
 <p>Definition of available lane types. </p>
-<p>This is mostly aligned with OpenDRIVE, except that lane types modelling access restrictions (e.g. "taxi") are not made available here. These are already deprecated in OpenDRIVE. To support this, access restrictions should be added later, in alignment with OpenDRIVE. </p>
+<p>This is mostly aligned with OpenDRIVE, except that lane types modeling access restrictions (e.g. "taxi") are not made available here. These are already deprecated in OpenDRIVE. To support this, access restrictions should be added later, in alignment with OpenDRIVE. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a907beab41b3da2fea61ed4c4e32a84b3a5bc03e629bc12cbea2949af563ecc607"></a>TYPE_UNKNOWN&#160;</td><td class="fielddoc"><p>Lane of unknown type. </p>
 <p>Do not use in ground truth. </p>
@@ -286,8 +286,8 @@ Two logical lanes on an intersection</div></div>
 <p>Example: Lanes with IDs l1, l2, l3 and l4 in image <a class="el" href="structosi3_1_1Lane_1_1Classification.html#HighwayExit">HighwayExit</a>. This matches the OpenDRIVE type "driving".</p>
 <p>Note: a lane with OpenDRIVE type "bidirectional" will have an OSI type of TYPE_NORMAL, with <code><a class="el" href="structosi3_1_1LogicalLane.html#a6560b48fdf8b20fc0d8f46254cc331f9" title="Definition of the intended driving direction.">move_direction</a> == <a class="el" href="structosi3_1_1LogicalLane.html#ac1e373a2f378354eedcc50668d2b450bafe5cc6003a7964f209af244de3f62451" title="Objects may move in both directions.">MOVE_DIRECTION_BOTH_ALLOWED</a></code>. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a907beab41b3da2fea61ed4c4e32a84b3adf62797bcf45b65f9ad34861db69e218"></a>TYPE_BIKING&#160;</td><td class="fielddoc"><p>A lane that is designated for bicylists. </p>
-<p>Note that biking lanes that cross the road (e.g. on an intersection) are also labeled with this type. </p>
+<tr><td class="fieldname"><a id="a907beab41b3da2fea61ed4c4e32a84b3adf62797bcf45b65f9ad34861db69e218"></a>TYPE_BIKING&#160;</td><td class="fielddoc"><p>A lane that is designated for bicycles Note that biking lanes that cross the road (e.g. </p>
+<p>on an intersection) are also labeled with this type. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a907beab41b3da2fea61ed4c4e32a84b3adb93c963eb74fa9413abf795e2e230f3"></a>TYPE_SIDEWALK&#160;</td><td class="fielddoc"><p>A lane that is designated for pedestrians (sidewalk). </p>
 <p>Note that pedestrian lanes that cross the road (e.g. on an intersection) are also labeled with this type. </p>
@@ -414,7 +414,7 @@ Two logical lanes on an intersection</div></div>
 <p>Optional external reference to the lane source. </p>
 <p>The external reference points to the source of the lane, if it is derived from one or more objects or external references.</p>
 <p>For example, to reference a lane defined in an OpenDRIVE map the items should be set as follows:</p><ul>
-<li>reference = URI to map, can remain empty if identical with definiton in <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e" title="Opaque reference of a map.">GroundTruth::map_reference</a></code> </li>
+<li>reference = URI to map, can remain empty if identical with definition in <code><a class="el" href="structosi3_1_1GroundTruth.html#a151bae123d1ceecb7d83a9619ab8017e" title="Opaque reference of a map.">GroundTruth::map_reference</a></code> </li>
 <li>type = "net.asam.opendrive"</li>
 <li>identifier[0] = id of t_road</li>
 <li>identifier[1] = s of t_road_lanes_laneSection</li>
@@ -475,7 +475,7 @@ The value has to be repeated, because one lane segment may be derived from more 
 <p>The <a class="el" href="structosi3_1_1ReferenceLine.html">reference line</a> for this logical lane. </p>
 <p>The reference line is used as a coordinate system on this lane.</p>
 <p>The reference line should roughly have the same shape as the lane, so that S coordinates continually increase/decrease along the lane. It is not required that the reference line has the same direction as the driving direction of the lane.</p>
-<p>Neighbouring lanes (i.e. lanes that are neighbours and whose directions do not diverge significantly) are strongly encouraged to reference the same <a class="el" href="structosi3_1_1ReferenceLine.html" title="A reference line for defining a non-Euclidean ST coordinate system.">ReferenceLine</a>, so that vehicles that are next to each other on neighbouring lanes have comparable S positions.</p>
+<p>Neighboring lanes (i.e. lanes that are neighbors and whose directions do not diverge significantly) are strongly encouraged to reference the same <a class="el" href="structosi3_1_1ReferenceLine.html" title="A reference line for defining a non-Euclidean ST coordinate system.">ReferenceLine</a>, so that vehicles that are next to each other on neighboring lanes have comparable S positions.</p>
 <p>The S coordinate of the reference line makes it easy to find e.g. which object is next on a lane, using the <a class="el" href="structosi3_1_1LogicalLaneAssignment.html" title="Assignment of an object to a logical lane.">LogicalLaneAssignment</a> of the objects.</p>
 <p>The reference trajectory must be sampled such that there are no two positions on the lane more than 5cm apart with the same ST coordinate.</p>
 <dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>refers_to: <a class="el" href="structosi3_1_1ReferenceLine.html" title="A reference line for defining a non-Euclidean ST coordinate system.">ReferenceLine</a>  </dd></dl>
@@ -583,7 +583,7 @@ The value has to be repeated, because one lane segment may be derived from more 
 
 <p>Lanes that partially or completely overlap this lane. </p>
 <p>Only overlaps laterally larger than 5cm are considered overlaps for the purpose of this relation.</p>
-<p>This will typically contain a lot of entries on intersections, but might also be used outside of intersections (e.g. if a <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3adf62797bcf45b65f9ad34861db69e218" title="A lane that is designated for bicylists.">TYPE_BIKING</a> lane overlaps a <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3aa6189472ec9c6e01bb300c8be9554a08" title="A normal driving lane.">TYPE_NORMAL</a> lane).</p>
+<p>This will typically contain a lot of entries on intersections, but might also be used outside of intersections (e.g. if a <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3adf62797bcf45b65f9ad34861db69e218" title="A lane that is designated for bicycles Note that biking lanes that cross the road (e....">TYPE_BIKING</a> lane overlaps a <a class="el" href="structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3aa6189472ec9c6e01bb300c8be9554a08" title="A normal driving lane.">TYPE_NORMAL</a> lane).</p>
 <p>Entries must be ordered: first by <a class="el" href="structosi3_1_1LogicalLane.html#a92b763833b9b73cf3093f98bf6412c9c" title="Start S position of the lane.">start_s</a>, then by <a class="el" href="structosi3_1_1LogicalLane.html#adcfa464e035acec1eb060091bcbee3b5" title="End S position of the lane.">end_s</a>. </p>
 
 </div>
