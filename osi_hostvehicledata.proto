@@ -144,7 +144,7 @@ message HostVehicleData
             //
             OPERATING_STATE_BOARDING = 4;
 
-            // Entertainment, navigation or similiar systems can be used by the driver.
+            // Entertainment, navigation or similar systems can be used by the driver.
             // The vehicle can not be driven.
             // Usually the driver sits in the vehicle before or after a drive.
             //
@@ -568,7 +568,7 @@ message HostVehicleData
             //
             STATE_OTHER = 1;
 
-            // The function has errored in some way that renders it ineffective.
+            // The function has thrown an error in some way that renders it ineffective.
             //
             STATE_ERRORED = 2;
 
@@ -584,7 +584,7 @@ message HostVehicleData
             STATE_AVAILABLE = 4;
 
             // The function is available but conditions have not caused it to be
-            // triggered, for example, no vehicles in front to trigger a FCW.
+            // triggered, for example, no vehicles in front to trigger a forward collision warning.
             //
             STATE_STANDBY = 5;
 

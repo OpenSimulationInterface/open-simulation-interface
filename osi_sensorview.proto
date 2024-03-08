@@ -301,7 +301,7 @@ message LidarSensorView
 
         // normal to surface angle.
         //
-        // The normal of the transmitted beam to the object, roadmarking etc
+        // The normal of the transmitted beam to the object, road marking, etc.
         // encounter. \note data is in Lidar coordinate system
         //
         // Unit: unit vector
@@ -309,7 +309,7 @@ message LidarSensorView
         optional Vector3d normal_to_surface = 5;
 
         // ID of the detected object this reflection is associated to.
-        // can be used for raytracing debug
+        // can be used for ray tracing debug
         //
         // \note ID = MAX(uint64) indicates no reference to an object.
         optional Identifier object_id = 6;
