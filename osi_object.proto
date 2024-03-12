@@ -520,8 +520,6 @@ message MovingObject
     // * identifier[0] = Entity-Type ("Vehicle" or "Pedestrian")
     // * identifier[1] = name of Vehicle/Pedestrian in Entity
     //
-    // \todo OpenSCENARIO currently does not provide an animal type.
-    //
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
