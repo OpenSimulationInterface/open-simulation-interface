@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_common.proto";
 import "osi_object.proto";
+import "osi_trafficsign.proto";
 
 package osi3;
 
@@ -895,11 +896,35 @@ message LogicalLane
             optional double end_s = 2;
 
             //
-            // List of vehicle types for which the speed limit is valid.
+            // List of traffic participan types for which the speed limit is valid.
             // If the traffic rule validity is independent of the vehicle type 
             // the list should be empty.
             //
-            repeated MovingObject.VehicleClassification.Type valid_for_type = 3;
+            repeated TypeValidity valid_for_type = 3;
+
+            //
+            // \brief Type of traffic paricipant for which a rule is valid.
+            //
+            message TypeValidity {
+
+                //
+                // The type of objects for which the traffic rule applys.
+                // Must not be UNKNOWN or OTHER
+                //
+                optional MovingObject.Type type = 1;
+                
+                //
+                // Vehicle classification type for trafic participants 
+                // May only be set if type is TYPE_VEHICLE. Must not be UNKNOWN or OTHER.
+                //
+                optional MovingObject.VehicleClassification.Type vehicle_type = 2;
+
+                //
+                // Role of traffic participant.
+                // May only be set if type is TYPE_VEHICLE. Must not be UNKNOWN or OTHER.
+                //
+                optional MovingObject.VehicleClassification.Role vehicle_role = 3;
+            }
         }
 
         //
@@ -908,37 +933,15 @@ message LogicalLane
         message SpeedLimit {
 
             //
-            // The speed limit in the unit specified by the respective files
+            // The value of the speed limit.
+            // The unit filed in the TrafficSigneValue message may only be set to
+            // units associated with velocities and must not be UNKNOWN or OTHER.
             //
-            optional double speed_limit = 1;
-
+            // Note: All speed limits are to be modelled this way, indpendent
+            // of how they are induced.
             //
-            // The unit in which the speed limit is specified.
-            //
-            optional Unit speed_limit_unit = 2;
+            optional TrafficSignValue speed_limit_value = 1;
 
-            // Unit of the specified speed limit.
-            //
-            enum Unit
-            {
-                // Meters per second.
-                //
-                // Unit: m/s
-                //
-                UNIT_METER_PER_SECOND = 0;
-
-                // Kilometers per hour.
-                //
-                // Unit: km/h
-                //
-                UNIT_KILOMETER_PER_HOUR = 1;
-
-                // Miles per hour.
-                //
-                // Unit: mph
-                //
-                UNIT_MILE_PER_HOUR = 2;
-            }
         }
     }
 
