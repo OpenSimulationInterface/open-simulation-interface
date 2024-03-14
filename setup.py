@@ -101,7 +101,16 @@ class GenerateProtobufCommand(build_py):
         for source in self.osi_files:
             sys.stdout.write("Protobuf-compiling " + source + "\n")
             source_path = os.path.join(package_name, source)
-            subprocess.check_call([self.find_protoc(), "--python_out=.", source_path])
+            subprocess.check_call(
+                [
+                    self.find_protoc(),
+                    "--proto_path=/usr/include",
+                    "--proto_path=/usr/local/include",
+                    "--proto_path=.",
+                    "--python_out=.",
+                    source_path,
+                ]
+            )
 
         build_py.run(self)
 
@@ -116,6 +125,32 @@ try:
 except Exception:
     pass
 
+# Get protobuf version from protoc to ensure protobuf python package and protoc have the same version
+version_print = subprocess.run(
+    [GenerateProtobufCommand.find_protoc(), "--version"], capture_output=True, text=True
+).stdout
+protobuf_version = version_print.split()[1]
+protobuf_split_version = protobuf_version.split(".")
+if len(protobuf_split_version) >= 3:
+    protobuf_major = int(protobuf_split_version[0])
+    protobuf_minor = int(protobuf_split_version[1])
+    protobuf_patch = int(protobuf_split_version[2])
+else:
+    protobuf_major = 4
+    protobuf_minor = int(protobuf_split_version[0])
+    protobuf_patch = int(protobuf_split_version[1])
+# Change protobuf major version from 3 to 4 for protobuf version > 21
+if protobuf_major >= 3 and protobuf_minor >= 21:
+    protobuf_major = 4
+
+protobuf_install_req = (
+    "protobuf=="
+    + str(protobuf_major)
+    + "."
+    + str(protobuf_minor)
+    + "."
+    + str(protobuf_patch)
+)
 setup(
     name="open-simulation-interface",
     version=str(VERSION_MAJOR) + "." + str(VERSION_MINOR) + "." + str(VERSION_PATCH),
@@ -127,7 +162,7 @@ setup(
     "Nils.Hirsenkorn@tum.de, Pilar.Garcia-Ramos@bmw.de,"
     "Mark.Schiementz@bmw.de, Sebastian.SB.Schneider@bmw.de",
     packages=[package_name],
-    install_requires=["protobuf"],
+    install_requires=[protobuf_install_req],
     cmdclass={
         "build_py": GenerateProtobufCommand,
     },
