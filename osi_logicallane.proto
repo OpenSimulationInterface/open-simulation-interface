@@ -844,7 +844,7 @@ message LogicalLane
     // valid rule should be provided.
     //
     // Note: Each traffic rule corresponds to only one lane. If the traffic rule
-    // is also valid on adjacent/successing/predecessing lanes it needs to be
+    // is also valid on adjacent/successor/predecessor lanes it needs to be
     // specified for each lane individually.
     //
     // \brief Logical Model of a traffic rule on a lane.
@@ -896,25 +896,25 @@ message LogicalLane
             optional double end_s = 2;
 
             //
-            // List of traffic participan types for which the speed limit is valid.
+            // List of traffic participant types for which the speed limit is valid.
             // If the traffic rule validity is independent of the vehicle type 
             // the list should be empty.
             //
             repeated TypeValidity valid_for_type = 3;
 
             //
-            // \brief Type of traffic paricipant for which a rule is valid.
+            // \brief Type of traffic participant for which a rule is valid.
             //
             message TypeValidity {
 
                 //
-                // The type of objects for which the traffic rule applys.
+                // The type of object for which the traffic rule is valid.
                 // Must not be UNKNOWN or OTHER
                 //
                 optional MovingObject.Type type = 1;
                 
                 //
-                // Vehicle classification type for trafic participants 
+                // Vehicle classification type for traffic participants 
                 // May only be set if type is TYPE_VEHICLE. Must not be UNKNOWN or OTHER.
                 //
                 optional MovingObject.VehicleClassification.Type vehicle_type = 2;
@@ -934,10 +934,10 @@ message LogicalLane
 
             //
             // The value of the speed limit.
-            // The unit filed in the TrafficSigneValue message may only be set to
+            // The unit filed in the TrafficSignValue message may only be set to
             // units associated with velocities and must not be UNKNOWN or OTHER.
             //
-            // Note: All speed limits are to be modelled this way, indpendent
+            // Note: All speed limits are to be led this way, independent
             // of how they are induced.
             //
             optional TrafficSignValue speed_limit_value = 1;
