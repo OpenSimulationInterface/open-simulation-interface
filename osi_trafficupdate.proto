@@ -20,7 +20,7 @@ package osi3;
 // information is provided as a MovingObject.  Certain fields of this
 // sub-message are not required to be set and will be ignored by the
 // simulation environment, because they are static information.
-// Instead of creating a seperate message type for only the non-static
+// Instead of creating a separate message type for only the non-static
 // information, re-use existing message.
 //
 message TrafficUpdate

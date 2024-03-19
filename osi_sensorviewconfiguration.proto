@@ -184,7 +184,7 @@ message SensorViewConfiguration
     // update to the sensor input should happen at 0.048s, or 0.018s
     // after simulation start. This convention is needed to ensure
     // stable phase position of the offset in the case of changing
-    // simulation start times, e.g. for partial resimulation.
+    // simulation start times, e.g. for partial re-simulation.
     //
     // Unit: s
     optional Timestamp update_cycle_offset = 9;

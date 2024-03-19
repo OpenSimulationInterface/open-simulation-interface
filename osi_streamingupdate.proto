@@ -23,7 +23,7 @@ package osi3;
 //
 // \note The receiver of partial streaming update messages can only rely on the
 // most up-to-date information at the corresponding timestamp. E.g. omitting
-// objects does not indicate static behaviour but it may be sufficient for the
+// objects does not indicate static behavior but it may be sufficient for the
 // use case to update certain objects at a later point in time.
 //
 message StreamingUpdate

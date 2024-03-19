@@ -1,0 +1,19 @@
+matrix:
+- name: Proto
+  aspell:
+    lang: en
+    d: en_US
+    camel-case: true
+  sources:
+  - ./*.proto
+  dictionary:
+    wordlists:
+    - .github/spelling_custom_words_en_US.txt
+    output: build/dictionary/proto.dic
+  pipeline:
+  - pyspelling.filters.context:
+      context_visible_first: false
+      escapes: '\\[\\`~]'
+      delimiters:
+      - open: '(?s)^(?P<open> *\/\/)'
+        close: '^(?P=open)$'

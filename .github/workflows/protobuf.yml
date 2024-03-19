@@ -11,6 +11,16 @@ on:
     branches: [ master ]
 
 jobs:
+  spellcheck:
+    name: Spellcheck
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+    - uses: rojopolis/spellcheck-github-actions@0.36.0
+      name: Spellcheck
+      with:
+        config_path: .github/.pyspelling.yml
+
   build-proto2-linux64:
     name: Build Proto2 Linux 64
 
@@ -21,6 +31,11 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
+
+    - name: Check Build Setup
+      run: |
+        ( result=0 ; for f in *.proto ; do grep -wq "$f" CMakeLists.txt || { echo "Missing $f in CMakeLists.txt" && let "result++"; } ; done ; exit $result )
+        ( result=0 ; for f in *.proto ; do grep -q '"'$f'"' setup.py || { echo "Missing $f in setup.py" && let "result++"; } ; done ; exit $result )
 
     - name: Setup Python
       uses: actions/setup-python@v5
@@ -40,7 +55,7 @@ jobs:
 
     - name: Cache Dependencies
       id: cache-depends
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: protobuf-${{ env.PROTOBUF_VERSION }}
         key: ${{ runner.os }}-v2-depends
@@ -137,7 +152,7 @@ jobs:
 
     - name: Cache Dependencies
       id: cache-depends
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: protobuf-${{ env.PROTOBUF_VERSION }}
         key: ${{ runner.os }}-v2-depends

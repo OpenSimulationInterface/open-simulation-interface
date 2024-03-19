@@ -40,7 +40,7 @@ message EnvironmentalConditions
     // sorted by languages](https://www.epochconverter.com/#code).
     //
     // \par References:
-    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommondation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
+    // [1] ITU Radiocommunication Assembly. (2002). <em>Recommendation  ITU-R  TF.460-6 Standard-frequency and time-signal emissions</em>. (Rec.  ITU-R  TF.460-6). Retrieved January 25, 2020, from http://www.itu.int/dms_pubrec/itu-r/rec/tf/R-REC-TF.460-6-200202-I!!PDF-E.pdf \n
     // [2] The Open Group. (2018). <em>POSIX.1-2017</em> The Open Group Base Specifications Issue 7, 2018 edition. IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008). Retrieved January 25, 2020, from https://pubs.opengroup.org/onlinepubs/9699919799/xrat/contents.html
     //
     optional int64 unix_timestamp = 8;
@@ -358,7 +358,7 @@ message EnvironmentalConditions
         // 8 oktas means that the sky is completely covered with clouds and no sky blue can be recognized.
         //
         // \par References:
-        // [1] CIE engl. International Commission on Illumination. (2020). <em>CIE S017:2020 ILV: Intl. Lighitng Vocabulary, 2nd edn.</em>. Retrieved March 8, 2022, from https://cie.co.at/eilvterm/17-29-116 \n
+        // [1] CIE engl. International Commission on Illumination. (2020). <em>CIE S017:2020 ILV: Intl. Lighting Vocabulary, 2nd edn.</em>. Retrieved March 8, 2022, from https://cie.co.at/eilvterm/17-29-116 \n
         // [2] UBC The University of British Columbia. (2018). <em>ATSC 113 Weather for Sailing, Flying & Snow Sports</em>. Retrieved March 8, 2022, from https://www.eoas.ubc.ca/courses/atsc113/flying/met_concepts/01-met_concepts/01c-cloud_coverage/index.html
         //
         enum FractionalCloudCover

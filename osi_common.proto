@@ -159,7 +159,7 @@ message Dimension3d
 // \f$ Rotation_{yaw,pitch,roll} =
 // Rotation_{yaw}*Rotation_{pitch}*Rotation_{roll} \f$
 //
-// \f$ vector_{gobal coord system} := Rotation_{yaw, pitch, roll} * vector_{local coord system} +local_{origin::position} \f$
+// \f$ vector_{global coord system} := Rotation_{yaw, pitch, roll} * vector_{local coord system} +local_{origin::position} \f$
 //
 // \attention This definition changed in OSI version 3.0.0. Previous OSI
 // versions  (V2.xx) had an other definition.
@@ -195,7 +195,7 @@ message Orientation3d
 // truth, the identifier of an item (object, lane, sign, etc.) must remain
 // stable over its lifetime. \c Identifier values may be only be reused if the
 // available address space is exhausted and the specific values have not been in
-// use for several timesteps. Sensor specific tracking IDs have no restrictions
+// use for several time steps. Sensor specific tracking IDs have no restrictions
 // and should behave according to the sensor specifications.
 //
 // The value MAX(uint64) = 2^(64) -1 =
@@ -204,7 +204,7 @@ message Orientation3d
 //
 message Identifier
 {
-    // The identifier's value.
+    // The value of the identifier.
     //
     // \rules
     // is_greater_than_or_equal_to: 0
@@ -250,7 +250,7 @@ message ExternalReference
     // The external identifier reference value.
     //
     // The repeated string is chosen as a common description of the external
-    // identifier, because a variety of identificatier types could be
+    // identifier, because a variety of identifier types could be
     // involved .
     //
     // For example, referencing a unique lane in OpenDRIVE requires the
@@ -387,6 +387,102 @@ message LogicalLaneAssignment
     optional double angle_to_lane = 4;
 }
 
+// \brief A bounding box description.
+//
+// A bounding box representing a sub-section of its parent's overall
+// dimension, either that of a \c BaseMoving or \c BaseStationary .
+//
+// The parent frame of the \c BoundingBox is identical to the parent frame
+// of the \c MovingObject or \c StationaryObject it is associated to. For
+// example, if the parent object coordinates are given relative to the
+// global coordinate system, then the \c BoundingBox coordinates are also
+// given relative to the global coordinate system.
+//
+// \note The overall bounding box of the object is still defined using the
+// dimension, position and orientation of the \c BaseMoving or
+// \c BaseStationary .
+//
+message BoundingBox
+{
+    // The 3D dimensions of the bounding box.
+    //
+    optional Dimension3d dimension = 1;
+
+    // The 3D position of the bounding box. The position is the center
+    // of the bounding box and the pivot for the \c dimension and \c orientation.
+    //
+    // \note The position should be within the same coordinate frame as
+    // its parent, not relative to coordinate frame of the parent object.
+    // The position becomes global/absolute if the parent frame is inertial
+    // (all parent frames up to ground truth).
+    //
+    optional Vector3d position = 2;
+
+    // The 3D orientation of the bounding box.
+    //
+    // \note The orientation should be within the same coordinate frame as
+    // its parent, not relative to the coordinate frame of the parent object.
+    // The orientation becomes global/absolute if the parent frame is inertial
+    // (all parent frames up to ground truth).
+    //
+    optional Orientation3d orientation = 3;
+
+    // The type of object contained in the bounding box.
+    //
+    optional Type contained_object_type = 4;
+
+    // Opaque reference of an associated 3D model of the bounding box.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models. This means the coordinate system, model origin, and model
+    // orientation are also implementation-specific.
+    //
+    optional string model_reference = 5;
+
+    // Definition of different types of object contained within the bounding box
+    //
+    enum Type
+    {
+        // Object of unknown type (must not be used in ground truth).
+        //
+        TYPE_UNKNOWN = 0;
+
+        // Any other type of object.
+        //
+        TYPE_OTHER = 1;
+
+        // The main structure of an object, e.g. a chassis of a vehicle, 
+        // or the central structure of a building, a tree trunk, etc.
+        //
+        TYPE_BASE_STRUCTURE = 2;
+
+        // A protruding, integral part of an object, which is not 
+        // temporarily attached, e.g. a tree crown, a light pole arm, or a 
+        // parking house gate. The protruding structure is meant to be an 
+        // additional part to a base structure.
+        //
+        TYPE_PROTRUDING_STRUCTURE = 3;
+
+        // Additional, temporarily attached cargo to an object.
+        //
+        TYPE_CARGO = 4;
+
+        // The door of an object.
+        //
+        // For vehicles, this includes driver and passenger doors, trunk
+        // and front hoods, and fuel or charging port covers.
+        //
+        TYPE_DOOR = 5;
+
+        // The side mirror of a vehicle.
+        //
+        // \note The side mirror is not included in the overall bounding box
+        // of the parent object.
+        //
+        TYPE_SIDE_MIRROR = 6;
+    }
+}
+
 //
 // \brief The base attributes of a stationary object or entity.
 //
@@ -404,6 +500,9 @@ message BaseStationary
 {
     // The 3D dimensions of the stationary object (bounding box), e.g. a
     // landmark.
+    //
+    // \note The \c #dimension must completely enclose the geometry of the
+    // \c BaseStationary .
     //
     optional Dimension3d dimension = 1;
 
@@ -447,6 +546,23 @@ message BaseStationary
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 4;
+
+    // Sub-divisions of the overall bounding box of the \c BaseStationary object.
+    //
+    // The bounding box sections can include separate parts on partially-opaque
+    // objects such as trees with a distinction between trunk and crown.
+    // 
+    // \note The bounding box sub-divisions can extend beyond the overall
+    // bounding box, however no actual geometry must reside outside of the
+    // overall bounding box.
+    //
+    // \note If any sub-divisions are provided, then they must cover all
+    // occupied space of the overall bounding box. In other words, a consumer
+    // of this data is guaranteed that any part of the overall bounding box
+    // that is not covered by any sub-division is free of physical objects,
+    // and thus no collisions can occur there.
+    //
+    repeated BoundingBox bounding_box_section = 5;
 }
 
 //
@@ -468,6 +584,9 @@ message BaseStationary
 message BaseMoving
 {
     // The 3D dimension of the moving object (its bounding box).
+    //
+    // \note The \c #dimension must completely enclose the geometry of the
+    // \c BaseMoving with the exception of the side mirrors for vehicles.
     //
     // \note The bounding box does NOT include side mirrors for vehicles.
     //
@@ -569,6 +688,24 @@ message BaseMoving
     // The polygon is defined counter-clockwise.
     //
     repeated Vector2d base_polygon = 7;
+
+    // Sub-divisions of the overall bounding box of the \c BaseMoving object.
+    //
+    // The bounding box sections can include side mirrors, cargo, etc. for
+    // vehicles, as well as body-part sections for pedestrians. Note that for
+    // more precise pedestrian information \c PedestrianAttributes can be used.
+    //
+    // \note The bounding box sub-divisions can extend beyond the overall
+    // bounding box, however no actual geometry must reside outside of the
+    // overall bounding box, with the specific exception of the side mirrors.
+    //
+    // \note If any sub-divisions are provided, then they must cover all
+    // occupied space of the overall bounding box. In other words, a consumer
+    // of this data is guaranteed that any part of the overall bounding box
+    // that is not covered by any sub-division is free of physical objects,
+    // and thus no collisions can occur there.
+    //
+    repeated BoundingBox bounding_box_section = 9;
 }
 
 //
@@ -673,7 +810,7 @@ message SpatialSignalStrength
 //
 message ColorDescription
 {
-    // Greyscale color model
+    // Grayscale color model
     //
     optional ColorGrey grey = 1;
 
@@ -699,13 +836,13 @@ message ColorDescription
 }
 
 //
-// \brief Greyscale color model
+// \brief Grayscale color model
 //
-// ColorGrey defines a greyscale.
+// ColorGrey defines a grayscale.
 //
 message ColorGrey
 {
-    // Definition of a greyscale
+    // Definition of a grayscale
     //
     // Range: [0,1]
     //
