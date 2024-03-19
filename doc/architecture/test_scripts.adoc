@@ -3,7 +3,7 @@ ifndef::include-only-once[]
 include::{root-path}_config.adoc[]
 endif::[]
 
-# Test Scripts
+# Test scripts
 
 The following collection of test scripts is designed to automate the validation and enforcement of coding standards, documentation quality, and specific syntactical conventions within a software development project. 
 These scripts cover a broad spectrum of checks, from Python package initialization, adherence to comment standards, and validation of Doxygen documentation output, to ensuring the integrity of Protocol Buffer (.proto) files. 
