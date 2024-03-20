@@ -7,7 +7,7 @@ endif::[]
 OSI contains an object-based environment description that uses the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer] library.
 Google developed and maintains the Protocol Buffer library.
 OSI defines top-level messages that are used to exchange data between separate models.
-Top-level messages define the `GroundTruth` interface, the `SensorData` interface, and – since OSI version 3.0.0 – the interfaces `SensorView`, `SensorViewConfiguration`, and `FeatureData`.
+Top-level messages define the `GroundTruth` interface, the `SensorData` interface, and – since OSI version 3.0.0 – the interfaces `SensorView` and `SensorViewConfiguration`. Further top-level messages that were added in later versions of OSI are `TrafficCommand`, `TrafficUpdate`, `MotionRequest`, and `StreamingUpdate`.
 
 The following figure shows the interfaces and models involved in modeling a sensor.
 
