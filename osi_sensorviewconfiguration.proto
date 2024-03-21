@@ -202,7 +202,7 @@ message SensorViewConfiguration
     //
     // This flag specifies whether \c GroundTruth information that
     // was already provided using a
-    // <a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/sensor-model/spec/ground_truth_init_parameters.html">OMSP GroundTruthInit</a> parameter
+    // <a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/sensor-model/spec/ground_truth_init_parameters.html">OSMP GroundTruthInit</a> parameter
     // at initialization time shall be omitted from the \c SensorView
     // ground truth information.
     //
