@@ -337,10 +337,14 @@ message SensorData
     //
     optional VirtualDetectionArea virtual_detection_area = 28;
 
-    // The system time of the sensor data, given in UTC (Unix Epoch timestamp).
+    // The system time of the modeled source of the sensor data, given
+    // in UTC (Unix Epoch timestamp).
     //
-    // The system time can be used to set the corresponding component's internal
-    // time which may not coincide with the simulation time frame.
+    // The system time can be used to transmit the internal time of the
+    // simulated component that supplies the sensor data, which might
+    // not coincide with the simulation time as transmitted in the
+    // timestamp field. Example use cases include recorded data traces
+    // or the simulation of time synchronization mechanisms and errors.
     //
     optional Timestamp system_time = 29;
 }
