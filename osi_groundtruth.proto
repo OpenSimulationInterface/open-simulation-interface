@@ -199,13 +199,20 @@ message GroundTruth
     //
     // The offset is applied on global OSI coordinates using an affine
     // transformation with rotation around z-axis:
+    //
     // xWorld = xOSI * cos(yaw) - yOSI * sin(yaw) + xOffset
+    //
     // yWorld = xOSI * sin(yaw) + yOSI * cos(yaw) + yOffset
+    //
     // zWorld = zOSI + zOffset
     //
+    //
     // If no yaw is provided (recommended), the formulas simplify to:
+    //
     // xWorld = xOSI + xOffset
+    //
     // yWorld = yOSI + yOffset
+    //
     // zWorld = zOSI + zOffset
     //
     message ProjFrameOffset
