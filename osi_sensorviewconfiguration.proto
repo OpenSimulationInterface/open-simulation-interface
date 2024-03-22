@@ -201,14 +201,14 @@ message SensorViewConfiguration
     // Omit Static Information
     //
     // This flag specifies whether \c GroundTruth information that
-    // was already provided using a
-    // <a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/sensor-model/spec/ground_truth_init_parameters.html">OSMP GroundTruthInit</a> parameter
+    // was already provided using a GroundTruthInit parameter (e.g. <a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/sensor-model/spec/ground_truth_init_parameters.html">OSMP GroundTruthInit</a>)
     // at initialization time shall be omitted from the \c SensorView
     // ground truth information.
     //
-    // Setting the \c #omit_static_information field allows a clear split between the dynamic
-    // simulation data, which is contained by ground truth messages with the \c #omit_static_information
-    // flag, and the static simulation data, which is contained in the OSMP GroundTruthInit.
+    // Setting the \c #omit_static_information field allows a clear split
+    // between the dynamic simulation data, which is contained by ground truth
+    // messages with the \c #omit_static_information flag, and the static
+    // simulation data, which is contained in the (OSMP) GroundTruthInit.
     //
     optional bool omit_static_information = 11;
 
