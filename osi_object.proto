@@ -819,7 +819,7 @@ message MovingObject
             //
             // Definition: Hatchback or sedan with length between 4.5 and 5 m.
             //
-            // \note Deprecated differentiation, use TYPE_CAR instead, which is an alias
+            // \note Deprecated differentiation, use the alias TYPE_CAR instead
             //
             TYPE_MEDIUM_CAR = 4;
 
