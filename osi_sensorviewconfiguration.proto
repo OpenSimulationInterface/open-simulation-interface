@@ -206,7 +206,7 @@ message SensorViewConfiguration
     // ground truth information.
     //
     // Setting the \c #omit_static_information field allows a clear split
-    // between the dynamic simulation data, which is contained by ground truth
+    // between the dynamic simulation data, which is contained in ground truth
     // messages with the \c #omit_static_information flag, and the static
     // simulation data, which is contained in the (OSMP) GroundTruthInit.
     //
