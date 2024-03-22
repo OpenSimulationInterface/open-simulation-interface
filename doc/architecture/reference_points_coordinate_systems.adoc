@@ -12,7 +12,8 @@ Coordinate system for all entities that are part of ground truth.
 The global coordinate system is an inertial x/y/z-coordinate system.
 The origin is the global reference point that is determined by the environment simulation.
 This reference point may be derived from map data or other considerations.
-Global coordinates can be mapped to a geographic coordinate system via `osi3::GroundTruth::proj_string`. Note that before applying any PROJ transformations to global coordinates, the `osi3::GroundTruth::proj_frame_offset` must be applied.
+Global coordinates can be mapped to a geographic coordinate system via `osi3::GroundTruth::proj_string`.
+Note that before applying any PROJ transformations to global coordinates, the `osi3::GroundTruth::proj_frame_offset` must be applied.
 
 Host vehicle coordinate system::
 The host vehicle coordinate system's origin is defined to be at the center of the rear axle of the host vehicle.
