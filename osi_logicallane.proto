@@ -909,19 +909,20 @@ message LogicalLane
 
                 //
                 // The type of object for which the traffic rule is valid.
-                // Must not be UNKNOWN or OTHER
                 //
                 optional MovingObject.Type type = 1;
                 
                 //
                 // Vehicle classification type for traffic participants 
-                // May only be set if type is TYPE_VEHICLE. Must not be UNKNOWN or OTHER.
+                // Should be set to UNKNOWN if type is not TYPE_VEHICLE or the rule
+                // is valid for all vehicle types.
                 //
                 optional MovingObject.VehicleClassification.Type vehicle_type = 2;
 
                 //
                 // Role of traffic participant.
-                // May only be set if type is TYPE_VEHICLE. Must not be UNKNOWN or OTHER.
+                // Should be set to UNKNOWN if type is not TYPE_VEHICLE or the rule
+                // is valid for all vehicle roles.
                 //
                 optional MovingObject.VehicleClassification.Role vehicle_role = 3;
             }
@@ -935,9 +936,9 @@ message LogicalLane
             //
             // The value of the speed limit.
             // The unit field in the TrafficSignValue message may only be set to
-            // units associated with velocities and must not be UNKNOWN or OTHER.
+            // units associated with velocities and must not be UNKNOWN.
             //
-            // Note: All speed limits are to be led this way, independent
+            // Note: All speed limits are to be modeled this way, independent
             // of how they are induced.
             //
             optional TrafficSignValue speed_limit_value = 1;
