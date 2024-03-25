@@ -313,4 +313,27 @@ message SensorData
     // in cartesian coordinates.
     //
     optional LogicalDetectionData logical_detection_data = 27;
+
+    //
+    // \brief Virtual detection area of a sensor
+    //
+    // The virtual detection area describes the nominal area the sensor is capable of covering
+    // in its current operating mode, without taking occlusion or other statistical effects into account.
+    // This information can be used for visualization or other development purposes as a rough guide
+    // to nominal sensor performance.
+    //
+    // It is described by a set of polygons in cartesian coordinates as a pragmatic approximation for
+    // the rough shapes expected.
+    //
+    message VirtualDetectionArea
+    {
+        // List of polygons. Each polygon represents a surface of the virtual detection area
+        // and is given with respect to the virtual sensor coordinate system.
+        //
+        repeated Polygon3d polygon = 1;
+    }
+
+    // Virtual detection area of the sensor
+    //
+    optional VirtualDetectionArea virtual_detection_area = 28;
 }
