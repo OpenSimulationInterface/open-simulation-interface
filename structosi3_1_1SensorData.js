@@ -28,5 +28,6 @@ var structosi3_1_1SensorData =
     [ "occupant", "structosi3_1_1SensorData.html#a086b965d4e6b0430dc7b555120c0bd88", null ],
     [ "feature_data", "structosi3_1_1SensorData.html#a3b13e4e31dc10ca01c97388b1eb52d0a", null ],
     [ "logical_detection_data", "structosi3_1_1SensorData.html#ab83f422a889c93a36b7fd4e3449463e8", null ],
-    [ "virtual_detection_area", "structosi3_1_1SensorData.html#a4c93f119895f4ae9bff4bdaa5af70d3e", null ]
+    [ "virtual_detection_area", "structosi3_1_1SensorData.html#a4c93f119895f4ae9bff4bdaa5af70d3e", null ],
+    [ "system_time", "structosi3_1_1SensorData.html#ae64496913ffa0c41f154260cf48725e6", null ]
 ];

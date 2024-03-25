@@ -224,6 +224,7 @@ var NAVTREEINDEX4 =
 "structosi3_1_1SensorData.html#ab83f422a889c93a36b7fd4e3449463e8":[1,0,0,73,27],
 "structosi3_1_1SensorData.html#aba1532205c5abef2f8b439fc4c54d983":[1,0,0,73,5],
 "structosi3_1_1SensorData.html#ac79014724b81866a0b47c6d989447f21":[1,0,0,73,6],
+"structosi3_1_1SensorData.html#ae64496913ffa0c41f154260cf48725e6":[1,0,0,73,29],
 "structosi3_1_1SensorData.html#ae9b2bb51d2add0b88c483fcabe02a70e":[1,0,0,73,7],
 "structosi3_1_1SensorData.html#af1363f2e753fe2b55adf169de24f29ea":[1,0,0,73,12],
 "structosi3_1_1SensorData.html#af3ef59a8b126f125593d36c89b775c92":[1,0,0,73,16],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba02eb3c322eebc779bfda9c5f5cc0a30c":[1,0,0,43,1,2],
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba11e11b1062cf42c7379de969b0a91411":[1,0,0,43,1,3],
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba2e7833c77cc2cb3c8f57b12542f1bb65":[1,0,0,43,1,8],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba51ac4d4cb3c0a770771f563cd0dc85c9":[1,0,0,43,1,1],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154":[1,0,0,43,1,4]
+"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba51ac4d4cb3c0a770771f563cd0dc85c9":[1,0,0,43,1,1]
 };
