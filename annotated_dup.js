@@ -30,6 +30,7 @@ var annotated_dup =
       [ "VehicleSteeringWheel", "structosi3_1_1VehicleSteeringWheel.html", "structosi3_1_1VehicleSteeringWheel" ],
       [ "GeodeticPosition", "structosi3_1_1GeodeticPosition.html", "structosi3_1_1GeodeticPosition" ],
       [ "KeyValuePair", "structosi3_1_1KeyValuePair.html", "structosi3_1_1KeyValuePair" ],
+      [ "Polygon3d", "structosi3_1_1Polygon3d.html", "structosi3_1_1Polygon3d" ],
       [ "SensorDataSeries", "structosi3_1_1SensorDataSeries.html", "structosi3_1_1SensorDataSeries" ],
       [ "SensorDataSeriesList", "structosi3_1_1SensorDataSeriesList.html", "structosi3_1_1SensorDataSeriesList" ],
       [ "DetectedLane", "structosi3_1_1DetectedLane.html", "structosi3_1_1DetectedLane" ],

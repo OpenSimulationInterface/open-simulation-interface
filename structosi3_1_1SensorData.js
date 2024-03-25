@@ -1,5 +1,6 @@
 var structosi3_1_1SensorData =
 [
+    [ "VirtualDetectionArea", "structosi3_1_1SensorData_1_1VirtualDetectionArea.html", "structosi3_1_1SensorData_1_1VirtualDetectionArea" ],
     [ "version", "structosi3_1_1SensorData.html#a4b1107d7d51dd5e915417e11e518b5ec", null ],
     [ "timestamp", "structosi3_1_1SensorData.html#a82adb4a7724d1e4835ae0921fab4080c", null ],
     [ "host_vehicle_location", "structosi3_1_1SensorData.html#a7bacbcf1f521df6038d455a80baed870", null ],
@@ -26,5 +27,6 @@ var structosi3_1_1SensorData =
     [ "occupant_header", "structosi3_1_1SensorData.html#a5fc31968be2943f264442406c7a83c88", null ],
     [ "occupant", "structosi3_1_1SensorData.html#a086b965d4e6b0430dc7b555120c0bd88", null ],
     [ "feature_data", "structosi3_1_1SensorData.html#a3b13e4e31dc10ca01c97388b1eb52d0a", null ],
-    [ "logical_detection_data", "structosi3_1_1SensorData.html#ab83f422a889c93a36b7fd4e3449463e8", null ]
+    [ "logical_detection_data", "structosi3_1_1SensorData.html#ab83f422a889c93a36b7fd4e3449463e8", null ],
+    [ "virtual_detection_area", "structosi3_1_1SensorData.html#a4c93f119895f4ae9bff4bdaa5af70d3e", null ]
 ];
