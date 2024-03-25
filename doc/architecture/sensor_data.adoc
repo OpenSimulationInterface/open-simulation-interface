@@ -9,3 +9,7 @@ They can be generated from `GroundTruth` messages, `SensorView` messages, `Featu
 With the exception of feature data, all information regarding the environment is given with respect to the virtual sensor coordinate system.
 Feature data is given with respect to the physical sensor coordinate system.
 Sensor data can be used as input for an automated driving function, a sensor model simulating limited perception, or a sensor fusion model.
+
+`SensorData` messages include `FeatureData` messages which contain detected features in the reference frame of a sensor.
+`FeatureData` messages are generated from `GroundTruth` messages.
+They serve, for example, as an input to sensor models simulating object detection or feature fusion models.
