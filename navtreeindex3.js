@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"structosi3_1_1LidarDetection.html#a2da76e398f267b78133ce83fc66bd883":[1,0,0,47,11],
+"structosi3_1_1LidarDetection.html#a3307991b913cb5b5451257e49f5234d9":[1,0,0,47,4],
+"structosi3_1_1LidarDetection.html#a3af5da707882e9e9821626f9d8eaf2e4":[1,0,0,47,12],
+"structosi3_1_1LidarDetection.html#a44833637161c94126c8ba84bf47b377a":[1,0,0,47,8],
 "structosi3_1_1LidarDetection.html#a5d179981ada5ea4281adda2aa1e6f612":[1,0,0,47,10],
 "structosi3_1_1LidarDetection.html#a6799498adedc0b59775d547106557029":[1,0,0,47,5],
 "structosi3_1_1LidarDetection.html#a744d7f8e6e5be6c25dce2f4bb3d2755c":[1,0,0,47,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a34229229035ce0e3fe03cd4fd8e01ab4":[1,0,0,67,3,2,8],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a39c971c73cde55d3d506b5d8966cfc38":[1,0,0,67,3,2,7],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b2c41ffb4db0bad32898bb3470477c9":[1,0,0,67,3,2,3],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b4f890ea653e99da17a32fbdc2dde4f":[1,0,0,67,3,2,5],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b87b7899d18d70603eeadfe9c899bce":[1,0,0,67,3,2,4],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5be92dc45dde3bf4f7e45acdf25d9739":[1,0,0,67,3,2,10],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a7b64790b69e65cbf6657d1a5d3ee9c10":[1,0,0,67,3,2,6],
-"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3ad2a569f63a55580c744e3f6dca05ece1":[1,0,0,67,3,2,2]
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b4f890ea653e99da17a32fbdc2dde4f":[1,0,0,67,3,2,5]
 };

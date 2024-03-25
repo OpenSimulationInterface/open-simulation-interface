@@ -114,6 +114,7 @@ var hierarchy =
     [ "osi3::MovingObject::PedestrianAttributes", "structosi3_1_1MovingObject_1_1PedestrianAttributes.html", null ],
     [ "osi3::LogicalLane::PhysicalLaneReference", "structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html", null ],
     [ "osi3::Polygon3d", "structosi3_1_1Polygon3d.html", null ],
+    [ "osi3::GroundTruth::ProjFrameOffset", "structosi3_1_1GroundTruth_1_1ProjFrameOffset.html", null ],
     [ "osi3::RadarDetection", "structosi3_1_1RadarDetection.html", null ],
     [ "osi3::RadarDetectionData", "structosi3_1_1RadarDetectionData.html", null ],
     [ "osi3::RadarSensorView", "structosi3_1_1RadarSensorView.html", null ],

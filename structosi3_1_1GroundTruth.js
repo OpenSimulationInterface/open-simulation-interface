@@ -1,5 +1,6 @@
 var structosi3_1_1GroundTruth =
 [
+    [ "ProjFrameOffset", "structosi3_1_1GroundTruth_1_1ProjFrameOffset.html", "structosi3_1_1GroundTruth_1_1ProjFrameOffset" ],
     [ "version", "structosi3_1_1GroundTruth.html#ad1ad43ca92a112daf6678da302c05880", null ],
     [ "timestamp", "structosi3_1_1GroundTruth.html#a681bc6d9e26aa4603adb4f167bad67fc", null ],
     [ "host_vehicle_id", "structosi3_1_1GroundTruth.html#a1e95e5082d740add167f4e4948d3faec", null ],
@@ -18,5 +19,6 @@ var structosi3_1_1GroundTruth =
     [ "model_reference", "structosi3_1_1GroundTruth.html#a83042861723a4a9e890a53aa98d88858", null ],
     [ "reference_line", "structosi3_1_1GroundTruth.html#ab4dd23af08d690a88854a33f344c38da", null ],
     [ "logical_lane_boundary", "structosi3_1_1GroundTruth.html#af275fe4a5e5c4b7f38cefa61cb87ce8e", null ],
-    [ "logical_lane", "structosi3_1_1GroundTruth.html#ad7f6468e1983b67adfbb4e0d3cf19b7b", null ]
+    [ "logical_lane", "structosi3_1_1GroundTruth.html#ad7f6468e1983b67adfbb4e0d3cf19b7b", null ],
+    [ "proj_frame_offset", "structosi3_1_1GroundTruth.html#a42fb499d81e6e68f17922a3adfa68d88", null ]
 ];

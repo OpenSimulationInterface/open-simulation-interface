@@ -1,5 +1,9 @@
 var NAVTREEINDEX4 =
 {
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5b87b7899d18d70603eeadfe9c899bce":[1,0,0,67,3,2,4],
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a5be92dc45dde3bf4f7e45acdf25d9739":[1,0,0,67,3,2,10],
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3a7b64790b69e65cbf6657d1a5d3ee9c10":[1,0,0,67,3,2,6],
+"structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3ad2a569f63a55580c744e3f6dca05ece1":[1,0,0,67,3,2,2],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a46dd67ab1f73b5ce6ec95f63e25d58b3af20b7e0b23f9700980cb497fdbe20de2":[1,0,0,67,3,2,1],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189":[1,0,0,67,3,1],
 "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a091236ee01efd0b63b6f9964615ecd02":[1,0,0,67,3,1,16],
@@ -245,9 +249,5 @@ var NAVTREEINDEX4 =
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba11e11b1062cf42c7379de969b0a91411":[1,0,0,43,1,3],
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba2e7833c77cc2cb3c8f57b12542f1bb65":[1,0,0,43,1,8],
 "structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba51ac4d4cb3c0a770771f563cd0dc85c9":[1,0,0,43,1,1],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154":[1,0,0,43,1,4],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba8d9126ec3008db318aec64dc4b64d41c":[1,0,0,43,1,7],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba9b274acacd19847eb783da3141aaad09":[1,0,0,43,1,9],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636baa67fb146b5b0ffd936a9809952f224f6":[1,0,0,43,1,0],
-"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636bab2f08e9e0e7d35d0390e03a26164da07":[1,0,0,43,1,12]
+"structosi3_1_1SensorDetectionHeader.html#a379b9a86453a52b37af32f08a6dc636ba59806af59fc9aa84b81c4bb384d1c154":[1,0,0,43,1,4]
 };
