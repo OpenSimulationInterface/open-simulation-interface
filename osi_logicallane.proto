@@ -934,7 +934,7 @@ message LogicalLane
 
             //
             // The value of the speed limit.
-            // The unit filed in the TrafficSignValue message may only be set to
+            // The unit field in the TrafficSignValue message may only be set to
             // units associated with velocities and must not be UNKNOWN or OTHER.
             //
             // Note: All speed limits are to be led this way, independent
