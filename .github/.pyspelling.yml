@@ -17,3 +17,8 @@ matrix:
       delimiters:
       - open: '(?s)^(?P<open> *\/\/)'
         close: '^(?P=open)$'
+  - pyspelling.filters.html:
+      comments: true
+      attributes:
+      - title
+      - alt
