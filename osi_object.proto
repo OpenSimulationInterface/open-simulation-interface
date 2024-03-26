@@ -217,6 +217,10 @@ message StationaryObject
             // in the environment, like street lights.
             //
             TYPE_EMITTING_STRUCTURE = 18;
+            
+            // Object is a parking spot.
+            //
+            TYPE_PARKING_SPOT = 19;
         }
 
         // Definition of material types.
