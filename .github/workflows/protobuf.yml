@@ -26,6 +26,9 @@ jobs:
 
     runs-on: ubuntu-22.04
 
+    permissions:
+      id-token: write
+
     steps:
     - name: Checkout OSI
       uses: actions/checkout@v4
@@ -136,6 +139,11 @@ jobs:
       with:
         name: python-dist
         path: dist/
+
+    - name: Publish Snapshot Release on TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
 
     - name: Deploy to gh-pages if push to master branch
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
