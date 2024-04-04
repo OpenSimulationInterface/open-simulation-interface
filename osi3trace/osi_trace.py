@@ -58,8 +58,8 @@ class OSITrace:
         if not self.read_complete:
             self.current_index = len(self.message_offsets) - 1
             self.file.seek(self.message_offsets[-1], 0)
-        while (
-            not self.read_complete and (not limit or len(self.message_offsets) <= limit)
+        while not self.read_complete and (
+            not limit or len(self.message_offsets) <= limit
         ):
             self.retrieve_message(skip=True)
         return self.message_offsets
