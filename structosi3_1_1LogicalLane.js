@@ -3,6 +3,7 @@ var structosi3_1_1LogicalLane =
     [ "LaneConnection", "structosi3_1_1LogicalLane_1_1LaneConnection.html", "structosi3_1_1LogicalLane_1_1LaneConnection" ],
     [ "LaneRelation", "structosi3_1_1LogicalLane_1_1LaneRelation.html", "structosi3_1_1LogicalLane_1_1LaneRelation" ],
     [ "PhysicalLaneReference", "structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html", "structosi3_1_1LogicalLane_1_1PhysicalLaneReference" ],
+    [ "TrafficRule", "structosi3_1_1LogicalLane_1_1TrafficRule.html", "structosi3_1_1LogicalLane_1_1TrafficRule" ],
     [ "Type", "structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3", [
       [ "TYPE_UNKNOWN", "structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3a5bc03e629bc12cbea2949af563ecc607", null ],
       [ "TYPE_OTHER", "structosi3_1_1LogicalLane.html#a907beab41b3da2fea61ed4c4e32a84b3af7f24f688813626fc366250345bb791d", null ],
@@ -46,5 +47,6 @@ var structosi3_1_1LogicalLane =
     [ "left_boundary_id", "structosi3_1_1LogicalLane.html#ab6a34eac4a337e9bdfb74dbaaf437f9c", null ],
     [ "predecessor_lane", "structosi3_1_1LogicalLane.html#a231074c570bb9087613ffc3e0dee264f", null ],
     [ "successor_lane", "structosi3_1_1LogicalLane.html#a8531528c4632353d384fe041e61015b5", null ],
-    [ "street_name", "structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3", null ]
+    [ "street_name", "structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3", null ],
+    [ "traffic_rule", "structosi3_1_1LogicalLane.html#a808c4555b7b3ed91287a94a09c204aca", null ]
 ];

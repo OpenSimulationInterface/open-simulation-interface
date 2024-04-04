@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['dash_215',['Dash',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93',1,'osi3::LaneBoundary::BoundaryPoint']]],
-  ['dash_216',['dash',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ad20352b7a3390b3dd608c7bfb7a58622',1,'osi3::LaneBoundary::BoundaryPoint']]],
+  ['dash_215',['dash',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#ad20352b7a3390b3dd608c7bfb7a58622',1,'osi3::LaneBoundary::BoundaryPoint']]],
+  ['dash_216',['Dash',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93',1,'osi3::LaneBoundary::BoundaryPoint']]],
   ['dash_5fcontinue_217',['DASH_CONTINUE',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93a02ab931bc049495ff3ca61531a3477e8',1,'osi3::LaneBoundary::BoundaryPoint']]],
   ['dash_5fend_218',['DASH_END',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93a74434ec1c6aa0acddf59e9a2291ce281',1,'osi3::LaneBoundary::BoundaryPoint']]],
   ['dash_5fgap_219',['DASH_GAP',['../structosi3_1_1LaneBoundary_1_1BoundaryPoint.html#a6af0aff25f6cfeba114ba2474cc32f93ab7854cf92547c380bbd0439eca2d06b2',1,'osi3::LaneBoundary::BoundaryPoint']]],
@@ -46,8 +46,8 @@ var searchData=
   ['detection_258',['detection',['../structosi3_1_1UltrasonicDetectionData.html#a7d1307a4b095c72d660fa1841929ae93',1,'osi3::UltrasonicDetectionData::detection()'],['../structosi3_1_1CameraDetectionData.html#a41e699d87cef1b0518736c2766c680cf',1,'osi3::CameraDetectionData::detection()'],['../structosi3_1_1LidarDetectionData.html#acd72cf3ea8e50ed566e075834b678a5a',1,'osi3::LidarDetectionData::detection()'],['../structosi3_1_1RadarDetectionData.html#ab43214f3069072d8a7a2e9e0b50f265b',1,'osi3::RadarDetectionData::detection()']]],
   ['dimension_259',['dimension',['../structosi3_1_1BaseStationary.html#aa4f3a1c316bfa13aa805195630bb08e8',1,'osi3::BaseStationary::dimension()'],['../structosi3_1_1BaseMoving.html#ae94115590d3fc9691a4364007bc11f31',1,'osi3::BaseMoving::dimension()'],['../structosi3_1_1BoundingBox.html#aade74af8c8a36f1b965b2aaa9f61ab92',1,'osi3::BoundingBox::dimension()']]],
   ['dimension3d_260',['Dimension3d',['../structosi3_1_1Dimension3d.html',1,'osi3']]],
-  ['direction_261',['direction',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a1a613da05972035a56d89f9b010617ae',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
-  ['direction_262',['Direction',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2b',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
+  ['direction_261',['Direction',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2b',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
+  ['direction_262',['direction',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a1a613da05972035a56d89f9b010617ae',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
   ['direction_5fcircle_5f0_5fdeg_263',['DIRECTION_CIRCLE_0_DEG',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba746caefc5630ed456ca00cffbcc7a8df',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
   ['direction_5fcircle_5f135_5fdeg_5fleft_264',['DIRECTION_CIRCLE_135_DEG_LEFT',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba59207bdf2a0571e43fb599c63601819f',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],
   ['direction_5fcircle_5f135_5fdeg_5fright_265',['DIRECTION_CIRCLE_135_DEG_RIGHT',['../structosi3_1_1TrafficSign_1_1SupplementarySign_1_1Classification_1_1Arrow.html#a307edf67719e584c848087fa94ddce2ba9ce6a145272349f200ea42c59c842e90',1,'osi3::TrafficSign::SupplementarySign::Classification::Arrow']]],

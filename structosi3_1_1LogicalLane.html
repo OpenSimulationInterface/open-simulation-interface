@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (3524cb1)</span>
+   &#160;<span id="projectnumber">master (c6735c6)</span>
    </div>
   </td>
  </tr>
@@ -106,18 +106,22 @@ Collaboration diagram for osi3::LogicalLane:</div>
 <div class="dyncontent">
 <div class="center"><img src="structosi3_1_1LogicalLane__coll__graph.png" border="0" usemap="#aosi3_1_1LogicalLane_coll__map" alt="Collaboration graph"/></div>
 <map name="aosi3_1_1LogicalLane_coll__map" id="aosi3_1_1LogicalLane_coll__map">
-<area shape="rect" title="A logical lane in the road network." alt="" coords="721,389,856,416"/>
-<area shape="rect" title=" " alt="" coords="367,11,477,37"/>
-<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneConnection.html" title="Connection to another lane (predecessor or successor)" alt="" coords="351,62,493,103"/>
-<area shape="rect" title=" " alt="" coords="13,69,120,96"/>
-<area shape="rect" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="9,208,124,235"/>
-<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneRelation.html" title="Relation of this lane to another logical lane." alt="" coords="351,317,493,358"/>
-<area shape="rect" href="structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html" title="Reference to a physical lane." alt="" coords="335,382,509,423"/>
-<area shape="rect" title=" " alt="" coords="5,420,128,447"/>
-<area shape="rect" href="structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="333,525,511,552"/>
-<area shape="rect" title=" " alt="" coords="6,499,127,525"/>
-<area shape="rect" title=" " alt="" coords="9,580,125,607"/>
-<area shape="rect" title=" " alt="" coords="335,664,509,691"/>
+<area shape="rect" title="A logical lane in the road network." alt="" coords="1029,384,1164,411"/>
+<area shape="rect" title=" " alt="" coords="675,69,785,96"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1TrafficRule.html" title="Describes traffic rules on a lane." alt="" coords="659,121,801,162"/>
+<area shape="rect" title=" " alt="" coords="240,5,417,32"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1TrafficRule_1_1SpeedLimit.html" title="Speed limit on a lane." alt="" coords="243,57,414,98"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1TrafficRule_1_1TrafficRuleValidity.html" title="Validity information for a traffic rule." alt="" coords="221,122,436,163"/>
+<area shape="rect" title=" " alt="" coords="5,261,128,288"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneRelation.html" title="Relation of this lane to another logical lane." alt="" coords="659,305,801,346"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html" title="Reference to a physical lane." alt="" coords="643,507,817,549"/>
+<area shape="rect" href="structosi3_1_1LogicalLane_1_1LaneConnection.html" title="Connection to another lane (predecessor or successor)" alt="" coords="659,239,801,281"/>
+<area shape="rect" title=" " alt="" coords="275,239,382,265"/>
+<area shape="rect" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer." alt="" coords="271,424,386,451"/>
+<area shape="rect" href="structosi3_1_1ExternalReference.html" title="References to external objects." alt="" coords="641,687,819,713"/>
+<area shape="rect" title=" " alt="" coords="268,687,389,713"/>
+<area shape="rect" title=" " alt="" coords="271,604,387,631"/>
+<area shape="rect" title=" " alt="" coords="643,636,817,663"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -131,6 +135,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html">PhysicalLaneReference</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to a physical lane.  <a href="structosi3_1_1LogicalLane_1_1PhysicalLaneReference.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalLane_1_1TrafficRule.html">TrafficRule</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes traffic rules on a lane.  <a href="structosi3_1_1LogicalLane_1_1TrafficRule.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -225,6 +232,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:adcdace13ad4b88da9f739a3759a771e3"><td class="memItemLeft" align="right" valign="top">optional string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3">street_name</a> = 16</td></tr>
 <tr class="memdesc:adcdace13ad4b88da9f739a3759a771e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the street this lane belongs to.  <a href="structosi3_1_1LogicalLane.html#adcdace13ad4b88da9f739a3759a771e3">More...</a><br /></td></tr>
 <tr class="separator:adcdace13ad4b88da9f739a3759a771e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a808c4555b7b3ed91287a94a09c204aca"><td class="memItemLeft" align="right" valign="top">repeated <a class="el" href="structosi3_1_1LogicalLane_1_1TrafficRule.html">TrafficRule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosi3_1_1LogicalLane.html#a808c4555b7b3ed91287a94a09c204aca">traffic_rule</a> = 17</td></tr>
+<tr class="memdesc:a808c4555b7b3ed91287a94a09c204aca"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of traffic rules on the lane.  <a href="structosi3_1_1LogicalLane.html#a808c4555b7b3ed91287a94a09c204aca">More...</a><br /></td></tr>
+<tr class="separator:a808c4555b7b3ed91287a94a09c204aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A logical lane in the road network. </p>
@@ -679,6 +689,22 @@ The value has to be repeated, because one lane segment may be derived from more 
 </div><div class="memdoc">
 
 <p>Name of the street this lane belongs to. </p>
+
+</div>
+</div>
+<a id="a808c4555b7b3ed91287a94a09c204aca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a808c4555b7b3ed91287a94a09c204aca">&#9670;&nbsp;</a></span>traffic_rule</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">repeated <a class="el" href="structosi3_1_1LogicalLane_1_1TrafficRule.html">TrafficRule</a> osi3::LogicalLane::traffic_rule = 17</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A list of traffic rules on the lane. </p>
 
 </div>
 </div>
