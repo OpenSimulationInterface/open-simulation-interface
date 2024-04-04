@@ -886,12 +886,19 @@ message LogicalLane
             // The starting point of the traffic rule validity on the lane.
             // Must be in range [\c sStart,\c sEnd] of the reference line.
             //
+            // Note: The traffic rule applies only to traffic with notional
+            // direction of travel from the start_s coordinate towards
+            // the end_s coordinate. For unidirectional lanes this must
+            // match the direction of travel as specified by the
+            // move_direction field of the logical lane. For bidirectional
+            // lanes this allows the specification of separate rules for
+            // each direction of travel.
+            //
             optional double start_s = 1;
 
             //
             // The ending point of the traffic rule validity on the lane.
             // Must be in range [\c sStart,\c sEnd] of the reference line.
-            // Note: Should always be greater than the starting point.
             //
             optional double end_s = 2;
 
@@ -913,16 +920,18 @@ message LogicalLane
                 optional MovingObject.Type type = 1;
                 
                 //
-                // Vehicle classification type for traffic participants 
-                // Should be set to UNKNOWN if type is not TYPE_VEHICLE or the rule
-                // is valid for all vehicle types.
+                // Vehicle classification type for traffic participants.
+                //
+                // Should be set to TYPE_UNKNOWN if type is not TYPE_VEHICLE
+                // or the rule is valid for all vehicle types.
                 //
                 optional MovingObject.VehicleClassification.Type vehicle_type = 2;
 
                 //
                 // Role of traffic participant.
-                // Should be set to UNKNOWN if type is not TYPE_VEHICLE or the rule
-                // is valid for all vehicle roles.
+                //
+                // Should be set to ROLE_UNKNOWN if type is not TYPE_VEHICLE
+                // or the rule is valid for all vehicle roles.
                 //
                 optional MovingObject.VehicleClassification.Role vehicle_role = 3;
             }
