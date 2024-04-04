@@ -764,10 +764,12 @@ message MovingObject
         // other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel).
         // This is primarily for historical reasons.  Where a single type from a
         // different standard can map to multiple OSI types it is left up to the
-        // discretion of the OSI implementer how that mapping is achieved.  For example,
-        // a simulator may use the dimensions of a provided 3d model of a vehicle with type
-        // "car" in OpenScenario, to determine whether it should be a TYPE_SMALL_CAR or
-        // TYPE_MEDIUM_CAR in OSI.
+        // discretion of the OSI implementer how that mapping is achieved. In previous
+        // versions, for example, a simulator might have used the dimensions of a provided
+        // 3d model of a vehicle with type "car" in OpenScenario, to determine whether it
+        // should be a TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI. As part of the harmonization
+        // effort, it should now map to TYPE_CAR, which is an alias of the old TYPE_MEDIUM_CAR,
+        // and all other car type enums have been deprecated in favor of TYPE_CAR.
         //
         // \note Vehicle type classification is a complex area and there are no
         // universally recognized standards.  As such, the boundaries between some of the
@@ -778,6 +780,10 @@ message MovingObject
         //
         enum Type
         {
+            // Allow aliases in enum
+            //
+            option allow_alias = true;
+
             // Type of vehicle is unknown (must not be used in ground truth).
             //
             TYPE_UNKNOWN = 0;
@@ -790,23 +796,38 @@ message MovingObject
             //
             // Definition: Hatchback car with maximum length 4 m.
             //
+            // \note Deprecated differentiation, use TYPE_CAR instead
+            //
             TYPE_SMALL_CAR = 2;
 
             // Vehicle is a compact car.
             //
             // Definition: Hatchback car with length between 4 and 4.5 m.
             //
+            // \note Deprecated differentiation, use TYPE_CAR instead
+            //
             TYPE_COMPACT_CAR = 3;
+
+            // Vehicle is a car.
+            //
+            // This is to be used for all car-like vehicles, without any
+            // further differentiated type available.
+            //
+            TYPE_CAR = 4;
 
             // Vehicle is a medium car.
             //
             // Definition: Hatchback or sedan with length between 4.5 and 5 m.
+            //
+            // \note Deprecated differentiation, use the alias TYPE_CAR instead
             //
             TYPE_MEDIUM_CAR = 4;
 
             // Vehicle is a luxury  car.
             //
             // Definition: Sedan or coupe that is longer then 5 m.
+            //
+            // \note Deprecated differentiation, use TYPE_CAR instead
             //
             TYPE_LUXURY_CAR = 5;
 
