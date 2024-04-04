@@ -32,6 +32,7 @@ class OSITrace:
         self.read_complete = False
         self.message_cache = {} if cache_messages else None
         self._header_length = 4
+        self.timestep_count = 0
         if path:
             self.from_file(path, type_name, cache_messages)
 
@@ -49,13 +50,16 @@ class OSITrace:
         self.message_offsets = [0]
         self.message_cache = {} if cache_messages else None
 
+        self.timestep_count = len(self.retrieve_offsets())
+        self.type = self.map_message_type(type_name)
+
     def retrieve_offsets(self, limit=None):
         """Retrieve the offsets of the messages from the file."""
         if not self.read_complete:
             self.current_index = len(self.message_offsets) - 1
             self.file.seek(self.message_offsets[-1], 0)
         while (
-            not self.read_complete and not limit or len(self.message_offsets) <= limit
+            not self.read_complete and (not limit or len(self.message_offsets) <= limit)
         ):
             self.retrieve_message(skip=True)
         return self.message_offsets
@@ -155,6 +159,21 @@ class OSITrace:
                     break
                 yield message
             current += 1
+
+    def cache_messages_in_index_range(self, begin, end):
+        """
+        Put all messages from index begin to index end in the cache. Then the
+        method ``get_message_by_index`` can access to it in a faster way.
+
+        Using this method again clear the last cache and replace it with a new
+        one.
+        """
+        self.message_cache = {
+            index + begin: message
+            for index, message in enumerate(
+                self.get_messages_in_index_range(begin, end)
+            )
+        }
 
     def close(self):
         if self.file:
