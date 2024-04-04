@@ -6,6 +6,7 @@ var structosi3_1_1MovingObject_1_1VehicleClassification =
       [ "TYPE_OTHER", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189acb1dee27892b248476d04004a935af0e", null ],
       [ "TYPE_SMALL_CAR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ac718a0ff22197a44b39472bea7e61f85", null ],
       [ "TYPE_COMPACT_CAR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab40589ead1b3d66b0960e3f0e44dc99d", null ],
+      [ "TYPE_CAR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a57aa3fcde591555e77feea801a4e05eb", null ],
       [ "TYPE_MEDIUM_CAR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189aa4cc83f7e97bef135062b2d10ed96ecc", null ],
       [ "TYPE_LUXURY_CAR", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189ab33b4a7846b43eebad650ba75fa77f21", null ],
       [ "TYPE_DELIVERY_VAN", "structosi3_1_1MovingObject_1_1VehicleClassification.html#a65c82aaafe22ed6996ab78713354d189a32997755078624bff21f884bba6390a4", null ],
