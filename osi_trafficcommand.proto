@@ -21,6 +21,10 @@ message TrafficCommand
 {
     // The interface version used by the sender (scenario engine).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
@@ -33,9 +37,17 @@ message TrafficCommand
     // There is no inherent latency for traffic command data, as opposed
     // to sensor data.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The ID of this traffic participant.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier traffic_participant_id = 3;
 
@@ -55,7 +67,7 @@ message TrafficCommand
 //
 // \note This message is notionally a multiple choice selection, that is, only 
 // certain combinations of atomic traffic actions shall be transmitted within 
-// certain time intervals, for example, for plausibity reasons. The restrictions 
+// certain time intervals, for example, for plausibility reasons. The restrictions 
 // regarding that are not part of this message, yet are seen as a task of the 
 // scenario description, for example, OpenSCENARIO. 
 //
@@ -65,7 +77,7 @@ message TrafficCommand
 // model that certain actions must or shall be terminated, there are 
 // explicit actions nested inside this message (AbortActionsAction, 
 // EndActionsAction), which hold a reference to the respective actions.
-// Futhermore, there exists a \c TrafficCommandUpdate message for the 
+// Furthermore, there exists a \c TrafficCommandUpdate message for the 
 // traffic participant to report back on potentially dismissed actions. 
 //
 message TrafficAction
@@ -185,19 +197,19 @@ message TrafficAction
     //
     message DynamicConstraints
     {
-        // Maximum acceleration the distance contoller is allowed to use for keeping distance. 
+        // Maximum acceleration the distance controller is allowed to use for keeping distance. 
         //
         // Unit: m/s^2
         //
         optional double max_acceleration = 1;
 
-        // Maximum deceleration the distance contoller is allowed to use for keeping distance. 
+        // Maximum deceleration the distance controller is allowed to use for keeping distance. 
         //
         // Unit: m/s^2
         //
         optional double max_deceleration = 2;
 
-        // Maximum speed the distance contoller is allowed to use for keeping distance. 
+        // Maximum speed the distance controller is allowed to use for keeping distance. 
         //
         // Unit: m/s
         //
@@ -453,7 +465,7 @@ message TrafficAction
 
     // \brief End actions action.
     //
-    // This action tells a traffic participant that the exection of the 
+    // This action tells a traffic participant that the execution of the 
     // referenced actions is regarded as successfully performed. The 
     // termination of the referenced actions is allowed to be performed 
     // gracefully. 
@@ -512,7 +524,7 @@ message TrafficAction
     // relative to a target traffic participant. The longitudinal distance is defined as the distance
     // along the centerline of the lane, on which the (host) traffic participant is currently located. 
     // The interpolation strategy between centerline points for calculating 
-    // that distance along the centerline is open to the traffic participant modeller.  
+    // that distance along the centerline is open to the traffic participant modeler.  
     //
     // \note This action is aligned with LongitudinalDistanceAction of OpenSCENARIO 1.0
     // defining the reference traffic participant and the distance.
@@ -540,11 +552,11 @@ message TrafficAction
         // participant receiving this action and the reference traffic
         // participant. 
         // True: Longitudinal distance is measured using the distance between closest bounding box points.
-        // False: Longitudinal distance is mesasured using the distance between the center of each object's bounding box.
+        // False: Longitudinal distance is measured using the distance between the center of each object's bounding box.
         //
         optional bool freespace = 4;
 
-        // Define wheather the traffic participant should only reach the distance once 
+        // Define whether the traffic participant should only reach the distance once 
         // or if it should also keep the distance after having reached it.
         // True: the traffic participant shall approach the reference participant
         // and follow with the distance specified until the action is aborted (communicate with AbortActionsAction).
@@ -553,7 +565,7 @@ message TrafficAction
         //
         optional bool follow = 5;
 
-        // Parameter that assings either unlimited dynamics (if omitted) 
+        // Parameter that assigns either unlimited dynamics (if omitted) 
         // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
         //
         optional DynamicConstraints dynamic_constraints = 6;
@@ -565,7 +577,7 @@ message TrafficAction
     // a target traffic participant. The lateral distance is defined along an imaginative perpendicular line
     // with respect to the centerline of the current (host) traffic participant's lane. 
     // The interpolation strategy between centerline points for calculating that distance along the imaginative 
-    // perpendicular line is open to the traffic participant modeller.  
+    // perpendicular line is open to the traffic participant modeler.  
     //
     // \note This action is aligned with LateralDistanceAction of OpenSCENARIO 1.0
     // defining the reference traffic participant and the distance.
@@ -593,11 +605,11 @@ message TrafficAction
         // participant receiving this action and the reference traffic
         // participant. 
         // True: Lateral distance is measured using the distance between closest bounding box points.
-        // False: Lateral distance is mesasured using the distance between the center of each object's bounding box.
+        // False: Lateral distance is measured using the distance between the center of each object's bounding box.
         //
         optional bool freespace = 4;
 
-        // Define wheather the traffic participant should only reach the distance once 
+        // Define whether the traffic participant should only reach the distance once 
         // or if it should also keep the distance after having reached it.
         // True: the traffic participant shall approach the reference participant
         // and follow with the distance specified until the action is aborted (communicate with AbortActionsAction).
@@ -606,7 +618,7 @@ message TrafficAction
         //
         optional bool follow = 5;
 
-        // Parameter that assings either unlimited dynamics (if omitted) 
+        // Parameter that assigns either unlimited dynamics (if omitted) 
         // or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
         //
         optional DynamicConstraints dynamic_constraints = 6;

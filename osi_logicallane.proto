@@ -3,6 +3,8 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
+import "osi_object.proto";
+import "osi_trafficsign.proto";
 
 package osi3;
 
@@ -56,6 +58,7 @@ message LogicalLaneBoundary
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -317,7 +320,7 @@ message LogicalLaneBoundary
 // - The red area is the area where \c l1 overlaps \c l2. This is recorded in
 //   #overlapping_lane of \c l1.
 //
-// As can be seen in the images, the two highlighted lanes are neighbours for
+// As can be seen in the images, the two highlighted lanes are neighbors for
 // part of their length, but it makes no sense for them to have the same
 // reference line, since they diverge significantly.
 //
@@ -346,7 +349,7 @@ message LogicalLane
     //
     // For example, to reference a lane defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road
@@ -419,10 +422,10 @@ message LogicalLane
     // not required that the reference line has the same direction as the
     // driving direction of the lane.
     //
-    // Neighbouring lanes (i.e. lanes that are neighbours and whose directions
+    // Neighboring lanes (i.e. lanes that are neighbors and whose directions
     // do not diverge significantly) are strongly encouraged to reference the
     // same ReferenceLine, so that vehicles that are next to each other on
-    // neighbouring lanes have comparable S positions.
+    // neighboring lanes have comparable S positions.
     //
     // The S coordinate of the reference line makes it easy to find e.g. which
     // object is next on a lane, using the LogicalLaneAssignment of the
@@ -586,10 +589,14 @@ message LogicalLane
     //
     optional string street_name = 16;
 
+    // A list of traffic rules on the lane.
+    //
+    repeated TrafficRule traffic_rule = 17;
+
     //
     // Definition of available lane types.
     //
-    // This is mostly aligned with OpenDRIVE, except that lane types modelling
+    // This is mostly aligned with OpenDRIVE, except that lane types modeling
     // access restrictions (e.g. "taxi") are not made available here. These are
     // already deprecated in OpenDRIVE.  To support this, access restrictions
     // should be added later, in alignment with OpenDRIVE.
@@ -615,7 +622,7 @@ message LogicalLane
         //
         TYPE_NORMAL = 2;
 
-        // A lane that is designated for bicylists.
+        // A lane that is designated for bicycles
         // Note that biking lanes that cross the road (e.g. on an intersection)
         // are also labeled with this type.
         //
@@ -821,5 +828,132 @@ message LogicalLane
         //
         optional double end_s_other = 5;
     }
+
+    //
+    // Describes traffic rules on a lane. 
+    // The traffic rule can thereby be induced by regulations, traffic signs 
+    // or by other means. If the modeled traffic rule is induced by a traffic sign
+    // the information should be identical with the respective traffic sign.
+    //
+    // Note: Every instance should be corresponding to only one specific rule.
+    // The type of the traffic rule should be set using the respective field.
+    // Additionally, every message should contain the traffic rule validity information
+    // and the respective field for the respective traffic rule type.
+    // In case of traffic rule (priority) conflicts for rules of the same type that 
+    // can not be depicted using the traffic rule validity only the currently 
+    // valid rule should be provided.
+    //
+    // Note: Each traffic rule corresponds to only one lane. If the traffic rule
+    // is also valid on adjacent/successor/predecessor lanes it needs to be
+    // specified for each lane individually.
+    //
+    // \brief Logical Model of a traffic rule on a lane.
+    //
+    message TrafficRule {
+
+        // The type of the traffic rule.
+        //
+        // This specifies the type of the traffic rule to be modeled.
+        // Based on the type the respective message containing the information
+        // corresponding to the traffic rule should be filled.
+        //
+        optional TrafficRuleType traffic_rule_type = 1;
+
+        // The validity information of the traffic rule.
+        //
+        optional TrafficRuleValidity traffic_rule_validity = 2;
+
+        // Traffic rule information for traffic rule of type speed limit.
+        //
+        optional SpeedLimit speed_limit = 3;
+
+        //
+        // The type of the the traffic rule.
+        //
+        enum TrafficRuleType {
+
+            // Traffic rule is of type speed limit
+            //
+            TRAFFIC_RULE_TYPE_SPEED_LIMIT = 0;
+        }
+
+        // 
+        // \brief Validity information for a traffic rule.
+        //
+        message TrafficRuleValidity {
+            
+            //
+            // The starting point of the traffic rule validity on the lane.
+            // Must be in range [\c sStart,\c sEnd] of the reference line.
+            //
+            // Note: The traffic rule applies only to traffic with notional
+            // direction of travel from the start_s coordinate towards
+            // the end_s coordinate. For unidirectional lanes this must
+            // match the direction of travel as specified by the
+            // move_direction field of the logical lane. For bidirectional
+            // lanes this allows the specification of separate rules for
+            // each direction of travel.
+            //
+            optional double start_s = 1;
+
+            //
+            // The ending point of the traffic rule validity on the lane.
+            // Must be in range [\c sStart,\c sEnd] of the reference line.
+            //
+            optional double end_s = 2;
+
+            //
+            // List of traffic participant types for which the speed limit is valid.
+            // If the traffic rule validity is independent of the vehicle type 
+            // the list should be empty.
+            //
+            repeated TypeValidity valid_for_type = 3;
+
+            //
+            // \brief Type of traffic participant for which a rule is valid.
+            //
+            message TypeValidity {
+
+                //
+                // The type of object for which the traffic rule is valid.
+                //
+                optional MovingObject.Type type = 1;
+                
+                //
+                // Vehicle classification type for traffic participants.
+                //
+                // Should be set to TYPE_UNKNOWN if type is not TYPE_VEHICLE
+                // or the rule is valid for all vehicle types.
+                //
+                optional MovingObject.VehicleClassification.Type vehicle_type = 2;
+
+                //
+                // Role of traffic participant.
+                //
+                // Should be set to ROLE_UNKNOWN if type is not TYPE_VEHICLE
+                // or the rule is valid for all vehicle roles.
+                //
+                optional MovingObject.VehicleClassification.Role vehicle_role = 3;
+            }
+        }
+
+        //
+        // \brief Speed limit on a lane.
+        //
+        message SpeedLimit {
+
+            //
+            // The value of the speed limit.
+            // The unit field in the TrafficSignValue message may only be set to
+            // units associated with velocities and must not be UNKNOWN.
+            //
+            // Note: All speed limits are to be modeled this way, independent
+            // of how they are induced.
+            //
+            optional TrafficSignValue speed_limit_value = 1;
+
+        }
+    }
+
 }
 

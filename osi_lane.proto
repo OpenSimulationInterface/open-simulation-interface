@@ -42,6 +42,7 @@ message Lane
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -57,7 +58,7 @@ message Lane
     //
     // For example, to reference a lane defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road
@@ -188,7 +189,7 @@ message Lane
 
         // Indicates that the host vehicle travels on this particular lane.
         // The host vehicle may travel on more than one lane at once. This does
-        // also apply for the \c CanditateLane in the \c DetectedLane .
+        // also apply for the \c CandidateLane in the \c DetectedLane .
         //
         optional bool is_host_vehicle_lane = 2;
 
@@ -208,8 +209,8 @@ message Lane
         // cl: center line
         // lb: lane boundary
         //
-        // \attention The points desribing the center line must be set in the 
-        // same ordering (ascending or descending) as the points desribing the 
+        // \attention The points describing the center line must be set in the 
+        // same ordering (ascending or descending) as the points describing the 
         // lane boundaries. Example: If the points are deducted from a map format, 
         // the order of points is recommended to be in line with the road coordinate 
         // (e.g. s-coordinate in OpenDRIVE). 
@@ -440,7 +441,7 @@ message Lane
             //
             SUBTYPE_NORMAL = 2;
 
-            // A lane that is designated for bicylists.
+            // A lane that is designated for bicycles.
             //
             // Since it is not intended to be used for normal automotive
             // driving, it should be used in combination with TYPE_NONDRIVING.

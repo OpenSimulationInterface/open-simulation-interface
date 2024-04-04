@@ -173,6 +173,7 @@ message TrafficSign
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -3446,7 +3447,7 @@ message TrafficSign
                 // -->
                 // </td>
                 // <td>
-                // StVO 353  - Valid only until october 2022.
+                // StVO 353  - Valid only until October 2022.
                 // </td>
                 // </tr>
                 // </table>
@@ -3816,7 +3817,7 @@ message TrafficSign
                 // -->
                 // </td>
                 // <td>
-                // StVO 380 - Valid only until october 2022.
+                // StVO 380 - Valid only until October 2022.
                 // </td>
                 // </tr>
                 // </table>
@@ -3835,7 +3836,7 @@ message TrafficSign
                 // -->
                 // </td>
                 // <td>
-                // StVO 381 - Valid only until october 2022
+                // StVO 381 - Valid only until October 2022
                 // </td>
                 // </tr>
                 // </table>
@@ -3922,7 +3923,7 @@ message TrafficSign
                 // -->
                 // </td>
                 // <td>
-                // StVO 388 - Valid only until october 2022
+                // StVO 388 - Valid only until October 2022
                 // </td>
                 // </tr>
                 // </table>
@@ -3939,7 +3940,7 @@ message TrafficSign
                 // -->
                 // </td>
                 // <td>
-                // StVO 389 - Valid only until october 2022
+                // StVO 389 - Valid only until October 2022
                 // </td>
                 // </tr>
                 // </table>
@@ -5373,7 +5374,7 @@ message TrafficSign
                 // </tr>
                 // </table>
                 //
-                // \note Additional traffic signs are modelled as separate main
+                // \note Additional traffic signs are modeled as separate main
                 // signs.
                 //
                 TYPE_MOBILE_LANE_CLOSURE = 139;
@@ -6760,7 +6761,7 @@ message TrafficSign
                 // [\c rules above](\ref TYPE_TIME).
                 // <br>
                 // See also: [\c Two time ranges](\ref StVO_1040-31),
-                // [\c Working days except saturdays](\ref StVO_1042-38).
+                // [\c Working days except Saturdays](\ref StVO_1042-38).
                 // </td>
                 // </tr>
                 // <tr>
@@ -6789,7 +6790,7 @@ message TrafficSign
                 // &rdquo;werktags au&szlig;er samstags&rdquo;
                 // </td>
                 // <td>
-                // Working days except saturdays.
+                // Working days except Saturdays.
                 // </td>
                 // </tr>
                 // <tr>
@@ -8197,7 +8198,7 @@ message TrafficSign
                 // \c #ACTOR_BUSES
                 // </td>
                 // <td>
-                // Except buses in ocasional service.
+                // Except buses in occasional service.
                 // <br>
                 // Set \c TrafficSignValue::text as "im Gelegenheitsverkehr".
                 // </td>
@@ -9453,7 +9454,7 @@ message TrafficSign
                     //
                     DIRECTION_DIRECT_135_DEG_LEFT = 9;
 
-                    // A straight arrow pointing oposite to the direction of
+                    // A straight arrow pointing opposite to the direction of
                     // driving.
                     //
                     DIRECTION_DIRECT_180_DEG = 10;
@@ -9539,7 +9540,7 @@ message TrafficSign
                     DIRECTION_CIRCLE_135_DEG_LEFT = 25;
 
                     // An arrow that includes a fraction of a circle and points
-                    // in the oposite to the direction of driving. Can be used
+                    // in the opposite to the direction of driving. Can be used
                     // in detours in roundabouts.
                     //
                     DIRECTION_CIRCLE_180_DEG = 26;

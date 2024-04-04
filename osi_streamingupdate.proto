@@ -23,12 +23,16 @@ package osi3;
 //
 // \note The receiver of partial streaming update messages can only rely on the
 // most up-to-date information at the corresponding timestamp. E.g. omitting
-// objects does not indicate static behaviour but it may be sufficient for the
+// objects does not indicate static behavior but it may be sufficient for the
 // use case to update certain objects at a later point in time.
 //
 message StreamingUpdate
 {
     // The interface version used by the sender.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional InterfaceVersion version = 1;
 
@@ -37,6 +41,10 @@ message StreamingUpdate
     // Zero time is arbitrary but must be identical for all messages. 
     // Zero time does not need to coincide with the UNIX epoch. 
     // Recommended is the starting time point of the simulation.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Timestamp timestamp = 2;
 

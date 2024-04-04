@@ -7,38 +7,41 @@ import sys
 import re
 from distutils.spawn import find_executable
 
-# setuptool is dependend on wheel package
 from setuptools import setup
+from setuptools.command.sdist import sdist
 from setuptools.command.build_py import build_py
 
+# protoc
+from protoc import PROTOC_EXE
+
 # configure the version number
-from shutil import copyfile
-
-copyfile("VERSION", "version.py")
-from version import *
-
-with open("osi_version.proto.in", "rt") as fin:
-    with open("osi_version.proto", "wt") as fout:
-        for line in fin:
-            lineConfigured = line.replace("@VERSION_MAJOR@", str(VERSION_MAJOR))
-            lineConfigured = lineConfigured.replace(
-                "@VERSION_MINOR@", str(VERSION_MINOR)
-            )
-            lineConfigured = lineConfigured.replace(
-                "@VERSION_PATCH@", str(VERSION_PATCH)
-            )
-            fout.write(lineConfigured)
+VERSION_MAJOR = None
+VERSION_MINOR = None
+VERSION_PATCH = None
+VERSION_SUFFIX = None
+with open("VERSION", "rt") as versionin:
+    for line in versionin:
+        if line.startswith("VERSION_MAJOR"):
+            VERSION_MAJOR = int(line.split("=")[1].strip())
+        if line.startswith("VERSION_MINOR"):
+            VERSION_MINOR = int(line.split("=")[1].strip())
+        if line.startswith("VERSION_PATCH"):
+            VERSION_PATCH = int(line.split("=")[1].strip())
+        if line.startswith("VERSION_SUFFIX"):
+            VERSION_SUFFIX = line.split("=")[1].strip()
 
 package_name = "osi3"
 package_path = os.path.join(os.getcwd(), package_name)
 
 
-class GenerateProtobufCommand(build_py):
+class ProtobufGenerator:
     @staticmethod
     def find_protoc():
         """Locates protoc executable"""
 
-        if "PROTOC" in os.environ and os.path.exists(os.environ["PROTOC"]):
+        if os.path.exists(PROTOC_EXE):
+            protoc = PROTOC_EXE
+        elif "PROTOC" in os.environ and os.path.exists(os.environ["PROTOC"]):
             protoc = os.environ["PROTOC"]
         else:
             protoc = find_executable("protoc")
@@ -73,6 +76,7 @@ class GenerateProtobufCommand(build_py):
         "osi_occupant.proto",
         "osi_referenceline.proto",
         "osi_roadmarking.proto",
+        "osi_route.proto",
         "osi_sensordata.proto",
         "osi_sensorspecific.proto",
         "osi_sensorview.proto",
@@ -88,7 +92,19 @@ class GenerateProtobufCommand(build_py):
 
     """ Generate Protobuf Messages """
 
-    def run(self):
+    def generate(self):
+        sys.stdout.write("Generating Protobuf Version Message\n")
+        with open("osi_version.proto.in", "rt") as fin:
+            with open("osi_version.proto", "wt") as fout:
+                for line in fin:
+                    lineConfigured = line.replace("@VERSION_MAJOR@", str(VERSION_MAJOR))
+                    lineConfigured = lineConfigured.replace(
+                        "@VERSION_MINOR@", str(VERSION_MINOR)
+                    )
+                    lineConfigured = lineConfigured.replace(
+                        "@VERSION_PATCH@", str(VERSION_PATCH)
+                    )
+                    fout.write(lineConfigured)
         pattern = re.compile('^import "osi_')
         for source in self.osi_files:
             with open(source) as src_file:
@@ -102,7 +118,21 @@ class GenerateProtobufCommand(build_py):
             source_path = os.path.join(package_name, source)
             subprocess.check_call([self.find_protoc(), "--python_out=.", source_path])
 
+    def maybe_generate(self):
+        if os.path.exists("osi_version.proto.in"):
+            self.generate()
+
+
+class CustomBuildPyCommand(build_py):
+    def run(self):
+        ProtobufGenerator().maybe_generate()
         build_py.run(self)
+
+
+class CustomSDistCommand(sdist):
+    def run(self):
+        ProtobufGenerator().generate()
+        sdist.run(self)
 
 
 try:
@@ -111,29 +141,23 @@ except Exception:
     pass
 
 try:
-    open(os.path.join(package_path, "__init__.py"), "a").close()
+    with open(os.path.join(package_path, "__init__.py"), "wt") as init_file:
+        init_file.write(
+            f"__version__ = '{VERSION_MAJOR}.{VERSION_MINOR}.{VERSION_PATCH}{VERSION_SUFFIX or ''}'\n"
+        )
 except Exception:
     pass
 
 setup(
-    name="open-simulation-interface",
-    version=str(VERSION_MAJOR) + "." + str(VERSION_MINOR) + "." + str(VERSION_PATCH),
-    description="A generic interface for the environmental perception of"
-    "automated driving functions in virtual scenarios.",
-    author="Carlo van Driesten, Timo Hanke, Nils Hirsenkorn,"
-    "Pilar Garcia-Ramos, Mark Schiementz, Sebastian Schneider",
-    author_email="Carlo.van-Driesten@bmw.de, Timo.Hanke@bmw.de,"
-    "Nils.Hirsenkorn@tum.de, Pilar.Garcia-Ramos@bmw.de,"
-    "Mark.Schiementz@bmw.de, Sebastian.SB.Schneider@bmw.de",
-    packages=[package_name, "format"],
-    install_requires=["protobuf", "tqdm"],
+    version=str(VERSION_MAJOR)
+    + "."
+    + str(VERSION_MINOR)
+    + "."
+    + str(VERSION_PATCH)
+    + (VERSION_SUFFIX or ""),
+    packages=[package_name, "osi3trace"],
     cmdclass={
-        "build_py": GenerateProtobufCommand,
+        "sdist": CustomSDistCommand,
+        "build_py": CustomBuildPyCommand,
     },
-    url="https://github.com/OpenSimulationInterface/open-simulation-interface",
-    license="MPL 2.0",
-    classifiers=[
-        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
-    ],
-    data_files=[("", ["LICENSE"])],
 )

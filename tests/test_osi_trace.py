@@ -2,7 +2,7 @@ import os
 import tempfile
 import unittest
 
-from format.OSITrace import OSITrace
+from osi3trace.osi_trace import OSITrace
 from osi3.osi_sensorview_pb2 import SensorView
 import struct
 
@@ -14,10 +14,11 @@ class TestOSITrace(unittest.TestCase):
             path_input = os.path.join(tmpdirname, "input.osi")
             create_sample(path_input)
 
-            trace = OSITrace()
-            trace.from_file(path=path_input)
-            trace.make_readable(path_output, index=1)
-            trace.trace_file.close()
+            trace = OSITrace(path_input)
+            with open(path_output, "wt") as f:
+                for message in trace:
+                    f.write(str(message))
+            trace.close()
 
             self.assertTrue(os.path.exists(path_output))
 

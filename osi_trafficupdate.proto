@@ -20,12 +20,16 @@ package osi3;
 // information is provided as a MovingObject.  Certain fields of this
 // sub-message are not required to be set and will be ignored by the
 // simulation environment, because they are static information.
-// Instead of creating a seperate message type for only the non-static
+// Instead of creating a separate message type for only the non-static
 // information, re-use existing message.
 //
 message TrafficUpdate
 {
     // The interface version used by the sender (traffic participant model).
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional InterfaceVersion version = 1;
 
@@ -38,6 +42,10 @@ message TrafficUpdate
     // the notional simulation time the data applies to and the time it was sent.
     // There is no inherent latency for moving object update data, as opposed
     // to sensor data.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Timestamp timestamp = 2;
 
