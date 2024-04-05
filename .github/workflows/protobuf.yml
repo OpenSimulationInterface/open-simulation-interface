@@ -26,9 +26,6 @@ jobs:
 
     runs-on: ubuntu-22.04
 
-    permissions:
-      id-token: write
-
     steps:
     - name: Checkout OSI
       uses: actions/checkout@v4
@@ -134,16 +131,11 @@ jobs:
         if-no-files-found: error
 
     - name: Upload Python Distribution
-      if: ${{ github.event_name == 'pull_request' }}
+      if: ${{ github.event_name == 'pull_request' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
       uses: actions/upload-artifact@v4
       with:
         name: python-dist
         path: dist/
-
-    - name: Publish Snapshot Release on TestPyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        repository-url: https://test.pypi.org/legacy/
 
     - name: Deploy to gh-pages if push to master branch
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
@@ -232,3 +224,27 @@ jobs:
 
     - name: Run Python Tests
       run: python -m unittest discover tests
+
+  publish-python-dist:
+    name: Publish Python Distribution
+
+    runs-on: ubuntu-22.04
+
+    permissions:
+      id-token: write
+
+    needs: [build-proto2-linux64, build-proto3-linux64]
+
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+
+    steps:
+    - name: Download Distribution
+      uses: actions/download-artifact@v4
+      with:
+        name: python-dist
+        path: dist/
+
+    - name: Publish Snapshot Release on TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
