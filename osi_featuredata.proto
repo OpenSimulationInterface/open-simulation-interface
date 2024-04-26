@@ -36,7 +36,7 @@ message FeatureData
     //
     // \note Required for ultrasonic sensors: Detections will be send by the
     // emitting ultrasonic sensor, including all indirect detections received
-    // by neighbouring sensors.
+    // by neighboring sensors.
     //
     repeated UltrasonicDetectionData ultrasonic_sensor = 4;
 
@@ -92,6 +92,10 @@ message SensorDetectionHeader
     // \par Reference:
     // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional MountingPosition mounting_position = 3;
 
     // The origin/orientation of the sensor frame represents the current
@@ -123,6 +127,10 @@ message SensorDetectionHeader
     //
     // This ID can equal \c SensorData::sensor_id, if \c SensorData holds only
     // data from one sensor/sensor model.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 7;
 
@@ -214,7 +222,7 @@ message SensorDetectionHeader
         //
         EXTENDED_QUALIFIER_INPUT_NOT_AVAILABLE = 9;
 
-        // Internal reason (e.g. an internal HW or SW error has occurred).
+        // Internal reason (e.g. an internal hardware or software error has occurred).
         //
         EXTENDED_QUALIFIER_INTERNAL_REASON = 10;
 
@@ -324,7 +332,7 @@ message RadarDetection
     //
     // \note Unambiguous measurements have the ambiguity ID 0.
     //
-    // \note Multiple seperate detections, from e.g. a large object, do not
+    // \note Multiple separate detections, from e.g. a large object, do not
     // necessarily on their own create any ambiguity. Therefore they do not
     // usually share an ambiguity ID. They can however be ambiguous
     // with other detections.
@@ -451,7 +459,7 @@ message LidarDetection
     // \endrules
     //
     // \par Reference:
-    // [1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automot. Engine Technol. 5, Fig 7, Fig 8. Retrieved May 10, 2021, from https://doi.org/10.1007/s41104-020-00066-x
+    // [1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automotive Engine Technology 5, Fig 7, Fig 8. Retrieved May 10, 2021, from https://doi.org/10.1007/s41104-020-00066-x
     //
     optional double echo_pulse_width = 11;
 
@@ -501,7 +509,7 @@ message UltrasonicDetectionSpecificHeader
 //
 // \image html OSI_USSensor.svg
 //
-// \note Direct detecions lies on circles with the sending sensor as centre.
+// \note Direct detections lie on circles with the sending sensor as center.
 //
 message UltrasonicDetectionData
 {
@@ -536,7 +544,7 @@ message UltrasonicDetectionData
 //
 // \image html OSI_USSensor_direct.svg
 //
-// \note Direct detecions lies on circles with the sensor as centre.
+// \note Direct detections lie on circles with the sensor as center.
 //
 message UltrasonicDetection
 {
@@ -586,7 +594,7 @@ message UltrasonicDetection
 //
 // \image html OSI_USSensor_indirect.svg
 //
-// \note Indirect detecions lies on ellipses with the sending resp. receiving
+// \note Indirect detections lie on ellipses with the sending resp. receiving
 // sensor in the focal points.
 //
 message UltrasonicIndirectDetection
@@ -722,7 +730,7 @@ message CameraDetection
     //
     optional bool shape_classification_background = 5;
 
-    // The defined shape is foregroud.
+    // The defined shape is foreground.
     // The probability for this classification is at least
     // \c #shape_classification_probability.
     //
@@ -848,7 +856,7 @@ message CameraDetection
     //
     optional bool shape_classification_pedestrian_rear = 26;
 
-    // This probability defines the mininimum probability for each selected
+    // This probability defines the minimum probability for each selected
     // shape classification.
     //
     // \rules
@@ -908,6 +916,10 @@ message CameraDetection
     //
     enum Color
     {
+        // Allow aliases in enum
+        //
+        option allow_alias = true;
+
         // Color of the shape is unknown (must not be used in ground
         // truth).
         //
@@ -921,7 +933,13 @@ message CameraDetection
         //
         COLOR_BLACK = 2;
 
-        // Shape with grey color.
+        // Shape with gray color.
+        //
+        COLOR_GRAY = 3;
+
+        // Shape with gray color.
+        //
+        // \note Deprecated variant spelling of COLOR_GRAY
         //
         COLOR_GREY = 3;
 
@@ -981,7 +999,7 @@ message CameraDetection
         // Allowed number of referenced points: 2 or 3
         //
         // Allowed number of referenced points = 2: first and third corner of
-        // the box. Box is alligned horizontal resp. vertical.
+        // the box. Box is aligned horizontal resp. vertical.
         //
         // Allowed number of referenced points = 3: first, second and third
         // corner of the box. fourth corner is calculated by first+third-second
@@ -1049,7 +1067,7 @@ message CameraPoint
     //
     optional double existence_probability = 1;
 
-    // Measured point refered by one camera detection given in spherical
+    // Measured point referred by one camera detection given in spherical
     // coordinates in the sensor coordinate system.
     //
     optional Spherical3d point = 2;

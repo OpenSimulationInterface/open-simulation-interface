@@ -32,6 +32,7 @@ message ReferenceLine
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -52,7 +53,7 @@ message ReferenceLine
         // ReferenceLine is a polyline, where the coordinates of points are
         // calculated by projection onto the nearest point on the line.
         //
-        // \attention DEPRECATED: Due to the shortcomings documenten below, this
+        // \attention DEPRECATED: Due to the shortcomings documented below, this
         //            type will be removed in 4.0.0.
         //
         TYPE_POLYLINE = 0;
@@ -157,12 +158,12 @@ message ReferenceLine
     //   point on the polyline. The resulting ST coordinate uniquely maps back
     //   to \c P1.
     // - \c P2 has multiple points "nearest points" on the polyline.
-    //   As can be seen here, two  ST coordinates map to \c P2 (red and grey
+    //   As can be seen here, two  ST coordinates map to \c P2 (red and gray
     //   dotted line).  Following the rules above, the one with the smallest S
     //   value is chosen (the red dotted line).
     // - \c P3 has a unique "nearest point" on the polyline. However, multiple
     //   points map to the same ST coordinate as that of \c P3, e.g. \c P4
-    //   (drawn in grey).
+    //   (drawn in gray).
     // - Finally, \c P5 shows how the reference line is extended infinitely for
     //   points that are "outside" the reference line.
     //
@@ -268,10 +269,10 @@ message ReferenceLine
     // in OSI. There are a few difficulties with this:
     // - The T coordinate is nearly the same as for OpenDRIVE, but
     //   unfortunately not perfectly. In OpenDRIVE, if the road is tilted using
-    //   superElevation, then the t coordinate system is tilted along, so the T
+    //   superelevation, then the t coordinate system is tilted along, so the T
     //   coordinate is no longer calculated in the XY plane (as proposed for
-    //   OSI). It doesn't seem feasable to implement the same tilting for OSI,
-    //   so simulation tools will have to consider superElevation and convert
+    //   OSI). It doesn't seem feasible to implement the same tilting for OSI,
+    //   so simulation tools will have to consider superelevation and convert
     //   the T coordinate accordingly: <code>t_OSI = t_OpenDRIVE *
     //   cos(alpha)</code>, where alpha is the superelevation angle.
     // - The angle will not be perfectly the same, due to the use of line

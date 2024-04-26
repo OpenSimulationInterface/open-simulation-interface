@@ -20,6 +20,7 @@ message TrafficLight
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -123,7 +124,7 @@ message TrafficLight
 
         // Boolean flag to indicate that the traffic light is taken out of service.
         // This can be achieved by visibly crossing the light, covering it completely
-        // or swiching the traffic light off.
+        // or switching the traffic light off.
         //
         optional bool is_out_of_service = 6;
 

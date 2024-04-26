@@ -47,6 +47,10 @@ message GroundTruth
     // The interface version used by the sender (i.e. the simulation
     // environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. The zero time point is
@@ -60,6 +64,10 @@ message GroundTruth
     // (there is no inherent latency for ground truth data, as opposed to
     // sensor data).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The ID of the host vehicle object referencing to \c MovingObject .
@@ -68,6 +76,7 @@ message GroundTruth
     //
     // \rules
     // refers_to: MovingObject
+    // is_set
     // \endrules
     //
     optional Identifier host_vehicle_id = 3;
@@ -118,13 +127,14 @@ message GroundTruth
     // [1] ISO International Organization for Standardization. (2013). <em>ISO 3166-1 Codes for the representation of names of countries and their subdivisions - Part 1: Country codes</em>. (ISO 3166-1:2013). Geneva, Switzerland.
     //
     // \rules
-    // is_iso_country_code:
+    // is_iso_country_code
     // \endrules
     //
     optional uint32 country_code = 13;
 
     // Projection string that allows to transform all coordinates in GroundTruth
-    // into a different cartographic projection.
+    // into a different cartographic projection after the \c proj_frame_offset
+    // has been applied.
     //
     // The string follows the PROJ rules for projections [1].
     //
@@ -169,4 +179,52 @@ message GroundTruth
     // Logical lanes used e.g. by traffic agents
     //
     repeated LogicalLane logical_lane = 19;
+
+    // Coordinate frame offset to be used for PROJ transformations.
+    //
+    optional ProjFrameOffset proj_frame_offset = 20;
+
+    //
+    // \brief Coordinate frame offset to transform from OSI's global coordinate
+    // system to a coordinate reference system to be used for given PROJ
+    // transformations.
+    //
+    // If an offset is defined, always apply the \c proj_frame_offset on
+    // global OSI coordinates before applying any transformations defined in
+    // \c proj_string.
+    //
+    // To apply the offset, global coordinates are first translated by the given
+    // positional offset (x,y,z). Then, the yaw angle is used to rotate around
+    // the new origin.
+    //
+    // The offset is applied on global OSI coordinates using an affine
+    // transformation with rotation around z-axis:
+    //
+    // xWorld = xOSI * cos(yaw) - yOSI * sin(yaw) + xOffset
+    //
+    // yWorld = xOSI * sin(yaw) + yOSI * cos(yaw) + yOffset
+    //
+    // zWorld = zOSI + zOffset
+    //
+    //
+    // If no yaw is provided (recommended), the formulas simplify to:
+    //
+    // xWorld = xOSI + xOffset
+    //
+    // yWorld = yOSI + yOffset
+    //
+    // zWorld = zOSI + zOffset
+    //
+    message ProjFrameOffset
+    {
+        // Positional offset for relocation of the coordinate frame.
+        //
+        optional Vector3d position = 1;
+
+        // Yaw/heading angle for re-orientation of the coordinate frame around
+        // the z-axis.
+        //
+        optional double yaw = 2;
+    }
+
 }

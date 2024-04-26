@@ -29,6 +29,10 @@ message RoadMarking
 {
     // The ID of the road marking.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The base parameters of the road marking.
@@ -63,7 +67,7 @@ message RoadMarking
     //
     // For example, to reference a signal defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road_signals_signal

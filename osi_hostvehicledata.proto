@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
+import "osi_route.proto";
 
 package osi3;
 
@@ -91,6 +92,10 @@ message HostVehicleData
     //
     optional VehicleMotion vehicle_motion = 13;
 
+    // Currently planned route of the vehicle
+    //
+    optional Route route = 14;
+
     //
     // \brief Base parameters and overall states of the vehicle.
     //
@@ -139,7 +144,7 @@ message HostVehicleData
             //
             OPERATING_STATE_BOARDING = 4;
 
-            // Entertainment, navigation or similiar systems can be used by the driver.
+            // Entertainment, navigation or similar systems can be used by the driver.
             // The vehicle can not be driven.
             // Usually the driver sits in the vehicle before or after a drive.
             //
@@ -563,7 +568,7 @@ message HostVehicleData
             //
             STATE_OTHER = 1;
 
-            // The function has errored in some way that renders it ineffective.
+            // The function has thrown an error in some way that renders it ineffective.
             //
             STATE_ERRORED = 2;
 
@@ -579,7 +584,7 @@ message HostVehicleData
             STATE_AVAILABLE = 4;
 
             // The function is available but conditions have not caused it to be
-            // triggered, for example, no vehicles in front to trigger a FCW.
+            // triggered, for example, no vehicles in front to trigger a forward collision warning.
             //
             STATE_STANDBY = 5;
 

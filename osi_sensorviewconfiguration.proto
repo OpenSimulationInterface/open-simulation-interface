@@ -66,6 +66,10 @@ message SensorViewConfiguration
 {
     // The interface version used by the sender (simulation environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The ID of the sensor at host vehicle's mounting_position.
@@ -76,6 +80,10 @@ message SensorViewConfiguration
     //
     // The ID is to be provided by the environment simulation, the sensor
     // model is not in a position to provide a useful default value.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 2;
 
@@ -176,7 +184,7 @@ message SensorViewConfiguration
     // update to the sensor input should happen at 0.048s, or 0.018s
     // after simulation start. This convention is needed to ensure
     // stable phase position of the offset in the case of changing
-    // simulation start times, e.g. for partial resimulation.
+    // simulation start times, e.g. for partial re-simulation.
     //
     // Unit: s
     optional Timestamp update_cycle_offset = 9;

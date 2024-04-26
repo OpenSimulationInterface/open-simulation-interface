@@ -21,6 +21,7 @@ message StationaryObject
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -47,7 +48,7 @@ message StationaryObject
     //
     // For example, to reference an object defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = "object" for t_road_objects_object and
@@ -222,6 +223,10 @@ message StationaryObject
         //
         enum Material
         {
+            // Allow aliases in enum
+            //
+            option allow_alias = true;
+
             // Type of the material is unknown (must not be used in ground
             // truth).
             //
@@ -251,7 +256,13 @@ message StationaryObject
             //
             MATERIAL_STONE = 6;
 
-            // Glas structure.
+            // Glass structure.
+            //
+            MATERIAL_GLASS = 7;
+
+            // Glass structure.
+            //
+            // \note Deprecated variant spelling of MATERIAL_GLASS
             //
             MATERIAL_GLAS = 7;
 
@@ -302,6 +313,10 @@ message StationaryObject
         //
         enum Color
         {
+            // Allow aliases in enum
+            //
+            option allow_alias = true;
+
             // Color is unknown (must not be used in ground truth).
             //
             COLOR_UNKNOWN = 0;
@@ -338,7 +353,13 @@ message StationaryObject
             //
             COLOR_BLACK = 8;
 
-            // GREY.
+            // GRAY.
+            //
+            COLOR_GRAY = 9;
+
+            // GRAY.
+            //
+            // \note Deprecated variant spelling of COLOR_GRAY
             //
             COLOR_GREY = 9;
 
@@ -388,6 +409,7 @@ message MovingObject
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -498,8 +520,6 @@ message MovingObject
     // * identifier[0] = Entity-Type ("Vehicle" or "Pedestrian")
     // * identifier[1] = name of Vehicle/Pedestrian in Entity
     //
-    // \todo OpenSCENARIO currently does not provide an animal type.
-    //
     // \note For non-ASAM Standards, it is implementation-specific how
     //       source_reference is resolved.
     //
@@ -607,7 +627,7 @@ message MovingObject
         repeated WheelData wheel_data = 7;
 
         // Angle of the steering wheel.
-        // Zero means the steering wheel is in its center postion, a positive value
+        // Zero means the steering wheel is in its center position, a positive value
         // means the steering wheel is turned to the left and a negative value
         // means the steering wheel is turned to the right of the center position.
         //
@@ -688,7 +708,7 @@ message MovingObject
             //
             optional string model_reference = 9;
 
-            // The value describes the kinetic friction of the tyre's contact point.
+            // The value describes the kinetic friction of the tire's contact point.
             // If different friction coefficients due to more than one contact points are available,
             // this value contains the average.
             //
@@ -744,20 +764,26 @@ message MovingObject
         // other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel).
         // This is primarily for historical reasons.  Where a single type from a
         // different standard can map to multiple OSI types it is left up to the
-        // discretion of the OSI implementor how that mapping is achieved.  For example,
-        // a simulator may use the dimensions of a provided 3d model of a vehicle with type
-        // "car" in OpenScenario, to determine whether it should be a TYPE_SMALL_CAR or
-        // TYPE_MEDIUM_CAR in OSI.
+        // discretion of the OSI implementer how that mapping is achieved. In previous
+        // versions, for example, a simulator might have used the dimensions of a provided
+        // 3d model of a vehicle with type "car" in OpenScenario, to determine whether it
+        // should be a TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI. As part of the harmonization
+        // effort, it should now map to TYPE_CAR, which is an alias of the old TYPE_MEDIUM_CAR,
+        // and all other car type enums have been deprecated in favor of TYPE_CAR.
         //
         // \note Vehicle type classification is a complex area and there are no
-        // universally recognised standards.  As such, the boundaries between some of the
-        // OSI vehicle types are not well-defined.  It is left to the implementor to
+        // universally recognized standards.  As such, the boundaries between some of the
+        // OSI vehicle types are not well-defined.  It is left to the implementer to
         // decide how to distinguish between them and agree that with any applications which
         // make use of that specific interface instance.  For example, how to distinguish
         // between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER.
         //
         enum Type
         {
+            // Allow aliases in enum
+            //
+            option allow_alias = true;
+
             // Type of vehicle is unknown (must not be used in ground truth).
             //
             TYPE_UNKNOWN = 0;
@@ -770,23 +796,38 @@ message MovingObject
             //
             // Definition: Hatchback car with maximum length 4 m.
             //
+            // \note Deprecated differentiation, use TYPE_CAR instead
+            //
             TYPE_SMALL_CAR = 2;
 
             // Vehicle is a compact car.
             //
             // Definition: Hatchback car with length between 4 and 4.5 m.
             //
+            // \note Deprecated differentiation, use TYPE_CAR instead
+            //
             TYPE_COMPACT_CAR = 3;
+
+            // Vehicle is a car.
+            //
+            // This is to be used for all car-like vehicles, without any
+            // further differentiated type available.
+            //
+            TYPE_CAR = 4;
 
             // Vehicle is a medium car.
             //
-            // Definition: Hatchback or sedan with lenght between 4.5 and 5 m.
+            // Definition: Hatchback or sedan with length between 4.5 and 5 m.
+            //
+            // \note Deprecated differentiation, use the alias TYPE_CAR instead
             //
             TYPE_MEDIUM_CAR = 4;
 
             // Vehicle is a luxury  car.
             //
             // Definition: Sedan or coupe that is longer then 5 m.
+            //
+            // \note Deprecated differentiation, use TYPE_CAR instead
             //
             TYPE_LUXURY_CAR = 5;
 
@@ -851,7 +892,7 @@ message MovingObject
             //
             TYPE_WHEELCHAIR = 15;
 
-            // Vehicle is a stand-up or kickboard scooter, including
+            // Vehicle is a stand-up scooter, including
             // motorized versions.
             //
             TYPE_STANDUP_SCOOTER = 17;
@@ -1171,6 +1212,20 @@ message MovingObject
             // by setting this boolean to TRUE.
             //
             optional bool missing = 5;
+
+            // The velocity of the bone.
+            //
+            // Reference System is the root, defined by bbcenter_to_root
+            // (\c PedestrianAttributes::bbcenter_to_root).
+            //
+            optional Vector3d velocity = 6;
+
+            // The orientation rate of the bone.
+            //
+            // Reference System is the root, defined by bbcenter_to_root
+            // (\c PedestrianAttributes::bbcenter_to_root).
+            //
+            optional Orientation3d orientation_rate = 7;
 
             // The type of the bone.
             //

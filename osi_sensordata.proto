@@ -102,6 +102,10 @@ message SensorData
 {
     // The interface version used by the sender.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The timestamp of the sensor data. Zero time is arbitrary but must be
@@ -129,6 +133,10 @@ message SensorData
     // a dumb sensor with no internal time concept), the two timestamps might
     // also be identical, but delayed from the \c GroundTruth timestamp.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The sensors estimated location of the host vehicle
@@ -155,6 +163,10 @@ message SensorData
     // This is the ID of the virtual sensor, to be used in its detected
     // object output; it is distinct from the IDs of its physical detectors,
     // which are used in the detected features.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 5;
 
@@ -185,6 +197,10 @@ message SensorData
     // the vehicle's coordinate system is equal to the orientation of the
     // vehicle's bounding box \c MovingObject::base . \c
     // BaseMoving::orientation.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional MountingPosition mounting_position = 6;
 
@@ -297,4 +313,38 @@ message SensorData
     // in cartesian coordinates.
     //
     optional LogicalDetectionData logical_detection_data = 27;
+
+    //
+    // \brief Virtual detection area of a sensor
+    //
+    // The virtual detection area describes the nominal area the sensor is capable of covering
+    // in its current operating mode, without taking occlusion or other statistical effects into account.
+    // This information can be used for visualization or other development purposes as a rough guide
+    // to nominal sensor performance.
+    //
+    // It is described by a set of polygons in cartesian coordinates as a pragmatic approximation for
+    // the rough shapes expected.
+    //
+    message VirtualDetectionArea
+    {
+        // List of polygons. Each polygon represents a surface of the virtual detection area
+        // and is given with respect to the virtual sensor coordinate system.
+        //
+        repeated Polygon3d polygon = 1;
+    }
+
+    // Virtual detection area of the sensor
+    //
+    optional VirtualDetectionArea virtual_detection_area = 28;
+
+    // The system time of the modeled source of the sensor data, given
+    // in UTC (Unix Epoch timestamp).
+    //
+    // The system time can be used to transmit the internal time of the
+    // simulated component that supplies the sensor data, which might
+    // not coincide with the simulation time as transmitted in the
+    // timestamp field. Example use cases include recorded data traces
+    // or the simulation of time synchronization mechanisms and errors.
+    //
+    optional Timestamp system_time = 29;
 }
