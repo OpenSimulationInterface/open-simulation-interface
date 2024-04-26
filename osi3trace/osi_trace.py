@@ -1,6 +1,7 @@
 """
 Module to handle and manage OSI trace files.
 """
+
 import lzma
 import struct
 
