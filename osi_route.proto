@@ -42,6 +42,7 @@ message Route
     //
     // \rules
     // is_set
+    // is_globally_unique
     // \endrules
     //
     optional Identifier route_id = 1;

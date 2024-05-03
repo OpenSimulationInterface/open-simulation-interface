@@ -235,7 +235,7 @@ message ExternalReference
     
     // The type of the external references.
     //
-    // Mandatory value describing the type of the original source.
+    // Value describing the type of the original source.
     //
     // For OpenX/ASAM standards it is specified as follows:
     // - net.asam.opendrive
@@ -244,6 +244,10 @@ message ExternalReference
     // For third-party standards and user-defined objects, 
     // reverse domain name notation with lower-case type field
     // is recommended to guarantee unique and interoperable identification.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional string type = 2;    
     
