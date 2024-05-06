@@ -4,6 +4,27 @@ include::{root-path}_config.adoc[]
 endif::[]
 = Installing OSI for Python on Windows
 
+== Installing from PyPI
+
+Steps::
+
+. Open a terminal.
++
+. Optionally create and activate a new virtual environment.
++
+----
+python -m venv venv
+venv\Scripts\activate
+----
++
+. Install Open Simulation Interface.
++
+----
+pip install open-simulation-interface
+----
+
+== Installing from source
+
 Prerequisites::
 
 * You have installed everything described in <<top-installing-osi-prerequisits>>.
@@ -25,8 +46,15 @@ git clone https://github.com/OpenSimulationInterface/open-simulation-interface.g
 cd open-simulation-interface
 ----
 +
-. Run the setup script.
+. Optionally create and activate a new virtual environment.
 +
 ----
-python setup.py install
+python -m venv venv
+venv\Scripts\activate
+----
++
+. Install Open Simulation Interface.
++
+----
+pip install .
 ----
