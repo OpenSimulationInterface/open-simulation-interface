@@ -249,7 +249,7 @@ message ExternalReference
     // is_set
     // \endrules
     //
-    optional string type = 2;    
+    optional string type = 2;
     
     // The external identifier reference value.
     //
