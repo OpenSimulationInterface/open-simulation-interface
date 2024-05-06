@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (5bcc0b0)</span>
+   &#160;<span id="projectnumber">master (af8049b)</span>
    </div>
   </td>
  </tr>
@@ -388,7 +388,8 @@ A default position can be provided by the sensor model (e.g. to indicate the pos
 </div><div class="memdoc">
 
 <p>Omit Static Information. </p>
-<p>This flag specifies whether <code><a class="el" href="structosi3_1_1GroundTruth.html" title="The ground truth information from the simulation environment.">GroundTruth</a></code> information that was already provided using a GroundTruthInit parameter at initialization time shall be omitted from the <code><a class="el" href="structosi3_1_1SensorView.html" title="The sensor view is derived from GroundTruth and used as input to sensor models.">SensorView</a></code> ground truth information. </p>
+<p>This flag specifies whether <code><a class="el" href="structosi3_1_1GroundTruth.html" title="The ground truth information from the simulation environment.">GroundTruth</a></code> information that was already provided using a GroundTruthInit parameter (e.g. <a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/sensor-model/spec/ground_truth_init_parameters.html">OSMP GroundTruthInit</a>) at initialization time shall be omitted from the <code><a class="el" href="structosi3_1_1SensorView.html" title="The sensor view is derived from GroundTruth and used as input to sensor models.">SensorView</a></code> ground truth information.</p>
+<p>Setting the <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a124ebfbab7292e8ab9b99fd70d41d797" title="Omit Static Information.">omit_static_information</a></code> field allows a clear split between the dynamic simulation data, which is contained in ground truth messages with the <code><a class="el" href="structosi3_1_1SensorViewConfiguration.html#a124ebfbab7292e8ab9b99fd70d41d797" title="Omit Static Information.">omit_static_information</a></code> flag, and the static simulation data, which is contained in the (OSMP) GroundTruthInit. </p>
 
 </div>
 </div>
