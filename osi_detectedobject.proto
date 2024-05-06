@@ -325,6 +325,10 @@ message DetectedMovingObject
         // \note This field is mandatory if the \c CandidateMovingObject::type
         // is \c MovingObject::TYPE_VEHICLE .
         //
+        // \rules
+        // check_if this.type is_equal_to 2 else do_check is_set
+        // \endrules
+        //
         optional MovingObject.VehicleClassification vehicle_classification = 3;
 
         // Pedestrian head pose for behavior prediction. Describes the head
@@ -338,6 +342,10 @@ message DetectedMovingObject
         //
         // \note This field is mandatory if the \c CandidateMovingObject.type is
         // \c MovingObject::TYPE_PEDESTRIAN
+        //
+        // \rules
+        // check_if this.type is_equal_to 3 else do_check is_set
+        // \endrules
         //
         // \par Reference:
         //
@@ -357,6 +365,10 @@ message DetectedMovingObject
         //
         // \note This field is mandatory if the \c CandidateMovingObject::type
         // is \c MovingObject::TYPE_PEDESTRIAN
+        //
+        // \rules
+        // check_if this.type is_equal_to 3 else do_check is_set
+        // \endrules
         //
         // \par Reference:
         // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.

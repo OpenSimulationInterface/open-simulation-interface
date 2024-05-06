@@ -245,7 +245,11 @@ message ExternalReference
     // reverse domain name notation with lower-case type field
     // is recommended to guarantee unique and interoperable identification.
     //
-    optional string type = 2;    
+    // \rules
+    // is_set
+    // \endrules
+    //
+    optional string type = 2;
     
     // The external identifier reference value.
     //

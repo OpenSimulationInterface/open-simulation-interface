@@ -142,6 +142,10 @@ message TrafficAction
         // \note This id must be unique within all traffic command
         // messages exchanged with one traffic participant.
         //
+        // \rules
+        // is_set
+        // \endrules
+        //
         optional Identifier action_id = 1;
     }
 
