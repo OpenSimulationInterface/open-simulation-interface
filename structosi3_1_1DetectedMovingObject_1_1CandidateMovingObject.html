@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (e64338c)</span>
+   &#160;<span id="projectnumber">master (5ac10b3)</span>
    </div>
   </td>
  </tr>
@@ -192,7 +192,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specific information about the classification of the vehicle. </p>
-<dl class="section note"><dt>Note</dt><dd>This field is mandatory if the <code><a class="el" href="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ac09a45f142cda46d14a8c3f2b069e4c6" title="The description of the moving object (e.g.">CandidateMovingObject::type</a></code> is <code><a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea7c48e327c1cbef313cfabc47fcbde11f" title="Object is a vehicle.">MovingObject::TYPE_VEHICLE</a></code> . </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This field is mandatory if the <code><a class="el" href="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ac09a45f142cda46d14a8c3f2b069e4c6" title="The description of the moving object (e.g.">CandidateMovingObject::type</a></code> is <code><a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea7c48e327c1cbef313cfabc47fcbde11f" title="Object is a vehicle.">MovingObject::TYPE_VEHICLE</a></code> .</dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>check_if this.type is_equal_to 2 else do_check is_set  </dd></dl>
 
 </div>
 </div>
@@ -212,6 +213,7 @@ Public Attributes</h2></td></tr>
 <p>Describes the head orientation w.r.t. the host vehicle orientation. The x-axis of the right-handed head frame is pointing along the pedestrian's straight ahead viewing direction (anterior), the y-axis lateral to the left, and the z-axis is pointing upwards (superior) [1].</p>
 <p><code>View_normal_base_coord_system = Inverse_Rotation(#head_pose)*Unit_vector_x</code></p>
 <dl class="section note"><dt>Note</dt><dd>This field is mandatory if the <code><a class="el" href="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ac09a45f142cda46d14a8c3f2b069e4c6" title="The description of the moving object (e.g.">CandidateMovingObject.type</a></code> is <code><a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea51ba3d4a7a7c23a33261826b3df9ee4a" title="Object is a pedestrian.">MovingObject::TYPE_PEDESTRIAN</a></code> </dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>check_if this.type is_equal_to 3 else do_check is_set </dd></dl>
 <dl class="section user"><dt>Reference:</dt><dd></dd></dl>
 <p>[1] Patton, K. T. &amp; Thibodeau, G. A. (2015). <em>Anatomy &amp; Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229. </p>
 
@@ -233,6 +235,7 @@ Public Attributes</h2></td></tr>
 <p>Describes the upper body orientation w.r.t. the host vehicle orientation. The x-axis of the right-handed upper body frame is pointing along the pedestrian's upper body ventral (anterior) direction (i.e. usually pedestrian's intended moving direction), the y-axis lateral to the left, and the z-axis is pointing upwards (superior, to the pedestrian's head) [1].</p>
 <p><code>View_normal_base_coord_system = Inverse_Rotation(#upper_body_pose)*Unit_vector_x</code></p>
 <dl class="section note"><dt>Note</dt><dd>This field is mandatory if the <code><a class="el" href="structosi3_1_1DetectedMovingObject_1_1CandidateMovingObject.html#ac09a45f142cda46d14a8c3f2b069e4c6" title="The description of the moving object (e.g.">CandidateMovingObject::type</a></code> is <code><a class="el" href="structosi3_1_1MovingObject.html#afcfe8fd7eb90481e826d84cfbc5a721ea51ba3d4a7a7c23a33261826b3df9ee4a" title="Object is a pedestrian.">MovingObject::TYPE_PEDESTRIAN</a></code> </dd></dl>
+<dl class="section user"><dt>Rules\n\code{.unparsed}</dt><dd>check_if this.type is_equal_to 3 else do_check is_set </dd></dl>
 <dl class="section user"><dt>Reference:</dt><dd>[1] Patton, K. T. &amp; Thibodeau, G. A. (2015). <em>Anatomy &amp; Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229. </dd></dl>
 
 </div>
