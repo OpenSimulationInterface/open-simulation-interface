@@ -22,6 +22,20 @@ class TestOSITrace(unittest.TestCase):
 
             self.assertTrue(os.path.exists(path_output))
 
+    def test_osi_trace_offsets_robustness(self):
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            path_input = os.path.join(tmpdirname, "input.osi")
+            create_sample(path_input)
+
+            trace = OSITrace(path_input)
+            # Test whether the function can handle be run multiple times safely
+            offsets = trace.retrieve_offsets(None)
+            offsets2 = trace.retrieve_offsets(None)
+            trace.close()
+
+            self.assertEqual(len(offsets), 10)
+            self.assertEqual(offsets, offsets2)
+
 
 def create_sample(path):
     f = open(path, "ab")
