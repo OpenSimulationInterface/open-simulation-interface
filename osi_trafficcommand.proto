@@ -144,7 +144,6 @@ message TrafficAction
         //
         // \rules
         // is_set
-        // is_globally_unique
         // \endrules
         //
         optional Identifier action_id = 1;

@@ -235,7 +235,7 @@ message ExternalReference
     
     // The type of the external references.
     //
-    // Value describing the type of the original source.
+    // Mandatory value describing the type of the original source.
     //
     // For OpenX/ASAM standards it is specified as follows:
     // - net.asam.opendrive
