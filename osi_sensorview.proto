@@ -64,11 +64,6 @@ message SensorView
     // object output; it is distinct from the IDs of its physical detectors,
     // which are used in the detected features.
     //
-    // \rules
-    // is_globally_unique
-    // is_set
-    // \endrules
-    //
     optional Identifier sensor_id = 3;
 
     // The virtual mounting position of the sensor (origin and orientation of

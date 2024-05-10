@@ -28,13 +28,6 @@ message ReferenceLine
 {
     // The ID of the reference line.
     //
-    // \note Note ID is global unique.
-    //
-    // \rules
-    // is_globally_unique
-    // is_set
-    // \endrules
-    //
     optional Identifier id = 1;
 
     // The type of the reference line.

@@ -41,7 +41,6 @@ message Lane
     // \note Note ID is global unique.
     //
     // \rules
-    // is_globally_unique
     // is_set
     // \endrules
     //
@@ -713,7 +712,6 @@ message LaneBoundary
     // The ID of the lane boundary.
     //
     // \rules
-    // is_globally_unique
     // \endrules
     //
     optional Identifier id = 1;
