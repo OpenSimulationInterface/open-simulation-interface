@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">open_simulation_interface
-   &#160;<span id="projectnumber">master (7c9529f)</span>
+   &#160;<span id="projectnumber">master (66faa29)</span>
    </div>
   </td>
  </tr>
@@ -117,7 +117,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A common identifier (ID), represented as an integer. </p>
-<p>Has to be unique among all simulated items at any given time. For ground truth, the identifier of an item (object, lane, sign, etc.) must remain stable over its lifetime. <code><a class="el" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer.">Identifier</a></code> values may be only be reused if the available address space is exhausted and the specific values have not been in use for several time steps. Sensor specific tracking IDs have no restrictions and should behave according to the sensor specifications.</p>
+<p>Has to be unique among all simulated items at any given time. For ground truth, the identifier of an item (object, lane, sign, etc.) must remain stable over its lifetime. <code><a class="el" href="structosi3_1_1Identifier.html" title="A common identifier (ID), represented as an integer.">Identifier</a></code> values may be only be reused if the available address space is exhausted and the specific values have not been in use for several time steps. Sensor specific tracking IDs have no restrictions and should behave according to the sensor specifications. Purely simulation technical IDs, like sensor IDs, are not required to be unique among all simulated items, but rather unique within the context of the given message type.</p>
 <p>The value MAX(uint64) = 2^(64) -1 = 0b1111111111111111111111111111111111111111111111111111111111111111 is reserved and indicates an invalid ID or error. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a96d2bdfa66d7a220cf65b389ee82a473"></a>
