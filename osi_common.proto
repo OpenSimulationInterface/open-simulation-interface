@@ -197,6 +197,9 @@ message Orientation3d
 // available address space is exhausted and the specific values have not been in
 // use for several time steps. Sensor specific tracking IDs have no restrictions
 // and should behave according to the sensor specifications.
+// Purely simulation technical IDs, like sensor IDs, are not required to be
+// unique among all simulated items, but rather unique within the context of the
+// given message type.
 //
 // The value MAX(uint64) = 2^(64) -1 =
 // 0b1111111111111111111111111111111111111111111111111111111111111111 is
