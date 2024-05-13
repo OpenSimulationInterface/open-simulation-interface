@@ -51,7 +51,7 @@ vcpkg install --triplet=x64-windows-static-md protobuf
 Dynamic linking (NOT RECOMMENDED)::
 
 As already mentioned, shared linking is possible on Linux, but NOT RECOMMENDED.
-However, for dynamic linking install _protobuf_ (version 3.0.0 or higher) with apt: 
+However, for dynamic linking install _protobuf_ (version 2.6.1 or higher) with apt: 
 ----
 sudo apt-get install libprotobuf-dev protobuf-compiler
 ----
@@ -64,7 +64,7 @@ This means that your OSI is build statically but still linking dynamically again
 Here, again either _protobuf_ has to build statically from source or some solution e.g. vcpkg needs to be utilized.
 We recommend the following (as in the README of the OSI project):
 
-Install _protobuf_ (version 3.0.0 or higher) from source with `CXXFLAGS="-fPIC"` to allow static linking of your OSI FMUs (replace <version> with preferred release):
+Install _protobuf_ (version 2.6.1 or higher) from source with `CXXFLAGS="-fPIC"` to allow static linking of your OSI FMUs (replace <version> with preferred release):
 ----
 wget https://github.com/protocolbuffers/protobuf/releases/download/<version>/protobuf-all-<version>.tar.gz
 tar -xzf protobuf-all-<version>.tar.gz
