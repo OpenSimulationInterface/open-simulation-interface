@@ -28,6 +28,10 @@ message ReferenceLine
 {
     // The ID of the reference line.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The type of the reference line.
