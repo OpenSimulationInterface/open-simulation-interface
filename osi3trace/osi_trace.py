@@ -8,12 +8,18 @@ import struct
 from osi3.osi_sensorview_pb2 import SensorView
 from osi3.osi_groundtruth_pb2 import GroundTruth
 from osi3.osi_sensordata_pb2 import SensorData
+from osi3.osi_trafficupdate_pb2 import TrafficUpdate
+from osi3.osi_trafficcommand_pb2 import TrafficCommand
+from osi3.osi_trafficcommandupdate_pb2 import TrafficCommandUpdate
 
 
 MESSAGES_TYPE = {
     "SensorView": SensorView,
     "GroundTruth": GroundTruth,
     "SensorData": SensorData,
+    "TrafficUpdate": TrafficUpdate,
+    "TrafficCommand": TrafficCommand,
+    "TrafficCommandUpdate": TrafficCommandUpdate
 }
 
 
