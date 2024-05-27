@@ -19,7 +19,7 @@ MESSAGES_TYPE = {
     "SensorData": SensorData,
     "TrafficUpdate": TrafficUpdate,
     "TrafficCommand": TrafficCommand,
-    "TrafficCommandUpdate": TrafficCommandUpdate
+    "TrafficCommandUpdate": TrafficCommandUpdate,
 }
 
 
