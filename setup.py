@@ -116,7 +116,9 @@ class ProtobufGenerator:
         for source in self.osi_files:
             sys.stdout.write("Protobuf-compiling " + source + "\n")
             source_path = os.path.join(package_name, source)
-            subprocess.check_call([self.find_protoc(), "--python_out=.", "--pyi_out=.", source_path])
+            subprocess.check_call(
+                [self.find_protoc(), "--python_out=.", "--pyi_out=.", source_path]
+            )
 
     def maybe_generate(self):
         if os.path.exists("osi_version.proto.in"):
