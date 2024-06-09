@@ -8,18 +8,24 @@ import struct
 from osi3.osi_sensorview_pb2 import SensorView
 from osi3.osi_groundtruth_pb2 import GroundTruth
 from osi3.osi_sensordata_pb2 import SensorData
+from osi3.osi_sensorviewconfiguration_pb2 import SensorViewConfiguration
 from osi3.osi_trafficupdate_pb2 import TrafficUpdate
 from osi3.osi_trafficcommand_pb2 import TrafficCommand
 from osi3.osi_trafficcommandupdate_pb2 import TrafficCommandUpdate
+from osi3.osi_motionrequest_pb2 import MotionRequest
+from osi3.osi_streamingupdate_pb2 import StreamingUpdate
 
 
 MESSAGES_TYPE = {
     "SensorView": SensorView,
     "GroundTruth": GroundTruth,
     "SensorData": SensorData,
+    "SensorViewConfiguration": SensorViewConfiguration,
     "TrafficUpdate": TrafficUpdate,
     "TrafficCommand": TrafficCommand,
     "TrafficCommandUpdate": TrafficCommandUpdate,
+    "MotionRequest": MotionRequest,
+    "StreamingUpdate": StreamingUpdate,
 }
 
 
