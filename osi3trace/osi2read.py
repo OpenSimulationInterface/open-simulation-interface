@@ -28,7 +28,7 @@ def command_line_arguments():
         "--type",
         "-t",
         help="Name of the type used to serialize data.",
-        choices=["SensorView", "GroundTruth", "SensorData"],
+        choices=OSITrace.message_types(),
         default="SensorView",
         type=str,
         required=False,

@@ -6,14 +6,28 @@ import lzma
 import struct
 
 from osi3.osi_sensorview_pb2 import SensorView
+from osi3.osi_sensorviewconfiguration_pb2 import SensorViewConfiguration
 from osi3.osi_groundtruth_pb2 import GroundTruth
+from osi3.osi_hostvehicledata_pb2 import HostVehicleData
 from osi3.osi_sensordata_pb2 import SensorData
+from osi3.osi_trafficcommand_pb2 import TrafficCommand
+from osi3.osi_trafficcommandupdate_pb2 import TrafficCommandUpdate
+from osi3.osi_trafficupdate_pb2 import TrafficUpdate
+from osi3.osi_motionrequest_pb2 import MotionRequest
+from osi3.osi_streamingupdate_pb2 import StreamingUpdate
 
 
 MESSAGES_TYPE = {
     "SensorView": SensorView,
+    "SensorViewConfiguration": SensorViewConfiguration,
     "GroundTruth": GroundTruth,
+    "HostVehicleData": HostVehicleData,
     "SensorData": SensorData,
+    "TrafficCommand": TrafficCommand,
+    "TrafficCommandUpdate": TrafficCommandUpdate,
+    "TrafficUpdate": TrafficUpdate,
+    "MotionRequest": MotionRequest,
+    "StreamingUpdate": StreamingUpdate,
 }
 
 
@@ -24,6 +38,11 @@ class OSITrace:
     def map_message_type(type_name):
         """Map the type name to the protobuf message type."""
         return MESSAGES_TYPE[type_name]
+
+    @staticmethod
+    def message_types():
+        """Message types that OSITrace supports."""
+        return list(MESSAGES_TYPE.keys())
 
     def __init__(self, path=None, type_name="SensorView", cache_messages=False):
         self.type = self.map_message_type(type_name)
