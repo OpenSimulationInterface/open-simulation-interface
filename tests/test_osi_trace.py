@@ -5,6 +5,7 @@ import unittest
 from osi3trace.osi_trace import OSITrace
 from osi3.osi_sensorview_pb2 import SensorView
 from osi3.osi_groundtruth_pb2 import GroundTruth
+from osi3.osi_hostvehicledata_pb2 import HostVehicleData
 from osi3.osi_sensordata_pb2 import SensorData
 from osi3.osi_sensorviewconfiguration_pb2 import SensorViewConfiguration
 from osi3.osi_trafficupdate_pb2 import TrafficUpdate
@@ -44,6 +45,23 @@ class TestOSITrace(unittest.TestCase):
             with open(path_output, "wt") as f:
                 for message in trace:
                     self.assertIsInstance(message, GroundTruth)
+                    f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
+            trace.close()
+
+            self.assertTrue(os.path.exists(path_output))
+
+    def test_osi_trace_hvd(self):
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            path_output = os.path.join(tmpdirname, "output_hvd.txth")
+            path_input = os.path.join(tmpdirname, "input_hvd.osi")
+            create_sample_hvd(path_input)
+
+            trace = OSITrace(path_input, "HostVehicleData")
+            with open(path_output, "wt") as f:
+                for message in trace:
+                    self.assertIsInstance(message, HostVehicleData)
                     f.write(str(message))
 
             self.assertEqual(len(trace.retrieve_offsets()), 10)
@@ -275,6 +293,44 @@ def create_sample_gt(path):
 
         """Serialize"""
         bytes_buffer = ground_truth.SerializeToString()
+        f.write(struct.pack("<L", len(bytes_buffer)) + bytes_buffer)
+
+    f.close()
+
+
+def create_sample_hvd(path):
+    f = open(path, "ab")
+    hostvehicledata = HostVehicleData()
+
+    hostvehicledata.version.version_major = 3
+    hostvehicledata.version.version_minor = 0
+    hostvehicledata.version.version_patch = 0
+
+    hostvehicledata.timestamp.seconds = 0
+    hostvehicledata.timestamp.nanos = 0
+
+    hostvehicledata.host_vehicle_id.value = 114
+
+    # Generate 10 OSI messages for 9 seconds
+    for i in range(10):
+        # Increment the time
+        hostvehicledata.timestamp.seconds += 1
+        hostvehicledata.timestamp.nanos += 100000
+
+        hostvehicledata.location.dimension.length = 5
+        hostvehicledata.location.dimension.width = 2
+        hostvehicledata.location.dimension.height = 1
+
+        hostvehicledata.location.position.x = 0.0 + i
+        hostvehicledata.location.position.y = 0.0
+        hostvehicledata.location.position.z = 0.0
+
+        hostvehicledata.location.orientation.roll = 0.0
+        hostvehicledata.location.orientation.pitch = 0.0
+        hostvehicledata.location.orientation.yaw = 0.0
+
+        """Serialize"""
+        bytes_buffer = hostvehicledata.SerializeToString()
         f.write(struct.pack("<L", len(bytes_buffer)) + bytes_buffer)
 
     f.close()

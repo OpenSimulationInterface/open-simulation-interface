@@ -7,6 +7,7 @@ import struct
 
 from osi3.osi_sensorview_pb2 import SensorView
 from osi3.osi_groundtruth_pb2 import GroundTruth
+from osi3.osi_hostvehicledata_pb2 import HostVehicleData
 from osi3.osi_sensordata_pb2 import SensorData
 from osi3.osi_sensorviewconfiguration_pb2 import SensorViewConfiguration
 from osi3.osi_trafficupdate_pb2 import TrafficUpdate
@@ -19,6 +20,7 @@ from osi3.osi_streamingupdate_pb2 import StreamingUpdate
 MESSAGES_TYPE = {
     "SensorView": SensorView,
     "GroundTruth": GroundTruth,
+    "HostVehicleData": HostVehicleData,
     "SensorData": SensorData,
     "SensorViewConfiguration": SensorViewConfiguration,
     "TrafficUpdate": TrafficUpdate,
