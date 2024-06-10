@@ -37,6 +37,11 @@ class OSITrace:
         """Map the type name to the protobuf message type."""
         return MESSAGES_TYPE[type_name]
 
+    @staticmethod
+    def message_types():
+        """Message types that OSITrace supports."""
+        return list(MESSAGES_TYPE.keys())
+
     def __init__(self, path=None, type_name="SensorView", cache_messages=False):
         self.type = self.map_message_type(type_name)
         self.file = None

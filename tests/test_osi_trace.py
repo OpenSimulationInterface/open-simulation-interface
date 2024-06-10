@@ -26,7 +26,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input)
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, SensorView)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -40,7 +43,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "GroundTruth")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, GroundTruth)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -54,7 +60,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "SensorData")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, SensorData)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -68,7 +77,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "SensorViewConfiguration")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, SensorViewConfiguration)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 1)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -82,7 +94,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "TrafficUpdate")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, TrafficUpdate)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -96,7 +111,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "TrafficCommand")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, TrafficCommand)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -110,7 +128,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "TrafficCommandUpdate")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, TrafficCommandUpdate)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -124,7 +145,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "MotionRequest")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, MotionRequest)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))
@@ -138,7 +162,10 @@ class TestOSITrace(unittest.TestCase):
             trace = OSITrace(path_input, "StreamingUpdate")
             with open(path_output, "wt") as f:
                 for message in trace:
+                    self.assertIsInstance(message, StreamingUpdate)
                     f.write(str(message))
+
+            self.assertEqual(len(trace.retrieve_offsets()), 10)
             trace.close()
 
             self.assertTrue(os.path.exists(path_output))

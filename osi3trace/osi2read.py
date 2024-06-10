@@ -5,7 +5,7 @@ Example usage:
     python3 osi2read.py -d trace.osi -o myreadableosifile
 """
 
-from osi3trace.osi_trace import OSITrace, MESSAGES_TYPE
+from osi3trace.osi_trace import OSITrace
 import argparse
 import pathlib
 
@@ -28,7 +28,7 @@ def command_line_arguments():
         "--type",
         "-t",
         help="Name of the type used to serialize data.",
-        choices=list(MESSAGES_TYPE.keys()),
+        choices=OSITrace.message_types(),
         default="SensorView",
         type=str,
         required=False,
