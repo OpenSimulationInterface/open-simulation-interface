@@ -250,5 +250,5 @@ jobs:
         repository-url: https://test.pypi.org/legacy/
 
     - name: Publish Full Release on PyPI
-      if: startsWith(github.ref, 'refs/tags/v')
+      if: startsWith(github.ref, 'refs/tags/v') && ( ! contains(github.ref, '-') )
       uses: pypa/gh-action-pypi-publish@release/v1
