@@ -1,0 +1,140 @@
+name: Manual Python PyPI Release Publishing
+
+env:
+  PROTOBUF_VERSION: 3.20.1
+  PROTOBUF_VARIANT: '-all' # Use '-all' prior to 22.0, '' after
+  ABSEIL_VERSION: 20230802.1
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to publish'
+        required: true
+        type: string
+
+jobs:
+  build-proto2-linux64:
+    name: Build Proto2 Linux 64
+
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout OSI
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ format('refs/tags/{0}', input.tag) }}
+        submodules: true
+
+    - name: Check Build Setup
+      run: |
+        ( result=0 ; for f in *.proto ; do grep -wq "$f" CMakeLists.txt || { echo "Missing $f in CMakeLists.txt" && let "result++"; } ; done ; exit $result )
+        ( result=0 ; for f in *.proto ; do grep -q '"'$f'"' setup.py || { echo "Missing $f in setup.py" && let "result++"; } ; done ; exit $result )
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.8'
+
+    - name: Install Python Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install build
+        python -m pip install -r requirements_tests.txt
+
+    - name: Install Doxygen
+      run: sudo apt-get install doxygen graphviz
+
+    - name: Cache Dependencies
+      id: cache-depends
+      uses: actions/cache@v4
+      with:
+        path: protobuf-${{ env.PROTOBUF_VERSION }}
+        key: ${{ runner.os }}-v2-depends
+
+    - name: Download ProtoBuf ${{ env.PROTOBUF_VERSION }}
+      if: steps.cache-depends.outputs.cache-hit != 'true'
+      run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${{env.PROTOBUF_VERSION}}/protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz && tar xzvf protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz
+
+    - name: Download Abseil ${{ env.ABSEIL_VERSION }}
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      run: curl -OL https://github.com/abseil/abseil-cpp/archive/refs/tags/${{env.ABSEIL_VERSION}}.tar.gz && tar xzvf ${{env.ABSEIL_VERSION}}.tar.gz && rm -rf protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp && mv abseil-cpp-${{env.ABSEIL_VERSION}} protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp
+
+    - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via autotools
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == '-all'
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
+      run: ./configure DIST_LANG=cpp --prefix=/usr && make
+
+    - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via cmake
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
+      run: cmake -DCMAKE_CXX_STANDARD=17 -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF . && cmake --build . --config Release -j 4
+
+    - name: Install ProtoBuf ${{ env.PROTOBUF_VERSION }}
+      working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
+      run: sudo make install && sudo ldconfig
+
+    - name: Install proto2cpp
+      run: git clone --depth 1 https://github.com/OpenSimulationInterface/proto2cpp.git
+
+    - name: Prepare C++ Build
+      run: mkdir build
+
+    - name: Get git Version
+      id: get_version
+      run: echo "VERSION=$(git describe --tags --always)" >> $GITHUB_OUTPUT 
+
+    - name: Prepare Documentation Build
+      run: |
+        sed -i 's/PROJECT_NUMBER\s*= @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@/PROJECT_NUMBER = master (${{ steps.get_version.outputs.VERSION }})/g' doxygen_config.cmake.in
+        echo "EXCLUDE_PATTERNS = */osi3/* */protobuf-*/* */proto2cpp/* */flatbuffers/*" >> doxygen_config.cmake.in
+        echo "GENERATE_TREEVIEW = YES" >> doxygen_config.cmake.in
+
+    - name: Configure C++ Build
+      working-directory: build
+      run: cmake -D FILTER_PROTO2CPP_PY_PATH=$GITHUB_WORKSPACE/proto2cpp ${{ env.PROTOBUF_VARIANT =='' && '-DCMAKE_CXX_STANDARD=17' }} ..
+
+    - name: Build C++
+      working-directory: build
+      run: cmake --build . --config Release -j 4
+
+    - name: Build Python
+      run: python -m build
+
+    - name: Install Python
+      run: python -m pip install .
+
+    - name: Run Python Tests
+      run: python -m unittest discover tests
+
+    - name: Upload Python Distribution
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-dist
+        path: dist/
+
+  publish-python-dist:
+    name: Publish Python Distribution
+
+    runs-on: ubuntu-22.04
+
+    permissions:
+      id-token: write
+
+    needs: [build-proto2-linux64]
+
+    steps:
+    - name: Download Distribution
+      uses: actions/download-artifact@v4
+      with:
+        name: python-dist
+        path: dist/
+
+    - name: Publish Snapshot Release on TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      continue-on-error: true
+      with:
+        repository-url: https://test.pypi.org/legacy/
+
+    - name: Publish Full Release on PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
