@@ -23,7 +23,7 @@ jobs:
     - name: Checkout OSI
       uses: actions/checkout@v4
       with:
-        ref: ${{ format('refs/tags/{0}', input.tag) }}
+        ref: ${{ format('refs/tags/{0}', inputs.tag) }}
         submodules: true
 
     - name: Check Build Setup
