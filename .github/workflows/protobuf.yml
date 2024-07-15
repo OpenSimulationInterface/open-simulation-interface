@@ -246,6 +246,7 @@ jobs:
 
     - name: Publish Snapshot Release on TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+      continue-on-error: true
       with:
         repository-url: https://test.pypi.org/legacy/
 
