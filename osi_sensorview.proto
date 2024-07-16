@@ -246,20 +246,13 @@ message RadarSensorView
         //
         optional double source_vertical_angle = 5;
 
-        // Hit point in sensor coordinates.
+        // Hit points in sensor coordinates.
         //
-        // Hit point of the corresponding ray in the reference frame of the physical detector.
+        // Hit points of the corresponding ray in the reference frame of the physical detector.
         //
         // Unit: m
         //
-        optional Vector3d hit_point = 6;
-
-        // Trace depth.
-        //
-        // Trace depth of the corresponding ray.
-        // The first hit of the ray has trace depth 0. If the ray is reflected or transmitted, the trace depth increases.
-        //
-        optional int trace_depth = 7;
+        repeated Vector3d hit_point = 6;
     }
 }
 
@@ -328,20 +321,13 @@ message LidarSensorView
         // \note ID = MAX(uint64) indicates no reference to an object.
         optional Identifier object_id = 6;
 
-        // Hit point in sensor coordinates.
+        // Hit points in sensor coordinates.
         //
-        // Hit point of the corresponding ray in the reference frame of the physical detector.
+        // Hit points of the corresponding ray in the reference frame of the physical detector.
         //
         // Unit: m
         //
-        optional Vector3d hit_point = 7;
-
-        // Trace depth.
-        //
-        // Trace depth of the corresponding ray.
-        // The first hit of the ray has trace depth 0. If the ray is reflected or transmitted, the trace depth increases.
-        //
-        optional int trace_depth = 8;
+        repeated Vector3d hit_point = 7;
     }
 }
 
