@@ -453,6 +453,9 @@ message Lane
             // Since it is not intended to be used for normal automotive
             // driving, it should be used in combination with TYPE_NONDRIVING.
             //
+            // \note A typical lane boundary for this lane-subtype has the type
+            // TYPE_CURB_TOP.
+            //
             SUBTYPE_SIDEWALK = 4;
             
             // A lane with parking spaces.
@@ -736,7 +739,7 @@ message LaneBoundary
     // Example: If the points are deducted from a map format, the order of points 
     // is recommended to be in line with the road coordinate (e.g. s-coordinate in 
     // OpenDRIVE). 
-
+    //
     // \note For dashed lines, one \c BoundaryPoint has to be at the start and
     // another at the end of each dashed line segment. The first
     // \c BoundaryPoint defines the beginning of the first dashed lane marking.
@@ -810,7 +813,7 @@ message LaneBoundary
 
         // The overall width of the lane boundary at the position of the
         // \c BoundaryPoint .
-        // Used for lines forming lane markings.
+        // Used for lines forming lane markings.               
         //
         // \image html OSI_LaneBoundaryWidth.svg "" width=600px
         //
@@ -821,7 +824,10 @@ message LaneBoundary
 
         // The overall height of the lane boundary at the position of the
         // \c BoundaryPoint .
-        // Used for guard rails, curbstone, or similar.
+        // This field can be used for guard rails, curbs, barriers and sound 
+        // barriers and reflects the maximal physical height of those items and thereby the height
+        // of the boundary line at this point. It does not specify the direction 
+        // in which the height points to.
         //
         // \image html OSI_LaneBoundaryHeight.svg "" width=600px
         //
@@ -1029,25 +1035,35 @@ message LaneBoundary
             //
             TYPE_SOIL_EDGE = 10;
 
-            // A guard rail.
+            // The guard rail projected to the ground.
             //
             TYPE_GUARD_RAIL = 11;
 
             // A curb.
+            // 
+            // \attention This field might be deprecated v4.0. 
             //
             TYPE_CURB = 12;
 
-            // A structure (e.g. building or tunnel wall).
+            // The lower edge of a structure (e.g. building or tunnel wall).
             //
             TYPE_STRUCTURE = 13;
 
-            // A barrier to guide vehicles and to prevent them from entering other lanes (e.g. a concrete barrier on a highway).
+            // The lower edge of a barrier to guide vehicles and to prevent them from entering other lanes (e.g. a concrete barrier on a highway).
             //
             TYPE_BARRIER = 14;
 
-            // A sound barrier.
+            // The lower edge of a sound barrier.
             //
             TYPE_SOUND_BARRIER = 15;
+
+            // The bottom of a curb.
+            //            
+            TYPE_CURB_BOTTOM = 16;    
+
+            // The top of a curb.          
+            //            
+            TYPE_CURB_TOP = 17;                       
         }
 
         // The type of the lane boundary.
