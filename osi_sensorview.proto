@@ -195,6 +195,14 @@ message RadarSensorView
     //
     repeated Reflection reflection = 2;
 
+    // Ray tracing hit point data.
+    //
+    // This field includes all valid hit points hit by the ray tracer.
+    // One ray can produce multiple hit points by reflection and transmission.
+    // These subsequent hit points are stored as children of the previous hit points.
+    //
+    repeated HitPoint hit_point = 3;
+
     //
     // \brief Definition of the radar reflection.
     //
@@ -265,6 +273,14 @@ message LidarSensorView
     // top-to-bottom order (think of scan lines in a TV).
     //
     repeated Reflection reflection = 2;
+
+    // Ray tracing hit point data.
+    //
+    // This field includes all valid hit points hit by the ray tracer.
+    // One ray can produce multiple hit points by reflection and transmission.
+    // These subsequent hit points are stored as children of the previous hit points.
+    //
+    repeated HitPoint hit_point = 3;
 
     //
     // \brief Definition of the lidar reflection.
@@ -346,4 +362,50 @@ message UltrasonicSensorView
     // Ultrasonic view configuration valid at the time the data was created.
     //
     optional UltrasonicSensorViewConfiguration view_configuration = 1;
+}
+
+//
+// \brief Definition of a hit point.
+//
+// A hit point is the intersection of a ray with a surface in a 3D scene during ray tracing.
+//
+message HitPoint
+{
+    // Position of the hit point
+    //
+    // The position is given in physical sensor coordinates.
+    //
+    optional Vector3d position = 1;
+
+    // Angle of incidence on the surface
+    //
+    // The angle of incidence of the incoming ray on the surface of the hit point.
+    //
+    // Unit: rad
+    //
+    optional float incidence_angle = 2;
+
+    // ID of the object the hit point belongs to.
+    //
+    // ID of the moving or stationary object, that was hit by the ray.
+    //
+    optional Identifier object_id = 3;
+
+    // Index of the initial ray.
+    //
+    // The index of the initial ray set in the configuration, also corresponding to the index of the respective reflection.
+    //
+    optional int ray_idx = 4;
+
+    // Reference (path or name) to an ASAM OpenMATERIAL file.
+    //
+    // Reference to the material assigned to the surface hit by the ray.
+    //
+    optional String open_material_reference = 5;
+
+    // Subsequent hit points.
+    //
+    // Hit points that are subsequently hit by the ray, e.g. by transmission or reflection.
+    //
+    optional repeated HitPoint subsequent_hit_point = 6;
 }
