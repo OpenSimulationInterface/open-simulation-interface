@@ -407,5 +407,5 @@ message HitPoint
     //
     // Hit points that are subsequently hit by the ray, e.g. by transmission or reflection.
     //
-    optional repeated HitPoint subsequent_hit_point = 6;
+    repeated HitPoint subsequent_hit_point = 6;
 }
