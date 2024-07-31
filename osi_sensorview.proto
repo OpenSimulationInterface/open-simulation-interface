@@ -383,7 +383,7 @@ message HitPoint
     //
     // Unit: rad
     //
-    optional float incidence_angle = 2;
+    optional double incidence_angle = 2;
 
     // ID of the object the hit point belongs to.
     //
@@ -395,13 +395,13 @@ message HitPoint
     //
     // The index of the initial ray set in the configuration, also corresponding to the index of the respective reflection.
     //
-    optional int ray_idx = 4;
+    optional uint64 ray_idx = 4;
 
     // Reference (path or name) to an ASAM OpenMATERIAL file.
     //
     // Reference to the material assigned to the surface hit by the ray.
     //
-    optional String open_material_reference = 5;
+    optional string open_material_reference = 5;
 
     // Subsequent hit points.
     //
