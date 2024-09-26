@@ -88,6 +88,27 @@ message DetectedItemHeader
         // Values provided by tracking only.
         //
         MEASUREMENT_STATE_PREDICTED = 3;
+
+        // This indicates the first occurrence of this particular object in the object list.
+        //
+        MEASUREMENT_STATE_NEW = 4;
+
+        // The object was partly updated with new information
+        // from a sensor in the last update cycle of this object
+        // list. The measurement was incomplete and could,
+        // therefore, only partially update the signals of this
+        // object. The remaining signals of this object are unchanged
+        // or predicted for this measurement cycle.
+        //
+        MEASUREMENT_STATE_PARTLY_MEASURED = 5;
+
+        // Tracked object is temporarily occluded by another entity.
+        //
+        MEASUREMENT_STATE_PREDICTED_OCCLUDED = 6;
+
+        // The object is invalid in this cycle.
+        //
+        MEASUREMENT_STATE_INVALID = 7;
     }
 }
 
