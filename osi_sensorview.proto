@@ -163,6 +163,11 @@ message SensorView
     // Ultrasonic-specific SensorView(s).
     //
     repeated UltrasonicSensorView ultrasonic_sensor_view = 1004;
+    // Microphone-specific SensorView(s).
+    //
+    // \note OSI uses singular instead of plural for repeated field names.
+    //
+    repeated MicrophoneSensorView microphone_sensor_view = 1005;
 }
 
 //
@@ -346,4 +351,23 @@ message UltrasonicSensorView
     // Ultrasonic view configuration valid at the time the data was created.
     //
     optional UltrasonicSensorViewConfiguration view_configuration = 1;
+}
+
+//
+// \brief Definition of the microphone sensor view.
+//
+// Ultrasonic specific sensor view data.
+//
+message MicrophoneSensorView
+{
+    // Microphone view configuration valid at the time the data was created.
+    //
+    optional MicrophoneSensorViewConfiguration view_configuration = 1;
+    
+    // Frequency spectrum.
+    //
+    // The raw frequency spectrum data in the memory layout and order specified by the
+    // microphone sensor input configuration.
+    //
+    optional bytes microphone_data = 2;
 }
