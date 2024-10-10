@@ -2,11 +2,16 @@ ifndef::include-only-once[]
 :root-path: ../
 include::{root-path}_config.adoc[]
 endif::[]
-= OSI trace file naming conventions
+= Native binary and Human-readable Formats
 
-**Name format**
+== Binary .osi Format
+Messages are separated by a four-byte, little-endian, unsigned integer specifying the length of each message.
 
-The names of OSI trace files should have the following format:
+== Human-readable .txth Format
+Messages are stored as plain text, separated by newlines.
+
+== Naming Convention
+Binary .osi and human-readable .txth files should follow this naming convention:
 
 ----
 <timestamp>_<type>_<osi-version>_<protobuf-version>_<number-of-frames>_<custom-trace-name>.osi
@@ -76,3 +81,5 @@ The recommended file name is:
 ----
 20210818T150542Z_sv_312_300_1523_highway.osi
 ----
+
+NOTE: This naming convention does not apply to .mcap files.

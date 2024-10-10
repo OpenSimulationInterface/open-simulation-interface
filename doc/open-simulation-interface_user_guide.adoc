@@ -57,19 +57,11 @@ include::./architecture/packaging_layer.adoc[leveloffset=+3]
 
 === OSI trace files
 
-include::./architecture/trace_file_formats.adoc[leveloffset=+3]
+include::./architecture/trace_file_overview_file_formats.adoc[leveloffset=+3]
 
-include::./architecture/trace_file_naming.adoc[leveloffset=+3]
+include::./architecture/trace_file_binary_and_human_readable_formats.adoc[leveloffset=+3]
 
-// === Files and scripts
-
-// include::./architecture/proto-files.adoc[leveloffset=+3]
-
-// include::./architecture/test_scripts.adoc[leveloffset=+3]
-
-include::./architecture/trace_file_example.adoc[leveloffset=+3]
-
-include::./architecture/formatting_script.adoc[leveloffset=+3]
+include::./architecture/trace_file_mcap_format.adoc[leveloffset=+3]
 
 
 // Setting up OSI

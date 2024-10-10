@@ -1,0 +1,39 @@
+= MCAP Format
+
+== General Requirements
+- Must comply with the https://mcap.dev/spec[MCAP format specification] version `0x30`
+- Must allow other non-OSI data to be present in the MCAP file
+- Message records must be written into `chunk records` for indexed files
+
+== Schema
+- `name` field: Full message type name, including package (e.g., `osi3.SensorData`)
+- `encoding` field: Must be `protobuf`
+- `data` field: String-encoded `google::protobuf::FileDescriptorSet` for the OSI top-level message
+
+== Channel
+- `message_encoding` field: Must be "protobuf"
+- `metadata` field: Should include a brief description of data origin and purpose
+
+== Message
+- `publish_time` field: 
+  - Must reflect the timestamp of the stored OSI top-level message if it contains a timestamp field
+  - Should represent a plausible value to express message order in relation to timestamps of other top-level messages if the message doesn't contain a timestamp (e.g. SensorViewConfiguration)
+  - Must be in nanoseconds
+- `log_time` field: Must reflect the time when the message was enqueued for MCAP file addition
+  - Must reflect the time when the top-level OSI message was enqueued for addition to the MCAP file
+  - Zero time doesn't need to coincide with the Unix epoch, but it is recommended
+  - Must be in nanoseconds
+
+== Metadata
+- Must include metadata with the name `versions` containing at least the following key-value pairs:
+  * `osi`: SemVer version of OSI specification
+  * `protobuf`: SemVer version of protobuf library
+- Must include metadata with the name `creation_date` containing at least the following key-value pairs:
+  * `timestamp`: ISO 8601 formatted creation time
+- Must include metadata with the name `description` containing at least the following key-value pairs:
+  * `text`: Scenario description
+- Additional custom metadata may be added
+
+== Compression
+- OSI-compliant tooling must support compression types: `none`, `lz4`, and `zstd`
+- Recommended compression in use should be either `lz4` or `zstd`
