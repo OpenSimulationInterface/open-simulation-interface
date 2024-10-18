@@ -3,22 +3,25 @@ ifndef::include-only-once[]
 include::{root-path}_config.adoc[]
 endif::[]
 [#top-osi_trace_file_formats]
-= OSI trace file formats
+= Overview file formats
 
-There are two formats for storing multiple serialized OSI messages in one trace file.
+There are three formats for storing OSI messages in trace files:
 
 *.osi::
-Binary trace file.
-Messages are separated by a length specification before each message.
-The length is represented by a four-byte, little-endian, unsigned integer.
-The length does not include the integer itself.
+Native binary trace file.
 
 *.txth::
 Human-readable plain-text trace file.
-Messages are separated by newlines.
+
+*.mcap::
+Binary trace file supporting more advanced features like indexed data, additional metadata and more.
 
 NOTE: Previous releases of OSI also supported a so-called plain-text trace file format, with file extension `.txt`.
 This legacy format did not contain plain-text, but rather binary protobuf messages separated by a special separator.
 For obvious reasons the format was deprecated and fully replaced with the `.osi` binary file format.
 This release no longer contains any support for the legacy `.txt` file format.
 These files may be used for manual checks.
+
+
+TIP: For efficient handling of trace files, you can utilize the specification-compliant tools and libraries provided in the companion https://github.com/OpenSimulationInterface/osi-utilities[osi-utilities] repository. For example, convenient writer and reader classes are provided handling OSI messages for the different file formats.
+
