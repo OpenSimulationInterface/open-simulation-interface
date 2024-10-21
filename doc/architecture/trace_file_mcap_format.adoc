@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = MCAP Format
 
 == General Requirements
@@ -14,22 +18,23 @@
 == Channel
 - `message_encoding` field: Must be "protobuf"
 - `metadata` field:
-  - Must include an `osi_version` key, specifying the OSI SemVer version of the message contained within the channel
-  - Should include a `description` key explaining the data's origin and purpose
+  - Must include an `osi_version` key, specifying the OSI SemVer version of the OSI top-level message contained within the channel
+  - Must include a `protobuf` key, specifying the protobuf SemVer version used to create the OSI top-level message contained within the channel
+  - Should include a `description` key, explaining the data's origin and purpose in natural language.
+
 
 == Message
 - `publish_time` field: 
-  - Must reflect the timestamp of the stored OSI top-level message if it contains a timestamp field
+  - Must reflect the timestamp of the stored OSI top-level message
   - Must be in nanoseconds
 - `log_time` field: Must reflect the time when the message was enqueued for MCAP file addition
-  - Must reflect the time when the top-level OSI message was enqueued for addition to the MCAP file
-  - Zero time doesn't need to coincide with the Unix epoch, but it is recommended
+  - Must reflect the timestamp of the stored OSI top-level message
   - Must be in nanoseconds
+
 
 == Metadata
 - Must include metadata with the name `versions` containing at least the following key-value pairs:
   * `osi`: SemVer version of the minimum required OSI version
-  * `protobuf`: SemVer version of protobuf library
 - Must include metadata with the name `creation_date` containing at least the following key-value pairs:
   * `timestamp`: ISO 8601 formatted creation time
 - Must include metadata with the name `description` containing at least the following key-value pairs:
@@ -38,3 +43,60 @@
 
 == Compression
 - OSI-compliant tooling must support compression types: `none`, `lz4`, and `zstd`
+
+
+== Naming Convention
+.mcap files must follow this naming convention:
+
+
+----
+<opt. prefix>_<opt. timestamp>_<type>_<opt. suffix>.cap
+----
+
+When not using an optional field, the corresponding `_` delimiter must be omitted so that no double `_` is present.
+
+[#tab-MCAP-file-naming-convention]
+.MCAP file naming convention
+[cols="1,1"]
+|===
+|Field |Explanation 
+
+|opt. prefix
+|An optional prefix which may be used to specify the type of scenario (e.g. `cut-in`) or uniqueness of the setup (e.g. `target-5m`). May not contain any `_` characters.
+
+|opt. timestamp
+|Defines the absolute start time for a scenario or recording. If following the recommended zero time for the timestamps of the top-level message, this time must represent the zero time. The format must adhere to ISO 8601 [cite:iso8601].
+
+
+|type
+| Specifies contained the top-level message(s) and must be one of the following values:
+
+`sv` file contains only `SensorView` messages. +
+`gt` file contains only `GroundTruth` messages. +
+`hvd` file contains only `HostVehicleData` messages. +
+`sd` file contains only SensorData` messages. +
+`tc` file contains only `TrafficCommand` messages.+
+`tcu` file contains only `TrafficCommandUpdate` messages.
+`tu` file contains only `TrafficUpdate` messages.
+`mr` file contains only `MotionRequest` messages.
+`su` file contains only `StreamingUpdate` messages.
+`multi` file contains multiple, different types of of top-level messages (not including different channels of the same type).
+
+|opt. suffix
+|An optional suffix which may be used the same way like the optional prefix or be used to specify further details like the minimum required OSI version. May not contain any `_` characters.
+
+
+|===
+
+
+**Example**
+
+The following list shows examples of valid OSI MCAP file names:
+- `20210818T150542Z_highway_sv.mcap`
+- `20210818T150542Z_highway_sv_run-1.mcap`
+- `20210818T150542Z_highway_gt_OSI-3-7.mcap`
+- `Highway_sd_version-1.mcap`
+- `Highway-cut-in-no-collision_sd.mcap`
+- `Target-5m_sd_resimulated-measurement.mcap`
+
+NOTE: This naming convention does not apply to .osi and .txt files, they should follow the naming convention described in their section.
