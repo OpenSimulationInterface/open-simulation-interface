@@ -97,7 +97,7 @@ jobs:
 
     - name: Get git Version
       id: get_version
-      run: echo "VERSION=$(git describe --tags --always)" >> $GITHUB_OUTPUT 
+      run: echo "VERSION=$(git describe --tags --always)" >> $GITHUB_OUTPUT
 
     - name: Prepare Documentation Build
       run: |
@@ -122,27 +122,12 @@ jobs:
     - name: Run Python Tests
       run: python -m unittest discover tests
 
-    - name: Archive Documentation
-      if: ${{ github.event_name == 'pull_request' }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: linux64-doc
-        path: doc/html
-        if-no-files-found: error
-
     - name: Upload Python Distribution
       if: ${{ github.event_name == 'pull_request' || ( github.event_name == 'push' && ( github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v') ) ) }}
       uses: actions/upload-artifact@v4
       with:
         name: python-dist
         path: dist/
-
-    - name: Deploy to gh-pages if push to master branch
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-      uses:  peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./doc/html
 
   build-proto3-linux64:
     name: Build Proto3 Linux 64
