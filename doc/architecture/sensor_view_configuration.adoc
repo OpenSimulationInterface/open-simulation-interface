@@ -36,3 +36,5 @@ In response to this difference, the sensor model can either accept this differen
 The packaging layer defines the specifics of this auto-negotiation mechanism.
 
 After the initialization phase, the environment simulation provides the actual sensor-view configuration as part of each `SensorView` message.
+
+For more details, see xref:gen:structosi3_1_1SensorViewConfiguration.adoc[].

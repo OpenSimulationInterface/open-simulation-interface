@@ -21,7 +21,11 @@ include::./architecture/sensor_view_configuration.adoc[leveloffset=+3]
 
 include::./architecture/sensor_data.adoc[leveloffset=+3]
 
+include::./architecture/host_vehicle_data.adoc[leveloffset=+3]
+
 include::./architecture/traffic_command.adoc[leveloffset=+3]
+
+include::./architecture/traffic_command_update.adoc[leveloffset=+3]
 
 include::./architecture/motion_request.adoc[leveloffset=+3]
 

@@ -13,3 +13,5 @@ Sensor data can be used as input for an automated driving function, a sensor mod
 `SensorData` messages include `FeatureData` messages which contain detected features in the reference frame of a sensor.
 `FeatureData` messages are generated from `GroundTruth` messages.
 They serve, for example, as an input to sensor models simulating object detection or feature fusion models.
+
+For more details, see xref:gen:structosi3_1_1SensorData.adoc[].

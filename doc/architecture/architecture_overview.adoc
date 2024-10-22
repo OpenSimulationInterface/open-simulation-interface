@@ -4,11 +4,21 @@ include::{root-path}_config.adoc[]
 endif::[]
 = Overview of OSI architecture
 
-OSI contains an object-based environment description that uses the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer] library.
-Google developed and maintains the Protocol Buffer library.
+OSI contains an object-based environment description that uses the message format of the https://github.com/protocolbuffers/protobuf/wiki[Protocol Buffer^] library developed by Google.
 OSI defines top-level messages that are used to exchange data between separate models.
-Top-level messages define the `GroundTruth` interface, the `SensorData` interface, and – since OSI version 3.0.0 – the interfaces `SensorView` and `SensorViewConfiguration`.
-Further top-level messages that were added in later versions of OSI are `HostVehicleData`, `TrafficCommand`, `TrafficCommandUpdate`, `TrafficUpdate`, `MotionRequest`, and `StreamingUpdate`.
+
+Top-level messages define the following interfaces:
+
+- xref:architecture/ground_truth.adoc[`GroundTruth`]
+- xref:architecture/sensor_data.adoc[`SensorData`]
+- xref:architecture/sensor_view.adoc[`SensorView`]
+- xref:architecture/sensor_view_configuration.adoc[`SensorViewConfiguration`]
+- xref:architecture/host_vehicle_data.adoc[`HostVehicleData`]
+- xref:architecture/traffic_command.adoc[`TrafficCommand`]
+- xref:architecture/traffic_command_update.adoc[`TrafficCommandUpdate`]
+- xref:architecture/traffic_update.adoc[`TrafficUpdate`]
+- xref:architecture/motion_request.adoc[`MotionRequest`]
+- xref:architecture/streaming_update.adoc[`StreamingUpdate`].
 
 The following figure shows the interfaces and models involved in modeling a sensor.
 

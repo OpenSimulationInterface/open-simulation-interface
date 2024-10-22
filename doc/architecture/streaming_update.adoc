@@ -7,4 +7,6 @@ endif::[]
 The `StreamingUpdate` message provides an interface to transmit a subset of ground truth and/or vehicle internal data.
 This interface mainly addresses applications with low latency requirements and no need for highly consistent and complete data, e.g. visualization applications.
 Static and/or non-relevant objects can be omitted as required for the specific use case.
-Note that the receiver of partial updates can only rely on the most up-to-date information at the corresponding timestamp. E.g. omitting objects does not indicate static behaviour but it may be sufficient for the use case to update certain objects at a later point in time.
+Note that the receiver of partial updates can only rely on the most up-to-date information at the corresponding timestamp. E.g. omitting objects does not indicate static behavior but it may be sufficient for the use case to update certain objects at a later point in time.
+
+For more details, see xref:gen:structosi3_1_1StreamingUpdate.adoc[].
