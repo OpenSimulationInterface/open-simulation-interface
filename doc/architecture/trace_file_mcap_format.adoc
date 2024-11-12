@@ -10,7 +10,7 @@ endif::[]
 - Message records must be written into `chunk records` for indexed files
 - Only OSI top-level messages containing a timestamp field are permitted to be directly stored in MCAP channels
 - Must contain only a single scenario with a unique global time
-- A MCAP file is condidered a single dataset
+- An MCAP file is considered a single dataset
 
 == Schema
 - `name` field: Full message type name, including package (e.g., `osi3.SensorData`)
@@ -18,46 +18,46 @@ endif::[]
 - `data` field: String-encoded `google::protobuf::FileDescriptorSet` for the OSI top-level message
 
 == Channel
-- `message_encoding` field: Must be "protobuf"
+- `message_encoding` field: Must be `protobuf``
 - `metadata` field:
-  - Must include an `osi_version` key, specifying the OSI SemVer version of the OSI top-level message contained within the channel
-  - Must include a `protobuf` key, specifying the protobuf SemVer version used to create the OSI top-level message contained within the channel
-  - Should include a `description` key, explaining the data's origin and purpose in natural language.
+** Must include an `osi_version` key, specifying the OSI SemVer version of the OSI top-level message contained within the channel
+** Must include a `protobuf` key, specifying the protobuf SemVer version used to create the OSI top-level message contained within the channel
+** Should include a `description` key, explaining the data's origin and purpose in natural language.
 
 
 == Message
 - `publish_time` field: 
-  - Must reflect the timestamp of the stored OSI top-level message
-  - Must be in nanoseconds
+** Must reflect the timestamp of the stored OSI top-level message
+** Must be in nanoseconds
 - `log_time` field: Must reflect the time when the message was enqueued for MCAP file addition
-  - Must reflect the timestamp of the stored OSI top-level message
-  - Must be in nanoseconds
+** Must reflect the timestamp of the stored OSI top-level message
+** Must be in nanoseconds
 
 
 == File-wide Metadata
 - Must include metadata with the name `versions` containing at least the following key-value pairs:
-  * `osi`: SemVer version of the minimum required OSI version
+** `osi`: SemVer version of the minimum required OSI version
 - Must include metadata with the name `asam_osi` containing at least the following key-value pairs:
-  * `zero_time`: ISO 8601 YYYYMMDDThhmmss.f formatted point in time representing the zero time of the scenario
-  * `timestamp`: ISO 8601 YYYYMMDDThhmmss.f formatted creation time of the file 
+** `zero_time`: ISO 8601 YYYYMMDDThhmmss.f formatted point in time representing the zero time of the scenario
+** `timestamp`: ISO 8601 YYYYMMDDThhmmss.f formatted creation time of the file 
 - It is strongly recommended to include metadata with the name `asam_osi` containing the following key-value pairs:
-  * `description`: Short human-readable scenario description
-  * `creator`: csv of person or company (not tool) creating the file
-  * 'license' csv of spdx identifiers
-  * 'data_sources' csv of model, scenario player, etc.
-- Additional custom metadata may be added, but it is recommended to add a category with the name `context` where the key represents a prefix and the value pointing to the specification of the metadate. This allows to add other (channel-wise) metadata with the stated prefix. Thus, it becomes clear what a metadata is about and where it is specified. The following examples are given:
-  - GAIA-X4PLC-AAD SHACL Shape
-    - Assume you want to embed the hdmap of a scenario in the MCAP file.
-    - The `context` category contains the key `GAIA-X4PLC-AAD-hdmap ` with the value `https://github.com/GAIA-X4PLC-AAD/ontology-management-base/blob/main/hdmap/hdmap_shacl.ttl`
-    - A channel metadata contains the key `GAIA-X4PLC-AAD-hdmap` with the value of the hdmap data in the given SHACLE shape.
-  - openDrive Reference
-    - Assume you want to express that oncoming traffic passes on the right side of the road.
-    - The `context` category contains the key `openDrive` with the value `https://publications.pages.asam.net/standards/ASAM_OpenDRIVE/ASAM_OpenDRIVE_Specification/1.8.1/specification/index.html`
-    - A file metadata in a new metadata category with the arbitrary name `specification` contains the key `openDrive-road-rule` with the value `RHT`
-  - Cycle time variation of a sensor
-    - Assume you want to express the interface cycle time variation of a sensor.
-    - The `context` category contains the key `iso_23150` with the value` ISO 23150:2011`
-    - A channel containing `OSI3::SensorData` messages has metadata with the key `iso_23150-cycle-time-variation:` and the value `80`
+** `description`: Short human-readable scenario description
+** `creator`: csv of person or company (not tool) creating the file
+** `license`` csv of spdx identifiers
+** `data_sources` csv of model, scenario player, etc.
+- Additional custom metadata may be added, but it is recommended to add a category with the name `context` where the key represents a prefix and the value pointing to the specification of the metadata. This allows to add other (channel-wise) metadata with the stated prefix. Thus, it becomes clear what a metadata is about and where it is specified. The following examples are given:
+** GAIA-X4PLC-AAD SHACL Shape
+*** Assume you want to embed the hdmap of a scenario in the MCAP file.
+*** The `context` category contains the key `GAIA-X4PLC-AAD-hdmap` with the value `https://github.com/GAIA-X4PLC-AAD/ontology-management-base/blob/main/hdmap/hdmap_shacl.ttl`
+*** A channel metadata contains the key `GAIA-X4PLC-AAD-hdmap` with the value of the hdmap data in the given SHACL shape.
+** openDrive Reference
+*** Assume you want to express that oncoming traffic passes on the right side of the road.
+*** The `context` category contains the key `openDrive` with the value `https://publications.pages.asam.net/standards/ASAM_OpenDRIVE/ASAM_OpenDRIVE_Specification/1.8.1/specification/index.html`
+*** A file metadata in a new metadata category with the arbitrary name `specification` contains the key `openDrive-road-rule` with the value `RHT`
+** Cycle time variation of a sensor
+*** Assume you want to express the interface cycle time variation of a sensor.
+*** The `context` category contains the key `iso_23150` with the value` ISO 23150:2011`
+*** A channel containing `OSI3::SensorData` messages has metadata with the key `iso_23150-cycle-time-variation:` and the value `80`
 
 == Compression
 - OSI-compliant tooling must support compression types: `none`, `lz4`, and `zstd`
@@ -68,10 +68,10 @@ endif::[]
 
 
 ----
-<opt. prefix>_<opt. timestamp>_<type>_<opt. suffix>.cap
+<opt. prefix>_<opt. timestamp>_<type>_<opt. suffix>.mcap
 ----
 
-When not using an optional field, the corresponding `_` delimiter must be omitted so that no double `_` is present.
+When not using an optional field, the corresponding underscore delimiter must be omitted so that no double underscore is present.
 
 [#tab-MCAP-file-naming-convention]
 .MCAP file naming convention
@@ -87,21 +87,21 @@ When not using an optional field, the corresponding `_` delimiter must be omitte
 
 
 |type
-| Specifies contained the top-level message(s) and must be one of the following values:
+| Specifies the type of the contained the top-level message(s) and must be one of the following values:
 
 `sv` file contains only `SensorView` messages. +
 `gt` file contains only `GroundTruth` messages. +
 `hvd` file contains only `HostVehicleData` messages. +
 `sd` file contains only SensorData` messages. +
-`tc` file contains only `TrafficCommand` messages.+
-`tcu` file contains only `TrafficCommandUpdate` messages.
-`tu` file contains only `TrafficUpdate` messages.
-`mr` file contains only `MotionRequest` messages.
-`su` file contains only `StreamingUpdate` messages.
+`tc` file contains only `TrafficCommand` messages. +
+`tcu` file contains only `TrafficCommandUpdate` messages. +
+`tu` file contains only `TrafficUpdate` messages. +
+`mr` file contains only `MotionRequest` messages. +
+`su` file contains only `StreamingUpdate` messages. +
 `multi` file contains multiple, different types of of top-level messages (not including different channels of the same type).
 
 |opt. suffix
-|An optional suffix which may be used the same way like the optional prefix or be used to specify further details like the minimum required OSI version. May not contain any `_` characters.
+|An optional suffix which may be used the same way as the optional prefix or be used to specify further details like the minimum required OSI version. May not contain any `_` characters.
 
 
 |===
@@ -110,6 +110,7 @@ When not using an optional field, the corresponding `_` delimiter must be omitte
 **Example**
 
 The following list shows examples of valid OSI MCAP file names:
+
 - `20210818T150542Z_highway_sv.mcap`
 - `20210818T150542Z_highway_sv_run-1.mcap`
 - `20210818T150542Z_highway_gt_OSI-3-7.mcap`
