@@ -35,7 +35,7 @@ endif::[]
 
 
 == File-wide Metadata
-- Must include metadata with the name `versions` containing at least the following key-value pairs:
+- Must include metadata with the name `versions` containing at least the following key-value pair:
 ** `osi`: SemVer version of the minimum required OSI version
 - Must include metadata with the name `asam_osi` containing at least the following key-value pairs:
 ** `zero_time`: ISO 8601 YYYYMMDDThhmmss.f formatted point in time representing the zero time of the scenario
@@ -107,7 +107,7 @@ When not using an optional field, the corresponding underscore delimiter must be
 |===
 
 
-**Example**
+**Example**s
 
 The following list shows examples of valid OSI MCAP file names:
 
