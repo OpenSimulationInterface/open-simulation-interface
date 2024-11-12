@@ -21,7 +21,7 @@ endif::[]
 - `message_encoding` field: Must be `protobuf``
 - `metadata` field:
 ** Must include an `osi_version` key, specifying the OSI SemVer version of the OSI top-level message contained within the channel
-** Must include a `protobuf` key, specifying the protobuf SemVer version used to create the OSI top-level message contained within the channel
+** Must include a `protobuf_version` key, specifying the protobuf SemVer version used to create the OSI top-level message contained within the channel
 ** Should include a `description` key, explaining the data's origin and purpose in natural language.
 
 
