@@ -38,8 +38,8 @@ endif::[]
 - Must include metadata with the name `versions` containing at least the following key-value pair:
 ** `osi`: SemVer version of the minimum required OSI version
 - Must include metadata with the name `asam_osi` containing at least the following key-value pairs:
-** `zero_time`: ISO 8601 YYYYMMDDThhmmss.f formatted point in time representing the zero time of the scenario
-** `timestamp`: ISO 8601 YYYYMMDDThhmmss.f formatted creation time of the file 
+** `zero_time`: ISO 8601 YYYYMMDDThhmmss.fTZD formatted point in time representing the zero time of the scenario
+** `timestamp`: ISO 8601 YYYYMMDDThhmmss.fTZD formatted creation time of the file 
 - It is strongly recommended to include metadata with the name `asam_osi` containing the following key-value pairs:
 ** `description`: Short human-readable scenario description
 ** `creator`: csv of person or company (not tool) creating the file
