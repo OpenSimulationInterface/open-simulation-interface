@@ -43,7 +43,7 @@ endif::[]
 - It is strongly recommended to include metadata with the name `asam_osi` containing the following key-value pairs:
 ** `description`: Short human-readable scenario description
 ** `creator`: csv of person or company (not tool) creating the file
-** `license`` csv of spdx identifiers
+** `license`` spdx identifier
 ** `data_sources` csv of model, scenario player, etc.
 - Additional custom metadata may be added, but it is recommended to add a category with the name `context` where the key represents a prefix and the value pointing to the specification of the metadata. This allows to add other (channel-wise) metadata with the stated prefix. Thus, it becomes clear what a metadata is about and where it is specified. The following examples are given:
 ** GAIA-X4PLC-AAD SHACL Shape
