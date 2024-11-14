@@ -6,3 +6,5 @@ endif::[]
 
 `MotionRequest` messages are traffic participant internal messages.
 They function as a interface between a motion/behavior planning model and a dynamics model including, for example, controllers and vehicle kinematics.
+
+For more details, see xref:gen:structosi3_1_1MotionRequest.adoc[].
