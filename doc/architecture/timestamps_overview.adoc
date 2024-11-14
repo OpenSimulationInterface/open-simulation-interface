@@ -1,0 +1,67 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+= Timestamps
+
+== Simulation time
+
+`Simulation time` refers to the timestamp within a simulation environment.
+
+**Definition of zero time of simulation time**
+- Zero time is arbitrary but must be identical for all frames and corresponding messages (probably within one simulation).
+- Zero time does not need to coincide with the unix epoch.
+- It is recommended to use the start time of the simulation as zero time.
+
+**SensorData-specific timestamp**
+- Point in time that the sensor data message becomes available to the rest of the system (i.e. the driving functions).
+- Corresponds with the sending time / publish time.
+- Takes into account internal sensor processing latency.
+- Does not include bus communication delays (e.g. latency) that occur after the sensor output.
+
+**HostVehicleData-specific timestamp**
+- Time at which the host vehicle data message becomes available as a snapshot of the on-board network information.
+
+**Other top-level message timestamps**
+- GroundTruth, SensorView, TrafficCommand, TrafficUpdate, TrafficCommandUpdate, StreamingUpdate
+- The Timestamp coincides both with the notional simulation time the data applies to and with the time it was sent / published.
+- No inherent latency for the corresponding data, as opposed to e.g. SensorData-specific timestamp.
+
+== Vehicle-global synchronized time::
+
+The definition of vehicle-global synchronized time originates from ISO 23150.
+The corresponding definition applies to the following types of OSI timestamps.
+
+**Measurement time**
+- Used in:
+    - DetectedEntityHeader/measurement_time (time at which the measurement was taken)
+    - SensorDetectionHeader/measurement_time (time at which the measurement was taken)
+    - last_measurement_time (time of last real-world measurement that the corresponding set of sensor data takes into account)
+    - DetectedItemHeader/age (amount of time that this detected object has been continuously observed/tracked; relative to measurement_time of DetectedEntityHeader)
+- Time at which the actual measurement was taken in vehicle-global synchronized time.
+- Usually corresponds to the timestamp of the GroundTruth that the sensor (model) processed to produce these results.
+- Does not necessarily have to correspond with GroundTruth timestamp.
+- Examples:
+    - For an ideal zero latency sensor model `GroundTruth timestamp`, `SensorData timestamp` and `measurement time` would be the same.
+    - For a sensor model that does not know its own internal latencies (e.g. dumb sensor with no internal time concept), `measurement time` and `SensorData timestamp` may be identical, but delayed from the `GroundTruth timestamp`.
+
+**Transformation / fusion time**
+- Used in:
+    - LogicalDetectionDataHeader/logical_detection_time
+- Timestamp at which the transformation and optional fusion was finished in the vehicle-global synchronized time.
+
+== Other timestamps
+
+**SensorData system time**
+- Internal time of modeled source of the sensor data.
+- Given as Unix timestamp.
+- Might not coincide with simulation time.
+- Example use cases:
+    - Representation of real-world measurements and a corresponding sensor-internal timestamp
+    - Simulation of time synchronization mechanisms/errors
+
+**EnvironmentalConditions/time_of_day**
+- Time of day at host vehicle's location
+
+**EnvironmentalConditions/unix_timestamp**
+- Unix timestamp at host vehicle's location
