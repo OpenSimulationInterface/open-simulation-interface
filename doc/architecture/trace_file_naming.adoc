@@ -44,6 +44,12 @@ Trace file contains `MotionRequest` messages.
 `su`::
 Trace file contains `StreamingUpdate` messages.
 
+`multi`::
+Trace file contains multiple types of messages for use with multi channel trace file format.
+In this case the number-of-frames field should be the largest number of frames across all channels.
+The OSI version field should be based on the `version` field in the file meta-data of the multi-channel trace file.
+The protobuf version field should be based on the `min_protobuf_version` field in the file meta-data of the multi-channel trace file.
+
 **Example**
 
 Given an OSI trace file with the following information:
@@ -75,4 +81,10 @@ The recommended file name is:
 
 ----
 20210818T150542Z_sv_312_300_1523_highway.osi
+----
+
+For a corresponding multi channel trace file containing `SensorView` and `GroundTruth` messages, the recommended file name is:
+
+----
+20210818T150542Z_multi_312_300_1523_highway.mcap
 ----
