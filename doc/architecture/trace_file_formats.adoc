@@ -88,7 +88,7 @@ Must be provided as a full ISO8601 formatted date time string, including timezon
 Values must match the following regular expression:
 `-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?|(24:00:00(\.0+)?))(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))`
 +
-NOTE: that even in pure simulation use cases there is usually a relationship to real time, as on-board components and environment simulation have necessary relationships to real time (for example, the embedded `HostVehicleData` will carry relevant real time information, for localisation and other purposes).
+NOTE: that even in pure simulation use cases there is usually a relationship to real time, as on-board components and environment simulation have necessary relationships to real time (for example, the embedded `HostVehicleData` will carry relevant real time information, for localization and other purposes).
 
 `creation_time`::
 The point in time when the trace file was created.
@@ -181,9 +181,6 @@ Each message record in a chunk record must contain the following fields:
 
 `channel_id`::
 The ID of the channel that the message belongs to.
-
-`publish_time`::
-The point in time when the message was published.
 
 `sequence`::
 Optional message counter to detect message gaps.
