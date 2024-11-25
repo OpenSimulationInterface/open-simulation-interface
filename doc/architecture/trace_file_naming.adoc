@@ -9,7 +9,7 @@ endif::[]
 The names of OSI trace files should have the following format:
 
 ----
-<timestamp>_<type>_<osi-version>_<protobuf-version>_<number-of-frames>_<custom-trace-name>.osi
+<timestamp>_<type>_<osi-version>_<protobuf-version>_<number-of-frames>_<custom-trace-name>.[osi|txth|mcap]
 ----
 
 **Types**
