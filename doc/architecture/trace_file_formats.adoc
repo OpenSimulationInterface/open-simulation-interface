@@ -11,15 +11,15 @@ These formats are very bare bones and do not contain any additional information,
 For more advanced use-cases, consider using the multi channel trace file format.
 
 *.osi::
-Binary trace file.
+Single channel binary trace file.
 Messages are separated by a length specification before each message.
 The length is represented by a four-byte, little-endian, unsigned integer.
 The length does not include the integer itself.
 
 *.txth::
-Human-readable plain-text trace file.
+Single channel human-readable plain-text trace file.
 Messages are separated by newlines.
-Each message is a serialized OSI message in JSON format.
+Each message is a serialized OSI message in protocol buffer text format.
 
 NOTE: The `.txth` format is intended for human consumption (e.g. for debugging and manual checks).
 It is currently not supported for reading by the OSI API, as it is not unambiguously deserializable.
@@ -103,7 +103,7 @@ A human-readable description of the data contained in the multi channel trace fi
 A list separated by commas of entities (not tools) involved in the creation of the data contained in the file.
 
 `license`::
-If the file is licensed under any SPDX registered license, this entry should contain the SPDX identifier for the license.
+If the contents of the file is licensed under any SPDX registered license, this entry should contain the SPDX identifier for the license.
 
 `data_sources`::
 A list separated by commas of data sources used in the creation of the data contained in the file.
@@ -136,7 +136,9 @@ The schema record must be stored in the summary section of the trace file, and m
 [#sec-osi-trace-file-multi-channel]
 === OSI channel
 
-An OSI channel is a data stream within the OSI multi channel trace file that contains serialized OSI messages of the same type.
+An OSI channel is a data stream within the OSI multi channel trace file that contains serialized OSI top-level messages of the same type.
+Note that non-top-level messages must not be stored directly in OSI channels.
+
 Each OSI channel must be described by a channel record in the summary section of the trace file with the following fields:
 
 `id`::
