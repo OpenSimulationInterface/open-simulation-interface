@@ -82,6 +82,8 @@ This is a string in the format `major.minor.patch`, for example `3.17.3`.
 The version of the protobuf implementation used in the trace file.
 This is a string in the format `major.minor.patch`, for example `3.26.0`.
 
+The `net.asam.osi.trace` meta-data record may also contain the following recommended `metadata` entries:
+
 `zero_time`::
 The point in real or simulated calendar time corresponding to time 0 in all timestamps in the trace file.
 Must be provided as a full ISO8601 formatted date time string, including timezone data, conforming to the https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp[XML Schema dateTimeStamp] lexical space.
@@ -93,8 +95,6 @@ NOTE: Even in pure simulation use cases there is usually a relationship to a sim
 `creation_time`::
 The point in real calendar time when the recording of the data in the trace file was started.
 Must be provided as a full ISO8601 formatted date time string, including timezone data, conforming to the https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp[XML Schema dateTimeStamp] lexical space.
-
-The `net.asam.osi.trace` meta-data record may also contain the following recommended `metadata` entries:
 
 `description`::
 A human-readable description of the data contained in the multi channel trace file.
