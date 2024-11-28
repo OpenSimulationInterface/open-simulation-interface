@@ -954,6 +954,10 @@ message MovingObject
             //
             optional GenericLightState reversing_light = 6;
 
+            // State of the tail light (rear position light).
+            //
+            optional GenericLightState tail_light = 11;
+
             // State of the brake lights.
             //
             optional BrakeLightState brake_light_state = 7;
