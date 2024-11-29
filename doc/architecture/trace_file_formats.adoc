@@ -58,7 +58,7 @@ Storing of unrelated message streams in one trace file is therefore not generall
 [#sec-osi-trace-file-multi-global-meta-data]
 === Multi channel trace file global meta-data
 
-The file must contain a meta-data record with the `name` field being `net.asam.osi.trace` and the following mandatory `metadata` entries:
+The file must contain exactly one meta-data record with the `name` field being `net.asam.osi.trace` and the following mandatory `metadata` entries:
 
 `version`::
 The semantic version number of the OSI release that this OSI trace file conforms to.
