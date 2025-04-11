@@ -808,7 +808,9 @@ message MovingObject
             //
             TYPE_COMPACT_CAR = 3;
 
-            // Vehicle is a car.
+            // A car is a motorized vehicle designed primarily for passenger
+            // transportation.
+            // Typically has four wheels.
             //
             // This is to be used for all car-like vehicles, without any
             // further differentiated type available.
@@ -835,34 +837,49 @@ message MovingObject
             //
             // \image html OSI_TYPE_DELIVERY_VAN.svg
             //
+            // \note Deprecated differentiation, use TYPE_VAN instead
+            //
             TYPE_DELIVERY_VAN = 6;
 
-            // Vehicle is a (heavy) truck.
+            // A van is a motorized vehicle with a larger cargo area than a car,
+            // used for transporting goods or people.
+            //
+            TYPE_VAN = 6;
+
+            // A heavy truck is a large commercial vehicle designed for
+            // transporting heavy loads.
+            // The cargo area is rigidly fixed to the vehicle itself.
             //
             // \image html OSI_TYPE_HEAVY_TRUCK.svg
             //
             TYPE_HEAVY_TRUCK = 7;
 
-            // Vehicle is a tractor capable of pulling a semi-trailer.
+            // A semi-tractor is a vehicle designed for towing semi-trailers for
+            // the transportation of heavy loads.
             //
             // \image html OSI_TYPE_SEMITRACTOR.svg
             //
             TYPE_SEMITRACTOR = 16;
 
-            // This vehicle is a semi-trailer that can be pulled by a
+            // A semi-trailer is a vehicle designed for being towed by a
+            // semi-tractor.
+            // Characteristics compared to a regular trailer are the large size,
+            // the fact that a large portion of the weight is supported at the
+            // hitch and a large overlap with the towing vehicle, i.e. the
             // semi-tractor.
             //
-            // \note The vehicle can be, but doesn't need to be,
-            // attached to another vehicle.
+            // \note The vehicle can be, but doesn't need to be, attached to
+            // another vehicle.
             //
             // \image html OSI_TYPE_SEMITRAILER.svg
             //
             TYPE_SEMITRAILER = 8;
 
-            // Vehicle is a trailer.
+            // A trailer is a non-motorized vehicle designed for being towed by
+            // a motorized vehicle to carry goods, animals or people.
             //
-            // \note The vehicle can be, but doesn't need to be,
-            // attached to another vehicle.
+            // \note The vehicle can be, but doesn't need to be, attached to
+            // another vehicle.
             //
             // \image html OSI_TYPE_TRAILER.svg
             //
@@ -870,21 +887,49 @@ message MovingObject
 
             // Vehicle is a motorbike or moped.
             //
+            // \note Deprecated differentiation, use TYPE_MOTORCYCLE instead
+            //
             TYPE_MOTORBIKE = 10;
 
-            // Vehicle is a bicycle (without motor and specific lights).
+            // A motorcycle is a motorized vehicle designed primarily for
+            // passenger transportation.
+            // Compared to a car, typically fewer passive safety features such
+            // as a full passenger cell are present.
+            // This category includes typical two-wheeled motorcycles, but also
+            // three-wheeled vehicles like motorcycles with side-cars or even
+            // trikes.
+            //
+            TYPE_MOTORCYCLE = 10;
+
+            // A bicycle is a human-powered or motor-assisted, pedal-driven
+            // vehicle.
+            // This category includes typical two-wheeled bicycles, but
+            // also cargo-bikes and alike with more than two wheels.
             //
             TYPE_BICYCLE = 11;
 
-            // Vehicle is a bus.
+            // A bus is a motorized vehicle designed to carry multiple
+            // passengers.
             //
             TYPE_BUS = 12;
 
-            // Vehicle is a tram.
+            // A tram is a vehicle designed for using rail infrastructure for
+            // the transport of passengers on rail infrastructure.
+            // The rail infrastructure may fully or partially overlap with
+            // public road infrastructure.
+            // In contrast to trains, trams do not have exclusive right-of-way.
+            // Often as a series of connected vehicles.
             //
             TYPE_TRAM = 13;
 
-            // Vehicle is a train.
+            // A train is a vehicle designed for the transport of passengers and
+            // freight on rail infrastructure. 
+            // The rail infrastructure for trains is mostly grade-separated from
+            // the public road infrastructure as trains have exclusive
+            // right-of-way.
+            // Therefore, in case crossings with the road infrastructure occur,
+            // the exclusive right-of-way is ensured, e.g. by railway barriers.
+            // Often as a series of connected vehicles.
             //
             TYPE_TRAIN = 14;
 
@@ -892,10 +937,43 @@ message MovingObject
             //
             TYPE_WHEELCHAIR = 15;
 
-            // Vehicle is a stand-up scooter, including
-            // motorized versions.
+            // Vehicle is a stand-up scooter, including motorized versions.
             //
             TYPE_STANDUP_SCOOTER = 17;
+
+            // A micro-mobility device is a small, lightweight vehicle for
+            // short-distance travel excluding bicycles (e.g. electric stand-up
+            // scooters, hoverboards and wheelchairs).
+            //
+            TYPE_MICROMOBILITY_DEVICE = 18;
+
+            // A work-machine is a vehicle designed for specific tasks (e.g.,
+            // construction equipment, agricultural tractors, forklifts).
+            //
+            TYPE_WORK_MACHINE = 19;
+
+            // A watercraft is a vehicle designed for travel on water (boats,
+            // ships, etc.).
+            //
+            // \note This category is intentionally unspecific and may be
+            // detailed out in future versions if use-cases require so.
+            //
+            TYPE_WATERCRAFT = 20;
+
+            // An aircraft is a vehicle designed for flight through the air
+            // (airplanes, helicopters, etc.).
+            //
+            // \note This category is intentionally unspecific and may be
+            // detailed out in future versions if use-cases require so.
+            //
+            TYPE_AIRCRAFT = 21;
+
+            // A land vehicle is a vehicle designed for travel on land.
+            //
+            // \note This category is intentionally unspecific and may be
+            // detailed out in future versions if use-cases require so.
+            //
+            TYPE_LAND_VEHICLE = 22;
         }
 
         // The type of the vehicle.
