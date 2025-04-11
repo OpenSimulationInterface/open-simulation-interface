@@ -71,7 +71,7 @@ Get Tait–Bryan angles from rotation matrix cite:[wiki_euler_angles]:
 \phi = \arctan2(R_{23}/\cos(\theta),R_{33}/\cos(\theta))
 ++++
 
-Note that OSI uses the following convention on choosing rotation axes for Tait-Bryan angles: *z-y'-x''* intrinsic rotations (equivalent to *x-y-z* extrinsic rotations); see cite:[tait_bryan_convention].
+Note that OSI uses the following convention on choosing rotation axes for Tait-Bryan angles: **z-y'-x''** intrinsic rotations (equivalent to **x-y-z** extrinsic rotations); see cite:[tait_bryan_convention].
 
 **Relative orientation**:
 
@@ -84,7 +84,7 @@ To transform from host vehicle coordinates into sensor coordinates and back use 
 
 **Converting orientation to quaternions**:
 
-To transform OSI's orientation representation from Tait-Bryan angles to quaternions, the following formula can be used [cite:euler_to_quaternion]:
+To convert OSI's orientation representation from Tait-Bryan angles to quaternions use the following formula cite:[euler_to_quaternion]. The resulting quaternion is equivalent to yaw (ψ), pitch (θ) and roll (ϕ) angles (**x-y-z** extrinsic rotations) or intrinsic Tait-Bryan angles following the **z-y'-x''** convention.
 
 [latexmath]
 ++++
