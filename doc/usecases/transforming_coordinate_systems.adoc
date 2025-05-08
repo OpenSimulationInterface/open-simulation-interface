@@ -71,6 +71,8 @@ Get Tait–Bryan angles from rotation matrix cite:[wiki_euler_angles]:
 \phi = \arctan2(R_{23}/\cos(\theta),R_{33}/\cos(\theta))
 ++++
 
+Note that OSI uses the following convention on choosing rotation axes for Tait-Bryan angles: **z-y'-x''** intrinsic rotations (equivalent to **x-y-z** extrinsic rotations); see cite:[tait_bryan_convention].
+
 **Relative orientation**:
 
 Object rotation Matrix: latexmath:[\boldsymbol{R}_{object}^{src}] +
@@ -80,6 +82,19 @@ Resulting rotation matrix between object and host: latexmath:[\boldsymbol{R}_{ob
 To transform from world coordinates into host vehicle coordinates and back use the formulas from above with the world coordinates frame latexmath:[w] as source system latexmath:[src] and host vehicle coordinates frame latexmath:[v] as target system latexmath:[trg].
 To transform from host vehicle coordinates into sensor coordinates and back use the formulas from above with the host vehicle coordinates frame latexmath:[v] as source system latexmath:[src] and sensor coordinates frame latexmath:[s] as target system latexmath:[trg].
 
+**Converting orientation to quaternions**:
+
+To convert OSI's orientation representation from Tait-Bryan angles to quaternions use the following formula cite:[euler_to_quaternion]. The resulting quaternion is equivalent to yaw (ψ), pitch (θ) and roll (ϕ) angles (**x-y-z** extrinsic rotations) or intrinsic Tait-Bryan angles following the **z-y'-x''** convention.
+
+[latexmath]
+++++
+\begin{align}
+ q_i &= \sin \frac{\phi}{2} \cos \frac{\theta}{2} \cos \frac{\psi}{2} -  \cos \frac{\phi}{2} \sin \frac{\theta}{2} \sin \frac{\psi}{2}\\
+ q_j &= \cos \frac{\phi}{2} \sin \frac{\theta}{2} \cos \frac{\psi}{2} +  \sin \frac{\phi}{2} \cos \frac{\theta}{2} \sin \frac{\psi}{2}\\
+ q_k &= \cos \frac{\phi}{2} \cos \frac{\theta}{2} \sin \frac{\psi}{2} -  \sin \frac{\phi}{2} \sin \frac{\theta}{2} \cos \frac{\psi}{2}\\
+ q_r &= \cos \frac{\phi}{2} \cos \frac{\theta}{2} \cos \frac{\psi}{2} +  \sin \frac{\phi}{2} \sin \frac{\theta}{2} \sin \frac{\psi}{2}
+\end{align}
+++++
 
 **Corresponding messages**
 
