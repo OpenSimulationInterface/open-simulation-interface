@@ -93,7 +93,7 @@ Values must match the following regular expression:
 NOTE: Even in pure simulation use cases there is usually a relationship to a simulated calendar time, as on-board components and environment simulation have necessary relationships to a simulated calendar time (for example, the embedded `HostVehicleData` will carry relevant simulated calendar time information, for localization and other purposes).
 
 `creation_time`::
-The point in real calendar time when the recording of the data in the trace file was started.
+The point in real calendar time when the recording of the data in the trace file was started, e.g. when the recording system began writing the data to a file.
 Must be provided as a full ISO8601 formatted date time string, including timezone data, conforming to the https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp[XML Schema dateTimeStamp] lexical space.
 
 `description`::
