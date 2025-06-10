@@ -135,7 +135,8 @@ The schema record must be stored in the summary section of the trace file, and m
 === OSI channel
 
 An OSI channel is a data stream within the OSI multi channel trace file that contains serialized OSI top-level messages of the same type.
-Note that non-top-level messages must not be stored directly in OSI channels.
+Note that this specification does not allow the storage of non-top-level OSI messages in OSI channels, as they cannot be reliably associated with other OSI data streams without additional context (e.g. due to the absence of a timestamp field or lack of attribution).
+It is still possible to store them like any other related data in non-OSI channels, however this usage is unlikely to be portable.
 
 Each OSI channel must be described by a channel record in the summary section of the trace file with the following fields:
 
