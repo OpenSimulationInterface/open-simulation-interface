@@ -1088,33 +1088,19 @@ message RaytracerViewConfiguration
         // Consider proposing an additional format if using
         // \c #RAYTRACER_FORMAT_OTHER.
         //
-        RAYTRACER_FORMAT_OTHER = 1;
+        RAYTRACER_FORMAT_OTHER = 1;        
 
-        // Radar raytracer format used in the Japanese DIVP project.
-        //
-        // The message consists of the following fields in the described order.
-        // In brackets the data type, the unit and a short description is given. 
-        // distance (float; in m; path length of the ray)
-        // relative_speed (float; in m/s; summed relative speed due to interaction points with moved surfaces)
-        // propagation_attenuation_h_pol (float; in W; attenuation of signal strength of horizontal polarisation)
-        // propagation_attenuation_v_pol (float; in W; attenuation of signal strength of vertical polarisation)
-        // direction_of_arrival_azimuth (float; in rad; direction of arrival of the ray in the configured raytracer coordinate system in azimuth direction)
-        // direction_of_arrival_elevation (float; in rad; direction of arrival of the ray in the configured raytracer coordinate system in elevation direction)
-        // direction_of_departure_azimuth (float; in rad; direction of departure of the ray in the configured raytracer coordinate system in azimuth direction)
-        // direction_of_departure_elevation (float; in rad; direction of departure of the ray in the configured raytracer coordinate system in elevation direction)
-        //
-        RAYTRACER_FORMAT_DIVP_RADAR = 2;
-        
-        // Radar raytracer format used in the German VIVALDI project.
+        // Raytracer format for Shoot and Bounce Approach
+        // Adapted for electromagnetic wave propagation
         //
         // The message consists of the following fields in the described order.
         // In brackets the data type, the unit and a short description is given. 
         // intersection_path_length (float; in m; path length of the ray between the First_Hitpoint and the Last_Hitpoint)
         // relative_speed (float; in m/s; summed relative speed due to interaction points with moved surfaces)
-        // jones_vector (float4; in V/m; jones vector of the ray with information of the electromagnetic wave`s phase, signal strength and polarisation)
-        // last_hitpoint (float3; in m; coordinates of the last hitpoint in the raytracer's coordinate system defined by the mounting position)
-        // first_hitpoint (float3; in m; coordinates of the first hitpoint in the raytracer's coordinate system defined by the mounting position)
+        // jones_matrices (float8; in V/m; jones matrix of the ray with information of the electromagnetic wave`s phase, signal strength and polarisation, which gives you additonaly the projection to the subset of the jones vectors )
+        // direction_of_arrival_hitpoint (float3; in m; coordinates of the DoA (last hitpoint) in the raytracer's coordinate system defined by the mounting position)
+        // direction_of_departure_hitpoint (float3; in m; coordinates of the DoD (first hitpoint) in the raytracer's coordinate system defined by the mounting position)
         //
-        RAYTRACER_FORMAT_VIVALDI_RADAR = 3;
+        RAYTRACER_FORMAT_SBR = 3;
         }
 }
