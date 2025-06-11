@@ -1101,6 +1101,6 @@ message RaytracerViewConfiguration
         // direction_of_arrival_hitpoint (float3; in m; coordinates of the DoA (last hitpoint) in the raytracer's coordinate system defined by the mounting position)
         // direction_of_departure_hitpoint (float3; in m; coordinates of the DoD (first hitpoint) in the raytracer's coordinate system defined by the mounting position)
         //
-        RAYTRACER_FORMAT_SBR = 3;
+        RAYTRACER_FORMAT_SBR = 2;
         }
 }
