@@ -887,7 +887,7 @@ message MovingObject
 
             // Vehicle is a motorbike or moped.
             //
-            // \note Deprecated differentiation, use TYPE_MOTORCYCLE instead
+            // \note Deprecated name, use TYPE_MOTORCYCLE instead
             //
             TYPE_MOTORBIKE = 10;
 
