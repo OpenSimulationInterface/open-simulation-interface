@@ -815,6 +815,11 @@ message MovingObject
             // This is to be used for all car-like vehicles, without any
             // further differentiated type available.
             //
+            // \note Corresponds roughly with UNECE [1] categories M1, G and L7.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
             TYPE_CAR = 4;
 
             // Vehicle is a medium car.
@@ -844,20 +849,38 @@ message MovingObject
             // A van is a motorized vehicle with a larger cargo area than a car,
             // used for transporting goods or people.
             //
+            // \note Corresponds roughly with UNECE [1] categories M2 and N1.
+            //
+            // \note This category is not intended for mini vans, which shall
+            // rather be categorized as cars.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
             TYPE_VAN = 6;
 
             // A heavy truck is a large commercial vehicle designed for
             // transporting heavy loads.
             // The cargo area is rigidly fixed to the vehicle itself.
             //
+            // \note Corresponds roughly with UNECE [1] category "N2".
+            //
             // \image html OSI_TYPE_HEAVY_TRUCK.svg
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_HEAVY_TRUCK = 7;
 
             // A semi-tractor is a vehicle designed for towing semi-trailers for
             // the transportation of heavy loads.
             //
+            // \note Corresponds roughly with UNECE [1] category N3.
+            //
             // \image html OSI_TYPE_SEMITRACTOR.svg
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_SEMITRACTOR = 16;
 
@@ -868,20 +891,35 @@ message MovingObject
             // hitch and a large overlap with the towing vehicle, i.e. the
             // semi-tractor.
             //
+            // \note Corresponds roughly with UNECE [1] category O4.
+            //
+            // \note Main reason for separation from the "Trailer" category is
+            // the difference in motion behavior (vehicle dynamics) and the
+            // different sensor perception due to the overlay with the towing
+            // vehicle.
+            //
             // \note The vehicle can be, but doesn't need to be, attached to
             // another vehicle.
             //
             // \image html OSI_TYPE_SEMITRAILER.svg
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_SEMITRAILER = 8;
 
             // A trailer is a non-motorized vehicle designed for being towed by
             // a motorized vehicle to carry goods, animals or people.
             //
+            // \note Corresponds roughly with UNECE [1] category O1 to O3.
+            //
             // \note The vehicle can be, but doesn't need to be, attached to
             // another vehicle.
             //
             // \image html OSI_TYPE_TRAILER.svg
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_TRAILER = 9;
 
@@ -899,6 +937,13 @@ message MovingObject
             // three-wheeled vehicles like motorcycles with side-cars or even
             // trikes.
             //
+            // \note Corresponds roughly with UNECE [1] categories L1 to L5.
+            //
+            // \note Usually considered as a vulnerable road user.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
             TYPE_MOTORCYCLE = 10;
 
             // A bicycle is a human-powered or motor-assisted, pedal-driven
@@ -906,10 +951,18 @@ message MovingObject
             // This category includes typical two-wheeled bicycles, but
             // also cargo-bikes and alike with more than two wheels.
             //
+            // \note Usually considered as a vulnerable road user.
+            //
             TYPE_BICYCLE = 11;
 
             // A bus is a motorized vehicle designed to carry multiple
             // passengers.
+            //
+            // \note Corresponds roughly with UNECE [1] category M3 classes I,
+            // II, II.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_BUS = 12;
 
@@ -933,17 +986,32 @@ message MovingObject
             //
             TYPE_TRAIN = 14;
 
-            // Vehicle is a wheelchair.
+            // A wheelchair is a manually or electrically powered mobility
+            // device with a seat mounted on a wheeled frame.
+            // Manual propulsion may be provided by the seated person or a
+            // person pushing the wheelchair.
+            //
+            // \note Usually considered as a vulnerable road user.
             //
             TYPE_WHEELCHAIR = 15;
 
-            // Vehicle is a stand-up scooter, including motorized versions.
+            // A stand-up scooter is a compact, typically two-wheeled device.
+            // It is operated with the rider standing on a deck between the
+            // wheels.
+            // It may be propelled by a motor or the rider making a kicking
+            // movement.
+            //
+            // \note Usually considered as a vulnerable road user.
             //
             TYPE_STANDUP_SCOOTER = 17;
 
             // A micro-mobility device is a small, lightweight vehicle for
-            // short-distance travel excluding bicycles (e.g. electric stand-up
-            // scooters, hoverboards and wheelchairs).
+            // short-distance travel like hoverboards or roller skates.
+            // While bicycles, stand-up scooters and wheelchairs may technically
+            // fall into this category, the respective detailed categories shall
+            // be used instead.
+            //
+            // \note Usually considered as a vulnerable road user.
             //
             TYPE_MICROMOBILITY_DEVICE = 18;
 
