@@ -760,23 +760,29 @@ message MovingObject
     {
         // Definition of vehicle types.
         //
-        // \note OSI provides a richer set of vehicle types than is supported by some
-        // other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel).
-        // This is primarily for historical reasons.  Where a single type from a
-        // different standard can map to multiple OSI types it is left up to the
-        // discretion of the OSI implementer how that mapping is achieved. In previous
-        // versions, for example, a simulator might have used the dimensions of a provided
-        // 3d model of a vehicle with type "car" in OpenScenario, to determine whether it
-        // should be a TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI. As part of the harmonization
-        // effort, it should now map to TYPE_CAR, which is an alias of the old TYPE_MEDIUM_CAR,
-        // and all other car type enums have been deprecated in favor of TYPE_CAR.
+        // \note OSI defines a set of vehicle types derived directly from the
+        // vehicle main categories specified in the ASAM TrafficParticipants
+        // Specification [1]. The type names and definitions reflect an effort
+        // toward compatibility with multiple ASAM OpenX standards, to support
+        // consistent cross-standard mapping. As part of ongoing and future
+        // harmonization efforts, OSI will continue to keep its vehicle type
+        // definitions synchronized with the ASAM TrafficParticipants
+        // Specification as permitted by technical and practical constraints.
         //
-        // \note Vehicle type classification is a complex area and there are no
-        // universally recognized standards.  As such, the boundaries between some of the
-        // OSI vehicle types are not well-defined.  It is left to the implementer to
-        // decide how to distinguish between them and agree that with any applications which
-        // make use of that specific interface instance.  For example, how to distinguish
-        // between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER.
+        // \note Historically, OSI offered a more granular set of vehicle types
+        // than some other OpenX standards (e.g., OpenScenario XML/DSL and
+        // OpenLabel). This was due to legacy design choices. Mapping a single
+        // type from another standard to multiple OSI types was left to the
+        // implementer's discretion. For instance, a simulator might have relied
+        // on the 3D model's dimensions for an OpenScenario "car" to choose
+        // between TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI. With the ongoing
+        // harmonization effort, such ambiguities have been resolved. The
+        // recommended mapping is now TYPE_CAR, which serves as an alias for the
+        // former TYPE_MEDIUM_CAR. Previous car-specific enums (e.g.,
+        // TYPE_SMALL_CAR) have been deprecated in favor of TYPE_CAR.
+        //
+        // \par References:
+        // [1] ASAM e.V. (2024). <em>ASAM TrafficParticipants Specification</em>. ASAM OpenX Standards. Retrieved June 12, 2025, from https://publications.pages.asam.net/standards/ASAM_TrafficParticipants_Specification/ASAM_TrafficParticipants_Specification/v1.0.0/specification/index.html
         //
         enum Type
         {
