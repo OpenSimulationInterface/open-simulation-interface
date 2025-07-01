@@ -40,6 +40,9 @@ The OSI multi channel trace file format is based on the MCAP file format, which 
 The OSI multi channel trace file format is a specialization of the MCAP file format, with additional constraints and requirements specific to OSI.
 Hence, any valid OSI multi channel trace file is also a valid MCAP file, but not the other way around.
 
+The OSI multi channel trace file format does not specify an MCAP profile.
+Therefore, it can be used with any or an empty profile field in the MCAP header record, as long as the given profile does not contradict or disallow any of the requirements of this specification.
+
 The following rules apply to OSI multi channel trace files:
 
 - The file extension to be used is `.mcap`.
