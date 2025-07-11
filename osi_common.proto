@@ -583,10 +583,10 @@ message BaseStationary
 //
 // E.g. a vehicle is a base moving object.
 //
-// All coordinates and orientations from ground truth objects are relative to
+// All coordinates and orientations of ground truth objects are relative to
 // the global ground truth frame. All coordinates and orientations
-// from detected objects are relative to the host vehicle frame
-// (see: \c MovingObject vehicle reference point).
+// of detected objects are relative to the virtual sensor coordinate system
+// (see: \c SensorData::mounting_position).
 //
 message BaseMoving
 {
