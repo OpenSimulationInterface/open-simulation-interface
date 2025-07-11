@@ -5,20 +5,202 @@ endif::[]
 [#top-osi_trace_file_formats]
 = OSI trace file formats
 
-There are two formats for storing multiple serialized OSI messages in one trace file.
+== Single channel trace file formats
+There are two formats for storing and reading multiple serialized OSI messages of the same type in one trace file.
+These formats are very bare bones and do not contain any additional information, like meta-data, schemas, nor do they allow for random access.
+For more advanced use-cases, consider using the multi channel trace file format.
 
 *.osi::
-Binary trace file.
+Single channel binary trace file.
 Messages are separated by a length specification before each message.
 The length is represented by a four-byte, little-endian, unsigned integer.
 The length does not include the integer itself.
 
 *.txth::
-Human-readable plain-text trace file.
+Single channel human-readable plain-text trace file.
 Messages are separated by newlines.
+Each message is a serialized OSI message in protocol buffer text format.
+
+NOTE: The `.txth` format is intended for human consumption (e.g. for debugging and manual checks).
+It is currently not supported for reading by the OSI API, as it is not unambiguously deserializable.
 
 NOTE: Previous releases of OSI also supported a so-called plain-text trace file format, with file extension `.txt`.
 This legacy format did not contain plain-text, but rather binary protobuf messages separated by a special separator.
 For obvious reasons the format was deprecated and fully replaced with the `.osi` binary file format.
 This release no longer contains any support for the legacy `.txt` file format.
-These files may be used for manual checks.
+
+== Multi channel trace file format
+
+=== Overview
+
+The OSI multi channel trace file format is a binary file format that allows for storing multiple serialized OSI message streams of the same or different types in one trace file, along with additional meta-data, and other related data streams.
+Due to the nature of the format, it allows for random access to the data streams, and is suitable for more advanced use-cases.
+
+The OSI multi channel trace file format is based on the MCAP file format, which is a generic multi channel trace file format.
+The OSI multi channel trace file format is a specialization of the MCAP file format, with additional constraints and requirements specific to OSI.
+Hence, any valid OSI multi channel trace file is also a valid MCAP file, but not the other way around.
+
+The OSI multi channel trace file format does not specify an MCAP profile.
+Therefore, it can be used with any or an empty profile field in the MCAP header record, as long as the given profile does not contradict or disallow any of the requirements of this specification.
+
+The following rules apply to OSI multi channel trace files:
+
+- The file extension to be used is `.mcap`.
+- The file shall be a valid MCAP file according to the https://mcap.dev/spec[MCAP format specification] version `0x30`.
+- The file shall be an indexed MCAP file, including chunk index records in the summary section, with all message records written into chunk records.
+- Chunk records shall either be uncompressed or compressed using either the `zstd` or `lz4` compression algorithms.
+- The file shall contain a meta-data record with the OSI trace file meta-data defined in section <<sec-osi-trace-file-multi-global-meta-data>>.
+  This meta-data record identifies the file as an OSI multi channel trace file.
+- The file shall contain a schema record in the summary section for each top-level message type that is used in one or more OSI channels with the OSI message schema as defined in section <<sec-osi-trace-file-multi-schema-record>>.
+- The file shall contain at least one OSI message stream in a channel as defined in section <<sec-osi-trace-file-multi-channel>>.
+- The file may contain additional non-OSI message streams in other channels.
+
+NOTE: All OSI and non-OSI message streams stored in the same file share a common time base.
+Storing of unrelated message streams in one trace file is therefore not generally useful and should be avoided.
+
+[#sec-osi-trace-file-multi-global-meta-data]
+=== Multi channel trace file global meta-data
+
+The file shall contain exactly one meta-data record with the `name` field being `net.asam.osi.trace` and the following mandatory `metadata` entries:
+
+`version`::
+The semantic version number of the OSI release that this OSI trace file conforms to.
+This is a string in the format `major.minor.patch`, for example `3.0.0`.
+Note that this version number is not necessarily the same as the OSI schema version(s) used in the trace file.
+Rather, it indicates the version of the OSI trace file format itself.
+
+`min_osi_version`::
+The minimum version of the OSI schema used in the trace file OSI channels.
+This is a string in the format `major.minor.patch`, for example `3.4.0`.
+
+`max_osi_version`::
+The maximum version of the OSI schema used in the trace file OSI channels.
+This is a string in the format `major.minor.patch`, for example `3.7.0`.
+
+`min_protobuf_version`::
+The version of the protobuf implementation used in the trace file.
+This is a string in the format `major.minor.patch`, for example `3.17.3`.
+
+`max_protobuf_version`::
+The version of the protobuf implementation used in the trace file.
+This is a string in the format `major.minor.patch`, for example `3.26.0`.
+
+The `net.asam.osi.trace` meta-data record may also contain the following recommended `metadata` entries:
+
+`zero_time`::
+The point in real or simulated calendar time corresponding to time 0 in all timestamps in the trace file.
+This shall be provided as a full ISO8601 formatted date time string, including timezone data, conforming to the https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp[XML Schema dateTimeStamp] lexical space.
+Values shall match the following regular expression:
+`-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?|(24:00:00(\.0+)?))(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))`
++
+NOTE: Even in pure simulation use cases there is usually a relationship to a simulated calendar time, as on-board components and environment simulation have necessary relationships to a simulated calendar time (for example, the embedded `HostVehicleData` will carry relevant simulated calendar time information, for localization and other purposes).
+
+`creation_time`::
+The point in real calendar time when the recording of the data in the trace file was started, e.g. when the recording system began writing the data to a file.
+This shall be provided as a full ISO8601 formatted date time string, including timezone data, conforming to the https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp[XML Schema dateTimeStamp] lexical space.
+
+`description`::
+A human-readable description of the data contained in the multi channel trace file.
+
+`authors`::
+A list separated by commas of entities (not tools) involved in the creation of the data contained in the file.
+
+`data_sources`::
+A list separated by commas of data sources used in the creation of the data contained in the file.
+
+The file may contain arbitrary additional meta-data records, however meta-data records with names starting with `net.asam.osi` are reserved for future use by {THIS_STANDARD}.
+It is strongly recommended to follow reverse domain name notation for custom meta-data record names to avoid conflicts.
+
+[#sec-osi-trace-file-multi-schema-record]
+=== OSI message schema
+
+For each OSI top-level message type that is used in one or more OSI channels, the OSI multi channel trace file shall contain a corresponding schema record in the summary section.
+Note that if multiple versions of the OSI schema are used in the same trace file, a schema record shall be included for each version, with different schema IDs.
+
+The schema record shall contain the following fields:
+
+`id`::
+A file-wide unique non-zero identifier for the schema record.
+
+`name`::
+The fully qualified name to the message within the OSI descriptor set.
+For example, for the `SensorView` message type, this would be `osi3.SensorView`.
+
+`encoding`::
+The value `protobuf`.
+
+`data`::
+A binary FileDescriptorSet as produced by `protoc --include_imports --descriptor_set_out`.
+
+The schema record shall be stored in the summary section of the trace file, and shall be referenced by the OSI channels that use the schema.
+
+[#sec-osi-trace-file-multi-channel]
+=== OSI channel
+
+An OSI channel is a data stream within the OSI multi channel trace file that contains serialized OSI top-level messages of the same type.
+Note that this specification does not allow the storage of non-top-level OSI messages in OSI channels, as they cannot be reliably associated with other OSI data streams without additional context (e.g. due to the absence of a timestamp field or lack of attribution).
+It is still possible to store them like any other related data in non-OSI channels, however this usage is unlikely to be portable.
+
+Each OSI channel shall be described by a channel record in the summary section of the trace file with the following fields:
+
+`id`::
+A file-wide unique identifier for the channel.
+
+`schema_id`::
+The ID of the schema record that describes the message type of the channel.
+
+`topic`::
+A unique name for the channel within the trace file.
+When recording OSI traces for a model packaged according to the OSI Sensor Model Packaging (OSMP) layer, using the naming conventions defined in the OSMP specification for variables as topics is recommended, potentially with a suitable added prefix for disambiguation.
+For example, for a sensor model named RadarSensorFL with two SensorView inputs and one SensorData output, the topic names would be `RadarSensorFL.OSMPSensorViewIn[1]`, `RadarSensorFL.OSMPSensorViewIn[2]`, and `RadarSensorFL.OSMPSensorDataOut`, accordingly.
+In other cases, the topic name should be chosen to reflect the purpose of the channel, and should include some indication of the message type.
+
+`message_encoding`::
+The value `protobuf`.
+
+`metadata`::
+A map of additional meta-data for the channel.
+This map may contain arbitrary key-value pairs, however keys starting with `net.asam.osi` are reserved for use by {THIS_STANDARD}.
+It is strongly recommended to follow reverse domain name notation for custom meta-data keys to avoid conflicts.
+The following mandatory entries are defined by {THIS_STANDARD}:
+
+`net.asam.osi.trace.channel.osi_version`:::
+The version of the OSI schema used in creating the data of this OSI channel.
+This is a string in the format `major.minor.patch`, for example `3.0.0`.
+
+`net.asam.osi.trace.channel.protobuf_version`:::
+The version of the protobuf implementation used in creating the data of this OSI channel.
+This is a string in the format `major.minor.patch`, for example `3.17.3`.
+
+The following recommended entries are defined by {THIS_STANDARD}:
+
+`net.asam.osi.trace.channel.description`:::
+A human-readable description of the channel.
+
+The channel record shall be stored in the summary section of the trace file, and shall be referenced by the OSI message records that are part of the channel.
+
+All messages in an OSI channel shall be stored in chunk records in the data section of the trace file.
+
+Each message record in a chunk record shall contain the following fields:
+
+`channel_id`::
+The ID of the channel that the message belongs to.
+
+`sequence`::
+Optional message counter to detect message gaps.
+If the relevant packaging layer or other source of messages provides a sequence number this can be used.
+Otherwise this should be set to zero to indicate that no reliable sequence number is available.
+
+`log_time`::
+This field is in nanoseconds and uses the same epoch as the `publish_time` field.
+It is used to determine the order of messages in the trace file, and provides for time-based random access to the data streams.
+Unless there is a specific reason to set this field to a different value, it should be set to the same value as `publish_time`, as this reflects the time flow of the OSI message stream.
+Only if recreation of the message stream with actual message transmission times is required, for example for asynchronous packaging layers, this field should be set to the simulation time when the message was enqueued for addition to the trace file.
+
+`publish_time`::
+The timestamp taken from the timestamp field of the stored OSI top-level message.
+The field is in nanoseconds, with the epoch being the epoch of the OSI Timestamp data type.
+If top-level messages that do not contain a timestamp field are stored in the trace file, the `publish_time` field shall be set to the time when the message was enqueued for addition to the trace file.
+
+`data`::
+The serialized OSI message data.
