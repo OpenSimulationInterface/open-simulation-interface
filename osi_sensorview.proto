@@ -163,6 +163,10 @@ message SensorView
     // Ultrasonic-specific SensorView(s).
     //
     repeated UltrasonicSensorView ultrasonic_sensor_view = 1004;
+    
+    // Raytracer-specific View(s).
+    //
+    repeated RaytracerView raytracer_view = 1005;
 }
 
 //
@@ -346,4 +350,45 @@ message UltrasonicSensorView
     // Ultrasonic view configuration valid at the time the data was created.
     //
     optional UltrasonicSensorViewConfiguration view_configuration = 1;
+}
+
+//
+// \brief Definition of the raytracer view.
+//
+// Raytracer specific view data.
+//
+message RaytracerView
+{
+    // Raytracer view configuration valid at the time the data was created.
+    //
+    optional RaytracerViewConfiguration view_configuration = 1;
+
+    // Raw raytracer data.
+    //
+    // The raw raytracer data in the memory layout and order specified by the
+    // raytracer input configuration.
+    //
+    optional bytes raytracer_data = 2;
+    
+    // Device type defines the device where the data is located.
+    //
+    optional DeviceType device_type = 3;
+    
+    // Enum consits of different predefined device types.
+    // 
+    enum DeviceType
+    {
+        // Type of device type is unknown (must not be used).
+        //
+        DEVICE_TYPE_UNKNOWN = 0;
+        
+        // The data is located on the GPU.
+        //
+        DEVICE_TYPE_GPU = 1;
+        
+        // The data is located on the CPU.
+        //
+        DEVICE_TYPE_CPU = 2;
+        
+    }
 }
