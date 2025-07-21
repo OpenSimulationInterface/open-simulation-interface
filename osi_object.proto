@@ -11,6 +11,8 @@ package osi3;
 // \c MovingObject e.g. pedestrian, animal, or vehicle) nor a traffic related
 // object (\c TrafficLight, \c TrafficSign).
 //
+// The parent frame of a stationary object is the global coordinate system.
+//
 // \image html OSI_BaseStationary.svg
 //
 // \c StationaryObject excludes traffic lights, traffic signs and road marking
@@ -27,6 +29,9 @@ message StationaryObject
     optional Identifier id = 1;
 
     // The base parameters of the stationary object.
+    //
+    // The parent frame of \c StationaryObject::base is the global coordinate
+    // system.
     //
     optional BaseStationary base = 2;
 
@@ -395,6 +400,8 @@ message StationaryObject
 // moving object (animal, pedestrian, etc), but not a stationary
 // object (\c TrafficLight, \c TrafficSign, or \c StationaryObject).
 //
+// The parent frame of a moving object is the global coordinate system.
+//
 // \image html OSI_MovingObject.svg
 //
 // \image html OSI_HostVehicle.svg
@@ -415,6 +422,9 @@ message MovingObject
     optional Identifier id = 1;
 
     // The base parameters of the vehicle.
+    //
+    // The parent frame of \c MovingObject::base is the global coordinate
+    // system.
     //
     // \note The bounding box does NOT include side mirrors for vehicles.
     // \note The height includes the ground_clearance. It always goes from the

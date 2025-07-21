@@ -494,14 +494,12 @@ message BoundingBox
 // \brief The base attributes of a stationary object or entity.
 //
 // This includes the \c StationaryObject , \c TrafficSign ,
-// \c TrafficLight , \c RoadMarking messages.
+// \c TrafficLight , \c RoadMarking messages and the corresponding detected
+// object messages ( \c DetectedStationaryObject , \c DetectedTrafficSign ,
+// \c DetectedTrafficLight , and \c DetectedRoadMarking ).
 //
-// \image html OSI_BaseStationary.svg
-//
-// All coordinates and orientations from ground truth objects are relative to
-// the global ground truth frame (see image). (All coordinates and orientations
-// from detected objects are relative to the host vehicle frame (see:
-// \c Vehicle vehicle reference point).)
+// The reference frame of \c BaseStationary depends on the context in which it
+// is used and is defined in the message where the \c BaseStationary is used.
 //
 message BaseStationary
 {
@@ -575,7 +573,7 @@ message BaseStationary
 //
 // \brief The base attributes of an object that is moving.
 //
-// This includes the \c MovingObject messages.
+// This includes the \c MovingObject and \c DetectedMovingObject messages.
 //
 // \image html OSI_BaseMoving.svg
 //
@@ -583,10 +581,8 @@ message BaseStationary
 //
 // E.g. a vehicle is a base moving object.
 //
-// All coordinates and orientations from ground truth objects are relative to
-// the global ground truth frame. All coordinates and orientations
-// from detected objects are relative to the host vehicle frame
-// (see: \c MovingObject vehicle reference point).
+// The reference frame of \c BaseMoving depends on the context in which it is
+// used and is defined in the message where the \c BaseMoving is used.
 //
 message BaseMoving
 {
