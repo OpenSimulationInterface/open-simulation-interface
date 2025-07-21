@@ -114,6 +114,9 @@ message DetectedStationaryObject
 
     // The base parameters of the stationary object.
     //
+    // The parent frame of \c DetectedStationaryObject::base is the virtual
+    // sensor coordinate system.
+    //
     optional BaseStationary base = 2;
 
     // The root mean squared error of the base parameters of the detected
@@ -204,6 +207,9 @@ message DetectedMovingObject
     optional DetectedItemHeader header = 1;
 
     // The base parameters of the moving object.
+    //
+    // The parent frame of \c DetectedMovingObject::base is the virtual sensor
+    // coordinate system.
     //
     // \note The bounding box does NOT include mirrors for vehicles.
     // \note The height includes the ground_clearance. It always goes from the

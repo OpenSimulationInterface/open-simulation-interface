@@ -52,6 +52,9 @@ message DetectedTrafficSign
 
         // The base parameters of the traffic sign.
         //
+        // The parent frame of \c DetectedMainSign::base is the virtual sensor
+        // coordinate system.
+        //
         // The orientation of the bounding box \c #base
         // ( \c BaseStationary::orientation ) is defined as follows:
         //
@@ -185,6 +188,9 @@ message DetectedTrafficSign
         repeated CandidateSupplementarySign candidate = 1;
 
         // The base parameters of the supplementary traffic sign.
+        //
+        // The parent frame of \c DetectedSupplementarySign::base is the virtual
+        // sensor coordinate system.
         //
         // The orientation of the bounding box \c SupplementarySign::base
         // ( \c BaseStationary::orientation ) is defined as follows:

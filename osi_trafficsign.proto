@@ -222,6 +222,9 @@ message TrafficSign
     {
         // The base parameters of the traffic sign.
         //
+        // The parent frame of \c MainSign::base is the global coordinate
+        // system.
+        //
         // The orientation of the bounding box \c #base
         // ( \c BaseStationary::orientation ) is defined as follows:
         // The z-axis of the given \c BaseStationary::orientation is the vector
@@ -5584,6 +5587,9 @@ message TrafficSign
     message SupplementarySign
     {
         // The base parameters of the supplementary traffic sign.
+        //
+        // The parent frame of \c SupplementarySign::base is the global
+        // coordinate system.
         //
         // The orientation of the bounding box \c SupplementarySign::base
         // ( \c BaseStationary::orientation ) is defined as follows:

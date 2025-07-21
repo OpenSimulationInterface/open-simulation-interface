@@ -34,6 +34,9 @@ message DetectedTrafficLight
 
     // The base parameters of the traffic light.
     //
+    // The parent frame of \c TrafficLight::base is the virtual sensor
+    // coordinate system.
+    //
     // \c BaseStationary::orientation x-axis is view normal of the traffic
     // light's icon.
     //

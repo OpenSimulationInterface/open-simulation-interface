@@ -37,6 +37,8 @@ message RoadMarking
 
     // The base parameters of the road marking.
     //
+    // The parent frame of \c RoadMarking::base is the global coordinate system.
+    //
     // The orientation of the bounding box \c #base
     // \c BaseStationary::orientation is defined as follows:
     // The z-axis of the \c BaseStationary::orientation is the vector from the
