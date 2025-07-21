@@ -36,7 +36,7 @@ This release no longer contains any support for the legacy `.txt` file format.
 The OSI multi channel trace file format is a binary file format that allows for storing multiple serialized OSI message streams of the same or different types in one trace file, along with additional meta-data, and other related data streams.
 Due to the nature of the format, it allows for random access to the data streams, and is suitable for more advanced use-cases.
 
-The OSI multi channel trace file format is based on the MCAP file format, which is a generic multi channel trace file format.
+The OSI multi channel trace file format is based on the MCAP file format cite:[mcap], which is a generic multi channel trace file format.
 The OSI multi channel trace file format is a specialization of the MCAP file format, with additional constraints and requirements specific to OSI.
 Hence, any valid OSI multi channel trace file is also a valid MCAP file, but not the other way around.
 
@@ -46,7 +46,7 @@ Therefore, it can be used with any or an empty profile field in the MCAP header 
 The following rules apply to OSI multi channel trace files:
 
 - The file extension to be used is `.mcap`.
-- The file shall be a valid MCAP file according to the https://mcap.dev/spec[MCAP format specification] version `0x30`.
+- The file shall be a valid MCAP file according to the https://mcap.dev/spec[MCAP format specification] version `0x30` (cite:[mcap]).
 - The file shall be an indexed MCAP file, including chunk index records in the summary section, with all message records written into chunk records.
 - Chunk records shall either be uncompressed or compressed using either the `zstd` or `lz4` compression algorithms.
 - The file shall contain a meta-data record with the OSI trace file meta-data defined in section <<sec-osi-trace-file-multi-global-meta-data>>.
