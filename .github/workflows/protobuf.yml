@@ -1,4 +1,4 @@
-name: ProtoBuf CI Builds
+name: OSI CI Builds
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   spellcheck:
     name: Spellcheck
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
     - uses: rojopolis/spellcheck-github-actions@0.36.0
@@ -17,15 +17,13 @@ jobs:
         config_path: .github/.pyspelling.yml
 
   run-tests:
-    name: Run tests and build docs
+    name: Run tests
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
     - name: Checkout OSI
       uses: actions/checkout@v4
-      with:
-        submodules: true
 
     - name: Setup Python
       uses: actions/setup-python@v5
@@ -36,6 +34,18 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install -r requirements_tests.txt
+
+    - name: Run Python Tests
+      run: python -m unittest discover tests
+
+  build-docs:
+    name: Build docs
+
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Checkout OSI
+      uses: actions/checkout@v4
 
     - name: Install Doxygen
       run: sudo apt-get install doxygen graphviz
@@ -69,11 +79,10 @@ jobs:
       working-directory: build
       run: cmake --build . --config Release -j 4
 
-    - name: Run Python Tests
-      run: python -m unittest discover tests
-
     - name: Upload documentation
       uses: actions/upload-artifact@v4
       with:
         name: doxygen-doc
-        path: doc/
+        path: |
+          doc/html/
+          doc/images/
