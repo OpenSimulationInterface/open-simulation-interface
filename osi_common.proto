@@ -148,8 +148,8 @@ message Dimension3d
 //
 // The rotations are to be performed \b yaw \b first (around the z-axis),
 // \b pitch \b second (around the new y-axis) and \b roll \b third (around the
-// new x-axis) to follow the definition according to [1] (Tait-Bryan / Euler
-// convention z-y'-x''). The preferred angular range is [-pi, pi] for roll 
+// new x-axis) to follow the definition according to [1] using Tait-Bryan / Euler
+// convention z-y'-x''. The preferred angular range is [-pi, pi] for roll 
 // and yaw and [-pi/2, pi/2] for pitch. 
 //
 // Roll/Pitch are 0 if the objects xy-plane is parallel to its parent's
