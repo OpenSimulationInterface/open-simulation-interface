@@ -2,7 +2,8 @@ name: ProtoBuf CI Builds
 
 env:
   PROTOBUF_VERSION: 3.20.1
-  PROTOBUF_VARIANT: '-all' # Use '-all' prior to 22.0, '' after
+  PROTOBUF_VARIANT: '-cpp' # Use '-cpp' between 3.0.0 and 22.0, otherwise use ''
+  USE_AUTOTOOLS: true # set true for PROTOBUF_VERSION <= 22.0
   ABSEIL_VERSION: 20230802.1
 
 on:
@@ -67,16 +68,16 @@ jobs:
       run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${{env.PROTOBUF_VERSION}}/protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz && tar xzvf protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz
 
     - name: Download Abseil ${{ env.ABSEIL_VERSION }}
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true'
       run: curl -OL https://github.com/abseil/abseil-cpp/archive/refs/tags/${{env.ABSEIL_VERSION}}.tar.gz && tar xzvf ${{env.ABSEIL_VERSION}}.tar.gz && rm -rf protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp && mv abseil-cpp-${{env.ABSEIL_VERSION}} protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via autotools
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == '-all'
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS == 'true'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
-      run: ./configure DIST_LANG=cpp --prefix=/usr && make
+      run: ./configure CXXFLAGS=-std=c++11 DIST_LANG=cpp --prefix=/usr && make
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via cmake
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: cmake -DCMAKE_CXX_STANDARD=17 -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF . && cmake --build . --config Release -j 4
 
@@ -131,7 +132,6 @@ jobs:
 
   build-proto3-linux64:
     name: Build Proto3 Linux 64
-
     runs-on: ubuntu-22.04
 
     steps:
@@ -152,6 +152,7 @@ jobs:
         python -m pip install -r requirements_tests.txt
 
     - name: Cache Dependencies
+      if: env.PROTOBUF_VERSION != '2.6.1'
       id: cache-depends
       uses: actions/cache@v4
       with:
@@ -159,31 +160,34 @@ jobs:
         key: ${{ runner.os }}-v2-depends
 
     - name: Download ProtoBuf ${{ env.PROTOBUF_VERSION }}
-      if: steps.cache-depends.outputs.cache-hit != 'true'
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VERSION != '2.6.1' #Has to be in every step, see https://github.com/actions/runner/issues/1189
       run: curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${{env.PROTOBUF_VERSION}}/protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz && tar xzvf protobuf${{env.PROTOBUF_VARIANT}}-${{env.PROTOBUF_VERSION}}.tar.gz
 
     - name: Download Abseil ${{ env.ABSEIL_VERSION }}
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true' && env.PROTOBUF_VERSION != '2.6.1'
       run: curl -OL https://github.com/abseil/abseil-cpp/archive/refs/tags/${{env.ABSEIL_VERSION}}.tar.gz && tar xzvf ${{env.ABSEIL_VERSION}}.tar.gz && rm -rf protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp && mv abseil-cpp-${{env.ABSEIL_VERSION}} protobuf-${{env.PROTOBUF_VERSION}}/third_party/abseil-cpp
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via autotools
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == '-all'
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS == 'true' && env.PROTOBUF_VERSION != '2.6.1'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
-      run: ./configure DIST_LANG=cpp --prefix=/usr && make
+      run: ./configure CXXFLAGS=-std=c++11 DIST_LANG=cpp --prefix=/usr && make
 
     - name: Build ProtoBuf ${{ env.PROTOBUF_VERSION }} via cmake
-      if: steps.cache-depends.outputs.cache-hit != 'true' && env.PROTOBUF_VARIANT == ''
+      if: steps.cache-depends.outputs.cache-hit != 'true' && env.USE_AUTOTOOLS != 'true' && env.PROTOBUF_VERSION != '2.6.1'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: cmake -DCMAKE_CXX_STANDARD=17 -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF . && cmake --build . --config Release -j 4
 
     - name: Install ProtoBuf ${{ env.PROTOBUF_VERSION }}
+      if: env.PROTOBUF_VERSION != '2.6.1'
       working-directory: protobuf-${{ env.PROTOBUF_VERSION }}
       run: sudo make install && sudo ldconfig
 
     - name: Prepare C++ Build
+      if: env.PROTOBUF_VERSION != '2.6.1'
       run: mkdir build
 
     - name: Switch to Proto3 Syntax
+      if: env.PROTOBUF_VERSION != '2.6.1'
       run: |
         bash convert-to-proto3.sh
         rm *.pb2
@@ -194,10 +198,12 @@ jobs:
         echo "VERSION_SUFFIX = .dev`date -u '+%Y%m%d%H%M%S'`" >> VERSION
 
     - name: Configure C++ Build
+      if: env.PROTOBUF_VERSION != '2.6.1'
       working-directory: build
       run: cmake ${{ env.PROTOBUF_VARIANT =='' && '-DCMAKE_CXX_STANDARD=17' }} ..
 
     - name: Build C++
+      if: env.PROTOBUF_VERSION != '2.6.1'
       working-directory: build
       run: cmake --build . --config Release -j 4
 
