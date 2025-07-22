@@ -407,10 +407,6 @@ message LogicalLane
     // For LogicalLanes without a correspondence to a Lane.Classification.Subtype 
     // (i.e. TYPE_MEDIAN, TYPE_CURB, TYPE_TRAM, TYPE_RAIL) this field has no value.
     //
-    // \rules
-    // refers_to: Lane
-    // \endrules
-    //
     repeated PhysicalLaneReference physical_lane_reference = 4;
 
     // The \link ReferenceLine reference line\endlink for this logical lane
