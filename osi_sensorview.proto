@@ -138,7 +138,7 @@ message SensorView
     // The ID of the host vehicle in the \c #global_ground_truth data.
     //
     // \rules
-    // refers_to: 'MovingObject'
+    // refers_to: MovingObject
     // is_set
     // \endrules
     //
