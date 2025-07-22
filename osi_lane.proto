@@ -748,13 +748,6 @@ message LaneBoundary
     // \attention For \c BoundaryPoint the same rule for the approximation
     // error applies as for \c Lane::Classification::centerline.
     //
-    // \rules
-    // first_element width is_equal_to 0.13
-    // first_element height is_equal_to 0.14
-    // last_element width is_equal_to 0.13
-    // last_element height is_equal_to 0.13
-    // \endrules
-    //
     repeated BoundaryPoint boundary_line = 2;
 
     // The classification of the lane boundary.
