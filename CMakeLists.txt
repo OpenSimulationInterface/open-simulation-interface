@@ -56,7 +56,7 @@ else()
 endif()
 set(OSI_INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH "Installation directory for CMake files")
 
-set(OSI_INSTALL_LIB_DIR ${OSI_INSTALL_LIB_DIR}/osi${VERSION_MAJOR})
+set(OSI_INSTALL_LIB_DIR ${OSI_INSTALL_LIB_DIR})
 set(OSI_INSTALL_INCLUDE_DIR ${OSI_INSTALL_INCLUDE_DIR}/osi${VERSION_MAJOR})
 
 configure_file(osi_version.proto.in osi_version.proto)
