@@ -807,6 +807,75 @@ message SpatialSignalStrength
     optional double signal_strength = 3;
 }
 
+
+//
+// \brief Definition of Complex Values
+//
+message CplxValue
+{
+    optional float real;
+    optional float imag;
+}
+
+//
+// \brief Definition of the Jonex Matrix
+// The Jones matrix is generally a complex 2×2 matrix 
+// that describes the change in the electric field vector as light passes through an optical system.
+//
+message JonesMatrix
+{
+    optional CplxValue VV;
+    optional CplxValue VH;
+    optional CplxValue HV;
+    optional CplxValue HH;
+}
+
+//
+// \brief Definition of the common ray tracer sbr message
+// for an emitting / transmitting / receiving entity
+// with a wide spreaded ray tracing approach
+// and the corresponding datatypes.
+//
+message RayTracerSBRMsg 
+{
+    // path length of the ray between the First_Hitpoint and the Last_Hitpoint
+    //
+    // Unit: m
+    //
+    optional float intersection_path_length  = 1;
+
+    // ummed relative speed due to interaction points with moved surfaces
+    //
+    // Unit: m/s
+    //
+    optional float relative_speed  = 2;
+
+    // jones matrix of the ray with information of the electromagnetic wave`s phase,
+    // signal strength and polarisation, 
+    // which gives you additonaly the projection to the subset of the jones vectors
+    //
+    // J_out = M*J_in
+    //
+    // M = VV VH
+    //     HV HH
+    //
+    // Unit: V/m
+    //
+    optional JonesMatrix jones_matrices  = 3;
+
+    // oordinates of the DoA (last hitpoint) in the raytracer's coordinate system defined by the mounting position
+    //
+    // Unit: m
+    //
+    optional Vector3d direction_of_arrival_hitpoint   = 4;
+    
+     // coordinates of the DoD (first hitpoint) in the raytracer's coordinate system defined by the mounting position
+    //
+    // Unit: m
+    //
+    optional Vector3d direction_of_departure_hitpoint   = 5;
+}
+
 //
 // \brief The description of a color within available color spaces.
 //
