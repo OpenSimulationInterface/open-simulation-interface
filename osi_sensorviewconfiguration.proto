@@ -1090,16 +1090,66 @@ message RaytracerViewConfiguration
         //
         RAYTRACER_FORMAT_OTHER = 1;        
 
-        // Raytracer format for Shoot and Bounce Approach
-        // Adapted for electromagnetic wave propagation
+        // Raytracer format for Shoot and Bounce Approach (adapted for
+        // electromagnetic wave propagation)
         //
-        // The message consists of the following fields in the described order.
-        // In brackets the data type, the unit and a short description is given. 
-        // intersection_path_length (float; in m; path length of the ray between the First_Hitpoint and the Last_Hitpoint)
-        // relative_speed (float; in m/s; summed relative speed due to interaction points with moved surfaces)
-        // jones_matrices (float8; in V/m; jones matrix of the ray with information of the electromagnetic wave`s phase, signal strength and polarisation, which gives you additonaly the projection to the subset of the jones vectors )
-        // direction_of_arrival_hitpoint (float3; in m; coordinates of the DoA (last hitpoint) in the raytracer's coordinate system defined by the mounting position)
-        // direction_of_departure_hitpoint (float3; in m; coordinates of the DoD (first hitpoint) in the raytracer's coordinate system defined by the mounting position)
+        // The 64-byte message consists of the fields in the described order,
+        // with all values as 32-bit IEEE-754 floats (float32) stored in
+        // little-endian (least-significant byte first).
+        //
+        // * \c intersection_path_length - float32 (meters)
+        //
+        //   Path length of the ray between First_Hitpoint and Last_Hitpoint.
+        //
+        //   Offset: 0 (4 bytes)
+        //
+        // * \c relative_speed - float32 (meters/second)
+        //
+        //   Summed relative speed due to interaction points with moving
+        //   surfaces.
+        //
+        //   Offset: 4 (4 bytes)
+        //
+        // * \c jones_matrices - float32[8] (V/m complex components)
+        //
+        //   Contains the 2x2 Jones matrix (complex entries) of the ray with
+        //   information of the electromagnetic wave's phase, signal strength
+        //   and polarisation, which gives you additonaly the projection to the
+        //   subset of the jones vectors.
+        //
+        //   Layout (in this order):
+        //   vv[re], vv[im], vh[re], vh[im], hv[re], hv[im], hh[re], hh[im]
+        //
+        //   \f[
+        //   J = \begin{bmatrix}
+        //   vv & vh \\
+        //   hv & hh
+        //   \end{bmatrix}
+        //   \f]
+        //
+        //   Offset: 8 (32 bytes)
+        //
+        // * \c direction_of_arrival_hitpoint - float32[3] (meters):
+        //
+        //   Coordinates of the DoA (last hitpoint) in the raytracer's
+        //   coordinate system defined by the mounting position.
+        //
+        //   Order: x, y, z
+        //
+        //   Coordinate system: right-handed ([see OSI coordinate system definition](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html))
+        //
+        //   Offset: 40 (12 bytes)
+        //
+        // * \c direction_of_departure_hitpoint - float32[3] (meters):
+        //
+        //   Coordinates of the DoD (first hitpoint) in the raytracer's
+        //   coordinate system defined by the mounting position.
+        //
+        //   Order: x, y, z
+        //
+        //   Coordinate system: right-handed ([see OSI coordinate system definition](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html))
+        //
+        //   Offset: 52 (12 bytes)
         //
         RAYTRACER_FORMAT_SBR = 2;
         }
