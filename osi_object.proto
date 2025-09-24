@@ -894,7 +894,7 @@ message MovingObject
             // semi-tractor.
             // Characteristics compared to a regular trailer are the large size,
             // the fact that a large portion of the weight is supported at the
-            // hitch and a large overlap with the towing vehicle, i.e. the
+            // hitch, and a large overlap with the towing vehicle, i.e. the
             // semi-tractor.
             //
             // \note Corresponds roughly with UNECE [1] category O4.
@@ -915,7 +915,7 @@ message MovingObject
             TYPE_SEMITRAILER = 8;
 
             // A trailer is a non-motorized vehicle designed for being towed by
-            // a motorized vehicle to carry goods, animals or people.
+            // a motorized vehicle to carry goods, animals, or people.
             //
             // \note Corresponds roughly with UNECE [1] category O1 to O3.
             //
@@ -937,11 +937,10 @@ message MovingObject
 
             // A motorcycle is a motorized vehicle designed primarily for
             // passenger transportation.
-            // Compared to a car, typically fewer passive safety features such
-            // as a full passenger cell are present.
-            // This category includes typical two-wheeled motorcycles, but also
-            // three-wheeled vehicles like motorcycles with side-cars or even
-            // trikes.
+            // Compared to a car, fewer passive safety features, such as a full
+            // passenger cell, are typically present.
+            // This category includes both two-wheeled motorcycles and
+            // three-wheeled vehicles like motorcycles with side-cars or trikes.
             //
             // \note Corresponds roughly with UNECE [1] categories L1 to L5.
             //
@@ -954,8 +953,9 @@ message MovingObject
 
             // A bicycle is a human-powered or motor-assisted, pedal-driven
             // vehicle.
-            // This category includes typical two-wheeled bicycles, but
-            // also cargo-bikes and alike with more than two wheels.
+            // This category includes typical two-wheeled bicycles as well as
+            // cargo-bikes and other pedal-driven vehicles with more than two
+            // wheels.
             //
             // \note Usually considered as a vulnerable road user.
             //
@@ -977,18 +977,18 @@ message MovingObject
             // The rail infrastructure may fully or partially overlap with
             // public road infrastructure.
             // In contrast to trains, trams do not have exclusive right-of-way.
-            // Often as a series of connected vehicles.
+            // A tram often acts as a series of connected vehicles.
             //
             TYPE_TRAM = 13;
 
             // A train is a vehicle designed for the transport of passengers and
-            // freight on rail infrastructure. 
+            // freight on rail infrastructure.
             // The rail infrastructure for trains is mostly grade-separated from
             // the public road infrastructure as trains have exclusive
             // right-of-way.
             // Therefore, in case crossings with the road infrastructure occur,
             // the exclusive right-of-way is ensured, e.g. by railway barriers.
-            // Often as a series of connected vehicles.
+            // A train often acts as a series of connected vehicles.
             //
             TYPE_TRAIN = 14;
 
@@ -1012,16 +1012,16 @@ message MovingObject
             TYPE_STANDUP_SCOOTER = 17;
 
             // A micro-mobility device is a small, lightweight vehicle for
-            // short-distance travel like hoverboards or roller skates.
-            // While bicycles, stand-up scooters and wheelchairs may technically
-            // fall into this category, the respective detailed categories shall
-            // be used instead.
+            // short-distance travel, like hoverboards or roller skates.
+            // While bicycles, stand-up scooters, and wheelchairs may
+            // technically fall into this category, the respective detailed
+            // categories shall be used instead.
             //
             // \note Usually considered as a vulnerable road user.
             //
             TYPE_MICROMOBILITY_DEVICE = 18;
 
-            // A work-machine is a vehicle designed for specific tasks (e.g.,
+            // A work machine is a vehicle designed for specific tasks (e.g.,
             // construction equipment, agricultural tractors, forklifts).
             //
             TYPE_WORK_MACHINE = 19;
@@ -1029,23 +1029,24 @@ message MovingObject
             // A watercraft is a vehicle designed for travel on water (boats,
             // ships, etc.).
             //
-            // \note This category is intentionally unspecific and may be
-            // detailed out in future versions if use-cases require so.
+            // \note This category is deliberately generic and may be refined in
+            // future versions as needed.
             //
             TYPE_WATERCRAFT = 20;
 
             // An aircraft is a vehicle designed for flight through the air
             // (airplanes, helicopters, etc.).
             //
-            // \note This category is intentionally unspecific and may be
-            // detailed out in future versions if use-cases require so.
+            // \note This category is deliberately generic and may be refined in
+            // future versions as needed.
             //
             TYPE_AIRCRAFT = 21;
 
             // A land vehicle is a vehicle designed for travel on land.
             //
-            // \note This category is intentionally unspecific and may be
-            // detailed out in future versions if use-cases require so.
+            // \note This category is deliberately generic to include land
+            // vehicles that do not fall into other categories and may be
+            // refined in future versions as needed.
             //
             TYPE_LAND_VEHICLE = 22;
         }
