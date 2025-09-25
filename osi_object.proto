@@ -760,23 +760,29 @@ message MovingObject
     {
         // Definition of vehicle types.
         //
-        // \note OSI provides a richer set of vehicle types than is supported by some
-        // other OpenX standards (in particular, OpenScenario 1.x and 2.x, and OpenLabel).
-        // This is primarily for historical reasons.  Where a single type from a
-        // different standard can map to multiple OSI types it is left up to the
-        // discretion of the OSI implementer how that mapping is achieved. In previous
-        // versions, for example, a simulator might have used the dimensions of a provided
-        // 3d model of a vehicle with type "car" in OpenScenario, to determine whether it
-        // should be a TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI. As part of the harmonization
-        // effort, it should now map to TYPE_CAR, which is an alias of the old TYPE_MEDIUM_CAR,
-        // and all other car type enums have been deprecated in favor of TYPE_CAR.
+        // \note OSI defines a set of vehicle types derived directly from the
+        // vehicle main categories specified in the ASAM TrafficParticipants
+        // Specification [1]. The type names and definitions reflect an effort
+        // toward compatibility with multiple ASAM OpenX standards, to support
+        // consistent cross-standard mapping. As part of ongoing and future
+        // harmonization efforts, OSI will continue to keep its vehicle type
+        // definitions synchronized with the ASAM TrafficParticipants
+        // Specification as permitted by technical and practical constraints.
         //
-        // \note Vehicle type classification is a complex area and there are no
-        // universally recognized standards.  As such, the boundaries between some of the
-        // OSI vehicle types are not well-defined.  It is left to the implementer to
-        // decide how to distinguish between them and agree that with any applications which
-        // make use of that specific interface instance.  For example, how to distinguish
-        // between a HEAVY_TRUCK and a DELIVERY_VAN, or a TRAILER and a SEMITRAILER.
+        // \note Historically, OSI offered a more granular set of vehicle types
+        // than some other OpenX standards (e.g., OpenSCENARIO XML/DSL and
+        // OpenLABEL). This was due to legacy design choices. Mapping a single
+        // type from another standard to multiple OSI types was left to the
+        // implementer's discretion. For instance, a simulator might have relied
+        // on the 3D model's dimensions for an OpenSCENARIO "car" to choose
+        // between TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI. With the ongoing
+        // harmonization effort, such ambiguities have been resolved. The
+        // recommended mapping is now TYPE_CAR, which serves as an alias for the
+        // former TYPE_MEDIUM_CAR. Previous car-specific enums (e.g.,
+        // TYPE_SMALL_CAR) have been deprecated in favor of TYPE_CAR.
+        //
+        // \par References:
+        // [1] ASAM e.V. (2024). <em>ASAM TrafficParticipants Specification</em>. ASAM OpenX Standards. Retrieved June 12, 2025, from https://publications.pages.asam.net/standards/ASAM_TrafficParticipants_Specification/ASAM_TrafficParticipants_Specification/v1.0.0/specification/index.html
         //
         enum Type
         {
@@ -808,10 +814,17 @@ message MovingObject
             //
             TYPE_COMPACT_CAR = 3;
 
-            // Vehicle is a car.
+            // A car is a motorized vehicle designed primarily for passenger
+            // transportation.
+            // Typically has four wheels.
             //
             // This is to be used for all car-like vehicles, without any
             // further differentiated type available.
+            //
+            // \note Corresponds roughly with UNECE [1] categories M1, G and L7.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_CAR = 4;
 
@@ -835,67 +848,207 @@ message MovingObject
             //
             // \image html OSI_TYPE_DELIVERY_VAN.svg
             //
+            // \note Deprecated differentiation, use TYPE_VAN instead
+            //
             TYPE_DELIVERY_VAN = 6;
 
-            // Vehicle is a (heavy) truck.
+            // A van is a motorized vehicle with a larger cargo area than a car,
+            // used for transporting goods or people.
+            //
+            // \note Corresponds roughly with UNECE [1] categories M2 and N1.
+            //
+            // \note This category is not intended for mini vans, which shall
+            // rather be categorized as cars.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
+            TYPE_VAN = 6;
+
+            // A heavy truck is a large commercial vehicle designed for
+            // transporting heavy loads.
+            // The cargo area is rigidly fixed to the vehicle itself.
+            //
+            // \note Corresponds roughly with UNECE [1] category "N2".
             //
             // \image html OSI_TYPE_HEAVY_TRUCK.svg
             //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
             TYPE_HEAVY_TRUCK = 7;
 
-            // Vehicle is a tractor capable of pulling a semi-trailer.
+            // A semi-tractor is a vehicle designed for towing semi-trailers for
+            // the transportation of heavy loads.
+            //
+            // \note Corresponds roughly with UNECE [1] category N3.
             //
             // \image html OSI_TYPE_SEMITRACTOR.svg
             //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
             TYPE_SEMITRACTOR = 16;
 
-            // This vehicle is a semi-trailer that can be pulled by a
+            // A semi-trailer is a vehicle designed for being towed by a
+            // semi-tractor.
+            // Characteristics compared to a regular trailer are the large size,
+            // the fact that a large portion of the weight is supported at the
+            // hitch, and a large overlap with the towing vehicle, i.e. the
             // semi-tractor.
             //
-            // \note The vehicle can be, but doesn't need to be,
-            // attached to another vehicle.
+            // \note Corresponds roughly with UNECE [1] category O4.
+            //
+            // \note Main reason for separation from the "Trailer" category is
+            // the difference in motion behavior (vehicle dynamics) and the
+            // different sensor perception due to the overlay with the towing
+            // vehicle.
+            //
+            // \note The vehicle can be, but doesn't need to be, attached to
+            // another vehicle.
             //
             // \image html OSI_TYPE_SEMITRAILER.svg
             //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
             TYPE_SEMITRAILER = 8;
 
-            // Vehicle is a trailer.
+            // A trailer is a non-motorized vehicle designed for being towed by
+            // a motorized vehicle to carry goods, animals, or people.
             //
-            // \note The vehicle can be, but doesn't need to be,
-            // attached to another vehicle.
+            // \note Corresponds roughly with UNECE [1] category O1 to O3.
+            //
+            // \note The vehicle can be, but doesn't need to be, attached to
+            // another vehicle.
             //
             // \image html OSI_TYPE_TRAILER.svg
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_TRAILER = 9;
 
             // Vehicle is a motorbike or moped.
             //
+            // \note Deprecated name, use TYPE_MOTORCYCLE instead
+            //
             TYPE_MOTORBIKE = 10;
 
-            // Vehicle is a bicycle (without motor and specific lights).
+            // A motorcycle is a motorized vehicle designed primarily for
+            // passenger transportation.
+            // Compared to a car, fewer passive safety features, such as a full
+            // passenger cell, are typically present.
+            // This category includes both two-wheeled motorcycles and
+            // three-wheeled vehicles like motorcycles with side-cars or trikes.
+            //
+            // \note Corresponds roughly with UNECE [1] categories L1 to L5.
+            //
+            // \note Usually considered as a vulnerable road user.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
+            //
+            TYPE_MOTORCYCLE = 10;
+
+            // A bicycle is a human-powered or motor-assisted, pedal-driven
+            // vehicle.
+            // This category includes typical two-wheeled bicycles as well as
+            // cargo-bikes and other pedal-driven vehicles with more than two
+            // wheels.
+            //
+            // \note Usually considered as a vulnerable road user.
             //
             TYPE_BICYCLE = 11;
 
-            // Vehicle is a bus.
+            // A bus is a motorized vehicle designed to carry multiple
+            // passengers.
+            //
+            // \note Corresponds roughly with UNECE [1] category M3 classes I,
+            // II, II.
+            //
+            // \par References:
+            // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
             //
             TYPE_BUS = 12;
 
-            // Vehicle is a tram.
+            // A tram is a vehicle designed for using rail infrastructure for
+            // the transport of passengers on rail infrastructure.
+            // The rail infrastructure may fully or partially overlap with
+            // public road infrastructure.
+            // In contrast to trains, trams do not have exclusive right-of-way.
+            // A tram often acts as a series of connected vehicles.
             //
             TYPE_TRAM = 13;
 
-            // Vehicle is a train.
+            // A train is a vehicle designed for the transport of passengers and
+            // freight on rail infrastructure.
+            // The rail infrastructure for trains is mostly grade-separated from
+            // the public road infrastructure as trains have exclusive
+            // right-of-way.
+            // Therefore, in case crossings with the road infrastructure occur,
+            // the exclusive right-of-way is ensured, e.g. by railway barriers.
+            // A train often acts as a series of connected vehicles.
             //
             TYPE_TRAIN = 14;
 
-            // Vehicle is a wheelchair.
+            // A wheelchair is a manually or electrically powered mobility
+            // device with a seat mounted on a wheeled frame.
+            // Manual propulsion may be provided by the seated person or a
+            // person pushing the wheelchair.
+            //
+            // \note Usually considered as a vulnerable road user.
             //
             TYPE_WHEELCHAIR = 15;
 
-            // Vehicle is a stand-up scooter, including
-            // motorized versions.
+            // A stand-up scooter is a compact, typically two-wheeled device.
+            // It is operated with the rider standing on a deck between the
+            // wheels.
+            // It may be propelled by a motor or the rider making a kicking
+            // movement.
+            //
+            // \note Usually considered as a vulnerable road user.
             //
             TYPE_STANDUP_SCOOTER = 17;
+
+            // A micro-mobility device is a small, lightweight vehicle for
+            // short-distance travel, like hoverboards or roller skates.
+            // While bicycles, stand-up scooters, and wheelchairs may
+            // technically fall into this category, the respective detailed
+            // categories shall be used instead.
+            //
+            // \note Usually considered as a vulnerable road user.
+            //
+            TYPE_MICROMOBILITY_DEVICE = 18;
+
+            // A work machine is a vehicle designed for specific tasks (e.g.,
+            // construction equipment, agricultural tractors, forklifts).
+            //
+            TYPE_WORK_MACHINE = 19;
+
+            // A watercraft is a vehicle designed for travel on water (boats,
+            // ships, etc.).
+            //
+            // \note This category is deliberately generic and may be refined in
+            // future versions as needed.
+            //
+            TYPE_WATERCRAFT = 20;
+
+            // An aircraft is a vehicle designed for flight through the air
+            // (airplanes, helicopters, etc.).
+            //
+            // \note This category is deliberately generic and may be refined in
+            // future versions as needed.
+            //
+            TYPE_AIRCRAFT = 21;
+
+            // A land vehicle is a vehicle designed for travel on land.
+            //
+            // \note This category is deliberately generic to include land
+            // vehicles that do not fall into other categories and may be
+            // refined in future versions as needed.
+            //
+            TYPE_LAND_VEHICLE = 22;
         }
 
         // The type of the vehicle.
