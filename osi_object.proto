@@ -770,11 +770,11 @@ message MovingObject
         // Specification as permitted by technical and practical constraints.
         //
         // \note Historically, OSI offered a more granular set of vehicle types
-        // than some other OpenX standards (e.g., OpenScenario XML/DSL and
-        // OpenLabel). This was due to legacy design choices. Mapping a single
+        // than some other OpenX standards (e.g., OpenSCENARIO XML/DSL and
+        // OpenLABEL). This was due to legacy design choices. Mapping a single
         // type from another standard to multiple OSI types was left to the
         // implementer's discretion. For instance, a simulator might have relied
-        // on the 3D model's dimensions for an OpenScenario "car" to choose
+        // on the 3D model's dimensions for an OpenSCENARIO "car" to choose
         // between TYPE_SMALL_CAR or TYPE_MEDIUM_CAR in OSI. With the ongoing
         // harmonization effort, such ambiguities have been resolved. The
         // recommended mapping is now TYPE_CAR, which serves as an alias for the
