@@ -1096,7 +1096,7 @@ message RaytracerViewConfiguration
         RAYTRACER_FORMAT_OTHER = 1;        
 
         // Raytracer format for Shoot and Bounce Approach (adapted for
-        // electromagnetic wave propagation)
+        // electromagnetic wave propagation) [1]
         //
         // The 64-byte message consists of the fields in the described order,
         // with all values as 32-bit IEEE-754 floats (float32) stored in
@@ -1155,6 +1155,9 @@ message RaytracerViewConfiguration
         //   Coordinate system: right-handed ([see OSI coordinate system definition](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html))
         //
         //   Offset: 52 (12 bytes)
+        //
+        // /par Reference
+        // [1] Brem, R., & Eibert, T. F. (2015, August). A Shooting and Bouncing Ray (SBR) Modeling Framework Involving Dielectrics and Perfect Conductors. IEEE Transactions on Antennas and Propagation, 63(8), 3599–3609. https://doi.org/10.1109/TAP.2015.2438318
         //
         RAYTRACER_FORMAT_SBR = 2;
         }
