@@ -1157,7 +1157,7 @@ message RaytracerViewConfiguration
         //   Offset: 52 (12 bytes)
         //
         // /par Reference
-        // [1] Brem, R., & Eibert, T. F. (2015, August). A Shooting and Bouncing Ray (SBR) Modeling Framework Involving Dielectrics and Perfect Conductors. IEEE Transactions on Antennas and Propagation, 63(8), 3599–3609. https://doi.org/10.1109/TAP.2015.2438318
+        // [1] Brem, R., & Eibert, T. F. (2015, August). A Shooting and Bouncing Ray (SBR) Modeling Framework Involving Dielectrics and Perfect Conductors. IEEE Transactions on Antennas and Propagation, 63(8), 3599-3609. https://doi.org/10.1109/TAP.2015.2438318
         //
         RAYTRACER_FORMAT_SBR = 2;
         }
