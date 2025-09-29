@@ -1115,7 +1115,7 @@ message RaytracerViewConfiguration
         //
         //   Offset: 4 (4 bytes)
         //
-        // * \c jones_matrices - float32[8] (V/m complex components)
+        // * \c jones_matrices - float32\[8\] (V/m complex components)
         //
         //   Contains the 2x2 Jones matrix (complex entries) of the ray with
         //   information of the electromagnetic wave's phase, signal strength
