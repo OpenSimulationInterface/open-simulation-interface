@@ -1156,8 +1156,76 @@ message RaytracerViewConfiguration
         //
         //   Offset: 52 (12 bytes)
         //
-        // /par Reference
+        // \par References:
         // [1] Brem, R., & Eibert, T. F. (2015, August). A Shooting and Bouncing Ray (SBR) Modeling Framework Involving Dielectrics and Perfect Conductors. IEEE Transactions on Antennas and Propagation, 63(8), 3599-3609. https://doi.org/10.1109/TAP.2015.2438318
+        //
+        // \par Kaitai Struct:
+        //
+        // \code{.yaml}
+        // meta:
+        // id: raytracer_format_sba
+        // title: Raytracer Shoot and Bounce Approach Message
+        // endian: le
+        // 
+        // seq:
+        // - id: intersection_path_length
+        //     type: f4
+        //     doc: Path length of the ray between First_Hitpoint and Last_Hitpoint.
+        // 
+        // - id: relative_speed
+        //     type: f4
+        //     doc: Summed relative speed due to interaction points with moving surfaces.
+        // 
+        // - id: jones_matrix
+        //     type: jones_matrix
+        //     doc: 2x2 Jones matrix of the ray (complex entries).
+        // 
+        // - id: direction_of_arrival_hitpoint
+        //     type: vector3
+        //     doc: Coordinates of the DoA (last hitpoint).
+        // 
+        // - id: direction_of_departure_hitpoint
+        //     type: vector3
+        //     doc: Coordinates of the DoD (first hitpoint).
+        // 
+        // types:
+        // complex_float:
+        //     seq:
+        //     - id: re
+        //         type: f4
+        //         doc: Real part of complex number.
+        //     - id: im
+        //         type: f4
+        //         doc: Imaginary part of complex number.
+        // 
+        // jones_matrix:
+        //     seq:
+        //     - id: vv
+        //         type: complex_float
+        //         doc: Vertical-vertical component.
+        //     - id: vh
+        //         type: complex_float
+        //         doc: Vertical-horizontal component.
+        //     - id: hv
+        //         type: complex_float
+        //         doc: Horizontal-vertical component.
+        //     - id: hh
+        //         type: complex_float
+        //         doc: Horizontal-horizontal component.
+        // 
+        // vector3:
+        //     seq:
+        //     - id: x
+        //         type: f4
+        //         doc: X-coordinate.
+        //     - id: y
+        //         type: f4
+        //         doc: Y-coordinate.
+        //     - id: z
+        //         type: f4
+        //         doc: Z-coordinate.
+        //
+        // \endcode
         //
         RAYTRACER_FORMAT_SBR = 2;
         }
