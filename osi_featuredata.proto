@@ -273,10 +273,6 @@ message RadarDetection
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
     //
-    // \rules
-    // refers_to: DetectedObject
-    // \endrules
-    //
     optional Identifier object_id = 2;
 
     // Measured position of the detection given in spherical coordinates in the
@@ -379,10 +375,6 @@ message LidarDetection
     // ID of the detected object this detection is associated to.
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
-    //
-    // \rules
-    // refers_to: DetectedObject
-    // \endrules
     //
     optional Identifier object_id = 2;
 
@@ -565,10 +557,6 @@ message UltrasonicDetection
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
     //
-    // \rules
-    // refers_to: DetectedObject
-    // \endrules
-    //
     optional Identifier object_id = 2;
 
     // Measured distance (radius) of the detection.
@@ -615,10 +603,6 @@ message UltrasonicIndirectDetection
     // ID of the detected object this detection is associated to.
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
-    //
-    // \rules
-    // refers_to: DetectedObject
-    // \endrules
     //
     optional Identifier object_id = 2;
 
@@ -705,10 +689,6 @@ message CameraDetection
     // ID of the detected object this detection is associated to.
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
-    //
-    // \rules
-    // refers_to: DetectedObject
-    // \endrules
     //
     optional Identifier object_id = 2;
 
