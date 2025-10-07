@@ -137,10 +137,6 @@ message LogicalDetection
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
     //
-    // \rules
-    // refers_to: DetectedObject
-    // \endrules
-    //
     optional Identifier object_id = 2;
 
     // Measured position of the logical detection given in cartesian coordinates
