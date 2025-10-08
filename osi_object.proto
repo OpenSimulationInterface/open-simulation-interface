@@ -1051,14 +1051,6 @@ message MovingObject
             // future versions as needed.
             //
             TYPE_AIRCRAFT = 21;
-
-            // A land vehicle is a vehicle designed for travel on land.
-            //
-            // \note This category is deliberately generic to include land
-            // vehicles that do not fall into other categories and may be
-            // refined in future versions as needed.
-            //
-            TYPE_LAND_VEHICLE = 22;
         }
 
         // The type of the vehicle.
