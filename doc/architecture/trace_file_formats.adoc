@@ -65,7 +65,7 @@ The file shall contain exactly one meta-data record with the `name` field being 
 
 `version`::
 The semantic version number of the OSI release that this OSI trace file conforms to.
-This is a string in the format `major.minor.patch`, for example `3.0.0`.
+This is a string in the format `major.minor.patch`, for example `3.8.0`.
 Note that this version number is not necessarily the same as the OSI schema version(s) used in the trace file.
 Rather, it indicates the version of the OSI trace file format itself.
 
@@ -78,11 +78,11 @@ The maximum version of the OSI schema used in the trace file OSI channels.
 This is a string in the format `major.minor.patch`, for example `3.7.0`.
 
 `min_protobuf_version`::
-The version of the protobuf implementation used in the trace file.
+The minimum version of the protobuf implementation used in the trace file.
 This is a string in the format `major.minor.patch`, for example `3.17.3`.
 
 `max_protobuf_version`::
-The version of the protobuf implementation used in the trace file.
+The maximum version of the protobuf implementation used in the trace file.
 This is a string in the format `major.minor.patch`, for example `3.26.0`.
 
 The `net.asam.osi.trace` meta-data record may also contain the following recommended `metadata` entries:
