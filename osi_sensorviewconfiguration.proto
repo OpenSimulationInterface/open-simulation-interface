@@ -1067,6 +1067,15 @@ message RaytracerViewConfiguration
     
     // Format of raytracer data (includes number, kind and format of channels).
     //
+    // The \c RayTracerFormat is used to facilitate information exchange between
+    // different modules within a shared context. The ray tracing provider
+    // communicates the location of the data on the GPU to the consumer.
+    // Additionally, the \c RayTracerFormat defines how this data should be
+    // interpreted, enabling the consumer to correctly process it during
+    // GPU-based post-processing. This configuration ensures that the consumer
+    // understands the structure and semantics of the data, allowing for
+    // efficient and accurate interpretation in the post-processing.
+    //
     // In the message provided by the sensor model, this field can
     // be repeated and all values are acceptable to the model, with
     // the most acceptable value being listed first, and the remaining
