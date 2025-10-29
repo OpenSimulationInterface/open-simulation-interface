@@ -237,10 +237,9 @@ message SensorViewConfiguration
     repeated UltrasonicSensorViewConfiguration
         ultrasonic_sensor_view_configuration = 1004;
         
-    // Raytracer-specific View Configuration(s).
+    // Ray tracer-specific View Configuration(s).
     //
-    repeated RaytracerViewConfiguration
-        raytracer_view_configuration = 1005;
+    repeated RayTracerViewConfiguration ray_tracer_view_configuration = 1005;
 }
 
 //
@@ -981,10 +980,10 @@ message UltrasonicSensorViewConfiguration
 
 
 //
-// \brief The configuration settings for the Raytracer View to be
+// \brief The configuration settings for the \c RayTracerView to be
 // provided by the environment simulation.
 //
-message RaytracerViewConfiguration
+message RayTracerViewConfiguration
 {
     // The ID of the sensor origin at host vehicle's mounting_position.
     //
@@ -1023,16 +1022,16 @@ message RaytracerViewConfiguration
     // mounting position (based on the vehicle configuration) when setting the
     // view configuration.
     //
-    // All raytracing results e.g. Hitpoint positions are given in this
+    // All ray tracing results e.g. Hitpoint positions are given in this
     // sensor coordinate system.
     //
     optional MountingPosition mounting_position = 2;
     
-    // Position of the raytracer`s receiver in the sensor coordinate system.
+    // Position of the ray tracer's receiver in the sensor coordinate system.
     // 
     repeated MountingPosition receiver_position = 3;
     
-    // Position of the raytracer`s transmitter in the sensor coordinate system.
+    // Position of the ray tracer's transmitter in the sensor coordinate system.
     //
     repeated MountingPosition transmitter_position = 4;
     
@@ -1042,8 +1041,8 @@ message RaytracerViewConfiguration
     //
     optional double emitter_wavelength = 5;
     
-    // When reaching the maximmum signal loss during raytracing further
-    // raytracing is aborted. The maximum signal loss is the relation between
+    // When reaching the maximum signal loss during ray tracing further
+    // ray tracing is aborted. The maximum signal loss is the relation between
     // current calculated signal strength and the emitted signal strength at the
     // ray generation.
     // 
@@ -1065,7 +1064,7 @@ message RaytracerViewConfiguration
     //
     optional uint32 max_number_of_interactions = 8;
     
-    // Format of raytracer data (includes number, kind and format of channels).
+    // Format of ray tracer data (includes number, kind and format of channels).
     //
     // The \c RayTracerFormat is used to facilitate information exchange between
     // different modules within a shared context. The ray tracing provider
@@ -1086,25 +1085,25 @@ message RaytracerViewConfiguration
     // data being provided by the simulation environment - which must
     // be one of the values the sensor model requested - or there
     // must be no value, indicating that the simulation environment
-    // cannot provide raytracer data in one of the requested formats.
+    // cannot provide ray tracer data in one of the requested formats.
     //
-    repeated RaytracerFormat raytracer_format = 9;
+    repeated RayTracerFormat ray_tracer_format = 9;
 
-    // Different predefined raytracer formats
+    // Different predefined ray tracer formats
     // 
-    enum RaytracerFormat
+    enum RayTracerFormat
     {
         // Type of channel format is unknown (must not be used).
         //
-        RAYTRACER_FORMAT_UNKNOWN = 0;
+        RAY_TRACER_FORMAT_UNKNOWN = 0;
 
         // Unspecified but known channel format.
         // Consider proposing an additional format if using
-        // \c #RAYTRACER_FORMAT_OTHER.
+        // \c #RAY_TRACER_FORMAT_OTHER.
         //
-        RAYTRACER_FORMAT_OTHER = 1;        
+        RAY_TRACER_FORMAT_OTHER = 1;        
 
-        // Raytracer format for Shoot and Bounce Approach (adapted for
+        // Ray tracer format for Shoot and Bounce Approach (adapted for
         // electromagnetic wave propagation) [1]
         //
         // The 64-byte message consists of the fields in the described order,
@@ -1145,29 +1144,29 @@ message RaytracerViewConfiguration
         //
         // * \c direction_of_arrival_hitpoint - float32[3] (meters):
         //
-        //   Coordinates of the DoA (last hitpoint) in the raytracer's
+        //   Coordinates of the DoA (last hitpoint) in the ray tracer's
         //   coordinate system defined by the mounting position.
         //
         //   Order: x, y, z
         //
-        //   Coordinate system: right-handed ([see OSI coordinate system definition](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html))
+        //   Coordinate system: right-handed (<a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html">see OSI coordinate system definition</a>)
         //
         //   Offset: 40 (12 bytes)
         //
         // * \c direction_of_departure_hitpoint - float32[3] (meters):
         //
-        //   Coordinates of the DoD (first hitpoint) in the raytracer's
+        //   Coordinates of the DoD (first hitpoint) in the ray tracer's
         //   coordinate system defined by the mounting position.
         //
         //   Order: x, y, z
         //
-        //   Coordinate system: right-handed ([see OSI coordinate system definition](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html))
+        //   Coordinate system: right-handed (<a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html">see OSI coordinate system definition</a>)
         //
         //   Offset: 52 (12 bytes)
         //
         // /par Reference
         // [1] Brem, R., & Eibert, T. F. (2015, August). A Shooting and Bouncing Ray (SBR) Modeling Framework Involving Dielectrics and Perfect Conductors. IEEE Transactions on Antennas and Propagation, 63(8), 3599-3609. https://doi.org/10.1109/TAP.2015.2438318
         //
-        RAYTRACER_FORMAT_SBR = 2;
-        }
+        RAY_TRACER_FORMAT_SBR = 2;
+    }
 }
