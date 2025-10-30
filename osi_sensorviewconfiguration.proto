@@ -1050,7 +1050,7 @@ message RayTracerViewConfiguration
     //
     optional double maximum_signal_loss = 6;
     
-    // The maximum path length desribes the ray's maximum overall distance. If
+    // The maximum path length describes the ray's maximum overall distance. If
     // the maximum path length is reached during simulation no further
     // interaction is calculated.
     //
@@ -1058,7 +1058,7 @@ message RayTracerViewConfiguration
     //
     optional double max_path_length = 7;
     
-    // The maximum number of interaction desribes the ray's maximum hits with
+    // The maximum number of interaction describes the ray's maximum hits with
     // surfaces. If the maximum number of interaction is reached during
     // simulation no further interaction is calculated.
     //
