@@ -101,6 +101,11 @@ message RoadMarking
     // \note It is implementation-specific how model_references are resolved to
     // 3d models.
     //
+    // \note Road markings' base objects are positioned differently from other
+    // OSI objects: their local z-axis corresponds to how the marking is placed
+    // on the xy-plane of the lane, rather than pointing upwards as it does for
+    // other objects.
+    //
     optional string model_reference = 6;
 
     //
