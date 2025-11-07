@@ -1,0 +1,74 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+= Open Simulation Interface (OSI) Python Bindings
+
+
+This section explains how to integrate OSI into your own C++ project.
+The C++ bindings are available in the separate ttps://github.com/OpenSimulationInterface/osi-python.git[osi-python] repository.
+
+== Installing using pip (Recommended)
+
+Currently OSI is not yet published to pypi.org and thus must be installed from the `osi-python`` repository directly.
+
+Steps::
+. Open a terminal.
+. Optionally create and activate a new virtual environment.
++
+[cols="1,1", options="header"]
+|===
+| Linux | Windows
+| `python3 -m venv venv`  
+
+`source venv/bin/activate`
+
+| `python -m venv venv`
+
+`venv\Scripts\activate`
+|===
+. Install Open Simulation Interface:
++
+----
+pip install git+https://github.com/OpenSimulationInterface/osi-python.git
+----
+. Now you can start a python shell or script and import from `osi3` and `osi3trace` e.g. 
++
+----
+python3 -c "from osi3.osi_sensorview_pb2 import SensorView"
+----
+
+. You can of course specify `osi-python` as dependency in your `pyproject.toml` 
++
+----
+[project]
+# ...
+dependencies = [
+    "open-simulation-interface@git+https://github.com/OpenSimulationInterface/osi-python.git"
+] 
+---- 
+
+== Installing from source
+
+Prerequisites::
+*  **Python 3.10 or later**.
+*  **pip**.
+
+Steps::
+1. Open a terminal.
+2. Clone the osi-python repository:
++
+----
+git clone --recurse-submodules https://github.com/OpenSimulationInterface/osi-python.git
+----
+3. Switch to the repository directory:
++
+----
+cd osi-python
+----
+4. Optionally create and activate a new virtual environment (see table above).
+5. Install Open Simulation Interface:
++
+----
+pip install .
+----
