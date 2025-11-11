@@ -4,8 +4,8 @@ include::{root-path}_config.adoc[]
 endif::[]
 = Open Simulation Interface (OSI) C++ Bindings
 
-This section explains how to integrate OSI into your own C++ project.
-The C++ bindings are available in the separate https://github.com/OpenSimulationInterface/osi-cpp.git[osi-cpp] repository.
+This section explains how to integrate OSI into your own C\++ project.
+The C\++ bindings are available in the separate https://github.com/OpenSimulationInterface/osi-cpp.git[osi-cpp] repository.
 
 You can refer to an example application in the examples of the
 https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples[OSI Sensor Model Packaging] repository.
