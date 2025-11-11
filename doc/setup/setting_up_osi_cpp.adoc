@@ -83,7 +83,9 @@ Basically, this can be set in CMake, e.g. https://cmake.org/cmake/help/latest/pr
 Therefore, it could make sense to still dynamically link against the C Runtime when statically linking _protobuf_ / OSI.
 (This is important e.g. when building shared libraries, since a static C runtime will create an isolated heap for your dll, which can lead to segfaults depending on what you expose on your public interfaces.)
 
-The easiest way to achieve static linking on Windows without setting all the stuff manually in Cmake and building _protobuf_ is to actually **install static _protobuf_ with dynamic c-runtime with vcpkg**:
+The easiest way to achieve static linking on Windows without setting all the stuff manually in Cmake and building _protobuf_ is to actually **install static _protobuf_ with dynamic c-runtime with vcpkg**.
+This will happen automatically if you use vcpkg with the CMake preset `vcpkg-windows`.
+If you want to installl the dependencies manually using vcpkg, then follow these instructions:
 
 Install vcpkg as per the vcpkg documentation.
 Create a new triplet file for the required combination of static library linking with dynamic runtime (usually needed for dynamic linking to still work):
@@ -95,7 +97,7 @@ set(VCPKG_CRT_LINKAGE dynamic)
 set(VCPKG_LIBRARY_LINKAGE static)
 ----
 
-Now the protobuf libraries can be built automatically using:
+After installing vcpkg as per the vcpkg documentation the protobuf libraries can be built using:
 ----
 vcpkg install --triplet=x64-windows-static-md protobuf
 ----
