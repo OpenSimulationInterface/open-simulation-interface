@@ -30,13 +30,15 @@ Especially for building on Windows, the use of **vcpkg** to handle dependencies 
 
 Prerequisites::
 * The environment variable `VCPKG_ROOT` must be set to the root of your vcpkg installation.
-* For Windows static linking, the static-md triplet is recommended (see also <<static_dynamic_linking, Static/Dynamic Linking>> explained below)
+* For Windows static linking, the static-md triplet is recommended (see also <<static_dynamic_linking, Static/Dynamic Linking>> explained below). This is offered via the `vcpkg-windows` CMake preset.
+* For other platforms, you can use the `vcpkg` CMake preset for building.
+
 
 Steps::
-. Configure the build using the vcpkg preset:
+. Configure the build using the `vcpkg` or `vcpkg-windows` preset:
 +
 ----
-cmake --preset default
+cmake --preset vcpkg # or vcpkg-windows
 ----
 . Perform the build:
 +
@@ -49,15 +51,21 @@ cmake --build build
 
 To build without vcpkg, you must ensure necessary prerequisites are installed and detectable by CMake. It is then usually enough to include the `osi-cpp` repository in your main `CMakeLists.txt`:
 ----
-set(LINK_WITH_SHARED_OSI OFF) # Check linking explaination below
-add_subdirectory(lib/osi-cpp) 
+add_subdirectory(osi-cpp)  # Adjust for the relative location of osi-cpp in your project
+# Recommended for static linking into a dynamic object (e.g. FMU), see explanations on linking below:
 target_link_libraries(YourTarget open_simulation_interface_pic)
+# Alternatively, for dynamic linking:
+# target_link_libraries(YourTarget open_simulation_interface)
+# Alternatively, for static linking into an static executable (not recommended):
+# target_link_libraries(YourTarget open_simulation_interface_static)
 
 ----
 
 == Static/Dynamic Linking [[static_dynamic_linking]]
 
-Static linking is the recommended way to package OSI FMUs for sharing with others to be integrated in a co-simulation: They should have minimal external dependencies in order to ensure maximum portability. For other use cases dynamic linking could be an option and is thus explained below.
+Static linking is the recommended way to package OSI FMUs for sharing with others to be integrated in a co-simulation:
+They should have minimal external dependencies in order to ensure maximum portability.
+For other use cases dynamic linking could be an option and is thus explained below.
 
 === Windows
 
