@@ -19,12 +19,9 @@ For usage examples, please refer to the official documentation:
   - [OSMPDummySensor](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples/OSMPDummySensor)
   - [OSMPCNetworkProxy](https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples/OSMPCNetworkProxy)
 
-## Installation
+## Setup
 
-For detailed installation instructions, please refer to the official documentation:
-- [Setting up OSI](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/setting_up_osi.html)
-  - [Installing _protobuf_ for static / dynamic linking](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_prerequisites.html)
-  - [Installing OSI for C++ on Linux](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_linux_cpp.html)
-  - [Installing OSI for Python on Linux](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_linux_python.html)
-  - [Installing OSI for C++ on Windows](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_windows_cpp.html)
-  - [Installing OSI for Python on Windows](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_windows_python.html)
+For detailed setup instructions, please refer to the official documentation:
+
+- [OSI C++ Bindings](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/setting_up_osi_cpp.html)
+- [OSI Python Bindings](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/setting_up_osi_python.html)
