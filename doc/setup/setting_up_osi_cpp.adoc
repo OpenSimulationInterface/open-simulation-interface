@@ -1,0 +1,132 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+= Open Simulation Interface (OSI) C++ Bindings
+
+This section explains how to integrate OSI into your own C\++ project.
+The C\++ bindings are available in the separate https://github.com/OpenSimulationInterface/osi-cpp.git[osi-cpp] repository.
+
+You can refer to an example application in the examples of the
+https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/tree/master/examples[OSI Sensor Model Packaging] repository.
+
+== Prerequisites
+- cmake (version 3.10.2 or higher)
+- git
+
+== Checkout the repository with submodules
+
+. Open a terminal in your project.
+. Clone the osi-cpp repository, including sub-modules:
++
+----
+git clone --recurse-submodules https://github.com/OpenSimulationInterface/osi-cpp.git
+----
+
+
+== Using vcpkg for dependencies (Recommended)
+
+Especially for building on Windows, the use of **vcpkg** to handle dependencies is recommended.
+
+Prerequisites::
+* The environment variable `VCPKG_ROOT` must be set to the root of your vcpkg installation.
+* For Windows static linking, the static-md triplet is recommended (see also <<static_dynamic_linking, Static/Dynamic Linking>> explained below). This is offered via the `vcpkg-windows` CMake preset.
+* For other platforms, you can use the `vcpkg` CMake preset for building.
+
+
+Steps::
+. Configure the build using the `vcpkg` or `vcpkg-windows` preset:
++
+----
+cmake --preset vcpkg # or vcpkg-windows
+----
+. Perform the build:
++
+----
+cmake --build build
+----
+
+
+== Building without vcpkg
+
+To build without vcpkg, you must ensure necessary prerequisites are installed and detectable by CMake. It is then usually enough to include the `osi-cpp` repository in your main `CMakeLists.txt`:
+----
+add_subdirectory(osi-cpp)  # Adjust for the relative location of osi-cpp in your project
+# Recommended for static linking into a dynamic object (e.g. FMU), see explanations on linking below:
+target_link_libraries(YourTarget open_simulation_interface_pic)
+# Alternatively, for dynamic linking:
+# target_link_libraries(YourTarget open_simulation_interface)
+# Alternatively, for static linking into an static executable (not recommended):
+# target_link_libraries(YourTarget open_simulation_interface_static)
+
+----
+
+== Static/Dynamic Linking [[static_dynamic_linking]]
+
+Static linking is the recommended way to package OSI FMUs for sharing with others to be integrated in a co-simulation:
+They should have minimal external dependencies in order to ensure maximum portability.
+For other use cases dynamic linking could be an option and is thus explained below.
+
+=== Windows
+
+Dynamic Linking (NOT RECOMMENDED)::
+
+Since on Windows symbols are not exported per default, it can be kind of annoying to deal with this during _protobuf_ header generation (see for example https://groups.google.com/g/protobuf/c/PDR1bqRazts).
+That is an important reason to use static linking.
+
+Static Linking::
+
+Static linking might require to manually build _protobuf_. 
+It is important to notice that on Windows you can also specify how to link against the C runtime.
+Basically, this can be set in CMake, e.g. https://cmake.org/cmake/help/latest/prop_tgt/MSVC_RUNTIME_LIBRARY.html
+
+Therefore, it could make sense to still dynamically link against the C Runtime when statically linking _protobuf_ / OSI.
+(This is important e.g. when building shared libraries, since a static C runtime will create an isolated heap for your dll, which can lead to segfaults depending on what you expose on your public interfaces.)
+
+The easiest way to achieve static linking on Windows without setting all the stuff manually in Cmake and building _protobuf_ is to actually **install static _protobuf_ with dynamic c-runtime with vcpkg**.
+This will happen automatically if you use vcpkg with the CMake preset `vcpkg-windows`.
+If you want to installl the dependencies manually using vcpkg, then follow these instructions:
+
+Install vcpkg as per the vcpkg documentation.
+Create a new triplet file for the required combination of static library linking with dynamic runtime (usually needed for dynamic linking to still work):
+Create a file named x64-windows-static-md.cmake in the triplets directory with the following content:
+
+----
+set(VCPKG_TARGET_ARCHITECTURE x64)
+set(VCPKG_CRT_LINKAGE dynamic)
+set(VCPKG_LIBRARY_LINKAGE static)
+----
+
+After installing vcpkg as per the vcpkg documentation the protobuf libraries can be built using:
+----
+vcpkg install --triplet=x64-windows-static-md protobuf
+----
+
+=== Linux
+
+Dynamic linking (NOT RECOMMENDED)::
+
+As already mentioned, shared linking is possible on Linux, but NOT RECOMMENDED.
+However, for dynamic linking install _protobuf_ (version 2.6.1 or higher) with apt: 
+----
+sudo apt-get install libprotobuf-dev protobuf-compiler
+----
+In the CMakeLists of the OSI project, `LINK_WITH_SHARED_OSI` has to be enabled.
+
+Static linking::
+
+A common error here is to just install _protobuf_ with apt and link against it. 
+This means that your OSI is build statically but still linking dynamically against _protobuf_.
+Here, again either _protobuf_ has to build statically from source or some solution e.g. vcpkg needs to be utilized.
+We recommend the following (as in the README of the OSI project):
+
+Install _protobuf_ (version 2.6.1 or higher) from source with `CXXFLAGS="-fPIC"` to allow static linking of your OSI FMUs (replace <version> with preferred release):
+----
+wget https://github.com/protocolbuffers/protobuf/releases/download/<version>/protobuf-all-<version>.tar.gz
+tar -xzf protobuf-all-<version>.tar.gz
+cd protobuf-<version>/
+./configure --disable-shared CXXFLAGS="-fPIC"
+make
+sudo make install
+sudo ldconfig
+----
