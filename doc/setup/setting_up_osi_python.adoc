@@ -44,7 +44,7 @@ python3 -c "from osi3.osi_sensorview_pb2 import SensorView"
 [project]
 # ...
 dependencies = [
-    "open-simulation-interface@git+https://github.com/OpenSimulationInterface/osi-python.git"
+    "osi-python @ git+https://github.com/OpenSimulationInterface/osi-python.git"
 ] 
 ---- 
 
