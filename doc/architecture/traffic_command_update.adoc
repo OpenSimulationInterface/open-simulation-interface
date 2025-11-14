@@ -4,6 +4,6 @@ include::{root-path}_config.adoc[]
 endif::[]
 = Traffic command update
 
-`TrafficCommandUpdate` messages enable the traffic participant model to send updates to the scenario engine about the execution of its received xref:architecture/traffic_command.adoc[TrafficCommand] input.
+`TrafficCommandUpdate` messages enable the traffic participant model to send updates to the scenario engine about the execution of its received TrafficCommand input.
 
 For more details, see xref:gen:structosi3_1_1TrafficCommandUpdate.adoc[].
