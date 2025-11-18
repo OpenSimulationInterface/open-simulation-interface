@@ -23,5 +23,7 @@ For usage examples, please refer to the official documentation:
 
 For detailed setup instructions, please refer to the official documentation:
 
-- [OSI C++ Bindings](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/setting_up_osi_cpp.html)
-- [OSI Python Bindings](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/setting_up_osi_python.html)
+- [OSI C++ Bindings Windows](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_windows_cpp.html)
+- [OSI C++ Bindings Linux](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_linux_cpp.html)
+- [OSI Python Bindings Windows](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_windows_python.html)
+- [OSI Python Bindings Linux](https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/setup/installing_linux_python.html)
