@@ -589,6 +589,10 @@ message LogicalLane
     //
     repeated TrafficRule traffic_rule = 17;
 
+    // The road type of the logical lane.
+    //
+    optional RoadType road_type = 18;
+
     //
     // Definition of available lane types.
     //
@@ -951,5 +955,73 @@ message LogicalLane
         }
     }
 
+    //
+    // Definition of available road types.
+    //
+    // The road types are aligned with OpenDRIVE and describe the type of a
+    // higher structure that spans one or multiple logical lanes.
+    //
+    enum RoadType
+    {
+        // Lane of unknown type. Do not use in ground truth.
+        //
+        ROAD_TYPE_UNKNOWN = 0;
+
+        // Any other type of road.
+        //
+        ROAD_TYPE_OTHER = 1;
+
+        // A road designated to accommodate multiple road users,
+        // such as pedestrian and cyclist.
+        //
+        ROAD_TYPE_LOWSPEED = 2;
+
+        // A road specially built for fast travel over long distances.
+        //
+        ROAD_TYPE_MOTORWAY = 3;
+
+        // A pedestrian exclusive road.
+        //
+        ROAD_TYPE_PEDESTRIAN = 4;
+
+        // A country road which is often narrow and unpaved.
+        //
+        ROAD_TYPE_RURAL = 5;
+
+        // A high capacity urban road.
+        //
+        ROAD_TYPE_TOWNARTERIAL = 6;
+
+        // An auxiliary road to direct traffic from the residential areas
+        // to the arterial roads.
+        //
+        ROAD_TYPE_TOWNCOLLECTOR = 7;
+
+        // A motor vehicle exclusive road designed to connect highways
+        // with urban areas.
+        //
+        ROAD_TYPE_TOWNEXPRESSWAY = 8;
+
+        // A road intended to serve residential areas.
+        //
+        ROAD_TYPE_TOWNLOCAL = 9;
+
+        // A street that is closed to through traffic and is designated
+        // for children's play activities.
+        //
+        ROAD_TYPE_TOWNPLAYSTREET = 10;
+
+        // A town road which is part of a private property.
+        //
+        ROAD_TYPE_TOWNPRIVATE = 11;
+
+        // A regular town road.
+        //
+        ROAD_TYPE_TOWN = 12;
+
+        // A road that is designated for cyclists.
+        //
+        ROAD_TYPE_BICYCLE = 13;
+    }
 }
 
