@@ -82,7 +82,7 @@ message StreamingUpdate
     // Entities that will no longer be updated, because they are considered
     // obsolete by the sender.
     //
-    // \note IDs are globally unique.
+    // \note Referenced IDs are globally unique.
     //
     repeated Identifier obsolete_id = 9;
 }
