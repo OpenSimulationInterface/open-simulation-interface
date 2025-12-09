@@ -67,6 +67,34 @@ message DetectedItemHeader
     //
     repeated Identifier sensor_id = 6;
 
+    // Additional data that is specific to radar sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a radar
+    // sensor.
+    //
+    optional RadarSpecificObjectData radar_specifics = 100;
+
+    // Additional data that is specific to lidar sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a lidar
+    // sensor.
+    //
+    optional LidarSpecificObjectData lidar_specifics = 101;
+
+    // Additional data that is specific to camera sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a camera
+    // sensor.
+    //
+    optional CameraSpecificObjectData camera_specifics = 102;
+
+    // Additional data that is specific to ultrasonic sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not an ultrasonic
+    // sensor.
+    //
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
+
     // Definition of measurement states.
     //
     enum MeasurementState
@@ -139,12 +167,16 @@ message DetectedStationaryObject
     // \note Field needs not to be set if simulated sensor is not a radar
     // sensor.
     //
+    // \note DEPRECATED: Use radar_specifics in DetectedItemHeader instead.
+    //
     optional RadarSpecificObjectData radar_specifics = 100;
 
     // Additional data that is specific to lidar sensors.
     //
     // \note Field needs not to be set if simulated sensor is not a lidar
     // sensor.
+    //
+    // \note DEPRECATED: Use lidar_specifics in DetectedItemHeader instead.
     //
     optional LidarSpecificObjectData lidar_specifics = 101;
 
@@ -153,12 +185,16 @@ message DetectedStationaryObject
     // \note Field needs not to be set if simulated sensor is not a camera
     // sensor.
     //
+    // \note DEPRECATED: Use camera_specifics in DetectedItemHeader instead.
+    //
     optional CameraSpecificObjectData camera_specifics = 102;
 
     // Additional data that is specific to ultrasonic sensors.
     //
     // \note Field needs not to be set if simulated sensor is not an ultrasonic
     // sensor.
+    //
+    // \note DEPRECATED: Use ultrasonic_specifics in DetectedItemHeader instead.
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
 
@@ -279,12 +315,16 @@ message DetectedMovingObject
     // \note Field needs not to be set if simulated sensor is not a radar
     // sensor.
     //
+    // \note DEPRECATED: Use radar_specifics in DetectedItemHeader instead.
+    //
     optional RadarSpecificObjectData radar_specifics = 100;
 
     // Additional data that is specific to lidar sensors.
     //
     // \note Field needs not to be set if simulated sensor is not a lidar
     // sensor.
+    //
+    // \note DEPRECATED: Use lidar_specifics in DetectedItemHeader instead.
     //
     optional LidarSpecificObjectData lidar_specifics = 101;
 
@@ -293,12 +333,16 @@ message DetectedMovingObject
     // \note Field needs not to be set if simulated sensor is not a camera
     // sensor.
     //
+    // \note DEPRECATED: Use camera_specifics in DetectedItemHeader instead.
+    //
     optional CameraSpecificObjectData camera_specifics = 102;
 
     // Additional data that is specific to ultrasonic sensors.
     //
     // \note Field needs not to be set if simulated sensor is not an ultrasonic
     // sensor.
+    //
+    // \note DEPRECATED: Use ultrasonic_specifics in DetectedItemHeader instead.
     //
     optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
 
