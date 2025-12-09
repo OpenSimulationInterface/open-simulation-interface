@@ -52,6 +52,27 @@ jobs:
           event-type: update-tag
           repository: OpenSimulationInterface/osi-documentation
           client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
+      - name: Update OSI CPP
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: update-tag
+          repository: OpenSimulationInterface/osi-cpp
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
+      - name: Update OSI Python
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: update-tag
+          repository: OpenSimulationInterface/osi-python
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
+      - name: Update Documentation
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          event-type: update-tag
+          repository: OpenSimulationInterface/qc-osi-trace
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
       - name: Provide downstream repos some time
         uses: whatnick/wait-action@v0.1.2
         with:
