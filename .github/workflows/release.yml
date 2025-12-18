@@ -38,13 +38,6 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [setup]
     steps:
-      - name: Update OSMP
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.MACHINE_USER_PAT }}
-          event-type: update-tag
-          repository: OpenSimulationInterface/osi-sensor-model-packaging
-          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}", "suffix": "${{needs.setup.outputs.output3}}", "source_repo": "${{ github.repository }}"}'
       - name: Update Documentation
         uses: peter-evans/repository-dispatch@v2
         with:
@@ -58,25 +51,29 @@ jobs:
           token: ${{ secrets.MACHINE_USER_PAT }}
           event-type: update-tag
           repository: OpenSimulationInterface/osi-cpp
-          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}", "suffix": "${{needs.setup.outputs.output3}}", "source_repo": "${{ github.repository }}"}'
       - name: Update OSI Python
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.MACHINE_USER_PAT }}
           event-type: update-tag
           repository: OpenSimulationInterface/osi-python
-          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
-      - name: Update Documentation
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}", "suffix": "${{needs.setup.outputs.output3}}", "source_repo": "${{ github.repository }}"}'
+      - name: Provide downstream repos some time
+        uses: whatnick/wait-action@v0.1.2
+        with:
+          time: '3m'
+      - name: Update OSMP
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.MACHINE_USER_PAT }}
           event-type: update-tag
-          repository: OpenSimulationInterface/qc-osi-trace
-          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}"}'
+          repository: OpenSimulationInterface/osi-sensor-model-packaging
+          client-payload: '{"tag": "v${{needs.setup.outputs.output1}}", "suffix": "${{needs.setup.outputs.output3}}", "source_repo": "${{ github.repository }}"}'
       - name: Provide downstream repos some time
         uses: whatnick/wait-action@v0.1.2
         with:
-          time: '1m'
+          time: '2m'
 
   
   ## Antora job, responsible for creating the Antora output of the release
