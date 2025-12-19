@@ -1250,6 +1250,10 @@ message MovingObject
         //
         enum Role
         {
+            // Allow aliases in enum
+            //
+            option allow_alias = true;
+
             // Role of vehicle is unknown (must not be used in ground truth).
             //
             ROLE_UNKNOWN = 0;
@@ -1258,41 +1262,109 @@ message MovingObject
             //
             ROLE_OTHER = 1;
 
-            // The vehicle role is civil, e.g. a "normal" car.
+            // Traffic participant that can be perceived as regular civilian and
+            // does not perceivably indicate any other role.
             //
             ROLE_CIVIL = 2;
 
-            // The vehicle role is ambulance.
+            // Traffic participant that can be perceived as belonging to a
+            // medical emergency service.
             //
             ROLE_AMBULANCE = 3;
 
+            // Traffic participant that can be perceived as belonging to the
+            // fire brigade.
+            //
+            ROLE_FIRE_BRIGADE = 4;
+
             // The vehicle role is fire fighting, e.g. fire engine.
+            //
+            // \note Deprecated differentiation, use ROLE_FIRE_BRIGADE instead
             //
             ROLE_FIRE = 4;
 
-            // The vehicle role is police.
+            // Traffic participant that can be perceived as belonging to a law
+            // enforcement agency.
             //
             ROLE_POLICE = 5;
 
-            // The vehicle role is public transport, e.g. a school bus.
+            // Traffic participant that can be perceived as a form of mass
+            // passenger transportation mode (e.g. public transport bus, rental
+            // passenger bus, tram) or clearly recognizable passenger
+            // transportation mode (e.g. taxi).
+            //
+            // \note Should not be used for HOV (high-occupancy vehicle) lane
+            // access: No indication of occupation state.
             //
             ROLE_PUBLIC_TRANSPORT = 6;
 
+            // Traffic participant that can be perceived as belonging to a
+            // roadside/breakdown assistance service, e.g. towing vehicle.
+            //
+            ROLE_ROADSIDE_ASSISTANCE = 7;
+
             // The vehicle role is roadside assistance, e.g. tow truck.
+            //
+            // \note Deprecated differentiation, use ROLE_ROADSIDE_ASSISTANCE
+            // instead
             //
             ROLE_ROAD_ASSISTANCE = 7;
 
-            // The vehicle role is garbage collection, e.g. a garbage truck or sweeper.
+            // Traffic participant that can be perceived as belonging to a
+            // garbage collection service.
             //
             ROLE_GARBAGE_COLLECTION = 8;
 
-            // The vehicle role is road construction, e.g. a excavator or tipper truck.
+            // Traffic participant that can be perceived as construction
+            // vehicle/construction worker (e.g. road construction, rail
+            // construction).
+            //
+            ROLE_CONSTRUCTION = 9;
+
+            // The vehicle role is road construction, e.g. a excavator or tipper
+            // truck.
+            //
+            // \note Deprecated differentiation, use ROLE_CONSTRUCTION instead
             //
             ROLE_ROAD_CONSTRUCTION = 9;
 
-            // The vehicle role is military, e.g. camouflaged truck.
+            // Traffic participant that can be perceived as belonging to a
+            // military force.
             //
             ROLE_MILITARY = 10;
+
+            // Traffic participant that can be perceived as freight transport,
+            // e.g. freight truck, delivery van, delivery bike, postman.
+            //
+            ROLE_FREIGHT_TRANSPORT = 11;
+
+            // Traffic participant that can be perceived as part of special
+            // transport (e.g. heavy or oversized load).
+            //
+            // \note The transport vehicle may be accompanied by support
+            // vehicles which can be assigned to the role Traffic Control.
+            //
+            ROLE_SPECIAL_TRANSPORT = 12;
+
+            // Traffic participant that can be perceived as part of dangerous
+            // goods/hazardous materials transport.
+            //
+            // \note The transport vehicle may be accompanied by support
+            // vehicles which can be assigned to the role Traffic Control.
+            //
+            ROLE_DANGEROUS_GOODS_TRANSPORT = 13;
+
+            // Traffic participant that can be perceived as agricultural
+            // machinery.
+            //
+            ROLE_AGRICULTURE = 14;
+
+            // Traffic participant that can be perceived as an obligated traffic
+            // control unit (e.g. railroad flagman, person responsible for
+            // traffic control at construction site, support vehicle for
+            // dangerous goods transport).
+            //
+            ROLE_TRAFFIC_CONTROL = 15;
         }
     }
 
