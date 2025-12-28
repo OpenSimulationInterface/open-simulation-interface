@@ -57,7 +57,6 @@ message LogicalLaneBoundary
     // The ID of the lane boundary.
     //
     // \rules
-    // is_globally_unique
     // is_set
     // \endrules
     //
@@ -329,12 +328,6 @@ message LogicalLaneBoundary
 message LogicalLane
 {
     // The ID of the logical lane.
-    //
-    // \note Note ID is global unique.
-    //
-    // \rules
-    // is_globally_unique
-    // \endrules
     //
     optional Identifier id = 1;
 
