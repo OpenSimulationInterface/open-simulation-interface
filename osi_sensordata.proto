@@ -73,6 +73,22 @@ message DetectedEntityHeader
         // Sensor temporary available.
         //
         DATA_QUALIFIER_TEMPORARY_AVAILABLE = 6;
+
+        // Reported data are from the sensor in a restricted view and performance.
+        //
+        DATA_QUALIFIER_REDUCE_IN_COVERAGE_AND_PERFORMANCE = 7;
+
+        // Reported data are from the sensor in a test mode.
+        //
+        DATA_QUALIFIER_TEST_MODE= 8;
+
+        // Mesaurement cycle was invalid, and no valid objects will be reported.
+        //
+        DATA_QUALIFIER_INVALID = 9;
+
+        // Reported data are from the sensor in a restricted performance.
+        //
+        DATA_QUALIFIER_REDUCED_PERFORMANCE = 10;
     }
 }
 
