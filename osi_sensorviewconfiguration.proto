@@ -236,6 +236,10 @@ message SensorViewConfiguration
     //
     repeated UltrasonicSensorViewConfiguration
         ultrasonic_sensor_view_configuration = 1004;
+        
+    // Ray tracer-specific View Configuration(s).
+    //
+    repeated RayTracerViewConfiguration ray_tracer_view_configuration = 1005;
 }
 
 //
@@ -972,4 +976,197 @@ message UltrasonicSensorViewConfiguration
 
     // TBD: Ultrasonic Sensor specific configuration.
     //
+}
+
+
+//
+// \brief The configuration settings for the \c RayTracerView to be
+// provided by the environment simulation.
+//
+message RayTracerViewConfiguration
+{
+    // The ID of the sensor origin at host vehicle's mounting_position.
+    //
+    // This is the ID of the simulated sensor, to be used in its detected
+    // features output.
+    //
+    // The ID is to be provided by the environment simulation, the sensor
+    // model is not in a position to provide a useful default value.
+    //
+    optional Identifier sensor_id = 1;
+
+    // The physical mounting position of the sensor (origin and orientation
+    // of the sensor coordinate system) given in vehicle coordinates [1].
+    // The physical position pertains to this detector individually, and
+    // governs the sensor-relative coordinates in features detected by this
+    // detector.
+    //
+    // \arg \b x-direction of sensor coordinate system: sensor viewing direction
+    // \arg \b z-direction of sensor coordinate system: sensor (up)
+    // \arg \b y-direction of sensor coordinate system: perpendicular to x and z
+    // right hand system
+    //
+    // \par Reference:
+    // [1] DIN Deutsches Institut fuer Normung e. V. (2013). <em>DIN ISO 8855 Strassenfahrzeuge - Fahrzeugdynamik und Fahrverhalten - Begriffe</em>. (DIN ISO 8855:2013-11). Berlin, Germany.
+    //
+    // \note The origin of vehicle's coordinate system in world frame is
+    // ( \c MovingObject::base . \c BaseMoving::position +
+    // Inverse_Rotation_yaw_pitch_roll( \c MovingObject::base . \c
+    // BaseMoving::orientation) * \c
+    // MovingObject::VehicleAttributes::bbcenter_to_rear) . The orientation of
+    // the vehicle's coordinate system is equal to the orientation of the
+    // vehicle's bounding box \c MovingObject::base . \c
+    // BaseMoving::orientation. \note A default position can be provided by the
+    // sensor model (e.g. to indicate the position the model was validated for),
+    // but this is optional; the environment simulation must provide a valid
+    // mounting position (based on the vehicle configuration) when setting the
+    // view configuration.
+    //
+    // All ray tracing results e.g. Hitpoint positions are given in this
+    // sensor coordinate system.
+    //
+    optional MountingPosition mounting_position = 2;
+    
+    // Position of the ray tracer's receiver in the sensor coordinate system.
+    // 
+    repeated MountingPosition receiver_position = 3;
+    
+    // Position of the ray tracer's transmitter in the sensor coordinate system.
+    //
+    repeated MountingPosition transmitter_position = 4;
+    
+    // The wavelength of the transmitted ray in the simulation.
+    //
+    // Unit: nm
+    //
+    optional double emitter_wavelength = 5;
+    
+    // When reaching the maximum signal loss during ray tracing further
+    // ray tracing is aborted. The maximum signal loss is the relation between
+    // current calculated signal strength and the emitted signal strength at the
+    // ray generation.
+    // 
+    // Unit: dB
+    //
+    optional double maximum_signal_loss = 6;
+    
+    // The maximum path length describes the ray's maximum overall distance. If
+    // the maximum path length is reached during simulation no further
+    // interaction is calculated.
+    //
+    // Unit: m
+    //
+    optional double max_path_length = 7;
+    
+    // The maximum number of interaction describes the ray's maximum hits with
+    // surfaces. If the maximum number of interaction is reached during
+    // simulation no further interaction is calculated.
+    //
+    optional uint32 max_number_of_interactions = 8;
+    
+    // Format of ray tracer data (includes number, kind and format of channels).
+    //
+    // The \c RayTracerFormat is used to facilitate information exchange between
+    // different modules within a shared context. The ray tracing provider
+    // communicates the location of the data on the GPU to the consumer.
+    // Additionally, the \c RayTracerFormat defines how this data should be
+    // interpreted, enabling the consumer to correctly process it during
+    // GPU-based post-processing. This configuration ensures that the consumer
+    // understands the structure and semantics of the data, allowing for
+    // efficient and accurate interpretation in the post-processing.
+    //
+    // In the message provided by the sensor model, this field can
+    // be repeated and all values are acceptable to the model, with
+    // the most acceptable value being listed first, and the remaining
+    // values indicating alternatives in descending order of preference.
+    //
+    // In the message provided to the sensor model, this field must
+    // contain exactly one value, indicating the format of the image
+    // data being provided by the simulation environment - which must
+    // be one of the values the sensor model requested - or there
+    // must be no value, indicating that the simulation environment
+    // cannot provide ray tracer data in one of the requested formats.
+    //
+    repeated RayTracerFormat ray_tracer_format = 9;
+
+    // Different predefined ray tracer formats
+    // 
+    enum RayTracerFormat
+    {
+        // Type of channel format is unknown (must not be used).
+        //
+        RAY_TRACER_FORMAT_UNKNOWN = 0;
+
+        // Unspecified but known channel format.
+        // Consider proposing an additional format if using
+        // \c #RAY_TRACER_FORMAT_OTHER.
+        //
+        RAY_TRACER_FORMAT_OTHER = 1;        
+
+        // Ray tracer format for Shoot and Bounce Approach (adapted for
+        // electromagnetic wave propagation) [1]
+        //
+        // The 64-byte message consists of the fields in the described order,
+        // with all values as 32-bit IEEE-754 floats (float32) stored in
+        // little-endian (least-significant byte first).
+        //
+        // * \c intersection_path_length - float32 (meters)
+        //
+        //   Path length of the ray between First_Hitpoint and Last_Hitpoint.
+        //
+        //   Offset: 0 (4 bytes)
+        //
+        // * \c relative_speed - float32 (meters/second)
+        //
+        //   Summed relative speed due to interaction points with moving
+        //   surfaces.
+        //
+        //   Offset: 4 (4 bytes)
+        //
+        // * \c jones_matrices - float32[8] (V/m complex components)
+        //
+        //   Contains the 2x2 Jones matrix (complex entries) of the ray with
+        //   information of the electromagnetic wave's phase, signal strength
+        //   and polarisation, which additionally provides the projection to the
+        //   subset of the Jones vectors.
+        //
+        //   Layout (in this order):
+        //   vv[re], vv[im], vh[re], vh[im], hv[re], hv[im], hh[re], hh[im]
+        //
+        //   \f[
+        //   J = \begin{bmatrix}
+        //   vv & vh \\
+        //   hv & hh
+        //   \end{bmatrix}
+        //   \f]
+        //
+        //   Offset: 8 (32 bytes)
+        //
+        // * \c direction_of_arrival_hitpoint - float32[3] (meters):
+        //
+        //   Coordinates of the DoA (last hitpoint) in the ray tracer's
+        //   coordinate system defined by the mounting position.
+        //
+        //   Order: x, y, z
+        //
+        //   Coordinate system: right-handed (<a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html">see OSI coordinate system definition</a>)
+        //
+        //   Offset: 40 (12 bytes)
+        //
+        // * \c direction_of_departure_hitpoint - float32[3] (meters):
+        //
+        //   Coordinates of the DoD (first hitpoint) in the ray tracer's
+        //   coordinate system defined by the mounting position.
+        //
+        //   Order: x, y, z
+        //
+        //   Coordinate system: right-handed (<a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/interface/usecases/transforming_coordinate_systems.html">see OSI coordinate system definition</a>)
+        //
+        //   Offset: 52 (12 bytes)
+        //
+        // /par Reference
+        // [1] Brem, R., & Eibert, T. F. (2015, August). A Shooting and Bouncing Ray (SBR) Modeling Framework Involving Dielectrics and Perfect Conductors. IEEE Transactions on Antennas and Propagation, 63(8), 3599-3609. https://doi.org/10.1109/TAP.2015.2438318
+        //
+        RAY_TRACER_FORMAT_SBR = 2;
+    }
 }
