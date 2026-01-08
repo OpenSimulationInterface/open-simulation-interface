@@ -1039,8 +1039,17 @@ message LaneBoundary
             TYPE_BARRIER = 14;
 
             // A sound barrier.
+            // Also known as noise protection wall.
             //
             TYPE_SOUND_BARRIER = 15;
+
+            // The lane boundary is a fence.
+            //
+            TYPE_FENCE = 16;
+
+            // The lane boundary is a tension cable system.
+            //
+            TYPE_TENSION_CABLE_SYSTEM = 17;
         }
 
         // The type of the lane boundary.
