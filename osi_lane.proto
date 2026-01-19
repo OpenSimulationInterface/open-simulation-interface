@@ -144,7 +144,7 @@ message Lane
     // </tr>
     // <tr>
     // <td>
-    // \c #free_lane_boundary_id = lb11
+    // \c #free_lane_boundary_id = lb11, lb12, lb13, lb14
     // </td>
     // </tr>
     // <tr>
@@ -370,6 +370,14 @@ message Lane
         //
         // \note \c Lane with \c #type = \c #TYPE_INTERSECTION use only free
         // lane boundaries.
+        //
+        // \note Free boundaries should be defined in clockwise direction. The starting
+        //       boundary can be chosen arbitrarily. 
+        //       Example: For the intersection lane l7 in image \ref Intersection our
+        //                starting boundary could be lb11. In this case, lb11 must be defined
+        //                from left to right. The next boundary would be lb14, defined from top to
+        //                bottom, then lb13 defined from right to left and finally lb12 defined from
+        //                bottom to top. 
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
