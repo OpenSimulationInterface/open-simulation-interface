@@ -1302,6 +1302,11 @@ message MovingObject
     // This is an extension to the \c MovingObject with additional information
     // describing a pedestrian in more detail.
     //
+    // \note The \c Bone type defined in this message is also reused by
+    // \c Occupant::Skeleton for vehicle occupant pose representation.
+    // In OSI 4, a common skeleton type is planned to replace both
+    // usages.
+    //
     message PedestrianAttributes
     {
         // Position offset from the center of the bounding box to the current position

@@ -3,6 +3,7 @@ syntax = "proto2";
 option optimize_for = SPEED;
 
 import "osi_common.proto";
+import "osi_object.proto";
 
 package osi3;
 
@@ -35,6 +36,55 @@ message Occupant
     //       and from sensors.
     //
     repeated ExternalReference source_reference = 3;
+
+    // The skeleton of the occupant.
+    //
+    // The skeleton represents the posture and body structure of the occupant
+    // within the host vehicle.
+    //
+    optional Skeleton skeleton = 4;
+
+    //
+    // \brief Skeleton data describing the posture of the occupant.
+    //
+    // The skeleton is defined relative to a root point. The root point
+    // itself is positioned relative to the vehicle's bounding box center
+    // using \c #bbcenter_to_root.
+    //
+    // \note This message reuses
+    // \c MovingObject::PedestrianAttributes::Bone to avoid type
+    // duplication. In OSI 4, a common skeleton type is planned to
+    // replace both this and \c MovingObject::PedestrianAttributes.
+    //
+    message Skeleton
+    {
+        // Position offset from the vehicle's bounding box center
+        // (\c MovingObject::base . \c BaseMoving::position) to the
+        // current position of the root point of the skeleton model,
+        // analogous to
+        // \c MovingObject::VehicleAttributes::bbcenter_to_rear.
+        //
+        optional Vector3d bbcenter_to_root = 1;
+
+        // List of all bones of the occupant.
+        //
+        // The number of bones may vary, based on the detail level of
+        // the model used. For example, some simulators will not include
+        // detailed data about the hands of an occupant.
+        //
+        // \note A bone of each type can be provided, or left out,
+        // depending on the desired level of detail, or available data.
+        // However, if a bone is defined, all bones in the chain from
+        // that bone back to the root point must be provided to create
+        // a complete chain.
+        //
+        // \note Reuses \c MovingObject::PedestrianAttributes::Bone
+        // for the bone definition. Bone positions and orientations are
+        // defined relative to the skeleton root point
+        // (\c #bbcenter_to_root).
+        //
+        repeated MovingObject.PedestrianAttributes.Bone skeleton_bone = 2;
+    }
 
     //
     // \brief Information regarding the classification of the occupant.
