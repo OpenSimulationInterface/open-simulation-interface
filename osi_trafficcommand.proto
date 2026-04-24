@@ -708,6 +708,8 @@ message TrafficAction
     // does not override lateral or longitudinal motion control. It provides
     // routing guidance that coexists with other motion-controlling actions
     // (e.g. SpeedAction, LaneChangeAction).
+    // \note The Route.route_id must be set and unique within all route
+    // messages exchanged with this traffic participant.
     //
     message AssignRouteAction
     {
