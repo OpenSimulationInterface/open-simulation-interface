@@ -316,13 +316,10 @@ message TrafficAction
     //
     // \brief Acquire global position action.
     //
-    // This action assigns a route to a traffic participant. The route
-    // assigned will be the shortest route (along roads or satisfying any
-    // other constraints a traffic participant is operating under) between
-    // the traffic participant's current position and the position specified.
-    //
-    // As with all routing actions, the exact way this route is achieved is
-    // under the control of the traffic participant model.
+    // This action assigns a target position to a traffic participant.
+    // The traffic participant is expected to navigate to this position
+    // autonomously (e.g. via the shortest route). Unlike AssignRouteAction,
+    // no explicit route is provided — routing is left to the participant.
     //
     // \note This action is aligned with the AcquirePositionAction of
     // OpenSCENARIO 1.0 using a WorldPosition position argument.
