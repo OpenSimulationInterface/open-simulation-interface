@@ -707,6 +707,10 @@ message TrafficAction
     // - Resolving any CatalogReferences
     // The resulting OSI Route contains only concrete LogicalLaneSegments;
     // the original RouteStrategy values and Position types are not forwarded.
+    // \note Unlike FollowTrajectoryAction and FollowPathAction, this action
+    // does not override lateral or longitudinal motion control. It provides
+    // routing guidance that coexists with other motion-controlling actions
+    // (e.g. SpeedAction, LaneChangeAction).
     //
     message AssignRouteAction
     {
