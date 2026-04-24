@@ -131,7 +131,7 @@ message TrafficAction
     //
     optional TeleportAction teleport_action = 12;
 
-    // A AssignRouteAction
+    // An AssignRouteAction
     //
     optional AssignRouteAction assign_route_action = 13;
 
