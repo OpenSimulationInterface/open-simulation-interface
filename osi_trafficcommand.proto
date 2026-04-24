@@ -698,9 +698,15 @@ message TrafficAction
     // This Action allows to assign a route to a traffic participant.
     //
     // \note This action is aligned with the AssignRouteAction of OpenSCENARIO
-    // 1.0, with the assumption that the scenario engine resolves the route
-    // (e.g. converting a "use shortest route" to a concrete route) before
-    // passing it to the traffic participant.
+    // 1.0, with the assumption that the scenario engine fully resolves the
+    // route before passing it to the traffic participant. Resolution includes:
+    // - Converting all OpenSCENARIO Position types to logical lane s-positions
+    // - Applying the RouteStrategy (e.g., shortest, fastest) to determine the
+    //   concrete path between waypoints
+    // - Unrolling closed routes into a linear segment sequence
+    // - Resolving any CatalogReferences
+    // The resulting OSI Route contains only concrete LogicalLaneSegments;
+    // the original RouteStrategy values and Position types are not forwarded.
     //
     message AssignRouteAction
     {
