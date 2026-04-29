@@ -7,8 +7,14 @@ import "osi_sensordata.proto";
 package osi3;
 
 //
-// \brief (Time) Series of \c SensorData messages that may be used for data
-// recording or internal buffering by some sensor models.
+// \brief (Time) Series of \c SensorData messages.
+//
+// \attention DEPRECATED: This message will be removed in OSI 4.0.0.
+// Use the OSI trace file formats instead, which generalize
+// the concept to any top-level message type and support streaming
+// without requiring all time steps to be held in memory at once.
+// Internal buffering by sensor models should be handled within the
+// sensor model implementation.
 //
 message SensorDataSeries
 {
@@ -20,6 +26,11 @@ message SensorDataSeries
 //
 // \brief List of sensors where each element contains a time series of
 // \c SensorData messages.
+//
+// \attention DEPRECATED: This message will be removed in OSI 4.0.0.
+// Use the OSI trace file formats instead, which generalize
+// the concept to any combination of top-level message types and
+// provide metadata, schema records, compression, and random access.
 //
 message SensorDataSeriesList
 {
