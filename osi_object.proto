@@ -599,6 +599,41 @@ message MovingObject
         //
         optional double radius_wheel = 2;
 
+        enum MotionControlType
+        {
+            // Type of motion control is unknown.
+            //
+            TYPE_UNKNOWN = 0;
+
+            // Other (unspecified but known) type of controller for moving object.
+            //
+            TYPE_OTHER = 1;
+
+            // Real world regular person controls vheicle.
+            //
+            TYPE_REGULAR_DRIVER = 2;
+
+            // Real world professional driver (e.g. safety driver) controls vehicle.
+            //
+            TYPE_PROFESSIONAL_DRIVER = 3;
+
+            // Object is controlled by ADAS function but driver is in responsible.
+            //
+            TYPE_ADAS = 4;
+
+            // Object is controlled by AD function (no responsibility but possibility for passenger (if there are any) to takeover).
+            //
+            TYPE_AD = 5;
+
+            // Object is controlled remotely.
+            //
+            TYPE_REMOTE = 6;
+        }
+
+        // The type of controller moving the object.
+        //
+        optional MotionControlType motion_control_type = 3;
+
         // Number of independent wheels.
         //
         // \rules
