@@ -554,6 +554,55 @@ message MovingObject
     //
     optional PedestrianAttributes pedestrian_attributes = 12;
 
+    enum MotionControlType
+    {
+        // Type of motion control is unknown.
+        //
+        TYPE_UNKNOWN = 0;
+
+        // Other (unspecified but known) type of controller for moving object.
+        //
+        TYPE_OTHER = 1;
+
+        // Real world regular person controls movement.
+        //
+        TYPE_REGULAR_PERSON = 2;
+
+        // Real world professional (e.g. safety driver) controls movement.
+        //
+        TYPE_PROFESSIONAL_PERSON = 3;
+
+        // Object is controlled by ADAS function but human is responsible.
+        //
+        TYPE_ADAS = 4;
+
+        // Object is controlled by AD function (no responsibility but possibility for human (if there are any) to takeover).
+        //
+        TYPE_AD = 5;
+
+        // Object is controlled by an everyday driving model 
+        // Definition: A model that includes the behaviour of a road user in uncritical traffic situations, including interaction with the infrastructure (Bärgman et al., "Guidelines for the development, quality, and use of models of road-user behaviour and models for in-crash simulations in virtual safety assessment", 2025)
+        //
+        TYPE_EVERYDAY_TRAFFIC_INTERACTION_MODEL = 6;
+
+        // Object is controlled by a critical event model 
+        // Definition: A model that describes a road user’s responses to the unfolding of a critical event (Bärgman et al., "Guidelines for the development, quality, and use of models of road-user behaviour and models for in-crash simulations in virtual safety assessment", 2025)
+        //
+        TYPE_CRITICAL_EVENT_MODEL = 7;
+
+        // Object is controlled by another model
+        //
+        TYPE_MODEL_OTHER = 8;
+
+        // Object is controlled remotely.
+        //
+        TYPE_REMOTE = 9;
+    }
+
+    // The type of controller moving the object.
+    //
+    optional MotionControlType motion_control_type = 0;
+
     //
     // \brief The vehicle attributes for \c MovingObject (host or other).
     //
@@ -598,55 +647,6 @@ message MovingObject
         // \endrules
         //
         optional double radius_wheel = 2;
-
-        enum MotionControlType
-        {
-            // Type of motion control is unknown.
-            //
-            TYPE_UNKNOWN = 0;
-
-            // Other (unspecified but known) type of controller for moving object.
-            //
-            TYPE_OTHER = 1;
-
-            // Real world regular person controls vheicle.
-            //
-            TYPE_REGULAR_DRIVER = 2;
-
-            // Real world professional driver (e.g. safety driver) controls vehicle.
-            //
-            TYPE_PROFESSIONAL_DRIVER = 3;
-
-            // Object is controlled by ADAS function but driver is in responsible.
-            //
-            TYPE_ADAS = 4;
-
-            // Object is controlled by AD function (no responsibility but possibility for passenger (if there are any) to takeover).
-            //
-            TYPE_AD = 5;
-
-            // Object is controlled by an everyday driving model 
-            // Definition: A model that includes the behaviour of a road user in uncritical traffic situations, including interaction with the infrastructure (Bärgman et al., "Guidelines for the development, quality, and use of models of road-user behaviour and models for in-crash simulations in virtual safety assessment", 2025)
-            //
-            TYPE_EVERYDAY_TRAFFIC_INTERACTION_MODEL = 6;
-
-            // Object is controlled by a critical event model 
-            // Definition: A model that describes a road user’s responses to the unfolding of a critical event (Bärgman et al., "Guidelines for the development, quality, and use of models of road-user behaviour and models for in-crash simulations in virtual safety assessment", 2025)
-            //
-            TYPE_CRITICAL_EVENT_MODEL = 7;
-
-            // Object is controlled by another model
-            //
-            TYPE_MODEL_OTHER = 8;
-
-            // Object is controlled remotely.
-            //
-            TYPE_REMOTE = 9;
-        }
-
-        // The type of controller moving the object.
-        //
-        optional MotionControlType motion_control_type = 0;
 
         // Number of independent wheels.
         //
