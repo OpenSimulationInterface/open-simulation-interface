@@ -4,6 +4,7 @@ option optimize_for = SPEED;
 
 import "osi_version.proto";
 import "osi_common.proto";
+import "osi_route.proto";
 
 package osi3;
 
@@ -129,6 +130,10 @@ message TrafficAction
     // A TeleportAction.
     //
     optional TeleportAction teleport_action = 12;
+
+    // An AssignRouteAction
+    //
+    optional AssignRouteAction assign_route_action = 13;
 
     //
     // \brief The action header
@@ -311,13 +316,10 @@ message TrafficAction
     //
     // \brief Acquire global position action.
     //
-    // This action assigns a route to a traffic participant. The route
-    // assigned will be the shortest route (along roads or satisfying any
-    // other constraints a traffic participant is operating under) between
-    // the traffic participant's current position and the position specified.
-    //
-    // As with all routing actions, the exact way this route is achieved is
-    // under the control of the traffic participant model.
+    // This action assigns a target position to a traffic participant.
+    // The traffic participant is expected to navigate to this position
+    // autonomously (e.g. via the shortest route). Unlike AssignRouteAction,
+    // no explicit route is provided — routing is left to the participant.
     //
     // \note This action is aligned with the AcquirePositionAction of
     // OpenSCENARIO 1.0 using a WorldPosition position argument.
@@ -686,5 +688,37 @@ message TrafficAction
         // is under control of the traffic participant.
         //
         optional Orientation3d orientation = 3;
+    }
+
+    // \brief Assign Route Action
+    //
+    // This Action allows to assign a route to a traffic participant.
+    //
+    // \note This action is aligned with the AssignRouteAction of OpenSCENARIO
+    // 1.0, with the assumption that the scenario engine fully resolves the
+    // route before passing it to the traffic participant. Resolution includes:
+    // - Converting all OpenSCENARIO Position types to logical lane s-positions
+    // - Applying the RouteStrategy (e.g., shortest, fastest) to determine the
+    //   concrete path between waypoints
+    // - Unrolling closed routes into a linear segment sequence
+    // - Resolving any CatalogReferences
+    // The resulting OSI Route contains only concrete LogicalLaneSegments;
+    // the original RouteStrategy values and Position types are not forwarded.
+    // \note Unlike FollowTrajectoryAction and FollowPathAction, this action
+    // does not override lateral or longitudinal motion control. It provides
+    // routing guidance that coexists with other motion-controlling actions
+    // (e.g. SpeedAction, LaneChangeAction).
+    // \note The Route.route_id must be set and unique within all route
+    // messages exchanged with this traffic participant.
+    //
+    message AssignRouteAction
+    {
+        // The Action Header
+        //
+        optional ActionHeader action_header = 1;
+
+        // The route to be assigned to the traffic participant.
+        //
+        optional Route route = 2;
     }
 }
