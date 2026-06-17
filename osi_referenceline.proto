@@ -28,10 +28,7 @@ message ReferenceLine
 {
     // The ID of the reference line.
     //
-    // \note Note ID is global unique.
-    //
     // \rules
-    // is_globally_unique
     // is_set
     // \endrules
     //
