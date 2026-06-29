@@ -140,6 +140,13 @@ message TrafficLight
         //
         repeated LogicalLaneAssignment logical_lane_assignment = 7;
 
+        // Shared group identifier for related bulbs.
+        //
+        // \note All bulbs belonging to the same signal unit share the identical \c #group_id .
+        // \note The id must be globally unique within a single ground_truth message.
+        // All traffic lights with identical \c #group_id form one logical traffic signal unit.
+        optional Identifier group_id = 8;
+
         // Definition of semantic colors for traffic lights.
         //
         // \note The color types represent the semantic classification of a traffic light
