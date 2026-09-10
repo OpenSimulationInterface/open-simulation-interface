@@ -19,17 +19,27 @@ message LogicalDetectionData
     // The interface version used by the sender (i.e. the simulation
     // environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // Header attributes of fused detections from multiple sensors and sensor types.
     //
     optional LogicalDetectionDataHeader header = 2;
 
-    // logical detections consisting of transformed (and potentially fused) detections from one or multiple sensors and sensor types.
-    // Logical detections are given with respect to the reference frame of the logical/virtual sensor
-    // \c SensorView::mounting_position (e.g. center of rear axle of the ego car)
+    // Logical detections consisting of transformed (and potentially fused)
+    // detections from one or multiple sensors and sensor types.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
+    // The parent frame of a logical detection is the virtual sensor coordinate
+    // system specified by \c SensorView::mounting_position .
+    //
+    // /note The virtual sensor coordinate system is relative to the vehicle
+    // coordinate system which has its origin in the center of the rear axle of
+    // the ego vehicle. This means if virtual sensor mounting position and
+    // orientation are set to (0,0,0) the virtual sensor coordinate system
+    // coincides with the vehicle coordinate system.
     //
     repeated LogicalDetection logical_detection = 3;
 }
@@ -127,14 +137,10 @@ message LogicalDetection
     //
     // \note ID = MAX(uint64) indicates no reference to an object.
     //
-    // \rules
-    // refers_to: DetectedObject
-    // \endrules
-    //
     optional Identifier object_id = 2;
 
-    // Measured position of the logical detection given in cartesian coordinates in the
-    // host vehicle coordinate system.
+    // Measured position of the logical detection given in cartesian coordinates
+    // in the virtual sensor coordinate system.
     //
     // Unit: m
     //
@@ -145,7 +151,7 @@ message LogicalDetection
     optional Vector3d position_rmse = 4;
 
     // Velocity of the logical detection given in cartesian coordinates in the
-    // host vehicle coordinate system.
+    // virtual sensor coordinate system.
     //
     // Unit: m/s
     //
@@ -198,6 +204,24 @@ message LogicalDetection
     // Basic classification of the logical detection.
     //
     optional LogicalDetectionClassification classification = 11;
+
+    // Echo pulse width of the logical detection's echo.
+    // Several sensors output an echo pulse width instead of an intensity for each individual detection.
+    // The echo pulse is measured in m and measures the extent of the object parts or atmospheric particles that produce the echo.
+    // \note For more details see [1] Fig. 7 and 8.
+    // \note Fig. 7 shows an example where the two echos are reflected from the edges A-B and C-D.
+    // \note Fig. 8 shows how the echo pulse width is measured as the range between the rising edge and the falling edge that crosses the intensity threshold.
+    //
+    // Unit: m
+    //
+    // \rules
+    // is_greater_than_or_equal_to: 0
+    // \endrules
+    //
+    // \par Reference:
+    // [1] Rosenberger, P., Holder, M.F., Cianciaruso, N. et al. (2020). <em>Sequential lidar sensor system simulation: a modular approach for simulation-based safety validation of automated driving</em> Automotive Engine Technology 5, Fig 7, Fig 8. Retrieved May 10, 2021, from https://doi.org/10.1007/s41104-020-00066-x
+    //
+    optional double echo_pulse_width = 12;
 }
 
 // Definition of basic logical detection classifications.

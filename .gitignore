@@ -20,8 +20,8 @@ build
 cmake_install.cmake
 install_manifest.txt
 osi_version.proto
-version.py
-pyproject.toml
+
+compile_commands.json
 
 # Eclipse-specific files, if any
 *.cproject
@@ -30,6 +30,8 @@ pyproject.toml
 
 # Python-generated files
 __pycache__/
+.venv/
+venv/
 *.py[cod]
 proto2cpp.log
 .clang-format
@@ -38,3 +40,6 @@ githooks/pre-commit
 # PyCharm specific files
 .idea
 .vscode/settings.json
+
+# Local build tool output
+local_build_tools/*.html

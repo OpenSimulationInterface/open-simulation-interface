@@ -36,6 +36,10 @@ message SensorView
 {
     // The interface version used by the sender (simulation environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The data timestamp of the simulation environment. Zero time is arbitrary
@@ -48,6 +52,10 @@ message SensorView
     // (there is no inherent latency for sensor view data, as opposed to
     // sensor data).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The ID of the sensor at host vehicle's \c #mounting_position.
@@ -57,20 +65,22 @@ message SensorView
     // which are used in the detected features.
     //
     // \rules
-    // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier sensor_id = 3;
 
-    // The virtual mounting position of the sensor (origin and orientation
-    // of the sensor coordinate system) given in vehicle coordinates [1].
-    // The virtual position pertains to the sensor as a whole, regardless
-    // of the actual position of individual physical detectors, and governs
-    // the sensor-relative coordinates in detected objects of the sensor
-    // as a whole. Individual features detected by individual physical
-    // detectors are governed by the actual physical mounting positions
-    // of the detectors, as indicated in the technology-specific sub-views
-    // and sub-view configurations.
+    // The virtual mounting position of the sensor (origin and orientation of
+    // the sensor frame). Both origin and orientation are given in and with
+    // respect to the host vehicle coordinate system [1].
+    //
+    // The virtual position pertains to the sensor as a whole, regardless of the
+    // actual position of individual physical detectors, and governs the
+    // sensor-relative coordinates in detected objects of the sensor as a whole.
+    // Individual features detected by individual physical detectors are
+    // governed by the actual physical mounting positions of the detectors, as
+    // indicated in the technology-specific sub-views and sub-view
+    // configurations.
     //
     // \arg \b x-direction of sensor coordinate system: sensor viewing direction
     // \arg \b z-direction of sensor coordinate system: sensor (up)
@@ -89,6 +99,10 @@ message SensorView
     // the vehicle's coordinate system is equal to the orientation of the
     // vehicle's bounding box \c MovingObject::base . \c
     // BaseMoving::orientation.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional MountingPosition mounting_position = 4;
 
@@ -124,38 +138,29 @@ message SensorView
     // The ID of the host vehicle in the \c #global_ground_truth data.
     //
     // \rules
-    // refers_to: 'MovingObject'
+    // refers_to: MovingObject
+    // is_set
     // \endrules
     //
     optional Identifier host_vehicle_id = 8;
 
     // Generic SensorView(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated GenericSensorView generic_sensor_view = 1000;
 
     // Radar-specific SensorView(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated RadarSensorView radar_sensor_view = 1001;
 
     // Lidar-specific SensorView(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated LidarSensorView lidar_sensor_view = 1002;
 
     // Camera-specific SensorView(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CameraSensorView camera_sensor_view = 1003;
 
     // Ultrasonic-specific SensorView(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated UltrasonicSensorView ultrasonic_sensor_view = 1004;
 }
@@ -187,8 +192,6 @@ message RadarSensorView
     //
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think of scan lines in a TV).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Reflection reflection = 2;
 
@@ -261,8 +264,6 @@ message LidarSensorView
     // This field includes one entry for each ray, in left-to-right,
     // top-to-bottom order (think of scan lines in a TV).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated Reflection reflection = 2;
 
     //
@@ -299,7 +300,7 @@ message LidarSensorView
 
         // normal to surface angle.
         //
-        // The normal of the transmitted beam to the object, roadmarking etc
+        // The normal of the transmitted beam to the object, road marking, etc.
         // encounter. \note data is in Lidar coordinate system
         //
         // Unit: unit vector
@@ -307,7 +308,7 @@ message LidarSensorView
         optional Vector3d normal_to_surface = 5;
 
         // ID of the detected object this reflection is associated to.
-        // can be used for raytracing debug
+        // can be used for ray tracing debug
         //
         // \note ID = MAX(uint64) indicates no reference to an object.
         optional Identifier object_id = 6;
@@ -327,8 +328,10 @@ message CameraSensorView
 
     // Raw image data.
     //
-    // The raw image data in the memory layout and order specified by the
-    // camera sensor input configuration.
+    // The raw image data in the memory layout specified by the camera    
+    // sensor input configuration. The pixel order is specified in 
+    // CameraSensorViewConfiguration.pixel_order with the 
+    // default value PIXEL_ORDER_DEFAULT (i.e. left-to-right, top-to-bottom).
     //
     optional bytes image_data = 2;
 }

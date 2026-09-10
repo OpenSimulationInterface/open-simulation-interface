@@ -6,11 +6,12 @@ import unittest
 
 PROTO_FILES = glob.glob("*.proto")
 
+
 class TestCommentType(unittest.TestCase):
-    ''' Test class for mandatory comments. '''
+    """Test class for mandatory comments."""
 
     def test_brief_necessity(self):
-        ''' Test the necessity of "brief" comment. '''
+        """Test the necessity of "brief" comment."""
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -20,15 +21,14 @@ class TestCommentType(unittest.TestCase):
                 saveStatement = ""
 
                 for i, line in enumerate(fin, start=1):
-
                     # Divide statement and comment. Concatenate multi line statements.
 
                     # Search for comment ("//").
                     matchComment = re.search("//", line)
 
                     if matchComment is not None:
-                        statement = line[:matchComment.start()]
-                        comment = line[matchComment.end():]
+                        statement = line[: matchComment.start()]
+                        comment = line[matchComment.end() :]
                     else:
                         statement = line
                         comment = ""
@@ -47,30 +47,47 @@ class TestCommentType(unittest.TestCase):
                         saveStatement = statement
                         statement = ""
                     else:
-                        saveStatement = statement[matchSep.end():]
-                        statement = statement[:matchSep.end()]
+                        saveStatement = statement[matchSep.end() :]
+                        statement = statement[: matchSep.end()]
 
                     statement = statement.strip()
                     # Test to check if '\\brief' is appended in comment section for short comments.
                     if matchComment is not None:
-                        noComment += 1;
+                        noComment += 1
                         if comment.find("\\brief") != -1:
                             hasBrief = True
 
                     elif len(saveStatement) == 0:
-                        if re.search(r"\bmessage\b", statement) is not None or re.search(r"\bextend\b",statement) is not None:
-                            self.assertTrue(hasBrief, file + " in line " + str(i - 1) + ": \\brief section in comment is missing for: '" + statement + "'")
+                        if (
+                            re.search(r"\bmessage\b", statement) is not None
+                            or re.search(r"\bextend\b", statement) is not None
+                        ):
+                            self.assertTrue(
+                                hasBrief,
+                                file
+                                + " in line "
+                                + str(i - 1)
+                                + ": \\brief section in comment is missing for: '"
+                                + statement
+                                + "'",
+                            )
 
                         elif hasBrief:
-                            self.assertFalse(hasBrief, file + " in line " + str(i - 1) + ": \\brief section in comment is not necessary for: '" + statement + "'")
+                            self.assertFalse(
+                                hasBrief,
+                                file
+                                + " in line "
+                                + str(i - 1)
+                                + ": \\brief section in comment is not necessary for: '"
+                                + statement
+                                + "'",
+                            )
 
                         noComment = 0
                         hasBrief = False
 
-
-
     def test_min_two_lines(self):
-        ''' Test to check if short comment is of minimum two lines. '''
+        """Test to check if short comment is of minimum two lines."""
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -87,8 +104,8 @@ class TestCommentType(unittest.TestCase):
                     matchComment = re.search("//", line)
 
                     if matchComment is not None:
-                        statement = line[:matchComment.start()]
-                        comment = line[matchComment.end():]
+                        statement = line[: matchComment.start()]
+                        comment = line[matchComment.end() :]
                     else:
                         statement = line
                         comment = ""
@@ -107,23 +124,29 @@ class TestCommentType(unittest.TestCase):
                         saveStatement = statement
                         statement = ""
                     else:
-                        saveStatement = statement[matchSep.end():]
-                        statement = statement[:matchSep.end()]
+                        saveStatement = statement[matchSep.end() :]
+                        statement = statement[: matchSep.end()]
 
                     # Test to check if '\\brief' is appended in comment section for short comments.
                     if matchComment is not None:
-                        noComment += 1;
+                        noComment += 1
                         if comment.find("\\brief") != -1:
                             hasBrief = True
 
                     elif len(saveStatement) == 0:
-                        self.assertNotEqual(noComment, 1, file + " in line " + str(i - 1) + ": short comment - min. 2 lines.")
+                        self.assertNotEqual(
+                            noComment,
+                            1,
+                            file
+                            + " in line "
+                            + str(i - 1)
+                            + ": short comment - min. 2 lines.",
+                        )
                         noComment = 0
                         hasBrief = False
 
-
     def test_comment_existence(self):
-        ''' Test to check if every message, extend , statement or enum has a comment. '''
+        """Test to check if every message, extend , statement or enum has a comment."""
 
         for file in PROTO_FILES:
             with open(file, "rt") as fin, self.subTest(file=file):
@@ -140,8 +163,8 @@ class TestCommentType(unittest.TestCase):
                     matchComment = re.search("//", line)
 
                     if matchComment is not None:
-                        statement = line[:matchComment.start()]
-                        comment = line[matchComment.end():]
+                        statement = line[: matchComment.start()]
+                        comment = line[matchComment.end() :]
                     else:
                         statement = line
                         comment = ""
@@ -160,9 +183,8 @@ class TestCommentType(unittest.TestCase):
                         saveStatement = statement
                         statement = ""
                     else:
-                        saveStatement = statement[matchSep.end():]
-                        statement = statement[:matchSep.end()]
-
+                        saveStatement = statement[matchSep.end() :]
+                        statement = statement[: matchSep.end()]
 
                     if isEnum is False:
                         # Check if not inside an enum.
@@ -172,12 +194,15 @@ class TestCommentType(unittest.TestCase):
                         if matchMessage is not None:
                             # a new message or a new nested message
                             noMessage += 1
-                            endOfLine = statement[matchMessage.end():]
+                            endOfLine = statement[matchMessage.end() :]
                             matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                             if matchName is not None:
                                 # Test case 10: Check name - no special char -
                                 # start with a capital letter
-                                matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b",endOfLine[matchName.start():matchName.end()])
+                                matchNameConv = re.search(
+                                    r"\b[A-Z][a-zA-Z0-9]*\b",
+                                    endOfLine[matchName.start() : matchName.end()],
+                                )
 
                         elif re.search(r"\bextend\b", statement) is not None:
                             # treat extend as message
@@ -187,21 +212,31 @@ class TestCommentType(unittest.TestCase):
                             if noMessage > 0:
                                 matchName = re.search(r"\b\w[\S]*\b\s*=", statement)
                                 if matchName is not None:
-                                    checkName = statement[matchName.start():matchName.end()-1]
+                                    checkName = statement[
+                                        matchName.start() : matchName.end() - 1
+                                    ]
 
                                     # Check field message type (remove field name)
                                     type = statement.replace(checkName, "")
                                     matchName = re.search(r"\b\w[\S\.]*\s*=", type)
                                     if matchName is not None:
-                                        checkType = " "+type[matchName.start():matchName.end()-1]+" "
+                                        checkType = (
+                                            " "
+                                            + type[
+                                                matchName.start() : matchName.end() - 1
+                                            ]
+                                            + " "
+                                        )
                                         # Test case 12: Check nested message type
-                                        matchNameConv = re.search(r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",checkType)
+                                        matchNameConv = re.search(
+                                            r"[ ][a-zA-Z][a-zA-Z0-9]*([\.][A-Z][a-zA-Z0-9]*)*[ ]",
+                                            checkType,
+                                        )
 
                         # Search for a closing brace.
                         matchClosingBrace = re.search("}", statement)
                         if noMessage > 0 and matchClosingBrace is not None:
                             noMessage -= 1
-
 
                     # Test to check if '\\brief' is appended in comment section for short comments.
                     if matchComment is not None:
@@ -210,16 +245,36 @@ class TestCommentType(unittest.TestCase):
                             hasBrief = True
 
                     elif len(saveStatement) == 0:
-
                         statement = statement.strip()
 
-                        if re.search(r"\bmessage\b", statement) is not None or re.search(r"\bextend\b",statement) is not None or re.search(r"\benum\b", statement) is not None:
-
-                            self.assertNotEqual(noComment, 0, file + " in line " + str(i - 1) + ": comment is missing for: '" + statement + "'")
+                        if (
+                            re.search(r"\bmessage\b", statement) is not None
+                            or re.search(r"\bextend\b", statement) is not None
+                            or re.search(r"\benum\b", statement) is not None
+                        ):
+                            self.assertNotEqual(
+                                noComment,
+                                0,
+                                file
+                                + " in line "
+                                + str(i - 1)
+                                + ": comment is missing for: '"
+                                + statement
+                                + "'",
+                            )
 
                         if noMessage > 0 or isEnum == True:
                             if statement.find(";") != -1:
-                                self.assertNotEqual(noComment, 0, file + " in line " + str(i) + ": comment is missing for: '" + statement + "'")
+                                self.assertNotEqual(
+                                    noComment,
+                                    0,
+                                    file
+                                    + " in line "
+                                    + str(i)
+                                    + ": comment is missing for: '"
+                                    + statement
+                                    + "'",
+                                )
 
                         noComment = 0
                         hasBrief = False
@@ -229,12 +284,20 @@ class TestCommentType(unittest.TestCase):
 
                     if matchEnum is not None:
                         isEnum = True
-                        endOfLine = statement[matchEnum.end():]
+                        endOfLine = statement[matchEnum.end() :]
                         matchName = re.search(r"\b\w[\S]*\b", endOfLine)
                         if matchName is not None:
-                                # Test to ensure no special characters are in ENUM name.
-                                matchNameConv = re.search(r"\b[A-Z][a-zA-Z0-9]*\b", endOfLine[matchName.start():matchName.end()])
-                                enumName = self.convert(endOfLine[matchName.start():matchName.end()]) + "_"
+                            # Test to ensure no special characters are in ENUM name.
+                            matchNameConv = re.search(
+                                r"\b[A-Z][a-zA-Z0-9]*\b",
+                                endOfLine[matchName.start() : matchName.end()],
+                            )
+                            enumName = (
+                                self.convert(
+                                    endOfLine[matchName.start() : matchName.end()]
+                                )
+                                + "_"
+                            )
 
                     # Search for a closing brace.
                     matchClosingBrace = re.search("}", statement)
@@ -243,5 +306,5 @@ class TestCommentType(unittest.TestCase):
                         enumName = ""
 
     def convert(self, name):
-        s1 = re.sub(r'(.)([A-Z][a-z]+)', r'\1_\2', name)
-        return re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', s1).upper()
+        s1 = re.sub(r"(.)([A-Z][a-z]+)", r"\1_\2", name)
+        return re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", s1).upper()

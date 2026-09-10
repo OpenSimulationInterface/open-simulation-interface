@@ -56,7 +56,7 @@ message UltrasonicSpecificObjectData
     //
     optional double maximum_measurement_distance_sensor = 1;
 
-    // This value indicates the propability height for the classification in the
+    // This value indicates the probability height for the classification in the
     // calculated object.
     //
     // Unit: %

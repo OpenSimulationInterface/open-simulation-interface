@@ -17,11 +17,13 @@ message DetectedItemHeader
     // Specific ID of the detected item as assigned by the sensor internally.
     // Needs not to match with \c #ground_truth_id.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Identifier tracking_id = 1;
 
     // The ID of the original detected item in the ground truth.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated Identifier ground_truth_id = 2;
 
@@ -63,8 +65,6 @@ message DetectedItemHeader
     // detections ( \c ...Detection::object_id = 'this detected item' ) and
     // the sensors (their IDs) to which these detections belong.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated Identifier sensor_id = 6;
 
     // Definition of measurement states.
@@ -80,11 +80,11 @@ message DetectedItemHeader
         //
         MEASUREMENT_STATE_OTHER = 1;
 
-        // Entity has been measured by the sensor in the current timestep.
+        // Entity has been measured by the sensor in the current time step.
         //
         MEASUREMENT_STATE_MEASURED = 2;
 
-        // Entity has not been measured by the sensor in the current timestep.
+        // Entity has not been measured by the sensor in the current time step.
         // Values provided by tracking only.
         //
         MEASUREMENT_STATE_PREDICTED = 3;
@@ -97,6 +97,15 @@ message DetectedItemHeader
 //
 // \image html OSI_DetectedStationaryObject.svg
 //
+// The parent frame of a detected stationary object is the virtual sensor
+// coordinate system.
+//
+// /note The virtual sensor coordinate system is relative to the vehicle coordinate
+// system which has its origin in the center of the rear axle of the ego
+// vehicle. This means if virtual sensor mounting position and orientation are
+// set to (0,0,0) the virtual sensor coordinate system coincides with the
+// vehicle coordinate system.
+//
 message DetectedStationaryObject
 {
     // Common information of one detected item.
@@ -104,6 +113,9 @@ message DetectedStationaryObject
     optional DetectedItemHeader header = 1;
 
     // The base parameters of the stationary object.
+    //
+    // The parent frame of \c DetectedStationaryObject::base is the virtual
+    // sensor coordinate system.
     //
     optional BaseStationary base = 2;
 
@@ -116,13 +128,39 @@ message DetectedStationaryObject
     // A list of candidates for this stationary object as estimated by the
     // sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CandidateStationaryObject candidate = 4;
 
     // The dominating color of the material of the structure.
     //
     optional ColorDescription color_description = 5;
+
+    // Additional data that is specific to radar sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a radar
+    // sensor.
+    //
+    optional RadarSpecificObjectData radar_specifics = 100;
+
+    // Additional data that is specific to lidar sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a lidar
+    // sensor.
+    //
+    optional LidarSpecificObjectData lidar_specifics = 101;
+
+    // Additional data that is specific to camera sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not a camera
+    // sensor.
+    //
+    optional CameraSpecificObjectData camera_specifics = 102;
+
+    // Additional data that is specific to ultrasonic sensors.
+    //
+    // \note Field needs not to be set if simulated sensor is not an ultrasonic
+    // sensor.
+    //
+    optional UltrasonicSpecificObjectData ultrasonic_specifics = 103;
 
     //
     // \brief A candidate for a detected stationary object as estimated
@@ -150,8 +188,17 @@ message DetectedStationaryObject
 }
 
 //
-// \brief Moving object in the environment as detected and perceived by
-// the sensor.
+// \brief Moving object in the environment as detected and perceived by the
+// sensor.
+//
+// The parent frame of a detected moving object is the virtual sensor coordinate
+// system.
+//
+// /note The virtual sensor coordinate system is relative to the vehicle coordinate
+// system which has its origin in the center of the rear axle of the ego
+// vehicle. This means if virtual sensor mounting position and orientation are
+// set to (0,0,0) the virtual sensor coordinate system coincides with the
+// vehicle coordinate system.
 //
 message DetectedMovingObject
 {
@@ -161,8 +208,10 @@ message DetectedMovingObject
 
     // The base parameters of the moving object.
     //
-    // \note The bounding box does NOT includes mirrors for vehicles.
-    // \note The parent frame of \c base is the sensor's vehicle frame.
+    // The parent frame of \c DetectedMovingObject::base is the virtual sensor
+    // coordinate system.
+    //
+    // \note The bounding box does NOT include mirrors for vehicles.
     // \note The height includes the ground_clearance. It always goes from the
     // top to the ground.
     //
@@ -171,8 +220,6 @@ message DetectedMovingObject
     // The root mean squared error of the base parameters of the detected
     // moving object (e.g. car). \c MovingObject::base has to be
     // identical for all \c #candidate moving objects.
-    //
-    // \note The parent frame of \c base is the sensor's vehicle frame.
     //
     optional BaseMoving base_rmse = 3;
 
@@ -220,8 +267,6 @@ message DetectedMovingObject
 
     // A list of candidates for this moving object as estimated by the
     // sensor (e.g. pedestrian, car).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateMovingObject candidate = 8;
 
@@ -286,6 +331,10 @@ message DetectedMovingObject
         // \note This field is mandatory if the \c CandidateMovingObject::type
         // is \c MovingObject::TYPE_VEHICLE .
         //
+        // \rules
+        // check_if this.type is_equal_to 2 else do_check is_set
+        // \endrules
+        //
         optional MovingObject.VehicleClassification vehicle_classification = 3;
 
         // Pedestrian head pose for behavior prediction. Describes the head
@@ -299,6 +348,10 @@ message DetectedMovingObject
         //
         // \note This field is mandatory if the \c CandidateMovingObject.type is
         // \c MovingObject::TYPE_PEDESTRIAN
+        //
+        // \rules
+        // check_if this.type is_equal_to 3 else do_check is_set
+        // \endrules
         //
         // \par Reference:
         //
@@ -318,6 +371,10 @@ message DetectedMovingObject
         //
         // \note This field is mandatory if the \c CandidateMovingObject::type
         // is \c MovingObject::TYPE_PEDESTRIAN
+        //
+        // \rules
+        // check_if this.type is_equal_to 3 else do_check is_set
+        // \endrules
         //
         // \par Reference:
         // [1] Patton, K. T. & Thibodeau, G. A. (2015). <em>Anatomy & Physiology</em>. 9th Edition. Elsevier. Missouri, U.S.A. ISBN 978-0-323-34139-4. p. 1229.

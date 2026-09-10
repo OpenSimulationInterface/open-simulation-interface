@@ -17,6 +17,15 @@ package osi3;
 // several bulbs, e.g. red, yellow, green are three separate detected traffic
 // lights.
 //
+// The parent frame of a detected traffic light is the virtual sensor coordinate
+// system.
+//
+// /note The virtual sensor coordinate system is relative to the vehicle coordinate
+// system which has its origin in the center of the rear axle of the ego
+// vehicle. This means if virtual sensor mounting position and orientation are
+// set to (0,0,0) the virtual sensor coordinate system coincides with the
+// vehicle coordinate system.
+//
 message DetectedTrafficLight
 {
     // Common information of one detected item.
@@ -24,6 +33,9 @@ message DetectedTrafficLight
     optional DetectedItemHeader header = 1;
 
     // The base parameters of the traffic light.
+    //
+    // The parent frame of \c TrafficLight::base is the virtual sensor
+    // coordinate system.
     //
     // \c BaseStationary::orientation x-axis is view normal of the traffic
     // light's icon.
@@ -38,8 +50,6 @@ message DetectedTrafficLight
 
     // A list of candidates for this traffic light as estimated by the
     // sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated CandidateTrafficLight candidate = 4;
 

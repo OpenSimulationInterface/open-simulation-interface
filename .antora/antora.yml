@@ -1,0 +1,11 @@
+# Component name (without spaces!). All content repositories with the same component name are merged in Antora.
+name: asamosi
+version:
+  # Update version number accordingly. This is the version for the main branch
+  main: 'current'
+  master: 'current'
+  v(*)-antora: V$1
+  v(*): V$1
+  V(*): V$1
+  # Update version number accordingly. This is the version for any other activated branch (branch must be added in the generator site.yml!). Schema = 0.0.x-<branch-name> (only works for branches starting with "feature/")
+  (*): 'V3.6.0-$1'

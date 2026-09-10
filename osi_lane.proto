@@ -42,6 +42,7 @@ message Lane
     //
     // \rules
     // is_globally_unique
+    // is_set
     // \endrules
     //
     optional Identifier id = 1;
@@ -57,7 +58,7 @@ message Lane
     //
     // For example, to reference a lane defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road
@@ -188,7 +189,7 @@ message Lane
 
         // Indicates that the host vehicle travels on this particular lane.
         // The host vehicle may travel on more than one lane at once. This does
-        // also apply for the \c CanditateLane in the \c DetectedLane .
+        // also apply for the \c CandidateLane in the \c DetectedLane .
         //
         optional bool is_host_vehicle_lane = 2;
 
@@ -208,8 +209,8 @@ message Lane
         // cl: center line
         // lb: lane boundary
         //
-        // \attention The points desribing the center line must be set in the 
-        // same ordering (ascending or descending) as the points desribing the 
+        // \attention The points describing the center line must be set in the 
+        // same ordering (ascending or descending) as the points describing the 
         // lane boundaries. Example: If the points are deducted from a map format, 
         // the order of points is recommended to be in line with the road coordinate 
         // (e.g. s-coordinate in OpenDRIVE). 
@@ -323,6 +324,12 @@ message Lane
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
+        // \note The boundary between adjacent lanes at different heights
+        //       (e.g. a curb between a driving lane and a sidewalk)
+        //       should not be shared, but modeled as two separate lane
+        //       boundaries with individual ids. One for the upper, the
+        //       other one for the lower lane.
+        //
         // \rules
         // check_if this.type is_different_to 4 else do_check is_set
         // \endrules
@@ -343,6 +350,12 @@ message Lane
         // \c #TYPE_INTERSECTION .
         //
         // \note OSI uses singular instead of plural for repeated field names.
+        //
+        // \note The boundary between adjacent lanes at different heights
+        //       (e.g. a curb between a driving lane and a sidewalk)
+        //       should not be shared, but modeled as two separate lane
+        //       boundaries with individual ids. One for the upper, the
+        //       other one for the lower lane.
         //
         // \rules
         // check_if this.type is_different_to 4 else do_check is_set
@@ -428,7 +441,7 @@ message Lane
             //
             SUBTYPE_NORMAL = 2;
 
-            // A lane that is designated for bicylists.
+            // A lane that is designated for bicycles.
             //
             // Since it is not intended to be used for normal automotive
             // driving, it should be used in combination with TYPE_NONDRIVING.
@@ -735,13 +748,6 @@ message LaneBoundary
     // \attention For \c BoundaryPoint the same rule for the approximation
     // error applies as for \c Lane::Classification::centerline.
     //
-    // \rules
-    // first_element width is_equal_to 0.13
-    // first_element height is_equal_to 0.14
-    // last_element width is_equal_to 0.13
-    // last_element height is_equal_to 0.13
-    // \endrules
-    //
     repeated BoundaryPoint boundary_line = 2;
 
     // The classification of the lane boundary.
@@ -813,6 +819,13 @@ message LaneBoundary
         // \image html OSI_LaneBoundaryHeight.svg "" width=600px
         //
         // \note Field need not be set if it is previously defined.
+        //
+        // \note The boundary point height should not be used to model the boundary 
+        //       between two adjacent lanes at different heights as a single, shared 
+        //       boundary.
+        //       Boundaries between adjacent lanes at different heights should be 
+        //       modeled as two separate lane boundaries.
+        //
         // See \c LaneBoundary .
         //
         optional double height = 3;
@@ -854,6 +867,13 @@ message LaneBoundary
             // The current \c BoundaryPoint indicates the end of a dash.
             //
             DASH_END = 4;
+
+            // The current \c BoundaryPoint is located in the gap between
+            // two dashes. When used to describe a first/last point of a lane 
+            // boundary, it indicates that the lane boundary starts/ends in
+            // a gap.
+            //
+            DASH_GAP = 5;
         }
     }
 
@@ -947,27 +967,6 @@ message LaneBoundary
     //
     message Classification
     {
-        // The type of the lane boundary.
-        //
-        optional Type type = 1;
-
-        // The semantic color of the lane boundary in case of lane markings.
-        //
-        // \note The color types represent the semantic classification of
-        // lane markings only. They do not represent an actual visual appearance.
-        //
-        optional Color color = 2;
-
-        // The ids of \c StationaryObject which limit the corresponding lane.
-        // This field must be set if the \c #type is set to
-        // \c #TYPE_STRUCTURE
-        //
-        // \rules
-        // refers_to: StationaryObject
-        // \endrules
-        //
-        repeated Identifier limiting_structure_id = 3;
-
         // The lane boundary type.
         // There is no special representation for double lines, e.g. solid /
         // solid or dashed / solid. In such cases, each lane will define its own
@@ -1043,6 +1042,28 @@ message LaneBoundary
             //
             TYPE_SOUND_BARRIER = 15;
         }
+
+        // The type of the lane boundary.
+        //
+        optional Type type = 1;
+
+        // The semantic color of the lane boundary in case of lane markings.
+        //
+        // \note The color types represent the semantic classification of
+        // lane markings only. They do not represent an actual visual appearance.
+        //
+        optional Color color = 2;
+
+        // The ids of \c StationaryObject which limit the corresponding lane.
+        // This field must be set if the \c #type is set to
+        // \c #TYPE_STRUCTURE
+        //
+        // \rules
+        // refers_to: StationaryObject
+        // \endrules
+        //
+        repeated Identifier limiting_structure_id = 3;
+
 
         // The semantic color of the lane boundary in case of a lane markings.
         // Lane markings that alternate in color must be represented by

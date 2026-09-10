@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Modeling a LIDAR sensor
 
 // TODO: Add extensive description of this use case.

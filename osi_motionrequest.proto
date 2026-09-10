@@ -1,0 +1,125 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+import "osi_version.proto";
+
+package osi3;
+
+//
+// \brief This message is intended as an interface between a
+// motion-planning function and the actuator management.
+// The motion-planning function can thereby be a representation of a 
+// highly-automated driving function, a human driving behavior model, etc.
+//
+// The motion-planning function can either send a desired future trajectory or a desired
+// future state. The message can be defined by an additional variable.
+//
+// \note The coordinate system is defined as right-handed.
+// All coordinates and orientations are relative to the global coordinate system.
+// The reference point of the vehicle is the middle of the rear axis.
+// Units are m for positions, m/s for velocities, and m/s^2 for accelerations.
+//
+message MotionRequest
+{
+    // The interface version used by the sender (simulation environment).
+    //
+    // \rules
+    // is_set
+    // \endrules
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment.
+    // A reference to \c Timestamp message.
+    //
+    // \rules
+    // is_set
+    // \endrules
+    //
+    optional Timestamp timestamp = 2;
+
+    // Define the type that is used to specify the motion request.
+    // This must be set. Additionally, the field corresponding to the specified 
+    // option must be set.
+    //
+    optional MotionRequestType motion_request_type = 3;
+
+    // Defines a desired state.
+    // If the output option is set to DESIRED_STATE, this field must be set.
+    //
+    optional DesiredState desired_state = 4;
+
+    // Defines a desired trajectory.
+    // If the output option is set to DESIRED_TRAJECTORY, this field must be set.
+    //
+    optional DesiredTrajectory desired_trajectory = 5;
+
+    // Define different options for function output.
+    // Each option corresponds to a field in the message.
+    //
+    enum MotionRequestType
+    {
+        // Desired state calculated by the function.
+        //
+        MOTION_REQUEST_TYPE_DESIRED_STATE = 0;
+
+        // Desired trajectory calculated by the function.
+        //
+        MOTION_REQUEST_TYPE_TRAJECTORY = 1;
+    }
+
+    // \brief The desired state is calculated by the function as a result of
+    // the motion planning stack.
+    //
+    // The actuator management is supposed to reach the desired state at the
+    // specified time.
+    //
+    message DesiredState
+    {
+        // A reference to \c Timestamp message.
+        //
+        optional Timestamp timestamp = 1;
+
+        // Intended position to be reached in in x-, y-, and z-direction.
+        //
+        optional Vector3d position = 2;
+
+        // Intended orientation to be reached containing yaw, pitch and roll angle.
+        //
+        optional Orientation3d orientation = 3;
+
+        // Intended velocity to be reached in in x-, y-, and z-direction.
+        //
+        // Unit: m/s
+        //
+        optional Vector3d velocity = 4;
+
+        // Intended acceleration to be reached in x-, y-, and z-direction.
+        //
+        // Unit: m/s^2
+        //
+        optional Vector3d acceleration = 5;
+    }
+
+    // \brief Defined trajectory desired by the function.
+    //
+    // This trajectory is the result of the trajectory planning step in the function.
+    // The task of the actuator management is to follow this trajectory as closely as possible.
+    // The timestamps inside the trajectory must be defined in global simulation time.
+    //
+    // \note The trajectory is kept as a separate message for future extensions.
+    //
+    message DesiredTrajectory
+    {
+        // The trajectory consists of intended position (x, y, and z) and
+        // orientation (yaw, pitch and roll) of intended state to be reached.
+        // A reference to \c StatePoint message.
+        //
+        // \note The position within the trajectory point references to the 
+        // middle point of the rear axis.
+        //
+        repeated StatePoint trajectory_point = 1;
+    }
+}

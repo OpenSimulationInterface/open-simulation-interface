@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Data layer
 
 The OSI data layer is defined in the message specifications using the ProtoBuf IDL cite:[protobuf].

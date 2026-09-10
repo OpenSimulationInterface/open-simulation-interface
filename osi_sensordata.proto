@@ -102,6 +102,10 @@ message SensorData
 {
     // The interface version used by the sender.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The timestamp of the sensor data. Zero time is arbitrary but must be
@@ -129,6 +133,10 @@ message SensorData
     // a dumb sensor with no internal time concept), the two timestamps might
     // also be identical, but delayed from the \c GroundTruth timestamp.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Timestamp timestamp = 2;
 
     // The sensors estimated location of the host vehicle
@@ -155,6 +163,10 @@ message SensorData
     // This is the ID of the virtual sensor, to be used in its detected
     // object output; it is distinct from the IDs of its physical detectors,
     // which are used in the detected features.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 5;
 
@@ -186,6 +198,10 @@ message SensorData
     // vehicle's bounding box \c MovingObject::base . \c
     // BaseMoving::orientation.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional MountingPosition mounting_position = 6;
 
     // The root mean squared error of the mounting position.
@@ -197,8 +213,6 @@ message SensorData
     // This provides a copy of the \c SensorView data received by the sensor
     // for reference purposes.  For complex sensors or logic models this
     // can be multiple copies.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated SensorView sensor_view = 8;
 
@@ -226,8 +240,6 @@ message SensorData
     // The list of moving objects detected by the sensor as perceived by
     // the sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedMovingObject moving_object = 13;
 
     // General information about the \c DetectedTrafficSign .
@@ -236,8 +248,6 @@ message SensorData
 
     // The list of traffic signs detected by the sensor.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedTrafficSign traffic_sign = 15;
 
     // General information about the \c DetectedTrafficLight .
@@ -245,8 +255,6 @@ message SensorData
     optional DetectedEntityHeader traffic_light_header = 16;
 
     // The list of traffic lights detected by the sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedTrafficLight traffic_light = 17;
 
@@ -257,8 +265,6 @@ message SensorData
     // The list of road markings detected by the sensor.
     // This excludes lane boundary markings.
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedRoadMarking road_marking = 19;
 
     // General information about the \c DetectedLaneBoundary .
@@ -266,8 +272,6 @@ message SensorData
     optional DetectedEntityHeader lane_boundary_header = 20;
 
     // The list of lane boundary markings detected by the sensor.
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedLaneBoundary lane_boundary = 21;
 
@@ -277,8 +281,6 @@ message SensorData
 
     // The list of lanes detected by the sensor
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated DetectedLane lane = 23;
 
     // General information about the \c DetectedOccupant .
@@ -286,8 +288,6 @@ message SensorData
     optional DetectedEntityHeader occupant_header = 24;
 
     // The list of occupants of the host vehicle
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated DetectedOccupant occupant = 25;
 
@@ -313,4 +313,38 @@ message SensorData
     // in cartesian coordinates.
     //
     optional LogicalDetectionData logical_detection_data = 27;
+
+    //
+    // \brief Virtual detection area of a sensor
+    //
+    // The virtual detection area describes the nominal area the sensor is capable of covering
+    // in its current operating mode, without taking occlusion or other statistical effects into account.
+    // This information can be used for visualization or other development purposes as a rough guide
+    // to nominal sensor performance.
+    //
+    // It is described by a set of polygons in cartesian coordinates as a pragmatic approximation for
+    // the rough shapes expected.
+    //
+    message VirtualDetectionArea
+    {
+        // List of polygons. Each polygon represents a surface of the virtual detection area
+        // and is given with respect to the virtual sensor coordinate system.
+        //
+        repeated Polygon3d polygon = 1;
+    }
+
+    // Virtual detection area of the sensor
+    //
+    optional VirtualDetectionArea virtual_detection_area = 28;
+
+    // The system time of the modeled source of the sensor data, given
+    // in UTC (Unix Epoch timestamp).
+    //
+    // The system time can be used to transmit the internal time of the
+    // simulated component that supplies the sensor data, which might
+    // not coincide with the simulation time as transmitted in the
+    // timestamp field. Example use cases include recorded data traces
+    // or the simulation of time synchronization mechanisms and errors.
+    //
+    optional Timestamp system_time = 29;
 }

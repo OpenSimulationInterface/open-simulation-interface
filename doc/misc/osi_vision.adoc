@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Idea behind Open Simulation Interface
 
 {THIS_STANDARD} Open Simulation Interface is a specification for interfaces between models and components of a distributed simulation.

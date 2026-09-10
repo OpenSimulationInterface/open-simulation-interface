@@ -1,3 +1,7 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
 = Logical model
 
 Logical models consume `SensorData` messages and produce `SensorData` messages.

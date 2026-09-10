@@ -29,9 +29,15 @@ message RoadMarking
 {
     // The ID of the road marking.
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional Identifier id = 1;
 
     // The base parameters of the road marking.
+    //
+    // The parent frame of \c RoadMarking::base is the global coordinate system.
     //
     // The orientation of the bounding box \c #base
     // \c BaseStationary::orientation is defined as follows:
@@ -63,7 +69,7 @@ message RoadMarking
     //
     // For example, to reference a signal defined in an OpenDRIVE map
     // the items should be set as follows:
-    // * reference = URI to map, can remain empty if identical with definiton
+    // * reference = URI to map, can remain empty if identical with definition
     //               in \c GroundTruth::map_reference
     // * type = "net.asam.opendrive"
     // * identifier[0] = id of t_road_signals_signal
@@ -89,6 +95,18 @@ message RoadMarking
     // field in \c Classification.
     //
     optional ColorDescription color_description = 5;
+
+    // Opaque reference of an associated 3D model of the road marking.
+    //
+    // \note It is implementation-specific how model_references are resolved to
+    // 3d models.
+    //
+    // \note Road markings' base objects are positioned differently from other
+    // OSI objects: their local z-axis corresponds to how the marking is placed
+    // on the xy-plane of the lane, rather than pointing upwards as it does for
+    // other objects.
+    //
+    optional string model_reference = 6;
 
     //
     // \brief \c Classification data for a road surface marking.
@@ -255,6 +273,12 @@ message RoadMarking
         // \endrules
         //
         optional string sub_code = 11;
+
+        // Assignment of this object to logical lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated LogicalLaneAssignment logical_lane_assignment = 12;
 
         // Definition of road marking types.
         //

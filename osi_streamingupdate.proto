@@ -1,0 +1,88 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_version.proto";
+import "osi_common.proto";
+import "osi_environment.proto";
+import "osi_object.proto";
+import "osi_trafficsign.proto";
+import "osi_trafficlight.proto";
+import "osi_hostvehicledata.proto";
+
+package osi3;
+
+//
+// \brief The streaming update interface enables simulation entities to send
+// partial updates to other modules that favor performance (especially latency)
+// over data completeness/consistency (e.g. visualization applications).
+//
+// Static and/or non-relevant objects can be omitted as required for the
+// specific use case. Adding an object's unique id to the repeated field \c
+// obsolete_id indicates that it will no longer be updated from then on.
+//
+// \note The receiver of partial streaming update messages can only rely on the
+// most up-to-date information at the corresponding timestamp. E.g. omitting
+// objects does not indicate static behavior but it may be sufficient for the
+// use case to update certain objects at a later point in time.
+//
+message StreamingUpdate
+{
+    // The interface version used by the sender.
+    //
+    // \rules
+    // is_set
+    // \endrules
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp where the information of contained objects is calculated. 
+    // 
+    // Zero time is arbitrary but must be identical for all messages. 
+    // Zero time does not need to coincide with the UNIX epoch. 
+    // Recommended is the starting time point of the simulation.
+    //
+    // \rules
+    // is_set
+    // \endrules
+    //
+    optional Timestamp timestamp = 2;
+
+    // The list of stationary objects (excluding traffic signs and traffic
+    // lights).
+    //
+    repeated StationaryObject stationary_object_update = 3;
+
+    // The list of moving objects. 
+    //
+    repeated MovingObject moving_object_update = 4;
+
+    // The list of traffic signs.
+    //
+    repeated TrafficSign traffic_sign_update = 5;
+
+    // The list of traffic lights.
+    //
+    repeated TrafficLight traffic_light_update = 6;
+
+    // Conditions of the environment.
+    //
+    optional EnvironmentalConditions environmental_conditions_update = 7;
+
+    // Host vehicle data.
+    //
+    // Host vehicle data is data that the host vehicle knows about itself,
+    // e.g. from location sensors, internal sensors and ECU bus data, etc.,
+    // that is made available to sensors as input.
+    //
+    // The ID inside this message allows an association to moving object data.
+    //
+    repeated HostVehicleData host_vehicle_data_update = 8;
+
+    // Entities that will no longer be updated, because they are considered
+    // obsolete by the sender.
+    //
+    // \note IDs are globally unique.
+    //
+    repeated Identifier obsolete_id = 9;
+}

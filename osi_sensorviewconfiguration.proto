@@ -66,6 +66,10 @@ message SensorViewConfiguration
 {
     // The interface version used by the sender (simulation environment).
     //
+    // \rules
+    // is_set
+    // \endrules
+    //
     optional InterfaceVersion version = 1;
 
     // The ID of the sensor at host vehicle's mounting_position.
@@ -76,6 +80,10 @@ message SensorViewConfiguration
     //
     // The ID is to be provided by the environment simulation, the sensor
     // model is not in a position to provide a useful default value.
+    //
+    // \rules
+    // is_set
+    // \endrules
     //
     optional Identifier sensor_id = 2;
 
@@ -176,7 +184,7 @@ message SensorViewConfiguration
     // update to the sensor input should happen at 0.048s, or 0.018s
     // after simulation start. This convention is needed to ensure
     // stable phase position of the offset in the case of changing
-    // simulation start times, e.g. for partial resimulation.
+    // simulation start times, e.g. for partial re-simulation.
     //
     // Unit: s
     optional Timestamp update_cycle_offset = 9;
@@ -193,43 +201,38 @@ message SensorViewConfiguration
     // Omit Static Information
     //
     // This flag specifies whether \c GroundTruth information that
-    // was already provided using a GroundTruthInit parameter
+    // was already provided using a GroundTruthInit parameter (e.g. <a href="https://opensimulationinterface.github.io/osi-antora-generator/asamosi/latest/sensor-model/spec/ground_truth_init_parameters.html">OSMP GroundTruthInit</a>)
     // at initialization time shall be omitted from the \c SensorView
     // ground truth information.
+    //
+    // Setting the \c #omit_static_information field allows a clear split
+    // between the dynamic simulation data, which is contained in ground truth
+    // messages with the \c #omit_static_information flag, and the static
+    // simulation data, which is contained in the (OSMP) GroundTruthInit.
     //
     optional bool omit_static_information = 11;
 
     // Generic Sensor View Configuration(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated GenericSensorViewConfiguration generic_sensor_view_configuration =
         1000;
 
     // Radar-specific Sensor View Configuration(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated RadarSensorViewConfiguration radar_sensor_view_configuration =
         1001;
 
     // Lidar-specific Sensor View Configuration(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated LidarSensorViewConfiguration lidar_sensor_view_configuration =
         1002;
 
     // Camera-specific Sensor View Configuration(s).
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated CameraSensorViewConfiguration camera_sensor_view_configuration =
         1003;
 
     // Ultrasonic-specific Sensor View Configuration(s).
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated UltrasonicSensorViewConfiguration
         ultrasonic_sensor_view_configuration = 1004;
@@ -426,13 +429,9 @@ message RadarSensorViewConfiguration
 
     // This represents the TX antenna diagram
     //
-    // \note OSI uses singular instead of plural for repeated field names.
-    //
     repeated AntennaDiagramEntry tx_antenna_diagram = 10;
 
     // This represents the RX antenna diagram
-    //
-    // \note OSI uses singular instead of plural for repeated field names.
     //
     repeated AntennaDiagramEntry rx_antenna_diagram = 11;
 
@@ -742,6 +741,53 @@ message CameraSensorViewConfiguration
     // of samples.
     //
     repeated WavelengthData wavelength_data = 11;
+
+    // Indicates if and how the the pixel data is ordered
+    //
+    // The default value (PIXEL_ORDER_DEFAULT) indicates standard image
+    // pixel order (left-to-right, top-to-bottom). The other values can
+    // be used to indicate/request mirroring (right to left or bottom to top).
+    // 
+    // \note For rotations of the pixel data, use the camera coordinate system.
+    //
+    optional PixelOrder pixel_order = 12;
+
+    // Pixel layout 
+    //
+    // Pixel layout documents the order of pixels in the \c image_data
+    // in CameraSensorView. 
+    //
+    // \note this enum does not contain an entry to do mirroring upside down
+    // and left-to-right at the same time, because this is equivalent to a
+    // 180-degree rotation, which should be indicated in the sensor coordinate
+    // system.
+    //
+    enum PixelOrder
+    {
+        // Pixel data is not mirrored (Default).
+        // Pixels are ordered left-to-right, top-to-bottom.
+        //
+        PIXEL_ORDER_DEFAULT = 0;
+
+        // Known pixel order that is not supported by OSI.
+        // Consider proposing an additional format if using
+        // \c #PIXEL_ORDER_OTHER.
+        //
+        PIXEL_ORDER_OTHER = 1;
+                
+        // Pixels are ordered right-to-left, top-to-bottom.
+        // Pixel data is mirrored along the vertical axis.
+        // The image is mirrored left-to-right.
+        //
+        PIXEL_ORDER_RIGHT_LEFT_TOP_BOTTOM = 2;
+        
+        // Pixels are ordered left-to-right, bottom-to-top.
+        // Pixel data is mirrored along the horizontal axis.
+        // The image is mirrored top-to-bottom.
+        // 
+        PIXEL_ORDER_LEFT_RIGHT_BOTTOM_TOP = 3;
+    }
+
 
     // Channel format.
     //

@@ -1,0 +1,12 @@
+ifndef::include-only-once[]
+:root-path: ../
+include::{root-path}_config.adoc[]
+endif::[]
+= Host vehicle data
+
+The `HostVehicleData` message targets the perception of the vehicle of its own internal states.
+
+It captures the knowledge the vehicle has internally, which can differ from the actual or global truth for various reasons.
+This message can also be understood as an interface container for the signals of a rest bus simulation.
+
+For more details, see xref:gen:structosi3_1_1HostVehicleData.adoc[].

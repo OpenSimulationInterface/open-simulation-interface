@@ -1,0 +1,138 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+
+package osi3;
+
+//
+// \brief A route in the road network
+//
+// A route is an e.g. planned or suggested path for an agent to travel from one
+// location to another within the road network. It is composed of a list of route
+// segments, which form a continuous path through the road network and should be
+// traversed in the order they are listed.
+// The route allows the simulation environment to provide agents with high level
+// path information, similar to that of a map or a navigation system, without the
+// need for the agent model to perform complex path planning on its own. This
+// allows for an efficient control of the agent's general direction, while
+// simultaneously giving it enough freedom on how to traverse the path.
+//
+// ## Example
+//
+// The example below shows the \link Route route\endlink of a vehicle.
+//
+// \image html OSI_Planned_Route.png "Route" width=850px
+//
+// The route is composed of three \link RouteSegment route segments\endlink RS1-3,
+// each indicated by a yellow outline. Two of the route segments
+// (RS2 and RS3) only contain a single \link LogicalLaneSegment logical lane segment\endlink
+// (highlighted in blue), while RS1 is composed of three
+// logical lane segments (green, blue and red).
+//
+message Route
+{
+    // The unique id of the route.
+    //
+    // \note This field is mandatory.
+    //
+    // \note This id must be unique within all route messages exchanged with
+    // one traffic participant.
+    //
+    // \rules
+    // is_set
+    // \endrules
+    //
+    optional Identifier route_id = 1;
+
+    // Route segments that form the route of an agent.
+    //
+    // Consecutive segments should be connected without gaps, meaning that the
+    // two of them should form a continuous area.
+    //
+    repeated RouteSegment route_segment = 2;
+
+    //
+    // \brief A segment of a logical lane.
+    //
+    // \note The LogicalLaneSegment allows that start_s > end_s.
+    // If start_s < end_s, then the traffic agent should traverse the
+    // segment in the logical lane's reference line definition direction.
+    // If end_s > start_s, then the traffic agent should traverse the
+    // segment in the opposite of the logical lane's reference line
+    // definition direction.
+    //
+    message LogicalLaneSegment
+    {
+        // The ID of the logical lane this segment belongs to.
+        //
+        // \rules
+        // refers_to: LogicalLane
+        // \endrules
+        //
+        optional Identifier logical_lane_id = 1;
+
+        // S position on the logical lane where the segment starts.
+        //
+        optional double start_s = 2;
+
+        // S position on the logical lane where the segment ends.
+        //
+        optional double end_s = 3;
+    }
+
+    //
+    // \brief A segment of a route.
+    //
+    // A route segment describes a segment of a traffic agent's route through the
+    // logical lanes of the road network.
+    //
+    // Each time there is a successor-predecessor relation between the logical
+    // lanes along the route (i.e. a logical lane ends, and is continued by another
+    // logical lane, e.g. at a junction border), a new RouteSegment starts. The
+    // RouteSegment then lists the logical lane segments that can be used to
+    // travel through this space of the road.
+    //
+    // Together, the listed logical lane segments should form a continuous area,
+    // where the traffic agent can move freely. These will mostly be parallel
+    // lanes, though lanes may overlap (e.g. if one lane splits into two on a
+    // junction). In general, the logical lane segments in a RouteSegment will
+    // have the same length, though there are exceptions (e.g. if a lane
+    // widening occurs, the newly appearing lane will have a shorter length).
+    //
+    // Typically a route segment will be either
+    // - a set of parallel lanes between two junctions, or
+    // - parallel lanes on an intersection with the same driving direction
+    //
+    // ## Example
+    //
+    // Consider the \link RouteSegment route segment\endlink between two intersections,
+    // shown in the image below.
+    //
+    // \image html OSI_Route_Segment.png "RouteSegment" width=850px
+    //
+    // In the example, a single route segment RS with three
+    // \link LogicalLaneSegment logical lane segments\endlink LL1, LL2 and LL3 is
+    // shown. The segments are indicated by the green, blue and red highlighted areas,
+    // one for each underlying logical lane The starting
+    // s-position of each segment is indicated by the yellow dotted line and the s- prefix
+    // (note that the start of LL2 lies further to the left, outside of the image),
+    // while the ending s-position of all segments is shown by the yellow dotted line e-RS.
+    //
+    // As it can be seen in the example, all logical lane segments are parallel,
+    // but two of them are opening at a later position, so their starting
+    // s-positions will be different.
+    //
+    message RouteSegment
+    {
+
+        // Logical lane segments that form a route segment.
+        //
+        // The logical lane segments of a route segment should be connected without
+        // gaps, meaning that, together, the lane segments should form a continuous
+        // area.
+        //
+        repeated LogicalLaneSegment lane_segment = 1;
+    }
+}
