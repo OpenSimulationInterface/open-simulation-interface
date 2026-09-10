@@ -864,11 +864,10 @@ message MovingObject
 
             // A van is a motorized vehicle with a larger cargo area than a car,
             // used for transporting goods or people.
+            // This category is not intended for mini vans, which shall rather
+            // be categorized as cars.
             //
             // \note Corresponds roughly with UNECE [1] categories M2 and N1.
-            //
-            // \note This category is not intended for mini vans, which shall
-            // rather be categorized as cars.
             //
             // \par References:
             // [1] United Nations Economic and Social Council. (2023). <em>Consolidated Resolution on the Construction of Vehicles</em> (ECE/TRANS/WP.29/78/Rev.7) [PDF]. United Nations. Retrieved May 3, 2024, from https://unece.org/sites/default/files/2023-12/ECE_TRANS_WP.29_78_Rev.7e.pdf
