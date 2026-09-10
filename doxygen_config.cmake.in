@@ -14,7 +14,7 @@ RECURSIVE              = YES
 
 # There is no standard configuration for .proto files documentation.
 # A Doxygen filter for .proto files has to be added under the directory doc/.
-# proto2cpp.py is an external script. See README.md for more informations.
+# proto2cpp.py is an external script. See README.md for more information.
 JAVADOC_AUTOBRIEF      = YES
 REPEAT_BRIEF           = YES
 ALWAYS_DETAILED_SEC    = YES

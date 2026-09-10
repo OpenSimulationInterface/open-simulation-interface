@@ -71,7 +71,7 @@ class TestInvalidEnum(unittest.TestCase):
                                 + "'",
                             )
 
-                            # Test to check ENUM type is in captial letters/upper case.
+                            # Test to check ENUM type is in capital letters/upper case.
                             self.assertEqual(
                                 checkName,
                                 checkName.upper(),

@@ -258,9 +258,9 @@ message Lane
         optional bool centerline_is_driving_direction = 4;
 
         // List of IDs of all lane segments that are directly adjacent to the
-        // lane on the left side (w.r.t. ascending order of centerline points
-        // and lane boundary points). Note that lengths of lane segments are 
-        // not synchronized and therefore there are multiple adjacent segments 
+        // lane on the left side (w.r.t.\ ascending order of centerline points
+        // and lane boundary points). Note that lengths of lane segments are
+        // not synchronized and therefore there are multiple adjacent segments
         // if there is a split/merge point in the adjacent lane.
         //
         // Example: The lane l3 is the only left adjacent lane for lane l4
@@ -278,9 +278,9 @@ message Lane
         repeated Identifier left_adjacent_lane_id = 5;
 
         // List of IDs of all lane segments that are directly adjacent to the
-        // lane on the right side (w.r.t. ascending order of centerline points
-        // and lane boundary points). Note that lengths of lane segments are 
-        // not synchronized and therefore there are multiple adjacent segments 
+        // lane on the right side (w.r.t.\ ascending order of centerline points
+        // and lane boundary points). Note that lengths of lane segments are
+        // not synchronized and therefore there are multiple adjacent segments
         // if there is a split/merge point in the adjacent lane.
         //
         // Example: \c #right_adjacent_lane_id = (l5, l6)
@@ -379,12 +379,12 @@ message Lane
         //
         repeated Identifier free_lane_boundary_id = 10;
 
-        // The condition of the lane, e.g. influenced by weather.
+        // The condition of the lane, e.g.\ influenced by weather.
         //
         optional RoadCondition road_condition = 11;
 
-        // The subtype of the lane. 
-        // 
+        // The subtype of the lane.
+        //
         // This subtype specifies a lane more concretely.
         //
         optional Subtype subtype = 12;
@@ -1030,11 +1030,11 @@ message LaneBoundary
             //
             TYPE_CURB = 12;
 
-            // A structure (e.g. building or tunnel wall).
+            // A structure (e.g.\ building or tunnel wall).
             //
             TYPE_STRUCTURE = 13;
 
-            // A barrier to guide vehicles and to prevent them from entering other lanes (e.g. a concrete barrier on a highway).
+            // A barrier to guide vehicles and to prevent them from entering other lanes (e.g.\ a concrete barrier on a highway).
             //
             TYPE_BARRIER = 14;
 

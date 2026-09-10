@@ -92,7 +92,7 @@ message DetectedItemHeader
 }
 
 //
-// \brief A stationary object (e.g. landmark) in the environment as detected by
+// \brief A stationary object (e.g.\ landmark) in the environment as detected by
 // the sensor.
 //
 // \image html OSI_DetectedStationaryObject.svg
@@ -100,7 +100,7 @@ message DetectedItemHeader
 // The parent frame of a detected stationary object is the virtual sensor
 // coordinate system.
 //
-// /note The virtual sensor coordinate system is relative to the vehicle coordinate
+// \note The virtual sensor coordinate system is relative to the vehicle coordinate
 // system which has its origin in the center of the rear axle of the ego
 // vehicle. This means if virtual sensor mounting position and orientation are
 // set to (0,0,0) the virtual sensor coordinate system coincides with the
@@ -120,7 +120,7 @@ message DetectedStationaryObject
     optional BaseStationary base = 2;
 
     // The root mean squared error of the base parameters of the detected
-    // stationary object (e.g. landmark). \c StationaryObject::base has to be
+    // stationary object (e.g.\ landmark). \c StationaryObject::base has to be
     // identical for all \c #candidate stationary objects.
     //
     optional BaseStationary base_rmse = 3;
@@ -181,7 +181,7 @@ message DetectedStationaryObject
         //
         optional double probability = 1;
 
-        // The classification of the stationary object (e.g. landmark).
+        // The classification of the stationary object (e.g.\ landmark).
         //
         optional StationaryObject.Classification classification = 2;
     }
@@ -194,7 +194,7 @@ message DetectedStationaryObject
 // The parent frame of a detected moving object is the virtual sensor coordinate
 // system.
 //
-// /note The virtual sensor coordinate system is relative to the vehicle coordinate
+// \note The virtual sensor coordinate system is relative to the vehicle coordinate
 // system which has its origin in the center of the rear axle of the ego
 // vehicle. This means if virtual sensor mounting position and orientation are
 // set to (0,0,0) the virtual sensor coordinate system coincides with the
@@ -218,7 +218,7 @@ message DetectedMovingObject
     optional BaseMoving base = 2;
 
     // The root mean squared error of the base parameters of the detected
-    // moving object (e.g. car). \c MovingObject::base has to be
+    // moving object (e.g.\ car). \c MovingObject::base has to be
     // identical for all \c #candidate moving objects.
     //
     optional BaseMoving base_rmse = 3;
@@ -233,7 +233,7 @@ message DetectedMovingObject
     //
     optional ReferencePoint reference_point = 4;
 
-    // Actual movement state w.r.t. the moving object history.
+    // Actual movement state w.r.t.\ the moving object history.
     //
     optional MovementState movement_state = 5;
 
@@ -266,7 +266,7 @@ message DetectedMovingObject
     optional double percentage_side_lane_right = 7;
 
     // A list of candidates for this moving object as estimated by the
-    // sensor (e.g. pedestrian, car).
+    // sensor (e.g.\ pedestrian, car).
     //
     repeated CandidateMovingObject candidate = 8;
 
@@ -321,7 +321,7 @@ message DetectedMovingObject
         //
         optional double probability = 1;
 
-        // The description of the moving object (e.g. car).
+        // The description of the moving object (e.g.\ car).
         //
         optional MovingObject.Type type = 2;
 

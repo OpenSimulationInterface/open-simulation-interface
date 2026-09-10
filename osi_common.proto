@@ -67,7 +67,7 @@ message Vector2d
 //
 message Timestamp
 {
-    // The number of seconds since the start of e.g. the simulation / system /
+    // The number of seconds since the start of e.g.\ the simulation / system /
     // vehicle.
     //
     // Unit: s
@@ -93,7 +93,7 @@ message Timestamp
 }
 
 //
-// \brief The dimension of a 3D box, e.g. the size of a 3D bounding box or its
+// \brief The dimension of a 3D box, e.g.\ the size of a 3D bounding box or its
 // uncertainties.
 //
 // \image html OSI_Dimension3D.svg
@@ -458,14 +458,14 @@ message BoundingBox
         //
         TYPE_OTHER = 1;
 
-        // The main structure of an object, e.g. a chassis of a vehicle, 
+        // The main structure of an object, e.g.\ a chassis of a vehicle,
         // or the central structure of a building, a tree trunk, etc.
         //
         TYPE_BASE_STRUCTURE = 2;
 
-        // A protruding, integral part of an object, which is not 
-        // temporarily attached, e.g. a tree crown, a light pole arm, or a 
-        // parking house gate. The protruding structure is meant to be an 
+        // A protruding, integral part of an object, which is not
+        // temporarily attached, e.g.\ a tree crown, a light pole arm, or a
+        // parking house gate. The protruding structure is meant to be an
         // additional part to a base structure.
         //
         TYPE_PROTRUDING_STRUCTURE = 3;
@@ -503,7 +503,7 @@ message BoundingBox
 //
 message BaseStationary
 {
-    // The 3D dimensions of the stationary object (bounding box), e.g. a
+    // The 3D dimensions of the stationary object (bounding box), e.g.\ a
     // landmark.
     //
     // \note The \c #dimension must completely enclose the geometry of the
@@ -516,7 +516,7 @@ message BaseStationary
     //
     optional Vector3d position = 2;
 
-    // The relative orientation of the stationary object w.r.t. its parent
+    // The relative orientation of the stationary object w.r.t.\ its parent
     // frame, noted in the parent frame. The orientation becomes global/absolute
     // if the parent frame is inertial (all parent frames up to ground truth).
     //
@@ -600,7 +600,7 @@ message BaseMoving
     //
     optional Vector3d position = 2;
 
-    // The relative orientation of the moving object w.r.t. its parent frame,
+    // The relative orientation of the moving object w.r.t.\ its parent frame,
     // noted in the parent frame. The orientation becomes global/absolute if
     // the parent frame is inertial (all parent frames up to ground truth).
     //
@@ -614,7 +614,7 @@ message BaseMoving
     //
     optional Orientation3d orientation = 3;
 
-    // The relative velocity of the moving object w.r.t. the parent frame,
+    // The relative velocity of the moving object w.r.t.\ the parent frame,
     // noted in the parent frame. The velocity becomes global/absolute if
     // the parent frame does is inertial (all parent frames up to ground truth).
     //
@@ -623,7 +623,7 @@ message BaseMoving
     //
     optional Vector3d velocity = 4;
 
-    // The relative acceleration of the moving object w.r.t. its parent frame,
+    // The relative acceleration of the moving object w.r.t.\ its parent frame,
     // noted in the parent frame. The acceleration becomes global/absolute if
     // the parent frame is inertial (all parent frames up to ground truth).
     //
@@ -635,7 +635,7 @@ message BaseMoving
     //
     optional Vector3d acceleration = 5;
 
-    // The relative orientation rate of the moving object w.r.t. its parent
+    // The relative orientation rate of the moving object w.r.t.\ its parent
     // frame and parent orientation rate in the center point of the bounding box
     // (origin of the bounding box frame), noted in the parent frame.
     // The orientation becomes global/absolute if the parent frame is inertial
@@ -652,7 +652,7 @@ message BaseMoving
     //
     optional Orientation3d orientation_rate = 6;
 
-    // The relative orientation acceleration of the moving object w.r.t. its
+    // The relative orientation acceleration of the moving object w.r.t.\ its
     // parent frame and parent orientation acceleration in the center point of
     // the bounding box (origin of the bounding box frame), noted in the parent
     // frame. The orientation becomes global/absolute if the parent frame is

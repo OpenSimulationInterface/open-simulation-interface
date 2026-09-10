@@ -37,7 +37,7 @@ ifndef::include-only-once[]
 :doc_osi-sensor-model-packaging: ../../osi-sensor-model-packaging/doc/
 // Since a document spanning multiple repos is rendered here, the pathing regarding images is a bit involved.
 // We create a variable for every repo that is included. It point to the repo in question.
-// If the subrepo is rendered seperatly, then the variable is set to just "./images" with ifdef.
+// If the subrepo is rendered separately, then the variable is set to just "./images" with ifdef.
 // Please note that this variable has to used in all image includes. Includes here have to use "image::./images..."
 // :images_osi_sensor_model_packaging: ./osi-sensor-model-packaging/doc/images  // example
 :imagesoutdir: ./images/generated_images
