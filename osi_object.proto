@@ -1037,23 +1037,20 @@ message MovingObject
 
             // A watercraft is a vehicle designed for travel on water (boats,
             // ships, etc.).
-            //
-            // \note This category is deliberately generic and may be refined in
+            // This category is deliberately generic and may be refined in
             // future versions as needed.
             //
             TYPE_WATERCRAFT = 20;
 
             // An aircraft is a vehicle designed for flight through the air
             // (airplanes, helicopters, etc.).
-            //
-            // \note This category is deliberately generic and may be refined in
+            // This category is deliberately generic and may be refined in
             // future versions as needed.
             //
             TYPE_AIRCRAFT = 21;
 
             // A land vehicle is a vehicle designed for travel on land.
-            //
-            // \note This category is deliberately generic to include land
+            // This category is deliberately generic to include land
             // vehicles that do not fall into other categories and may be
             // refined in future versions as needed.
             //
