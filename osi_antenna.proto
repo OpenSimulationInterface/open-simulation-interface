@@ -15,7 +15,7 @@ package osi3;
 // antenna element, plus the element geometry of the array.
 //
 // The model consists of
-// - \c AntennaElementType : the radiation behaviour shared by many elements
+// - \c AntennaElementType : the radiation behavior shared by many elements
 //   (e.g. all patches of a receive array have the same pattern), and
 // - \c AntennaElement : a placed instance of an element type with an index
 //   (channel number), a position and an orientation.
@@ -27,7 +27,7 @@ package osi3;
 //
 // \note The legacy \c tx_antenna_diagram / \c rx_antenna_diagram of
 // \c RadarSensorViewConfiguration can be derived from this model as the
-// co-polarised magnitude in dB and should be filled for consumers that do
+// co-polarized magnitude in dB and should be filled for consumers that do
 // not support \c AntennaModel.
 //
 message AntennaModel
@@ -36,7 +36,7 @@ message AntennaModel
     //
     optional Identifier id = 1;
 
-    // Polarisation basis in which all \c JonesPattern of this model and the
+    // Polarization basis in which all \c JonesPattern of this model and the
     // \c RadarSensorView::Reflection::polarimetric_response are expressed.
     //
     optional PolarizationBasis polarization_basis = 2;
@@ -49,7 +49,7 @@ message AntennaModel
     //
     repeated AntennaElement element = 4;
 
-    // Polarisation basis.
+    // Polarization basis.
     //
     enum PolarizationBasis
     {
@@ -72,7 +72,7 @@ message AntennaModel
 }
 
 //
-// \brief Radiation behaviour shared by one or more antenna elements.
+// \brief Radiation behavior shared by one or more antenna elements.
 //
 message AntennaElementType
 {
@@ -85,7 +85,7 @@ message AntennaElementType
     //
     optional Mode mode = 2;
 
-    // Characterisation of the element at discrete frequencies.
+    // Characterization of the element at discrete frequencies.
     //
     // Sensor models interpolate between entries if needed.
     //
@@ -114,7 +114,7 @@ message AntennaElementType
 }
 
 //
-// \brief Antenna behaviour at one frequency.
+// \brief Antenna behavior at one frequency.
 //
 message FrequencyInstance
 {
@@ -143,13 +143,13 @@ message FrequencyInstance
     //
     optional double phase = 3;
 
-    // Axial ratio of the principal polarisation.
+    // Axial ratio of the principal polarization.
     //
     // Unit: dB
     //
     optional double axial_ratio = 4;
 
-    // Normalised complex far-field radiation pattern.
+    // Normalized complex far-field radiation pattern.
     //
     optional JonesPattern radiation = 5;
 }
@@ -158,7 +158,7 @@ message FrequencyInstance
 // \brief Complex polarimetric far-field pattern on a regular angular grid.
 //
 // For a direction (h, v) the 2x2 Jones matrix J maps an excitation vector
-// e = (e_0, e_1) in the polarisation basis of \c AntennaModel to the
+// e = (e_0, e_1) in the polarization basis of \c AntennaModel to the
 // radiated field E = J * e:
 //
 // \f$ E_0 = J_{00} e_0 + J_{10} e_1 \f$
@@ -230,7 +230,7 @@ message AntennaElement
     //
     optional Identifier element_type_id = 2;
 
-    // Phase centre position of the element in the sensor coordinate system.
+    // Phase center position of the element in the sensor coordinate system.
     //
     // Unit: m
     //

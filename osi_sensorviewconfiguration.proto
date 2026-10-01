@@ -440,7 +440,7 @@ message RadarSensorViewConfiguration
     //
     // Complex, polarimetric description of all Tx and Rx elements including
     // the array geometry. If set, \c tx_antenna_diagram and
-    // \c rx_antenna_diagram should still be filled as the co-polarised
+    // \c rx_antenna_diagram should still be filled as the co-polarized
     // magnitude derived from this model for backward compatibility.
     //
     optional AntennaModel antenna_model = 12;
@@ -458,7 +458,7 @@ message RadarSensorViewConfiguration
         //
         ANTENNA_APPLICATION_UNKNOWN = 0;
 
-        // Legacy behaviour: the environment simulation applies
+        // Legacy behavior: the environment simulation applies
         // \c tx_antenna_diagram and \c rx_antenna_diagram and folds them
         // into \c RadarSensorView::Reflection::signal_strength.
         //
