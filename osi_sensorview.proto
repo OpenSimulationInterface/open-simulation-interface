@@ -7,6 +7,7 @@ import "osi_common.proto";
 import "osi_groundtruth.proto";
 import "osi_sensorviewconfiguration.proto";
 import "osi_hostvehicledata.proto";
+import "osi_antenna.proto";
 
 package osi3;
 
@@ -245,6 +246,35 @@ message RadarSensorView
         // Unit: rad
         //
         optional double source_vertical_angle = 5;
+        
+        // RX horizontal angle (azimuth) of arrival (DRAFT PROPOSAL, osi-hfss).
+        //
+        // Horizontal angle under which the reflection arrives at the RX
+        // antenna. Differs from \c source_horizontal_angle for bistatic
+        // configurations and multi-bounce paths.
+        //
+        // Unit: rad
+        //
+        optional double arrival_horizontal_angle = 6;
+
+        // RX vertical angle (elevation) of arrival (DRAFT PROPOSAL, osi-hfss).
+        //
+        // Unit: rad
+        //
+        optional double arrival_vertical_angle = 7;
+
+        // Antenna-free polarimetric propagation channel of the reflection
+        // (DRAFT PROPOSAL, osi-hfss).
+        //
+        // Complex 2x2 scattering matrix including path loss and scattering,
+        // but excluding any antenna characteristics, expressed in the
+        // \c AntennaModel::polarization_basis. The propagation phase due to
+        // \c time_of_flight is not included. Only filled if
+        // \c RadarSensorViewConfiguration::antenna_application is
+        // \c ANTENNA_APPLICATION_SENSOR_MODEL; \c signal_strength then
+        // excludes the antenna diagrams as well.
+        //
+        optional JonesMatrix polarimetric_response = 8;
     }
 }
 

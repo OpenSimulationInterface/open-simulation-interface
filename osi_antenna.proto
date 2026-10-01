@@ -1,0 +1,284 @@
+syntax = "proto2";
+
+option optimize_for = SPEED;
+
+import "osi_common.proto";
+
+package osi3;
+
+//
+// \brief High-fidelity antenna model.
+//
+// DRAFT PROPOSAL (osi-hfss). This message extends the scalar
+// \c RadarSensorViewConfiguration::AntennaDiagramEntry description with a
+// complex, polarimetric (Jones matrix based) far-field description per
+// antenna element, plus the element geometry of the array.
+//
+// The model consists of
+// - \c AntennaElementType : the radiation behaviour shared by many elements
+//   (e.g. all patches of a receive array have the same pattern), and
+// - \c AntennaElement : a placed instance of an element type with an index
+//   (channel number), a position and an orientation.
+//
+// With this information a sensor model can compute the complex response of
+// every Tx / Rx channel for any departure / arrival direction, which is the
+// prerequisite for MIMO, beamforming, direction-of-arrival estimation and
+// polarimetric simulation.
+//
+// \note The legacy \c tx_antenna_diagram / \c rx_antenna_diagram of
+// \c RadarSensorViewConfiguration can be derived from this model as the
+// co-polarised magnitude in dB and should be filled for consumers that do
+// not support \c AntennaModel.
+//
+message AntennaModel
+{
+    // Identifier of the antenna model.
+    //
+    optional Identifier id = 1;
+
+    // Polarisation basis in which all \c JonesPattern of this model and the
+    // \c RadarSensorView::Reflection::polarimetric_response are expressed.
+    //
+    optional PolarizationBasis polarization_basis = 2;
+
+    // Element types referenced by \c element.
+    //
+    repeated AntennaElementType element_type = 3;
+
+    // Placed antenna elements (Tx and Rx channels).
+    //
+    repeated AntennaElement element = 4;
+
+    // Polarisation basis.
+    //
+    enum PolarizationBasis
+    {
+        // Unknown (must not be used in ground truth).
+        //
+        POLARIZATION_BASIS_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        POLARIZATION_BASIS_OTHER = 1;
+
+        // Linear basis, index 0 = horizontal (H), index 1 = vertical (V).
+        //
+        POLARIZATION_BASIS_LINEAR_HV = 2;
+
+        // Circular basis, index 0 = left hand (L), index 1 = right hand (R).
+        //
+        POLARIZATION_BASIS_CIRCULAR_LR = 3;
+    }
+}
+
+//
+// \brief Radiation behaviour shared by one or more antenna elements.
+//
+message AntennaElementType
+{
+    // Identifier of the element type, referenced by
+    // \c AntennaElement::element_type_id.
+    //
+    optional Identifier id = 1;
+
+    // Whether the element transmits or receives.
+    //
+    optional Mode mode = 2;
+
+    // Characterisation of the element at discrete frequencies.
+    //
+    // Sensor models interpolate between entries if needed.
+    //
+    repeated FrequencyInstance frequency_instance = 3;
+
+    // Operating mode of an element.
+    //
+    enum Mode
+    {
+        // Unknown (must not be used in ground truth).
+        //
+        MODE_UNKNOWN = 0;
+
+        // Other (unspecified but known).
+        //
+        MODE_OTHER = 1;
+
+        // Receiving element.
+        //
+        MODE_RECEIVE = 2;
+
+        // Transmitting element.
+        //
+        MODE_TRANSMIT = 3;
+    }
+}
+
+//
+// \brief Antenna behaviour at one frequency.
+//
+message FrequencyInstance
+{
+    // Frequency.
+    //
+    // Unit: Hz
+    //
+    // \rules
+    // is_greater_than: 0
+    // \endrules
+    //
+    optional double frequency = 1;
+
+    // Absolute gain applied to all radiation patterns.
+    //
+    // The gain is given for the field amplitude, i.e. 20*log10 of the
+    // linear amplitude factor.
+    //
+    // Unit: dB
+    //
+    optional double gain = 2;
+
+    // Absolute phase offset applied to all radiation patterns.
+    //
+    // Unit: rad
+    //
+    optional double phase = 3;
+
+    // Axial ratio of the principal polarisation.
+    //
+    // Unit: dB
+    //
+    optional double axial_ratio = 4;
+
+    // Normalised complex far-field radiation pattern.
+    //
+    optional JonesPattern radiation = 5;
+}
+
+//
+// \brief Complex polarimetric far-field pattern on a regular angular grid.
+//
+// For a direction (h, v) the 2x2 Jones matrix J maps an excitation vector
+// e = (e_0, e_1) in the polarisation basis of \c AntennaModel to the
+// radiated field E = J * e:
+//
+// \f$ E_0 = J_{00} e_0 + J_{10} e_1 \f$
+// \f$ E_1 = J_{01} e_0 + J_{11} e_1 \f$
+//
+// All \c ComplexGrid values are stored row-major with
+// index = i_horizontal * size(vertical_angle) + i_vertical.
+//
+// \note Angles are defined analog to \c Spherical3d in antenna coordinates:
+// horizontal (azimuth) 0 and vertical (elevation) 0 is boresight.
+//
+message JonesPattern
+{
+    // Horizontal (azimuth) grid angles, strictly increasing.
+    //
+    // Unit: rad
+    //
+    repeated double horizontal_angle = 1 [packed = true];
+
+    // Vertical (elevation) grid angles, strictly increasing.
+    //
+    // Unit: rad
+    //
+    repeated double vertical_angle = 2 [packed = true];
+
+    // Co-polar pattern of basis component 0 (HH in linear basis).
+    //
+    optional ComplexGrid pattern_00 = 3;
+
+    // Co-polar pattern of basis component 1 (VV in linear basis).
+    //
+    optional ComplexGrid pattern_11 = 4;
+
+    // Cross-polar pattern 0 -> 1 (HV in linear basis).
+    //
+    optional ComplexGrid pattern_01 = 5;
+
+    // Cross-polar pattern 1 -> 0 (VH in linear basis).
+    //
+    optional ComplexGrid pattern_10 = 6;
+}
+
+//
+// \brief Complex values on a \c JonesPattern grid in polar form.
+//
+message ComplexGrid
+{
+    // Linear amplitude.
+    //
+    repeated double amplitude = 1 [packed = true];
+
+    // Phase.
+    //
+    // Unit: rad
+    //
+    repeated double phase = 2 [packed = true];
+}
+
+//
+// \brief A placed antenna element (one Tx or Rx channel).
+//
+message AntennaElement
+{
+    // Channel index of the element, unique per mode within the model.
+    //
+    optional uint32 index = 1;
+
+    // Identifier of the referenced \c AntennaElementType.
+    //
+    optional Identifier element_type_id = 2;
+
+    // Phase centre position of the element in the sensor coordinate system.
+    //
+    // Unit: m
+    //
+    optional Vector3d position = 3;
+
+    // Orientation of the element antenna coordinate system relative to the
+    // sensor coordinate system.
+    //
+    optional Orientation3d orientation = 4;
+}
+
+//
+// \brief Complex value in polar form.
+//
+message ComplexValue
+{
+    // Linear amplitude.
+    //
+    optional double amplitude = 1;
+
+    // Phase.
+    //
+    // Unit: rad
+    //
+    optional double phase = 2;
+}
+
+//
+// \brief Complex 2x2 matrix, e.g. a polarimetric scattering matrix.
+//
+// Element m_rt maps transmitted basis component t to received basis
+// component r.
+//
+message JonesMatrix
+{
+    // Element (0, 0).
+    //
+    optional ComplexValue m00 = 1;
+
+    // Element (0, 1).
+    //
+    optional ComplexValue m01 = 2;
+
+    // Element (1, 0).
+    //
+    optional ComplexValue m10 = 3;
+
+    // Element (1, 1).
+    //
+    optional ComplexValue m11 = 4;
+}
