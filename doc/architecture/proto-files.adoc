@@ -57,6 +57,10 @@ TODO: Add description.
 osi_occupant.proto::
 TODO: Add description.
 
+osi_radarcpi.proto::
+Radar coherent processing interval (CPI) data cube and metadata, the interface between a radar signal generator and the radar signal processing (DSP).
+The signal generator consumes the antenna-free reflections of the `SensorView` plus the antenna model and produces `RadarCpiData`; its configuration is not part of OSI.
+
 osi_roadmarking.proto::
 TODO: Add description.
 

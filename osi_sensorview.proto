@@ -225,6 +225,12 @@ message RadarSensorView
         //
         // Shift in frequency based on the specified TX frequency.
         //
+        // Clarification (DRAFT PROPOSAL, osi-hfss): positive for a
+        // decreasing path length (approaching), i.e. for a monostatic path
+        // doppler_shift = -2 * range_rate * emitter_frequency / c. All
+        // reflections of one \c RadarSensorView are a snapshot at the
+        // \c SensorView timestamp.
+        //
         // Unit: Hz
         //
         optional double doppler_shift = 3;
@@ -275,6 +281,36 @@ message RadarSensorView
         // excludes the antenna diagrams as well.
         //
         optional JonesMatrix polarimetric_response = 8;
+
+        // Number of interactions (reflections, diffractions, transmissions)
+        // along the path (DRAFT PROPOSAL, osi-hfss).
+        //
+        // A direct (single bounce) reflection has one interaction.
+        //
+        // \note Not needed for signal generation. Used for analysis and
+        // for the association of signal generator and DSP results with the
+        // ground truth.
+        //
+        // \rules
+        // is_greater_than_or_equal_to: 1
+        // \endrules
+        //
+        optional uint32 number_of_interactions = 9;
+
+        // ID of the last object the path interacted with before arriving
+        // at the RX antenna (DRAFT PROPOSAL, osi-hfss).
+        //
+        // Not set if unknown.
+        //
+        // \note Not needed for signal generation. Used for analysis and
+        // for the association of signal generator and DSP results with the
+        // ground truth.
+        //
+        // \rules
+        // refers_to: [MovingObject, StationaryObject]
+        // \endrules
+        //
+        optional Identifier object_id = 10;
     }
 }
 

@@ -51,6 +51,20 @@ message AntennaModel
 
     // Polarization basis.
     //
+    // The basis vectors depend on the direction. For a direction with
+    // horizontal angle h and vertical angle v in antenna (or sensor)
+    // coordinates, i.e. unit vector
+    // u = (cos v cos h, cos v sin h, sin v),
+    // the linear basis vectors are
+    // e_H = (-sin h, cos h, 0)                   (towards increasing h),
+    // e_V = (-sin v cos h, -sin v sin h, cos v)  (towards increasing v),
+    // so that (e_H, e_V, u) is right-handed. At boresight e_H = y, e_V = z.
+    //
+    // Transmit and receive use the same basis at the respective direction as
+    // seen from the antenna (back-scatter alignment). In this convention a
+    // flat plate at normal incidence has the scattering matrix
+    // [[1, 0], [0, 1]] and a dihedral aligned with e_H has [[1, 0], [0, -1]].
+    //
     enum PolarizationBasis
     {
         // Unknown (must not be used in ground truth).
@@ -161,8 +175,12 @@ message FrequencyInstance
 // e = (e_0, e_1) in the polarization basis of \c AntennaModel to the
 // radiated field E = J * e:
 //
-// \f$ E_0 = J_{00} e_0 + J_{10} e_1 \f$
-// \f$ E_1 = J_{01} e_0 + J_{11} e_1 \f$
+// \f$ E_0 = J_{00} e_0 + J_{01} e_1 \f$
+// \f$ E_1 = J_{10} e_0 + J_{11} e_1 \f$
+//
+// i.e. pattern_rt maps excitation component t to field component r, the
+// same index order as \c JonesMatrix (m_rt). By reciprocity, the receive
+// port signals for an incident field E are J^T * E.
 //
 // All \c ComplexGrid values are stored row-major with
 // index = i_horizontal * size(vertical_angle) + i_vertical.
@@ -192,11 +210,13 @@ message JonesPattern
     //
     optional ComplexGrid pattern_11 = 4;
 
-    // Cross-polar pattern 0 -> 1 (HV in linear basis).
+    // Cross-polar pattern: excitation component 1 -> field component 0
+    // (HV in linear basis: H field from V excitation).
     //
     optional ComplexGrid pattern_01 = 5;
 
-    // Cross-polar pattern 1 -> 0 (VH in linear basis).
+    // Cross-polar pattern: excitation component 0 -> field component 1
+    // (VH in linear basis: V field from H excitation).
     //
     optional ComplexGrid pattern_10 = 6;
 }
