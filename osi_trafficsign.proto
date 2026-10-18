@@ -5646,7 +5646,7 @@ message TrafficSign
             // directions use \c #TYPE_ARROW. Supplementary signs constraint to
             // one type of actors use \c #TYPE_CONSTRAINED_TO. Supplementary
             // signs that will exclude one type of actors use \c #TYPE_EXCEPT.
-            // If supplementary signs combine contraints, restrictions, or plain
+            // If supplementary signs combine constraints, restrictions, or plain
             // text, \c Type is used in descending order in the following
             // sequence: \c #TYPE_EXCEPT, \c #TYPE_CONSTRAINED_TO, \c
             // #TYPE_ARROW, \c #TYPE_TIME, \c #TYPE_SPACE, \c #TYPE_TEXT.
