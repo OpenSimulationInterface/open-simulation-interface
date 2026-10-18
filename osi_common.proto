@@ -193,7 +193,7 @@ message Orientation3d
 //
 // Has to be unique among all simulated items at any given time. For ground
 // truth, the identifier of an item (object, lane, sign, etc.) must remain
-// stable over its lifetime. \c Identifier values may be only be reused if the
+// stable over its lifetime. \c Identifier values may only be reused if the
 // available address space is exhausted and the specific values have not been in
 // use for several time steps. Sensor specific tracking IDs have no restrictions
 // and should behave according to the sensor specifications.

@@ -68,7 +68,7 @@ message EnvironmentalConditions
     //
     optional double temperature = 4;
 
-    // Relative humidity in at z=0.0 in world frame.
+    // Relative humidity at z=0.0 in world frame.
     //
     // Note that physically more relevant measures, like absolute or specific
     // humidity can be easily derived from relative_humidity, given that the
