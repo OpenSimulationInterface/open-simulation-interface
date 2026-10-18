@@ -123,7 +123,7 @@ message SensorView
     // This is the ground truth that is provided to the sensor model by the
     // simulation environment. It may be filtered as per the requirements of
     // the sensor model as expressed by the \c SensorViewConfiguration
-    // message(s) that where exchanged during the simulation initialization
+    // message(s) that were exchanged during the simulation initialization
     // phase.
     //
     // \note The host vehicle is always contained in the ground truth provided,

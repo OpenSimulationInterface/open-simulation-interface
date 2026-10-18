@@ -180,7 +180,7 @@ message DetectedTrafficSign
     //
     message DetectedSupplementarySign
     {
-        // The definition of one of more supplementary signs that together
+        // The definition of one or more supplementary signs that together
         // define this candidate.
         //
         // \note OSI uses singular instead of plural for repeated field names.
