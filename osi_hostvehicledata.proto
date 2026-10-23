@@ -133,7 +133,7 @@ message HostVehicleData
             OPERATING_STATE_SLEEP = 2;
 
             // Cabin lights and entertainment are off. The vehicle can not be driven.
-            // Some ECUs are still operating and not in their minimum electrical sate.
+            // Some ECUs are still operating and not in their minimum electrical state.
             // Usually the driver has left (and closed) the vehicle recently.
             //
             OPERATING_STATE_STANDBY = 3;
