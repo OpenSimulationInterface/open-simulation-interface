@@ -152,8 +152,9 @@ The ID of the schema record that describes the message type of the channel.
 `topic`::
 A unique name for the channel within the trace file.
 When recording OSI traces for a model packaged according to the OSI Sensor Model Packaging (OSMP) layer, using the naming conventions defined in the OSMP specification for variables as topics is recommended, potentially with a suitable added prefix for disambiguation.
-For example, for a sensor model named RadarSensorFL with two SensorView inputs and one SensorData output, the topic names would be `RadarSensorFL.OSMPSensorViewIn[1]`, `RadarSensorFL.OSMPSensorViewIn[2]`, and `RadarSensorFL.OSMPSensorDataOut`, accordingly.
+For example, for a sensor model named RadarSensorFL with two SensorView inputs and one SensorData output, the topic names would be `RadarSensorFL.OSMPSensorViewIn[1]`, `RadarSensorFL.OSMPSensorViewIn[2]`, and `RadarSensorFL.OSMPSensorDataOut`, accordingly. 
 In other cases, the topic name should be chosen to reflect the purpose of the channel, and should include some indication of the message type.
+For example, for a ground-truth only scenario recording, the topic names could be `GroundTruth` for the channel containing the dynamic ground-truth messages, and `GroundTruthInit` or `StaticGroundTruth` for a channel containing the static ground-truth messages for non-changing data during the entire scenario, respectively.
 
 `message_encoding`::
 The value `protobuf`.
@@ -176,6 +177,20 @@ The following recommended entries are defined by {THIS_STANDARD}:
 
 `net.asam.osi.trace.channel.description`:::
 A human-readable description of the channel.
+
+`net.asam.osi.trace.channel.content`:::
+Either the string `dynamic` for channels containing only dynamic data, or the string `static` for channels containing only static data, or the string `combined` for channels containing both dynamic and static data in the same messages in the channel, which is the default, if this field is not present.
+This field mirrors the OSMP specifications that allow for static data to be separated from dynamic data via the `OSMPGroundTruthInit` parameter input to models, and the `omit_static_information` flag of the `SensorViewConfiguration` message.
+The semantics of this feature are as follows:
+Messages in a channel marked as `dynamic` should only contain dynamic data, with the static data stripped out.
+Any data considered static should be excluded from such messages and only contained in messages in a separate channel marked as `static`.
+The frequency of the static messages (once only, or periodically or on demand) depend on the nature of the static data and its use.
+Conversely, messages in a channel marked as `static` should only contain static data (frequency again depending on the nature of the data and its use), and messages in a channel marked as `combined` may contain both dynamic and static data intermingled, which is the default OSI behavior.
+
+`net.asam.osi.trace.channel.content-otherchannel`:::
+A reference to another channel that contains the complementary data for this channel, such as a static channel referenced by a dynamic channel or vice versa.
+If the complementary channel exists, this field should contain its ID.
+If there is no complementary channel, as for channels of combined content, this field must be omitted.
 
 The channel record shall be stored in the summary section of the trace file, and shall be referenced by the OSI message records that are part of the channel.
 
